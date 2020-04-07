@@ -1,0 +1,169 @@
+# Get image metadata from remote URL
+
+{% api-method method="get" host="https://api.imagekit.io" path="/v1/metadata" %}
+{% api-method-summary %}
+Get image metadata from remove URL API
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Get image exif, pHash and other metadata from ImageKit.io powered remote URL using this API.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Authorization" type="string" required=true %}
+base64 encoding of `your_private_api_key:`  
+**Note the colon in the end.**
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="url" type="string" required=true %}
+The encoded URL of the image.   
+**Note:** This URL should be accessible using your ImageKit.io account.
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+On success, you will receive the image metadata in JSON-encoded response body.
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    "height": 68,
+    "width": 100,
+    "size": 7749,
+    "format": "jpg",
+    "hasColorProfile": true,
+    "quality": 0,
+    "density": 72,
+    "hasTransparency": false,
+	"pHash": "f06830ca9f1e3e90",
+    "exif": {
+        "image": {
+            "Make": "Canon",
+            "Model": "Canon EOS 40D",
+            "Orientation": 1,
+            "XResolution": 72,
+            "YResolution": 72,
+            "ResolutionUnit": 2,
+            "Software": "GIMP 2.4.5",
+            "ModifyDate": "2008:07:31 10:38:11",
+            "YCbCrPositioning": 2,
+            "ExifOffset": 214,
+            "GPSInfo": 978
+        },
+        "thumbnail": {
+            "Compression": 6,
+            "XResolution": 72,
+            "YResolution": 72,
+            "ResolutionUnit": 2,
+            "ThumbnailOffset": 1090,
+            "ThumbnailLength": 1378
+        },
+        "exif": {
+            "ExposureTime": 0.00625,
+            "FNumber": 7.1,
+            "ExposureProgram": 1,
+            "ISO": 100,
+            "ExifVersion": "0221",
+            "DateTimeOriginal": "2008:05:30 15:56:01",
+            "CreateDate": "2008:05:30 15:56:01",
+            "ShutterSpeedValue": 7.375,
+            "ApertureValue": 5.625,
+            "ExposureCompensation": 0,
+            "MeteringMode": 5,
+            "Flash": 9,
+            "FocalLength": 135,
+            "SubSecTime": "00",
+            "SubSecTimeOriginal": "00",
+            "SubSecTimeDigitized": "00",
+            "FlashpixVersion": "0100",
+            "ColorSpace": 1,
+            "ExifImageWidth": 100,
+            "ExifImageHeight": 68,
+            "InteropOffset": 948,
+            "FocalPlaneXResolution": 4438.356164383562,
+            "FocalPlaneYResolution": 4445.969125214408,
+            "FocalPlaneResolutionUnit": 2,
+            "CustomRendered": 0,
+            "ExposureMode": 1,
+            "WhiteBalance": 0,
+            "SceneCaptureType": 0
+        },
+        "gps": {
+            "GPSVersionID": [
+                2,
+                2,
+                0,
+                0
+            ]
+        },
+        "interoperability": {
+            "InteropIndex": "R98",
+            "InteropVersion": "0100"
+        },
+        "makernote": {}
+    }
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+### Response structure and status code \(application/JSON\)
+
+In case of error you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the image metadata in JSON-encoded response body.
+
+Metadata object example can be found [here](./#metadata-object-structure).
+
+## Examples
+
+Here are some example requests to understand the API usage.
+
+### Get metadata of an uploaded image
+
+{% tabs %}
+{% tab title="cURL" %}
+```bash
+# The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
+curl -X GET "https://api.imagekit.io/v1/metadata?url=https://ik.imagekit.io/demo/default-image.jpg" \
+-u your_private_api_key:
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+imagekit.get_remote_file_url_metadata("remote_file_url")
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+$imageKit->getFileMetadataFromRemoteURL("remote_file_url")
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+ResultMetaData result=ImageKit.getInstance().getRemoteFileMetadata("remote_file_url");
+```
+{% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.get_remote_file_url_metadata("remote_file_url")
+```
+{% endtab %}
+{% endtabs %}
+
+### Calculate pHash distance between two images
+
+See examples [here](./#calculate-phash-distance).
+
