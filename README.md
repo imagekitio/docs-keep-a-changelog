@@ -1,6 +1,6 @@
 # What is ImageKit.io?
 
-ImageKit.io is an image management service for online businesses. It provides intelligent real-time image optimization, resizing, cropping, and super-fast CDN delivery.
+ImageKit.io is an image management service for online businesses. It provides intelligent real-time image optimization, resizing, cropping, and fast CDN delivery.
 
 ## **Why teams use ImageKit.io?**
 
