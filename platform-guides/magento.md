@@ -41,7 +41,7 @@ In Magento 2, go to Stores ➡ Configurations ➡Web:
 Fill **Base URL for User Media Files** with the `your_imagekit_url_endpoint/media.` Note that we added `/media` in the end.
 
 1. Save these settings.
-2. Use the sidebar to navigate to System ➡ Cache Management and Flush Magento Cache.
+2. Use the sidebar to navigate to System ➡ Cache Management and Flush Magento Cache. Learn about [cache management](https://docs.magento.com/m2/ce/user_guide/system/cache-management.html) in Magento.
 3. Refresh the webpage of your Magento storefront, and you should see images loading via ImageKit.io.
 
 {% hint style="info" %}
