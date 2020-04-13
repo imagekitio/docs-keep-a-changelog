@@ -38,7 +38,7 @@ In Magento 2, go to Stores ➡ Configurations ➡Web:
 
 ![](../.gitbook/assets/pesbv0ghrz3zyvr3vnub.jpg)
 
-Fill **Base URL for User Media Files** with the `your_imagekit_url_endpoint/media.` Note that we added `/media` in the end.
+Fill **Base URL for User Media Files** with the `your_imagekit_url_endpoint/media/.` Note that we added `/media/` in the end.
 
 1. Save these settings.
 2. Use the sidebar to navigate to System ➡ Cache Management and Flush Magento Cache. Learn about [cache management](https://docs.magento.com/m2/ce/user_guide/system/cache-management.html) in Magento.
@@ -46,14 +46,14 @@ Fill **Base URL for User Media Files** with the `your_imagekit_url_endpoint/medi
 
 {% hint style="info" %}
 **Note:**  
-If you set up Magento as per the docs, and you see `/pub/` in your image URLs, then, in this case, change the value of Base URL for User Media Files in the Magento admin panel to `your_imagekit_url_endpoint/pub/media`
+If you set up Magento as per the docs, and you see `/pub/` in your image URLs, then, in this case, change the value of Base URL for User Media Files in the Magento admin panel to `your_imagekit_url_endpoint/pub/media/`
 {% endhint %}
 
 ## Using ImageKit.io to deliver non-image static assets like JS or CSS
 
 You can also use ImageKit.io to deliver non-image type static assets like JS, CSS, or font files. Navigate to Stores ➡Configurations ➡ Web:
 
-1. For **Base URL for Static View Files**, set `your_imagekit_url_endpoint/media`  or `your_imagekit_url_endpoint/pub/media`  depending on your setup.
+1. For **Base URL for Static View Files**, set `your_imagekit_url_endpoint/static/`  or `your_imagekit_url_endpoint/pub/static/`  depending on your setup.
 
 {% hint style="success" %}
 You have successfully integrated your Magento storefront with ImageKit.io and all your images, moving forward, will be optimized and delivered in the right format.
