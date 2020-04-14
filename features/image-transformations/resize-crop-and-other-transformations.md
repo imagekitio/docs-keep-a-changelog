@@ -56,7 +56,7 @@ URL - [https://ik.imagekit.io/demo/tr:h-0.4/medium\_cafe\_B1iTdD0C.jpg](https://
 {% endtab %}
 {% endtabs %}
 
-### Aspect ration - \(ar\)
+### Aspect ratio - \(ar\)
 
 Used to specify the aspect ratio of the output image or the ratio of width to height of the output image. This parameter must be used along with either the [height\(h\)](resize-crop-and-other-transformations.md#height-h) or [width\(w\)](resize-crop-and-other-transformations.md#width-w) parameter. The format for specifying this transformation is `ar-<width>-<height>`
 
