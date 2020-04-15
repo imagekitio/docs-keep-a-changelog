@@ -13,6 +13,7 @@
 * [How it works?](integration/how-it-works.md)
 * [Configure origin](integration/configure-origin/README.md)
   * [Web server](integration/configure-origin/web-server-origin.md)
+  * [Web proxy](integration/configure-origin/web-proxy.md)
   * [Amazon S3 bucket](integration/configure-origin/amazon-s3-bucket-origin.md)
   * [Azure Blob storage](integration/configure-origin/azure-blob-storage.md)
   * [Google Cloud storage](integration/configure-origin/google-cloud-storage.md)
