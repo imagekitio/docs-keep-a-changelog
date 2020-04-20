@@ -2,7 +2,9 @@
 
 You can programmatically delete uploaded files in media library using delete file API.
 
-When you delete a file, all its transformations are also deleted. However, if a file or specific transformation has been requested in the past, then the response is cached in CDN. You can purge the cache from the CDN using [purge API](purge-cache.md).
+{% hint style="info" %}
+If a file or specific transformation has been requested in the past, then the response is cached. Deleting file does not purge the cache. You can purge the cache using [purge API](purge-cache.md).
+{% endhint %}
 
 {% api-method method="delete" host="https://api.imagekit.io" path="/v1/files/:fileId" %}
 {% api-method-summary %}
@@ -10,7 +12,7 @@ Delete file API
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Deletes a file and all its transformations.
+Deletes a file from the media library.
 {% endapi-method-description %}
 
 {% api-method-spec %}

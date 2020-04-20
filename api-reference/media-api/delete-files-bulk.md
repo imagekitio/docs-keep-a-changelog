@@ -2,7 +2,9 @@
 
 You can programmatically delete multiple files uploaded in media library using bulk file delete API.
 
-When you delete a file, all its transformations are also deleted. However, if a file or specific transformation has been requested in the past, then the response is cached in CDN. You can purge the cache from the CDN using [purge API](purge-cache.md).
+{% hint style="info" %}
+If a file or specific transformation has been requested in the past, then the response is cached. Deleting file does not purge the cache. You can purge the cache using [purge API](purge-cache.md).
+{% endhint %}
 
 {% api-method method="post" host="https://api.imagekit.io" path="/v1/files/batch/deleteByFileIds" %}
 {% api-method-summary %}
@@ -10,7 +12,7 @@ Bulk file delete API
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Deletes multiple files and all their transformations.
+Deletes multiple files from the media library.
 {% endapi-method-description %}
 
 {% api-method-spec %}
