@@ -349,7 +349,13 @@ Original image was 600x600 but this image is 700x700 image.
 
 ### Focus - \(fo\)
 
-This parameter can be used along with [pad resize](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize), [maintain ratio](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio) or [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) to change the behaviour of padding or cropping. Learn more from the different examples shown in respective sections.
+This parameter can be used along with [pad resize](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize), [maintain ratio](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio) or [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) to change the behaviour of padding or cropping. Learn more from the different examples shown in respective sections. 
+
+This parameter can have following values depending upon where it is being used:
+
+1. `left`, `right`, `top`, `bottom` can be to control the position of padding when used with pad resize. [Learn from example](resize-crop-and-other-transformations.md#example-all-padding-on-one-side).
+2. `fo-custom` can be used to define a specific focus area when used with [maintain ratio](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio) and [extract crop](resize-crop-and-other-transformations.md#example-focus-using-custom-coordinates).
+3. `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right` can be used to define relative cropping during extract crop. [Learn from examples](resize-crop-and-other-transformations.md#examples-center-and-relative-focus).
 
 Apart from above, `fo` parameter also have two additional options that intelligently detect the most important part of an image to create thumbnails i.e. `auto` and `face`. Let's see them in action:
 

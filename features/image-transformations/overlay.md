@@ -58,7 +58,9 @@ You can control the position of overlay image using over height \(oh\) and overl
 
 #### Trimming of the overlay image
 
-By default, ImageKit.io trims the overlay image before overlaying it on the base image. There might be cases where you do not need such trimming to happen. Then, you can do that from the URL itself using the overlay trim \(oit\) parameter and specifying it as `false`.
+By default, ImageKit.io trims the overlay image before overlaying it on the base image. Trimming removes the similar colored pixels from the edges.
+
+There might be cases where you do not need such trimming to happen. Then, you can do that from the URL itself using the [overlay trim \(oit\)](overlay.md#overlay-trimming-oit) parameter and specifying it as `false`.
 
 For example, consider the image below, which has the same white logo to be overlaid but this time inside a black rectangular box.
 
@@ -75,6 +77,8 @@ URL - [https://ik.imagekit.io/demo/tr:oi-logo\_white\_black\_bg.png/medium\_cafe
 
 {% tab title="Without trimming" %}
 URL - [https://ik.imagekit.io/demo/tr:oi-logo\_white\_black\_bg.png,oit-false/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:oi-logo_white_black_bg.png,oit-false/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:oi-logo_white_black_bg.png,oit-false/medium_cafe_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
@@ -230,9 +234,11 @@ URL - [https://ik.imagekit.io/demo/tr:oi-logo-white\_SJwqB4Nfe.png,ow-100/medium
 
 ### Overlay trimming - \(oit\)
 
-Used to trim overlay images. This removes the transparency of the overlaid image.  
+By default, ImageKit.io trims the overlay image before overlaying it on the base image. Trimming removes the similar colored pixels from the edges. There might be cases where you do not need such trimming to happen. Then, you can do that from the URL using `oit-false`.
+
+This removes the transparency of the overlaid image.  
   
-**Default Value**- `true`
+**Default Value** - `true`
 
 Learn more from [example here](overlay.md#trimming-of-the-overlay-image).
 
