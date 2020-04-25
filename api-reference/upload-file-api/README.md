@@ -7,9 +7,9 @@ ImageKit.io allows you to upload a file \(image and non-image\) via API. Based o
 
 Both methods use the same endpoint, but there is a slight change in the request bodies.
 
-## Allowed MIME types for uploading
+## Allowed file types for uploading
 
-ImagKit.io allows you to upload a file with following mime type.
+ImageKit.io allows you to upload a file with following mime type.
 
 | Allowed file types | Description |
 | :--- | :--- |
