@@ -333,7 +333,9 @@ URL - [https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,otc-00000
 
 To specify the padding around the overlaid text on the image.
 
-**Possible values** include any positive integer.
+**Possible values** include any positive integer or a set of positive integers separated by underscores. 
+
+The set of integers follow CSS shorthand order for determining the padding along each side of the overlay. Learn from the examples:
 
 {% tabs %}
 {% tab title="otp=40" %}
@@ -346,6 +348,36 @@ URL - [https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,otc-00000
 URL - [https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,otc-000000,otw-300,otbg-FFFFFF80,otp-40/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,otc-000000,otw-300,otbg-FFFFFF80,otp-40/medium_cafe_B1iTdD0C.jpg)
 
 ![](https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,otc-000000,otw-300,otbg-FFFFFF80,otp-40/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="otp=25\_50\_75\_100" %}
+URL - [https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,ots-45,otc-000000,otbg-FFFFFF80,otp-25\_50\_75\_100/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,ots-45,otc-000000,otbg-FFFFFF80,otp-25_50_75_100/medium_cafe_B1iTdD0C.jpg)
+
+* Top padding is 25
+* Right padding is 50
+* Bottom padding is 75
+* Left padding is 100
+
+![](https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,ots-45,otc-000000,otbg-FFFFFF80,otp-25_50_75_100/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="otp=25\_75\_60" %}
+URL - [https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,ots-45,otc-000000,otbg-FFFFFF80,otp-25\_75\_60/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,ots-45,otc-000000,otbg-FFFFFF80,otp-25_75_60/medium_cafe_B1iTdD0C.jpg)
+
+* Top padding is 25
+* Right and left paddings are 75
+* Bottom padding is 60
+
+![](https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,ots-45,otc-000000,otbg-FFFFFF80,otp-25_75_60/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="otp=25\_75" %}
+URL - [https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,ots-45,otc-000000,otbg-FFFFFF80,otp-25\_75/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,ots-45,otc-000000,otbg-FFFFFF80,otp-25_75/medium_cafe_B1iTdD0C.jpg)
+
+* Top and bottom paddings are 25
+* Right and left paddings are 75
+
+![](https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,ots-45,otc-000000,otbg-FFFFFF80,otp-25_75/medium_cafe_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
@@ -467,6 +499,34 @@ URL - [https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,ott-b,otc
 URL - [https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,ott-i,otc-00FFFF/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,ott-i,otc-00FFFF/medium_cafe_B1iTdD0C.jpg)
 
 ![](https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,ott-i,otc-00FFFF/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+{% endtabs %}
+
+### Overlay radius - \(or\)
+
+To add rounded corners to an overlay background, or to print a circular overlay, use this parameter.
+
+**Possible Values** include any positive integer.
+
+**Note:** Radius cannot exceed half the length of the shorter side of the overlay element. ‌
+
+{% tabs %}
+{% tab title="or=30 & otbg=FFFFFF80" %}
+URL - [https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,or-30,otbg-FFFFFF80,ots-45,otc-000000,otp-40/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,or-30,otbg-FFFFFF80,ots-45,otc-000000,otp-40/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,or-30,otbg-FFFFFF80,ots-45,otc-000000,otp-40/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="Circle \(or=150 & oh,ow=300\)" %}
+URL - ****[https://ik.imagekit.io/demo/tr:obg-FFFFFF80,or-150,oh-300,ow-300,ofo-center/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:obg-FFFFFF80,or-150,oh-300,ow-300,ofo-center/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:obg-FFFFFF80,or-150,oh-300,ow-300,ofo-center/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="or=40 & obg=00FFFF80" %}
+URL - [https://ik.imagekit.io/demo/tr:obg-00FFFF80,or-40,oh-80,ow-400,ofo-bottom/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:obg-00FFFF80,or-40,oh-80,ow-400,ofo-bottom/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:obg-00FFFF80,or-40,oh-80,ow-400,ofo-bottom/medium_cafe_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
