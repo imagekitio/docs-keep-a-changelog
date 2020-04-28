@@ -14,10 +14,11 @@ ImageKit.io supports the following type of origin:
 
 1. [Amazon S3 bucket origin](configure-origin/amazon-s3-bucket-origin.md)
 2. Any [web server origin](configure-origin/web-server-origin.md), for example - Magento, WordPress, etc.
-3. [Azure Blob storage](configure-origin/azure-blob-storage.md)
-4. [Google Storage](configure-origin/google-cloud-storage.md)
-5. [Firebase Storage](configure-origin/firebase-storage.md)
-6. [Cloudinary backup bucket](configure-origin/cloudinary-backup-bucket.md)
+3. [Web proxy](configure-origin/web-proxy.md)
+4. [Azure Blob storage](configure-origin/azure-blob-storage.md)
+5. [Google Storage](configure-origin/google-cloud-storage.md)
+6. [Firebase Storage](configure-origin/firebase-storage.md)
+7. [Cloudinary backup bucket](configure-origin/cloudinary-backup-bucket.md)
 
 ## Step 2: Access the image through ImageKit.io URL endpoint
 

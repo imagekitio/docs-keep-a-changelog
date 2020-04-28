@@ -8,8 +8,9 @@ ImageKit.io supports the following types of origin:
 
 1. [Amazon S3 bucket origin](amazon-s3-bucket-origin.md)
 2. Any [web server origin](web-server-origin.md), for example - Magento, WordPress, etc.
-3. [Azure Blob storage](azure-blob-storage.md)
-4. [Google Storage](google-cloud-storage.md)
-5. [Firebase Storage](firebase-storage.md)
-6. [Cloudinary backup bucket](cloudinary-backup-bucket.md)
+3. [Web proxy](web-proxy.md)
+4. [Azure Blob storage](azure-blob-storage.md)
+5. [Google Storage](google-cloud-storage.md)
+6. [Firebase Storage](firebase-storage.md)
+7. [Cloudinary backup bucket](cloudinary-backup-bucket.md)
 
