@@ -26,6 +26,12 @@ You can control the position of overlay image relative to base image using [over
 
 You can control the dimension of overlay image using [overlay height \(oh\)](overlay.md#overlay-height-oh) and [overlay width \(ow\)](overlay.md#overlay-width-ow).
 
+### Related blog post for creating photo collage
+
+{% embed url="https://imagekit.io/blog/how-to-create-a-photo-collage/" %}
+
+
+
 ## Common overlay options
 
 The following options are available for both [image](overlay.md#image-overlay) and [text](overlay.md#text-overlay) overlay.
