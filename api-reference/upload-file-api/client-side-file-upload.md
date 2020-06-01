@@ -183,7 +183,9 @@ You can upload files to ImageKit.io media library directly from client-side in J
         and <code>metadata</code> in the response.</td>
     </tr>
   </tbody>
-</table>## Response code and structure \(JSON\)
+</table>
+
+## Response code and structure \(JSON\)
 
 In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On successful upload, you will receive a `200` status code with uploaded file details in a JSON-encoded response body.
 

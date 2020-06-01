@@ -74,7 +74,9 @@ The JSON-encoded response will have `status` property.
       </td>
     </tr>
   </tbody>
-</table>## Examples
+</table>
+
+## Examples
 
 Here are some example requests to understand the API usage.
 
