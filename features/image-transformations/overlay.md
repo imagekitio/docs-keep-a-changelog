@@ -324,7 +324,7 @@ Usage - `oib-<border-width>-<hex code>`
 The width is specified as a number that is equivalent to the border width in pixels. The color code is specified as a 6-character hex code RRGGBB.
 
 {% tabs %}
-{% tab title="oib=FAD6A5 and D73B3E" %}
+{% tab title="oib=10\_FAD6A5 and 10\_D73B3E" %}
 URL - [https://ik.imagekit.io/ikmedia/tr:w-1240,h-620:oi-women-dress-2.jpg,ox-0,oy-0,ow-600,oh-600,oib-10\_FAD6A5:oi-women-dress-1.jpg,ox-620,oy-150,ow-600,oh-600,oib-10\_D73B3E/white-canvas.png](https://ik.imagekit.io/ikmedia/tr:w-1240,h-620:oi-women-dress-2.jpg,ox-0,oy-0,ow-600,oh-600,oib-10_FAD6A5:oi-women-dress-1.jpg,ox-620,oy-150,ow-600,oh-600,oib-10_D73B3E/white-canvas.png)
 
 ![](https://ik.imagekit.io/ikmedia/tr:w-1240,h-620:oi-women-dress-2.jpg,ox-0,oy-0,ow-600,oh-600,oib-10_FAD6A5:oi-women-dress-1.jpg,ox-620,oy-150,ow-600,oh-600,oib-10_D73B3E/white-canvas.png)
