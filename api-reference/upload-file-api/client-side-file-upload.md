@@ -80,8 +80,18 @@ You can upload files to ImageKit.io media library directly from client-side in J
     </tr>
     <tr>
       <td style="text-align:left"><b>fileName<br /></b>required</td>
-      <td style="text-align:left">The name with which the file has to be uploaded.
-        <br />
+      <td style="text-align:left">
+        <p>The name with which the file has to be uploaded.</p>
+        <p>
+          <br />The file name can contain:
+          <br />
+          <br />- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code>
+          <br
+          />- Special Characters: <code>.</code>  <code>_</code> and <code>-</code>
+        </p>
+        <p></p>
+        <p>Any other character including space will be replaced by <code>_</code>
+        </p>
       </td>
     </tr>
     <tr>
@@ -125,14 +135,15 @@ You can upload files to ImageKit.io media library directly from client-side in J
           has to be uploaded. If the folder(s) didn&apos;t exist before, a new folder(s)
           is created.<b><br /></b>
         </p>
-        <p>The folder name can contain:</p>
-        <ul>
-          <li>Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code>
-          </li>
-          <li>Special Characters: <code>/</code>  <code>_</code> and <code>-</code>
-          </li>
-          <li>Using multiple <code>/</code> creates a nested folder.</li>
-        </ul>
+        <p>The folder name can contain:
+          <br />
+          <br />- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code>
+          <br
+          />- Special Characters: <code>/</code>  <code>_</code> and <code>-</code>
+          <br
+          />- Using multiple <code>/</code> creates a nested folder.
+          <br />
+        </p>
         <p><b>Default value</b> - /</p>
       </td>
     </tr>
