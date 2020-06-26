@@ -15,8 +15,14 @@ Click on 'New Request' at the top right corner of the page to open a popup.
 
 Enter the full image URL for which you want to clear the cache. If the URL contains [path transformation parameters](image-transformations/#transformations-as-a-path-parameter) or [query transformation parameters](image-transformations/#transformations-as-a-query-parameter), add those parameters as well to clear the cache. You can enter multiple URLs separated by a new line, and a maximum of 100 URLs can be submitted in a single request.
 
+You can purge the cache for all variants of an image like this:
+
+> https://ik.imagekit.io/demo/default-image.jpg\*
+
+Note that the wildcard can only be appended at the end of a complete image path \(must include extension\). Wildcards within the path are not supported by the dashboard.
+
 {% hint style="info" %}
-You cannot submit a purge request URL with \* \(wildcard\) from the dashboard. Please reach out to the ImageKit.io team at [support@imagekit.io](mailto:customer-support@imagekit.io) to clear the cache for the entire account or for a pattern.
+Please reach out to the ImageKit.io team at [support@imagekit.io](mailto:customer-support@imagekit.io) to clear the cache for the entire account or for a pattern.
 {% endhint %}
 
 Click 'Submit' and allow a few minutes for the cache to clear. It would be best if you refreshed the dashboard to get the updated cache clear status.

@@ -52,7 +52,7 @@ In case of error, you will get an [error code](../api-introduction/#error-codes)
 Purge API has following limitations:
 
 * An account can issue a maximum of 1000 purge requests in a month. Please reach out to us at [support@imagekit.io](mailto:support@imagekit.io) if you need to increase this limit.
-* Purge API doesn't accept wildcard in `url`. Please reach out to us at [support@imagekit.io](mailto:support@imagekit.io) if you need to purge all images on a specific pattern.
+* Note that the wildcard can only be appended at the end of a complete image path \(must include extension\). Wildcards within the path are not supported. Please reach out to us at [support@imagekit.io](mailto:support@imagekit.io) if you need to purge all images on a specific pattern.
 
 ## Examples
 
