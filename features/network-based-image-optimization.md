@@ -10,7 +10,7 @@ This helps you deliver the best available version of an image so that your end-u
 
 Go to the Network-optimization tab under [image settings](https://imagekit.io/dashboard?redirectTo=settings) and enable the setting.
 
-![Network based image optimization setting in ImageKit.io dashboard](../.gitbook/assets/network-based-optimization-setting.jpg)
+![Network based image optimization setting in ImageKit.io dashboard](../.gitbook/assets/screenshot-2020-06-30-at-7.54.41-pm.png)
 
 ### Step 2: Configure quality settings and exclusions
 
@@ -22,7 +22,7 @@ You will need to use a service worker on your website to use this feature. Copy-
 
 ```javascript
 // copy-paste the below line inside your service worker code loaded with the root scope
-importScripts("https://runtime.imagekit.io/<your_imagekit_id>/v1/js/network-based-adaption.js?v=" + new Date().getTime());
+importScripts("https://runtime.imagekit.io/<your_imagekit_id>/v1/js/network-based-adaption.js?v=");
 ```
 
 ### Step 4: See the analytics in your ImageKit.io dashboard
