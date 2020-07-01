@@ -13,28 +13,37 @@ You can add your existing Amazon S3 bucket as an origin in ImageKit.io. This all
 5. Specify the S3 bucket folder in which your images are present. If you have to access files at the root \(i.e., present directly in the bucket and not inside a folder\), enter `/`.
 6. Fill out S3 access and secret keys. These keys should provide read-only access to ImageKit.io as explained below.
 7. Leave the [advanced options](amazon-s3-bucket-origin.md#advanced-options-for-s3-type-origin) as it is for now.
-8. Click on Submit button.
+8. Click on the Submit button.
 
 {% hint style="warning" %}
 **Read-only permission required**  
 ImageKit.io needs read-only access to your S3 bucket. You can provide this by using the AWS Identity and Access Management \(AIM\) policy for your S3 bucket. Ideally, you should create a separate user for this purpose and assign the AIM policy for that particular user and the required buckets only.
 {% endhint %}
 
-Note that you need to provide permission for the operation s3::GetObject on the objects in your bucket. The minimal permission policy should look like:
+Note that you need to provide permission for the operation s3::GetObject on the objects in your bucket. The minimal permission policy should look like below:
+
+Note, that you need to change the bucket name to that of your bucket.
 
 ```javascript
 {
-  "Sid": "VisualEditor1",
-  "Effect": "Allow",
-  "Action": [
-      "s3:GetObject",
-  ],
-  "Resource": [
-      "arn:aws:s3:::my-bucket-name",
-      "arn:aws:s3:::my-bucket-name/*"
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "s3:GetObject",
+            "Resource": [
+                "arn:aws:s3:::my-bucket-name",
+                "arn:aws:s3:::my-bucket-name/*"
+            ]
+        }
+    ]
 }
 ```
+
+If you are not sure about how to create this policy in AWS console and needs a step by step guide with screenshots, check out this blog post.
+
+{% embed url="https://imagekit.io/blog/image-optimization-resize-aws-s3-imagekit/" %}
 
 ## Step 2: Access the image through ImageKit.io URL-endpoint
 
