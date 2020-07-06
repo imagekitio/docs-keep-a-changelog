@@ -1,4 +1,4 @@
-# Image Tags
+# Image Tagging and searching
 
 Image Tagging is a good practice to sort and search images, as tags are additional attributes that can be attached to an image file.
 

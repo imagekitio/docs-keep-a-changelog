@@ -27,10 +27,12 @@
 ## ImageKit.io storage <a id="media-library"></a>
 
 * [Media Library](media-library/overview/README.md)
-  * [Upload Files](media-library/overview/upload-files.md)
-  * [Search, Update & Delete](media-library/overview/search-update-and-delete.md)
-  * [Image Tags](media-library/overview/image-tags.md)
-  * [Folders](media-library/overview/folders.md)
+  * [Upload files](media-library/overview/upload-files.md)
+  * [Search, update & delete Files](media-library/overview/search-update-and-delete.md)
+  * [Copy and move files](media-library/overview/copy-and-move-files.md)
+  * [Image Tagging and searching](media-library/overview/image-tags.md)
+  * [Create folders](media-library/overview/folders.md)
+  * [Copy and move folders](media-library/overview/copy-and-move-folders.md)
 
 ## ✨Features
 

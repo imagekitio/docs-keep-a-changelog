@@ -1,4 +1,4 @@
-# Folders
+# Create folders
 
 ImageKit.io's Media Library helps you efficiently upload and search files in folders.
 
