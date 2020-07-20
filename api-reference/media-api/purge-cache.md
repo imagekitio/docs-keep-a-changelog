@@ -43,16 +43,33 @@ On success, you will receive a `requestId` which can be used to get the purge re
 
 ### Response structure and status code
 
-In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the request ID returned in JSON-encoded response body.
+In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the request ID returned in the JSON-encoded response body.
 
 `requestId` can be used to fetch the status of submitted purge request.
 
+### Purge Cache for Multiple Files
+
+You can purge the cache for multiple files within a directory by appending a wildcard at the end of the URL, only if **ANY ONE** of the following conditions are met:
+
+1. The path consists of at least two levels of nesting:  The path of the directory, excluding your imagekitId and URL pattern, contains at least two levels of nesting, starting from the root as shown below:  ✅ `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/LEVEL_1/LEVEL_2*`  ❌ `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/LEVEL_1*`  For example, the path `/images/upload*` is valid, but `/images*` is not. 
+2. The path length is at least 15 characters: The path of the directory, excluding your imagekitId and URL pattern, is at least 15 characters in length, as shown below:  ✅ `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/FIFTEEN_CHARACTERS*`  However, if the first condition is met, i.e. the path consists of at least two levels of nesting, then it need not be 15 characters long. 
+3. The path is a complete file path: The path specified is a complete path pointing to a file, with the file extension present at the end of the path, as shown below:  ✅ `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/FILE.EXT*`  For example, the path `/sample.jpg*` is valid, despite not being 15 characters long, or having two levels of nesting.
+
+Note that the wildcard can only be appended at the end of a URL. Wildcards within the path are not supported. i.e. `/folder/*/sample.jpg` is an invalid path.
+
+{% hint style="danger" %}
+The following paths are unconditionally not supported when using a wildcard. Please reach out to us at support@imagekit.io if you need to purge the following patterns.
+
+* `media/catalog/*`
+* `s/files/*`
+{% endhint %}
+
 ### Limitations
 
-Purge API has following limitations:
+Purge API has the following limitations:
 
 * An account can issue a maximum of 1000 purge requests in a month. Please reach out to us at [support@imagekit.io](mailto:support@imagekit.io) if you need to increase this limit.
-* Note that the wildcard can only be appended at the end of a complete image path \(must include extension\). Wildcards within the path are not supported. Please reach out to us at [support@imagekit.io](mailto:support@imagekit.io) if you need to purge all images on a specific pattern.
+* Note that the wildcard can only be appended at the end of a URL. Wildcards within the path are not supported. i.e. `/folder/*/sample.jpg` is an invalid path. Please reach out to us at [support@imagekit.io](mailto:support@imagekit.io) if you need to purge all images on a specific pattern not supported through the API.
 
 ## Examples
 
