@@ -69,6 +69,11 @@
 * [WordPress](platform-guides/wordpress.md)
 * [Shopify](platform-guides/shopify.md)
 
+## Sample projects
+
+* [Upload widget](sample-projects/upload-widget/README.md)
+  * [Uppy upload widget - Plain JS](sample-projects/upload-widget/uppy-upload-widget.md)
+
 ## 📙API Reference
 
 * [API Introduction](api-reference/api-introduction/README.md)
