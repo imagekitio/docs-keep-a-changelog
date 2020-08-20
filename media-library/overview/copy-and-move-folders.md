@@ -17,5 +17,5 @@ When you move folders, the old folders are deleted in the process. If you don't 
 
 ![New destination for copying/moving the selected folders](../../.gitbook/assets/folder-new-destination.png)
 
-
+{% embed url="https://youtu.be/qUtuJ7pQpcw" caption="Copy folder" %}
 

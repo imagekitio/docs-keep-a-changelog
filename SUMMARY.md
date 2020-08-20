@@ -33,6 +33,7 @@
   * [Image Tagging and searching](media-library/overview/image-tags.md)
   * [Create folders](media-library/overview/folders.md)
   * [Copy and move folders](media-library/overview/copy-and-move-folders.md)
+  * [Delete folder](media-library/overview/delete-folder.md)
 
 ## ✨Features
 

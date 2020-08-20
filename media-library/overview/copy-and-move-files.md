@@ -19,3 +19,5 @@ When you move files, the old files are deleted in the process. If you don't want
 
 ![New destination for copying/moving the selected files](../../.gitbook/assets/choose-destination-path%20%282%29.png)
 
+{% embed url="https://youtu.be/XNWs5mPvnz4" caption="Copy multiple files" %}
+

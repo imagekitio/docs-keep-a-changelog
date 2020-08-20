@@ -9,26 +9,28 @@ The maximum upload file size is limited to 25MB.
 
 ## Using Dashboard
 
-Within the dashboard, navigate to 'Media Library' section
+Within the dashboard, navigate to the 'Media Library' section.
 
-Click on the area below the 'Search' area marked as 'Drop files here or select files from your computer'. A popup opens on your screen.
+To upload files, either drag and drop files anywhere on the screen or
 
-Click on 'Select Files from Computer', which would open a computer system folder to select a file for upload. You can also select and upload multiple files at once, or upload an entire folder.
+### Select the file and upload
 
-Once the files\(s\) or folder has been selected, the resources should start uploading and you should get an ImageKit.io's Image URL that can be used immediately.
+ Click on the New button on the top right corner and select File Upload.
 
-{% embed url="https://www.youtube.com/watch?v=VuEjmA-cAbA" %}
+![](../../.gitbook/assets/new-file-upload.png)
 
-{% embed url="https://www.youtube.com/watch?v=VuEjmA-cAbA&feature=emb\_logo" %}
+Select the file from the local device to start uploading.
+
+{% embed url="https://youtu.be/IO-PJKU5X7E" caption="Select file and upload" %}
+
+### Drag & drop file upload
+
+You can drag multiple files anywhere on the media library screen to upload.
+
+{% embed url="https://youtu.be/W5RcugTXPks" caption="Drag and drop file upload" %}
 
 {% hint style="info" %}
-🧙♂ **Tip:** Alternately, you can also drag and drop your files anywhere on the dashboard \(even when you are not in the Media Library section\) to upload your files as shown in the video below.
-{% endhint %}
-
-{% embed url="https://www.youtube.com/watch?v=PQ2A-5ef\_qc&feature=emb\_logo" %}
-
-{% hint style="info" %}
-**Info:** When uploading images, ImageKit.io appends a random string to the image file name to avoid replacing images with the same file name. You can turn off this setting within the Upload Section of [Image Settings](https://imagekit.io/dashboard#settings) within the dashboard..
+**Info:** When uploading images, ImageKit.io appends a random string to the image file name to avoid replacing images with the same file name. You can turn off this setting within the Upload Section of [Image Settings](https://imagekit.io/dashboard#settings) within the dashboard.
 {% endhint %}
 
 ## Using the Upload API

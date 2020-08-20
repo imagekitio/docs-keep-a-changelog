@@ -6,33 +6,47 @@ ImageKit.io provides users with the ability to search, delete, [tag](image-tags.
 
 ### File Search
 
-ImageKit.io's easy-to-use search functionality can be accessed from the top of the [Media Library](https://imagekit.io/dashboard#media-library) section.
+ImageKit.io's easy-to-use search functionality can be accessed from the top of the [Media Library](https://imagekit.io/dashboard#media-library) section. You can search based on file type, file/folder name, and tags. 
 
-![Media library in ImageKit.io dashboard](../../.gitbook/assets/rhs3b12vnmxxhxqxmqfx.png)
+![Media library search form](../../.gitbook/assets/search-media-library.png)
 
-Some points to note:
+#### Search by file or folder name
 
-1. All searches are `case sensitive` .
-2. By default, folders are excluded from the search. This behaviour can be changed by turning ON the toggle switch within the search bar.
-3. All searches are exact match searches. For example, a search for 'image' will match all files and folders containing the string 'image'\(image123, image\_\_\_nature, IMAGE\_banner\).
-4. You can search for images by tag names.
-5. You can search for an image within a particular folder by specifying the folder's name in the `Path` field.
+Enter the file or folder name in the top search input field and hit enter. All matching files or folders will be displayed below.
+
+{% embed url="https://youtu.be/iDjdzikccRQ" caption="Search by file or folder name" %}
+
+#### Search by tags
+
+You can also search your media assets based on tags. Tags provide an easy way to organize similar files and then search them later.
+
+When searching based on tags, all files matching any of the tags will be included in the search results.
+
+{% embed url="https://youtu.be/UAEub6pqYws" caption="Search by tags" %}
 
 ### File Deletion
 
-To delete a file, click on the file in any view - 'Image View', 'Directory View', or 'Search Results'. This would open a popup with details like File Name, File Dimensions, File Size, and more. The option - 'Delete Permanently' appears just below the file name within the popup.
+Right-click the file to open menu options. Select the "Delete" item. This will open a confirmation popup. Click on "Submit" to permanently delete your file. Upon confirmation, the file is deleted permanently from the Media Library.
 
-You will be asked to confirm the deletion once you click on 'Delete Permanently'. Upon confirmation, the file is deleted permanently from the Media Library.
+{% embed url="https://youtu.be/3UMB-TpaUWA" caption="Delete file" %}
+
+### Bulk File Delete
+
+You can select multiple files together by pressing and holding the Command key in Mac or the Ctrl key in Windows. Right-click any file and click the "Delete" option to delete all files in one go.
 
 ### File Update
 
 ImageKit.io currently supports [image tags](image-tags.md) and custom crop area coordinate update within the media library.
 
-When you click on a file, Image details popup shows all the file details including File Name, File Size, and more. Here, you can add or change image tags as well as the crop area coordinates. Click on 'Update File' to save all the new information associated with the file.
+To open file details, right-click the file and click the "Details" option.
 
-![Image tagging in Media libary](../../.gitbook/assets/qafrd9pyaewgqbhwv4i5.png)
+![](../../.gitbook/assets/detail-menu-option.png)
 
-### Using API
+This will open a side-bar that has all image details including File Name, File Size, and more. Here, you can add or change image tags as well as the crop area coordinates. Click on the "Save" button to save all the new information associated with the file.
+
+![](../../.gitbook/assets/custom-coordinates-edit.png)
+
+## Using API
 
 ImageKit.io also provides APIs to upload, delete, and search for image files within its media library. The documentation for the same can be found here:
 
