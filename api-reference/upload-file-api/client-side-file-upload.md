@@ -2,6 +2,11 @@
 
 You can upload files to ImageKit.io media library directly from client-side in Javascript, or Android or iPhone app using [signature based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload).
 
+{% hint style="info" %}
+**File size limit**  
+The maximum upload file size is limited to 25MB.
+{% endhint %}
+
 ## Endpoint
 
 | Method | Endpoint |

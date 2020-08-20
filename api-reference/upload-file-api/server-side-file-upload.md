@@ -2,6 +2,11 @@
 
 You can upload files to ImageKit.io media library from your server-side using [private API key authentication](../api-introduction/api-keys.md#private-key).
 
+{% hint style="info" %}
+**File size limit**  
+The maximum upload file size is limited to 25MB.
+{% endhint %}
+
 ## Endpoint
 
 | Method | Endpoint |

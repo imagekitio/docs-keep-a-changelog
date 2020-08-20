@@ -7,6 +7,11 @@ ImageKit.io allows you to upload a file \(image and non-image\) via API. Based o
 
 Both methods use the same endpoint, but there is a slight change in the request bodies.
 
+{% hint style="info" %}
+**File size limit**  
+The maximum upload file size is limited to 25MB.
+{% endhint %}
+
 ## Allowed file types for uploading
 
 ImageKit.io allows you to upload a file with following mime type.
