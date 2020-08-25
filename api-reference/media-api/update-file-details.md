@@ -52,7 +52,8 @@ On success, you will receive the updated file details in JSON-encoded response b
     "customCoordinates" : null,
     "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
     "thumbnail": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
-    "fileType": "image"
+    "fileType": "image",
+    "createdAt": "2019-08-24T06:14:41.313Z"
 }
 ```
 {% endapi-method-response-example %}
@@ -78,6 +79,7 @@ In case of error, you will get an [error code](../api-introduction/#error-codes)
 | url | A publicly accessible URL of the file. |
 | thumbnail | In case of an image, a small thumbnail URL. |
 | fileType | The type of file, it could be either `image` or `non-image`. |
+| createdAt | The date and time when the file was first uploaded. The format is \`YYYY-MM-DDTHH:mm:ss.sssZ\` |
 
 ## Examples
 
