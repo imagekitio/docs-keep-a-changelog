@@ -7,10 +7,14 @@ It's very probable that your current setup utilizes multiple origins to serve im
 ImageKit.io supports the following types of origin:
 
 1. [Amazon S3 bucket origin](amazon-s3-bucket-origin.md)
-2. Any [web server origin](web-server-origin.md), for example - Magento, WordPress, etc.
-3. [Web proxy](web-proxy.md)
-4. [Azure Blob storage](azure-blob-storage.md)
-5. [Google Storage](google-cloud-storage.md)
-6. [Firebase Storage](firebase-storage.md)
-7. [Cloudinary backup bucket](cloudinary-backup-bucket.md)
+2. [S3-Compatible storages](https://docs.imagekit.io/integration/configure-origin/s3-compatible-external-storages)
+   1. [Wasabi Storage](https://docs.imagekit.io/integration/configure-origin/wasabi-storage)
+   2. [Ali Storage](https://docs.imagekit.io/integration/configure-origin/alibaba-object-storage-service)
+   3. [Digital Ocean Spaces](https://docs.imagekit.io/integration/configure-origin/digital-ocean-spaces)
+3. Any [web server origin](web-server-origin.md), for example - Magento, WordPress, etc.
+4. [Web proxy](web-proxy.md)
+5. [Azure Blob storage](azure-blob-storage.md)
+6. [Google Storage](google-cloud-storage.md)
+7. [Firebase Storage](firebase-storage.md)
+8. [Cloudinary backup bucket](cloudinary-backup-bucket.md)
 

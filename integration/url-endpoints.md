@@ -12,15 +12,15 @@ You can add multiple URL endpoints and control which origins are accessible over
 
 Here are the steps to add a new URL endpoint:
 
-1. Go to the [external storage](https://imagekit.io/dashboard#external-storage) in your ImageKit.io dashboard, and under the URL-endpoints section, click on the "Add origin" button.
-2. Fill the identifier field. It will become part of the URL endpoint. So, supposing you want to create a URL-endpoint just to access product images bucket, and you want it to be like `https://ik.imagekit.io/your_imagekit_id/product-images/`  , then enter **product-images** in this field.
+1. Go to the [URL Patterns section](https://imagekit.io/dashboard#url-patterns) in your ImageKit.io dashboard, and click on the "Add New URL Pattern" button.
+2. Fill the identifier field. It will become part of the URL endpoint. So, suppose you want to create a URL-endpoint just to access product images bucket, and you want it to be like `https://ik.imagekit.io/your_imagekit_id/product-images/`  , then enter **product-images** in this field.
 3. Enter a description. This is just for you to add a note for the URL endpoint and will appear in the list of endpoints.
 4. Now define the [sequence of origins](url-endpoints.md#image-origin-preference) for this URL endpoint.
 5. The first origin is always ImageKit.io Media Library \(or internal cache\) and cannot be changed.
 6. Choose the second origin, which would be our **Product images bucket**.
 7. Click "Submit".
 
-![Add URL-endpoint form](../.gitbook/assets/a38pilscbqxi92ykpcmy.png)
+![Add a URL pattern exclusive for one category \(eg. product images\)](../.gitbook/assets/image%20%287%29.png)
 
 ## Image origin preference
 
@@ -28,11 +28,11 @@ A single URL endpoint can be configured to fetch an image from multiple image or
 
 Let's understand this with an example. When an image is requested at `https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg`, here is what happens:
 
-1. `rest-of-the-path.jpg` is first looked in our internal caches and storage, i.e., ImageKit.io Media Library. If the image is found, a response is returned. If not:
-2. Second image origin is accessed, i.e., **S3 bucket product images.** If the image is found, a response is returned. If not, we move to the third origin.
-3. Third image origin is accessed, i.e., **Legacy load balancer.** If the image is found, a response is returned. If not, a default image, or `404` response is returned as there are no more image origins to fetch the image.
+1. `rest-of-the-path.jpg` is first looked at in our internal caches and storage, i.e., ImageKit.io Media Library. If the image is found, a response is returned. If not:
+2. Second image origin is accessed, i.e., **S3 Bucket Product Images.** If the image is found, a response is returned. If not, we move to the third origin.
+3. Third image origin is accessed, i.e., **Backup S3 Images Bucket.** If the image is found, a response is returned. If not, a default image, or `404` response is returned as there are no more image origins configured with this URL-endpoint.
 
-![Origin-preference settings in URL-endpoint](../.gitbook/assets/yum9vzlv2jnblbh80ndx.png)
+![Image Origin Preference](../.gitbook/assets/image%20%288%29.png)
 
 ## Mapping custom domain for a URL endpoint
 
