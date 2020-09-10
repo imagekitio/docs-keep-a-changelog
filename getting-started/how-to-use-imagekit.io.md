@@ -14,11 +14,16 @@ If you have a running website or application, you don't need to move your images
 ImageKit.io supports the following types of origin:
 
 1. [Amazon S3 bucket origin](../integration/configure-origin/amazon-s3-bucket-origin.md)
-2. Any [web server origin](../integration/configure-origin/web-server-origin.md), for example - Magento, WordPress, etc.
-3. [Azure Blob storage](../integration/configure-origin/azure-blob-storage.md)
-4. [Google Storage](../integration/configure-origin/google-cloud-storage.md)
-5. [Firebase Storage](../integration/configure-origin/firebase-storage.md)
-6. [Cloudinary backup bucket](../integration/configure-origin/cloudinary-backup-bucket.md)
+2. [S3-Compatible storages](../integration/configure-origin/s3-compatible-external-storages.md)
+   1. [Wasabi Storage](../integration/configure-origin/wasabi-storage.md)
+   2. [Ali Storage](../integration/configure-origin/alibaba-object-storage-service.md)
+   3. [Digital Ocean Spaces](../integration/configure-origin/digital-ocean-spaces.md)
+3. Any [web server origin](../integration/configure-origin/web-server-origin.md), for example - Magento, WordPress, etc.
+4. [Web proxy](../integration/configure-origin/web-proxy.md)
+5. [Azure Blob storage](../integration/configure-origin/azure-blob-storage.md)
+6. [Google Storage](../integration/configure-origin/google-cloud-storage.md)
+7. [Firebase Storage](../integration/configure-origin/firebase-storage.md)
+8. [Cloudinary backup bucket](../integration/configure-origin/cloudinary-backup-bucket.md)
 
 ## 2. Using ImageKit storage \(Media Library\)
 
