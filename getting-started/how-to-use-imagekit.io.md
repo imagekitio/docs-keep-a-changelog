@@ -1,6 +1,6 @@
 # How to use ImageKit.io?
 
-There are two ways to use ImageKit.io. Depending upon your needs, either you can plug ImageKit.io with your existing infrastructure without moving or re-uploading any existing images, or you can upload pictures in ImageKit.io media library.
+There are two ways to use ImageKit.io. Depending upon your needs, either you can plug ImageKit.io with your existing infrastructure without moving or re-uploading any existing images, or you can upload pictures in the ImageKit.io media library.
 
 ## 1. Integration with existing storage or server
 
@@ -36,9 +36,9 @@ If you don't want to handle image upload to your own storage, then ImageKit's me
 
 Media library allows you to:
 
-1. Upload images via ImageKit.io dashboard, upload API or SDKs.
-2. Create folders to manage your images.
-3. Tag files for better organization.
-4. Search files by name, folder name, and tags.
+1. Upload images via ImageKit.io dashboard, [upload API](../api-reference/upload-file-api/), or using SDKs.
+2. [Create folders](../media-library/overview/folders.md) and [delete folders](../media-library/overview/delete-folder.md) to manage your images.
+3. [Tag files](../media-library/overview/image-tags.md) for better organization.
+4. [Search files](../media-library/overview/search-update-and-delete.md) by name, folder name, and tags.
 5. Delete a file.
 
