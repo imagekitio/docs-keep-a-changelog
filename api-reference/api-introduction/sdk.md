@@ -11,7 +11,7 @@ ImageKit.io team has developed these libraries. If you find a bug or have sugges
 * [x] [Vue.js](https://github.com/imagekit-developer/imagekit-vuejs)
 * [x] [Android](https://github.com/imagekit-developer/imagekit-android)
 * [x] [Angular](https://github.com/imagekit-developer/imagekit-angular)
-* [ ] [iOS](https://github.com/imagekit-developer/imagekit-ios)
+* [x] [iOS](https://github.com/imagekit-developer/imagekit-ios)
 
 ## Server-side SDKs
 
