@@ -6,7 +6,7 @@ Get image metadata from remove URL API
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Get image exif, pHash and other metadata from ImageKit.io powered remote URL using this API.
+Get image EXIF, pHash, and other metadata from ImageKit.io powered remote URL using this API.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -118,15 +118,23 @@ On success, you will receive the image metadata in JSON-encoded response body.
 
 ### Response structure and status code \(application/JSON\)
 
-In case of error you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the image metadata in JSON-encoded response body.
+In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the image metadata in the JSON-encoded response body.
 
-Metadata object example can be found [here](./#metadata-object-structure).
+A metadata object example can be found [here](./#metadata-object-structure).
+
+### Metadata through ImageKit transformation URL
+
+If the `url` passed to this API has no transformation parameter, then the metadata of the original uploaded image will be fetched. We internally add [`orig-true`](../../features/image-transformations/resize-crop-and-other-transformations.md#original-image-orig) parameter to fetch the original image.
+
+Instead, if the passed `url` has any transformation parameters, then the metadata of the transformed image will be fetched.
+
+See the [examples](./#examples) below.
 
 ## Examples
 
 Here are some example requests to understand the API usage.
 
-### Get metadata of an uploaded image
+### Get metadata of an original image \(no transformation applied\)
 
 {% tabs %}
 {% tab title="cURL" %}
@@ -159,6 +167,42 @@ ResultMetaData result=ImageKit.getInstance().getRemoteFileMetadata("remote_file_
 ```ruby
 imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.get_remote_file_url_metadata("remote_file_url")
+```
+{% endtab %}
+{% endtabs %}
+
+### Get metadata of a transformed image
+
+{% tabs %}
+{% tab title="cURL" %}
+```bash
+# The URL of the uploaded file
+curl -X GET "https://api.imagekit.io/v1/metadata?url=https://ik.imagekit.io/demo/tr:w-100/default-image.jpg" \
+-u your_private_api_key:
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+imagekit.get_remote_file_url_metadata("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```python
+$imageKit->getFileMetadataFromRemoteURL("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+ResultMetaData result=ImageKit.getInstance().getRemoteFileMetadata("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg");
+```
+{% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+imagekitio.get_remote_file_url_metadata("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
 ```
 {% endtab %}
 {% endtabs %}

@@ -1,6 +1,6 @@
 # Get image metadata for uploaded media files
 
-You can programmatically get image exif, pHash and other metadata for uploaded files in ImageKit.io media library using this API.
+You can programmatically get image EXIF, pHash, and other metadata for uploaded files in the ImageKit.io media library using this API.
 
 {% hint style="info" %}
 💡 You can also get the image metadata while uploading the image by passing metadata in `responseFields` parameter.
@@ -12,7 +12,7 @@ Get image metadata for uploaded media files API
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Get image exif, pHash and other metadata for uploaded files in ImageKit.io media library using this API.
+Get image EXIF, pHash, and other metadata for uploaded files in ImageKit.io media library using this API.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -123,9 +123,9 @@ On success, you will receive the image metadata in JSON-encoded response body.
 
 ### Response structure and status code \(application/JSON\)
 
-In case of error you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the image metadata in JSON-encoded response body.
+In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the image metadata in the JSON-encoded response body.
 
-Metadata object example can be found [here](./#metadata-object-structure).
+A metadata object example can be found [here](./#metadata-object-structure).
 
 ## Examples
 
