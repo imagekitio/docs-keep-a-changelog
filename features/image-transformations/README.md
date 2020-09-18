@@ -26,6 +26,10 @@ These transformation parameters `w-300,h-300` can be added in the URL as path pa
 * **As path parameter** [https://ik.imagekit.io/demo/`tr:w-200,h-200`/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-200,h-200/medium_cafe_B1iTdD0C.jpg)\*\*\*\*
 * **As query parameter** [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?`tr=w-200,h-200`](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=w-200,h-200)
 
+{% hint style="info" %}
+Images over 40MB in size will not be transformed.
+{% endhint %}
+
 ## Use cases:
 
 The transformations can be as basic as manipulating the height and width of the image, to complex transformations like watermarking or smart cropping of your images. A few common use-cases are explained below.
