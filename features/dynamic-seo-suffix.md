@@ -18,12 +18,12 @@ The image URL should have "Eiffel Tower" instead of "DSC1234.jpg".
 
 {% hint style="danger" %}
 **Bad image URL**  
-https://ik.imagekit.io/DSC1234.jpg
+https://ik.imagekit.io/demo/DSC1234.jpg
 {% endhint %}
 
 {% hint style="success" %}
 **SEO-friendly image URL**  
-https://ik.imagekit.io/eiffel-tower.jpg
+https://ik.imagekit.io/demo/eiffel-tower.jpg
 {% endhint %}
 
 ### Dynamic SEO suffix \(ik-seo\)
@@ -58,7 +58,7 @@ your-url-endpoint/old-file-name.extension
 
 becomes:
 
-your\_url\_endpoint/`ik-seo`/old-file-name/seo-friendly-file-name.extension
+your\_url\_endpoint/**`ik-seo`**/old-file-name/**`seo-friendly-file-name`**.extension
 
 ### Accessing file that is stored in a nested folder
 
