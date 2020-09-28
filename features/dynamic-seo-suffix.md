@@ -26,7 +26,7 @@ https://ik.imagekit.io/places-to-visit-in-paris/DSC1234.jpg
 https://ik.imagekit.io/places-to-visit-in-paris/eiffel-tower.jpg
 {% endhint %}
 
-### Dynamic SEO-friendly suffix \(ik-seo\)
+### Dynamic SEO suffix \(ik-seo\)
 
 In cases when you cannot modify actual file names of already stored images, ImageKit helps you create SEO-friendly URLs dynamically.
 
