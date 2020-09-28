@@ -62,6 +62,7 @@
   * [Signed URLs](features/security/signed-urls.md)
   * [Private images](features/security/private-images.md)
 * [Using custom domain](features/using-custom-domain.md)
+* [SEO-friendly image URL](features/dynamic-seo-suffix.md)
 * [Default Images](features/default-images.md)
 * [Progressive JPEGs](features/progressive-jpegs.md)
 * [Non-Image File Compression](features/non-image-file-compression.md)
