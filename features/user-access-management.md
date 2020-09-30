@@ -1,6 +1,6 @@
 # User access management
 
-User access management allows you to manage how your team members access the [ImageKit.io dashboard](https://imagekit.io/dashboard). You can add users with different roles and permission e.g. developers, accountant, account administrators.
+User access management allows you to manage how your team members access the [ImageKit.io dashboard](https://imagekit.io/dashboard). You can add users with different roles and permission e.g. developers, finance, account administrators etc.
 
 {% hint style="info" %}
 **Paid plan only**  
@@ -20,25 +20,25 @@ Go to the [Users section](https://imagekit.io/dashboard?redirectTo=users) in the
 
 ## User roles
 
-A user can have four different roles:
+A user can have five different roles:
 
 ### Account administrator
 
-Best for people managing the complete account. User with this role has full access to your ImageKit.io account and can add other users with account administrator role.
+User with this role has full access to your ImageKit.io account and can add other users with account administrator role. Best for people managing the complete account.
 
 ### Developer 
 
-Your development team member should have this role. A user with a developer role can access everything except user management and billing.
+A user with a developer role can access everything except user management and billing. Your development team member should have this role. 
 
 ### Media library full access 
 
-A user with this role can access the media library. This role is suitable for marketing team members who need to upload marketing assets.
+A user with this role has full access to the media library. This role is suitable for marketing team members who need to upload marketing assets, create new folders or tag media files etc.
 
 ### Media library view-only access
 
-A user with this role can has view-only access to the media library. This user cannot upload media assets or create new folders.
+A user with this role has view-only access to the media library. This user cannot upload media assets or create new folders. The user can only open and search the already upload files & folders.
 
 ### Finance
 
-Your finance team member should have this role. A user with a finance role can access the [analytics](https://imagekit.io/dashboard?redirectTo=analytics) and [billing](https://imagekit.io/dashboard?redirectTo=billing) section. The user has permission to cancel the subscription.
+A user with a finance role can access the [analytics](https://imagekit.io/dashboard?redirectTo=analytics) and [billing](https://imagekit.io/dashboard?redirectTo=billing) section. The user has permission to cancel the subscription. Your finance team member should have this role. 
 
