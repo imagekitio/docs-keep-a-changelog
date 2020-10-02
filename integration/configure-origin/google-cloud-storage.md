@@ -43,9 +43,7 @@ We need to create access keys that will be used by ImageKit to authenticate itse
 3. Click on the service account that we created in Step 1.
 4. On the page for the service account, click on the **Add key** button in the **Keys** section.
 5. Select **JSON** as the key type and click **Create**. This will download a JSON file.
-6. Open the JSON file, and note down the following values:
-   * **private\_key**
-   * **client\_email**
+6. You will upload this file to the ImageKit dashboard in [step 4](google-cloud-storage.md#step-4-configure-your-google-storage-bucket-with-your-imagekit-account).
 
  Make sure to store this file securely, as it cannot be downloaded again.
 
@@ -59,13 +57,12 @@ We need to create access keys that will be used by ImageKit to authenticate itse
 
 ## Step 4: Configure your Google storage bucket with your ImageKit account
 
-We have now created a virtual identity for ImageKit and granted it the Reader role for your bucket, which means that ImageKit can do nothing more than just read objects from your bucket. At this point, you should have the following values with you:
+We have now created a virtual identity for ImageKit and granted it the Reader role for your bucket, which means that ImageKit can do nothing more than just read objects from your bucket. At this point, you should have the following with you:
 
 * **Google Storage Bucket Name:** Name of the bucket that you want to integrate with ImageKit
-* **Google Service Account private key:** As noted in Step 2
-* **Google Service Account client email:** As notes in Step 2
+* **Google Service Account key JSON file:** The JSON file you downloaded in step 2
 
-Now, go to the [External Storage](https://imagekit.io/dashboard#external-storage) section in the dashboard, click on the **Add New Origin** button, select Google Cloud Storage in the **Origin Type** field, and enter the corresponding values, and click submit.
+Now, go to the [External Storage](https://imagekit.io/dashboard#external-storage) section in the dashboard, click on the **Add New Origin** button, select Google Cloud Storage in the **Origin Type** field, and enter the corresponding values, upload the JSON key file in the file field, and click submit.
 
 ## Step 5: Access the image through ImageKit.io URL-endpoint
 
