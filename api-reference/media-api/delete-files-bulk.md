@@ -1,9 +1,9 @@
 # Delete files \(bulk\)
 
-You can programmatically delete multiple files uploaded in media library using bulk file delete API.
+You can programmatically delete multiple files uploaded in the media library using bulk file delete API.
 
 {% hint style="info" %}
-If a file or specific transformation has been requested in the past, then the response is cached. Deleting file does not purge the cache. You can purge the cache using [purge API](purge-cache.md).
+If a file or specific transformation has been requested in the past, then the response is cached. Deleting a file does not purge the cache. You can purge the cache using [purge API](purge-cache.md).
 {% endhint %}
 
 {% api-method method="post" host="https://api.imagekit.io" path="/v1/files/batch/deleteByFileIds" %}
@@ -49,7 +49,7 @@ On success, a `200` is returned along with the array of `fileIds` which are succ
 
 {% api-method-response-example httpCode=404 %}
 {% api-method-response-example-description %}
-If any of the fileId in not found in your media library then a `404` response is returned and no file is deleted. The whole operation fails.
+If any of the `fileId` is not found in your media library then a `404` response is returned and no file is deleted. The whole operation fails.
 {% endapi-method-response-example-description %}
 
 ```javascript

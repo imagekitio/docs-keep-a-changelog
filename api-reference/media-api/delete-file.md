@@ -1,9 +1,9 @@
 # Delete file
 
-You can programmatically delete uploaded files in media library using delete file API.
+You can programmatically delete uploaded files in the media library using delete file API.
 
 {% hint style="info" %}
-If a file or specific transformation has been requested in the past, then the response is cached. Deleting file does not purge the cache. You can purge the cache using [purge API](purge-cache.md).
+If a file or specific transformation has been requested in the past, then the response is cached. Deleting a file does not purge the cache. You can purge the cache using [purge API](purge-cache.md).
 {% endhint %}
 
 {% api-method method="delete" host="https://api.imagekit.io" path="/v1/files/:fileId" %}
@@ -32,7 +32,7 @@ base64 encoding of `your_private_api_key:`
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=204 %}
 {% api-method-response-example-description %}
 
 {% endapi-method-response-example-description %}
@@ -47,7 +47,7 @@ base64 encoding of `your_private_api_key:`
 
 ### Response structure and status code
 
-In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `204` status code with empty body.
+In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `204` status code with an empty body.
 
 ## Examples
 

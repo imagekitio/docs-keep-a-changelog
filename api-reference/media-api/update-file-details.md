@@ -6,7 +6,7 @@ Update file details API
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Update file details such as tags and customCoordinates attribute using update file detail API.
+Update file details such as `tags` and `customCoordinates` attribute using update file detail API.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -26,11 +26,11 @@ base64 encoding of `your_private_api_key:`
 
 {% api-method-body-parameters %}
 {% api-method-parameter name="tags" type="array" required=false %}
-Array of tags associated with the file.
+An array of tags associated with the file e.g. `["tag1", "tag2"]`. If you want to unset it send `null`.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="customCoordinates" type="string" required=false %}
-Define an important area in the image. Example - `50,50,500,500`
+Define an important area in the image in the format `x,y,width,height` e.g. `10,10,100,100`. If you want to unset this send `null`.
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
@@ -38,7 +38,7 @@ Define an important area in the image. Example - `50,50,500,500`
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-On success, you will receive the updated file details in JSON-encoded response body.
+On success, you will receive the updated file details in the JSON-encoded response body.
 {% endapi-method-response-example-description %}
 
 ```javascript
@@ -79,7 +79,7 @@ In case of error, you will get an [error code](../api-introduction/#error-codes)
 | url | A publicly accessible URL of the file. |
 | thumbnail | In case of an image, a small thumbnail URL. |
 | fileType | The type of file, it could be either `image` or `non-image`. |
-| createdAt | The date and time when the file was first uploaded. The format is \`YYYY-MM-DDTHH:mm:ss.sssZ\` |
+| createdAt | The date and time when the file was first uploaded. The format is `YYYY-MM-DDTHH:mm:ss.sssZ` |
 
 ## Examples
 

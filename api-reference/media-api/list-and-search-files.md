@@ -24,22 +24,22 @@ Folder path if you want to limit the search within a specific folder. For exampl
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="fileType" type="string" required=false %}
-Type of files to include in result set. Accepts three values:  
+Type of files to include in the result set. Accepts three values:  
 `all` - include all types of files in result set  
 `image` - only search in image type files  
-`non-image` - only search in files which are not image, e.g., JS or CSS or video files.  
+`non-image` - only search in files that are not image, e.g., JS or CSS or video files.  
   
 **Default value** - `all`
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="tags" type="string" required=false %}
-Comma-separated list of tags. Files matching any of the tags are included in result response. If no tag is matched, the file is not included in result set.  
+A comma-separated list of tags. Files matching any of the tags are included in the result response. If no tag is matched, the file is not included in the result set.  
   
 Example - `t-shirt,round-neck,sale2019` will return any files which have either of these three tags, `t-shirt` or `round-neck` or `sale2019`.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="includeFolder" type="string" required=false %}
-Whether to include folders in search results or not. By default only files are searched.  
+Whether to include folders in search results or not. By default, only files are searched.  
 Accepts `true` and `false`. If this is set to `true` then `tags` and `fileType` parameters are ignored.
 {% endapi-method-parameter %}
 
@@ -73,17 +73,17 @@ The number of results to skip before returning results.
 [
 	{
 	    "fileId" : "598821f949c0a938d57563bd",
-        "type": "file",
-        "name": "file1.jpg",
-        "filePath": "/images/products/file1.jpg",
-        "tags": ["t-shirt","round-neck","sale2019"],
-        "isPrivateFile" : false,
-        "customCoordinates" : null,
-        "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
-        "thumbnail": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
-        "fileType": "image",
-        "createdAt": "2019-08-24T06:14:41.313Z"
-    },
+      "type": "file",
+      "name": "file1.jpg",
+      "filePath": "/images/products/file1.jpg",
+      "tags": ["t-shirt","round-neck","sale2019"],
+      "isPrivateFile" : false,
+      "customCoordinates" : null,
+      "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
+      "thumbnail": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
+      "fileType": "image",
+      "createdAt": "2019-08-24T06:14:41.313Z"
+  },
 	...more items
 ]
 ```
@@ -112,7 +112,7 @@ The JSON-encoded response has an array of items. Each item can have the followin
 | url | A publicly accessible URL of the file. |
 | thumbnail | In case of an image, a small thumbnail URL. |
 | fileType | The type of file, it could be either `image` or `non-image`. |
-| createdAt | The date and time when the file was first uploaded. The format is \`YYYY-MM-DDTHH:mm:ss.sssZ\` |
+| createdAt | The date and time when the file was first uploaded. The format is `YYYY-MM-DDTHH:mm:ss.sssZ` |
 
 ## Examples
 

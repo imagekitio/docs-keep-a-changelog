@@ -6,14 +6,14 @@ Purge cache status API
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Get the status of submitted purge request.
+Get the status of the submitted purge request.
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% api-method-parameter name="requestId" type="string" required=true %}
-The `requestId` returned in response of purge cache API.
+The `requestId` returned in the response of purge cache API.
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 
@@ -33,7 +33,7 @@ The status can be either `Pending` or `Completed`
 
 ```javascript
 {
-    status : "Pending"
+    status : "Pending" // or "Completed"
 }
 ```
 {% endapi-method-response-example %}
@@ -45,7 +45,7 @@ The status can be either `Pending` or `Completed`
 
 In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the purge request status in a JSON-encoded response body.
 
-### Understanding response
+### Understanding the response
 
 The JSON-encoded response will have `status` property.
 
@@ -67,7 +67,7 @@ The JSON-encoded response will have `status` property.
         <ul>
           <li><code>Pending</code> - The request has been successfully submitted, and
             purging is in progress.</li>
-          <li><code>Complete</code> - The purge request has been successfully completed.
+          <li><code>Completed</code> - The purge request has been successfully completed.
             And now you should get a fresh object. Check the Age header in response
             to confirm this.</li>
         </ul>

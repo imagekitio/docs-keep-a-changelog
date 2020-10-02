@@ -6,7 +6,7 @@ Get file details API
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Get the file details such as tags, customCoordinates, and isPrivate properties using get file detail API.
+Get all the file details and attributes.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -28,7 +28,7 @@ base64 encoding of `your_private_api_key:`
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-On success, you will get file details in JSON-encoded response body.
+On success, you will get file details in the JSON-encoded response body.
 {% endapi-method-response-example-description %}
 
 ```javascript
@@ -64,14 +64,14 @@ The JSON-encoded response details of the file which can have the following prope
 | fileId | The unique fileId of the uploaded file. |
 | type | Type of item. It can be either `file` or `folder`.  |
 | name | Name of the file or folder. |
-| filePath | The relative path of the file. In case of image, you can use this  path to construct different transformations. |
+| filePath | The relative path of the file. In the case of an image, you can use this  path to construct different [transformations](../../features/image-transformations/). |
 | tags | Array of tags associated with the image. If no tags are set, it will be `null`. |
 | isPrivateFile | Is the file marked as private. It can be either `true` or `false`. |
-| customCoordinates | Value of custom coordinates associated with the image in format `x,y,width,height`.  If customCoordinates are not defined then it is `null`.  |
+| customCoordinates | Value of custom coordinates associated with the image in format `x,y,width,height`.  If customCoordinates are not defined then it is `null`. |
 | url | A publicly accessible URL of the file. |
-| thumbnail | In case of an image, a small thumbnail URL.  |
+| thumbnail | In case of an image, a small thumbnail URL. |
 | fileType | The type of file, it could be either `image` or `non-image`. |
-| createdAt | The date and time when the file was first uploaded. The format is \`YYYY-MM-DDTHH:mm:ss.sssZ\` |
+| createdAt | The date and time when the file was first uploaded. The format is `YYYY-MM-DDTHH:mm:ss.sssZ` |
 
 ## Examples
 
