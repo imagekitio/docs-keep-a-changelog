@@ -4,13 +4,13 @@ You can access any image on a publicly-available URL using Web Proxy origin. Thi
 
 {% hint style="warning" %}
 **Prevent account abuse**  
-If you enable this origin on an [URL-endpoint](../url-endpoints.md), it allows anyone to access any image using your account. To prevent this abuse, we strongly recommend you [restrict the use of unsigned URLs](../../features/security/#restricting-unsigned-urls).
+If you enable this origin on an [URL-endpoint](../url-endpoints.md), it allows anyone to access any image using your account. To prevent this abuse, we strongly recommend you [restrict the use of unsigned URLs](../../features/security/#restricting-unsigned-urls). Do refer to the information provided after Step 2 of this guide about encoding URLs before signing them.
 {% endhint %}
 
 ## Step 1: Configure origin
 
 1. Go to the [external storage section](https://imagekit.io/dashboard#external-storage) in your ImageKit.io dashboard, and under the Origins section, click on the "Add origin" button.
-2. Choose **Web proxy** from the origin type dropdown.
+2. Choose **Web proxy** from the origin-type dropdown.
 3. Give your origin a name. It will appear in the list of origins you have added. For example - **My proxy origin.**
 4. Leave the [advanced options](web-server-origin.md#advanced-options-for-web-server-origin) as it is for now.
 5. Click on the Submit button.
@@ -22,7 +22,7 @@ Make sure that the image public URL is accessible from ImageKit.io. [Learn more]
 
 ## Step 2: Access the image through ImageKit.io URL-endpoint
 
-When you add your first origin in the dashboard, the origin is by default made accessible through the [default URL-endpoint](../url-endpoints.md#default-url-endpoint) of your ImageKit.io account. For subsequent origins, you can either create a separate URL-endpoint or edit existing URL-endpoint \(including default\) and make this newly added origin accessible by editing the [origin preference list](../url-endpoints.md#image-origin-preference). 
+When you add your first origin in the dashboard, the origin is by default made accessible through the [default URL-endpoint](../url-endpoints.md#default-url-endpoint) of your ImageKit.io account. For subsequent origins, you can either create a separate URL-endpoint or edit the existing URL-endpoint \(including default\) and make this newly added origin accessible by editing the [origin preference list](../url-endpoints.md#image-origin-preference). 
 
 Let's look at a few examples to fetch the images:
 
@@ -45,6 +45,10 @@ https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/https://www.example.com/r
 
 {% hint style="info" %}
 🧙♂**Tips:** You can also use a [custom domain](../../features/using-custom-domain.md) like images.example.com.
+{% endhint %}
+
+{% hint style="info" %}
+If you want to create a **signed URL** that uses a Web Proxy origin, you must encode the complete URL of the input image before signing it. For example, instead of using `https://example.com/image.jpg`as input for the signed URL, you should use `https%3A%2F%2Fexample.com%2Fimage.jpg`.
 {% endhint %}
 
 ## Step 3: Integrate and Go live

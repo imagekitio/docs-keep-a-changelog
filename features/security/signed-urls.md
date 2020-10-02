@@ -1,6 +1,6 @@
 # Signed URLs
 
-When generating image URLs from your server, you can generate a signed \(secure\) image URL using your [ImageKit.io private key](../../api-reference/api-introduction/api-keys.md#private-key). Signing adds additional query parameters to the image URL, which restrict altering the image transformation from the URL.
+When generating image URLs from your server, you can generate a signed \(secure\) image URL using your [ImageKit.io private key](../../api-reference/api-introduction/api-keys.md#private-key). Signing adds additional query parameters to the image URL, which restricts altering the image transformation from the URL.
 
 When generating signed URLs, use the private key available within the [Developer section](https://imagekit.io/dashboard#developers) on the dashboard. Signing the URLs adds additional query parameters to ensure that image transformations cannot be altered from the URL. If a third party tries to modify the image transformation or the image URL, or use it beyond its intended expiry time, the request would return a `401 Unauthorised` status code because of a signature mismatch.
 
@@ -8,9 +8,13 @@ A signed URL would be similar to :
 
 https://ik.imagekit.io/your\_imagekit\_id/path-to-image.jpg?ik-s=`generatedURLsignature`&ik-t=`UTCtimestamp`
 
+{% hint style="info" %}
+If you want to create a signed URL that uses a Web Proxy origin, you must encode the complete URL of the input image before signing it. For example, instead of using `https://example.com/image.jpg`as input for the signed URL, you should use `https%3A%2F%2Fexample.com%2Fimage.jpg`.
+{% endhint %}
+
 ## Generating Signed URLs
 
-You can create signed URL using [server-side SDKs](../../api-reference/api-introduction/sdk.md#server-side-sdks).
+You can create a signed URL using [server-side SDKs](../../api-reference/api-introduction/sdk.md#server-side-sdks).
 
 {% tabs %}
 {% tab title="Node.js" %}
@@ -101,9 +105,9 @@ image_url = imagekit.url({
 {% endtab %}
 {% endtabs %}
 
-### Pseudo code for signed URL generation
+### Pseudo-code for signed URL generation
 
-If you want to generate the signed URL yourself, refer the pseudo code below.
+If you want to generate the signed URL yourself, refer to the pseudo-code below.
 
 ```javascript
 // Assume we have an image URL
