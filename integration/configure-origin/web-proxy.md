@@ -42,7 +42,7 @@ https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/https://www.example.com/r
 {% endtab %}
 {% endtabs %}
 
-If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](../error-troubleshooting.md).
+If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](../404-not-found-error-troubleshooting.md).
 
 {% hint style="info" %}
 🧙♂**Tips:** You can also use a [custom domain](../../features/using-custom-domain.md) like images.example.com.

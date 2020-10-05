@@ -38,7 +38,7 @@ We just replaced the old base URL `https://www.example.com` with the new ImageKi
 🧙♂**Tip:** You can also use a [custom domain](../features/using-custom-domain.md) like `images.example.com`. But in this documentation, we will stick with the `https://ik.imagekit.io/your_imagekit_id` format. Learn more about how to [use a custom domain](../features/using-custom-domain.md).
 {% endhint %}
 
-If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](error-troubleshooting.md).
+If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](404-not-found-error-troubleshooting.md).
 
 ## Step 3: Try optimization and resizing
 

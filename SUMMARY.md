@@ -27,7 +27,7 @@
 * [Integrate with your CDN](integration/integrate-with-your-cdn.md)
 * [Multiple websites](integration/multiple-websites.md)
 * [Testing](integration/testing.md)
-* [404 - Not found troubleshooting](integration/error-troubleshooting.md)
+* [404 - Not found troubleshooting](integration/404-not-found-error-troubleshooting.md)
 
 ## ImageKit.io storage <a id="media-library"></a>
 
