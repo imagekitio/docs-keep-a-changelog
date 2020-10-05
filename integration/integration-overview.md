@@ -13,12 +13,16 @@ You can integrate ImageKit.io with your existing infrastructure in a few minutes
 ImageKit.io supports the following type of origin:
 
 1. [Amazon S3 bucket origin](configure-origin/amazon-s3-bucket-origin.md)
-2. Any [web server origin](configure-origin/web-server-origin.md), for example - Magento, WordPress, etc.
-3. [Web proxy](configure-origin/web-proxy.md)
-4. [Azure Blob storage](configure-origin/azure-blob-storage.md)
-5. [Google Storage](configure-origin/google-cloud-storage.md)
-6. [Firebase Storage](configure-origin/firebase-storage.md)
-7. [Cloudinary backup bucket](configure-origin/cloudinary-backup-bucket.md)
+2. [S3-Compatible storages](configure-origin/s3-compatible-external-storages.md)
+   1. [Wasabi Storage](configure-origin/wasabi-storage.md)
+   2. [Ali Storage](configure-origin/alibaba-object-storage-service.md)
+   3. [Digital Ocean Spaces](configure-origin/digital-ocean-spaces.md)
+3. Any [web server origin](configure-origin/web-server-origin.md), for example - Magento, WordPress, etc.
+4. [Web proxy](configure-origin/web-proxy.md)
+5. [Azure Blob storage](configure-origin/azure-blob-storage.md)
+6. [Google Storage](configure-origin/google-cloud-storage.md)
+7. [Firebase Storage](configure-origin/firebase-storage.md)
+8. [Cloudinary backup bucket](configure-origin/cloudinary-backup-bucket.md)
 
 ## Step 2: Access the image through ImageKit.io URL endpoint
 
@@ -33,6 +37,8 @@ We just replaced the old base URL `https://www.example.com` with the new ImageKi
 {% hint style="info" %}
 🧙♂**Tip:** You can also use a [custom domain](../features/using-custom-domain.md) like `images.example.com`. But in this documentation, we will stick with the `https://ik.imagekit.io/your_imagekit_id` format. Learn more about how to [use a custom domain](../features/using-custom-domain.md).
 {% endhint %}
+
+If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](error-troubleshooting.md).
 
 ## Step 3: Try optimization and resizing
 

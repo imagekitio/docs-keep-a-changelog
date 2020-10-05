@@ -9,5 +9,5 @@ As specified in the [Digital Ocean Spaces documentation](https://developers.digi
 For example, buckets configured in the Singapore region have the endpoint: `https://sgp1.digitaloceanspaces.com`   
 Similarly, find out the correct endpoint for the region that your bucket is configured in, and verify with Digital Ocean's official documentation. 
 
-Once you have this endpoint, follow the instructions on ImageKit's doc page on [How to configure S3-Compatible external storages with ImageKit.](https://docs.imagekit.io/integration/configure-origin/s3-compatible-external-storages)
+Once you have this endpoint, follow the instructions on ImageKit's doc page on [how to configure S3-Compatible external storage with ImageKit.](https://docs.imagekit.io/integration/configure-origin/s3-compatible-external-storages)
 

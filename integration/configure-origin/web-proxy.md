@@ -38,10 +38,11 @@ So when you request `https://ik.imagekit.io/your_imagekit_id/https://www.example
             URL-endpoint                transformation              image public URL                                    
 ┌─────────────────────────────────────┐┌─────────────┐┌───────────────────────────────────────────┐
 https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/https://www.example.com/rest-of-the-path.jpg
-
 ```
 {% endtab %}
 {% endtabs %}
+
+If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](../error-troubleshooting.md).
 
 {% hint style="info" %}
 🧙♂**Tips:** You can also use a [custom domain](../../features/using-custom-domain.md) like images.example.com.
