@@ -93,7 +93,7 @@ For more information about the Exif standard, please refer to the specification 
 
 ### Perceptual Hash \(pHash\)
 
-Perceptual hashing allows you to construct a hash value that uniquely identifies an input image based on the image's contents. It is different from cryptographic hash functions like MD5 and SHA1 and will not vary much if you scale or rotate an image. 
+Perceptual hashing allows you to construct a hash value that uniquely identifies an input image based on the image's contents. It is different from cryptographic hash functions like MD5 and SHA1. pHash provides similar hash value after minor distortions, like small rotations, blurring, and compression in the image.
 
 [ImageKit.io metadata API](./) returns the pHash value of an image in the metadata response as a hexadecimal string. More information about pHash can be found on [https://www.phash.org/](https://www.phash.org/).
 
@@ -118,6 +118,8 @@ Second with pHash value **f5d2226cd9d32b16**
 ![pHash = f5d2226cd9d32b16](../../.gitbook/assets/second%20%281%29.jpg)
 
 The distance between two pHash values can be calculated using the utility function provided by [ImageKit.io server-side SDKs](../api-introduction/sdk.md#server-side-sdks).
+
+The hamming distance between `63433b3ccf8e1ebe` and `f5d2226cd9d32b16` is `27`
 
 {% tabs %}
 {% tab title="Node.js" %}
@@ -172,5 +174,38 @@ $$
 SimilarityScore = 1-27/64 = 0.578125
 $$
 
-This means two images are not similar.
+The similarity score is 57%. This means the two images are not similar.
+
+Now let's consider a case of two similar images. The first image with pHash value **63433b3ccf8e1ebe**
+
+![pHash = 63433b3ccf8e1ebe](../../.gitbook/assets/first%20%281%29.jpg)
+
+ Let's reduce its quality, rotate it slightly, and crop it. The pHash value of the slightly modified image is **61433b3fcf8f9faf**
+
+![pHash = 61433b3fcf8f9faf](../../.gitbook/assets/first-slightly-different.jpg)
+
+The hamming distance between these two pHash values is **8**
+
+{% tabs %}
+{% tab title="Node.js" %}
+```javascript
+const ImageKit = require('imagekit');
+
+const imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.pHashDistance("63433b3ccf8e1ebe", "61433b3fcf8f9faf");
+// output: 8
+```
+{% endtab %}
+{% endtabs %}
+
+$$
+SimilarityScore = 1-8/64 = 0.875
+$$
+
+The similarity score is 87%, so it is safe to say that the two images are similar.
 
