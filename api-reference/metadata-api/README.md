@@ -119,7 +119,7 @@ Second with pHash value **f5d2226cd9d32b16**
 
 The distance between two pHash values can be calculated using the utility function provided by [ImageKit.io server-side SDKs](../api-introduction/sdk.md#server-side-sdks).
 
-The hamming distance between `63433b3ccf8e1ebe` and `f5d2226cd9d32b16` is `27`
+The hamming distance between **63433b3ccf8e1ebe** and **f5d2226cd9d32b16** is **27.**
 
 {% tabs %}
 {% tab title="Node.js" %}
@@ -180,7 +180,7 @@ Now let's consider a case of two similar images. The first image with pHash valu
 
 ![pHash = 63433b3ccf8e1ebe](../../.gitbook/assets/first%20%281%29.jpg)
 
- Let's reduce its quality, rotate it slightly, and crop it. The pHash value of the slightly modified image is **61433b3fcf8f9faf**
+Let's resize & crop this image to 300x400 and reduce the quality using aggressive compression. The pHash value of the slightly modified image is **61433b3fcf8f9faf**
 
 ![pHash = 61433b3fcf8f9faf](../../.gitbook/assets/first-slightly-different.jpg)
 
