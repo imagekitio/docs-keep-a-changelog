@@ -1,6 +1,6 @@
 # Metadata API
 
-You can programmatically get image exif, pHash and other metadata using either of the API below:
+You can programmatically get image exif, pHash, and other metadata using either of the API below:
 
 1. [Get image metadata from remote URL](get-image-metadata-from-remote-url.md) if you don't want to upload image files to ImageKit.io media library or,
 2. [Get image metadata for uploaded media files](get-image-metadata-for-uploaded-media-files.md) if you want to fetch metadata for already uploaded image files in your ImageitKit.io media library.
@@ -17,7 +17,7 @@ You can programmatically get image exif, pHash and other metadata using either o
     "quality": 0,
     "density": 72,
     "hasTransparency": false,
-	"pHash": "f06830ca9f1e3e90",
+	  "pHash": "f06830ca9f1e3e90",
     "exif": {
         "image": {
             "Make": "Canon",
@@ -89,19 +89,35 @@ You can programmatically get image exif, pHash and other metadata using either o
 
 ### Exif
 
-For more information about the Exif standard please refer to the specification found on [http://www.exif.org](http://www.exif.org/). A comprehensive list of available Exif attributes and their meaning can be found on [http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/](http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/).
+For more information about the Exif standard, please refer to the specification found on [http://www.exif.org](http://www.exif.org/). A comprehensive list of available Exif attributes and their meaning can be found on [http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/](http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/).
 
 ### Perceptual Hash \(pHash\)
 
-Perceptual hashing allows you to construct a hash value that uniquely identifies an input image based on the contents of an image. [ImageKit.io metadata API](./) returns the pHash value of an image in the metadata response as a hexadecimal string. You can use this value to find a duplicate \(or similar\) image by calculating distance between pHash value of two images.
+Perceptual hashing allows you to construct a hash value that uniquely identifies an input image based on the image's contents. It is different from cryptographic hash functions like MD5 and SHA1 and will not vary much if you scale or rotate an image. 
 
-More information about it can be found on [https://www.phash.org/](https://www.phash.org/).
+[ImageKit.io metadata API](./) returns the pHash value of an image in the metadata response as a hexadecimal string. More information about pHash can be found on [https://www.phash.org/](https://www.phash.org/).
 
-## Examples
+### Using pHash to find similar or duplicate images
 
-### Calculate pHash distance
+The hamming distance between two pHash values determines how similar or different the images are.
 
-Distance between two pHash values can be calculated using utility function provided [ImageKit.io server-side SDKs](../api-introduction/sdk.md#server-side-sdks).
+The pHash value returned by ImageKit.io metadata API is a hexadecimal string of 64bit pHash. The distance between two hash can be between 0 and 64. A lower distance means similar images. If the distance is 0, that means two images are identical. 
+
+To calculate a similarity score between 0 and 1, we can do:
+
+$$
+SimilarityScore = 1 - (phashDistance(phash1, phash2) / 64
+$$
+
+For example, consider these two images. The first image with pHash value **63433b3ccf8e1ebe**
+
+![pHash = 63433b3ccf8e1ebe](../../.gitbook/assets/first%20%281%29.jpg)
+
+Second with pHash value **f5d2226cd9d32b16**
+
+![pHash = f5d2226cd9d32b16](../../.gitbook/assets/second%20%281%29.jpg)
+
+The distance between two pHash values can be calculated using the utility function provided by [ImageKit.io server-side SDKs](../api-introduction/sdk.md#server-side-sdks).
 
 {% tabs %}
 {% tab title="Node.js" %}
@@ -114,13 +130,8 @@ const imagekit = new ImageKit({
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
-// Some examples:
-imagekit.pHashDistance('f06830ca9f1e3e90', 'f06830ca9f1e3e90');
-// output: 0 (same image)
-imagekit.pHashDistance('2d5ad3936d2e015b', '2d6ed293db36a4fb');
-// output: 17 (similar images)
-imagekit.pHashDistance('a4a65595ac94518b', '7838873e791f8400');
-// output: 37 (dissimilar images)
+imagekit.pHashDistance("63433b3ccf8e1ebe", "f5d2226cd9d32b16");
+// output: 27
 ```
 {% endtab %}
 
@@ -134,9 +145,8 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-print(
-    "Phash distance-", imagekit.phash_distance("f06830ca9f1e3e90", "f06830ca9f1e3e90"),
-)
+# distance is 27
+distance = imagekit.phash_distance("63433b3ccf8e1ebe", "f5d2226cd9d32b16"),
 ```
 {% endtab %}
 
@@ -152,10 +162,15 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$distance = $imageKit->pHashDistance("f06830ca9f1e3e90", "f06830ca9f1e3e90");
-
-echo("Phash Distance : " . $distance);
+// 27
+$distance = $imageKit->pHashDistance("63433b3ccf8e1ebe", "f5d2226cd9d32b16");
 ```
 {% endtab %}
 {% endtabs %}
+
+$$
+SimilarityScore = 1-27/64 = 0.578125
+$$
+
+This means two images are not similar.
 
