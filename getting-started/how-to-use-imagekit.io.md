@@ -31,9 +31,27 @@ If you don't want to handle image upload to your own storage, then ImageKit's me
 
 Media library allows you to:
 
-1. Upload images via ImageKit.io dashboard, [upload API](../api-reference/upload-file-api/) or using SDKs.
+1. Upload files via the ImageKit.io dashboard.
 2. [Create folders](../media-library/overview/folders.md) and [delete folders](../media-library/overview/delete-folder.md) to manage your images.
-3. [Tag files](../media-library/overview/image-tags.md) for better organization.
+3. [Tag files](../media-library/overview/image-tags.md) for a better organization.
 4. [Search files](../media-library/overview/search-update-and-delete.md) by name, folder name, and tags.
-5. Delete a file.
+5. Delete selected files or an entire folder.
+6. Bulk add or remove tags.
+7. Copy or move files.
+8. Copy or move folder.
+
+All media library operations can be executed using APIs:
+
+1. Upload files from the [server](../api-reference/upload-file-api/server-side-file-upload.md) or [client-side](../api-reference/upload-file-api/client-side-file-upload.md).
+2. [Updating files details](../api-reference/media-api/update-file-details.md), e.g., tags and custom coordinates for cropping.
+3. [Listing and searching files](../api-reference/media-api/list-and-search-files.md) in the Media library by file/folder name, tags.
+4. [Getting individual file details](../api-reference/media-api/get-file-details.md).
+5. [Deleting files](../api-reference/media-api/delete-file.md).
+6. [Delete files in bulk](../api-reference/media-api/delete-files-bulk.md).
+7. [Purging cache](../api-reference/media-api/purge-cache.md) on CDN.
+8. [Getting image metadata](../api-reference/metadata-api/get-image-metadata-for-uploaded-media-files.md) for an image file.
+9. Bulk [add](../api-reference/media-api/add-tags-bulk.md) or [remove](../api-reference/media-api/remove-tags-bulk.md) tags.
+10. [Copy](../api-reference/media-api/copy-file.md) or [move](../api-reference/media-api/move-file.md) files.
+11. [Copy](../api-reference/media-api/copy-folder.md) or [move](../api-reference/media-api/move-folder.md) folder.
+12. [Get bulk job status](../api-reference/media-api/copy-move-folder-status.md) for copy and move folder jobs.
 
