@@ -46,7 +46,7 @@ Often you need multiple variations of a single image to cater to different devic
 
 {% page-ref page="../named-transformations.md" %}
 
-### 2. Low quality image placeholder 
+### 2. Low-quality image placeholder 
 
 You can load a small size blurred image as a placeholder while the actual image loads in the background. ImageKit.io provides a blur parameter `bl` that can give you a blurred file that is smaller in file size but can be used as a placeholder as it shows the content. This technique is used by many applications, including Medium publication.
 
@@ -68,7 +68,7 @@ ImageKit.io can automatically detect the most important part of the image and pr
 
 You can overlay multiple images or colored rectangles on your original image directly from the URL. If you happen to change the overlay image, it can be done in minutes instead of days.
 
-Here we have put ImageKit.io logo \([https://ik.imagekit.io/demo/logo-white\_SJwqB4Nfe.png](https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png)\) on another image using overlay parameter i.e., `oi`
+Here we have put the ImageKit.io logo \([https://ik.imagekit.io/demo/logo-white\_SJwqB4Nfe.png](https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png)\) on another image using overlay parameter i.e., `oi`
 
 **Learn more about image overlay**
 
@@ -78,7 +78,7 @@ Here we have put ImageKit.io logo \([https://ik.imagekit.io/demo/logo-white\_SJw
 
 ### 6. Text overlay
 
-You can overlay text on an image and create dynamic banners. You can also control the font, font size, weight, color and position of the text.
+You can overlay text on an image and create dynamic banners. You can also control the font, font size, weight, color, and position of the text.
 
 **Learn more about text overlay**
 
