@@ -1,6 +1,6 @@
 # How to use ImageKit.io?
 
-There are two ways to use ImageKit.io. Depending upon your needs, either you can plug ImageKit.io with your existing infrastructure without moving or re-uploading any existing images, or you can upload pictures in the ImageKit.io media library. Both options are always available can be used together.
+There are two ways to use ImageKit.io. Depending upon your needs, either you can plug ImageKit.io with your existing infrastructure without moving or re-uploading any existing images, or you can upload pictures in the ImageKit.io media library. Both options are always available and can be used together.
 
 ## 1. Integration with existing storage or server
 
