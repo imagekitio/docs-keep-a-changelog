@@ -1,6 +1,6 @@
 # How to use ImageKit.io?
 
-There are two ways to use ImageKit.io. Depending upon your needs, either you can plug ImageKit.io with your existing infrastructure without moving or re-uploading any existing images, or you can upload pictures in the ImageKit.io media library.
+There are two ways to use ImageKit.io. Depending upon your needs, either you can plug ImageKit.io with your existing infrastructure without moving or re-uploading any existing images, or you can upload pictures in the ImageKit.io media library. Both options are always available can be used together.
 
 ## 1. Integration with existing storage or server
 
@@ -29,14 +29,9 @@ ImageKit.io supports the following types of origin:
 
 If you don't want to handle image upload to your own storage, then ImageKit's media library is excellent for you. The media library is an available unlimited internal storage provided by ImageKit.io to all its users. ImageKit.io media library is built on top of the Amazon S3, and it is co-located with core image processing servers in all the regions.
 
-{% hint style="success" %}
-**Automatic storage replication** 😎   
-****All files uploaded in the media library are automatically replicated in two geographic regions to handle failovers.
-{% endhint %}
-
 Media library allows you to:
 
-1. Upload images via ImageKit.io dashboard, [upload API](../api-reference/upload-file-api/), or using SDKs.
+1. Upload images via ImageKit.io dashboard, [upload API](../api-reference/upload-file-api/) or using SDKs.
 2. [Create folders](../media-library/overview/folders.md) and [delete folders](../media-library/overview/delete-folder.md) to manage your images.
 3. [Tag files](../media-library/overview/image-tags.md) for better organization.
 4. [Search files](../media-library/overview/search-update-and-delete.md) by name, folder name, and tags.

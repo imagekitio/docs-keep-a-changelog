@@ -4,7 +4,11 @@
 
 ## 📌Getting Started
 
-* [First step](getting-started/first-step.md)
+* [Getting started](getting-started/quickstart-guides/README.md)
+  * [React](getting-started/quickstart-guides/react.md)
+  * [React Native](getting-started/quickstart-guides/react-native.md)
+  * [Ruby on Rails](getting-started/quickstart-guides/ruby-on-rails.md)
+  * [Vue.js](getting-started/quickstart-guides/vuejs.md)
 * [How to use ImageKit.io?](getting-started/how-to-use-imagekit.io.md)
 
 ## 🔧External storage <a id="integration"></a>
