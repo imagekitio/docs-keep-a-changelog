@@ -1,4 +1,4 @@
-# Search, update & delete Files
+# Search, update & delete files
 
 ImageKit.io provides users with the ability to search, delete, [tag](image-tags.md), and update files from within the Media Library.
 

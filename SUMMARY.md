@@ -37,12 +37,14 @@
 
 * [Media Library](media-library/overview/README.md)
   * [Upload files](media-library/overview/upload-files.md)
-  * [Search, update & delete Files](media-library/overview/search-update-and-delete.md)
+  * [Search, update & delete files](media-library/overview/search-update-and-delete.md)
   * [Copy and move files](media-library/overview/copy-and-move-files.md)
-  * [Image Tagging and searching](media-library/overview/image-tags.md)
+  * [Image tagging and searching](media-library/overview/image-tags.md)
   * [Create folders](media-library/overview/folders.md)
   * [Copy and move folders](media-library/overview/copy-and-move-folders.md)
   * [Delete folder](media-library/overview/delete-folder.md)
+  * [Custom focus area](media-library/overview/custom-focus-area.md)
+  * [Edit image](media-library/overview/edit-image.md)
 
 ## ✨Features
 

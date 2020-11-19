@@ -307,7 +307,7 @@ So we suggest ensuring that you are using the correct height and width dimension
 
 #### Example - **Focus using custom coordinates**
 
-Instead of specifying the `x`, `y`, `xc` or `xy` coordinates to focus on a particular area, you can also specify the focus area in an image while uploading the image or from the media library and then use `fo-custom` transformation in the image URL. ImageKit will then utilize the custom crop area specified with the image for all crop operations. This custom focus mode works for both [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) and the default [maintain ratio crop](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio) strategy.
+Instead of specifying the `x`, `y`, `xc` or `xy` coordinates to focus on a particular area, you can also specify the focus area in an image while uploading the image or from the media library and then use `fo-custom` transformation in the image URL. ImageKit will then utilize the custom crop area specified with the image for all crop operations. This custom focus mode works for both the [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) and the default [maintain ratio crop](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio) strategy.
 
 {% tabs %}
 {% tab title="Original" %}
