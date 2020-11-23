@@ -36,7 +36,7 @@ The transformations can be as basic as manipulating the height and width of the 
 
 ### 1. Creating multiple variants from a single master image
 
-Often you need multiple variations of a single image to cater to different devices and sections within your application layout. Now you can create as many as variations using ImageKit.io real-time image transformation parameters. Just change the URL to get a new image.
+Often you need multiple variations of a single image to cater to different devices and sections within your application layout. Now you can create as many variations using ImageKit.io real-time image transformation parameters. Just change the URL to get a new image.
 
 **Learn about all commonly used resizing parameters**
 
@@ -54,9 +54,9 @@ You can load a small size blurred image as a placeholder while the actual image 
 
 ### 3. Deliver Responsive and Art Directed Images
 
-With the ability to resize images by changing URL, it becomes very easy to implement responsive images in your web applications. Learn more from these detailed guides:
+With the ability to resize images by changing URL, it becomes very easy to implement [responsive images](https://imagekit.io/responsive-images/) in your web applications. Learn more about responsive images in our detailed guide:
 
-{% embed url="https://scotch.io/tutorials/deliver-responsive-and-art-directed-images-for-your-website-with-imagekit908237" caption="Deliver Responsive and Art Directed Images For Your Website" %}
+{% embed url="https://imagekit.io/responsive-images/" %}
 
 ### 4. Smart-cropping for generating meaningful thumbnails
 
