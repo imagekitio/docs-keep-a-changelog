@@ -1,12 +1,12 @@
-# Move file
+# Delete folder
 
-{% api-method method="post" host="https://api.imagekit.io" path="/v1/files/move" %}
+{% api-method method="delete" host="https://api.imagekit.io" path="/v1/folder/" %}
 {% api-method-summary %}
-Move file API
+Delete folder API
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This will move a file from one folder to another.
+This will delete the specified folder and all nested files & folders. This action is cannot be undone.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -18,21 +18,17 @@ base64 encoding of `your_private_api_key:`
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter required=true name="sourceFilePath" type="string" %}
-The full path of the file you want to move. For example - /path/to/file.jpg
+{% api-method-query-parameters %}
+{% api-method-parameter name="folderPath" type="string" required=true %}
+Full path to the folder you want to delete. For example `folder/to/delete/`
 {% endapi-method-parameter %}
-
-{% api-method-parameter required=true name="destinationPath" type="string" %}
-Full path to the folder you want to move the above file into. For example - /folder/to/move/into/
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
+{% endapi-method-query-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=204 %}
 {% api-method-response-example-description %}
-
+Folder deleted successfully
 {% endapi-method-response-example-description %}
 
 ```
@@ -42,14 +38,14 @@ Full path to the folder you want to move the above file into. For example - /fol
 
 {% api-method-response-example httpCode=404 %}
 {% api-method-response-example-description %}
-If no file is found at the specified `sourceFilePath` then a 404 response is returned.
+If no folder is found at the specified `folderPath` then a `404` response is returned. 
 {% endapi-method-response-example-description %}
 
-```javascript
+```
 {
-     "message" : "No file found with filePath /path/to/file.jpg",
+     "message" : "No folder found with folderPath folder/to/delete/",
      "help" : "For support kindly contact us at support@imagekit.io .",
-     "reason" : "SOURCE_FILE_MISSING" 
+     "reason" : "FOLDER_NOT_FOUND" 
 }
 ```
 {% endapi-method-response-example %}
@@ -61,19 +57,18 @@ If no file is found at the specified `sourceFilePath` then a 404 response is ret
 
 In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `204` status code with an empty body.
 
-### Examples
+## Examples
 
 Here is the example request to understand the API usage.
 
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
-curl -X POST "https://api.imagekit.io/v1/files/move" \
+curl -X POST "https://api.imagekit.io/v1/folder/" \
 -H 'Content-Type: application/json' \
 -u your_private_key: -d '
 {
-	"sourceFilePath" : "/path/to/file.jpg",
-	"destinationPath" : "/folder/to/move/into/"
+	"folderPath" : "folder/to/delete/"
 }
 '
 ```

@@ -6,7 +6,7 @@ Purge cache API
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This will purge CDN and ImageKit.io internal cache.
+This will purge CDN and ImageKit.io's internal cache.
 {% endapi-method-description %}
 
 {% api-method-spec %}
