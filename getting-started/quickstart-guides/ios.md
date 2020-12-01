@@ -12,9 +12,9 @@ This guide walks you through the following topics: ‌
 
 * [Clone and run the tutorial app](ios.md#clone-and-run-the-tutorial-app)
 * [Setting up ImageKit iOS SDK   ](ios.md#setup-imagekit-ios-sdk)
-* [Rendering images   ](react.md#rendering-images)
-* [Applying common image manipulations   ](ios.md#common-image-manipulation)
-* [Adding overlays to images](ios.md#adding-an-overlay-to-images)
+* [Rendering images   ](ios.md#rendering-images-in-ios-application)
+* [Applying common image manipulations   ](ios.md#common-image-manipulation-in-ios-application)
+* [Adding overlays to images](ios.md#adding-an-overlay-to-images-in-ios-application)
 * [Client-side file uploading   ](ios.md#client-side-file-uploading)
 
 ## **Clone and run the tutorial app**
