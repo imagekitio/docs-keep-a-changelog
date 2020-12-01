@@ -5,6 +5,7 @@
 ## 📌Getting Started
 
 * [Getting started](getting-started/quickstart-guides/README.md)
+  * [iOS](getting-started/quickstart-guides/ios.md)
   * [React](getting-started/quickstart-guides/react.md)
   * [React Native](getting-started/quickstart-guides/react-native.md)
   * [Ruby on Rails](getting-started/quickstart-guides/ruby-on-rails.md)
