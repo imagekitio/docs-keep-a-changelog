@@ -64,7 +64,7 @@ Here is the example request to understand the API usage.
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
-curl -X POST "https://api.imagekit.io/v1/folder/" \
+curl -X DELETE "https://api.imagekit.io/v1/folder/" \
 -H 'Content-Type: application/json' \
 -u your_private_key: -d '
 {
