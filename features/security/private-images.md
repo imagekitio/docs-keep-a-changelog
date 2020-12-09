@@ -1,9 +1,8 @@
 # Private images
 
-Private images are images that are not accessible to any end-user. Since much effort goes into producing an original image, there might be scenarios where original images must be protected and made inaccessible to anyone. For example:
+Private images are images that are not accessible to any end-user. Since much effort goes into producing an original image, there might be scenarios where original images must be protected and made inaccessible to anyone. 
 
-* A paid image gallery that shares original images with its customers only when the payment is completed. 
-* You watermark all your images using ImageKit.io parameters. You do not want anyone to access the image URL from your website, remove the transformation parameter to obtain the original image. Or change the transformation string to remove the watermark altogether. 
+For example, a paid image gallery that shares original images with its customers only when the payment is completed.
 
 ## Private Images with ImageKit.io
 

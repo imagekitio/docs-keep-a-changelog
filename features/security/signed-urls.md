@@ -1,8 +1,13 @@
 # Signed URLs
 
-When generating image URLs from your server, you can generate a signed \(secure\) image URL using your [ImageKit.io private key](../../api-reference/api-introduction/api-keys.md#private-key). Signing adds additional query parameters to the image URL, which restricts altering the image transformation from the URL.
+A signed URL is a secure URL that can be generated only by you using your [account's private key](../../api-reference/api-introduction/api-keys.md#private-key). There are certain use cases where you will need to use signed URLs:
 
-When generating signed URLs, use the private key available within the [Developer section](https://imagekit.io/dashboard#developers) on the dashboard. Signing the URLs adds additional query parameters to ensure that image transformations cannot be altered from the URL. If a third party tries to modify the image transformation or the image URL, or use it beyond its intended expiry time, the request would return a `401 Unauthorised` status code because of a signature mismatch.
+* You have turned on the "[Restrict unsigned URLs](./#restricting-unsigned-urls)" setting from the dashboard.
+* You watermark all your images using ImageKit.io parameters to protect original assets. You do not want anyone to access the original image by removing the [watermark specific transformation ](../image-transformations/overlay.md#image-overlay)from the image URL.​
+* You want certain image URLs in your application to be accessible only for a specific time period in the future.
+* You are trying to access a [private image](private-images.md).
+
+When generating signed URLs, use the private key available within the [Developer section](https://imagekit.io/dashboard#developers) on the dashboard. Signing the URLs adds additional query parameters to ensure that image transformations cannot be altered from the URL. If someone tries to modify the image transformation or the image URL or use it beyond its intended expiry time, a `401 Unauthorised` response status code is returned.
 
 A signed URL would be similar to :
 

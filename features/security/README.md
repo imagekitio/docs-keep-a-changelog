@@ -1,6 +1,6 @@
 # Security
 
-ImageKit.io provides certain features to secure your images and restrict the transformations that can be performed. Implementing these security features will stop unauthorized use of your image URLs, and make your code look much cleaner.
+ImageKit.io provides certain features to secure your images and restrict the transformations that can be performed. Implementing these security features will stop the unauthorized use of your image URLs.
 
 You can secure your images by [restricting unsigned URLs](./#restricting-unsigned-urls), [restricting unnamed image transforms](./#restricting-unnamed-image-transformations), and using [private images](private-images.md).
 
@@ -15,7 +15,7 @@ Enable 'Restrict Unnamed Image Transformations' and click on 'Save'.
 ![Restrict unnamed image transformation setting in ImageKit.io dashboard](../../.gitbook/assets/restrict-unnamed-transformation.png)
 
 {% hint style="warning" %}
-Restricting Unnamed Transformations does not allow explicit transformations. For eg: enabling this feature and then trying to use tr:w-100,h-100 within the URL, or any other transform mentioned explicitly, would return a 'Bad Image Transformation Request' error.
+Restricting Unnamed Transformations does not allow explicit transformations. For eg: enabling this feature and then trying to use tr:w-100,h-100 within the URL, or any other transform mentioned explicitly would return a 'Bad Image Transformation Request' error.
 {% endhint %}
 
 ## Restricting Unsigned URLs
