@@ -6,7 +6,7 @@ With multiple image formats to choose from, it often becomes a difficult task to
 
 Format Optimization is the process of delivering the best image format to the end-user, while taking into account various factors such as requesting device capabilities, browser support for certain image formats, image content, [image quality](quality-optimization.md), and more. Ensuring the right format helps you reduce the image size and subsequently the load time.
 
-For Example, the below image gets delivered as WebP for Chrome browser and as JPEG for Safari. If you have[ the automatic conversion to AVIF]() enabled for your account, then the image will be delivered in AVIF format on supported devices.
+For Example, the below image gets delivered as WebP for Chrome browser and as JPEG for Safari. If you have the automatic conversion to AVIF enabled for your account, then the image will be delivered in AVIF format on supported devices.
 
 Image URL: [https://ik.imagekit.io/demo/tr:w-200/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-200/medium_cafe_B1iTdD0C.jpg)
 
