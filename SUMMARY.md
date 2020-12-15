@@ -64,6 +64,7 @@
   * [PNG Compression](features/image-optimization/png-compression.md)
 * [Named Transformations](features/named-transformations.md)
 * [Network-based image optimization](features/network-based-image-optimization.md)
+* [Client hints](features/client-hints.md)
 * [Caches](features/caches.md)
 * [Cache purging](features/cache-purging.md)
 * [Security](features/security/README.md)
