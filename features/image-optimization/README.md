@@ -1,4 +1,4 @@
-# Image optimization
+# Image Optimization
 
 ImageKit.io offers multiple features including automatic best format selection, quality optimization, and metadata manipulation out of the box, to reduce the final size of the output image. This improves the load time of your website's images while maintaining acceptable image quality.
 

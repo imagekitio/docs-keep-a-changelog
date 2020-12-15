@@ -55,7 +55,7 @@
   * [Image enhancement & color manipulation](features/image-transformations/image-enhancement-and-color-manipulation.md)
   * [Chained transformations](features/image-transformations/chained-transformations.md)
   * [Supported text font list](features/image-transformations/supported-text-font-list.md)
-* [Image optimization](features/image-optimization/README.md)
+* [Image Optimization](features/image-optimization/README.md)
   * [Automatic image format conversion](features/image-optimization/automatic-image-format-conversion.md)
   * [Quality Optimization](features/image-optimization/quality-optimization.md)
   * [Chroma Subsampling](features/image-optimization/chroma-subsampling.md)

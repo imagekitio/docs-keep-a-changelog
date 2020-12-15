@@ -421,7 +421,7 @@ Quite distinctly from the [auto smart crop](resize-crop-and-other-transformation
 
 ### Quality - \(q\)
 
-Used to specify the quality of the output image for lossy formats like JPEG and WebP.  A large quality number indicates a larger output image size with high quality. A small quality number indicates a smaller output image size with lower quality. 
+Used to specify the quality of the output image for lossy formats like JPEG, WebP and AVIF.  A large quality number indicates a larger output image size with high quality. A small quality number indicates a smaller output image size with lower quality. 
 
 **Default Value** - `80` \(can be managed from image settings in dashboard\)
 
@@ -443,7 +443,7 @@ URL - [https://ik.imagekit.io/demo/tr:q-10/medium\_cafe\_B1iTdD0C.jpg](https://i
 
 Used to specify the format of the output image. If no output image format is specified then based on your image settings in the dashboard, ImageKit.io [automatically picks the best format](../image-optimization/automatic-image-format-conversion.md) for that image request.
 
- Possible values include `auto` ,`jpg` , `jpeg` , and `png`
+ Possible values include `auto` ,`jpg` , `jpeg` , `webp`, `avif` and `png`
 
 **Default Value** - `auto` \(from dashboard settings\)
 
