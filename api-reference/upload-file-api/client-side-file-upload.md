@@ -416,7 +416,7 @@ Make sure you have implemented `authenticationEndpoint` endpoint on your server 
 	function upload() {
 	  var file = document.getElementById("file1");
 		var formData = new FormData();
-		formData.append("file", file);
+		formData.append("file", file.files[0]);
 		formData.append("fileName", "abc.jpg");
 		formData.append("publicKey", "your_public_api_key");
 	
