@@ -29,14 +29,14 @@ The maximum upload file size is limited to 25MB.
       <td style="text-align:left"><b>file<br /></b>required<b><br /></b>
       </td>
       <td style="text-align:left">
-        <p>This field accepts three kind of values:</p>
+        <p>This field accepts three kinds of values:</p>
         <p></p>
         <ul>
           <li><code>binary</code> - You can send the content of the file as binary. This
             is used when a file is being uploaded from the browser.</li>
           <li><code>base64</code> - Base64 encoded string of file content.</li>
           <li><code>url</code> - URL of the file from where to download the content before
-            uploading. Downloading file from URL might take longer, so it is recommended
+            uploading. Downloading a file from a URL might take longer, so it is recommended
             that you pass the binary or base64 content of the file. Pass the full URL,
             for example - <code>https://www.example.com/rest-of-the-image-path.jpg</code>.</li>
         </ul>
@@ -49,7 +49,8 @@ The maximum upload file size is limited to 25MB.
       </td>
       <td style="text-align:left">Your public API key.&#xA0;
         <br /><b><br />Note:</b>&#xA0;This field is only required when uploading the
-        file from client-side. The only purpose of this is to identify your account.</td>
+        file from the client-side. The only purpose of this is to identify your
+        account.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>signature</b>
@@ -59,11 +60,11 @@ The maximum upload file size is limited to 25MB.
       <td style="text-align:left">
         <p>HMAC-SHA1 digest of the&#xA0;<code>token+expire</code>&#xA0;using your
           ImageKit.io <a href="../api-introduction/api-keys.md#private-key">private API key</a>&#xA0;as
-          a key. Learn how to create signature below in the page.
+          a key. Learn how to create a signature below on the page.
           <br />
         </p>
-        <p>&#x26A0; <b>Warning:</b>&#xA0;Signature must be calculated on the server
-          side. This field is required for authentication when uploading a file from
+        <p>&#x26A0; <b>Warning:</b>&#xA0;Signature must be calculated on the server-side.
+          This field is required for authentication when uploading a file from the
           client-side.</p>
       </td>
     </tr>
@@ -81,7 +82,7 @@ The maximum upload file size is limited to 25MB.
         suggest using V4 UUIDs, or another random string with enough entropy to
         avoid collisions.
         <br />
-        <br /><b>Note:</b> Sending a value which has been used in the past will result
+        <br /><b>Note:</b> Sending a value that has been used in the past will result
         in a validation error. Even if your previous request resulted in an error,
         you should always send a new value for this field.</td>
     </tr>
@@ -111,7 +112,7 @@ The maximum upload file size is limited to 25MB.
           <li>If set <code>true</code>, ImageKit.io will add a unique suffix to the filename
             parameter to get a unique filename.</li>
           <li>If set <code>false</code>, then the image is uploaded with the provided
-            filename parameter and any existing file with the same name is replaced.</li>
+            filename parameter, and any existing file with the same name is replaced.</li>
         </ul>
         <p><b>Default value</b> - <code>true</code>
         </p>
@@ -124,8 +125,8 @@ The maximum upload file size is limited to 25MB.
         <p>Set the tags while uploading the file.</p>
         <p></p>
         <ul>
-          <li>Comma-separated value of tags in format <code>tag1,tag2,tag3</code>. For
-            example - <code>t-shirt,round-neck,men</code>
+          <li>A comma-separated value of tags in the format <code>tag1,tag2,tag3</code>.
+            For example - <code>t-shirt,round-neck,men</code>
           </li>
           <li>The maximum length of all characters should not exceed 500.</li>
           <li><code>%</code> is not allowed.</li>
@@ -182,7 +183,7 @@ The maximum upload file size is limited to 25MB.
         </p>
         <ul>
           <li>To be passed as a string with the x and y coordinates of the top-left
-            corner, and width and height of the area of interest in format <code>x,y,width,height</code>.
+            corner, and width and height of the area of interest in the format <code>x,y,width,height</code>.
             For example - <code>10,10,100,100</code>
           </li>
           <li>Can be used with <code>fo-custom</code>transformation.</li>
@@ -196,8 +197,8 @@ The maximum upload file size is limited to 25MB.
         <br />
       </td>
       <td style="text-align:left">Comma-separated values of the fields that you want ImageKit.io to return
-        in response.For example, set the value of this field to <code>tags,customCoordinates,isPrivateFile,metadata</code> to
-        get value of <code>tags</code>, <code>customCoordinates</code>, <code>isPrivateFile</code> ,
+        in the response. For example, set the value of this field to <code>tags,customCoordinates,isPrivateFile,metadata</code> to
+        get the value of <code>tags</code>, <code>customCoordinates</code>, <code>isPrivateFile</code> ,
         and <code>metadata</code> in the response.</td>
     </tr>
   </tbody>
@@ -205,7 +206,7 @@ The maximum upload file size is limited to 25MB.
 
 ## Response code and structure \(JSON\)
 
-In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On successful upload, you will receive a `200` status code with uploaded file details in a JSON-encoded response body.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On successful upload, you will receive a `200` status code with uploaded file details in a JSON-encoded response body.
 
 ```javascript
 {
@@ -233,22 +234,22 @@ The JSON-encoded response contains details of the file which can have the follow
 | fileId | Unique fileId. Store this fileld in your database, as this will be used to perform update action on this file. |
 | name | The name of the uploaded file. |
 | url | The URL of the file. |
-| thumbnailUrl | In case of an image, a small thumbnail URL. |
-| height | Height of the uploaded image file. Only applicable when file type is image.  |
-| width | Width of the uploaded image file. Only applicable when file type is image. |
+| thumbnailUrl | In the case of an image, a small thumbnail URL. |
+| height | Height of the uploaded image file. Only applicable when the file type is an image.  |
+| width | Width of the uploaded image file. Only applicable when the file type is an image. |
 | size | Size of the uploaded file in bytes. |
 | fileType | Type of file. It can either be `image` or `non-image`. |
 | filePath  | The path of the file uploaded. It includes any folder that you specified while uploading. |
-| tags | Array of tags associated with the file. |
+| tags | Anarray of tags associated with the file. |
 | isPrivateFile | Is the file marked as private. It can be either `true` or `false`. |
-| customCoordinates | Value of custom coordinates associated with the image in format `x,y,width,height`. |
-| metadata | The metadata of the upload file. Use `fields` property in request to get the metadata returned in response of upload API. |
+| customCoordinates | Value of custom coordinates associated with the image in the format `x,y,width,height`. |
+| metadata | The metadata of the upload file. Use `fields` property in request to get the metadata returned in the response of upload API. |
 
 ## Signature generation for client-side file upload
 
-`signature` is a string sent along with your upload request for authentication when using upload API from client-side. Generating it requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), and hence this should be generated on your backend. Your backend should ideally implement an API which should provide `signature`.
+`signature` is a string sent along with your upload request for authentication when using upload API from the client-side. Generating it requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), and hence this should be generated on your backend. Your backend should ideally implement an API that should provide `signature`.
 
-The `signature` is HMAC-SHA1 digest of string `token+expire` using your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key) as a key.
+The `signature` is HMAC-SHA1 digest of the string `token+expire` using your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key) as a key.
 
 {% hint style="danger" %}
 **Never publish your private key on client-side**   
@@ -259,7 +260,7 @@ If you are using ImageKit.io [client-end SDK](../api-introduction/sdk.md#client-
 
 ### How to implement authenticationEndpoint endpoint?
 
-This endpoint is specified by `authenticationEndpoint` parameter during initialisation. The SDK makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token` and `expire`.  
+This endpoint is specified by `authenticationEndpoint` parameter during initialization. The SDK makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token` and `expire`.  
 
 Example response:
 
@@ -271,7 +272,7 @@ Example response:
 }
 ```
 
-Since calculating these parameters requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), hence this endpoint has to be implemented on your server side. You can use utility functions provided in all [server-side SDKs](../api-introduction/sdk.md#server-side-sdks) to implement this endpoint like shown below.
+Since calculating these parameters requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), hence this endpoint has to be implemented on your server-side. You can use utility functions provided in all [server-side SDKs](../api-introduction/sdk.md#server-side-sdks) to implement this endpoint as shown below.
 
 {% tabs %}
 {% tab title="Pseudo code" %}
@@ -356,7 +357,7 @@ The Private API key should be kept confidential and only stored on your own serv
 
 ## Examples
 
-Make sure you have implemented `authenticationEndpoint` endpoint on your server as shown [here](client-side-file-upload.md#how-to-implement-authenticationendpoint-endpoint) before using below examples.
+Make sure you have implemented `authenticationEndpoint` endpoint on your server as shown [here](client-side-file-upload.md#how-to-implement-authenticationendpoint-endpoint) before using the below examples.
 
 {% tabs %}
 {% tab title="JavaScipt SDK" %}
