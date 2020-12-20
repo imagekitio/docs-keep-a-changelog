@@ -45,6 +45,10 @@ By default, ImageKit.io delivers the best format for an image. Use the`orig-true
 
 AVIF \(AV1 Image File\) is a new image format that offers superior compression and visual quality compared to other image formats like JPEG and WebP. It has been launched in Chrome 85, and support is likely to be added in Android and Firefox soon. More details on the current browser support for AVIF can be found here - [https://caniuse.com/avif](https://caniuse.com/avif).
 
+{% hint style="info" %}
+Before you start using AVIF images on your website, we would recommend reading this detailed[ blog that highlights the features, compression, visual quality, and the current drawbacks of the AVIF image format](https://imagekit.io/blog/automatic-avif-image-optimization-imagekit/).
+{% endhint %}
+
 Starting 15 December 2020, ImageKit has started rolling out support for automatic conversion of images to the AVIF format on devices that support AVIF format; they send `image/avif` in the `Accept` request header. Here is how the rollout is planned -
 
 1. All users can force their images to AVIF format by adding the format transformation parameter `f-avif` in the transformation string
