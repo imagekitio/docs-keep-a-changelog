@@ -70,7 +70,7 @@ use_frameworks!
 target 'target_name' do 
     ...
     # Add to your project target
-    pod 'ImageKitIO', '~> 1.1.0'
+    pod 'ImageKitIO', '~> 2.0.0'
     ...
 end
 ```
@@ -84,8 +84,8 @@ Open `AppDelegate.swift` file, this is where we will initialize our SDK with the
 
 ```swift
 ImageKit.init(
-    clientPublicKey: "your_public_api_key=", 
-    imageKitEndpoint: "https://ik.imagekit.io/your_imagekit_id", 
+    publicKey: "your_public_api_key=", 
+    urlEndpoint: "https://ik.imagekit.io/your_imagekit_id", 
     transformationPosition: TransformationPosition.PATH, 
     authenticationEndpoint: "http://www.yourserver.com/auth"
 )
@@ -257,8 +257,8 @@ For using upload functionality, we need to pass `publicKey` and `authenticationE
 
 ```bash
 ImageKit.init(
-    clientPublicKey: "your_public_api_key", 
-    imageKitEndpoint: "your_url_endpoint", 
+    publicKey: "your_public_api_key", 
+    urlEndpoint: "your_url_endpoint", 
     transformationPosition: TransformationPosition.PATH, 
     authenticationEndpoint: "your_authentication_endpoint"
 )
