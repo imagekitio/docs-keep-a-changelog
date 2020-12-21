@@ -69,8 +69,6 @@ Follow one of the platform-specific quick start guides to integrate ImageKit in 
 
 {% page-ref page="vuejs.md" %}
 
-
-
 ## SDK and libraries
 
 We have published libraries in popular programming languages so that you can easily integrate ImageKit.
