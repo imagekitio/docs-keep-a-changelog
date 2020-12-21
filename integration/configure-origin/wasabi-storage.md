@@ -1,6 +1,6 @@
 # Wasabi Storage
 
-You can configure ImageKit.io to fetch images from your Wasabi Storage bucket. This allows you to start leveraging ImageKit.io real-time image resizing, optimisation, and fast CDN delivery for thousands or millions of existing images within minutes.
+You can configure ImageKit.io to fetch images from your Wasabi Storage bucket. This allows you to start leveraging ImageKit.io real-time image resizing, optimization, and fast CDN delivery for thousands or millions of existing images within minutes.
 
 Wasabi Storage is an [S3-compatible storage provider](https://docs.imagekit.io/integration/configure-origin/s3-compatible-external-storages), which means you can configure ImageKit to access it the same way it accesses an AWS S3 bucket. To configure your Wasabi Storage bucket with your ImageKit account, you will need Wasabi's endpoint parameter. This value generally depends upon the region in which your bucket belongs
 

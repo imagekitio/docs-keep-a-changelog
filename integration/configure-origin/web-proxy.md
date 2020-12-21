@@ -56,7 +56,9 @@ If you want to create a **signed URL** that uses a Web Proxy origin, you must en
 
 Now start using ImageKit.io URL endpoint in your application to accelerate image loading.
 
-**Get started with our SDKs:**
+**Get started with our quick start guides and SDKs:**
+
+{% page-ref page="../../getting-started/quickstart-guides/" %}
 
 {% page-ref page="../../api-reference/api-introduction/sdk.md" %}
 

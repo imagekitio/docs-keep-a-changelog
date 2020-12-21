@@ -122,7 +122,9 @@ storageRef.child("users/me/profile.png").getDownloadUrl().addOnSuccessListener(n
 
 Now start using ImageKit.io URL endpoint in your application to accelerate image loading.
 
-#### **Quickly get started with our SDKs:**
+**Get started with our quick start guides and SDKs:**
+
+{% page-ref page="../../getting-started/quickstart-guides/" %}
 
 {% page-ref page="../../api-reference/api-introduction/sdk.md" %}
 
