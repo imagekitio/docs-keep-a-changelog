@@ -11,9 +11,10 @@ You can add your existing Amazon S3 bucket as an origin in ImageKit.io. This all
 3. Give your origin a name, it will appear in the list of origins you have added. For example - **Product images bucket**.
 4. Fill out the S3 bucket name.
 5. Specify the S3 bucket folder in which your images are present. If you have to access files at the root \(i.e., present directly in the bucket and not inside a folder\), enter `/`.
-6. Fill out S3 access and secret keys. These keys should provide read-only access to ImageKit.io as explained below.
-7. Leave the [advanced options](amazon-s3-bucket-origin.md#advanced-options-for-s3-type-origin) as it is for now.
-8. Click on the Submit button.
+6. Specify the Endpoint corresponding to your AWS region. You can find complete information about region-wise endpoints on [this page](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html).
+7. Fill out S3 access and secret keys. These keys should provide read-only access to ImageKit.io as explained below.
+8. Leave the [advanced options](amazon-s3-bucket-origin.md#advanced-options-for-s3-type-origin) as it is for now.
+9. Click on the Submit button.
 
 {% hint style="warning" %}
 **Read-only permission required**  
