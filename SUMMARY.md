@@ -88,6 +88,8 @@
 
 * [Upload widget](sample-projects/upload-widget/README.md)
   * [Uppy upload widget - Plain JS](sample-projects/upload-widget/uppy-upload-widget.md)
+* [Media library widget](sample-projects/embeddable-media-library-widget/README.md)
+  * [CKEditor integration](sample-projects/embeddable-media-library-widget/ckeditor5-plugin.md)
 
 ## 📙API Reference
 
