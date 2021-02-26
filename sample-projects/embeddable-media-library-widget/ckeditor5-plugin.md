@@ -4,7 +4,7 @@ description: Sample application to embed ImageKit Media Library in the CKEditor.
 
 # CKEditor integration
 
-ImageKit can be integrated into CKEditor 5 using the [`imagekit-ckeditor5-plugin`](https://www.npmjs.com/package/imagekit-ckeditor5-plugin) available on npm. This plugin allows you to access the [Media Library Widget](https://github.com/imagekit-developer/embeddable-media-library) through your CKEditor toolbar.
+ImageKit can be integrated into CKEditor 5 using the [`imagekit-ckeditor5-plugin`](https://github.com/imagekit-developer/ckeditor-plugin) available on npm. This plugin allows you to access the [Media Library Widget](https://github.com/imagekit-developer/embeddable-media-library) through your CKEditor toolbar.
 
 Using it, you can directly embed images from your ImageKit Media Library into the editor and upload new photos to your Media Library.
 

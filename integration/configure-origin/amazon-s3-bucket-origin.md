@@ -88,18 +88,15 @@ Now start using ImageKit.io URL endpoint in your application to accelerate image
 
 {% page-ref page="../../features/image-transformations/" %}
 
-## Handling special characters in file name
+## Handling special characters in filename or object key
 
-While fetching images from your S3 bucket with special characters in the name, you will get a `404 NOT FOUND` response. For example, let’s assume that there is a key `image%2Bexample.jpg` in your S3 bucket, and the request is made using `image+example.jpg` in the URL. In this case, ImageKit.io tries to fetch `image+example.jpg` object from the S3 bucket resulting in a 404 error as this object does not exist.
+If you’ve configured an S3 bucket as an origin and the bucket has objects with special characters, ImageKit might not be able to fetch images with such names and return a `404 Not Found` response. For example, if the key in S3 is `image%2Bexample.jpg`, it may not work with ImageKit.
 
-While adding S3 bucket as a source in your ImageKit.io account, you are now provided with an option to encode the keys while fetching the object from your S3 bucket. By default, this option is disabled. When enabled, the requests made while fetching images will be made using encoded keys.
+To overcome this, add your S3 bucket as a Web Server origin with the Base URL as the S3 bucket URL\(usually https://bucketname.s3.amazonaws.com\). Map this origin to the same endpoint where you've already added the S3 bucket as an origin after the S3 bucket.
 
-{% hint style="info" %}
-**Note:**  
-At present, this feature can only be enabled upon request, please email support at support@imagekit.io.
-{% endhint %}
+After doing this, your endpoint mapping should contain the S3 bucket \(with native integration to S3\) followed by the S3 bucket added as a Web Server.
 
-## Advanced options for S3 type origin
+![Native S3 bucket followed by S3 as Web Server origin for special characters in filename](../../.gitbook/assets/image%20%2826%29.png)
 
 ### Include canonical response header
 

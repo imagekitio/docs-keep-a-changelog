@@ -6,7 +6,7 @@ description: >-
 
 # Media library widget
 
-The media library widget provides a way to easily integrate [ImageKit Media Library](/@imagekit-io/s/docs/~/drafts/-MOeRVlxk26WIzUeOQ4D/media-library/overview) into your CMS or any other web application. Using this, you can access all the assets stored in your Media Library from your existing CMS or application.
+The [media library widget](https://github.com/imagekit-developer/embeddable-media-library) provides a way to easily integrate [ImageKit Media Library](../../media-library/overview/) into your CMS or any other web application. Using this, you can access all the assets stored in your Media Library from your existing CMS or application.
 
 Integrating the media library widget is straightforward as you will discover in this document.
 
