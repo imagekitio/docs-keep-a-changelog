@@ -1,6 +1,18 @@
+---
+description: >-
+  A simple interface to upload, manage, search, and tag resources for efficient
+  digital asset management in the cloud.
+---
+
 # Media Library
 
-ImageKit.io provides highly available storage called the Media Library to all its users. It comes with a simple user interface to upload, search and manage files, images, and folders.
+ImageKit.io provides highly available storage called the Media Library to all its users. It comes with a simple user interface to upload, tag, search and manage files, images, and folders.
+
+You can also use the [media library widget](https://github.com/imagekit-developer/embeddable-media-library), which provides a way to easily integrate [ImageKit Media Library](/@imagekit-io/s/docs/~/drafts/-MUh12h2Hs3LTDxi7VGp/media-library/overview) into your CMS or any other web application. Using this, you can access all the assets stored in your Media Library from your existing CMS or application.
+
+Learn more about how to use the media library widget.
+
+{% page-ref page="../../sample-projects/embeddable-media-library-widget/" %}
 
 The media library is built on top of AWS S3 and is co-located with core image processing servers in every location. We also replicate any image that is explicitly uploaded to the media library in two different geographic locations for data redundancy.
 
