@@ -1,6 +1,6 @@
 # Move folder
 
-{% api-method method="post" host="https://api.imagekit.io" path="/v1/bulkJobs/copyFolder" %}
+{% api-method method="post" host="https://api.imagekit.io" path="/v1/bulkJobs/moveFolder" %}
 {% api-method-summary %}
 Move folder API
 {% endapi-method-summary %}
