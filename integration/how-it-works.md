@@ -1,6 +1,6 @@
 # How it works?
 
-ImageKit.io plugs into your existing infrastructure with minimal code change, or no code change at all if you are using a [custom domain name](../testing-and-infrastructure-setup/using-custom-domain.md). Here is the complete flow of events when you request an image or static file through ImageKit.io.
+ImageKit.io plugs into your existing infrastructure with minimal code change, or no code change at all if you are using a [custom domain name](../testing-and-infrastructure-setup/using-custom-domain-name.md). Here is the complete flow of events when you request an image or static file through ImageKit.io.
 
 ### Request flow in ImageKit.io
 

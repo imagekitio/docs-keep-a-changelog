@@ -1,4 +1,4 @@
-# Using custom domain
+# Using with a custom domain name
 
 ## What is a custom domain?
 

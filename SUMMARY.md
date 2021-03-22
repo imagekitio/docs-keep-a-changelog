@@ -49,7 +49,7 @@
 * [Testing on multiple environments](testing-and-infrastructure-setup/testing-imagekit.md)
 * [Using on multiple websites](testing-and-infrastructure-setup/multiple-websites.md)
 * [Using with your CDN](testing-and-infrastructure-setup/integrate-with-your-cdn.md)
-* [Using custom domain](testing-and-infrastructure-setup/using-custom-domain.md)
+* [Using with a custom domain name](testing-and-infrastructure-setup/using-custom-domain-name.md)
 
 ## ✨Features
 
