@@ -1,4 +1,4 @@
-# Integrate with your CDN
+# Using with your CDN
 
 By default, ImageKit.io offers a global CDN \(Amazon CloudFront\). It means that not only are your images optimized for size and you get to transform them as per your requirements, you get a superfast delivery network with ImageKit.io that helps deliver images to your end users in milliseconds. You can use ImageKit.io's integrated CDN for delivering not only images, but also JS/CSS/fonts, or any other static asset.
 

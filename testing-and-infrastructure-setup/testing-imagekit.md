@@ -1,4 +1,4 @@
-# Testing with multiple environments
+# Testing on multiple environments
 
 Now that you have successfully [configured the origin](../integration/configure-origin/) and [URL-endpoint](../integration/url-endpoints.md), its time to test ImageKit.io. It is recommended that you test ImageKit.io on your staging or UAT environment before making changes in the live production application.
 

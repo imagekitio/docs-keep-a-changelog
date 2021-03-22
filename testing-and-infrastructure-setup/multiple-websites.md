@@ -1,4 +1,4 @@
-# Using on Multiple Websites
+# Using on multiple websites
 
 You can use single ImageKit.io account for multiple websites. This is very useful for a web development agency that handles multiple clients from the same account.
 

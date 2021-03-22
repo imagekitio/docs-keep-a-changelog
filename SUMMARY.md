@@ -46,9 +46,9 @@
 
 ## Testing and Infrastructure Setup
 
-* [Testing with multiple environments](testing-and-infrastructure-setup/testing.md)
-* [Using on Multiple Websites](testing-and-infrastructure-setup/multiple-websites.md)
-* [Integrate with your CDN](testing-and-infrastructure-setup/integrate-with-your-cdn.md)
+* [Testing on multiple environments](testing-and-infrastructure-setup/testing-imagekit.md)
+* [Using on multiple websites](testing-and-infrastructure-setup/multiple-websites.md)
+* [Using with your CDN](testing-and-infrastructure-setup/integrate-with-your-cdn.md)
 * [Using custom domain](testing-and-infrastructure-setup/using-custom-domain.md)
 
 ## ✨Features
