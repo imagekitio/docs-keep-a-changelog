@@ -36,7 +36,7 @@ Let's understand this with an example. When an image is requested at `https://ik
 
 ## Mapping custom domain for a URL endpoint
 
-You can configure a [custom domain](../features/using-custom-domain.md) for a particular URL endpoint. Once a [custom domain](../features/using-custom-domain.md) is configured on your account, it is an alias for the default URL endpoint `https://ik.imagekit.io/your_imagekit_id`. So, if you create new URL endpoints, with different Identifier values, then you would just need to add the identifier in your image URL along with the custom domain name. `ik.imagekit.io` or the ImageKit.io ID no longer appears in the URL.
+You can configure a [custom domain](../testing-and-infrastructure-setup/using-custom-domain.md) for a particular URL endpoint. Once a [custom domain](../testing-and-infrastructure-setup/using-custom-domain.md) is configured on your account, it is an alias for the default URL endpoint `https://ik.imagekit.io/your_imagekit_id`. So, if you create new URL endpoints, with different Identifier values, then you would just need to add the identifier in your image URL along with the custom domain name. `ik.imagekit.io` or the ImageKit.io ID no longer appears in the URL.
 
 You can also configure multiple custom domains and create a one-to-one mapping with the URL endpoints.
 
@@ -49,6 +49,6 @@ For example, in the screenshot below, we have two URL-endpoints:
 
 {% hint style="info" %}
 **How to add new custom domain names or map a custom domain to a URL endpoint?**  
-This addition and mapping of [custom domain](../features/using-custom-domain.md) names is currently done by the ImageKit.io support team. Please create a support ticket using chat or by dropping us an email at support@imagekit.io.
+This addition and mapping of [custom domain](../testing-and-infrastructure-setup/using-custom-domain.md) names is currently done by the ImageKit.io support team. Please create a support ticket using chat or by dropping us an email at support@imagekit.io.
 {% endhint %}
 

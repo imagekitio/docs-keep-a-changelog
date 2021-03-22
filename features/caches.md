@@ -23,5 +23,5 @@ This option allows caching based on the cache control headers being passed from 
 
 ## Internal Caching
 
-ImageKit.io caches a copy of every transformed and optimized image at the CDN. Additionally, ImageKit.io also maintains its internal caches, which are co-located with its processing engine across [6 global locations](../media-library/overview/#where-is-the-imagekit-io-media-library-available-geographically). In case any URL is missed by the CDN, internal caches deliver the resources without passing on the request to your server or storage. The same process is followed when you integrate ImageKit.io with a [custom CDN](../integration/integrate-with-your-cdn.md).
+ImageKit.io caches a copy of every transformed and optimized image at the CDN. Additionally, ImageKit.io also maintains its internal caches, which are co-located with its processing engine across [6 global locations](../media-library/overview/#where-is-the-imagekit-io-media-library-available-geographically). In case any URL is missed by the CDN, internal caches deliver the resources without passing on the request to your server or storage. The same process is followed when you integrate ImageKit.io with a [custom CDN](../testing-and-infrastructure-setup/integrate-with-your-cdn.md).
 

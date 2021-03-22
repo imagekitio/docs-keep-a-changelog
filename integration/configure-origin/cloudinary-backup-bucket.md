@@ -43,7 +43,7 @@ https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg
 {% endtabs %}
 
 {% hint style="info" %}
-🧙♂**Tips:** You can also use a [custom domain](../../features/using-custom-domain.md) like images.example.com.
+🧙♂**Tips:** You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain.md) like images.example.com.
 {% endhint %}
 
 ## Step 3: Integrate and Go live

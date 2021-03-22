@@ -1,8 +1,8 @@
-# Testing
+# Testing with multiple environments
 
-Now that you have successfully [configured the origin](configure-origin/) and [URL-endpoint](url-endpoints.md), its time to test ImageKit.io. It is recommended that you test ImageKit.io on your staging or UAT environment before making changes in the live production application.
+Now that you have successfully [configured the origin](../integration/configure-origin/) and [URL-endpoint](../integration/url-endpoints.md), its time to test ImageKit.io. It is recommended that you test ImageKit.io on your staging or UAT environment before making changes in the live production application.
 
-You should create separate [URL-endpoint](url-endpoints.md#how-to-add-a-new-url-endpoint) for dev, stating/UAT, and production environment. This is critical for maintaining separate caches on CDN and ImageKit.io.
+You should create separate [URL-endpoint](../integration/url-endpoints.md#how-to-add-a-new-url-endpoint) for dev, stating/UAT, and production environment. This is critical for maintaining separate caches on CDN and ImageKit.io.
 
 ## Example setup
 
@@ -12,7 +12,7 @@ Suppose, you are running a website `https://www.example.com`, and you have three
 2. **Staging** - accessible over `https://staging.example.com`
 3. **Production live website** - `https://www.example.com`
 
-We will add three origins in ImageKit.io dashboard for these three environments. And configure three separate endpoints to [access these origins](url-endpoints.md#image-origin-preference).
+We will add three origins in ImageKit.io dashboard for these three environments. And configure three separate endpoints to [access these origins](../integration/url-endpoints.md#image-origin-preference).
 
 ### 💻 Testing on the local machine
 

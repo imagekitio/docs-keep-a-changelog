@@ -29,9 +29,6 @@
   * [Web proxy](integration/configure-origin/web-proxy.md)
   * [Web server](integration/configure-origin/web-server-origin.md)
 * [URL-endpoints](integration/url-endpoints.md)
-* [Integrate with your CDN](integration/integrate-with-your-cdn.md)
-* [Multiple websites](integration/multiple-websites.md)
-* [Testing](integration/testing.md)
 * [404 - Not found troubleshooting](integration/404-not-found-error-troubleshooting.md)
 
 ## ImageKit.io storage <a id="media-library"></a>
@@ -46,6 +43,13 @@
   * [Delete folder](media-library/overview/delete-folder.md)
   * [Custom focus area](media-library/overview/custom-focus-area.md)
   * [Edit image](media-library/overview/edit-image.md)
+
+## Testing and Infrastructure Setup
+
+* [Testing with multiple environments](testing-and-infrastructure-setup/testing.md)
+* [Using on Multiple Websites](testing-and-infrastructure-setup/multiple-websites.md)
+* [Integrate with your CDN](testing-and-infrastructure-setup/integrate-with-your-cdn.md)
+* [Using custom domain](testing-and-infrastructure-setup/using-custom-domain.md)
 
 ## ✨Features
 
@@ -70,7 +74,6 @@
 * [Security](features/security/README.md)
   * [Signed URLs](features/security/signed-urls.md)
   * [Private images](features/security/private-images.md)
-* [Using custom domain](features/using-custom-domain.md)
 * [SEO-friendly image URL](features/dynamic-seo-suffix.md)
 * [Default Images](features/default-images.md)
 * [Progressive JPEGs](features/progressive-jpegs.md)
