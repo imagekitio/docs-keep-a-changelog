@@ -2,7 +2,7 @@
 
 {% api-method method="get" host="https://api.imagekit.io" path="/v1/metadata" %}
 {% api-method-summary %}
-Get image metadata from remove URL API
+Get image metadata from remote URL API
 {% endapi-method-summary %}
 
 {% api-method-description %}
