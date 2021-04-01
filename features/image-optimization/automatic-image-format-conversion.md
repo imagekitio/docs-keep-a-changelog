@@ -41,6 +41,10 @@ Conversions to GIF using `f-gif` works only when the input image is GIF as well.
 By default, ImageKit.io delivers the best format for an image. Use the`orig-true` transformation parameter if you want to get the original image as it is without any optimization or transformation.
 {% endhint %}
 
+{% hint style="info" %}
+A few WebP images may not render correctly in Safari v14+ on MacOS v11+ and IOS 14 because of a [possible OS-level issue](https://bugs.webkit.org/show_bug.cgi?id=219977).
+{% endhint %}
+
 ## AVIF Image Format Support
 
 AVIF \(AV1 Image File\) is a new image format that offers superior compression and visual quality compared to other image formats like JPEG and WebP. It has been launched in Chrome 85, and support is likely to be added in Android and Firefox soon. More details on the current browser support for AVIF can be found here - [https://caniuse.com/avif](https://caniuse.com/avif).

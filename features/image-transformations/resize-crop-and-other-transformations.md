@@ -447,6 +447,10 @@ Used to specify the format of the output image. If no output image format is spe
 
 **Default Value** - `auto` \(from dashboard settings\)
 
+{% hint style="info" %}
+A few WebP images may not render correctly in Safari v14+ on MacOS v11+ and IOS 14 because of a [possible OS-level issue](https://bugs.webkit.org/show_bug.cgi?id=219977).
+{% endhint %}
+
 ### Blur - \(bl\)
 
 Used to specify the gaussian blur that must be applied to an image. The value of `bl` specifies the radius of the Gaussian Blur that is to be applied. Higher the value, larger the radius of Gaussian Blur.  Possible values include integers between `1` and `100` .
