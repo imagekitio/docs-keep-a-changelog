@@ -64,9 +64,92 @@ your\_url\_endpoint/**`ik-seo`**/old-file-name/**`seo-friendly-file-name`**.exte
 
 If your file is stored inside a nested folder e.g.
 
-`https://ik.imagekit.io/demo/path/of/folder/old-file-name.jpg` . 
+`https://ik.imagekit.io/demo/path/of/folder/old-file-name.jpg`
 
 You can still dynamically add an SEO-friendly suffix like this:
 
 `https://ik.imagekit/io/demo/ik-seo/path/of/folder/old-file-name/seo-friendly-file-name.jpg`
+
+## Examples
+
+Let's say we have the following URL:
+
+`https://ik.imagekit.io/your_imagekit_id/default-image.jpg`
+
+We want to change the file name from `default-image.jpg` to `seo-friendly-file-name.jpg`
+
+So the new URL becomes
+
+`https://ik.imagekit.io/your_imagekit_id/ik-seo/default-image/seo-friendly-file-name.jpg`
+
+Let's do this using [client-side SDKs](../api-reference/api-introduction/sdk.md#client-side-sdks):
+
+{% tabs %}
+{% tab title="Javascript" %}
+```javascript
+// Without ik-seo
+var imageURL = imagekit.url({
+    path: "/default-image.jpg",
+    urlEndpoint: "https://ik.imagekit.io/your_imagekit_id/",
+    transformation: [{
+        height: 300,
+        width: 400
+    }]
+});
+
+// With ik-seo
+var imageURL = imagekit.url({
+    path: "/default-image/seo-friendly-file-name.jpg",
+    urlEndpoint: "https://ik.imagekit.io/your_imagekit_id/ik-seo",
+    transformation: [{
+        height: 300,
+        width: 400
+    }]
+});
+```
+{% endtab %}
+
+{% tab title="React" %}
+```javascript
+// Without ik-seo, urlEndpoint has been defined in parent IKContext 
+<IKImage
+  path="/default-image.jpg"
+  transformation={[{
+    height: 300,
+    width: 400
+  }]}
+/>
+  
+// With ik-seo
+<IKImage
+  urlEndpoint="https://ik.imagekit.io/your_imagekit_id/ik-seo"
+  path="/default-image/seo-friendly-file-name.jpg"
+  transformation={[{
+    height: 300,
+    width: 400
+  }]}
+/>
+```
+{% endtab %}
+
+{% tab title="Vue.js" %}
+```javascript
+// Without ik-seo, urlEndpoint has been defined globally 
+<ik-image 
+  path="/default-image.jpg"
+  :transformation="[{height:300,width:400}]"
+/>
+
+
+// With ik-seo
+<ik-image 
+  path="/default-image/seo-friendly-file-name.jpg"
+  :transformation="[{height:300,width:400}]"
+  urlEndpoint="https://ik.imagekit.io/your_imagekit_id/ik-seo"
+/>
+```
+{% endtab %}
+{% endtabs %}
+
+
 
