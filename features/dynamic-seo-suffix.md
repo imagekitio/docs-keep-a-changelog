@@ -28,7 +28,7 @@ https://ik.imagekit.io/demo/eiffel-tower.jpg
 
 ### Dynamic SEO suffix \(ik-seo\)
 
-In cases when you cannot modify the file names of already stored images, ImageKit helps you create SEO-friendly URLs dynamically.
+When you cannot modify the file names of already stored images, ImageKit helps you create SEO-friendly URLs dynamically.
 
 For example, let say you have the following image of the Eiffel Tower.
 
@@ -82,7 +82,7 @@ So the new URL becomes
 
 `https://ik.imagekit.io/your_imagekit_id/ik-seo/default-image/seo-friendly-file-name.jpg`
 
-Let's do this using [client-side SDKs](../api-reference/api-introduction/sdk.md#client-side-sdks):
+Let's do this using the [client-side SDKs](../api-reference/api-introduction/sdk.md#client-side-sdks):
 
 {% tabs %}
 {% tab title="Javascript" %}
