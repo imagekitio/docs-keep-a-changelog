@@ -64,7 +64,7 @@ You should see the following screen. This means the sample app has been set up c
 We will be using [Imagekit javascript SDK](https://github.com/imagekit-developer/imagekit-javascript). So let's install it.
 
 ```bash
-npm install --save imagekit-javscript
+npm install --save imagekit-javascript
 ```
 
 {% hint style="warning" %}
