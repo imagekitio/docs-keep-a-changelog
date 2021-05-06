@@ -114,6 +114,10 @@ image_url = imagekit.url({
 
 If you want to generate the signed URL yourself, refer to the pseudo-code below.
 
+{% hint style="info" %}
+The value of signature i.e. `ik-s` should be in lowercase. 
+{% endhint %}
+
 ```javascript
 // Assume we have an image URL
 var imageUrl = "https://ik.imagekit.io/your_imagekit_id/tr:w-400:rotate-91/sample/testing-file.jpg";

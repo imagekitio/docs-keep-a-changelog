@@ -60,7 +60,8 @@ The maximum upload file size is limited to 25MB.
       <td style="text-align:left">
         <p>HMAC-SHA1 digest of the&#xA0;<code>token+expire</code>&#xA0;using your
           ImageKit.io <a href="../api-introduction/api-keys.md#private-key">private API key</a>&#xA0;as
-          a key. Learn how to create a signature below on the page.
+          a key. Learn how to create a signature below on the page. This should be
+          in lowercase.
           <br />
         </p>
         <p>&#x26A0; <b>Warning:</b>&#xA0;Signature must be calculated on the server-side.
@@ -249,7 +250,7 @@ The JSON-encoded response contains details of the file which can have the follow
 
 `signature` is a string sent along with your upload request for authentication when using upload API from the client-side. Generating it requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), and hence this should be generated on your backend. Your backend should ideally implement an API that should provide `signature`.
 
-The `signature` is HMAC-SHA1 digest of the string `token+expire` using your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key) as a key.
+The `signature` is HMAC-SHA1 digest of the string `token+expire` using your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key) as a key. The `signature` should be in lowercase.
 
 {% hint style="danger" %}
 **Never publish your private key on client-side**   
