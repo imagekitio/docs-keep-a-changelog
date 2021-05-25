@@ -73,18 +73,23 @@ In case of error, you will get an [error code](../api-introduction/#error-codes)
 
 ### Understanding response
 
-| Proper name | Description |
+| Property name | Description |
 | :--- | :--- |
-| fileId | The unique fileId of the uploaded file.  |
-| type | Type of item. It can either be `file` or `folder`. |
+| fileId | The unique fileId of the uploaded file. |
+| type | Type of item. It can be either `file` or `folder`.  |
 | name | Name of the file or folder. |
-| filePath | The relative path of the file. In the case of an image, you can use this  path to construct different transformations. |
-| tags | Array of tags associated with the image. If no tags are set, this will be `null`. |
+| filePath | The relative path of the file. In the case of an image, you can use this  path to construct different [transformations](../../features/image-transformations/). |
+| tags | Array of tags associated with the image. If no tags are set, it will be `null`. |
 | isPrivateFile | Is the file marked as private. It can be either `true` or `false`. |
-| customCoordinates | Value of custom coordinates associated with the image in format `x,y,width,height`. If customCoordinates are not defined, it will be `null`. |
+| customCoordinates | Value of custom coordinates associated with the image in format `x,y,width,height`.  If customCoordinates are not defined then it is `null`. |
 | url | A publicly accessible URL of the file. |
-| thumbnail | In the case of an image, a small thumbnail URL. |
+| thumbnail | In case of an image, a small thumbnail URL. |
 | fileType | The type of file, could be either `image` or `non-image`. |
+| mime | MIME Type of the file. For example - `image/jpeg` |
+| height | Height of the image in pixels \(Only for images\) |
+| width | Width of the image in pixels \(Only for Images\) |
+| size | Size of the image file in Bytes |
+| hasAlpha | TODO |
 | createdAt | The date and time when the file was first uploaded. The format is `YYYY-MM-DDTHH:mm:ss.sssZ` |
 | updatedAt | The date and time when the file was last updated. The format is `YYYY-MM-DDTHH:mm:ss.sssZ` |
 

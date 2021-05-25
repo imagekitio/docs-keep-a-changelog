@@ -44,7 +44,6 @@ On success, you will get file details in the JSON-encoded response body.
     "thumbnail": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
     "fileType": "image",
     "mime": "image/jpeg",
-    "format": "jpeg",
     "width": 100,
     "height": 100,
     "size": 100,

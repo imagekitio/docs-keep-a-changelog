@@ -86,7 +86,6 @@ The number of results to skip before returning results.
       "thumbnail": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
       "fileType": "image",
       "mime": "image/jpeg",
-      "format": "jpeg",
       "width": 100,
       "height": 100,
       "size": 100,
