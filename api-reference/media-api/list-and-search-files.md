@@ -254,7 +254,7 @@ createdAt < 2y (createdAt should be before two years ago)
         <p></p>
         <p><code>name NOT = &quot;red-dress.jpg&quot;</code> will return all files
           and folders</p>
-        <p>with name other than <code>red-dress.jpg</code>.</p>
+        <p>with a name other than <code>red-dress.jpg</code>.</p>
       </td>
     </tr>
     <tr>
@@ -417,7 +417,7 @@ createdAt < 2y (createdAt should be before two years ago)
           <br />
         </p>
         <p><code>size &lt;= &quot;1mb&quot;</code> will return all assets with a file
-          size less than or equal to 1mb.</p>
+          size less than or equal to 1MB.</p>
       </td>
     </tr>
     <tr>
