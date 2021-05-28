@@ -19,6 +19,12 @@ base64 encoding of `your_private_api_key:`
 {% endapi-method-headers %}
 
 {% api-method-query-parameters %}
+{% api-method-parameter name="type" type="string" required=false %}
+Limit search to either `file` or `folder`.  Pass `all` to include both files and folders in search results.  
+  
+**Default value** - `file`
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="sort" type="string" required=false %}
 You can sort based on the following fields:   
 1. name - `ASC_NAME` or `DESC_NAME`  
@@ -26,7 +32,9 @@ You can sort based on the following fields:
 3. updatedAt - `ASC_UPDATED` or `DESC_UPDATED`  
 4. height - `ASC_HEIGHT` or `DESC_HEIGHT`  
 5. width - `ASC_WIDTH` or `DESC_WIDTH`  
-6. size - `ASC_SIZE` or `DESC_SIZE`
+6. size - `ASC_SIZE` or `DESC_SIZE`  
+  
+**Default value** - `ASC_CREATED`
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="path" type="string" required=false %}
@@ -37,7 +45,7 @@ Folder path if you want to limit the search within a specific folder. For exampl
 Query string in a Lucene-like query language. Learn more about the query expression later in this section.  
 **Note**: When the _searchQuery_ parameter is present, the following query parameters will have no effect on the result:  
 1. tags  
-2. includeFolder  
+2. type  
 3. name
 {% endapi-method-parameter %}
 
@@ -101,267 +109,369 @@ The number of results to skip before returning results.
 {% endapi-method-spec %}
 {% endapi-method %}
 
-### Advanced search queries
+## Advanced search queries
 
-The `searchQuery` parameter can be used to apply advanced filters to your search. For example, the following search query would limit the search results to items created on or after a week ago and whose size is greater than 50 kb.
+The `searchQuery` parameter can be used to apply advanced filters to your search. 
+
+### Basic examples
+
+{% tabs %}
+{% tab title="Basic usage" %}
+You can query based on a single field. For example:
 
 ```text
-createdAt > 1w AND size > 50kb
+createdAt > "7d"
 ```
 
-Here is the [complete list of parameters](list-and-search-files.md#complete-list-of-parameters) supported in `searchQuery`.
+This will return all files which are created in the last 7 days.
+{% endtab %}
 
-A few more examples:
-
-#### 1. Single Field
+{% tab title="Using AND/OR operator" %}
+You can combine multiple conditions using the `AND` and `OR` operators. For example:
 
 ```markup
-name = red_dress.jpg
+createdAt > "7d" AND name: "file-name"
 ```
 
-Use the '**='** \(equals\) ****operator when you want to find exact matches. The above query will return files whose name is exactly `red_dress.jpg`.
+This will return all files created within the last 7 days with name starting with `file-name`.
+{% endtab %}
 
-```markup
-name : red
+{% tab title="Grouping multiple queries" %}
+You can use parenthesis `(` and `)` to group multiple queries and create complex search filters. For example:
+
 ```
+(size < "1mb" AND width > 500) OR (tags IN ["summer-sale","banner"])
+```
+{% endtab %}
+{% endtabs %}
 
-Use the ':' \(colon\) operator when you want to find matches with a specified prefix. The above query will return files whose name starts with the string 'red'. For example, both `red-dress.jpg` and `red-shirt.png` will be returned by the above query.
+### Search based on file and folder names
+
+For example, let's say you have uploaded two files `red-dress-summer.jpg` and `red-dress-winter.jpg` in the [media library](../../media-library/overview/).
 
 {% hint style="info" %}
 The Filename match is case-sensitive.
 {% endhint %}
 
-Similarly, the following table specifies all the possible operators on a single field:
+{% tabs %}
+{% tab title="Exact match" %}
+To find a file or folder using the exact name, use `=` operator. For example:
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"><b>Operator</b>
-      </th>
-      <th style="text-align:left"><b>What it does</b>
-      </th>
-      <th style="text-align:left"><b>Example</b>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">
-        <p>=</p>
-        <p>(equals)</p>
-      </td>
-      <td style="text-align:left">Matches items with fields that are exactly equal to the specified value</td>
-      <td
-      style="text-align:left">name = red_dress.jpg</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p>:</p>
-        <p>(colon)</p>
-      </td>
-      <td style="text-align:left">Matches items with fields whose values begin with the specified value</td>
-      <td
-      style="text-align:left">name : red</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p>&lt;</p>
-        <p>(less than)</p>
-      </td>
-      <td style="text-align:left">Matches items with fields whose values are less than the specified value</td>
-      <td
-      style="text-align:left">size &lt; 10kb</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p>&lt;=</p>
-        <p>(less than equal)</p>
-      </td>
-      <td style="text-align:left">Matches items with fields whose values are less than or equal to the specified
-        value</td>
-      <td style="text-align:left">size &lt;= 10kb</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p>&gt;</p>
-        <p>(greater than)</p>
-      </td>
-      <td style="text-align:left">Matches items with fields whose values are greater than the specified
-        value</td>
-      <td style="text-align:left">size &gt; 1mb</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p>&gt;=</p>
-        <p>(greater than equal)</p>
-      </td>
-      <td style="text-align:left">Matches items with fields whose values are greater than or equal to the
-        specified value</td>
-      <td style="text-align:left">size &gt;= 1mb</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">IN (in operator)</td>
-      <td style="text-align:left">Matches items with fields whose value is exactly equal to one of the specified
-        values</td>
-      <td style="text-align:left">color IN [&quot;red&quot;, &quot;blue&quot;]</td>
-    </tr>
-  </tbody>
-</table>
-
-#### 2. Combining multiple Fields using AND and OR operators
-
-It is possible to combine multiple filters in a single query by combining them using boolean logical operators AND and OR.
-
-```markup
-size < 1mb AND width > 1000
+```text
+name = "red-dress-summer.jpg"
 ```
 
-The above query will return results for which the size is less than 1MB and the width is greater than 1000 px.
+This will only return the file with the name `red-dress-summer.jpg`
+{% endtab %}
 
-```markup
-size < 1mb OR height < 5000
+{% tab title="Begins with match" %}
+To find a file or folder using a prefix, you can use `:` operator. For example:
+
+```text
+name : "red-dress"
 ```
 
-The above query will return results for which the size is less than 1MB, or the height is less than 5000 px.
+This will return both `red-dress-summer.jpg` and `red-dress-winter.jpg`.
+{% endtab %}
+{% endtabs %}
 
-It is also possible to create more complex queries using parenthesis. For example:
+### Search based on upload date
 
-```markup
-(size < 1mb AND width > 500) OR (size < 3mb AND height > 500)
-```
+You can filter using `createdAt` and `updatedAt` to search based on the first uploaded or last modified time.
 
-Here, the expressions inside the parenthesis will be evaluated first and then combined using a logical OR operator. 
+`createdAt` and `updatedAt` accepts ISO 8601 format string or relative unit.
 
-#### 3. NOT operator
+{% tabs %}
+{% tab title="ISO 8601 format" %}
+The API supports a string in ISO 8601 format.
 
-You can specify the NOT operator preceding any other operator to negate that particular expression. For example:
+* `YYYY-MM-DD` - When no time is provided, it is set to 00:00:00 UTC by default.
+* `YYYY-MM-DDTHH:MM:SS`
 
-```markup
-color NOT IN ["red", "blue"]
-```
+For example:
 
-The above query will return results for which the color field's value is not "red" or "blue".
-
-#### 4. Dates
-
-You can specify dates \(and times\) in one of the following three formats:
-
-* **YYYY-MM-DD** \(no time - when no time is provided, it is set to 00:00:00 UTC by default\)
-* **YYYY-MM-DD HH:MM:SS** \(date and time separated by a space\)
-* **YYYY-MM-DDTHH:MM:SS** \(date and time separated by a T\)
-
-Alternatively, you can use quantifiers for days, weeks, months, and years along with a number. `2d` translates to the date that was two days ago. `2w` translates to the date that was two weeks ago. And similarly for `2m`, and `2y`.  
-  
-For example, the following dates are all valid:
-
-```markup
+```text
 createdAt < 2020-01-01
-createdAt < 2020-01-01T12:12:12
-createdAt < 2020-01-01 12:12:12
+createdAt < "2020-01-01T12:12:12"
+```
+{% endtab %}
+
+{% tab title="Relative units" %}
+The API supports relative time units, e.g:
+
+* `1h` - one hour in the past
+* `2d` - two days in the past
+* Similarly `3w`, `4m` etc.
+
+Example usage:
+
+```text
 createdAt < 2d (createdAt should be before two days ago)
 createdAt < 2w (createdAt should be before two weeks ago)
 createdAt < 2m (createdAt should be before two months ago)
-createdAt < 2y (createdAt should be before two years ago)
+createdAt < 2y (createdAt should be before two years ago)  
 ```
+{% endtab %}
+{% endtabs %}
 
-#### 5. Arrays
-
-Arrays of values can be specified as well, just with one restriction.  
-All non-numeric values inside an array **MUST be written within double-quotes.**
-
-This is a valid array value:
-
-✅`tags IN ["small", "inventory"]`     
-  
-This is **NOT** a valid array value:
-
-❌ `tags IN ['small', 'inventory']`   
-
-### Complete List of Parameters
+### Supported parameters
 
 <table>
   <thead>
     <tr>
       <th style="text-align:left"><b>Field</b>
       </th>
-      <th style="text-align:left"><b>Operators Supported</b>
+      <th style="text-align:left"><b>Supported operators</b>
       </th>
-      <th style="text-align:left">Possible Values</th>
+      <th style="text-align:left">Examples</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">name</td>
-      <td style="text-align:left">= (equals), : (colon), IN (in operator)</td>
-      <td style="text-align:left">Any string value(s).</td>
+      <td style="text-align:left">
+        <ul>
+          <li>=</li>
+          <li>:</li>
+          <li>IN</li>
+          <li>NOT =</li>
+          <li>NOT IN</li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p>Accepts a string value in quotes. For example:</p>
+        <p></p>
+        <p><code>name = &quot;red-dress.jpg&quot; </code>will return all
+          <br />files &amp; folders with the exact name <code>red-dress.jpg</code>.</p>
+        <p></p>
+        <p><code>name: &quot;red-dress&quot;</code> will return all files &amp; folders</p>
+        <p>with a name starting with <code>red-dress</code>.</p>
+        <p></p>
+        <p><code>name IN [&quot;red-dress.jpg&quot;, &quot;red-dress.png&quot;]</code> will
+          return</p>
+        <p>all files &amp; folders with the name either <code>red-dress.jpg</code> or</p>
+        <p><code>red-dress.png</code>.</p>
+        <p></p>
+        <p><code>name NOT = &quot;red-dress.jpg&quot;</code> will return all files
+          and folders</p>
+        <p>with name other than <code>red-dress.jpg</code>.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">type</td>
-      <td style="text-align:left">= (equals), : (colon), IN (in operator)</td>
-      <td style="text-align:left"><code>&quot;file&quot;</code> or <code>&quot;folder&quot;</code> or <code>[&quot;file&quot;, &quot;folder&quot;]</code>.</td>
+      <td style="text-align:left">
+        <ul>
+          <li>=</li>
+          <li>IN</li>
+          <li>NOT =</li>
+          <li>NOT IN</li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p>Possible values are <code>file</code> or <code>folder</code> in quotes or
+          in the array.</p>
+        <p></p>
+        <p><code>type = &quot;file&quot;</code> will only return files in the search
+          result.
+          <br />
+        </p>
+        <p><code>type = &quot;folder&quot;</code> will only return folders in the
+          search result.
+          <br />
+        </p>
+        <p><code>type IN [&quot;file&quot;, &quot;folder&quot;]</code> will return
+          both files and folders in the search result.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">createdAt</td>
-      <td style="text-align:left">= (equals), &lt; (less than), &lt;= (less than equal), &gt; (greater than),
-        &gt;= (greater than equal), IN (in operator)</td>
-      <td style="text-align:left">Any date value(s) in any of the formats specified above in the dates section.</td>
+      <td style="text-align:left">
+        <ul>
+          <li>=</li>
+          <li>&lt;</li>
+          <li>&lt;=</li>
+          <li>&gt;</li>
+          <li>&gt;=</li>
+          <li>IN</li>
+          <li>NOT =</li>
+          <li>NOT IN</li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>,
+          or <code>4m</code>.
+          <br />
+        </p>
+        <p><code>createdAt &gt; &quot;2020-01-01&quot;</code> will return all files
+          first uploaded
+          <br />after 1 Jan 2020 at 00:00 hours in UTC.</p>
+        <p></p>
+        <p><code>createdAt &gt; &quot;2020-01-01T12:12:12&quot;</code> will return
+          all files first uploaded after 1 Jan 2020 12:12:12 hours in UTC.</p>
+        <p></p>
+        <p><code>createdAt &gt; &quot;7d&quot;</code> will return all files first
+          uploaded in the last 7 days.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">updatedAt</td>
-      <td style="text-align:left">= (equals), &lt; (less than), &lt;= (less than equal), &gt; (greater than),
-        &gt;= (greater than equal), IN (in operator)</td>
-      <td style="text-align:left">Any date value(s) in any of the formats specified above in the dates section.</td>
+      <td style="text-align:left">
+        <ul>
+          <li>=</li>
+          <li>&lt;</li>
+          <li>&lt;=</li>
+          <li>&gt;</li>
+          <li>&gt;=</li>
+          <li>IN</li>
+          <li>NOT =</li>
+          <li>NOT IN</li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>,
+          or <code>4m</code>.
+          <br />
+        </p>
+        <p><code>updatedAt &gt; &quot;2020-01-01&quot;</code> will return all files
+          last modified
+          <br />after 1 Jan 2020 at 00:00 hours in UTC.</p>
+        <p></p>
+        <p><code>updatedAt &gt; &quot;2020-01-01T12:12:12&quot;</code> will return
+          all files last modified after 1 Jan 2020 12:12:12 hours in UTC.</p>
+        <p></p>
+        <p><code>updatedAt &gt; &quot;7d&quot;</code> will return all files last modified
+          in the last 7 days.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">height</td>
-      <td style="text-align:left">= (equals), &lt; (less than), &lt;= (less than equal), &gt; (greater than),
-        &gt;= (greater than equal), IN (in operator)</td>
-      <td style="text-align:left">Any numeric value(s).</td>
+      <td style="text-align:left">
+        <ul>
+          <li>=</li>
+          <li>&lt;</li>
+          <li>&lt;=</li>
+          <li>&gt;</li>
+          <li>&gt;=</li>
+          <li>IN</li>
+          <li>NOT =</li>
+          <li>NOT IN</li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> etc. This
+          is only applicable for image-type assets.</p>
+        <p></p>
+        <p><code>height &gt; 200</code> will return all image files with a height
+          greater than 200px.</p>
+        <p></p>
+        <p><code>height &lt;= 400</code> will return all image files with a height
+          less than or equal to 400px.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">width</td>
-      <td style="text-align:left">= (equals), &lt; (less than), &lt;= (less than equal), &gt; (greater than),
-        &gt;= (greater than equal), IN (in operator)</td>
-      <td style="text-align:left">Any numeric value(s).</td>
+      <td style="text-align:left">
+        <ul>
+          <li>=</li>
+          <li>&lt;</li>
+          <li>&lt;=</li>
+          <li>&gt;</li>
+          <li>&gt;=</li>
+          <li>IN</li>
+          <li>NOT =</li>
+          <li>NOT IN</li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> etc. This
+          is only applicable for image-type assets.</p>
+        <p></p>
+        <p><code>width &gt; 200</code> will return all image files with a width greater
+          than 200px.</p>
+        <p></p>
+        <p><code>width &lt;= 400</code> will return all image files with a width less
+          than or equal to 400px.size</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">size</td>
-      <td style="text-align:left">= (equals), &lt; (less than), &lt;= (less than equal), &gt; (greater than),
-        &gt;= (greater than equal), IN (in operator)</td>
-      <td style="text-align:left">Any numeric value(s).</td>
+      <td style="text-align:left">
+        <p></p>
+        <ul>
+          <li>=</li>
+          <li>&lt;</li>
+          <li>&lt;=</li>
+          <li>&gt;</li>
+          <li>&gt;=</li>
+          <li>IN</li>
+          <li>NOT =</li>
+          <li>NOT IN</li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> or string
+          e.g. <code>1mb</code>, <code>10kb</code> etc.</p>
+        <p></p>
+        <p><code>size &gt; 1024</code> will return all assets with a file size greater
+          than 1024 bytes.
+          <br />
+        </p>
+        <p><code>size &lt;= &quot;1mb&quot;</code> will return all assets with a file
+          size less than or equal to 1mb.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">format</td>
-      <td style="text-align:left">= (equals), : (colon), IN (in operator)</td>
       <td style="text-align:left">
-        <p>Supported formats: <code>jpg</code>, <code>webp</code>, <code>png</code>, <code>gif</code>, <code>svg</code>, <code>avif</code>, <code>pdf</code>, <code>js</code>, <code>woff2</code>, <code>woff</code>, <code>ttf</code>, <code>otf</code>, <code>eot</code>, <code>css</code>, <code>txt</code>, <code>mp4</code>, <code>webm</code>, <code>mov</code>, <code>swf</code>, <code>ts</code>, <code>m3u8</code>, <code>ico</code>
+        <ul>
+          <li>=</li>
+          <li>IN</li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p>Accepts a string. <code>jpg</code>, <code>webp</code>, <code>png</code>, <code>gif</code>, <code>svg</code>, <code>avif</code>, <code>pdf</code>, <code>js</code>, <code>woff2</code>, <code>woff</code>, <code>ttf</code>, <code>otf</code>, <code>eot</code>, <code>css</code>, <code>txt</code>, <code>mp4</code>, <code>webm</code>, <code>mov</code>, <code>swf</code>, <code>ts</code>, <code>m3u8</code>, <code>ico</code>
         </p>
-        <p>Example values: <code>&quot;jpg&quot;</code>, <code>[&quot;jpg&quot;, &quot;pdf&quot;]</code>.</p>
+        <p>
+          <br /><code>format = &quot;jpg&quot;</code> will return all JPG image files.</p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">private</td>
-      <td style="text-align:left">= (equals), : (colon), IN (in operator)</td>
-      <td style="text-align:left">A boolean value i.e. <code>true</code> or <code>false</code>.</td>
+      <td style="text-align:left">
+        <ul>
+          <li>=</li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without
+          quotes.</p>
+        <p></p>
+        <p><code>private = true</code> will return all files marked as private during
+          upload.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">transparency</td>
-      <td style="text-align:left">= (equals), : (colon), IN (in operator)</td>
-      <td style="text-align:left">A boolean value i.e. <code>true</code> or <code>false</code>.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">
+        <ul>
+          <li>=</li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without
+          quotes. This is only applicable to images.</p>
+        <p></p>
+        <p><code>transparency = true</code> will return all image files which has
+          an alpha layer in the image. However, note that it does not guarantee transparency
+          because all pixels in the alpha layer can be set with opacity 1.</p>
+      </td>
     </tr>
   </tbody>
 </table>
 
-### Response structure and status code \(application/JSON\)
+## Understanding response
 
 In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the list of files in JSON-encoded response body.
-
-### Understanding response
 
 The JSON-encoded response has an array of items. Each item can have the following properties.
 
