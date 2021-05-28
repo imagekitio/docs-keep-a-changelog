@@ -22,7 +22,7 @@ curl https://api.imagekit.io/v1/files \
 You can also use the "Authorization" header and provide base64 encoded value of the string `your_private_api_key:`
 
 {% hint style="info" %}
-Notice the column \(:\) after the private key. It is required otherwise, authentication will fail. The format is `username:password`. `username` is your private key and `password` is an empty string.
+Notice the colon \(:\) after the private key. It is required otherwise, authentication will fail. The format is `username:password`. `username` is your private key and `password` is an empty string.
 {% endhint %}
 
 If you encode `your_private_api_key:` using base64, you will get `eW91cl9wcml2YXRlX2FwaV9rZXk6`
