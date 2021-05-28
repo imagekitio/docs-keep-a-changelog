@@ -437,11 +437,7 @@ createdAt < 2y (createdAt should be before two years ago)
     </tr>
     <tr>
       <td style="text-align:left">private</td>
-      <td style="text-align:left">
-        <ul>
-          <li>=</li>
-        </ul>
-      </td>
+      <td style="text-align:left">=</td>
       <td style="text-align:left">
         <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without
           quotes.</p>
@@ -452,18 +448,14 @@ createdAt < 2y (createdAt should be before two years ago)
     </tr>
     <tr>
       <td style="text-align:left">transparency</td>
-      <td style="text-align:left">
-        <ul>
-          <li>=</li>
-        </ul>
-      </td>
+      <td style="text-align:left">=</td>
       <td style="text-align:left">
         <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without
           quotes. This is only applicable to images.</p>
         <p></p>
-        <p><code>transparency = true</code> will return all image files which has
-          an alpha layer in the image. However, note that it does not guarantee transparency
-          because all pixels in the alpha layer can be set with opacity 1.</p>
+        <p><code>transparency = true</code> will return all image files that have
+          an alpha layer. However, the presence of the alpha layer does not guarantee
+          transparency if all pixels in the alpha layer have the value 1.</p>
       </td>
     </tr>
   </tbody>
