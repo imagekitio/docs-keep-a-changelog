@@ -230,11 +230,13 @@ createdAt < 2y (createdAt should be before two years ago)
     <tr>
       <td style="text-align:left">name</td>
       <td style="text-align:left">
-        <p>=</p>
-        <p>:</p>
-        <p>IN</p>
-        <p>NOT =</p>
-        <p>NOT IN</p>
+        <ul>
+          <li>=</li>
+          <li>:</li>
+          <li>IN</li>
+          <li>NOT =</li>
+          <li>NOT IN</li>
+        </ul>
       </td>
       <td style="text-align:left">
         <p>Accepts a string value in quotes. For example:</p>
