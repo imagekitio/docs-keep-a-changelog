@@ -150,7 +150,7 @@ You can use parenthesis `(` and `)` to group multiple queries and create complex
 For example, let's say you have uploaded two files `red-dress-summer.jpg` and `red-dress-winter.jpg` in the [media library](../../media-library/overview/).
 
 {% hint style="info" %}
-The Filename match is case-sensitive.
+The name match is case-sensitive.
 {% endhint %}
 
 {% tabs %}
@@ -230,13 +230,11 @@ createdAt < 2y (createdAt should be before two years ago)
     <tr>
       <td style="text-align:left">name</td>
       <td style="text-align:left">
-        <ul>
-          <li>=</li>
-          <li>:</li>
-          <li>IN</li>
-          <li>NOT =</li>
-          <li>NOT IN</li>
-        </ul>
+        <p>=</p>
+        <p>:</p>
+        <p>IN</p>
+        <p>NOT =</p>
+        <p>NOT IN</p>
       </td>
       <td style="text-align:left">
         <p>Accepts a string value in quotes. For example:</p>
