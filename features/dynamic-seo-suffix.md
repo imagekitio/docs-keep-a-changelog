@@ -68,7 +68,7 @@ If your file is stored inside a nested folder e.g.
 
 You can still dynamically add an SEO-friendly suffix like this:
 
-`https://ik.imagekit/io/demo/ik-seo/path/of/folder/old-file-name/seo-friendly-file-name.jpg`
+`https://ik.imagekit.io/demo/ik-seo/path/of/folder/old-file-name/seo-friendly-file-name.jpg`
 
 ## Examples
 
