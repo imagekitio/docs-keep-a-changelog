@@ -77,7 +77,7 @@
 * [SEO-friendly image URL](features/dynamic-seo-suffix.md)
 * [Default Images](features/default-images.md)
 * [Progressive JPEGs](features/progressive-jpegs.md)
-* [Non-Image File Compression](features/non-image-file-compression.md)
+* [Non-image file compression](features/non-image-file-compression.md)
 * [Performance monitoring](features/performance-monitoring.md)
 * [User access management](features/user-access-management.md)
 
