@@ -20,7 +20,7 @@ base64 encoding of `your_private_api_key:`
 
 {% api-method-query-parameters %}
 {% api-method-parameter name="folderName" type="string" required=true %}
-The folder will be created with this name. All characters except alphabets and numbers will be replaced by an underscore i.e. `_`
+The folder will be created with this name. All characters except alphabets and numbers \(inclusive of unicode letters, marks, and numerals in other languages\) will be replaced by an underscore i.e. `_`
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="parentFolderPath" type="string" required=true %}

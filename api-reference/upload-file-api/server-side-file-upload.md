@@ -46,13 +46,12 @@ The maximum upload file size is limited to 25MB.
         <p>
           <br />The file name can contain:
           <br />
-          <br />- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code>
-          <br
-          />- Special Characters: <code>.</code>  <code>_</code> and <code>-</code>
+          <br />- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code> (including
+          unicode letters, marks, and numerals in other languages)</p>
+        <p>- Special Characters: <code>.</code>  <code>_</code> and <code>-</code>
         </p>
         <p></p>
-        <p>Any other character including space will be replaced by <code>_</code>
-        </p>
+        <p>Any other character including space will be replaced by <code>_</code>.</p>
       </td>
     </tr>
     <tr>
@@ -89,19 +88,21 @@ The maximum upload file size is limited to 25MB.
         <br />optional
         <br />
       </td>
-      <td style="text-align:left">The folder path (e.g. <code>/images/folder/</code>) in which the image
-        has to be uploaded. If the folder(s) didn&apos;t exist before, a new folder(s)
-        is created.
-        <br />
-        <br />The folder name can contain:
-        <br />
-        <br />- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code>
-        <br
-        />- Special Characters: <code>/</code>  <code>_</code> and <code>-</code>
-        <br
-        />- Using multiple <code>/</code> creates a nested folder.
-        <br />
-        <br /><b>Default value</b> - /</td>
+      <td style="text-align:left">
+        <p>The folder path (e.g. <code>/images/folder/</code>) in which the image
+          has to be uploaded. If the folder(s) didn&apos;t exist before, a new folder(s)
+          is created.
+          <br />
+          <br />The folder name can contain:
+          <br />
+          <br />- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code> (including
+          unicode letters, marks, and numerals in other languages)</p>
+        <p>- Special Characters: <code>/</code>  <code>_</code> and <code>-</code>
+          <br
+          />- Using multiple <code>/</code> creates a nested folder.
+          <br />
+          <br /><b>Default value</b> - /</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><b>isPrivateFile</b>

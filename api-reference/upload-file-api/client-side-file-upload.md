@@ -94,9 +94,9 @@ The maximum upload file size is limited to 25MB.
         <p>
           <br />The file name can contain:
           <br />
-          <br />- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code>
-          <br
-          />- Special Characters: <code>.</code>  <code>_</code> and <code>-</code>
+          <br />- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code> (including
+          unicode letters, marks, and numerals in other languages)
+          <br />- Special Characters: <code>.</code>  <code>_</code> and <code>-</code>
         </p>
         <p></p>
         <p>Any other character including space will be replaced by <code>_</code>
@@ -146,9 +146,9 @@ The maximum upload file size is limited to 25MB.
         </p>
         <p>The folder name can contain:
           <br />
-          <br />- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code>
-          <br
-          />- Special Characters: <code>/</code>  <code>_</code> and <code>-</code>
+          <br />- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code> (including
+          unicode letters, marks, and numerals in other languages)
+          <br />- Special Characters: <code>/</code>  <code>_</code> and <code>-</code>
           <br
           />- Using multiple <code>/</code> creates a nested folder.
           <br />
