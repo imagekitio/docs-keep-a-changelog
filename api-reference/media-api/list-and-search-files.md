@@ -258,6 +258,25 @@ createdAt < 2y (createdAt should be before two years ago)
       </td>
     </tr>
     <tr>
+      <td style="text-align:left">tags</td>
+      <td style="text-align:left">
+        <ul>
+          <li>IN</li>
+          <li>NOT IN</li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p>Accepts an array of string values.</p>
+        <p></p>
+        <p><code>tags IN [&quot;summer-collection&quot;, &quot;sale&quot;]</code> will
+          return all files that have either <code>summer-collection</code> or <code>sale</code> tag
+          set.</p>
+        <p></p>
+        <p><code>tags NOT IN [&quot;big-banner&quot;]</code> will return all files
+          that do not have <code>big-banner</code> tag set.</p>
+      </td>
+    </tr>
+    <tr>
       <td style="text-align:left">type</td>
       <td style="text-align:left">
         <ul>
@@ -429,15 +448,20 @@ createdAt < 2y (createdAt should be before two years ago)
         </ul>
       </td>
       <td style="text-align:left">
-        <p>Accepts a string. <code>jpg</code>, <code>webp</code>, <code>png</code>, <code>gif</code>, <code>svg</code>, <code>avif</code>, <code>pdf</code>, <code>js</code>, <code>woff2</code>, <code>woff</code>, <code>ttf</code>, <code>otf</code>, <code>eot</code>, <code>css</code>, <code>txt</code>, <code>mp4</code>, <code>webm</code>, <code>mov</code>, <code>swf</code>, <code>ts</code>, <code>m3u8</code>, <code>ico</code>
-        </p>
+        <p>Accepts a string value.
+          <br />
+          <br />Allowed values are <code>jpg</code>, <code>webp</code>, <code>png</code>, <code>gif</code>, <code>svg</code>, <code>avif</code>, <code>pdf</code>, <code>js</code>, <code>woff2</code>, <code>woff</code>, <code>ttf</code>, <code>otf</code>, <code>eot</code>, <code>css</code>, <code>txt</code>, <code>mp4</code>, <code>webm</code>, <code>mov</code>, <code>swf</code>, <code>ts</code>, <code>m3u8</code>, <code>ico</code>.</p>
         <p>
           <br /><code>format = &quot;jpg&quot;</code> will return all JPG image files.</p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">private</td>
-      <td style="text-align:left">=</td>
+      <td style="text-align:left">
+        <ul>
+          <li>=</li>
+        </ul>
+      </td>
       <td style="text-align:left">
         <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without
           quotes.</p>
@@ -448,7 +472,11 @@ createdAt < 2y (createdAt should be before two years ago)
     </tr>
     <tr>
       <td style="text-align:left">transparency</td>
-      <td style="text-align:left">=</td>
+      <td style="text-align:left">
+        <ul>
+          <li>=</li>
+        </ul>
+      </td>
       <td style="text-align:left">
         <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without
           quotes. This is only applicable to images.</p>
