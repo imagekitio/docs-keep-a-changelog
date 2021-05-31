@@ -82,9 +82,9 @@ URL - [https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium\_cafe\_B1iTdD0C.jpg](h
 
 ## Crop, Crop Modes and Focus
 
-If only, one of the [height\(h\)](resize-crop-and-other-transformations.md#height-h) or [width\(w\)](resize-crop-and-other-transformations.md#width-w) dimension is specified, then ImageKit.io adjusts the other dimension accordingly to preserve aspect ratio and no cropping takes place.
+If only, one of the [height\(h\)](resize-crop-and-other-transformations.md#height-h) or [width\(w\)](resize-crop-and-other-transformations.md#width-w) dimensions is specified, then ImageKit.io adjusts the other dimension accordingly to preserve aspect ratio and no cropping takes place.
 
-But when you specify both [height\(h\)](resize-crop-and-other-transformations.md#height-h) and [width\(w\)](resize-crop-and-other-transformations.md#width-w) dimension, you need to choose the right cropping strategy based on your website layout and desired output image.
+But when you specify both [height\(h\)](resize-crop-and-other-transformations.md#height-h) and [width\(w\)](resize-crop-and-other-transformations.md#width-w) dimensions, you need to choose the right cropping strategy based on your website layout and desired output image.
 
 {% hint style="info" %}
 **Tip for choosing the right cropping strategy**😎  
@@ -93,7 +93,7 @@ But when you specify both [height\(h\)](resize-crop-and-other-transformations.md
 
 * If you want to preserve the whole image content \(no cropping\) and need the exact same dimensions \(height and width\) in the output image as requested, choose either of the [pad resize crop](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize) or [forced crop strategy](resize-crop-and-other-transformations.md#forced-crop-strategy-c-force).
 * If you want to preserve the whole image content \(no cropping\), but it is okay if one or both the dimensions \(height or width\) in the output image are adjusted to preserve the aspect ratio. Then choose either of the [max-size cropping](resize-crop-and-other-transformations.md#max-size-cropping-strategy-c-at_max) or [min-size cropping strategy](resize-crop-and-other-transformations.md#min-size-cropping-strategy-c-at_least).
-* If you need the exact same dimensions \(height and width\) in the output image as requested but it's okay to crop the image to preserve aspect ratio \(or extract a region from the original image\). Then choose either of the [maintain ratio crop](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio) or [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) or [pad extract crop strategy](resize-crop-and-other-transformations.md#pad-extract-crop-strategy-cm-pad_extract). You can combine the extract crop strategy with different [focus values](resize-crop-and-other-transformations.md#focus-fo) to get the desired result.
+* If you need the exact same dimensions \(height and width\) in the output image as requested but it's okay to crop the image to preserve the aspect ratio \(or extract a region from the original image\). Then choose either of the [maintain ratio crop](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio) or [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) or [pad extract crop strategy](resize-crop-and-other-transformations.md#pad-extract-crop-strategy-cm-pad_extract). You can combine the extract crop strategy with different [focus values](resize-crop-and-other-transformations.md#focus-fo) to get the desired result.
 
 ### Pad resize crop strategy - \(cm-pad\_resize\)
 
@@ -244,7 +244,7 @@ Using c-maintain\_ratio with fo-custom - [https://ik.imagekit.io/demo/img/bike-i
 In this strategy, the output image's dimension \(height and width\) is exactly the same as requested, and the aspect ratio is preserved. In this strategy, instead of trying to resize the image as we did in [maintain ratio strategy](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio), we extract out a region of the requested dimension from the original image.
 
 {% hint style="info" %}
-By default ImageKit.io extract the image from the center but you can change this using [focus parameter](resize-crop-and-other-transformations.md#focus-fo).
+By default, ImageKit.io extracts the image from the center but you can change this using the [focus parameter](resize-crop-and-other-transformations.md#focus-fo).
 {% endhint %}
 
 #### Examples - Center and relative focus
@@ -327,9 +327,13 @@ A 500x100px thumbnail with cm-extract crop strategy and fo-custom.
 {% endtab %}
 {% endtabs %}
 
+#### Unexpected behavior with auto rotation
+
+ImageKit can be configured to [auto-rotate images](../image-optimization/metadata-color-profile-and-orientation.md#image-orientation) based on the `Orientation` value in the image metadata. This could result in unexpected behavior when using, `cm-extract`. In that case, you will have to adjust the values of `x` and `y` to accommodate for the oriented image.
+
 ### **Pad extract crop strategy - \(**cm-pad\_extract\)
 
-The pad extract crop strategy is an extension to the [extract crop strategy](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract). In the extract crop strategy we were extracting out a smaller area from a larger image. Now, there can be a scenario where the original image is small and we want to extract out a larger area \(which is practically not possible without padding\). So the pad extract mode adds a solid colored padding around the image to make it match the exact size requested.
+The pad extract crop strategy is an extension of the [extract crop strategy](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract). In the extract crop strategy, we were extracting out a smaller area from a larger image. Now, there can be a scenario where the original image is small and we want to extract out a larger area \(which is practically not possible without padding\). So the pad extract mode adds a solid colored padding around the image to make it match the exact size requested.
 
 This transformation is specified using the value `cm-pad_extract` transformation parameter in the URL.
 
