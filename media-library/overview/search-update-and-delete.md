@@ -8,7 +8,7 @@ You can access search functionality from the top of the Media Library section. T
 
 ### Basic searching
 
-Basic searching allows you to search a file or folder by name. Enter the full name or starting characters and hit enter.
+Basic searching allows you to search a file or folder by name. Enter the full name or the characters at the beginning of the name and hit enter.
 
 All files or folders whose name either matches exactly or begins with the provided input will be returned.
 
@@ -37,12 +37,12 @@ The advanced search mode can be accessed by clicking on the filter icon in the s
 For example, let's say you want to find a file -
 
 * That was uploaded within the last month.
-* And has either `banner` or `summar-collection` tag set.
+* And has either the `banner` or the `summer-collection` tag set.
 * And the dimension is larger than `1024x768`.
 
-You can set the following filters in the media library UI to get all files that match the above search criteria.
+You can set these filters in the media library UI to get all files that match the above search criteria.
 
-![Advanced file seaching](../../.gitbook/assets/829-d4705fe3129da30c46fe2200296d2b6b3e886eac.png)
+![Advanced file seaching - example 1](../../.gitbook/assets/829-d4705fe3129da30c46fe2200296d2b6b3e886eac.png)
 
 #### Grouping of multiple searches queries
 
