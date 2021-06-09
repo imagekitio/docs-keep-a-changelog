@@ -611,12 +611,13 @@ list_files = imagekitio.list_files({skip: 0, limit: 5})
 
 List all files uploaded in the last 7 days with a file size greater than 2MB. We will use the following value for `searchQuery` parameter.
 
-`createdAt >= 7d AND size > 2mb`
+`createdAt >= "7d" AND size > "2mb"`
 
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
-curl -X GET 'https://api.imagekit.io/v1/files?searchQuery="createdAt >= 7d AND size > 2mb"' \
+curl -X GET 'https://api.imagekit.io/v1/files' \
+-G --data-urlencode "searchQuery=createdAt >= \"7d\" AND size > \"2mb\"" \
 -u your_private_api_key:
 ```
 {% endtab %}
@@ -632,7 +633,7 @@ var imagekit = new ImageKit({
 });
 
 imagekit.listFiles({
-    searchQuery : 'createdAt >= 7d AND size > 2mb'
+    searchQuery : 'createdAt >= "7d" AND size > "2mb"'
 }, function(error, result) { 
     if(error) console.log(error);
     else console.log(result);
@@ -650,7 +651,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({'searchQuery': 'name="createdAt >= 7d AND size > 2mb"'})
+list_files = imagekit.list_files({'searchQuery': 'createdAt >= "7d" AND size > "2mb"'})
 
 print("List files-", "\n", list_files)
 ```
@@ -671,7 +672,7 @@ $imageKit = new ImageKit(
 );
 
 $listFiles = $imageKit->listFiles(array(
-    "searchQuery" => 'createdAt >= 7d AND size > 2mb',
+    "searchQuery" => 'createdAt >= "7d" AND size > "2mb"',
 ));
 
 echo ("List files : " . json_encode($listFiles));
@@ -681,7 +682,7 @@ echo ("List files : " . json_encode($listFiles));
 {% tab title="Java" %}
 ```java
 Map<String , String> options=new HashMap<>();
-options.put("searchQquery",'createdAt >= 7d AND size > 2mb');
+options.put("searchQquery",'createdAt >= "7d" AND size > "2mb"');
 ResultList resultList=ImageKit.getInstance().getFileList(options);
 ```
 {% endtab %}
@@ -689,7 +690,7 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-list_files = imagekitio.list_files({searchQuery : 'name="createdAt >= 7d AND size > 2mb"'})
+list_files = imagekitio.list_files({searchQuery : 'createdAt >= "7d" AND size > "2mb"'})
 ```
 {% endtab %}
 {% endtabs %}
@@ -703,7 +704,8 @@ List all files with filename `file-name.jpg`. We will use the following value of
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
-curl -X GET 'https://api.imagekit.io/v1/files?searchQuery=name="file-name.jpg"' \
+curl -X GET 'https://api.imagekit.io/v1/files' \
+-G --data-urlencode "searchQuery=name=\"file-name.jpg\"" \
 -u your_private_api_key:
 ```
 {% endtab %}
@@ -964,7 +966,8 @@ This will list all `PNG` type files. We will use the following value of `searchQ
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
-curl -X GET 'https://api.imagekit.io/v1/files?searchQuery=format="png"' \
+curl -X GET 'https://api.imagekit.io/v1/files' \
+-G --data-urlencode "searchQuery=format=\"png\"" \
 -u your_private_api_key:
 ```
 {% endtab %}
