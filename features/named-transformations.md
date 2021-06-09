@@ -2,9 +2,9 @@
 
 Named Transformations within ImageKit.io are aliases or names you can give for a complex URL transformation string. For example, suppose you are [resizing](image-transformations/resize-crop-and-other-transformations.md) an image to 300x200px and adding a blur to the image.
 
-Original URL:[https://ik.imagekit.io/demo/img/tr:w-300,h-200,bl-10/default-image.jpg](https://ik.imagekit.io/demo/img/tr:w-300,h-200,bl-10/default-image.jpg)
+Original URL: [https://ik.imagekit.io/ikmedia/tr:w-300,h-200,bl-10/default-image.jpg](https://ik.imagekit.io/ikmedia/tr:w-300,h-200,bl-10/default-image.jpg)
 
-URL with Named Transformation:[https://ik.imagekit.io/demo/img/tr:n-blur\_thumbnail/default-image.jpg](https://ik.imagekit.io/demo/img/tr:n-blur_thumbnail/default-image.jpg)
+URL with Named Transformation: [https://ik.imagekit.io/ikmedia/tr:n-blur\_thumbnail/default-image.jpg](https://ik.imagekit.io/ikmedia/tr:n-blur_thumbnail/default-image.jpg)
 
 Here, we replace the transformation string `tr:w-300,h-200,bl-10` with an easy-to-remember alias - `blur_thumbnail` .
 
