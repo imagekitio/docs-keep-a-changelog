@@ -114,6 +114,7 @@
   * [Delete files \(bulk\)](api-reference/media-api/delete-files-bulk.md)
   * [Copy file](api-reference/media-api/copy-file.md)
   * [Move file](api-reference/media-api/move-file.md)
+  * [Rename file](api-reference/media-api/rename-file.md)
   * [Create folder](api-reference/media-api/create-folder.md)
   * [Delete folder](api-reference/media-api/delete-folder.md)
   * [Copy folder](api-reference/media-api/copy-folder.md)
