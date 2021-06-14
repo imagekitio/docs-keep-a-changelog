@@ -37,6 +37,7 @@
   * [Upload files](media-library/overview/upload-files.md)
   * [Search, update & delete files](media-library/overview/search-update-and-delete.md)
   * [Copy and move files](media-library/overview/copy-and-move-files.md)
+  * [Rename file](media-library/overview/rename-file.md)
   * [Image tagging and searching](media-library/overview/image-tags.md)
   * [Create folders](media-library/overview/folders.md)
   * [Copy and move folders](media-library/overview/copy-and-move-folders.md)
