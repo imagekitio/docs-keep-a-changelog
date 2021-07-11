@@ -8,9 +8,11 @@ Right-click any image file in the media library and select the "Edit image" opti
 
 #### Basic image resizing without cropping
 
-If you want to learn how to resize an image without any cropping, checkout the below video.
+If you want to learn how to resize an image without any cropping, check out the below video.
 
-{% embed url="https://www.youtube.com/watch?v=JpT4\_d16cVg" %}
+{% embed url="https://www.youtube.com/watch?v=ogzJRbYjbwE" %}
+
+
 
 
 
