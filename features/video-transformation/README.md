@@ -19,7 +19,7 @@ https://ik.imagekit.io/demo/tr:w-300,h-300/sample-video.mp4
 {% endtabs %}
 
 * **Original video** [https://ik.imagekit.io/demo/sample-video.mp4](https://ik.imagekit.io/demo/sample-video.mp4)
-* **Resized 300x300 image** [https://ik.imagekit.io/demo/`tr:w-300,h-300`/sample-video.mp4](https://ik.imagekit.io/demo/tr:w-300,h-300/sample-video.mp4)
+* **Resized 300x300 video** [https://ik.imagekit.io/demo/`tr:w-300,h-300`/sample-video.mp4](https://ik.imagekit.io/demo/tr:w-300,h-300/sample-video.mp4)
 
 These transformation parameters `w-300,h-300` can be added in the URL as path params or as query parameters.
 
