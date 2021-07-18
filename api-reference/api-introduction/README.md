@@ -64,15 +64,15 @@ ImageKit.io API uses standard HTTP error codes.
       </td>
       <td style="text-align:left">
         <p>Can be for the following reasons which will be indicated in the <code>message</code>field
-          in the response
+          in the response:
           <br />
         </p>
         <ul>
-          <li>ImageKit could not authenticate your account with the keys provided</li>
-          <li>An expired key (public or private) was used with the request</li>
-          <li>The account is disabled</li>
+          <li>ImageKit could not authenticate your account with the keys provided.</li>
+          <li>An expired key (public or private) was used with the request.</li>
+          <li>The account is disabled.</li>
           <li>If you are using the upload API, the total storage limit (or upload limit)
-            is exceeded</li>
+            is exceeded.</li>
         </ul>
       </td>
     </tr>
