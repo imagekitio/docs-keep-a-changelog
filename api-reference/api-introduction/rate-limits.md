@@ -1,6 +1,6 @@
 # Rate Limits
 
-Except for upload API, all our APIs are rate limited to protect our infrastructure from excessive request rates and to keep ImageKit.io fast and stable for everyone.
+Except for upload API, all our APIs are rate-limited to protect our infrastructure from excessive request rates and to keep ImageKit.io fast and stable for everyone.
 
 Rate limiting is done across the account. When you exceed the rate limits for an endpoint, you will receive a `429` \(Too many requests\) response code.
 
@@ -13,7 +13,7 @@ If you receive a response status code of 429 \(Too Many Requests\), please sleep
 
 Rate limits are specified for a specific interval. So if an endpoint allows 100 requests per second \(1000 milliseconds\), and you exceed this rate, your application will receive a 429 response code. Every endpoint can have different limits, and these limits are exposed via rate-limiting headers, as explained below.
 
-A single endpoint can have multiple limits, for example a 100 request per second limit along with 1000 limits for a 15 minute duration.
+A single endpoint can have multiple limits, for example, a 100 request per second limit along with 1000 limits for a 15-minute duration.
 
 ## Response headers to understand rate limits
 
@@ -21,11 +21,11 @@ In response to every API request, you will also receive the following response h
 
 | Response header | Description |
 | :--- | :--- |
-| `X-RateLimit-Limit`  | The maximum number of requests that can be made to this endpoint in interval specified  by `X-RateLimit-Interval` response header.  |
-| `X-RateLimit-Reset` | The amount of time in milliseconds, before you can make another request  to this endpoint. Pause/sleep your workflow for this duration. |
+| `X-RateLimit-Limit`  | The maximum number of requests that can be made to this endpoint in the interval specified  by `X-RateLimit-Interval` response header.  |
+| `X-RateLimit-Reset` | The amount of time in milliseconds, before you can make another request to this endpoint. Pause/sleep your workflow for this duration. |
 | `X-RateLimit-Interval`  | The duration of interval in milliseconds for which this rate limit was exceeded. |
 
 ## Request higher rate limits
 
-If your workflow demands a higher rate limits, please reach out to us at [support@imagekit.io](mailto:support@imagekit.io).
+If your workflow demands a higher rate limit, please reach out to us at [support@imagekit.io](mailto:support@imagekit.io).
 
