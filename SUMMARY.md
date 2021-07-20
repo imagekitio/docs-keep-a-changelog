@@ -44,6 +44,7 @@
   * [Delete folder](media-library/overview/delete-folder.md)
   * [Custom focus area](media-library/overview/custom-focus-area.md)
   * [Edit image](media-library/overview/edit-image.md)
+  * [Backup media library assets](media-library/overview/backup-media-library-assets.md)
 
 ## Testing and Infrastructure Setup
 
