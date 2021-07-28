@@ -47,7 +47,7 @@ ImageKit.io API uses standard HTTP error codes.
         <br />Bad request</td>
       <td style="text-align:left">The request was unacceptable, often due to missing or invalid parameter(s).
         In this case, a JSON-encoded error response is returned with the <code>message</code> property. <code>message</code> contains
-        the detail about the error and possible solution.</td>
+        the details about the error and possible solution.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>401</b>
