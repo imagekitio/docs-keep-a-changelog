@@ -1,6 +1,6 @@
 # Server side file upload
 
-You can upload files to ImageKit.io media library from your server-side using [private API key authentication](../api-introduction/api-keys.md#private-key).
+You can upload files to the ImageKit.io media library from your server-side using [private API key authentication](../api-introduction/api-keys.md#private-key).
 
 {% hint style="info" %}
 **File size limit**  
@@ -28,15 +28,21 @@ The maximum upload file size is limited to 25MB.
         <br />required
         <br />
       </td>
-      <td style="text-align:left">This field accepts three kinds of values:
-        <br />
-        <br />- <code>binary</code> - You can send the content of the file as binary.
-        This is used when a file is being uploaded from the browser.
-        <br />- <code>base64</code> - Base64 encoded string of file content.
-        <br />- <code>url</code> - URL of the file from where to download the content
-        before uploading. Downloading the file from a URL might take longer, so
-        it is recommended that you pass the binary or base64 content of the file.
-        Pass the full URL, for example - <code>https://www.example.com/rest-of-the-image-path.jpg</code>.</td>
+      <td style="text-align:left">
+        <p>This field accepts three kinds of values:
+          <br />
+          <br />- <code>binary</code> - You can send the content of the file as binary.
+          This is used when a file is being uploaded from the browser.
+          <br />- <code>base64</code> - Base64 encoded string of file content.
+          <br />- <code>url</code> - URL of the file from where to download the content
+          before uploading. For example - <code>https://www.example.com/rest-of-the-image-path.jpg</code>.</p>
+        <p>
+          <br /><b>Note:</b> When passing a URL in the file parameter, please ensure that
+          our servers can access the URL. In case ImageKit is unable to download
+          the file from the specified URL, a <code>400</code> error response is returned.
+          In addition to this, the file download request is aborted if response headers
+          are not received in 8 seconds. This will also result in a <code>400</code> error.</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><b>fileName</b>

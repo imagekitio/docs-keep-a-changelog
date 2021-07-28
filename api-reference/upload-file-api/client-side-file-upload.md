@@ -1,6 +1,6 @@
 # Client side file upload
 
-You can upload files to ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload). You will need to implement `authenticationEndpoint` endpoint on your backend server as shown [here](client-side-file-upload.md#how-to-implement-authenticationendpoint-endpoint).
+You can upload files to the ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload). You will need to implement `authenticationEndpoint` endpoint on your backend server as shown [here](client-side-file-upload.md#how-to-implement-authenticationendpoint-endpoint).
 
 You can use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [example usage](client-side-file-upload.md#examples).
 
@@ -36,10 +36,13 @@ The maximum upload file size is limited to 25MB.
             is used when a file is being uploaded from the browser.</li>
           <li><code>base64</code> - Base64 encoded string of file content.</li>
           <li><code>url</code> - URL of the file from where to download the content before
-            uploading. Downloading a file from a URL might take longer, so it is recommended
-            that you pass the binary or base64 content of the file. Pass the full URL,
-            for example - <code>https://www.example.com/rest-of-the-image-path.jpg</code>.</li>
+            uploading. For example - <code>https://www.example.com/rest-of-the-image-path.jpg</code>.</li>
         </ul>
+        <p><b>Note:</b> When passing a URL in the file parameter, please ensure that
+          our servers can access the URL. In case ImageKit is unable to download
+          the file from the specified URL, a <code>400</code> error response is returned.
+          In addition to this, the file download request is aborted if response headers
+          are not received in 8 seconds. This will also result in a <code>400</code> error.</p>
       </td>
     </tr>
     <tr>
