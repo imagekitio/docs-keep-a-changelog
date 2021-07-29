@@ -28,6 +28,6 @@ These transformation parameters `w-300,h-300` can be added in the URL as path pa
 
 ## Limitations of the Alpha release
 
-* Videos over 50MB in size will not be transformed.
+* Videos over 35MB in size will not be transformed.
 * When you request a new transformation or have turned on video optimization features, if the video is not cached on CDN or our internal caches, we will give a 302 and serve the original content. Within a few seconds, optimized transformations are generated and stored in our caches. From that point onwards, we will serve the actual transformed video. We know that this is not ideal, and we are working on delivering transformed video in real-time. For your users, this should not create a problem as most of the time, transformations will be created the first time you update URLs. 
 
