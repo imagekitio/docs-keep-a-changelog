@@ -50,7 +50,7 @@ A few WebP images may not render correctly in Safari v14+ on MacOS v11+ and IOS 
 AVIF \(AV1 Image File\) is a new image format that offers superior compression and visual quality compared to other image formats like JPEG and WebP. It has been launched in Chrome 85, and support is likely to be added in Android and Firefox soon. More details on the current browser support for AVIF can be found here - [https://caniuse.com/avif](https://caniuse.com/avif).
 
 {% hint style="info" %}
-Before you start using AVIF images on your website, we would recommend reading this detailed[ blog that highlights the features, compression, visual quality, and the current drawbacks of the AVIF image format](https://imagekit.io/blog/automatic-avif-image-optimization-imagekit/).
+Before you start using AVIF images on your website, we would recommend reading this detailed[ blog that highlights the features, compression, visual quality, and current drawbacks of the AVIF image format](https://imagekit.io/blog/automatic-avif-image-optimization-imagekit/).
 {% endhint %}
 
 Starting 15 December 2020, ImageKit has started rolling out support for automatic conversion of images to the AVIF format on devices that support AVIF format; they send `image/avif` in the `Accept` request header. Here is how the rollout is planned -
@@ -59,7 +59,21 @@ Starting 15 December 2020, ImageKit has started rolling out support for automati
 2. Automatic format conversion to AVIF, without making any change to the URL, will be enabled gradually for our current users. You will see if this feature is enabled for your account or not under the Image Settings &gt; Optimization section in your ImageKit dashboard. If this feature is not enabled for your account and you want early access to it, please reach out to support@imagekit.io or initiate a live chat from your dashboard.
 3. As of 15 December 2020, users on custom CDNs won't have this access to this feature working. Our team will be reaching out to such users, helping them with the required configuration changes on their CDN, if any, before enabling the feature on their account.
 4. All transformations will be supported on AVIF images, except for the Preserve color profile \(through the dashboard setting or the URL parameter `cp-true`\) and Unsharp Mask \(`e-usm`\) transformations. If your transformation string or the dashboard settings use either of these two features, the final output image will not be delivered in AVIF. WebP and other format optimizations will continue to work in such cases.
-5. AVIF images as an input image are also supported.
+5. AVIF images as input images are also supported.
 
 If you have any questions regarding the AVIF format optimization feature for your account or the compression or image quality in AVIF, please reach out to us at support@imagekit.io or via the live chat in your dashboard.
+
+## HEIF \(HEIC\) Image Format Support
+
+**High-Efficiency Image File Format** \(**HEIF**\) is a container format for individual images and image sequences. It allows storing high-quality images at smaller sizes when compared to JPEG format. Apple adopted this format for its iOS devices and made HEIC, a container format, the default format to store photos on the devices.
+
+While HEIF or HEIC files work well on iOS devices, browsers cannot load them. They have to be converted to formats that browsers support like JPEG, WebP, etc.
+
+As of 2 Aug 2021, ImageKit now supports decoding HEIF and HEIC images to web-safe image formats - JPG, PNG, and WebP. ImageKit will automatically determine the formats supported on the requesting device and convert the image to the appropriate format. You can carry out all ImageKit transformations on these images.
+
+Currently, HEIF images are not automatically converted to AVIF format, even if auto-conversion to AVIF is enabled for your account or the browser supports it. However, you can convert them to AVIF using the format transformation parameter `f-avif`.
+
+You can download the original HEIF or HEIC image by adding the `orig-true` transformation parameter. Currently, the encoding of images to HEIF is not supported in ImageKit, i.e., you cannot convert a non-HEIF image to HEIF via ImageKit.
+
+
 
