@@ -29,7 +29,6 @@
   * [Web proxy](integration/configure-origin/web-proxy.md)
   * [Web server](integration/configure-origin/web-server-origin.md)
 * [URL-endpoints](integration/url-endpoints.md)
-* [404 - Not found troubleshooting](integration/404-not-found-error-troubleshooting.md)
 
 ## ImageKit.io storage <a id="media-library"></a>
 
@@ -45,6 +44,11 @@
   * [Custom focus area](media-library/overview/custom-focus-area.md)
   * [Edit image](media-library/overview/edit-image.md)
   * [Backup media library assets](media-library/overview/backup-media-library-assets.md)
+
+## Limits and troubleshooting
+
+* [Limits](limits-and-troubleshooting/limits.md)
+* [Error troubleshooting](limits-and-troubleshooting/404-not-found-error-troubleshooting.md)
 
 ## Testing and Infrastructure Setup
 

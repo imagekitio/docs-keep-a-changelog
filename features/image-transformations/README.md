@@ -27,7 +27,7 @@ These transformation parameters `w-300,h-300` can be added in the URL as path pa
 * **As query parameter** [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?`tr=w-200,h-200`](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=w-200,h-200)
 
 {% hint style="info" %}
-Images over 40MB in size will not be transformed.
+Images transformation are subject to [certain limits](../../limits-and-troubleshooting/limits.md#image-limits).
 {% endhint %}
 
 ## Use cases:

@@ -40,7 +40,11 @@ URL - [https://ik.imagekit.io/demo/tr:rt-90:w-400,h-300/default-image.jpg](https
 {% endtab %}
 {% endtabs %}
 
-Apart from providing more control on the output image, using chained transforms also makes it easier to logically understand the transformation sequence and have no surprises. Just by reading the transformation, you would able to anticipate the output. The output of a chained transformation, compared to writing everything in the same transformation step, is much more predictable.
+Apart from providing more control on the output image, using chained transforms also makes it easier to logically understand the transformation sequence and have no surprises. Just by reading the transformation, you would be able to anticipate the output. The output of a chained transformation, compared to writing everything in the same transformation step, is much more predictable.
+
+{% hint style="info" %}
+Each transformation step is subject to [certain limits](../../limits-and-troubleshooting/limits.md#image-limits).
+{% endhint %}
 
 ## Example
 
