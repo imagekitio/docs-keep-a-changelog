@@ -254,3 +254,7 @@ URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200,cm-pad\_resiz
 
 **Possible Values** - Valid RGB Hex Code
 
+### Audio codec - \(ac\)
+
+To remove the audio channel from a video set `ac-none` parameter.
+
