@@ -129,7 +129,7 @@ The output video is less than or equal to the dimensions specified in the URL,i.
 
 URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-200,h-200,c-at\_max](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-200,h-200,c-at_max)
 
-Notice that the aspect ratio is mantined and there is no cropping. But the height is reduced so that video's fits within a 200x200 container.
+Notice that the aspect ratio is maintained and there is no cropping. But the height is reduced so that the video fits within a 200x200 container.
 
 ![](../../.gitbook/assets/image%20%2830%29.png)
 
@@ -139,7 +139,7 @@ This strategy is similar to the [max-size cropping](resize-crop-and-other-common
 
 URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-200,h-200,c-at\_least](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-200,h-200,c-at_least)
 
-Notice that the height is 200px as requested, but width is more than 200px. Aspect ratio is maintianed and there is no cropping.  
+Notice that the height is 200px as requested, but the width is more than 200px. The aspect ratio is maintained and there is no cropping.  
 
 
 ![](../../.gitbook/assets/image%20%2847%29.png)
@@ -154,7 +154,7 @@ By default, ImageKit.io crops the video from the center but you can change this 
 
 URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200)  
   
-Notice that the video's dimension matches 400x200 but content is cropped from all edges i.e by default ImageKit will extract the video from the center. You can change this behavour using [focus parameter](resize-crop-and-other-common-video-transformations.md#focus-fo).
+Notice that the video's dimension matches 400x200 but the content is cropped from all edges i.e by default ImageKit will extract the video from the center. You can change this behaviour using the [focus parameter](resize-crop-and-other-common-video-transformations.md#focus-fo).
 
 ![](../../.gitbook/assets/image%20%2832%29.png)
 
