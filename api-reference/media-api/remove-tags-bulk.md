@@ -19,11 +19,11 @@ base64 encoding of `your_private_api_key:`
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter type="string" name="fileIds" required=true %}
+{% api-method-parameter type="array" name="fileIds" required=true %}
 Each value should be a unique `fileId` of the uploaded file. `fileId` is returned in list files API and upload API
 {% endapi-method-parameter %}
 
-{% api-method-parameter type="string" name="tags" required=true %}
+{% api-method-parameter type="array" name="tags" required=true %}
 An array of tags to remove from these files.
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
@@ -49,7 +49,7 @@ An array of tags to remove from these files.
 
 {% api-method-response-example httpCode=404 %}
 {% api-method-response-example-description %}
-If any of the fileId is not found in your media library then a 404 response is returned and no tags are added to any file. The whole operation fails.
+If any of the fileId is not found in your media library then a 404 response is returned and no tags are removed from any file. The whole operation fails.
 {% endapi-method-response-example-description %}
 
 ```javascript
@@ -69,7 +69,7 @@ If any of the fileId is not found in your media library then a 404 response is r
 
 ### Response structure and status code
 
-In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with an empty body.
+In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with an array of successfully updated `fileIds`.
 
 ## Examples
 
