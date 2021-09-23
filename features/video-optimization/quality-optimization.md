@@ -17,7 +17,7 @@ Choosing 100 quality will not improve an already low-quality video. However, it 
 Video quality optimization is turned on by default. You can disable it for the whole account. Select settings from the left main menu. Inside Videos, under optimization, toggle "optimize video quality" control.
 
 {% hint style="info" %}
-For older accounts, all video-related optimization settings are OFF. You can turn it ON from the settings section in your dashboard. Additional charges will apply. Please go through the pricing. Reach out to support@imagekit.io if you have any questions.
+This feature is off by default. Contact support at support@imagekit.io to enable automatic video format and quality optimization for your account.
 {% endhint %}
 
 ### How to control video quality from the dashboard?

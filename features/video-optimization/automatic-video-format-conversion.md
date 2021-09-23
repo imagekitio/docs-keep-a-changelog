@@ -23,7 +23,7 @@ The video URL remains the same, but the file is modified. This behavior is trans
 Automatic format optimization is on by default. You can enable or disable automatic format conversion from the ImageKit dashboard.
 
 {% hint style="info" %}
-For older accounts, all video-related optimization settings are OFF. You can turn it ON from the settings section in your dashboard. Additional charges will apply. Please go through the pricing. Reach out to support@imagekit.io if you have any questions.
+This feature is off by default. Contact support at support@imagekit.io to enable automatic video format and quality optimization for your account.
 {% endhint %}
 
 Select settings from the left main menu. Inside Videos, under optimization, toggle "Use best format for video delivery" option to enable or disable this feature.
