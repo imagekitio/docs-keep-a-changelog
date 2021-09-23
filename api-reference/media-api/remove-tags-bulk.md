@@ -69,7 +69,7 @@ If any of the fileId is not found in your media library then a 404 response is r
 
 ### Response structure and status code
 
-In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with an array of successfully updated `fileIds`.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with an array of successfully updated `fileIds`.
 
 ## Examples
 

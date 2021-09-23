@@ -69,7 +69,7 @@ If any of the `fileId` is not found in your media library then a `404` response 
 
 ### Response structure and status code
 
-In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with JSON encoded response containing information about successfully deleted `fileIds`.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with JSON encoded response containing information about successfully deleted `fileIds`.
 
 ## Examples
 

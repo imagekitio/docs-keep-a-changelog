@@ -24,7 +24,7 @@ Each value should be a unique `fileId` of the uploaded file. `fileId` is returne
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="tags" type="array" required=true %}
-An array of tags to add on these files.
+An array of tags to add to these files.
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
@@ -69,7 +69,7 @@ If any of the fileId is not found in your media library then a `404` response is
 
 ### Response structure and status code
 
-In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with an empty body.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with an array of successfully updated `fileIds`.
 
 ## Examples
 
