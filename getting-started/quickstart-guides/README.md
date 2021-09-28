@@ -61,6 +61,8 @@ https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=q-50
 
 Follow one of the platform-specific quick start guides to integrate ImageKit in your application:
 
+{% page-ref page="php.md" %}
+
 {% page-ref page="react.md" %}
 
 {% page-ref page="react-native.md" %}

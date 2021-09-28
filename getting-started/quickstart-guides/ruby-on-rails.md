@@ -10,12 +10,12 @@ This is a quick start guide to show you how to integrate ImageKit in the Ruby on
 
 This guide walks you through the following topics:
 
-* [Setting up ImageKit Ruby SDK](https://docs.imagekit.io/getting-started/quickstart-guides/ruby-on/rails#setting-up-imagekit-ruby-sdk)
-* [Rendering images](https://docs.imagekit.io/getting-started/quickstart-guides/ruby-on/rails#rendering-images-in-ruby-on-rails)
-* [Applying common image manipulations](https://docs.imagekit.io/getting-started/quickstart-guides/ruby-on/rails#common-image-manipulation-in-ruby-on-rails)
-* [Secure signed URL generation](https://docs.imagekit.io/getting-started/quickstart-guides/ruby-on/rails#secure-signed-url-generation)
-* [Adding overlays to images](https://docs.imagekit.io/getting-started/quickstart-guides/ruby-on/rails#adding-overlays-to-images-in-ruby-on-rails)
-* [Uploading files](https://docs.imagekit.io/getting-started/quickstart-guides/ruby-on/rails#uploading-files-in-ruby-on-rails-application)
+* [Setting up ImageKit Ruby SDK](ruby-on-rails.md#setting-up-imagekit-ruby-sdk)
+* [Rendering images](ruby-on-rails.md#rendering-images-in-ruby-on-rails)
+* [Applying common image manipulations](ruby-on-rails.md#common-image-manipulation-in-ruby-on-rails)
+* [Secure signed URL generation](ruby-on-rails.md#secure-signed-url-generation)
+* [Adding overlays to images](ruby-on-rails.md#adding-overlays-to-images-in-ruby-on-rails)
+* [Uploading files](ruby-on-rails.md#uploading-file-in-ruby-on-rails-application)
 
 ## Setting up ImageKit Ruby SDK
 
