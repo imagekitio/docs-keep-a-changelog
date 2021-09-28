@@ -18,11 +18,11 @@ base64 encoding of `your_private_api_key:`
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="folderPath" type="string" required=true %}
+{% api-method-body-parameters %}
+{% api-method-parameter type="string" name="folderPath" required=true %}
 Full path to the folder you want to delete. For example `folder/to/delete/`
 {% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
