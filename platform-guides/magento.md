@@ -1,61 +1,148 @@
+---
+description: >-
+  ImageKit provides an extension for Magento 2 to help you showcase products
+  using high-quality images that load fast. The extension also provides Digital
+  Assets Management.
+---
+
 # Magento
 
 ![](../.gitbook/assets/idtyrzw8lrqi38giqlqu.png) 
 
-Magento is one of the most popular eCommerce platform to build your own self-hosted eCommerce business.
+Product images are the first thing shoppers want when they visit your store and a pixel-perfect first impression is crucial to driving conversions. Building your own, scalable, online store with thousands of high-quality, fast-loading, and responsive images is a breeze with ImageKit.
 
-## Integration steps
+ImageKit provides an extension for Magento 2 that automatically updates all the image URLs in your entire store so that optimized images are fetched from ImageKit instead of your web server, ensuring better speed and search rankings. Additionally, you can dynamically create correctly-sized, responsive, and personalized product & marketing assets tailored to your campaigns and storefront - all within seconds and from a single master image. The extension also integrates ImageKit Media Library to help you leverage the complete suite of Digital Assets Management features.
 
-ImageKit.io offers a straightforward integration to optimize all the images on your Magento website. Here is what you need to do:
+## **Getting started**
 
-### Step 1: Configure origin in ImageKit.io dashboard
+Before you install the extension, make sure you have an ImageKit account.   
+[Sign up](https://imagekit.io/registration/) for a free plan, starting with generous usage limits and when your requirements grow, you can easily upgrade to a plan that best fits your needs. More pricing information is available [here](https://imagekit.io/plans).
 
-Configure origin based on where your images are stored. For example, [Amazon S3 bucket origin](../integration/configure-origin/amazon-s3-bucket-origin.md) or [web server](../integration/configure-origin/web-server-origin.md).
+### Installing the extension
+
+You can download and install the extension from [Magento marketplace](https://marketplace.magento.com/imagekit-imagekit-magento.html) or install it via composer by running the following commands under your Magento 2 root dir.
+
+```text
+composer require imagekit/imagekit-magento
+php bin/magento maintenance:enable
+php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy
+php bin/magento maintenance:disable
+php bin/magento cache:flush
+```
+
+### **Configuring the extension**
+
+Once the extension is downloaded and installed, follow these steps:
+
+1. In the Magento Admin Panel, select Stores ****➡ ****Configuration**.**
+2. On the Configuration page, open the ImageKit section in the left-hand sidebar and select Settings.
+3. In the ImageKit Setup section of this page:
+   1. Set your ImageKit URL endpoint \(or CNAME\). Copy the endpoint as found in the [ImageKit URL Endpoint Section](https://imagekit.io/dashboard#url-endpoints).
+   2. Set Enable ****ImageKit to Yes.
+   3. Further instructions to configure origin would be given in the ImageKit origin section
+   4. Once you have configured the origin in ImageKit Dashboard, set Configuration ****Complete to Yes.
+   5. Click the Save Config button at the top of the page.
+4. Go to System ****➡ Cache ****Management ****and refresh your configuration and page caches. From this point onwards, if the origin is configured, any new media assets you upload will be delivered via ImageKit. 
+
+![Url Endpoints in ImageKit Dashboard](https://lh6.googleusercontent.com/cMGAr2Kcn2wvLb5G3Fyx3bhhDIO_mA1PwSpztZGJZzE4XG7wBJpITxKZn8GrBrHDAkwV9IAl845Y76c9lnIIt2iyY3b1ntx5rplPs2ue9t3xUVi8VgQZs2wXhRho2nRK8gSOoCgH=s0)
+
+![Origin Configuration Steps as shown on Extension Settings Page](https://lh4.googleusercontent.com/SekeL8ugUW8zu6-jsY1JqQWHZAnGWDP1OVqLddjX2_1r7WOf83WI3LhOdJYO0OOgZJYi1P2jiyObb2Md-fMLOVKikX3vhWeJwELb2EBkWaFd1cUON8x9yA1FPaaFImme41YeM-H0=s0)
+
+{% hint style="warning" %}
+The Configure Origin can be omitted if you only want to use assets imported from the ImageKit media library to be delivered via ImageKit. If not configured, the rest of the assets will be delivered using your Magento web server.
+{% endhint %}
+
+## **ImageKit Magento Extension features**
+
+With ImageKit, you can add and deliver images. The ImageKit Dashboard has multiple options to change the behavior of the ImageKit extension when serving images. These are:
+
+* **Custom domain name** - Ability to use the custom domain name to deliver media assets e.g. http://images.yourdomain.com.
+* **Automatic Image Format Optimization** - Automatically deliver images converted to modern image formats based on viewing device and browser
+* **Image Quality** - Adjust the quality of generated images to balance between visual quality and file size minimization
+* **Image Transforms** - Leverage ImageKit Media Library to create or modify assets depending on requirements. Learn more [here](https://docs.imagekit.io/features/image-transformations).
+* **ImageKit Media Library** - ImageKit Extension integrates the ImageKit Media Library right into the CMS‌
+
+## ImageKit powered media delivery
+
+Once the Origin is properly configured and the Configuration Complete option is set to Yes, you will find that all the images on your website would be automatically delivered through [ImageKit.io](https://imagekit.io/)
+
+![](../.gitbook/assets/image%20%2866%29.png)
+
+## **ImageKit Media Library integration**
+
+[ImageKit.io](http://ImageKit.io) provides highly available storage called the Media Library to all its users. It comes with a simple user interface to upload, tag, search and manage files, and folders.
+
+‌Enjoy a fully featured ImageKit Media Library directly in Magento. Use the ImageKit Media Library UI to:‌
+
+* Upload new images
+* Search, update, rename, tag, and delete files
+* Organize files in folders
+* Tag files based on content
+* Modify creatives with a powerful and user-friendly image editor
+
+See the [ImageKit Media Library documentation](https://docs.imagekit.io/media-library/overview) for more information‌
+
+Look out for the “**Add from ImageKit**” button to launch the Media Library.
+
+You can access it in the following places:‌
+
+* **Managing your catalog** - Add category and product images to your catalog directly from the ImageKit Media Library. 
+
+![](https://lh4.googleusercontent.com/a-kiSQ2qkJkeOQQ1AU7hxfqriBaJOXnr7_hDRlhahmNtr2yGCUACA5AjHN9euI6ig4ZlTfm8YmF9DP8eic1-b_KJKZ9iL7wioKWtmamEunLwgOV8jOSf34rJDwJL7S91w164Ajex=s0)
+
+* **Managing your site content** - Add media from ImageKit to all pages on your Magento site using the Media Library
+
+![](https://lh3.googleusercontent.com/SnhSZkRojL9YiLI2C_yhILNVXY5yxvTXy7hoaJwTehtawAQ3jVbQkbpT6HRAr32LKH7TrnvGcuScwuy0wotUdiT8TFz4p0eLXE089h2_nK9uiq7ucNDG3A-kR0mslzIqic6VrhA4=s0)
+
+## Using ImageKit Media Library to manage catalog images
+
+You can import images from ImageKit Media Library directly to product pages.
+
+### Adding product images from ImageKit Media Library
+
+While creating a product, you will find the **Import From ImageKit** button in the **Images and Videos** section.
+
+![](../.gitbook/assets/screenshot-2021-09-30-at-1.07.55-pm.png)
+
+Use the ImageKit Media Library to find the image you wish to add and click on **Insert** on the top right corner.
+
+![](../.gitbook/assets/screenshot-2021-09-30-at-1.10.54-pm.png)
 
 {% hint style="info" %}
-**Base URL for web server origin**  
-If you are serving files directly from your web server, then the value of the base URL is the same as your website, e.g.`https://www.example.com`.
+You can also select multiple images of a product at once.
 {% endhint %}
 
-### Step 2: Fetch image through ImageKit.io endpoint
+![Photo by Monstera from Pexels](../.gitbook/assets/image%20%2865%29.png)
 
-Let's quickly fetch the image using ImageKit.io [URL-endpoint](../integration/url-endpoints.md) and see if it's working.
+On the product page, you will find that all the product images would be delivered from [ImageKit.io](http://ImageKit.io) with the optimal transformations applied‌.
 
-When you add the first origin in your account, it automatically becomes accessible through the [default URL-endpoint](../integration/url-endpoints.md#default-url-endpoint), that is `https://ik.imagekit.io/your_imagekit_id`. Otherwise, you will have to [configure an existing](../integration/url-endpoints.md#image-origin-preference) URL endpoint or create a new one to fetch images from this newly added origin.
+![](../.gitbook/assets/image%20%2868%29.png)
 
-If your old image URL was [`https://www.example.com/media/catalog/product/p/p/pphsaj50030132-2_1.jpg`](https://www.example.com/media/catalog/product/p/p/pphsaj50030132-2_1.jpg) , then the same image should be accessible through new URL. i.e. [`https://ik.imagekit.io/your_imagekit_id/media/catalog/product/p/p/pphsaj50030132-2_1.jpg`](https://ik.imagekit.io/your_imagekit_id/media/catalog/product/p/p/pphsaj50030132-2_1.jpg)
+### Adding Images to product description from ImageKit Media Library
 
-{% hint style="danger" %}
-**Unable to fetch image?**  
-Contact [support@imagekit.io](mailto:support@imagekit.io) if you are not able to fetch the image as explained above. In such a situation, do not move to step 3 as this could break your website images.
-{% endhint %}
+You can also add images from ImageKit Media Library to the product description using the **Add from ImageKit button** in the **Select Images** modal.
 
-### Step 3: Replace the base URL for user media files in Magento
+![](../.gitbook/assets/screenshot-2021-09-30-at-1.20.32-pm.png)
 
-Once the above image works with the ImageKit.io URL endpoint, you will need to make changes within the Magento admin panel to switch the image delivery and optimization to ImageKit.io.
+## Using Magento page builder to import images
 
-In Magento 2, go to Stores ➡ Configurations ➡Web:
+Use the Media section of the Page Builder panel, you can add images, banners, or sliders from ImageKit to any layout container on the [Page Builder stage](https://docs.magento.com/user-guide/cms/page-builder-workspace.html#stage). After adding a Media Block to the page builder stage, you’ll have the option to select the images from ImageKit.
 
-![](../.gitbook/assets/pesbv0ghrz3zyvr3vnub.jpg)
+![](../.gitbook/assets/image%20%2867%29.png)
 
-Fill **Base URL for User Media Files** with the `your_imagekit_url_endpoint/media/.` Note that we added `/media/` in the end.
+For instance, to add an image from ImageKit, drag and drop an image block into the page builder stage, then click **Select from Gallery**. You can open the ImageKit Media Library to manage and insert your ImageKit images by clicking **Add from ImageKit** button. 
 
-1. Save these settings.
-2. Use the sidebar to navigate to System ➡ Cache Management and Flush Magento Cache. Learn about [cache management](https://docs.magento.com/m2/ce/user_guide/system/cache-management.html) in Magento.
-3. Refresh the webpage of your Magento storefront, and you should see images loading via ImageKit.io.
-
-{% hint style="info" %}
-**Note:**  
-If you set up Magento as per the docs, and you see `/pub/` in your image URLs, then, in this case, change the value of Base URL for User Media Files in the Magento admin panel to `your_imagekit_url_endpoint/pub/media/`
-{% endhint %}
+![](../.gitbook/assets/screenshot-2021-09-30-at-1.43.47-pm.png)
 
 ## Using ImageKit.io to deliver non-image static assets like JS or CSS
 
 You can also use ImageKit.io to deliver non-image type static assets like JS, CSS, or font files. Navigate to Stores ➡Configurations ➡ Web:
 
-1. For **Base URL for Static View Files**, set `your_imagekit_url_endpoint/static/`  or `your_imagekit_url_endpoint/pub/static/`  depending on your setup.
+1. For **Base URL for Static View Files**, set `your_imagekit_url_endpoint_with_origin_configured/static/`  or `your_imagekit_url_endpoint_with_origin_configured/pub/static/`  depending on your setup.
 
-{% hint style="success" %}
-You have successfully integrated your Magento storefront with ImageKit.io and all your images, moving forward, will be optimized and delivered in the right format.
-{% endhint %}
+![](../.gitbook/assets/image%20%2864%29.png)
+
+
 
