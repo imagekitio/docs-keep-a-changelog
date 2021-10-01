@@ -20,7 +20,7 @@ Before you install the extension, make sure you have an ImageKit account.
 
 ### Installing the extension
 
-You can download and install the extension from [Magento marketplace](https://marketplace.magento.com/imagekit-imagekit-magento.html) or install it via composer by running the following commands under your Magento 2 root dir.
+You can download and install the extension from the [Magento marketplace](https://marketplace.magento.com/imagekit-imagekit-magento.html) or install it via composer by running the following commands under your Magento 2 root dir.
 
 ```text
 composer require imagekit/imagekit-magento
@@ -140,7 +140,7 @@ For instance, to add an image from ImageKit, drag and drop an image block into t
 
 You can also use ImageKit.io to deliver non-image type static assets like JS, CSS, or font files. Navigate to Stores ➡Configurations ➡ Web:
 
-1. For **Base URL for Static View Files**, set `your_imagekit_url_endpoint_with_origin_configured/static/`  or `your_imagekit_url_endpoint_with_origin_configured/pub/static/`  depending on your setup.
+For **Base URL for Static View Files**, set`your_imagekit_url_endpoint_with_origin_configured/static/`  or `your_imagekit_url_endpoint_with_origin_configured/pub/static/`  depending on your setup.
 
 ![](../.gitbook/assets/image%20%2864%29.png)
 
