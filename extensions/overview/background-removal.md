@@ -27,12 +27,12 @@ The `extensions` parameter of both upload and update APIs takes an array of obje
 
 The options are passed to remove-bg service as it is. We support the following options:
 
-| Parameter name       | Extension   | Type    | Description                                                                                                                                                              |
-| -------------------- | ----------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **add_shadow**       | `remove-bg` | boolean | Whether to add an artificial shadow to the result (default: false). NOTE: Adding shadows is currently only supported for car photos.                                     |
-| **semitransparency** | `remove-bg` | boolean | Whether to have semi-transparent regions in the result (default: true). NOTE: Semitransparency is currently only supported for car windows.                              |
-| **bg_color**         | `remove-bg` | string  | Adds a solid color background. Can be a hex color code (e.g. 81d4fa, fff) or a color name (e.g. green). If this parameter is present, then `bg_image_url` must be empty. |
-| **bg_image_url**     | `remove-bg` | string  | Adds a background image from a URL. If this parameter is present, then `bg_color` must be empty.                                                                         |
+| Parameter name       | Type    | Description                                                                                                                                                              |
+| -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **add_shadow**       | boolean | Whether to add an artificial shadow to the result (default: false). NOTE: Adding shadows is currently only supported for car photos.                                     |
+| **semitransparency** | boolean | Whether to have semi-transparent regions in the result (default: true). NOTE: Semitransparency is currently only supported for car windows.                              |
+| **bg_color**         | string  | Adds a solid color background. Can be a hex color code (e.g. 81d4fa, fff) or a color name (e.g. green). If this parameter is present, then `bg_image_url` must be empty. |
+| **bg_image_url**     | string  | Adds a background image from a URL. If this parameter is present, then `bg_color` must be empty.                                                                         |
 
 To learn more about what these do, refer to [remove.bg's documentation](https://www.remove.bg/api#api-reference).
 
