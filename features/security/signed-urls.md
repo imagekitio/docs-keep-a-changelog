@@ -11,7 +11,7 @@ When generating signed URLs, use the private key available within the [Developer
 
 A signed URL would be similar to :
 
-https://ik.imagekit.io/your\_imagekit\_id/path-to-image.jpg?ik-s=`generatedURLsignature`&ik-t=`UTCtimestamp`
+https://ik.imagekit.io/your_imagekit_id/path-to-image.jpg?ik-s=`generatedURLsignature`\&ik-t=`UTCtimestamp`
 
 {% hint style="info" %}
 If you want to create a signed URL that uses a Web Proxy origin, you must encode the complete URL of the input image before signing it. For example, instead of using `https://example.com/image.jpg`as input for the signed URL, you should use `https%3A%2F%2Fexample.com%2Fimage.jpg`.
@@ -147,4 +147,3 @@ var signature = crypto.createHmac('sha1', "your_private_key").update(str).digest
 // Add ik-t and ik-s query parameters in the url
 var finalImageUrl = imageUrl + "?ik-t=" + expiryTimestamp + "&ik-s=" + signature;
 ```
-

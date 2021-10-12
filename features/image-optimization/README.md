@@ -11,4 +11,3 @@ The following features related to image optimization can be found in your dashbo
 3. [Chroma Subsampling](chroma-subsampling.md)
 4. [Metadata, Color Profile and Orientation](metadata-color-profile-and-orientation.md)
 5. [PNG Compression](png-compression.md)
-

@@ -8,7 +8,7 @@ For example, a paid image gallery that shares original images with its customers
 
 Any original image that is marked private cannot be accessed directly through a standard image URL. Private Original Images can only be accessed through a [valid signed URL.](signed-urls.md)
 
-The same logic applies when a private image is being resized using real-time [transformation parameters](signed-urls.md). A [valid signed URL](/imagekit-docs/signed-urls) is required to access the transformation of a private image.
+The same logic applies when a private image is being resized using real-time [transformation parameters](signed-urls.md). A [valid signed URL](https://app.gitbook.com/imagekit-docs/signed-urls) is required to access the transformation of a private image.
 
 However, if there are [named transformations](../named-transformations.md) specified within the dashboard, these named transformations can be used to transform your images. Named transformations can be used with private images without generating a valid signed URL.
 
@@ -25,4 +25,3 @@ If an image is marked as private once, its status cannot be changed. To unmark a
 ## Upload Private Images using Upload API
 
 You can mark images as private while uploading using the [Upload API](../../api-reference/upload-file-api/).
-

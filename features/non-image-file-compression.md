@@ -9,17 +9,17 @@ If the browser supports Brotli compression and is advertised within the Accept E
 ## Non-image file extensions
 
 | **List of supported non-image file extensions**  | **List of unsupported non-image file extensions**  |
-| :--- | :--- |
-| .js | .ogg |
-| .css | .ogv |
-| .svg | .zip |
-| .json | .tgz |
-| .pdf | .rar |
-| .mp4 | .bz2 |
-| .txt | .tar |
-| .html | .avi |
-| .m3u8 | .mid/.midi |
-| .ts | .wav |
+| ------------------------------------------------ | -------------------------------------------------- |
+| .js                                              | .ogg                                               |
+| .css                                             | .ogv                                               |
+| .svg                                             | .zip                                               |
+| .json                                            | .tgz                                               |
+| .pdf                                             | .rar                                               |
+| .mp4                                             | .bz2                                               |
+| .txt                                             | .tar                                               |
+| .html                                            | .avi                                               |
+| .m3u8                                            | .mid/.midi                                         |
+| .ts                                              | .wav                                               |
 
 {% hint style="info" %}
 Images, except SVG, are not subject to Brotli or gzip compression. Images are already compressed using dedicated lossy and lossless compression algorithms.
@@ -38,4 +38,3 @@ Look at the Content-Encoding Response Header to check whether the resource is Br
 ![Content-encoding set to gzip](../.gitbook/assets/gzip-content-encoding.jpg)
 
 If you have any queries regarding the compressions performed on non-image files, please reach out to our team through your dashboard or at [support@imagekit.io](mailto:supprort@imagekit.io).
-

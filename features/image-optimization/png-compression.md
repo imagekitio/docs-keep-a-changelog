@@ -15,4 +15,3 @@ The above URL delivers a losslessly compressed WebP image in Chrome. Adding the 
 Additionally, from the ImageKit.io dashboard, you can change the PNG compression mode from the Advanced Settings tab under Image Settings and set it to `Minimum` . This compression mode change from the dashboard is applicable only for PNG images.
 
 You can completely turn off PNG image optimization by setting the PNG Compression mode to `None` from your dashboard. This is not recommended.
-

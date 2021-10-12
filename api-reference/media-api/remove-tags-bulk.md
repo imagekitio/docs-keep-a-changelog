@@ -1,40 +1,40 @@
-# Remove tags \(bulk\)
+# Remove tags (bulk)
 
-{% api-method method="post" host="https://api.imagekit.io" path="/v1/files/removeTags" %}
-{% api-method-summary %}
-Remove tags in bulk API
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/removeTags" method="post" summary="Remove tags in bulk API" %}
+{% swagger-description %}
 Remove tags from multiple files in a single request.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-headers %}
-{% api-method-parameter type="string" name="Authorization" required=true %}
-base64 encoding of `your_private_api_key:`  
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+base64 encoding of 
+
+`your_private_api_key:`
+
+\
+
+
+
+
 **Note the colon in the end.**
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter type="array" name="fileIds" required=true %}
-Each value should be a unique `fileId` of the uploaded file. `fileId` is returned in list files API and upload API
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="fileIds" type="array" %}
+Each value should be a unique 
 
-{% api-method-parameter type="array" name="tags" required=true %}
+`fileId`
+
+ of the uploaded file. 
+
+`fileId`
+
+ is returned in list files API and upload API
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="tags" type="array" %}
 An array of tags to remove from these files.
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "successfullyUpdatedFileIds": [
@@ -45,13 +45,9 @@ An array of tags to remove from these files.
     ]
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-If any of the fileId is not found in your media library then a 404 response is returned and no tags are removed from any file. The whole operation fails.
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="404" description="If any of the fileId is not found in your media library then a 404 response is returned and no tags are removed from any file. The whole operation fails." %}
 ```javascript
 {
     "message": "The requested file(s) does not exist.",
@@ -62,10 +58,8 @@ If any of the fileId is not found in your media library then a 404 response is r
     ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response structure and status code
 
@@ -97,4 +91,3 @@ curl -X POST "https://api.imagekit.io/v1/files/removeTags" \
 ```
 {% endtab %}
 {% endtabs %}
-

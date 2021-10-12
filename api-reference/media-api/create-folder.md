@@ -1,48 +1,73 @@
 # Create folder
 
-{% api-method method="post" host="https://api.imagekit.io" path="/v1/folder/" %}
-{% api-method-summary %}
-Create folder API
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/folder/" method="post" summary="Create folder API" %}
+{% swagger-description %}
 This will create a new folder. You can specify the folder name and location of the parent folder where this new folder should be created. 
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-headers %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-base64 encoding of `your_private_api_key:`  
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+base64 encoding of 
+
+`your_private_api_key:`
+
+\
+
+
+
+
 **Note the colon in the end.**
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="folderName" type="string" required=true %}
-The folder will be created with this name. All characters except alphabets and numbers \(inclusive of unicode letters, marks, and numerals in other languages\) will be replaced by an underscore i.e. `_`
-{% endapi-method-parameter %}
+{% swagger-parameter in="query" name="folderName" type="string" %}
+The folder will be created with this name. All characters except alphabets and numbers (inclusive of unicode letters, marks, and numerals in other languages) will be replaced by an underscore i.e. 
 
-{% api-method-parameter name="parentFolderPath" type="string" required=true %}
-The folder where the new folder should be created, for root use `/` else `containing/folder/`  
-**Note:** If any folder\(s\) is not present in the `parentFolderPath` parameter, it will be automatically created. For example, if you pass `/product/images/summer`, then `product`, `images`, and `summer` folders will be created if they don't already exist.
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+`_`
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=201 %}
-{% api-method-response-example-description %}
-Folder created successfully
-{% endapi-method-response-example-description %}
+{% swagger-parameter in="query" name="parentFolderPath" type="string" %}
+The folder where the new folder should be created, for root use 
 
+`/`
+
+ else 
+
+`containing/folder/`
+
+\
+
+
+
+
+**Note:**
+
+ If any folder(s) is not present in the 
+
+`parentFolderPath`
+
+ parameter, it will be automatically created. For example, if you pass 
+
+`/product/images/summer`
+
+, then 
+
+`product`
+
+, 
+
+`images`
+
+, and 
+
+`summer`
+
+ folders will be created if they don't already exist.
+{% endswagger-parameter %}
+
+{% swagger-response status="201" description="Folder created successfully" %}
 ```
-
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response structure and status code
 
@@ -66,4 +91,3 @@ curl -X POST "https://api.imagekit.io/v1/folder/" \
 ```
 {% endtab %}
 {% endtabs %}
-

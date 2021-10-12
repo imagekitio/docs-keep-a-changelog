@@ -4,7 +4,7 @@ Named Transformations within ImageKit.io are aliases or names you can give for a
 
 Original URL: [https://ik.imagekit.io/ikmedia/tr:w-300,h-200,bl-10/default-image.jpg](https://ik.imagekit.io/ikmedia/tr:w-300,h-200,bl-10/default-image.jpg)
 
-URL with Named Transformation: [https://ik.imagekit.io/ikmedia/tr:n-blur\_thumbnail/default-image.jpg](https://ik.imagekit.io/ikmedia/tr:n-blur_thumbnail/default-image.jpg)
+URL with Named Transformation: [https://ik.imagekit.io/ikmedia/tr:n-blur_thumbnail/default-image.jpg](https://ik.imagekit.io/ikmedia/tr:n-blur_thumbnail/default-image.jpg)
 
 Here, we replace the transformation string `tr:w-300,h-200,bl-10` with an easy-to-remember alias - `blur_thumbnail` .
 
@@ -21,7 +21,7 @@ Always test your transformation before saving it as a named transformation. You 
 Save the transformation. You can now replace the string `tr:w-300,h-200,bl-10` with `tr:n-blur_thumbnail` to use named transformations within your URL.
 
 {% hint style="info" %}
-**Note:** ImageKit.io transformation strings start with **tr:** and named transformations begin with **tr:n-{the name of transformation}**
+**Note: **ImageKit.io transformation strings start with **tr:** and named transformations begin with **tr:n-{the name of transformation}**
 {% endhint %}
 
 ## Editing Named Transformations
@@ -37,4 +37,3 @@ Click "Submit". The changes apply to every new image URL request. For older imag
 ## Secure Images with Named Transformations
 
 You can secure your images using named transformations by [restricting unnamed image transformations](security/#restricting-unnamed-image-transformations) for all your image URLs.
-

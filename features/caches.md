@@ -19,9 +19,8 @@ Cache-control time can be modified for the files that are being delivered from y
 
 ### Origin Based Cache-Control
 
-This option allows caching based on the cache control headers being passed from your [origin](../integration/configure-origin/) attached to ImageKit.io. For example, if your origin \(server or storage\) sends a cache-control header to cache a file for 1 hour, ImageKit.io applies the cache-control header across all its internal caches, generated transformations, and CDN. This ensures that the cache control set by you is obeyed at all times.
+This option allows caching based on the cache control headers being passed from your [origin](../integration/configure-origin/) attached to ImageKit.io. For example, if your origin (server or storage) sends a cache-control header to cache a file for 1 hour, ImageKit.io applies the cache-control header across all its internal caches, generated transformations, and CDN. This ensures that the cache control set by you is obeyed at all times.
 
 ## Internal Caching
 
 ImageKit.io caches a copy of every transformed and optimized image at the CDN. Additionally, ImageKit.io also maintains its internal caches, which are co-located with its processing engine across [6 global locations](../media-library/overview/#where-is-the-imagekit-io-media-library-available-geographically). In case any URL is missed by the CDN, internal caches deliver the resources without passing on the request to your server or storage. The same process is followed when you integrate ImageKit.io with a [custom CDN](../testing-and-infrastructure-setup/integrate-with-your-cdn.md).
-

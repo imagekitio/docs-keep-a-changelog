@@ -35,7 +35,7 @@ Let's assume the original image URL is `https://www.example.com/rest-of-the-path
 We just replaced the old base URL `https://www.example.com` with the new ImageKit.io URL-endpoint, i.e. `https://ik.imagekit.io/your_imagekit_id`.
 
 {% hint style="info" %}
-🧙♂**Tip:** You can also use a [custom domain](../testing-and-infrastructure-setup/using-custom-domain-name.md) like `images.example.com`. But in this documentation, we will stick with the `https://ik.imagekit.io/your_imagekit_id` format. Learn more about how to [use a custom domain](../testing-and-infrastructure-setup/using-custom-domain-name.md).
+:man_mage:**Tip:** You can also use a [custom domain](../testing-and-infrastructure-setup/using-custom-domain-name.md) like `images.example.com`. But in this documentation, we will stick with the `https://ik.imagekit.io/your_imagekit_id` format. Learn more about how to [use a custom domain](../testing-and-infrastructure-setup/using-custom-domain-name.md).
 {% endhint %}
 
 If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](../limits-and-troubleshooting/404-not-found-error-troubleshooting.md).
@@ -58,9 +58,12 @@ After the above URLs are working and you have tested the transformations, start 
 
 **Get started with our SDKs:**
 
-{% page-ref page="../api-reference/api-introduction/sdk.md" %}
+{% content-ref url="../api-reference/api-introduction/sdk.md" %}
+[sdk.md](../api-reference/api-introduction/sdk.md)
+{% endcontent-ref %}
 
 **Learn about real-time resizing:**
 
-{% page-ref page="../features/image-transformations/" %}
-
+{% content-ref url="../features/image-transformations/" %}
+[image-transformations](../features/image-transformations/)
+{% endcontent-ref %}

@@ -10,13 +10,13 @@ This is a quick start guide to show you how to integrate ImageKit in a React app
 
 This guide walks you through the following topics: ‌
 
-* [Setting up ImageKit React SDK   ](react.md#setup-imagekit-react-sdk)
+* [Setting up ImageKit React SDK ](react.md#setup-imagekit-react-sdk)
 * [Rendering images](react.md#rendering-images) 
 * [Setting the ImageKit context for the SDK](react.md#setting-authentication-context-for-the-sdk)
 * [Applying common image manipulations](react.md#basic-image-manipulation) 
-* [Adding overlays to images   ](react.md#adding-overlays-to-images)
-* [Lazy loading images   ](react.md#lazy-loading-images-in-react)
-* [Blurred image placeholder   ](react.md#blurred-image-placeholder)
+* [Adding overlays to images ](react.md#adding-overlays-to-images)
+* [Lazy loading images ](react.md#lazy-loading-images-in-react)
+* [Blurred image placeholder ](react.md#blurred-image-placeholder)
 * [Client-side file uploading](react.md#uploading-files-in-react) 
 
 ## **Setup ImageKit React SDK**
@@ -33,7 +33,7 @@ npx create-react-app imagekit-react-app
 
 Navigate to the project directory:
 
-```text
+```
 cd imagekit-react-app/
 ```
 
@@ -72,7 +72,7 @@ export default App;
 
  Now run the app:
 
-```text
+```
 npm start
 ```
 
@@ -84,7 +84,7 @@ You should see the dummy app created by React CLI. Now we can begin our work.
 
 Installing the ImageKit React SDK in our app is pretty simple:
 
-```text
+```
 npm install --save imagekitio-react
 ```
 
@@ -105,7 +105,7 @@ const authenticationEndpoint = 'https://www.your-server.com/auth';
 ```
 
 {% hint style="info" %}
-_**Note:**_ _Do not include your_ [_API private key_](../../api-reference/api-introduction/api-keys.md#private-key) _in any client-side code, including this SDK or its initialization. If you pass the `privateKey` parameter while initializing this SDK, it will throw an error._
+_**Note:**_ _Do not include your _[_API private key_](../../api-reference/api-introduction/api-keys.md#private-key)_ in any client-side code, including this SDK or its initialization. If you pass the `privateKey` parameter while initializing this SDK, it will throw an error._
 {% endhint %}
 
 **ImageKit Components:**
@@ -150,7 +150,7 @@ export default App;
 
 Remember the default image we mentioned earlier? It should be available at the following URL:
 
-```text
+```
 https://ik.imagekit.io/<YOUR_IMAGEKIT_ID>/default-image.jpg
 ```
 
@@ -205,9 +205,9 @@ export default App;
 
 Your React app should now display the default image in its full size:
 
-![Full sized image \(1000px x 1000 px\)](../../.gitbook/assets/react-sdk-render-image%20%281%29.png)
+![Full sized image (1000px x 1000 px)](<../../.gitbook/assets/react-sdk-render-image (1).png>)
 
-You can pass styles and other attributes as props. For e.g. lets add 400px width __by adding the `width` prop:
+You can pass styles and other attributes as props. For e.g. lets add 400px width_ _by adding the `width` prop:
 
 ```jsx
 <IKImage
@@ -219,7 +219,7 @@ You can pass styles and other attributes as props. For e.g. lets add 400px width
 
 **This is how the output should look now:**
 
-![Resized image \(width=400px\)](../../.gitbook/assets/react-sdk-render-image-resized.png)
+![Resized image (width=400px)](../../.gitbook/assets/react-sdk-render-image-resized.png)
 
 {% hint style="info" %}
 Note that here we have set the width to 400px at the `<img>` tag level only. Intrinsically, the fetched image is still 1000px wide.
@@ -305,7 +305,7 @@ Let’s now learn how to manipulate images using transformations.
 The React SDK gives a name to each transformation parameter, e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. If the property does not match any of the available options, it is added as it is. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-react#list-of-supported-transformations) in React SDK on Github.
 
 {% hint style="info" %}
-You can also use `h` and `w` parameter instead of `height` and `width`.  
+You can also use `h` and `w` parameter instead of `height` and `width`.\
 See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
 {% endhint %}
 
@@ -335,7 +335,7 @@ Let’s resize the default image to 200px height and width:
 
 Refresh your browser to get the resized image.
 
-![Resized Image \(200x200px\)](../../.gitbook/assets/react-sdk-basic-height-width%20%281%29.png)
+![Resized Image (200x200px)](<../../.gitbook/assets/react-sdk-basic-height-width (1).png>)
 
 ### **Quality manipulation**
 
@@ -356,7 +356,7 @@ You can use the [quality parameter](../../features/image-transformations/resize-
   path="default-image.jpg" width="400" alt="">
 ```
 
-![Quality manipulation \(q=10\)](../../.gitbook/assets/react-sdk-basic-quality.png)
+![Quality manipulation (q=10)](../../.gitbook/assets/react-sdk-basic-quality.png)
 
 ### **Crop mode**‌
 
@@ -381,7 +381,7 @@ Let’s now see how [cropping](../../features/image-transformations/resize-crop-
   alt="">
 ```
 
-![Crop Mode Extract \(200x300px\)](../../.gitbook/assets/react-sdk-basic-crop-mode%20%281%29.png)
+![Crop Mode Extract (200x300px)](<../../.gitbook/assets/react-sdk-basic-crop-mode (1).png>)
 
 ### **Chained transformation**
 
@@ -407,7 +407,7 @@ Let’s try it out by [resizing](../../features/image-transformations/resize-cro
   alt="">
 ```
 
-![Resized and cropped \(200x300px\)](../../.gitbook/assets/react-sdk-basic-chained-1.png)
+![Resized and cropped (200x300px)](../../.gitbook/assets/react-sdk-basic-chained-1.png)
 
 Now, rotate the image by 90 degrees.
 
@@ -431,7 +431,7 @@ Now, rotate the image by 90 degrees.
   alt="">
 ```
 
-![Resized, then rotated](../../.gitbook/assets/react-sdk-basic-chained-2%20%281%29.png)
+![Resized, then rotated](<../../.gitbook/assets/react-sdk-basic-chained-2 (1).png>)
 
 Let’s flip the order of transformation and see what happens.
 
@@ -455,7 +455,7 @@ Let’s flip the order of transformation and see what happens.
   alt="">
 ```
 
-![Rotated, then resized](../../.gitbook/assets/react-sdk-basic-chained-3%20%281%29.png)
+![Rotated, then resized](<../../.gitbook/assets/react-sdk-basic-chained-3 (1).png>)
 
 ## **Adding overlays to images**
 
@@ -484,7 +484,7 @@ For example, a text overlay can be used to superimpose text on an image. Try it 
   alt="">
 ```
 
-![Text Overlay \(300x300px\)](../../.gitbook/assets/react-sdk-overlay-text.png)
+![Text Overlay (300x300px)](../../.gitbook/assets/react-sdk-overlay-text.png)
 
 ## **Lazy-loading images in React**
 
@@ -621,7 +621,7 @@ app.listen(3001, function () {
 
 Let's run the backend server.
 
-```text
+```
 cd server
 node index.js
 ```
@@ -747,7 +747,7 @@ export default App;
 
 This is how it looks in the UI:
 
-![Upload Image](../../.gitbook/assets/react-sdk-file-upload-1%20%281%29.png)
+![Upload Image](<../../.gitbook/assets/react-sdk-file-upload-1 (1).png>)
 
 **Direct file uploading from the browser**
 
@@ -759,7 +759,7 @@ You can verify that file was successfully uploaded by checking the browser conso
 
 ![Upload Success Response](../../.gitbook/assets/react-sdk-file-upload-2.png)
 
-The response object would look similar to this \(values may vary\):
+The response object would look similar to this (values may vary):
 
 ```jsx
 {
@@ -816,6 +816,4 @@ The possibilities for image manipulation and optimization with ImageKit are endl
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)
 * [Media Library](https://docs.imagekit.io/media-library/overview)
 * [Performance monitoring](../../features/performance-monitoring.md)
-
-
 

@@ -30,4 +30,3 @@ If an API key is compromised, you should roll that pair and start using the newl
 You can select an expiry time for the old key. After this duration the key pair will stop working.
 
 ![Roll keys from ImageKit.io dashboard](../../.gitbook/assets/roll-keys-expire-setting.jpg)
-

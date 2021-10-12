@@ -1,37 +1,37 @@
 # Get image metadata from remote URL
 
-{% api-method method="get" host="https://api.imagekit.io" path="/v1/metadata" %}
-{% api-method-summary %}
-Get image metadata from remote URL API
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/metadata" method="get" summary="Get image metadata from remote URL API" %}
+{% swagger-description %}
 Get image EXIF, pHash, and other metadata from ImageKit.io powered remote URL using this API.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-headers %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-base64 encoding of `your_private_api_key:`  
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+base64 encoding of 
+
+`your_private_api_key:`
+
+\
+
+
+
+
 **Note the colon in the end.**
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="url" type="string" required=true %}
-The encoded URL of the image.   
-**Note:** This URL should be accessible using your ImageKit.io account.
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% swagger-parameter in="query" name="url" type="string" %}
+The encoded URL of the image. 
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-On success, you will receive the image metadata in JSON-encoded response body.
-{% endapi-method-response-example-description %}
+\
 
+
+
+
+**Note:**
+
+ This URL should be accessible using your ImageKit.io account.
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="On success, you will receive the image metadata in JSON-encoded response body." %}
 ```javascript
 {
     "height": 68,
@@ -111,12 +111,10 @@ On success, you will receive the image metadata in JSON-encoded response body.
     }
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-### Response structure and status code \(application/JSON\)
+### Response structure and status code (application/JSON)
 
 In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the image metadata in the JSON-encoded response body.
 
@@ -134,7 +132,7 @@ See the [examples](./#examples) below.
 
 Here are some example requests to understand the API usage.
 
-### Get metadata of an original image \(no transformation applied\)
+### Get metadata of an original image (no transformation applied)
 
 {% tabs %}
 {% tab title="cURL" %}
@@ -210,4 +208,3 @@ imagekitio.get_remote_file_url_metadata("https://ik.imagekit.io/demo/tr:w-100/de
 ### Calculate pHash distance between two images
 
 See examples [here](./#calculate-phash-distance).
-

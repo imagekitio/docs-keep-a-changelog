@@ -14,5 +14,3 @@ If you want to learn how to resize an image without any cropping, check out the 
 
 
 
-
-

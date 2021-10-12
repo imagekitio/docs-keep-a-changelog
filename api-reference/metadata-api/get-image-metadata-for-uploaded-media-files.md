@@ -3,40 +3,32 @@
 You can programmatically get image EXIF, pHash, and other metadata for uploaded files in the ImageKit.io media library using this API.
 
 {% hint style="info" %}
-💡 You can also get the image metadata while uploading the image by passing metadata in `responseFields` parameter.
+:bulb: You can also get the image metadata while uploading the image by passing metadata in `responseFields` parameter.
 {% endhint %}
 
-{% api-method method="get" host="https://api.imagekit.io" path="/v1/files/:fileId/metadata" %}
-{% api-method-summary %}
-Get image metadata for uploaded media files API
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/metadata" method="get" summary="Get image metadata for uploaded media files API" %}
+{% swagger-description %}
 Get image EXIF, pHash, and other metadata for uploaded files in ImageKit.io media library using this API.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="fileId" type="string" required=true %}
+{% swagger-parameter in="path" name="fileId" type="string" %}
 The unique fileId of the uploaded file. fileId is returned in list files API and upload API.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-headers %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-base64 encoding of `your_private_api_key:`  
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+base64 encoding of 
+
+`your_private_api_key:`
+
+\
+
+
+
+
 **Note the colon in the end.**
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-On success, you will receive the image metadata in JSON-encoded response body.
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="On success, you will receive the image metadata in JSON-encoded response body." %}
 ```javascript
 {
     "height": 68,
@@ -116,12 +108,10 @@ On success, you will receive the image metadata in JSON-encoded response body.
     }
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-### Response structure and status code \(application/JSON\)
+### Response structure and status code (application/JSON)
 
 In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the image metadata in the JSON-encoded response body.
 
@@ -212,4 +202,3 @@ file_metadata = imagekitio.get_file_metadata("file_id")
 ### Calculate pHash distance between two images
 
 See examples [here](./#calculate-phash-distance).
-

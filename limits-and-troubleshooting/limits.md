@@ -14,49 +14,16 @@ There are certain limits, like those on image transformation dimensions, which a
 
 ## Image limits
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Default</th>
-      <th style="text-align:left">Adjustable</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">
-        <p>Image input size</p>
-        <p>(accessed from your origin or media library)</p>
-      </td>
-      <td style="text-align:left">40MB</td>
-      <td style="text-align:left">Yes</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Output image resolution
-        <br />(width x height; for example 1000 x 1000 = 1MP)</td>
-      <td style="text-align:left">100 MP</td>
-      <td style="text-align:left">Yes</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Max image transformation dimensions (dimensions greater than this in the
-        transformation string will get ignored)</td>
-      <td style="text-align:left">65535 px</td>
-      <td style="text-align:left">No</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Max WebP image transformation dimensions (dimensions greater than this
-        will not work for transformation)</td>
-      <td style="text-align:left">16383 px</td>
-      <td style="text-align:left">No</td>
-    </tr>
-  </tbody>
-</table>
+| Name                                                                                                             | Default  | Adjustable |
+| ---------------------------------------------------------------------------------------------------------------- | -------- | ---------- |
+| <p>Image input size</p><p>(accessed from your origin or media library)</p>                                       | 40MB     | Yes        |
+| <p>Output image resolution <br>(width x height; for example 1000 x 1000 = 1MP)</p>                               | 100 MP   | Yes        |
+| Max image transformation dimensions (dimensions greater than this in the transformation string will get ignored) | 65535 px | No         |
+| Max WebP image transformation dimensions (dimensions greater than this will not work for transformation)         | 16383 px | No         |
 
 ## Video limits
 
 Video real-time manipulation and optimization service in alpha release. Refer to [limits](../features/video-transformation/#limitations-of-the-alpha-release) before using in production.
-
-
 
 
 

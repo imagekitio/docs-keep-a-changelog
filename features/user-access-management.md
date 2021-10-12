@@ -3,8 +3,8 @@
 User access management allows you to manage how your team members access the [ImageKit.io dashboard](https://imagekit.io/dashboard). You can add users with different roles and permission e.g. developers, finance, account administrators etc.
 
 {% hint style="info" %}
-**Paid plan only**  
-User access management is currently available only to paid users.
+**Paid plan only**\
+****User access management is currently available only to paid users.
 {% endhint %}
 
 ## Adding a new user in ImageKit.io account
@@ -14,7 +14,7 @@ Go to the [Users section](https://imagekit.io/dashboard?redirectTo=users) in the
 ![Add user form in ImageKit.io dashboard](../.gitbook/assets/screenshot-2020-09-30-at-9.20.23-pm.png)
 
 {% hint style="info" %}
-**Maximum number of users** 🙌   
+**Maximum number of users **:raised_hands: \
 ****An ImageKit.io account can have a maximum of 5 users. Please reach out to support at support@imagekit.io if you want to add more users.
 {% endhint %}
 
@@ -41,4 +41,3 @@ A user with this role has view-only access to the media library. This user canno
 ### Finance
 
 A user with a finance role can access the [analytics](https://imagekit.io/dashboard?redirectTo=analytics) and [billing](https://imagekit.io/dashboard?redirectTo=billing) section. The user has permission to cancel the subscription. Your finance team member should have this role. 
-

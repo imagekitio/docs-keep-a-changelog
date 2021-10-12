@@ -30,8 +30,8 @@ We will add both the origins and give them a proper name so that we can recall t
 
 You can either create a new [URL-endpoint](../integration/url-endpoints.md) or change the [origin preference](../integration/url-endpoints.md#image-origin-preference) of an existing URL endpoint. We have created two separate URL-endpoints for these two origins:
 
-1. `https://ik.imagekit.io/docsdemo/website-1 -`this will allow us to access images from origin named Website 1 \([https://www.example-1.com](https://www.example-1.com)\).
-2. `https://ik.imagekit.io/docsdemo/website-2 -`this will allow us to access images from origin named Website 2 \([https://www.example-2.com](https://www.example-2.com)\).
+1. `https://ik.imagekit.io/docsdemo/website-1 -`this will allow us to access images from origin named Website 1 ([https://www.example-1.com](https://www.example-1.com)).
+2. `https://ik.imagekit.io/docsdemo/website-2 -`this will allow us to access images from origin named Website 2 ([https://www.example-2.com](https://www.example-2.com)).
 
 It should look like this:
 
@@ -44,4 +44,3 @@ You can also configure a single URL endpoint to fetch images from these two orig
 {% hint style="success" %}
 You have successfully configured two websites in a single ImageKit.io account. The same approach is useful in testing different environments, like staging or production.
 {% endhint %}
-

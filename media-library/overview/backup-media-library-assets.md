@@ -1,15 +1,15 @@
 # Backup media library assets
 
 {% hint style="info" %}
-**Paid plan only**  
-Backup is currently available only to paid users.
+**Paid plan only**\
+****Backup is currently available only to paid users.
 {% endhint %}
 
 You can backup all media library assets in your S3 bucket by setting up an active backup.
 
-Go to Settings ➡ Backup bucket - [https://imagekit.io/dashboard\#settings-backup-bucket](https://imagekit.io/dashboard#settings-backup-bucket).
+Go to Settings :arrow_right: Backup bucket - [https://imagekit.io/dashboard#settings-backup-bucket](https://imagekit.io/dashboard#settings-backup-bucket).
 
-![](../../.gitbook/assets/image%20%2854%29.png)
+![](<../../.gitbook/assets/image (54).png>)
 
 Here you have to enter the S3 bucket credentials with write permission. 
 
@@ -32,4 +32,3 @@ ImageKit will not delete the file or folder from the backup bucket.
 ### What happens if you copy/move a file or folder in the media library?
 
 ImageKit will not copy or move the files or folder in your backup bucket.
-

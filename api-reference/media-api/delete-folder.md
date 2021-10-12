@@ -1,46 +1,35 @@
 # Delete folder
 
-{% api-method method="delete" host="https://api.imagekit.io" path="/v1/folder/" %}
-{% api-method-summary %}
-Delete folder API
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/folder/" method="delete" summary="Delete folder API" %}
+{% swagger-description %}
 This will delete the specified folder and all nested files & folders. This action is cannot be undone.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-headers %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-base64 encoding of `your_private_api_key:`  
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+base64 encoding of 
+
+`your_private_api_key:`
+
+\
+
+
+
+
 **Note the colon in the end.**
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter type="string" name="folderPath" required=true %}
-Full path to the folder you want to delete. For example `folder/to/delete/`
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% swagger-parameter in="body" name="folderPath" type="string" %}
+Full path to the folder you want to delete. For example 
 
-{% api-method-response %}
-{% api-method-response-example httpCode=204 %}
-{% api-method-response-example-description %}
-Folder deleted successfully
-{% endapi-method-response-example-description %}
+`folder/to/delete/`
+{% endswagger-parameter %}
 
+{% swagger-response status="204" description="Folder deleted successfully" %}
 ```
-
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-If no folder is found at the specified `folderPath` then a `404` response is returned. 
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="404" description="If no folder is found at the specified folderPath then a 404 response is returned. " %}
 ```
 {
      "message" : "No folder found with folderPath folder/to/delete/",
@@ -48,10 +37,8 @@ If no folder is found at the specified `folderPath` then a `404` response is ret
      "reason" : "FOLDER_NOT_FOUND" 
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response structure and status code
 
@@ -74,4 +61,3 @@ curl -X DELETE "https://api.imagekit.io/v1/folder/" \
 ```
 {% endtab %}
 {% endtabs %}
-

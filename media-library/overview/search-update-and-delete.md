@@ -22,15 +22,15 @@ By default, all files are searched, but if you are only looking for an image fil
 
 ### Advanced searching
 
-The advanced search mode can be accessed by clicking on the filter icon in the search bar. This mode allows you to create complex search queries to find the exact file\(s\) you are looking for. The advanced search mode allows searching based on -
+The advanced search mode can be accessed by clicking on the filter icon in the search bar. This mode allows you to create complex search queries to find the exact file(s) you are looking for. The advanced search mode allows searching based on -
 
 * Name
 * [Tags](image-tags.md)
 * File size
-* Dimensions \(applicable for images\)
+* Dimensions (applicable for images)
 * Format
 * [Private images](../../features/security/private-images.md)
-* Transparency \(applicable for images\)
+* Transparency (applicable for images)
 * First upload date
 * Last modified date
 
@@ -53,13 +53,15 @@ You can also create more complex queries by combining multiple search parameters
 There are two places where you can add a new search query -
 
 1. Clicking on the `+` icon next to an existing filter lets you combine other search parameters in the same filter.
-2. Clicking on `+ Add Filter` link lets you add another filter in parallel to the existing one. This new filter can be combined either to narrow \(`and` operator\) or to expand \(`or` operator\) the results from other search filters.
+2. Clicking on `+ Add Filter` link lets you add another filter in parallel to the existing one. This new filter can be combined either to narrow (`and` operator) or to expand (`or` operator) the results from other search filters.
 
 ## File Deletion
 
 Right-click the file to open menu options. Select the "Delete" item. This will open a confirmation popup. Click on "Submit" to permanently delete your file. Upon confirmation, the file is deleted permanently from the Media Library.
 
-{% embed url="https://youtu.be/3UMB-TpaUWA" caption="Delete file" %}
+{% embed url="https://youtu.be/3UMB-TpaUWA" %}
+Delete file
+{% endembed %}
 
 ## Bulk File Delete
 
@@ -86,4 +88,3 @@ ImageKit.io also provides APIs to upload, delete, and search for image files wit
 3. [Image Delete API](../../api-reference/media-api/delete-file.md).
 
 If you have any questions regarding Uploading, Deleting, or Updating a file, please get in touch with our team at [support@imagekit.io](mailto:customer-support@imagekit.io).
-

@@ -13,7 +13,7 @@
   * [Vue.js](getting-started/quickstart-guides/vuejs.md)
 * [How to use ImageKit.io?](getting-started/how-to-use-imagekit.io.md)
 
-## 🔧External storage <a id="integration"></a>
+## 🔧External storage <a href="integration" id="integration"></a>
 
 * [Integration overview](integration/integration-overview.md)
 * [How it works?](integration/how-it-works.md)
@@ -31,7 +31,7 @@
   * [Web server](integration/configure-origin/web-server-origin.md)
 * [URL-endpoints](integration/url-endpoints.md)
 
-## ImageKit.io storage <a id="media-library"></a>
+## ImageKit.io storage <a href="media-library" id="media-library"></a>
 
 * [Media Library](media-library/overview/README.md)
   * [Upload files](media-library/overview/upload-files.md)
@@ -73,9 +73,9 @@
   * [Data Saver Mode](features/image-optimization/data-saver-mode.md)
   * [Metadata, Color Profile and Orientation](features/image-optimization/metadata-color-profile-and-orientation.md)
   * [PNG Compression](features/image-optimization/png-compression.md)
-* [Video Transformation \(Alpha release\)](features/video-transformation/README.md)
+* [Video Transformation (Alpha release)](features/video-transformation/README.md)
   * [Resize, crop, and other common video transformations](features/video-transformation/resize-crop-and-other-common-video-transformations.md)
-* [Video Optimization \(Alpha release\)](features/video-optimization/README.md)
+* [Video Optimization (Alpha release)](features/video-optimization/README.md)
   * [Automatic video format conversion](features/video-optimization/automatic-video-format-conversion.md)
   * [Quality Optimization](features/video-optimization/quality-optimization.md)
 * [Named Transformations](features/named-transformations.md)
@@ -120,10 +120,11 @@
   * [List and search files](api-reference/media-api/list-and-search-files.md)
   * [Get file details](api-reference/media-api/get-file-details.md)
   * [Update file details](api-reference/media-api/update-file-details.md)
-  * [Add tags \(bulk\)](api-reference/media-api/add-tags-bulk.md)
-  * [Remove tags \(bulk\)](api-reference/media-api/remove-tags-bulk.md)
+  * [Add tags (bulk)](api-reference/media-api/add-tags-bulk.md)
+  * [Remove tags (bulk)](api-reference/media-api/remove-tags-bulk.md)
+  * [Remove AITags (bulk)](api-reference/media-api/remove-aitags-bulk.md)
   * [Delete file](api-reference/media-api/delete-file.md)
-  * [Delete files \(bulk\)](api-reference/media-api/delete-files-bulk.md)
+  * [Delete files (bulk)](api-reference/media-api/delete-files-bulk.md)
   * [Copy file](api-reference/media-api/copy-file.md)
   * [Move file](api-reference/media-api/move-file.md)
   * [Rename file](api-reference/media-api/rename-file.md)
@@ -138,3 +139,8 @@
   * [Get image metadata for uploaded media files](api-reference/metadata-api/get-image-metadata-for-uploaded-media-files.md)
   * [Get image metadata from remote URL](api-reference/metadata-api/get-image-metadata-from-remote-url.md)
 
+## EXTENSIONS
+
+* [Extensions reference](extensions/overview/README.md)
+  * [AI-based auto-tagging](extensions/overview/ai-based-auto-tagging.md)
+  * [Background removal](extensions/overview/background-removal.md)

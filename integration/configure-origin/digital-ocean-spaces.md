@@ -6,8 +6,7 @@ Digital Ocean Spaces is an [S3-compatible storage provider](https://docs.imageki
 
 As specified in the [Digital Ocean Spaces documentation](https://developers.digitalocean.com/documentation/spaces/), the general template to get this endpoint value is: `https://${REGION}.digitaloceanspaces.com` , where ${REGION} should be replaced by the region code for your region.
 
-For example, buckets configured in the Singapore region have the endpoint: `https://sgp1.digitaloceanspaces.com`   
+For example, buckets configured in the Singapore region have the endpoint: `https://sgp1.digitaloceanspaces.com` \
 Similarly, find out the correct endpoint for the region that your bucket is configured in, and verify with Digital Ocean's official documentation. 
 
 Once you have this endpoint, follow the instructions on ImageKit's doc page on [how to configure S3-Compatible external storage with ImageKit.](https://docs.imagekit.io/integration/configure-origin/s3-compatible-external-storages)
-

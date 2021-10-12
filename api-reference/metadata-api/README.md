@@ -89,13 +89,13 @@ You can programmatically get image exif, pHash, and other metadata using either 
 
 ### Exif
 
-For more information about the Exif standard, please refer to the specification found on [http://www.exif.org](http://www.exif.org/). A comprehensive list of available Exif attributes and their meaning can be found on [http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/](http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/).
+For more information about the Exif standard, please refer to the specification found on [http://www.exif.org](http://www.exif.org). A comprehensive list of available Exif attributes and their meaning can be found on [http://www.sno.phy.queensu.ca/\~phil/exiftool/TagNames/](http://www.sno.phy.queensu.ca/\~phil/exiftool/TagNames/).
 
-### Perceptual Hash \(pHash\)
+### Perceptual Hash (pHash)
 
 Perceptual hashing allows you to construct a hash value that uniquely identifies an input image based on the image's contents. It is different from cryptographic hash functions like MD5 and SHA1. pHash provides similar hash value after minor distortions, like small rotations, blurring, and compression in the image.
 
-[ImageKit.io metadata API](./) returns the pHash value of an image in the metadata response as a hexadecimal string. More information about pHash can be found on [https://www.phash.org/](https://www.phash.org/).
+[ImageKit.io metadata API](./) returns the pHash value of an image in the metadata response as a hexadecimal string. More information about pHash can be found on [https://www.phash.org/](https://www.phash.org).
 
 ### Using pHash to find similar or duplicate images
 
@@ -111,11 +111,11 @@ $$
 
 For example, consider these two images. The first image with pHash value **63433b3ccf8e1ebe**
 
-![pHash = 63433b3ccf8e1ebe](../../.gitbook/assets/first%20%281%29.jpg)
+![pHash = 63433b3ccf8e1ebe](<../../.gitbook/assets/first (1).jpg>)
 
 Second with pHash value **f5d2226cd9d32b16**
 
-![pHash = f5d2226cd9d32b16](../../.gitbook/assets/second%20%281%29.jpg)
+![pHash = f5d2226cd9d32b16](<../../.gitbook/assets/second (1).jpg>)
 
 The distance between two pHash values can be calculated using the utility function provided by [ImageKit.io server-side SDKs](../api-introduction/sdk.md#server-side-sdks).
 
@@ -178,7 +178,7 @@ The similarity score is 57%. This means the two images are not similar.
 
 Now let's consider a case of two similar images. The first image with pHash value **63433b3ccf8e1ebe**
 
-![pHash = 63433b3ccf8e1ebe](../../.gitbook/assets/first%20%281%29.jpg)
+![pHash = 63433b3ccf8e1ebe](<../../.gitbook/assets/first (1).jpg>)
 
 Let's resize & crop this image to 300x400 and reduce the quality using aggressive compression. The pHash value of the slightly modified image is **61433b3fcf8f9faf**
 
@@ -208,4 +208,3 @@ SimilarityScore = 1-8/64 = 0.875
 $$
 
 The similarity score is 87%, so it is safe to say that the two images are similar.
-

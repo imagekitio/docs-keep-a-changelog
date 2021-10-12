@@ -43,13 +43,13 @@ Start the metro server.
 npx react-native start
 ```
 
-And now to run the app in the ios simulator \(you should have Xcode installed\)
+And now to run the app in the ios simulator (you should have Xcode installed)
 
 ```bash
 npx react-native run-ios
 ```
 
-Or to run the app in the android simulator \(you should have android studio installed\)
+Or to run the app in the android simulator (you should have android studio installed)
 
 ```bash
 npx react-native run-android
@@ -80,8 +80,8 @@ Open `app/lib/imagekit.js` file, this is where we will initialize our SDK and cr
 
 Initialize the SDK with parameters set in the config file `app/config/imagekit.js` 
 
-* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard\#url-endpoints](https://imagekit.io/dashboard#url-endpoints).
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard\#developers](https://imagekit.io/dashboard#developers).
+* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard#url-endpoints](https://imagekit.io/dashboard#url-endpoints).
+* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
 
 {% code title="app/lib/imagekit.js" %}
 ```javascript
@@ -100,7 +100,7 @@ const imagekit = new ImageKit(imagekitConfigOptions);
 
 Image URL can be created from an image path or using the absolute image URL. You can learn more about it in [docs](https://github.com/imagekit-developer/imagekit-javascript#url-generation).
 
-To create a URL from the image source \(full image URL\), we can create a function like this, which takes the image source and a transformation array and returns the transformed image URL.
+To create a URL from the image source (full image URL), we can create a function like this, which takes the image source and a transformation array and returns the transformed image URL.
 
 {% code title="app/lib/imagekit.js" %}
 ```javascript
@@ -136,7 +136,7 @@ module.exports.getImagekitUrlFromPath = function(imagePath, transformationArr, t
 {% endcode %}
 
 {% hint style="info" %}
-The transformation position \(path or query\) is only valid when creating a URL from the image path. Transformations are always added as query parameters if the URL is created from an absolute image path using **src**.
+The transformation position (path or query) is only valid when creating a URL from the image path. Transformations are always added as query parameters if the URL is created from an absolute image path using **src**.
 {% endhint %}
 
 Now, head over to `app/screens/Fetch/index.js` to fetch an image.
@@ -211,7 +211,7 @@ This section covers the basics:‌
 Imagekit Javascript SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. If the property does not match any of the available options, it is added as it is. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-react#list-of-supported-transformations) in React SDK on Github.
 
 {% hint style="info" %}
-You can also use `h` and `w` parameter instead of `height` and `width`.  
+You can also use `h` and `w` parameter instead of `height` and `width`.\
 See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
 {% endhint %}
 
@@ -239,7 +239,7 @@ Output :
 
 ### Crop Mode
 
-Let’s now see how different crop mode works. We will try the [`pad_resize`](../../features/image-transformations/resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize) crop strategy.  In this strategy, the output image's dimension \(height and width\) is the same as requested, no cropping occurs, and the aspect ratio is preserved. This is accomplished by adding padding around the output image to get it to match the exact dimension as requested. You can read more about this [here](../../features/image-transformations/resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize). 
+Let’s now see how different crop mode works. We will try the [`pad_resize`](../../features/image-transformations/resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize) crop strategy.  In this strategy, the output image's dimension (height and width) is the same as requested, no cropping occurs, and the aspect ratio is preserved. This is accomplished by adding padding around the output image to get it to match the exact dimension as requested. You can read more about this [here](../../features/image-transformations/resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize). 
 
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
@@ -348,7 +348,7 @@ function showTransformedImage() {
 ```
 {% endcode %}
 
-Output : ****
+Output :** **
 
 ![](../../.gitbook/assets/smartmockups_kfybx7dw.png)
 
@@ -391,7 +391,7 @@ You should see a log line saying that the app is _**“Live on port 8080”**_.
 
 #### **Configure the auth endpoint in the frontend app**
 
-Head over to `app/config/imagekit.js` and replace the ****`authenticationEndpoint` with `http://localhost:8080/auth`
+Head over to `app/config/imagekit.js` and replace the** **`authenticationEndpoint` with `http://localhost:8080/auth`
 
 ### **Upload an image**
 
@@ -508,4 +508,3 @@ The possibilities for image manipulation and optimization with ImageKit are endl
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)
 * [Media Library](https://docs.imagekit.io/media-library/overview)
 * [Performance monitoring](../../features/performance-monitoring.md)
-

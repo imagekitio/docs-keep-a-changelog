@@ -6,10 +6,8 @@ Alibaba Object Storage is an [S3-compatible storage provider](https://docs.image
 
 Visit the official [Alibaba Documentation](https://www.alibabacloud.com/help/doc-detail/31837.htm?spm=a2c63.l28256.a3.37.3a1f5139AomWDt) page on Regions and endpoints to find out the correct endpoint corresponding to the region in which your bucket is configured. We need the **Public endpoint** value from the table given on that page.
 
-For example, buckets configured in the Singapore region will have the endpoint:  
-`https://oss-ap-southeast-1.aliyuncs.com`  
+For example, buckets configured in the Singapore region will have the endpoint:\
+`https://oss-ap-southeast-1.aliyuncs.com`\
 Similarly, find out the correct endpoint for the region that your bucket is configured in and verify with Alibaba's official documentation. 
 
-Once you have this endpoint, follow the instructions on ImageKit's doc page on [How to configure S3-Compatible external storage with ImageKit.](https://docs.imagekit.io/integration/configure-origin/s3-compatible-external-storages)  
-
-
+Once you have this endpoint, follow the instructions on ImageKit's doc page on [How to configure S3-Compatible external storage with ImageKit.](https://docs.imagekit.io/integration/configure-origin/s3-compatible-external-storages)\

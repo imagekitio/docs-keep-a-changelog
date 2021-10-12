@@ -1,50 +1,37 @@
 # Move file
 
-{% api-method method="post" host="https://api.imagekit.io" path="/v1/files/move" %}
-{% api-method-summary %}
-Move file API
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/move" method="post" summary="Move file API" %}
+{% swagger-description %}
 This will move a file from one folder to another.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-headers %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-base64 encoding of `your_private_api_key:`  
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+base64 encoding of 
+
+`your_private_api_key:`
+
+\
+
+
+
+
 **Note the colon in the end.**
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter required=true name="sourceFilePath" type="string" %}
+{% swagger-parameter in="body" name="sourceFilePath" type="string" %}
 The full path of the file you want to move. For example - /path/to/file.jpg
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter required=true name="destinationPath" type="string" %}
+{% swagger-parameter in="body" name="destinationPath" type="string" %}
 Full path to the folder you want to move the above file into. For example - /folder/to/move/into/
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=204 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="204" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-If no file is found at the specified `sourceFilePath` then a 404 response is returned.
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="404" description="If no file is found at the specified sourceFilePath then a 404 response is returned." %}
 ```javascript
 {
      "message" : "No file found with filePath /path/to/file.jpg",
@@ -52,10 +39,8 @@ If no file is found at the specified `sourceFilePath` then a 404 response is ret
      "reason" : "SOURCE_FILE_MISSING" 
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response structure and status code
 
@@ -79,4 +64,3 @@ curl -X POST "https://api.imagekit.io/v1/files/move" \
 ```
 {% endtab %}
 {% endtabs %}
-

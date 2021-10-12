@@ -18,13 +18,17 @@ You can either add image tags while [uploading the image](../../api-reference/up
 
 To add a tag to an image, right-click on the file to open the menu. Click on the "Tags" menu item. This will open a popup, enter the tags you want, and press the "Save" button.
 
-{% embed url="https://youtu.be/kYvGeTX64P4" caption="Add Tag" %}
+{% embed url="https://youtu.be/kYvGeTX64P4" %}
+Add Tag
+{% endembed %}
 
 ## Add/remove tags in bulk
 
 You can select multiple files together by pressing and holding the Command key in Mac or the Ctrl key in Windows. Right-click on any file to open menu options. Select "Add Bulk Tags" or "Remove Bulk Tags" option. This will open a popup, enter the tag values, and press the "Save" button. 
 
-{% embed url="https://youtu.be/VEzU5EbLhms" caption="Bulk Tag Add or Remove" %}
+{% embed url="https://youtu.be/VEzU5EbLhms" %}
+Bulk Tag Add or Remove
+{% endembed %}
 
 ## Search with image tags
 
@@ -32,7 +36,9 @@ The advanced search mode in the media library allows you to find the exact file 
 
 Learn more about the [advanced search](search-update-and-delete.md#advanced-searching) mode and how to search for images by tag from the dashboard.
 
-{% page-ref page="search-update-and-delete.md" %}
+{% content-ref url="search-update-and-delete.md" %}
+[search-update-and-delete.md](search-update-and-delete.md)
+{% endcontent-ref %}
 
 You can also search for images by tags programmatically using the[ List and Search files API](https://docs.imagekit.io/api-reference/media-api/list-and-search-files).
 
@@ -43,4 +49,3 @@ You can update the image tags from the media library or using the [file update A
 To update a tag to an image in the media library, right-click on the file to open the menu. Click on the "Tags" menu item. This will open a popup, enter the tags you want, and press the "Save" button.
 
 If you have any questions regarding Image Tagging or any feedback regarding this feature, please get in touch with our team at [support@imagekit.io](mailto:customer-support@imagekit.io)
-

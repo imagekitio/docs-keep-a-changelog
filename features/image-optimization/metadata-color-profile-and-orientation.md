@@ -4,7 +4,7 @@ ImageKit.io lets you control the metadata, color profile, and image orientation 
 
 ## Image Metadata
 
-Images contain and carry textual information with them like date and time information, camera settings \(aperture, shutter speed, orientation, and more\), and Copyright Information. While this information may be relevant for a lot of applications, it is of little use when delivering images on a website or app. Removing this metadata can shave off many KBs from the image size, resulting in faster image load times.
+Images contain and carry textual information with them like date and time information, camera settings (aperture, shutter speed, orientation, and more), and Copyright Information. While this information may be relevant for a lot of applications, it is of little use when delivering images on a website or app. Removing this metadata can shave off many KBs from the image size, resulting in faster image load times.
 
 By default, ImageKit.io removes all image metadata to deliver the final optimized output image. However, the original master image at your origin or in the media library would still contain all the original metadata.
 
@@ -22,7 +22,7 @@ Image URL:[http://ik.imagekit.io/demo/img/tr:md-true/mediumcafe](http://ik.image
 
 Instead of appending `md-true` to every image URL, you can enable 'Preserve Complete Metadata' within the Advanced Section under [Image Settings](https://imagekit.io/dashboard?redirectTo=settings#settings) on the dashboard.
 
-![Image Metadata setting in ImageKit.io dashboard](../../.gitbook/assets/metadata-setting%20%281%29.png)
+![Image Metadata setting in ImageKit.io dashboard](<../../.gitbook/assets/metadata-setting (1).png>)
 
 {% hint style="warning" %}
 Preserving all the metadata would increase the size of your images, and correspondingly, reflect in the page load time and bandwidth consumption.
@@ -42,7 +42,7 @@ The `cp` parameter overrides the default dashboard setting and preserves the col
 
 **Syntax :** `cp-true`
 
-Image URL: [http://ik.imagekit.io/demo/img/tr:cp-true/medium\_cafe\_B1iTdD0C.jpg](http://ik.imagekit.io/demo/img/tr:cp-true/medium_cafe_B1iTdD0C.jpg)
+Image URL: [http://ik.imagekit.io/demo/img/tr:cp-true/medium_cafe_B1iTdD0C.jpg](http://ik.imagekit.io/demo/img/tr:cp-true/medium_cafe_B1iTdD0C.jpg)
 
 ### Using the Dashboard Setting
 
@@ -52,7 +52,7 @@ Instead of appending `cp-true` to every URL, you can enable 'Preserve only color
 
 ## Image Orientation
 
-The orientation of an image is based on the EXIF \(Exchangeable Image File\) orientation tag within the image metadata. This tag dictates and corrects the image orientation before sending the image to the end-user.
+The orientation of an image is based on the EXIF (Exchangeable Image File) orientation tag within the image metadata. This tag dictates and corrects the image orientation before sending the image to the end-user.
 
 Since the image orientation is a part of the image metadata, and ImageKit.io removes the image metadata by default, the image would be displayed in an incorrect orientation to the user.
 
@@ -61,4 +61,3 @@ ImageKit.io provides auto orientation, which corrects the image orientation befo
 The correct rotation can be preserved by using the transformation parameter `rt-auto` in the URL or through the dashboard within the Advanced section of [Image Settings](https://imagekit.io/dashboard?redirectTo=settings#settings):
 
 ![Auto image orientation setting in ImageKit.io dashboard](../../.gitbook/assets/auto-image-orientation-setting.png)
-

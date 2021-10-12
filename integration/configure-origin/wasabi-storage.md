@@ -9,4 +9,3 @@ Visit the official [Wasabi Documentation](https://wasabi-support.zendesk.com/hc/
 For example, buckets configured in the US West 1 region will have the endpoint: `https://s3.us-west-1.wasabisys.com` Similarly, find out the correct endpoint for the region that your bucket is configured in and verify with Wasabi's official documentation. 
 
 Once you have this endpoint, follow the instructions on ImageKit's doc page on [How to configure S3-Compatible external storage with ImageKit.](https://docs.imagekit.io/integration/configure-origin/s3-compatible-external-storages)
-

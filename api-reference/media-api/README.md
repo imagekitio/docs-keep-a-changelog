@@ -15,4 +15,3 @@ ImageKit.io allows you to programmatically
 11. [Get bulk job status](copy-move-folder-status.md) for copy and move folder jobs.
 
 All media APIs accept JSON-encoded request bodies and return JSON-encoded responses.
-

@@ -13,8 +13,8 @@ For example, images at quality 100 and quality 80 have no perceived visual diffe
 When you start using ImageKit.io, the default image quality is set to 80. This means that images having quality above 80 are automatically brought down to quality 80. This reduces the file size while maintaining a good visual quality for your end-users.
 
 {% hint style="info" %}
-💡 **Tip:**  
-Specific industries like eCommerce, which depend on image quality to drive conversions, can choose a quality level between 85-95. As mentioned earlier, higher the image quality, larger the file size.
+:bulb: **Tip:**\
+****Specific industries like eCommerce, which depend on image quality to drive conversions, can choose a quality level between 85-95. As mentioned earlier, higher the image quality, larger the file size.
 {% endhint %}
 
 ### Image Quality from the dashboard
@@ -35,9 +35,8 @@ ImageKit.io lets you control the quality of the image using the URL parameter `q
 
 **Syntax** : `q-integer` integer between 1-100
 
-Image URL using `q` parameter: [http://ik.imagekit.io/demo/img/tr:q-80/medium\_cafe\_B1iTdD0C.jpg](http://ik.imagekit.io/demo/img/tr:q-80/medium_cafe_B1iTdD0C.jpg)
+Image URL using `q` parameter: [http://ik.imagekit.io/demo/img/tr:q-80/medium_cafe_B1iTdD0C.jpg](http://ik.imagekit.io/demo/img/tr:q-80/medium_cafe_B1iTdD0C.jpg)
 
 {% hint style="info" %}
-Use the `orig` [URL parameter]() if you want to deliver the original image without applying any ImageKit.io quality optimizations.
+Use the `orig` [URL parameter](broken-reference) if you want to deliver the original image without applying any ImageKit.io quality optimizations.
 {% endhint %}
-

@@ -1,85 +1,303 @@
 # List and search files
 
-{% api-method method="get" host="https://api.imagekit.io" path="/v1/files" %}
-{% api-method-summary %}
-List and search file API
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files" method="get" summary="List and search file API" %}
+{% swagger-description %}
+This API can list all the uploaded files and folders in your ImageKit.io media library. You can fine-tune your query by specifying various filters by generating a query string in a Lucene-like syntax and provide this generated string as the value of the 
 
-{% api-method-description %}
-This API can list all the uploaded files and folders in your ImageKit.io media library. You can fine-tune your query by specifying various filters by generating a query string in a Lucene-like syntax and provide this generated string as the value of the `searchQuery`.
-{% endapi-method-description %}
+`searchQuery`
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-headers %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-base64 encoding of `your_private_api_key:`  
+.
+{% endswagger-description %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+base64 encoding of 
+
+`your_private_api_key:`
+
+\
+
+
+
+
 **Note the colon in the end.**
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="type" type="string" required=false %}
-Limit search to either `file` or `folder`.  Pass `all` to include both files and folders in search results.  
-  
-**Default value** - `file`
-{% endapi-method-parameter %}
+{% swagger-parameter in="query" name="type" type="string" %}
+Limit search to either 
 
-{% api-method-parameter name="sort" type="string" required=false %}
-You can sort based on the following fields:   
-1. name - `ASC_NAME` or `DESC_NAME`  
-2. createdAt - `ASC_CREATED` or `DESC_CREATED`  
-3. updatedAt - `ASC_UPDATED` or `DESC_UPDATED`  
-4. height - `ASC_HEIGHT` or `DESC_HEIGHT`  
-5. width - `ASC_WIDTH` or `DESC_WIDTH`  
-6. size - `ASC_SIZE` or `DESC_SIZE`  
-  
-**Default value** - `ASC_CREATED`
-{% endapi-method-parameter %}
+`file`
 
-{% api-method-parameter name="path" type="string" required=false %}
-Folder path if you want to limit the search within a specific folder. For example, `/sales-banner/` will only search in folder sales-banner.
-{% endapi-method-parameter %}
+ or 
 
-{% api-method-parameter name="searchQuery" type="string" required=false %}
-Query string in a Lucene-like query language. Learn more about the query expression later in this section.  
-**Note**: When the _searchQuery_ parameter is present, the following query parameters will have no effect on the result:  
-1. tags  
-2. type  
-3. name
-{% endapi-method-parameter %}
+`folder`
 
-{% api-method-parameter name="fileType" type="string" required=false %}
-Type of files to include in the result set. Accepts three values:  
-`all` - include all types of files in the result set  
-`image` - only search in image type files  
-`non-image` - only search in files that are not images, e.g., JS or CSS or video files.  
-  
-**Default value** - `all`
-{% endapi-method-parameter %}
+.  Pass 
 
-{% api-method-parameter name="limit" type="string" required=false %}
-The maximum number of results to return in response:  
-  
-**Minimum value** - `1`  
-**Maximum value** - `1000`  
-**Default value** - `1000`
-{% endapi-method-parameter %}
+`all`
 
-{% api-method-parameter name="skip" type="string" required=false %}
-The number of results to skip before returning results.  
-**Minimum value** - `0`   
-**Default value** - `0`
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+ to include both files and folders in search results.
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
+\
 
-{% endapi-method-response-example-description %}
 
+
+
+\
+
+
+
+
+**Default value**
+
+ \- 
+
+`file`
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="sort" type="string" %}
+You can sort based on the following fields: 
+
+\
+
+
+1\. name - 
+
+`ASC_NAME`
+
+ or 
+
+`DESC_NAME`
+
+\
+
+
+2\. createdAt - 
+
+`ASC_CREATED`
+
+ or 
+
+`DESC_CREATED`
+
+\
+
+
+3\. updatedAt - 
+
+`ASC_UPDATED`
+
+ or 
+
+`DESC_UPDATED`
+
+\
+
+
+4\. height - 
+
+`ASC_HEIGHT`
+
+ or 
+
+`DESC_HEIGHT`
+
+\
+
+
+5\. width - 
+
+`ASC_WIDTH`
+
+ or 
+
+`DESC_WIDTH`
+
+\
+
+
+6\. size - 
+
+`ASC_SIZE`
+
+ or 
+
+`DESC_SIZE`
+
+\
+
+
+
+
+\
+
+
+
+
+**Default value**
+
+ \- 
+
+`ASC_CREATED`
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="path" type="string" %}
+Folder path if you want to limit the search within a specific folder. For example, 
+
+`/sales-banner/`
+
+ will only search in folder sales-banner.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="searchQuery" type="string" %}
+Query string in a Lucene-like query language. Learn more about the query expression later in this section.
+
+\
+
+
+
+
+**Note**
+
+: When the 
+
+_searchQuery_
+
+ parameter is present, the following query parameters will have no effect on the result:
+
+\
+
+
+1\. tags
+
+\
+
+
+2\. type
+
+\
+
+
+3\. name
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="fileType" type="string" %}
+Type of files to include in the result set. Accepts three values:
+
+\
+
+
+
+
+`all`
+
+ \- include all types of files in the result set
+
+\
+
+
+
+
+`image`
+
+ \- only search in image type files
+
+\
+
+
+
+
+`non-image`
+
+ \- only search in files that are not images, e.g., JS or CSS or video files.
+
+\
+
+
+
+
+\
+
+
+
+
+**Default value **
+
+\- 
+
+`all`
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="limit" type="string" %}
+The maximum number of results to return in response:
+
+\
+
+
+
+
+\
+
+
+
+
+**Minimum value**
+
+ \- 
+
+`1`
+
+\
+
+
+
+
+**Maximum value**
+
+ \- 
+
+`1000`
+
+\
+
+
+
+
+**Default value**
+
+ \- 
+
+`1000`
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="skip" type="string" %}
+The number of results to skip before returning results.
+
+\
+
+
+
+
+**Minimum value**
+
+ \- 
+
+`0`
+
+ 
+
+\
+
+
+
+
+**Default value**
+
+ \- 
+
+`0`
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="" %}
 ```javascript
 [
 	{
@@ -104,10 +322,8 @@ The number of results to skip before returning results.
 	...more items
 ]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ## Advanced search queries
 
@@ -119,7 +335,7 @@ The `searchQuery` parameter can be used to apply advanced filters to your search
 {% tab title="Basic usage" %}
 You can query based on a single field. For example:
 
-```text
+```
 createdAt > "7d"
 ```
 
@@ -157,7 +373,7 @@ The name match is case-sensitive.
 {% tab title="Exact match" %}
 To find a file or folder using the exact name, use `=` operator. For example:
 
-```text
+```
 name = "red-dress-summer.jpg"
 ```
 
@@ -167,7 +383,7 @@ This will only return the file with the name `red-dress-summer.jpg`
 {% tab title="Begins with match" %}
 To find a file or folder using a prefix, you can use `:` operator. For example:
 
-```text
+```
 name : "red-dress"
 ```
 
@@ -190,7 +406,7 @@ The API supports a string in ISO 8601 format.
 
 For example:
 
-```text
+```
 createdAt < 2020-01-01
 createdAt < "2020-01-01T12:12:12"
 ```
@@ -205,7 +421,7 @@ The API supports relative time units, e.g:
 
 Example usage:
 
-```text
+```
 createdAt < 2d (createdAt should be before two days ago)
 createdAt < 2w (createdAt should be before two weeks ago)
 createdAt < 2m (createdAt should be before two months ago)
@@ -216,278 +432,19 @@ createdAt < 2y (createdAt should be before two years ago)
 
 ### Supported parameters
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"><b>Field</b>
-      </th>
-      <th style="text-align:left"><b>Supported operators</b>
-      </th>
-      <th style="text-align:left">Examples</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">name</td>
-      <td style="text-align:left">
-        <ul>
-          <li>=</li>
-          <li>:</li>
-          <li>IN</li>
-          <li>NOT =</li>
-          <li>NOT IN</li>
-        </ul>
-      </td>
-      <td style="text-align:left">
-        <p>Accepts a string value in quotes. For example:</p>
-        <p></p>
-        <p><code>name = &quot;red-dress.jpg&quot; </code>will return all
-          <br />files &amp; folders with the exact name <code>red-dress.jpg</code>.</p>
-        <p></p>
-        <p><code>name: &quot;red-dress&quot;</code> will return all files &amp; folders</p>
-        <p>with a name starting with <code>red-dress</code>.</p>
-        <p></p>
-        <p><code>name IN [&quot;red-dress.jpg&quot;, &quot;red-dress.png&quot;]</code> will
-          return</p>
-        <p>all files &amp; folders with the name either <code>red-dress.jpg</code> or</p>
-        <p><code>red-dress.png</code>.</p>
-        <p></p>
-        <p><code>name NOT = &quot;red-dress.jpg&quot;</code> will return all files
-          and folders</p>
-        <p>with a name other than <code>red-dress.jpg</code>.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">tags</td>
-      <td style="text-align:left">
-        <ul>
-          <li>IN</li>
-          <li>NOT IN</li>
-        </ul>
-      </td>
-      <td style="text-align:left">
-        <p>Accepts an array of string values.</p>
-        <p></p>
-        <p><code>tags IN [&quot;summer-collection&quot;, &quot;sale&quot;]</code> will
-          return all files that have either <code>summer-collection</code> or <code>sale</code> tag
-          set.</p>
-        <p></p>
-        <p><code>tags NOT IN [&quot;big-banner&quot;]</code> will return all files
-          that do not have <code>big-banner</code> tag set.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">type</td>
-      <td style="text-align:left">
-        <ul>
-          <li>=</li>
-          <li>IN</li>
-          <li>NOT =</li>
-          <li>NOT IN</li>
-        </ul>
-      </td>
-      <td style="text-align:left">
-        <p>Possible values are <code>file</code> or <code>folder</code> in quotes or
-          in the array.</p>
-        <p></p>
-        <p><code>type = &quot;file&quot;</code> will only return files in the search
-          result.
-          <br />
-        </p>
-        <p><code>type = &quot;folder&quot;</code> will only return folders in the
-          search result.
-          <br />
-        </p>
-        <p><code>type IN [&quot;file&quot;, &quot;folder&quot;]</code> will return
-          both files and folders in the search result.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">createdAt</td>
-      <td style="text-align:left">
-        <ul>
-          <li>=</li>
-          <li>&lt;</li>
-          <li>&lt;=</li>
-          <li>&gt;</li>
-          <li>&gt;=</li>
-          <li>IN</li>
-          <li>NOT =</li>
-          <li>NOT IN</li>
-        </ul>
-      </td>
-      <td style="text-align:left">
-        <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>,
-          or <code>4m</code>.
-          <br />
-        </p>
-        <p><code>createdAt &gt; &quot;2020-01-01&quot;</code> will return all files
-          first uploaded
-          <br />after 1 Jan 2020 at 00:00 hours in UTC.</p>
-        <p></p>
-        <p><code>createdAt &gt; &quot;2020-01-01T12:12:12&quot;</code> will return
-          all files first uploaded after 1 Jan 2020 12:12:12 hours in UTC.</p>
-        <p></p>
-        <p><code>createdAt &gt; &quot;7d&quot;</code> will return all files first
-          uploaded in the last 7 days.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">updatedAt</td>
-      <td style="text-align:left">
-        <ul>
-          <li>=</li>
-          <li>&lt;</li>
-          <li>&lt;=</li>
-          <li>&gt;</li>
-          <li>&gt;=</li>
-          <li>IN</li>
-          <li>NOT =</li>
-          <li>NOT IN</li>
-        </ul>
-      </td>
-      <td style="text-align:left">
-        <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>,
-          or <code>4m</code>.
-          <br />
-        </p>
-        <p><code>updatedAt &gt; &quot;2020-01-01&quot;</code> will return all files
-          last modified
-          <br />after 1 Jan 2020 at 00:00 hours in UTC.</p>
-        <p></p>
-        <p><code>updatedAt &gt; &quot;2020-01-01T12:12:12&quot;</code> will return
-          all files last modified after 1 Jan 2020 12:12:12 hours in UTC.</p>
-        <p></p>
-        <p><code>updatedAt &gt; &quot;7d&quot;</code> will return all files last modified
-          in the last 7 days.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">height</td>
-      <td style="text-align:left">
-        <ul>
-          <li>=</li>
-          <li>&lt;</li>
-          <li>&lt;=</li>
-          <li>&gt;</li>
-          <li>&gt;=</li>
-          <li>IN</li>
-          <li>NOT =</li>
-          <li>NOT IN</li>
-        </ul>
-      </td>
-      <td style="text-align:left">
-        <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> etc. This
-          is only applicable for image-type assets.</p>
-        <p></p>
-        <p><code>height &gt; 200</code> will return all image files with a height
-          greater than 200px.</p>
-        <p></p>
-        <p><code>height &lt;= 400</code> will return all image files with a height
-          less than or equal to 400px.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">width</td>
-      <td style="text-align:left">
-        <ul>
-          <li>=</li>
-          <li>&lt;</li>
-          <li>&lt;=</li>
-          <li>&gt;</li>
-          <li>&gt;=</li>
-          <li>IN</li>
-          <li>NOT =</li>
-          <li>NOT IN</li>
-        </ul>
-      </td>
-      <td style="text-align:left">
-        <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> etc. This
-          is only applicable for image-type assets.</p>
-        <p></p>
-        <p><code>width &gt; 200</code> will return all image files with a width greater
-          than 200px.</p>
-        <p></p>
-        <p><code>width &lt;= 400</code> will return all image files with a width less
-          than or equal to 400px.size</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">size</td>
-      <td style="text-align:left">
-        <p></p>
-        <ul>
-          <li>=</li>
-          <li>&lt;</li>
-          <li>&lt;=</li>
-          <li>&gt;</li>
-          <li>&gt;=</li>
-          <li>IN</li>
-          <li>NOT =</li>
-          <li>NOT IN</li>
-        </ul>
-      </td>
-      <td style="text-align:left">
-        <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> or string
-          e.g. <code>1mb</code>, <code>10kb</code> etc.</p>
-        <p></p>
-        <p><code>size &gt; 1024</code> will return all assets with a file size greater
-          than 1024 bytes.
-          <br />
-        </p>
-        <p><code>size &lt;= &quot;1mb&quot;</code> will return all assets with a file
-          size less than or equal to 1MB.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">format</td>
-      <td style="text-align:left">
-        <ul>
-          <li>=</li>
-          <li>IN</li>
-        </ul>
-      </td>
-      <td style="text-align:left">
-        <p>Accepts a string value.
-          <br />
-          <br />Allowed values are <code>jpg</code>, <code>webp</code>, <code>png</code>, <code>gif</code>, <code>svg</code>, <code>avif</code>, <code>pdf</code>, <code>js</code>, <code>woff2</code>, <code>woff</code>, <code>ttf</code>, <code>otf</code>, <code>eot</code>, <code>css</code>, <code>txt</code>, <code>mp4</code>, <code>webm</code>, <code>mov</code>, <code>swf</code>, <code>ts</code>, <code>m3u8</code>, <code>ico</code>.</p>
-        <p>
-          <br /><code>format = &quot;jpg&quot;</code> will return all JPG image files.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">private</td>
-      <td style="text-align:left">
-        <ul>
-          <li>=</li>
-        </ul>
-      </td>
-      <td style="text-align:left">
-        <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without
-          quotes.</p>
-        <p></p>
-        <p><code>private = true</code> will return all files marked as private during
-          upload.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">transparency</td>
-      <td style="text-align:left">
-        <ul>
-          <li>=</li>
-        </ul>
-      </td>
-      <td style="text-align:left">
-        <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without
-          quotes. This is only applicable to images.</p>
-        <p></p>
-        <p><code>transparency = true</code> will return all image files that have
-          an alpha layer. However, the presence of the alpha layer does not guarantee
-          transparency if all pixels in the alpha layer have the value 1.</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| **Field**    | **Supported operators**                                                                                                 | Examples                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name         | <ul><li>=</li><li>:</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                   | <p>Accepts a string value in quotes. For example:</p><p></p><p><code>name = "red-dress.jpg" </code>will return all <br>files &#x26; folders with the exact name <code>red-dress.jpg</code>.</p><p></p><p><code>name: "red-dress"</code> will return all files &#x26; folders </p><p>with a name starting with <code>red-dress</code>.</p><p></p><p><code>name IN ["red-dress.jpg", "red-dress.png"]</code> will return</p><p>all files &#x26; folders with the name either <code>red-dress.jpg</code> or</p><p><code>red-dress.png</code>.</p><p></p><p><code>name NOT = "red-dress.jpg"</code> will return all files and folders</p><p>with a name other than <code>red-dress.jpg</code>.</p> |
+| tags         | <ul><li>IN</li><li>NOT IN</li></ul>                                                                                     | <p>Accepts an array of string values.</p><p></p><p><code>tags IN ["summer-collection", "sale"]</code> will return all files that have either <code>summer-collection</code> or <code>sale</code> tag set.</p><p></p><p><code>tags NOT IN ["big-banner"]</code> will return all files that do not have <code>big-banner</code> tag set.</p>                                                                                                                                                                                                                                                                                                                                                     |
+| type         | <ul><li>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                             | <p>Possible values are <code>file</code> or <code>folder</code> in quotes or in the array.</p><p></p><p><code>type = "file"</code> will only return files in the search result.<br></p><p><code>type = "folder"</code> will only return folders in the search result.<br></p><p><code>type IN ["file", "folder"]</code> will return both files and folders in the search result.</p>                                                                                                                                                                                                                                                                                                           |
+| createdAt    | <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>         | <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>, or <code>4m</code>. <br></p><p><code>createdAt > "2020-01-01"</code> will return all files first uploaded <br>after 1 Jan 2020 at 00:00 hours in UTC.</p><p></p><p><code>createdAt > "2020-01-01T12:12:12"</code> will return all files first uploaded after 1 Jan 2020 12:12:12 hours in UTC.</p><p></p><p><code>createdAt > "7d"</code> will return all files first uploaded in the last 7 days.</p>                                                                                                                                                              |
+| updatedAt    | <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>         | <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>, or <code>4m</code>. <br></p><p><code>updatedAt > "2020-01-01"</code> will return all files last modified <br>after 1 Jan 2020 at 00:00 hours in UTC.</p><p></p><p><code>updatedAt > "2020-01-01T12:12:12"</code> will return all files last modified after 1 Jan 2020 12:12:12 hours in UTC.</p><p></p><p><code>updatedAt > "7d"</code> will return all files last modified in the last 7 days.</p>                                                                                                                                                                 |
+| height       | <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>         | <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> etc. This is only applicable for image-type assets.</p><p></p><p><code>height > 200</code> will return all image files with a height greater than 200px.</p><p></p><p><code>height &#x3C;= 400</code> will return all image files with a height less than or equal to 400px.</p>                                                                                                                                                                                                                                                                                                                                            |
+| width        | <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>> </li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>        | <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> etc. This is only applicable for image-type assets.</p><p></p><p><code>width > 200</code> will return all image files with a width greater than 200px.</p><p></p><p><code>width &#x3C;= 400</code> will return all image files with a width less than or equal to 400px.size</p>                                                                                                                                                                                                                                                                                                                                            |
+| size         | <p></p><ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>> </li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul> | <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> or string e.g. <code>1mb</code>, <code>10kb</code> etc.</p><p></p><p><code>size > 1024</code> will return all assets with a file size greater than 1024 bytes.<br></p><p><code>size &#x3C;= "1mb"</code> will return all assets with a file size less than or equal to 1MB.</p>                                                                                                                                                                                                                                                                                                                                             |
+| format       | <ul><li>=</li><li>IN</li></ul>                                                                                          | <p>Accepts a string value.<br><br>Allowed values are  <code>jpg</code>, <code>webp</code>, <code>png</code>, <code>gif</code>, <code>svg</code>, <code>avif</code>, <code>pdf</code>, <code>js</code>, <code>woff2</code>, <code>woff</code>, <code>ttf</code>, <code>otf</code>, <code>eot</code>, <code>css</code>, <code>txt</code>, <code>mp4</code>, <code>webm</code>, <code>mov</code>, <code>swf</code>, <code>ts</code>, <code>m3u8</code>, <code>ico</code>.</p><p><br><code>format = "jpg"</code> will return all JPG image files.</p>                                                                                                                                              |
+| private      | <ul><li>=</li></ul>                                                                                                     | <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without quotes.</p><p></p><p><code>private = true</code> will return all files marked as private during upload.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| transparency | <ul><li>=</li></ul>                                                                                                     | <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without quotes. This is only applicable to images.</p><p></p><p><code>transparency = true</code> will return all image files that have an alpha layer. However, the presence of the alpha layer does not guarantee transparency if all pixels in the alpha layer have the value 1.</p>                                                                                                                                                                                                                                                                                                                                 |
 
 ## Understanding response
 
@@ -495,25 +452,25 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 
 The JSON-encoded response has an array of items. Each item can have the following properties.
 
-| Property name | Description |
-| :--- | :--- |
-| fileId | The unique fileId of the uploaded file. |
-| type | Type of item. It can be either `file` or `folder`. |
-| name | Name of the file or folder. |
-| filePath | The relative path of the file. In the case of an image, you can use this path to construct different transformations. |
-| tags | The array of tags associated with the image. If no tags are set, it will be `null`. |
-| isPrivateFile | Is the file marked as private. It can be either `true` or `false`. |
-| customCoordinates | Value of custom coordinates associated with the image in the format `x,y,width,height`. If customCoordinates are not defined, then it is `null`.  |
-| url | A publicly accessible URL of the file. |
-| thumbnail | In the case of an image, a small thumbnail URL. |
-| fileType | The type of file could be either `image` or `non-image`. |
-| mime | MIME Type of the file. For example - `image/jpeg` |
-| height | Height of the image in pixels \(Only for images\) |
-| width | Width of the image in pixels \(Only for Images\) |
-| size | Size of the image file in Bytes |
-| hasAlpha | TODO |
-| createdAt | The date and time when the file was first uploaded. The format is `YYYY-MM-DDTHH:mm:ss.sssZ` |
-| updatedAt | The date and time when the file was last updated. The format is `YYYY-MM-DDTHH:mm:ss.sssZ` |
+| Property name     | Description                                                                                                                                                                       |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fileId            | The unique fileId of the uploaded file.                                                                                                                                           |
+| type              | Type of item. It can be either `file` or `folder`.                                                                                                                                |
+| name              | Name of the file or folder.                                                                                                                                                       |
+| filePath          | The relative path of the file. In the case of an image, you can use this path to construct different transformations.                                                             |
+| tags              | The array of tags associated with the image. If no tags are set, it will be `null`.                                                                                               |
+| isPrivateFile     | Is the file marked as private. It can be either `true` or `false`.                                                                                                                |
+| customCoordinates | <p>Value of custom coordinates associated with the image in the format <code>x,y,width,height</code>. If customCoordinates are not defined, then it is <code>null</code>.<br></p> |
+| url               | A publicly accessible URL of the file.                                                                                                                                            |
+| thumbnail         | In the case of an image, a small thumbnail URL.                                                                                                                                   |
+| fileType          | The type of file could be either `image` or `non-image`.                                                                                                                          |
+| mime              | MIME Type of the file. For example - `image/jpeg`                                                                                                                                 |
+| height            | Height of the image in pixels (Only for images)                                                                                                                                   |
+| width             | Width of the image in pixels (Only for Images)                                                                                                                                    |
+| size              | Size of the image file in Bytes                                                                                                                                                   |
+| hasAlpha          | TODO                                                                                                                                                                              |
+| createdAt         | The date and time when the file was first uploaded. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                      |
+| updatedAt         | The date and time when the file was last updated. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                        |
 
 ## Examples
 
@@ -1044,4 +1001,3 @@ list_files = imagekitio.list_files({searchQuery : 'format="png"'})
 ```
 {% endtab %}
 {% endtabs %}
-

@@ -7,8 +7,8 @@ There are two ways to use ImageKit.io. Depending upon your needs, either you can
 ImageKit.io can be integrated into your existing infrastructure within minutes. 
 
 {% hint style="success" %}
-\*\*\*\*🧙♂ **Recommended if you don't want to move your existing images**  
-If you have a running website or application, you don't need to move your images anywhere. Just configure your existing image origin and ImageKit.io will fetch the images on the first request and cache the response.
+****:man_mage: **Recommended if you don't want to move your existing images**\
+****If you have a running website or application, you don't need to move your images anywhere. Just configure your existing image origin and ImageKit.io will fetch the images on the first request and cache the response.
 {% endhint %}
 
 ImageKit.io supports the following types of origin:
@@ -25,7 +25,7 @@ ImageKit.io supports the following types of origin:
 7. [Firebase Storage](../integration/configure-origin/firebase-storage.md)
 8. [Cloudinary backup bucket](../integration/configure-origin/cloudinary-backup-bucket.md)
 
-## 2. Using ImageKit storage \(Media Library\)
+## 2. Using ImageKit storage (Media Library)
 
 If you don't want to handle image upload to your own storage, then ImageKit's media library is excellent for you. The media library is an available unlimited internal storage provided by ImageKit.io to all its users. ImageKit.io media library is built on top of the Amazon S3, and it is co-located with core image processing servers in all the regions.
 
@@ -54,4 +54,3 @@ All media library operations can be executed using APIs:
 10. [Copy](../api-reference/media-api/copy-file.md) or [move](../api-reference/media-api/move-file.md) files.
 11. [Copy](../api-reference/media-api/copy-folder.md) or [move](../api-reference/media-api/move-folder.md) folder.
 12. [Get bulk job status](../api-reference/media-api/copy-move-folder-status.md) for copy and move folder jobs.
-

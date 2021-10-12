@@ -8,12 +8,12 @@ You can easily integrate ImageKit.io in your WordPress website using our [offici
 
 ## Plugin capabilities
 
-| Feature | Available |
-| :--- | :--- |
-| Serve images in next-gen formats \(automatic image format conversion\) | **Yes** All new and old images in existing posts are automatically  delivered in the right image format including WebP using ImageKit.io.  |
-| Automatic image optimization \(metadata removal and quality optimization\) | **Yes** All new and old images in existing posts are automatically  optimized during delivery using ImageKit.io. Original images are not modified. |
-| Automatic image resizing \(Resizing image as per layout\) | **No** WordPress 4.4 has [added native support for responsive image](https://make.wordpress.org/core/2015/11/10/responsive-images-in-wordpress-4-4/). [Learn more](https://viastudio.com/optimizing-your-theme-for-wordpress-4-4s-responsive-images/) to make your themes image responsive. |
-| Lazy loading images | **No** You can use a plugin like [a3 Lazy Load](https://wordpress.org/plugins/a3-lazy-load/) to lazy load images. |
+| Feature                                                                            | Available                                                                                                                                                                                                                                                                                                                                   |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <p>Serve images in next-gen formats<br>(automatic image format conversion)</p>     | <p><strong>Yes</strong><br>All new and old images in existing posts are automatically <br>delivered in the right image format including WebP using ImageKit.io.<br></p>                                                                                                                                                                     |
+| <p>Automatic image optimization<br>(metadata removal and quality optimization)</p> | <p><strong>Yes</strong><br>All new and old images in existing posts are automatically <br>optimized during delivery using ImageKit.io. Original images are not modified.</p>                                                                                                                                                                |
+| <p>Automatic image resizing<br>(Resizing image as per layout)</p>                  | <p><strong>No</strong><br>WordPress 4.4 has <a href="https://make.wordpress.org/core/2015/11/10/responsive-images-in-wordpress-4-4/">added native support for responsive image</a>.<br><a href="https://viastudio.com/optimizing-your-theme-for-wordpress-4-4s-responsive-images/">Learn more</a> to make your themes image responsive.</p> |
+| Lazy loading images                                                                | <p><strong>No</strong><br>You can use a plugin like <a href="https://wordpress.org/plugins/a3-lazy-load/">a3 Lazy Load</a> to lazy load images.</p>                                                                                                                                                                                         |
 
 ## Integration steps
 
@@ -34,13 +34,13 @@ If your old image URL was [`https://www.example.com/wp-content/uploads/image.jpg
 ### Step 3: Install and configure ImageKit.io plugin in WordPress
 
 1. Install and activate [ImageKit.io WordPress plugin](https://wordpress.org/plugins/imagekit/).
-2. Go to Settings➡ImageKit.io setting.
-3. Fill the **ImageKit URL endpoint \(or CNAME\)** with `your_imagekit_url_endpoint`. Copy and paste from the ImageKit.io dashboard.
+2. Go to Settings:arrow_right:ImageKit.io setting.
+3. Fill the **ImageKit URL endpoint (or CNAME)** with `your_imagekit_url_endpoint`. Copy and paste from the ImageKit.io dashboard.
 4. Click  "Save changes" button.
 5. Flush cache, if any.
 
 {% hint style="success" %}
-Now all the image files under theme directory on your WordPress site \(with extensions matching one of gif, png, jpg, jpeg, bmp, ico, webp\) will be loaded via ImageKit.io.
+Now all the image files under theme directory on your WordPress site (with extensions matching one of gif, png, jpg, jpeg, bmp, ico, webp) will be loaded via ImageKit.io.
 {% endhint %}
 
 ## Using ImageKit.io to deliver non-image static assets like JS or CSS
@@ -53,11 +53,10 @@ Enter the semicolon-separated list to allow JS and CSS files as well, for exampl
 
 ## Loading files from custom directories outside theme folder
 
-By default ImageKit.io WordPress plugin loads files from theme folder. But you can override this setting by adding new paths in _Custom files_ field. All the values in this field are separated by a new line. Wildcard \(\*\) is allowed.
+By default ImageKit.io WordPress plugin loads files from theme folder. But you can override this setting by adding new paths in _Custom files_ field. All the values in this field are separated by a new line. Wildcard (\*) is allowed.
 
 ## Restrict loading specific files through ImageKit.io
 
-There could be a case where you don't want the files on a specific path or pattern to be loaded via ImageKit.io. This can be done by setting the right values in _Rejected files_ field. All the values in this field are separated by a new line. Wildcard \(\*\) is allowed.
+There could be a case where you don't want the files on a specific path or pattern to be loaded via ImageKit.io. This can be done by setting the right values in _Rejected files_ field. All the values in this field are separated by a new line. Wildcard (\*) is allowed.
 
 For example, we want to avoid loading captcha assets through ImageKit.io, so we can enter `wp-content/uploads/wpcf7_captcha/*` under rejected files, as shown in the screenshot above.
-

@@ -1,4 +1,4 @@
-# Delete files \(bulk\)
+# Delete files (bulk)
 
 You can programmatically delete multiple files uploaded in the media library using bulk file delete API.
 
@@ -6,37 +6,33 @@ You can programmatically delete multiple files uploaded in the media library usi
 If a file or specific transformation has been requested in the past, then the response is cached. Deleting a file does not purge the cache. You can purge the cache using [purge API](purge-cache.md).
 {% endhint %}
 
-{% api-method method="post" host="https://api.imagekit.io" path="/v1/files/batch/deleteByFileIds" %}
-{% api-method-summary %}
-Bulk file delete API
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/batch/deleteByFileIds" method="post" summary="Bulk file delete API" %}
+{% swagger-description %}
 Deletes multiple files from the media library.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-headers %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-base64 encoding of `your_private_api_key:`  
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+base64 encoding of 
+
+`your_private_api_key:`
+
+\
+
+
+
+
 **Note the colon in the end.**
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="fileIds" type="array" required=true %}
-Each value should be a unique fileId of the uploaded file. `fileId` is returned in list files API and upload API
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% swagger-parameter in="body" name="fileIds" type="array" %}
+Each value should be a unique fileId of the uploaded file. 
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-On success, a `200` is returned along with the array of `fileIds` which are successfully deleted.
-{% endapi-method-response-example-description %}
+`fileId`
 
+ is returned in list files API and upload API
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="On success, a 200 is returned along with the array of fileIds which are successfully deleted." %}
 ```javascript
 {
     "successfullyDeletedFileIds": [
@@ -45,13 +41,9 @@ On success, a `200` is returned along with the array of `fileIds` which are succ
     ]
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-If any of the `fileId` is not found in your media library then a `404` response is returned and no file is deleted. The whole operation fails.
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="404" description="If any of the fileId is not found in your media library then a 404 response is returned and no file is deleted. The whole operation fails." %}
 ```javascript
 {
     "message": "The requested file(s) does not exist.",
@@ -62,10 +54,8 @@ If any of the `fileId` is not found in your media library then a `404` response 
     ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response structure and status code
 
@@ -132,4 +122,3 @@ imagekitio.bulk_file_delete(bulk_ids)
 ```
 {% endtab %}
 {% endtabs %}
-

@@ -2,7 +2,7 @@
 
 Any web server which is accessible over HTTP or HTTPS can be configured as an origin in ImageKit.io. This allows you to use ImageKit.io's real-time image optimization and transformation features on all existing images.
 
-**Note:** We do not start copying images from your server as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
+**Note: **We do not start copying images from your server as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
 
 ## Step 1: Configure origin
 
@@ -14,19 +14,22 @@ Any web server which is accessible over HTTP or HTTPS can be configured as an or
 6. Click on Submit button.
 
 {% hint style="info" %}
-🧙♂**Whitelist request from ImageKit.io**  
-Make sure that your web-server is accessible from ImageKit.io. [Learn more](web-server-origin.md#whitelist-request-from-imagekit-io).
+:man_mage:**Whitelist request from ImageKit.io**\
+****Make sure that your web-server is accessible from ImageKit.io. [Learn more](web-server-origin.md#whitelist-request-from-imagekit-io).
 {% endhint %}
 
 ## Step 2: Access the image through ImageKit.io URL-endpoint
 
-When you add your first origin in the dashboard, the origin is by default made accessible through the [default URL-endpoint](../url-endpoints.md#default-url-endpoint) of your ImageKit.io account. For subsequent origins, you can either create a separate URL-endpoint or edit existing URL-endpoint \(including default\) and make this newly added origin accessible by editing the [origin preference list](../url-endpoints.md#image-origin-preference). 
+When you add your first origin in the dashboard, the origin is by default made accessible through the [default URL-endpoint](../url-endpoints.md#default-url-endpoint) of your ImageKit.io account. For subsequent origins, you can either create a separate URL-endpoint or edit existing URL-endpoint (including default) and make this newly added origin accessible by editing the [origin preference list](../url-endpoints.md#image-origin-preference). 
 
 Let's look at a few examples to fetch the images:
 
-* **Original image through your web server \(old URL\)** [https://www.example.com/rest-of-the-path.jpg](https://www.example.com/rest-of-the-path.jpg)
-* **The same master image using ImageKit.io URL-endpoint** [https://ik.imagekit.io/your\_imagekit\_id/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg)
-* **Resized 300x300 image** [https://ik.imagekit.io/your\_imagekit\_id/`tr:w-300,h-300`/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg)
+* **Original image through your web server (old URL)**\
+  ****[https://www.example.com/rest-of-the-path.jpg](https://www.example.com/rest-of-the-path.jpg)
+* **The same master image using ImageKit.io URL-endpoint**\
+  ****[https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg)
+* **Resized 300x300 image**\
+  ****[https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-300`/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg)
 
 So when you request `https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg`, ImageKit.io internally fetches the file from `https://www.example.com/rest-of-the-path.jpg`.
 
@@ -43,7 +46,7 @@ https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg
 If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](../../limits-and-troubleshooting/404-not-found-error-troubleshooting.md).
 
 {% hint style="info" %}
-🧙♂**Tips:** You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
+:man_mage:**Tips: **You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
 {% endhint %}
 
 ## Step 3: Integrate and Go live
@@ -52,13 +55,19 @@ Now start using ImageKit.io URL endpoint in your application to accelerate image
 
 **Get started with our quick start guides and SDKs:**
 
-{% page-ref page="../../getting-started/quickstart-guides/" %}
+{% content-ref url="../../getting-started/quickstart-guides/" %}
+[quickstart-guides](../../getting-started/quickstart-guides/)
+{% endcontent-ref %}
 
-{% page-ref page="../../api-reference/api-introduction/sdk.md" %}
+{% content-ref url="../../api-reference/api-introduction/sdk.md" %}
+[sdk.md](../../api-reference/api-introduction/sdk.md)
+{% endcontent-ref %}
 
 **Learn about real-time image resizing:**
 
-{% page-ref page="../../features/image-transformations/" %}
+{% content-ref url="../../features/image-transformations/" %}
+[image-transformations](../../features/image-transformations/)
+{% endcontent-ref %}
 
 ## Advanced options for web server origin
 
@@ -92,7 +101,7 @@ Below is a list of IP addresses currently used by ImageKit.io to fetch images fr
 Note that these IP addresses are subject to change in the future. Any changes will be reflected and updated in this document.
 {% endhint %}
 
-```text
+```
 3.0.152.204
 3.105.141.56
 3.105.153.182
@@ -164,4 +173,3 @@ Note that these IP addresses are subject to change in the future. Any changes wi
 174.138.126.207
 142.93.174.223
 ```
-

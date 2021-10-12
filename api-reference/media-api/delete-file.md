@@ -6,44 +6,37 @@ You can programmatically delete uploaded files in the media library using delete
 If a file or specific transformation has been requested in the past, then the response is cached. Deleting a file does not purge the cache. You can purge the cache using [purge API](purge-cache.md).
 {% endhint %}
 
-{% api-method method="delete" host="https://api.imagekit.io" path="/v1/files/:fileId" %}
-{% api-method-summary %}
-Delete file API
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId" method="delete" summary="Delete file API" %}
+{% swagger-description %}
 Deletes a file from the media library.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="fileId" type="string" required=true %}
-The unique fileId of the uploaded file. `fileId` is returned in list files API and upload API 
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% swagger-parameter in="path" name="fileId" type="string" %}
+The unique fileId of the uploaded file. 
 
-{% api-method-headers %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-base64 encoding of `your_private_api_key:`  
+`fileId`
+
+ is returned in list files API and upload API 
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+base64 encoding of 
+
+`your_private_api_key:`
+
+\
+
+
+
+
 **Note the colon in the end.**
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=204 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="204" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response structure and status code
 
@@ -128,4 +121,3 @@ delete = imagekitio.delete_file("file_id")
 ```
 {% endtab %}
 {% endtabs %}
-

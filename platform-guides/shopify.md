@@ -29,15 +29,15 @@ When you add the first origin in your account, it automatically becomes accessib
 If your old image URL was [`https://cdn.shopify.com/img/s/files/1/1510/6482/t/22/assets/logo-mobile.png`](https://cdn.shopify.com/img/s/files/1/1510/6482/t/22/assets/logo-mobile.png) , then the same image should be accessible through ImageKit.io URL-endpoint, i.e., [`https://ik.imagekit.io/your_imagekit_id/img/s/files/1/1510/6482/t/22/assets/logo-mobile.png`](https://ik.imagekit.io/your_imagekit_id/img/s/files/1/1510/6482/t/22/assets/logo-mobile.png)
 
 {% hint style="danger" %}
-**Unable to fetch image?**  
-Contact [support@imagekit.io](mailto:support@imagekit.io) if you are not able to fetch the image as explained above. In such a situation, do not move to step 3 as this could break your website images.
+**Unable to fetch image?**\
+****Contact [support@imagekit.io](mailto:support@imagekit.io) if you are not able to fetch the image as explained above. In such a situation, do not move to step 3 as this could break your website images.
 {% endhint %}
 
-### Step 3: Create settings\_schema.json
+### Step 3: Create settings_schema.json
 
 If the above image did work correctly, we can now proceed to make the changes in our Shopify settings and theme files to switch the image delivery and optimization to ImageKit.
 
-From your Shopify admin, click **Online Store** ➡**Themes**. Find the theme you want to edit, click the `...` button, and then click **Edit HTML/CSS**.
+From your Shopify admin, click **Online Store** :arrow_right:**Themes**. Find the theme you want to edit, click the `...` button, and then click **Edit HTML/CSS**.
 
 Under **Config**, click `settings_schema.json` and copy the code below as the last section of config file and hit save.
 
@@ -119,7 +119,7 @@ Create a new file `imagekit.liquid` under Snippets directory. Copy the code belo
 
 ### Step 5: Enable ImageKit.io
 
-Navigate to **Online store** ➡**Themes** ➡**Customize theme**. In the sidebar, under general settings open ImageKit and enable it. Fill out the below two fields:
+Navigate to **Online store** :arrow_right:**Themes** :arrow_right:**Customize theme**. In the sidebar, under general settings open ImageKit and enable it. Fill out the below two fields:
 
 * Default URL endpoint - It should be `https://ik.imagekit.io/your_imagekit_id`
 * Shopify CDN domain - Its value should be `//cdn2.shopify.com,//cdn.shopify.com`
@@ -130,8 +130,8 @@ Navigate to **Online store** ➡**Themes** ➡**Customize theme**. In the sideba
 Now we get to editing your theme files. We first need to find out the files which are responsible for the output of image on your store and start editing them.
 
 {% hint style="warning" %}
-**Backup your theme files**  
-Before making changes in these files, it is recommended that you download and save them securely to be able to restore it later, in case of error.
+**Backup your theme files**\
+****Before making changes in these files, it is recommended that you download and save them securely to be able to restore it later, in case of error.
 {% endhint %}
 
 Here are a couple of examples indicating the change that needs to be made in the theme files. You can follow similar steps to change all of your theme files.
@@ -186,7 +186,7 @@ data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspec
 
 ### Can I disable ImageKit.io with a single click?
 
-Yes you can enable and disable ImageKit.io on your Shopify store with a single click. Navigate to **Online store** &gt; **Themes** &gt; **Customize theme**. In the sidebar, under general settings open ImageKit.io and enable/disable it.
+Yes you can enable and disable ImageKit.io on your Shopify store with a single click. Navigate to **Online store** > **Themes** > **Customize theme**. In the sidebar, under general settings open ImageKit.io and enable/disable it.
 
 ### Can ImageKit.io automatically detect the right image dimension and load it?
 
@@ -195,4 +195,3 @@ No ImageKit.io only changes the base URL of your images because there is no way 
 ### How do I make sure my integration is working?
 
 Once you are done editing these files, save these files. Now refresh the webpage for your Shopify store and check the image URLs. They should now load from URLs beginning with `https://ik.imagekit.io/your_imagekit_id`. You can use the Chrome Developer Tools to check that all the images are being loaded via ImageKit.io and that all images are loading correctly. If you find that images on a particular page or section is still being served from Shopify, then find out the responsible theme file and edit it as well.
-

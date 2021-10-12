@@ -11,4 +11,3 @@ Default Image: `https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg`
 The following URL fetches the default image when the original image isn't available.
 
 `https://ik.imagekit.io/demo/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg`
-

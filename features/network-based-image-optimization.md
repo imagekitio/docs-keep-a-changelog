@@ -14,7 +14,7 @@ Go to the Network-optimization tab under [image settings](https://imagekit.io/da
 
 ### Step 2: Configure quality settings and exclusions
 
-A network connection is divided into four broad categories - 4G, 3G, 2G, and Slow 2G. You can set 4 different quality levels based on the application. If there are few images that you want to exclude, then specify the full path in Excluded paths section \(it supports wildcard\) e.g., `https://ik.imagekit.io/<your_imagekit_id>/*logo*.jpg`.
+A network connection is divided into four broad categories - 4G, 3G, 2G, and Slow 2G. You can set 4 different quality levels based on the application. If there are few images that you want to exclude, then specify the full path in Excluded paths section (it supports wildcard) e.g., `https://ik.imagekit.io/<your_imagekit_id>/*logo*.jpg`.
 
 ### Step 3: Install the service worker on your website
 
@@ -28,4 +28,3 @@ importScripts("https://runtime.imagekit.io/<your_imagekit_id>/v1/js/network-base
 ### Step 4: See the analytics in your ImageKit.io dashboard
 
 ![Network-based request analytics](../.gitbook/assets/network-based-analytics.jpg)
-

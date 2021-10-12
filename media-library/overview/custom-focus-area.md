@@ -10,5 +10,3 @@ Right-click any image file in the media library and select the "Custom Focus Are
 
 
 
-
-

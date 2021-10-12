@@ -14,18 +14,18 @@ You can see a hosted demo of this sample project [here](https://066dn.sse.codesa
 
 This sample project has the following features. The best way to integrate an upload widget in your application is to clone this application or copy and paste the relevant part.
 
-✅Upload files from the local device.  
-✅Upload files using remote URLs.  
-✅Let users [choose files from Google Drive, Dropbox, Instagram, or Facebook](uppy-upload-widget.md#using-dropbox-drive-and-other-cloud-storage-options).  
-✅Option to record a selfie using the device camera and upload it.  
-✅Preview added file.  
-✅[Customize](uppy-upload-widget.md#modify-file-name-destination-path-or-add-tags-during-upload) the [upload request parameters](../../api-reference/upload-file-api/client-side-file-upload.md#request-structure-multipart-form-data) like file name, tags, folder path, custom coordinates, private file attribute, etc using a nice interface. 
+:white_check_mark:Upload files from the local device.\
+:white_check_mark:Upload files using remote URLs.\
+:white_check_mark:Let users [choose files from Google Drive, Dropbox, Instagram, or Facebook](uppy-upload-widget.md#using-dropbox-drive-and-other-cloud-storage-options).\
+:white_check_mark:Option to record a selfie using the device camera and upload it.\
+:white_check_mark:Preview added file.\
+:white_check_mark:[Customize](uppy-upload-widget.md#modify-file-name-destination-path-or-add-tags-during-upload) the [upload request parameters](../../api-reference/upload-file-api/client-side-file-upload.md#request-structure-multipart-form-data) like file name, tags, folder path, custom coordinates, private file attribute, etc using a nice interface. 
 
 ## Minimal setup
 
 #### Step 1: Clone this [sample application](https://github.com/imagekit-samples/uppy-uploader) directly from Github.
 
-```text
+```
 git clone git@github.com:imagekit-samples/uppy-uploader.git
 ```
 
@@ -33,7 +33,7 @@ git clone git@github.com:imagekit-samples/uppy-uploader.git
 
 Both npm and yarn should work, but we used yarn during the development and testing of this demo.
 
-```text
+```
 yarn install
 ```
 
@@ -41,7 +41,7 @@ yarn install
 
 Create a copy of `env.example` file and save it as `.env` file. This file contains your private keys, which will be used on the server-side. For a minimal setup, you need to put the following required variables i.e. `IMAGEKIT_PUBLIC_KEY`, `IMAGEKIT_PRIVATE_KEY`, `IMAGEKIT_URL_ENDPOINT`, and `SERVER_BASE_URL`.
 
-```text
+```
 # Required variables. If running in Codesandbox, please add secrets in your fork
 IMAGEKIT_PUBLIC_KEY=
 IMAGEKIT_PRIVATE_KEY=
@@ -53,7 +53,7 @@ SERVER_BASE_URL=yarn build
 
 #### **Step 4: Start the application**
 
-```text
+```
 yarn start
 ```
 
@@ -76,11 +76,11 @@ Steps to configure third-party application:
 1. Create a third party application and based on the platform, set up redirect URLs, checkout [Uppy docs](https://uppy.io/docs/dropbox/).
 2. Specify the `key` and `secret` for your applications in **.env** file. We created this file during the setup.
 3. Restart the backend server `node server/index.js`.
-4. Refresh the page [http://localhost:3020](http://localhost:3020/).
+4. Refresh the page [http://localhost:3020](http://localhost:3020).
 
 The **.env** file should look like this:
 
-```text
+```
 # Required variables. If your are running this in Codesandbox, please add secrets in your fork.
 IMAGEKIT_PUBLIC_KEY=
 IMAGEKIT_PRIVATE_KEY=
@@ -412,4 +412,3 @@ console.log(`Listening on ${process.env.SERVER_BASE_URL}`)
 ## Support
 
 If something doesn't work as expected, please reach out to us at support@imagekit.io or create an issue on the Github repo.
-

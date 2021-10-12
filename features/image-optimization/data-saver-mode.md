@@ -13,4 +13,3 @@ This additional compression for data-saver mode is completely opt-in. This setti
 You can turn on this setting within the Optimization section of the [Image Settings](https://imagekit.io/dashboard?redirectTo=settings#settings).
 
 ![Data Saver Mode setting in ImageKit.io dashboard](../../.gitbook/assets/data-saver-setting.jpg)
-

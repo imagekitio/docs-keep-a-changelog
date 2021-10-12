@@ -22,7 +22,7 @@ This guide walks you through the following topics:
 
 #### Install Vue CLI
 
-```text
+```
 npm install -g @vue/cli
 # OR
 yarn global add @vue/cli
@@ -32,7 +32,7 @@ yarn global add @vue/cli
 
 Let's create a dummy project called **vuejs** using vue CLI.
 
-```text
+```
 vue create vuejs
 ```
 
@@ -42,7 +42,7 @@ It will prompt the vue version and a few other options, select default by pressi
 
 #### Install imagekitio-vue 
 
-```text
+```
 npm install imagekitio-vue
 # OR
 yarn add imagekitio-vue
@@ -59,8 +59,8 @@ Vue.use(ImageKit, {
 })
 ```
 
-* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard\#url-endpoints](https://imagekit.io/dashboard#url-endpoints).
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard\#developers](https://imagekit.io/dashboard#developers).
+* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard#url-endpoints](https://imagekit.io/dashboard#url-endpoints).
+* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
 
 Let's modify src/components/HelloWorld.vue to import and initialize ImageKit as a plugin. Replace `your_url_endpoint` etc, with actual values.
 
@@ -186,7 +186,7 @@ This section covers the basics:
 
 The Vuejs SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. If the property does not match any of the available options, it is added as it is. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-vuejs#list-of-supported-transformations) in Vuejs SDK on Github.
 
-👉 Note that you can also use `h` and `w` parameter instead of `height` and `width`. See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
+:point_right: Note that you can also use `h` and `w` parameter instead of `height` and `width`. See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
 
 ### Resizing images in Vue.js
 
@@ -284,7 +284,7 @@ You can lazy load images using the `loading` prop in `ik-image` component. When 
 
 The SDK uses a fixed threshold based on the effective connection type to ensure that images are loaded early enough so that they have finished loading once the user scrolls near to them.
 
-On fast connections \(e.g 4G\), the value of the threshold is `1250px` and on slower connections \(e.g 3G\), it is `2500px`.
+On fast connections (e.g 4G), the value of the threshold is `1250px` and on slower connections (e.g 3G), it is `2500px`.
 
 {% hint style="info" %}
 You should always set the `height` and `width` of image element to avoid [layout shift](https://www.youtube.com/watch?v=4-d_SoCHeWE) when lazy-loading images.
@@ -385,7 +385,7 @@ npm install imagekit
 Let's modify index.js to implement `http://localhost:3001/auth` which is our `authenticationEndpoint`.
 
 {% tabs %}
-{% tab title="index.js \(backend\)" %}
+{% tab title="index.js (backend)" %}
 {% code title="server/index.js" %}
 ```javascript
 /* 
@@ -415,7 +415,7 @@ app.listen(3001, function () {
 {% endcode %}
 {% endtab %}
 
-{% tab title="HelloWorld.vue \(frontend\)" %}
+{% tab title="HelloWorld.vue (frontend)" %}
 {% code title="src/components/HelloWorld.vue" %}
 ```javascript
 <script>
@@ -445,7 +445,7 @@ export default {
 
 Let's run the backend server.
 
-```text
+```
 cd server
 node index.js
 ```
@@ -522,4 +522,3 @@ The possibilities for image manipulation and optimization with ImageKit are endl
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)
 * [Media Library](https://docs.imagekit.io/media-library/overview)
 * [Performance monitoring](../../features/performance-monitoring.md)
-

@@ -60,8 +60,8 @@ $imageKit = new ImageKit(
 
 ```
 
-* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard\#url-endpoints](https://imagekit.io/dashboard#url-endpoints). 
-* `publicKey` and `privateKey` parameters are also required as these would be used for all ImageKit API, server-side upload, and generating token for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard\#developers](https://imagekit.io/dashboard#developers).
+* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard#url-endpoints](https://imagekit.io/dashboard#url-endpoints). 
+* `publicKey` and `privateKey` parameters are also required as these would be used for all ImageKit API, server-side upload, and generating token for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
 
 ## Generating url for rendering images
 
@@ -112,7 +112,7 @@ This section covers the basics:
 
 The PHP SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable.  See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-php#list-of-supported-transformations) in PHP SDK on Github. 
 
-👉 If the property does not match any of the available options, it is added as it is.  
+👉 If the property does not match any of the available options, it is added as it is.\
 👉 Note that you can also use `h` and `w` parameter instead of `height` and `width`. See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
 
 ### Resizing images in PHP
@@ -135,7 +135,7 @@ echo('Url : ' . $imageURL);
 
 ```
 
-![400x300 image](../../.gitbook/assets/image%20%2857%29.png)
+![400x300 image](<../../.gitbook/assets/image (57) (1).png>)
 
 ### Quality manipulation
 
@@ -155,7 +155,7 @@ echo('Url : ' . $imageURL);
 // https://ik.imagekit.io/demo/tr:q-40/default-image.jpg
 ```
 
-![](../../.gitbook/assets/image%20%2856%29.png)
+![](<../../.gitbook/assets/image (56) (1).png>)
 
 ### Chained transformation
 
@@ -183,7 +183,7 @@ echo('Url : ' . $imageURL);
 // https://ik.imagekit.io/demo/tr:w-400,h-300:rt-90/default-image.jpg
 ```
 
-![](../../.gitbook/assets/image%20%2858%29.png)
+![](<../../.gitbook/assets/image (58) (1).png>)
 
 ### Sharpening and contrast transformation
 
@@ -208,7 +208,7 @@ echo('Url : ' . $imageURL);
 // https://ik.imagekit.io/demo/tr:f-jpg,pr-true,e-sharpen,e-contrast-1/sample_image.jpg
 ```
 
-![](../../.gitbook/assets/image%20%2859%29.png)
+![](<../../.gitbook/assets/image (59) (1).png>)
 
 ## Adding overlays to images in PHP
 
@@ -238,7 +238,7 @@ echo('Url : ' . $imageURL);
 // https://ik.imagekit.io/pshbwfiho/tr:w-300,h-300,oi-default-image.jpg,ow-100,ox-0,oib-10_CDDC39/default-image.jpg
 ```
 
-![](../../.gitbook/assets/image%20%2861%29.png)
+![](<../../.gitbook/assets/image (61) (1).png>)
 
 ## Generating Signed URL for images in PHP
 
@@ -378,8 +378,8 @@ $imagekit->moveFile('/source/path', '/destination/path');
 This will rename an already existing file in the media library as per [API Documentation here](../../api-reference/media-api/rename-file.md). This method accepts the source file's path, the new name of the file, and an optional boolean parameter to purge the CDN cache after renaming. 
 
 {% hint style="info" %}
-**Limits on purge**  
-Purging has account-level limits. Please refer to [purging limits](../../api-reference/media-api/purge-cache.md#limitations) before using this parameter.
+**Limits on purge**\
+****Purging has account-level limits. Please refer to [purging limits](../../api-reference/media-api/purge-cache.md#limitations) before using this parameter.
 {% endhint %}
 
 ```php
@@ -457,7 +457,7 @@ Accepts the file ID and fetches the metadata as per the [API documentation here]
 $imageKit->getFileMetaData("file_id");
 ```
 
-You can also ****get metadata of the image using the absolute image URL. The image URL should be powered by ImageKit and accessible via your account.
+You can also** **get metadata of the image using the absolute image URL. The image URL should be powered by ImageKit and accessible via your account.
 
 ```php
 $imageKit->getFileMetadataFromRemoteURL("imagekit_remote_url");
@@ -494,7 +494,7 @@ Both the `token` and `expire` parameters are optional. If not specified, the SDK
 
 ### Distance calculation between two pHash values
 
-Perceptual hashing allows you to construct a hash value that uniquely identifies an input image based on the contents of an image. [ImageKit.io metadata API](https://docs.imagekit.io/api-reference/metadata-api) returns the pHash value of an image in the response. You can use this value to find a duplicate \(or similar\) image by calculating the distance between the pHash value of the two images.
+Perceptual hashing allows you to construct a hash value that uniquely identifies an input image based on the contents of an image. [ImageKit.io metadata API](https://docs.imagekit.io/api-reference/metadata-api) returns the pHash value of an image in the response. You can use this value to find a duplicate (or similar) image by calculating the distance between the pHash value of the two images.
 
 This SDK exposes `pHashDistance` function to calculate the distance between two pHash values. It accepts two pHash hexadecimal strings and returns a numeric value indicative of the level of difference between the two images.
 
@@ -514,4 +514,3 @@ $imageKit->pHashDistance('2d5ad3936d2e015b', '2d6ed293db36a4fb');
 $imageKit->pHashDistance('a4a65595ac94518b', '7838873e791f8400');
 // output: 37 (dissimilar images)
 ```
-

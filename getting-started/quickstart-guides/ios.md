@@ -11,11 +11,11 @@ This is a quick start guide to show you how to integrate ImageKit in an iOS appl
 This guide walks you through the following topics: ‌
 
 * [Clone and run the tutorial app](ios.md#clone-and-run-the-tutorial-app)
-* [Setting up ImageKit iOS SDK   ](ios.md#setup-imagekit-ios-sdk)
-* [Rendering images   ](ios.md#rendering-images-in-ios-application)
-* [Applying common image manipulations   ](ios.md#common-image-manipulation-in-ios-application)
+* [Setting up ImageKit iOS SDK ](ios.md#setup-imagekit-ios-sdk)
+* [Rendering images ](ios.md#rendering-images-in-ios-application)
+* [Applying common image manipulations ](ios.md#common-image-manipulation-in-ios-application)
 * [Adding overlays to images](ios.md#adding-an-overlay-to-images-in-ios-application)
-* [Client-side file uploading   ](ios.md#client-side-file-uploading)
+* [Client-side file uploading ](ios.md#client-side-file-uploading)
 
 ## **Clone and run the tutorial app**
 
@@ -57,7 +57,7 @@ We will be installing [ImageKit iOS SDK](https://github.com/imagekit-developer/i
 
 #### Initialising CocoaPods in your iOS Project
 
-If you are not using CocoaPods in your project, you might need to add it to your project by either running `pod init` or adding PodFile \([see example](https://guides.cocoapods.org/using/using-cocoapods.html)\) in the root directory of your project.
+If you are not using CocoaPods in your project, you might need to add it to your project by either running `pod init` or adding PodFile ([see example](https://guides.cocoapods.org/using/using-cocoapods.html)) in the root directory of your project.
 
 #### Installing the SDK
 
@@ -79,8 +79,8 @@ end
 
 Open `AppDelegate.swift` file, this is where we will initialize our SDK with the following parameters.
 
-* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard\#url-endpoints](https://imagekit.io/dashboard#url-endpoints).
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard\#developers](https://imagekit.io/dashboard#developers).
+* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard#url-endpoints](https://imagekit.io/dashboard#url-endpoints).
+* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
 
 ```swift
 ImageKit.init(
@@ -95,7 +95,7 @@ ImageKit.init(
 
 Image URL can be created from an image path or using the absolute image URL. You can learn more about it in [docs](https://github.com/imagekit-developer/imagekit-javascript#url-generation).
 
-To render an image using an absolute URL \(full image URL\), we can instantiate the `ImageKitURLConstructor`
+To render an image using an absolute URL (full image URL), we can instantiate the `ImageKitURLConstructor`
 
 ```swift
 let urlConstructor = ImageKit.shared.url(
@@ -114,7 +114,7 @@ let urlConstructor = ImageKit.shared.url(
 ```
 
 {% hint style="info" %}
-The transformation position \(path or query\) is only valid when creating a URL from the image path. Transformations are always added as query parameters if the URL is created from an absolute image path using **src**.
+The transformation position (path or query) is only valid when creating a URL from the image path. Transformations are always added as query parameters if the URL is created from an absolute image path using **src**.
 {% endhint %}
 
 The iOS SDK provides a [function](https://github.com/imagekit-developer/imagekit-ios#list-of-supported-transformations) for each transformation parameter, making the code simpler and readable. To add transformations, the functions can be chained with `urlConstructor`. 
@@ -131,7 +131,7 @@ let url = urlConstructor.create()
 // https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=h-400,ar-3-2
 ```
 
-It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations.   
+It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations. \
 
 
 ![](../../.gitbook/assets/screenshot-2020-11-03-at-1.45.39-pm.png)
@@ -149,7 +149,7 @@ ImageKit iOS SDK provides a function  to each transformation parameter e.g. `hei
 
 The complete list of transformations supported and their usage in ImageKit can be found [here](https://docs.imagekit.io/imagekit-docs/image-transformations). If a transformation is supported in ImageKit, but if a name for it cannot be found in the SDK, then use the `addCustomTransformation` function and pass the transformation code from ImageKit docs as the first parameter and value as the second parameter. For example - `.addCustomTransformation("w", "400").`
 
-### Basic image resizing <a id="basic-image-resizing"></a>
+### Basic image resizing <a href="basic-image-resizing" id="basic-image-resizing"></a>
 
 Let's resize the image to a height of 150 and a width of 150.
 
@@ -165,7 +165,7 @@ Output:
 
 ### Crop mode
 
-Let’s now see how different crop mode works. We will try the [`pad_resize`](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#pad-resize-crop-strategy-cm-pad_resize) crop strategy. In this strategy, the output image's dimension \(height and width\) is the same as requested, no cropping occurs, and the aspect ratio is preserved. This is accomplished by adding padding around the output image to get it to match the exact dimension as requested. You can read more about this [here](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#pad-resize-crop-strategy-cm-pad_resize).
+Let’s now see how different crop mode works. We will try the [`pad_resize`](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#pad-resize-crop-strategy-cm-pad_resize) crop strategy. In this strategy, the output image's dimension (height and width) is the same as requested, no cropping occurs, and the aspect ratio is preserved. This is accomplished by adding padding around the output image to get it to match the exact dimension as requested. You can read more about this [here](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#pad-resize-crop-strategy-cm-pad_resize).
 
 ```swift
 urlConstructor = urlConstructor.width(width: 300)
@@ -214,7 +214,7 @@ Output:
 
 ImageKit.io allows you to add [text](https://docs.imagekit.io/features/image-transformations/overlay#text-overlay) and [image overlay](https://docs.imagekit.io/features/image-transformations/overlay) dynamically.
 
-### Text overlay <a id="text-overlay"></a>
+### Text overlay <a href="text-overlay" id="text-overlay"></a>
 
 Text overlay can be used to superimpose text on an image. Try it like so:
 
@@ -264,14 +264,14 @@ ImageKit.init(
 )
 ```
 
-  
+\
 For this, we would need a dummy backend app to authenticate our upload request. API authentication for upload always happens on the backend for security reasons.
 
 The tutorial repository comes with a sample backend server that we can use. 
 
 ### **Setting up the backend app**
 
-For this quick start guide, we have provided the sample implementation of the authentication endpoint in using the [ImageKit Node.js SDK](https://github.com/imagekit-developer/imagekit-nodejs) and [Express](https://expressjs.com/).
+For this quick start guide, we have provided the sample implementation of the authentication endpoint in using the [ImageKit Node.js SDK](https://github.com/imagekit-developer/imagekit-nodejs) and [Express](https://expressjs.com).
 
 In a new terminal window, navigate to the `Server` folder inside the tutorial project and install its npm packages:
 
@@ -332,7 +332,7 @@ If you run `curl http://localhost:8080/auth` in the terminal, you should see a J
 
 **Configure the auth endpoint in the frontend app**
 
-Head over to `AppDelegate.swift` and ensure the ****`authenticationEndpoint` is set to `http://localhost:8080/auth`
+Head over to `AppDelegate.swift` and ensure the** **`authenticationEndpoint` is set to `http://localhost:8080/auth`
 
 ![](../../.gitbook/assets/screenshot-2020-11-10-at-12.49.24-pm.png)
 
@@ -380,4 +380,3 @@ The possibilities for image manipulation and optimization with ImageKit are endl
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)
 * [Media Library](https://docs.imagekit.io/media-library/overview)
 * [Performance monitoring](../../features/performance-monitoring.md)
-

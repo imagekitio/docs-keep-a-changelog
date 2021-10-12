@@ -1,45 +1,37 @@
 # Purge cache
 
-{% api-method method="post" host="https://api.imagekit.io" path="/v1/files/purge" %}
-{% api-method-summary %}
-Purge cache API
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/purge" method="post" summary="Purge cache API" %}
+{% swagger-description %}
 This will purge CDN and ImageKit.io's internal cache.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-headers %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-base64 encoding of `your_private_api_key:`   
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+base64 encoding of 
+
+`your_private_api_key:`
+
+** **
+
+\
+
+
 **Note the colon in the end.**
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="url" type="string" required=true %}
-The exact URL of the file to be purged. For example - `https://ik.imageki.io/your_imagekit_id/rest-of-the-file-path.jpg`
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% swagger-parameter in="body" name="url" type="string" %}
+The exact URL of the file to be purged. For example - 
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-On success, you will receive a `requestId` which can be used to get the purge request status.
-{% endapi-method-response-example-description %}
+`https://ik.imageki.io/your_imagekit_id/rest-of-the-file-path.jpg`
+{% endswagger-parameter %}
 
+{% swagger-response status="200" description="On success, you will receive a requestId which can be used to get the purge request status." %}
 ```javascript
 {
     requestId : "598821f949c0a938d57563bd"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response structure and status code
 
@@ -51,9 +43,24 @@ In case of error, you will get an [error code](../api-introduction/#error-codes)
 
 You can purge the cache for multiple files within a directory by appending a wildcard at the end of the URL, only if **ANY ONE** of the following conditions are met:
 
-1. The path consists of at least two levels of nesting:  The path of the directory, excluding your imagekitId and URL pattern, contains at least two levels of nesting, starting from the root as shown below:  ✅ `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/LEVEL_1/LEVEL_2*`  ❌ `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/LEVEL_1*`  For example, the path `/images/upload*` is valid, but `/images*` is not. 
-2. The path length is at least 15 characters: The path of the directory, excluding your imagekitId and URL pattern, is at least 15 characters in length, as shown below:  ✅ `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/FIFTEEN_CHARACTERS*`  However, if the first condition is met, i.e. the path consists of at least two levels of nesting, then it need not be 15 characters long. 
-3. The path is a complete file path: The path specified is a complete path pointing to a file, with the file extension present at the end of the path, as shown below:  ✅ `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/FILE.EXT*`  For example, the path `/sample.jpg*` is valid, despite not being 15 characters long, or having two levels of nesting.
+1. The path consists of at least two levels of nesting: \
+   The path of the directory, excluding your imagekitId and URL pattern, contains at least two levels of nesting, starting from the root as shown below:\
+    :white_check_mark: `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/LEVEL_1/LEVEL_2*`\
+    :x: `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/LEVEL_1*`\
+   \
+   For example, the path `/images/upload*` is valid, but `/images*` is not.\
+
+2. The path length is at least 15 characters:\
+   The path of the directory, excluding your imagekitId and URL pattern, is at least 15 characters in length, as shown below:\
+    :white_check_mark: `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/FIFTEEN_CHARACTERS*`\
+   \
+   However, if the first condition is met, i.e. the path consists of at least two levels of nesting, then it need not be 15 characters long.\
+
+3. The path is a complete file path:\
+   The path specified is a complete path pointing to a file, with the file extension present at the end of the path, as shown below:\
+    :white_check_mark: `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/FILE.EXT*`\
+   \
+   For example, the path `/sample.jpg*` is valid, despite not being 15 characters long, or having two levels of nesting.
 
 Note that the wildcard can only be appended at the end of a URL. Wildcards within the path are not supported. i.e. `/folder/*/sample.jpg` is an invalid path.
 
@@ -156,4 +163,3 @@ purge_cache = imagekitio.purge_file_cache("https://ik.imagekit.io/your_imagekit_
 ```
 {% endtab %}
 {% endtabs %}
-

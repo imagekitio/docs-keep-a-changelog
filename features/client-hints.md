@@ -14,8 +14,8 @@ Client hints are the hints provided by the client device to the server along wit
 You can [learn more about client hints](https://imagekit.io/responsive-images/#chapter-7---using-client-hints) from the responsive image guide.
 
 {% hint style="info" %}
-**Enable client hints before using them**  
-Not every request has these HTTP headers. You will have to explicitly tell the browser to include these client hints using a meta tag:
+**Enable client hints before using them**\
+****Not every request has these HTTP headers. You will have to explicitly tell the browser to include these client hints using a meta tag:
 
 ```markup
 <meta http-equiv="Accept-CH" content="DPR, Width">
@@ -34,8 +34,8 @@ ImageKit supports the following client hints:
 WebP conversion using `Accept` header is enabled by default and part of the [automatic format conversion](image-optimization/automatic-image-format-conversion.md) feature.
 {% endhint %}
 
-To allow ImageKit to read values from the client hint request headers \(DPR and Width\), you have to pass the [transformation parameters](https://docs.imagekit.io/features/image-transformations) `dpr` and `width` with their values set to `auto`.  
-  
+To allow ImageKit to read values from the client hint request headers (DPR and Width), you have to pass the [transformation parameters](https://docs.imagekit.io/features/image-transformations) `dpr` and `width` with their values set to `auto`.\
+__\
 __For example, when the browser requests:
 
 ```bash
@@ -51,7 +51,7 @@ $$
 
 If the browser requests:
 
-```text
+```
 https://ik.imagekit.io/your_imagekitid/tr:w-auto,dpr-auto/image_name.jpg
 DPR: 2
 Width: 600
@@ -61,8 +61,8 @@ In this case, an [intrinsic width](client-hints.md#intrinsic-size) of 600 pixels
 
 ### The Content-DPR Header
 
-ImageKit rounds the [intrinsic size](client-hints.md#intrinsic-size) of the image to the next smallest 100. If the `Width`header indicates a width of 150 px, then ImageKit will deliver an image with a width of 200 px.  
-Now, if the DPR of the device is 2,  then the device will end up rendering an image of width 100 px \(200 / 2\), which is the incorrect width. The correct intended width to be displayed is 75px \(150 / 2\). To rectify this miscalculation due to the rounding to the next 100, the Content-DPR header is used.
+ImageKit rounds the [intrinsic size](client-hints.md#intrinsic-size) of the image to the next smallest 100. If the `Width`header indicates a width of 150 px, then ImageKit will deliver an image with a width of 200 px.\
+Now, if the DPR of the device is 2,  then the device will end up rendering an image of width 100 px (200 / 2), which is the incorrect width. The correct intended width to be displayed is 75px (150 / 2). To rectify this miscalculation due to the rounding to the next 100, the Content-DPR header is used.
 
 Content-DPR is a response header and indicates the actual DPR of the response image. It is calculated as follows:
 
@@ -72,7 +72,7 @@ $$
 
 Let's learn this with a few examples:
 
-```text
+```
 GET: https://ik.imagekit.io/your_imagekitid/tr:w-auto,dpr-auto/image_name.jpg
 DPR: 2
 Width: 212
@@ -86,7 +86,7 @@ $$
 
 Hence, ImageKit responds with a `300` pixels wide image and `Content-DPR` response header with a value `2.83`
 
-```text
+```
 Content-DPR: 2.83
 ```
 
@@ -102,5 +102,4 @@ The actual dimensions of a media resource. For example, if you open an image in 
 
 ### **Extrinsic size:**
 
-The size of a media resource after CSS and other layout factors \(such as `width` and `height` attributes\) have been applied to it. Let’s say you have an `<img>` element that loads an image with a density-corrected intrinsic size of 320x240, but it also has CSS `width` and `height` properties with values of `256px` and `192px` applied to it, respectively. In this example, the _extrinsic size_ of that `<img>` element becomes 256x192.
-
+The size of a media resource after CSS and other layout factors (such as `width` and `height` attributes) have been applied to it. Let’s say you have an `<img>` element that loads an image with a density-corrected intrinsic size of 320x240, but it also has CSS `width` and `height` properties with values of `256px` and `192px` applied to it, respectively. In this example, the _extrinsic size_ of that `<img>` element becomes 256x192.

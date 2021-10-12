@@ -12,7 +12,7 @@ Integrating the media library widget is straightforward as you will discover in 
 
 We have some ready-made sample integrations with the following applications.
 
-* \*\*\*\*[**CKEditor integration**](ckeditor5-plugin.md)\*\*\*\*
+* ****[**CKEditor integration**](ckeditor5-plugin.md)****
 
 ## Media library widget plugin features
 
@@ -33,13 +33,15 @@ The JavaScript-based plugin provides a way to seamlessly access your [ImageKit M
 
 Integrating the ImageKit Media Library plugin into a page in your web application or CMS interface is straightforward. We will go through the following steps in details one by one:
 
-1. \*\*\*\*[**Include the plugin script and create a container element**](./#1-include-the-plugin-script) **-** Include the plugin script file in the web page to embed the Media Library. Create a container element where the widget will be rendered. 
-2. [**Initialize the media library widget**](/@imagekit-io/s/docs/~/drafts/-MOeRVlxk26WIzUeOQ4D/sample-projects/embeddable-media-library#2-initialize-the-media-library-widget) **-** Provide the configuration options and callback to initialize the widget. These options include the mandatory container within which the Media Library Widget UI will be rendered and some other optional settings as described later in the page. 
+1. ****[**Include the plugin script and create a container element**](./#1-include-the-plugin-script)** -** Include the plugin script file in the web page to embed the Media Library. Create a container element where the widget will be rendered.\
 
-  
+2.  [**Initialize the media library widget**](https://app.gitbook.com/@imagekit-io/s/docs/\~/drafts/-MOeRVlxk26WIzUeOQ4D/sample-projects/embeddable-media-library#2-initialize-the-media-library-widget)** -** Provide the configuration options and callback to initialize the widget. These options include the mandatory container within which the Media Library Widget UI will be rendered and some other optional settings as described later in the page. 
 
-3. \*\*\*\*[**Instantiate the Media library widget and open it**](./#4-instantiate-the-embedded-media-library-and-open-it) **-** Using the configuration options and callback method, now the plugin can be instantiated through the `IKMediaLibraryWidget` constructor and used by navigating to the webpage where it has been embedded. 
-4. \*\*\*\*[**Insert images from the Media Library via the plugin**](./#5-embed-images-from-the-media-library-via-the-plugin) **-** Choose images and other files from within the media library interface and insert them in your CMS or web application.
+    \
+
+3. ****[**Instantiate the Media library widget and open it**](./#4-instantiate-the-embedded-media-library-and-open-it)** -** Using the configuration options and callback method, now the plugin can be instantiated through the `IKMediaLibraryWidget` constructor and used by navigating to the webpage where it has been embedded.\
+
+4. ****[**Insert images from the Media Library via the plugin**](./#5-embed-images-from-the-media-library-via-the-plugin)** -** Choose images and other files from within the media library interface and insert them in your CMS or web application.
 
 ### **1. Include the plugin script and create a container element**
 
@@ -80,66 +82,13 @@ const mediaLibraryWidget = new IKMediaLibraryWidget(config, callback);
 
 The plugin accepts the following configuration options, including the mandatory `container`. Apart from this, it also accepts some optional settings that control the plugin's behavior and styling.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Option</th>
-      <th style="text-align:left">Datatype</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Default value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>container</code>
-      </td>
-      <td style="text-align:left">String, or DOM element</td>
-      <td style="text-align:left"><b>Required</b><em><b><br /></b></em>The name of the container within
-        which the Media Library will be rendered. Supports CSS selectors.</td>
-      <td
-      style="text-align:left">None</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>className</code>
-      </td>
-      <td style="text-align:left">String</td>
-      <td style="text-align:left">Optional styling class to apply to the container element.</td>
-      <td style="text-align:left">None</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>dimensions</code>
-      </td>
-      <td style="text-align:left">Object</td>
-      <td style="text-align:left">Dimensions of the Media Library <code>container</code> element.</td>
-      <td
-      style="text-align:left">
-        <p><code>{ height: &apos;100%&apos;,</code>
-        </p>
-        <p><code>width: &apos;100%&apos; <br />}</code>
-        </p>
-        </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>view</code>
-      </td>
-      <td style="text-align:left">String</td>
-      <td style="text-align:left">Toggle Media Library interface mode: <code>modal</code> or <code>inline</code>
-      </td>
-      <td style="text-align:left"><code>&apos;modal&apos;</code>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>renderOpenButton</code>
-      </td>
-      <td style="text-align:left">Boolean</td>
-      <td style="text-align:left">Toggle whether button to open Media Library UI is displayed. Set this
-        to<code>false</code> if using a custom editor plugin or custom open trigger.</td>
-      <td
-      style="text-align:left"><code>true</code>
-        </td>
-    </tr>
-  </tbody>
-</table>
+| Option             | Datatype               | Description                                                                                                                                                      | Default value                                                                             |
+| ------------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `container`        | String, or DOM element | <p><strong>Required</strong><br><em><strong></strong></em>The name of the container within which the Media Library will be rendered. Supports CSS selectors.</p> | None                                                                                      |
+| `className`        | String                 | Optional styling class to apply to the container element.                                                                                                        | None                                                                                      |
+| `dimensions`       | Object                 | Dimensions of the Media Library `container` element.                                                                                                             | <p><code>{ height: '100%',</code></p><p><code>width: '100%' </code><br><code>}</code></p> |
+| `view`             | String                 | Toggle Media Library interface mode: `modal` or `inline`                                                                                                         | `'modal'`                                                                                 |
+| `renderOpenButton` | Boolean                | Toggle whether button to open Media Library UI is displayed. Set this to`false` if using a custom editor plugin or custom open trigger.                          | `true`                                                                                    |
 
 **Configuration options sample:**
 
@@ -306,4 +255,3 @@ body {
 In order to use this plugin on Google Chrome in Incognito mode, you need to enable third-party cookies:
 
 ![](../../.gitbook/assets/07-mlw-incognito-sm.png)
-

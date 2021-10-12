@@ -20,7 +20,7 @@ You can also integrate the plugin into an existing CKEditor build.
 
 Install the `imagekit-ckeditor5-plugin` into your existing CKEditor 5 build:
 
-```text
+```
 npm install --save-dev imagekit-ckeditor5-plugin
 ```
 
@@ -36,7 +36,7 @@ Please ensure that all CKEditor-related packages you install belong to a single 
 
 Clone the CKEditor 5 repository at the latest supported version:
 
-```text
+```
 git clone --depth 1 --branch v24.0.0 https://github.com/ckeditor/ckeditor5.git
 ```
 
@@ -149,7 +149,7 @@ ClassicEditor
   });
 ```
 
-### Usage <a id="usage"></a>
+### Usage <a href="usage" id="usage"></a>
 
 Open a browser and navigate to your app with the CKEditor instance. It should look similar to the image below. To open ImageKit view, click on the highlighted icon:
 
@@ -172,4 +172,3 @@ To insert one or more images into the CKEditor panel, select them and click the 
 To use this plugin on Google Chrome in Incognito mode, you need to enable third-party cookies:
 
 ![](../../.gitbook/assets/07-mlw-incognito-sm.png)
-

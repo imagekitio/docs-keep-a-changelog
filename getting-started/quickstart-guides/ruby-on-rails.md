@@ -33,11 +33,11 @@ Now, navigate to the newly created directory, and run the app:
 rails server
 ```
 
-In your web browser, navigate to [`http://localhost:3000/`](http://localhost:3000/)
+In your web browser, navigate to [`http://localhost:3000/`](http://localhost:3000)
 
-You should see a generic welcome message \(_Yay! You're on Rails!_\).
+You should see a generic welcome message (_Yay! You're on Rails!_).
 
-![Welcome message for a fresh Ruby on Rails application](../../.gitbook/assets/image%20%2823%29.png)
+![Welcome message for a fresh Ruby on Rails application](<../../.gitbook/assets/image (23).png>)
 
 Next, to use ImageKit functionality in our app, we will create a new controller with the following command:
 
@@ -54,14 +54,14 @@ root 'welcome#index'
 
 Here, we are doing two things:
 
-1. One, creating a route at the path _welcome/index,_ to direct requests coming on that path to go to the index action of the Welcome controller, which we will add soon.
-2. Second, we are declaring the root path to be directed to _welcome/index._ This means that all requests on `http://localhost:3000/` will go to `http://localhost:3000/welcome/index`
+1. One, creating a route at the path _welcome/index, _to direct requests coming on that path to go to the index action of the Welcome controller, which we will add soon.
+2. Second, we are declaring the root path to be directed to _welcome/index. _This means that all requests on `http://localhost:3000/` will go to `http://localhost:3000/welcome/index`
 
 **Installing the SDK**
 
 First, add this line to your Gemfile to add the 'imagekitio' gem as a dependency.
 
-```text
+```
 gem 'imagekitio'
 ```
 
@@ -75,7 +75,7 @@ bundle install
 
 Before the SDK can be used, let's learn about and configure the requisite authentication parameters that need to be provided to the SDK.
 
-Open the `app/controllers/application_controller.rb` file and add your public and private API keys, as well as the URL Endpoint as follows: \(You can find these keys in the Developer section of your ImageKit Dashboard\)
+Open the `app/controllers/application_controller.rb` file and add your public and private API keys, as well as the URL Endpoint as follows: (You can find these keys in the Developer section of your ImageKit Dashboard)
 
 ```ruby
 class ApplicationController < ActionController::Base
@@ -137,7 +137,7 @@ This fetches the image from the URL stored in `@image_url` that we created in th
 
 Rerunning the server should now display this default image in its full size:
 
-![Image in its original dimensions \(1000px \* 1000px\)](../../.gitbook/assets/image%20%2824%29.png)
+![Image in its original dimensions (1000px \* 1000px)](<../../.gitbook/assets/image (24).png>)
 
 ## Common image manipulation in Ruby on Rails
 
@@ -171,7 +171,7 @@ https://ik.imagekit.io/violetviolinist/tr:h-200,w-200/default-image.jpg?ik-sdk-v
 
 Refresh your browser to get the resized image.
 
-![Resized image \(200px \* 200px\)](../../.gitbook/assets/image%20%2822%29.png)
+![Resized image (200px \* 200px)](<../../.gitbook/assets/image (22).png>)
 
 ### **Chained transformation**
 
@@ -201,7 +201,7 @@ https://ik.imagekit.io/violetviolinist/tr:h-300,w-200/default-image.jpg?ik-sdk-v
 
 **Output Image:**
 
-![Resized and cropped \(200px \* 300px\)](../../.gitbook/assets/image%20%2819%29.png)
+![Resized and cropped (200px \* 300px)](<../../.gitbook/assets/image (19).png>)
 
 Now, rotate the image by 90 degrees.
 
@@ -232,7 +232,7 @@ https://ik.imagekit.io/violetviolinist/tr:h-300,w-200:rt-90/default-image.jpg?ik
 
 **Output Image:**
 
-![Resized, then rotated](../../.gitbook/assets/image%20%2820%29.png)
+![Resized, then rotated](<../../.gitbook/assets/image (20).png>)
 
 Let’s flip the order of transformation and see what happens.
 
@@ -263,7 +263,7 @@ https://ik.imagekit.io/violetviolinist/tr:rt-90:h-300,w-200/default-image.jpg?ik
 
 **Output Image:**
 
-![Rotated, then resized](../../.gitbook/assets/image%20%2818%29.png)
+![Rotated, then resized](<../../.gitbook/assets/image (18).png>)
 
 ## Adding overlays to images in Ruby on Rails
 
@@ -298,7 +298,7 @@ https://ik.imagekit.io/violetviolinist/tr:h-300,w-300,ot-ImageKit,ots-50,otc-065
 
 **Output Image:**
 
-![Text Overlay \(300px \* 300px\)](../../.gitbook/assets/image%20%2821%29.png)
+![Text Overlay (300px \* 300px)](<../../.gitbook/assets/image (21).png>)
 
 #### **Image overlay**
 
@@ -331,7 +331,7 @@ https://ik.imagekit.io/violetviolinist/tr:h-300,w-300,oi-overlay-image.png/defau
 
 **Output Image:**
 
-![Overlay image over another image](../../.gitbook/assets/image%20%2814%29.png)
+![Overlay image over another image](<../../.gitbook/assets/image (14).png>)
 
 ## Secure signed URL generation
 
@@ -365,7 +365,7 @@ get 'welcome/signed_url'
 
 The above snippets create a signed URL with an expiry time of 10 seconds.
 
-![Signed URL generation](../../.gitbook/assets/image%20%2825%29.png)
+![Signed URL generation](<../../.gitbook/assets/image (25).png>)
 
 ## **Uploading file in Ruby on Rails application**
 
@@ -398,7 +398,7 @@ This creates a simple form with a file upload field and a submit button. The for
 post 'welcome/upload'
 ```
 
-Now, we have the route and the HTML markup set up to submit a file for uploading. Let's introduce the controller action 'welcome\#upload' to receive the file and upload it to the Media Library. Go to `app/controllers/welcome_controller.rb`, and add the following method:
+Now, we have the route and the HTML markup set up to submit a file for uploading. Let's introduce the controller action 'welcome#upload' to receive the file and upload it to the Media Library. Go to `app/controllers/welcome_controller.rb`, and add the following method:
 
 ```ruby
 def upload
@@ -416,15 +416,15 @@ def upload
 end
 ```
 
-Here, we first extract the file from the _:picture_ property of the _params_ object, and then upload the file to our Media Library by the name of _new\_file.jpg,_ using the `upload_file()` API. We also attach an example tag '_hello_' to the image.
+Here, we first extract the file from the _:picture_ property of the _params_ object, and then upload the file to our Media Library by the name of _new_file.jpg,_ using the `upload_file()` API. We also attach an example tag '_hello_' to the image.
 
 Now, refresh the home page, and you should see the upload field.
 
-![Upload field](../../.gitbook/assets/image%20%2817%29.png)
+![Upload field](<../../.gitbook/assets/image (17).png>)
 
 Select an image/file from your local computer, and click on the _Upload_ button. A success message shall flash below the file field.
 
-_Your image has been uploaded successfully with the name &lt;NAME\_OF\_FILE&gt;_
+_Your image has been uploaded successfully with the name \<NAME_OF_FILE>_
 
 Now, after upload, if you go to the [Media Library](https://imagekit.io/dashboard#media-library) section of your ImageKit dashboard, you should see the newly uploaded image.
 
@@ -440,10 +440,10 @@ Fetch the uploaded image and display it in the UI by adding this line to your `a
 
 The app should render your uploaded image correctly.
 
-### **Attaching the image to a model \(using CarrierWave\)**
+### **Attaching the image to a model (using CarrierWave)**
 
-You can attach an image as an attribute of one of your models, making it convenient to write a model-oriented code. This method uses the CarrierWave gem, which is a dependency of the imagekitio gem.  
-  
+You can attach an image as an attribute of one of your models, making it convenient to write a model-oriented code. This method uses the CarrierWave gem, which is a dependency of the imagekitio gem.\
+\
 First, add the following configurations to `config/environments/development.rb` and `config/environments/production.rb`
 
 ```ruby
@@ -599,7 +599,7 @@ _show.html.erb_
 <%= link_to 'Back', posts_path %>
 ```
 
-Now, restart the server and go to _http://localhost:3000/posts/new._ You should see two form fields, for _title_, and _picture_. Enter a text value for the title field, and upload an image/file for the picture field, and click on Submit. This should redirect you to _http://localhost:3000/posts/1,_ displaying the title and the image.
+Now, restart the server and go to _http://localhost:3000/posts/new. _You should see two form fields, for _title_, and _picture_. Enter a text value for the title field, and upload an image/file for the picture field, and click on Submit. This should redirect you to _http://localhost:3000/posts/1, _displaying the title and the image.
 
 This sums up how you can upload images to your Media Library using the SDK. The second method is more suited for RESTful applications with CRUD operations where the image is an attribute of a resource.
 
@@ -649,4 +649,3 @@ The possibilities for image manipulation and optimization with ImageKit are endl
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)
 * [Media Library](https://docs.imagekit.io/media-library/overview)
 * [Performance monitoring](../../features/performance-monitoring.md)
-

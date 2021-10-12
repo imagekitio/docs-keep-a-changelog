@@ -1,52 +1,48 @@
 # Move folder
 
-{% api-method method="post" host="https://api.imagekit.io" path="/v1/bulkJobs/moveFolder" %}
-{% api-method-summary %}
-Move folder API
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/bulkJobs/moveFolder" method="post" summary="Move folder API" %}
+{% swagger-description %}
 This will move one folder into another.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-headers %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-base64 encoding of `your_private_api_key:`  
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+base64 encoding of 
+
+`your_private_api_key:`
+
+\
+
+
+
+
 **Note the colon in the end**
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="sourceFolderPath" type="string" required=true %}
-The full path to the source folder you want to move. For example  `/path/of/source/folder`.
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="sourceFolderPath" type="string" %}
+The full path to the source folder you want to move. For example  
 
-{% api-method-parameter type="string" required=true name="destinationPath" %}
-Full path to the destination folder where you want to move the source folder into. For example - `/path/of/destination/folder/`.
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+`/path/of/source/folder`
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-On success, you will receive a `jobId` which can be used to get the move operation's status.
-{% endapi-method-response-example-description %}
+.
+{% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="destinationPath" type="string" %}
+Full path to the destination folder where you want to move the source folder into. For example - 
+
+`/path/of/destination/folder/`
+
+.
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="On success, you will receive a jobId which can be used to get the move operation's status." %}
 ```javascript
 {
     "jobId" : "598821f949c0a938d57563bd"
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-If no files or folders are found at specified `sourceFolderPath` then a `404` response is returned.
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="404" description="If no files or folders are found at specified sourceFolderPath then a 404 response is returned." %}
 ```javascript
 {
      "message" : "No files & folder found at sourceFolderPath /folder/to/move",
@@ -54,10 +50,8 @@ If no files or folders are found at specified `sourceFolderPath` then a `404` re
      "reason" : "NO_FILES_FOLDER" 
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response structure and status code
 
@@ -81,4 +75,3 @@ curl -X POST "https://api.imagekit.io/v1/bulkJobs/moveFolder" \
 ```
 {% endtab %}
 {% endtabs %}
-

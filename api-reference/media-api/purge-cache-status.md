@@ -1,47 +1,41 @@
 # Purge cache status
 
-{% api-method method="get" host="https://api.imagekit.io" path="/v1/files/purge/:requestId" %}
-{% api-method-summary %}
-Purge cache status API
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/purge/:requestId" method="get" summary="Purge cache status API" %}
+{% swagger-description %}
 Get the status of the submitted purge request.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="requestId" type="string" required=true %}
-The `requestId` returned in the response of purge cache API.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% swagger-parameter in="path" name="requestId" type="string" %}
+The 
 
-{% api-method-headers %}
-{% api-method-parameter name="Authorization" type="string" required=true %}
-base64 encoding of `your_private_api_key:`  
+`requestId`
+
+ returned in the response of purge cache API.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+base64 encoding of 
+
+`your_private_api_key:`
+
+\
+
+
+
+
 **Note the colon in the end.**
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-The status can be either `Pending` or `Completed`
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="The status can be either Pending or Completed" %}
 ```javascript
 {
     status : "Pending" // or "Completed"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-### Response structure and status code \(application/JSON\)
+### Response structure and status code (application/JSON)
 
 In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the purge request status in a JSON-encoded response body.
 
@@ -49,32 +43,9 @@ In case of error, you will get an [error code](../api-introduction/#error-codes)
 
 The JSON-encoded response will have `status` property.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Field</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">status</td>
-      <td style="text-align:left">
-        <p>The current status of a submitted purge request. It can be either:
-          <br
-          />
-        </p>
-        <ul>
-          <li><code>Pending</code> - The request has been successfully submitted, and
-            purging is in progress.</li>
-          <li><code>Completed</code> - The purge request has been successfully completed.
-            And now you should get a fresh object. Check the Age header in response
-            to confirm this.</li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Field  | Description                                                                                                                                                                                                                                                                                                                                                                 |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| status | <p>The current status of a submitted purge request. It can be either:<br></p><ul><li><code>Pending</code> - The request has been successfully submitted, and purging is in progress.</li><li><code>Completed</code> - The purge request has been successfully completed. And now you should get a fresh object. Check the Age header in response to confirm this.</li></ul> |
 
 ## Examples
 
@@ -155,4 +126,3 @@ purge_cache_status = imagekitio.purge_file_cache_status("cache_request_id")
 ```
 {% endtab %}
 {% endtabs %}
-
