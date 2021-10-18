@@ -69,7 +69,7 @@ Your ImageKit plan includes a fixed amount of extension units that can be used t
 
 So for example, if you removed background from 10 images, a total of 130x10 i.e. 1300 extension units will be consumed.
 
-If you add tags using `aws-auto-tagging` extension on 1000 uploaded images, a total of 1000x2 i.e. 2000 extensi
+If you add tags using `aws-auto-tagging` extension on 1000 uploaded images, a total of 1000x2 i.e. 2000 extension units will be consumed.
 
 ### Asynchronous behavior
 
