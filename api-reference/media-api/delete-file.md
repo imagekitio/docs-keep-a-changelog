@@ -77,8 +77,8 @@ imagekit.deleteFile("file_id", function(error, result) {
 from imagekitio import ImageKit
 
 imagekit = ImageKit(
-    private_key='your_public_api_key',
-    public_key='your_private_api_key',
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
