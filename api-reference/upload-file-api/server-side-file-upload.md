@@ -48,7 +48,7 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
     "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
     "thumbnailUrl": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
     "height" : 300,
-    "width" : 200",
+    "width" : 200,
     "size" : 83622,
     "filePath": "/images/products/file1.jpg",
     "tags": ["t-shirt","round-neck","sale2019"],
