@@ -11,7 +11,7 @@ ImageKit.io offers multiple video optimization features that work out of the box
 Automatic format conversion and quality compression are turned ON by default, in line with the standard practices for delivering videos on the web.
 
 {% hint style="info" %}
-This feature is off by default. Contact support at support@imagekit.io to enable automatic video format and quality optimization for your account.
+This feature is off by default. You can turn on the automatic video format and quality optimization for your account under [video settings](https://imagekit.io/dashboard?redirectTo=settings-videos-optimization) in your dashboard. 
 {% endhint %}
 
 The following features related to video optimization can be found in your dashboard under the [settings](https://imagekit.io/dashboard?redirectTo=settings#settings) section.
