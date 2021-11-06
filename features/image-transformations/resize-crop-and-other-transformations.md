@@ -16,21 +16,21 @@ You can also specify the `auto`_ _value for this parameter (w-auto). Doing so wi
 
 {% tabs %}
 {% tab title="Original" %}
-URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="200px wide" %}
-URL - [https://ik.imagekit.io/demo/tr:w-200/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-200/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:w-200/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-200/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:w-200/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:w-200/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="40% width of original image" %}
-URL - [https://ik.imagekit.io/demo/tr:w-0.4/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-0.4/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:w-0.4/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-0.4/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:w-0.4/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:w-0.4/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
@@ -40,21 +40,21 @@ Used to specify the height of the output image. Accepts integer value greater th
 
 {% tabs %}
 {% tab title="Original" %}
-URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="200px height" %}
-URL - [https://ik.imagekit.io/demo/tr:h-200/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-200/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:h-200/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-200/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:h-200/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:h-200/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="40% height of the original image" %}
-URL - [https://ik.imagekit.io/demo/tr:h-0.4/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-0.4/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:h-0.4/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-0.4/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:h-0.4/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:h-0.4/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
@@ -68,17 +68,17 @@ If you specify both [height(h)](resize-crop-and-other-transformations.md#height-
 
 {% tabs %}
 {% tab title="Original" %}
-URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
 
 
 {% endtab %}
 
 {% tab title="width 400px and aspect ratio 4:3" %}
-URL - [https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
@@ -93,11 +93,11 @@ But when you specify both [height(h)](resize-crop-and-other-transformations.md#h
 ****When choosing among different strategies for cropping, think in terms of your website layout and desired output image.
 {% endhint %}
 
-* If you want to preserve the whole image content (no cropping) and need the exact same dimensions (height and width) in the output image as requested, choose either of the [pad resize crop](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize) or [forced crop strategy](resize-crop-and-other-transformations.md#forced-crop-strategy-c-force).
-* If you want to preserve the whole image content (no cropping), but it is okay if one or both the dimensions (height or width) in the output image are adjusted to preserve the aspect ratio. Then choose either of the [max-size cropping](resize-crop-and-other-transformations.md#max-size-cropping-strategy-c-at_max) or [min-size cropping strategy](resize-crop-and-other-transformations.md#min-size-cropping-strategy-c-at_least).
-* If you need the exact same dimensions (height and width) in the output image as requested but it's okay to crop the image to preserve the aspect ratio (or extract a region from the original image). Then choose either of the [maintain ratio crop](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio) or [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) or [pad extract crop strategy](resize-crop-and-other-transformations.md#pad-extract-crop-strategy-cm-pad_extract). You can combine the extract crop strategy with different [focus values](resize-crop-and-other-transformations.md#focus-fo) to get the desired result.
+* If you want to preserve the whole image content (no cropping) and need the exact same dimensions (height and width) in the output image as requested, choose either of the [pad resize crop](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad\_resize) or [forced crop strategy](resize-crop-and-other-transformations.md#forced-crop-strategy-c-force).
+* If you want to preserve the whole image content (no cropping), but it is okay if one or both the dimensions (height or width) in the output image are adjusted to preserve the aspect ratio. Then choose either of the [max-size cropping](resize-crop-and-other-transformations.md#max-size-cropping-strategy-c-at\_max) or [min-size cropping strategy](resize-crop-and-other-transformations.md#min-size-cropping-strategy-c-at\_least).
+* If you need the exact same dimensions (height and width) in the output image as requested but it's okay to crop the image to preserve the aspect ratio (or extract a region from the original image). Then choose either of the [maintain ratio crop](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain\_ratio) or [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) or [pad extract crop strategy](resize-crop-and-other-transformations.md#pad-extract-crop-strategy-cm-pad\_extract). You can combine the extract crop strategy with different [focus values](resize-crop-and-other-transformations.md#focus-fo) to get the desired result.
 
-### Pad resize crop strategy - (cm-pad_resize)
+### Pad resize crop strategy - (cm-pad\_resize)
 
 In the pad resize crop strategy, the output image's dimension (height and width) is the same as requested, no cropping takes place, and the aspect ratio is preserved. This is accomplished by adding padding around the output image to get it to match the exact dimension as requested.
 
@@ -109,11 +109,11 @@ URL - [https://ik.imagekit.io/demo/img/plant.jpeg](https://ik.imagekit.io/demo/i
 {% endtab %}
 
 {% tab title="cm-pad_resize" %}
-URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,cm-pad_resize,bg-F3F3F3](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,cm-pad_resize,bg-F3F3F3)\
+URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,cm-pad\_resize,bg-F3F3F3](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,cm-pad\_resize,bg-F3F3F3)\
 \
 The output image is exactly 300x200. However, to maintain the aspect ratio and prevent cropping a solid colored padding is added around the resized image.
 
-![300x200 image](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,cm-pad_resize,bg-F3F3F3)
+![300x200 image](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,cm-pad\_resize,bg-F3F3F3)
 
 For sake of clarity, we have made the padding background slightly grey in color (#F3F3F3) using the background parameter (`bg`) in the URL.
 {% endtab %}
@@ -121,29 +121,29 @@ For sake of clarity, we have made the padding background slightly grey in color 
 
 #### Example - All padding on one side
 
-In the examples above, we saw that when the image is padded using the [pad resize crop strategy](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize), the padding is equal on both sides of the image. However, there might be cases where we want all the padding to be added on only one side of the image. This can be done using the [focus (fo)](resize-crop-and-other-transformations.md#focus-fo) parameter.
+In the examples above, we saw that when the image is padded using the [pad resize crop strategy](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad\_resize), the padding is equal on both sides of the image. However, there might be cases where we want all the padding to be added on only one side of the image. This can be done using the [focus (fo)](resize-crop-and-other-transformations.md#focus-fo) parameter.
 
 {% tabs %}
 {% tab title="Padding to the right" %}
-URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,cm-pad_resize,bg-F3F3F3,fo-left](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,cm-pad_resize,bg-F3F3F3,fo-left)\
+URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,cm-pad\_resize,bg-F3F3F3,fo-left](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,cm-pad\_resize,bg-F3F3F3,fo-left)\
 \
 We added the `fo-left` transformation to our image. Now, all the padding is on the right of the image, while the image itself is on the left (determined by the value of [focus(fo)](resize-crop-and-other-transformations.md#focus-fo) parameter).
 
-![](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,cm-pad_resize,bg-F3F3F3,fo-left)
+![](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,cm-pad\_resize,bg-F3F3F3,fo-left)
 {% endtab %}
 
 {% tab title="Padding to the bottom" %}
-URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-100,h-200,cm-pad_resize,bg-F3F3F3,fo-top](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-100,h-200,cm-pad_resize,bg-F3F3F3,fo-top)
+URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-100,h-200,cm-pad\_resize,bg-F3F3F3,fo-top](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-100,h-200,cm-pad\_resize,bg-F3F3F3,fo-top)
 
 We added the `fo-top` transformation to our image. Now, all the padding is on the bottom of the image, while the image itself is on the top (determined by the value of [focus(fo)](resize-crop-and-other-transformations.md#focus-fo) parameter).
 
-![](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-100,h-200,cm-pad_resize,bg-F3F3F3,fo-top)
+![](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-100,h-200,cm-pad\_resize,bg-F3F3F3,fo-top)
 {% endtab %}
 {% endtabs %}
 
 ### Forced crop strategy - (c-force)
 
-In a forced crop strategy, the output image's dimension (height and width) is exactly the same as requested, no cropping takes place, but the aspect ratio is not preserved. It forcefully squeezes the original image to get it to fit completely within the output dimensions. 
+In a forced crop strategy, the output image's dimension (height and width) is exactly the same as requested, no cropping takes place, but the aspect ratio is not preserved. It forcefully squeezes the original image to get it to fit completely within the output dimensions.&#x20;
 
 {% tabs %}
 {% tab title="Original" %}
@@ -161,7 +161,7 @@ The entire original image is preserved in the output image as well, but the hand
 {% endtab %}
 {% endtabs %}
 
-### Max-size cropping strategy - (c-at_max)
+### Max-size cropping strategy - (c-at\_max)
 
 In the max-size crop strategy, whole image content is preserved (no cropping), the aspect ratio is preserved, but one of the dimensions (height or width) is adjusted.
 
@@ -175,19 +175,19 @@ URL - [https://ik.imagekit.io/demo/img/plant.jpeg](https://ik.imagekit.io/demo/i
 {% endtab %}
 
 {% tab title="c-at_max" %}
-URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at_max](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at_max)
+URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at\_max](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at\_max)
 
-![148x200 image](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at_max)
+![148x200 image](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at\_max)
 
-The entire image content and the aspect ratio is preserved. The output image dimensions are 148x200. So the height is exactly what is requested, but the width is smaller than what was requested. 
+The entire image content and the aspect ratio is preserved. The output image dimensions are 148x200. So the height is exactly what is requested, but the width is smaller than what was requested.&#x20;
 
 This mode is particularly useful if you have a container and you want to ensure that the image will never be larger than that container.
 {% endtab %}
 {% endtabs %}
 
-### Min-size cropping strategy - (c-at_least)
+### Min-size cropping strategy - (c-at\_least)
 
-This strategy is similar to the [max-size cropping strategy](resize-crop-and-other-transformations.md#max-size-cropping-strategy-c-at_max), with the only difference being that unlike the max-size strategy, the image is equal to or larger than the requested dimensions. One of the dimensions will be exactly the same as what is requested, while the other dimension will be equal to or larger than what is requested.
+This strategy is similar to the [max-size cropping strategy](resize-crop-and-other-transformations.md#max-size-cropping-strategy-c-at\_max), with the only difference being that unlike the max-size strategy, the image is equal to or larger than the requested dimensions. One of the dimensions will be exactly the same as what is requested, while the other dimension will be equal to or larger than what is requested.
 
 {% tabs %}
 {% tab title="Original" %}
@@ -197,9 +197,9 @@ URL - [https://ik.imagekit.io/demo/img/plant.jpeg](https://ik.imagekit.io/demo/i
 {% endtab %}
 
 {% tab title="c-at_least" %}
-URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at_least](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at_least)
+URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at\_least](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at\_least)
 
-![300x405 image](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at_least)
+![300x405 image](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at\_least)
 
 The entire image content and aspect ratio is preserved. The output image dimensions are 300x405. So the width is exactly the same as what was requested, but the height is larger than what was requested.
 
@@ -207,7 +207,7 @@ This is useful for cases where you want to have an image that is always at least
 {% endtab %}
 {% endtabs %}
 
-### Maintain ratio crop strategy - (c-maintain_ratio)
+### Maintain ratio crop strategy - (c-maintain\_ratio)
 
 This is the default crop strategy. If nothing is specified in the URL, this strategy gets applied automatically. In this strategy, the output image's dimension (height and width) is the same as requested, and the aspect ratio is preserved. This is accomplished resizing the image to the requested dimension and in the process cropping parts from the original image.
 
@@ -223,9 +223,9 @@ URL - [https://ik.imagekit.io/demo/img/plant.jpeg](https://ik.imagekit.io/demo/i
 {% endtab %}
 
 {% tab title="c-maintain_ratio (center crop)" %}
-URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-maintain_ratio](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-maintain_ratio) or [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200)
+URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-maintain\_ratio](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-maintain\_ratio) or [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200)
 
-![300x200 cropped image](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-maintain_ratio)
+![300x200 cropped image](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-maintain\_ratio)
 
 In the above image, the top and the bottom of the image got cropped out. But the aspect ratio has been preserved from the original to the output image i.e. the hand and the plant are not skewed or forcefully resized to fit the output dimensions.
 {% endtab %}
@@ -235,7 +235,7 @@ Original image URL - [https://ik.imagekit.io/demo/img/bike-image.jpeg](https://i
 
 ![](https://ik.imagekit.io/demo/img/bike-image.jpeg)
 
-Using c-maintain_ratio with fo-custom - [https://ik.imagekit.io/demo/img/bike-image.jpeg?tr=w-500,h-100,fo-custom](https://ik.imagekit.io/demo/img/bike-image.jpeg?tr=w-500,h-100,fo-custom)
+Using c-maintain\_ratio with fo-custom - [https://ik.imagekit.io/demo/img/bike-image.jpeg?tr=w-500,h-100,fo-custom](https://ik.imagekit.io/demo/img/bike-image.jpeg?tr=w-500,h-100,fo-custom)
 
 ![](https://ik.imagekit.io/demo/img/bike-image.jpeg?tr=w-500,h-100,fo-custom)
 {% endtab %}
@@ -243,7 +243,7 @@ Using c-maintain_ratio with fo-custom - [https://ik.imagekit.io/demo/img/bike-im
 
 ### Extract crop strategy - (cm-extract)
 
-In this strategy, the output image's dimension (height and width) is exactly the same as requested, and the aspect ratio is preserved. In this strategy, instead of trying to resize the image as we did in [maintain ratio strategy](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio), we extract out a region of the requested dimension from the original image.
+In this strategy, the output image's dimension (height and width) is exactly the same as requested, and the aspect ratio is preserved. In this strategy, instead of trying to resize the image as we did in [maintain ratio strategy](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain\_ratio), we extract out a region of the requested dimension from the original image.
 
 {% hint style="info" %}
 By default, ImageKit.io extracts the image from the center but you can change this using the [focus parameter](resize-crop-and-other-transformations.md#focus-fo).
@@ -271,11 +271,11 @@ In the relative method, you can use the [focus (fo) parameter](resize-crop-and-o
 
 Valid relative values for `fo` parameters are - `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`.
 
-Example URL -  [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,fo-bottom_right](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,fo-bottom_right)\
+Example URL -  [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,fo-bottom\_right](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,fo-bottom\_right)\
 \
 This is the extract done with focus on bottom right of the original image.
 
-![This is the extract done with focus on bottom right of the original image.](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,fo-bottom_right)
+![This is the extract done with focus on bottom right of the original image.](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,fo-bottom\_right)
 {% endtab %}
 {% endtabs %}
 
@@ -311,7 +311,7 @@ So we suggest ensuring that you are using the correct height and width dimension
 
 #### Example - **Focus using custom coordinates**
 
-Instead of specifying the `x`, `y`, `xc` or `xy` coordinates to focus on a particular area, you can also specify the focus area in an image while uploading the image or from the media library and then use `fo-custom` transformation in the image URL. ImageKit will then utilize the custom crop area specified with the image for all crop operations. This custom focus mode works for both the [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) and the default [maintain ratio crop](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio) strategy.
+Instead of specifying the `x`, `y`, `xc` or `xy` coordinates to focus on a particular area, you can also specify the focus area in an image while uploading the image or from the media library and then use `fo-custom` transformation in the image URL. ImageKit will then utilize the custom crop area specified with the image for all crop operations. This custom focus mode works for both the [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) and the default [maintain ratio crop](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain\_ratio) strategy.
 
 {% tabs %}
 {% tab title="Original" %}
@@ -333,7 +333,7 @@ A 500x100px thumbnail with cm-extract crop strategy and fo-custom.
 
 ImageKit can be configured to [auto-rotate images](../image-optimization/metadata-color-profile-and-orientation.md#image-orientation) based on the `Orientation` value in the image metadata. This could result in unexpected behavior when using, `cm-extract`. In that case, you will have to adjust the values of `x` and `y` to accommodate for the oriented image.
 
-### **Pad extract crop strategy - (**cm-pad_extract)
+### **Pad extract crop strategy - (**cm-pad\_extract)
 
 The pad extract crop strategy is an extension of the [extract crop strategy](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract). In the extract crop strategy, we were extracting out a smaller area from a larger image. Now, there can be a scenario where the original image is small and we want to extract out a larger area (which is practically not possible without padding). So the pad extract mode adds a solid colored padding around the image to make it match the exact size requested.
 
@@ -341,28 +341,28 @@ This transformation is specified using the value `cm-pad_extract` transformation
 
 {% tabs %}
 {% tab title="Original" %}
-URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="cm-pad_extract" %}
-URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=w-700,h-700,cm-pad_extract,bg-F3F3F3](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=w-700,h-700,cm-pad_extract,bg-F3F3F3)\
+URL - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?tr=w-700,h-700,cm-pad\_extract,bg-F3F3F3](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?tr=w-700,h-700,cm-pad\_extract,bg-F3F3F3)\
 \
 Original image was 600x600 but this image is 700x700 image.
 
-![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=w-700,h-700,cm-pad_extract,bg-F3F3F3)
+![](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?tr=w-700,h-700,cm-pad\_extract,bg-F3F3F3)
 {% endtab %}
 {% endtabs %}
 
 ### Focus - (fo)
 
-This parameter can be used along with [pad resize](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize), [maintain ratio](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio) or [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) to change the behaviour of padding or cropping. Learn more from the different examples shown in respective sections. 
+This parameter can be used along with [pad resize](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad\_resize), [maintain ratio](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain\_ratio) or [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) to change the behaviour of padding or cropping. Learn more from the different examples shown in respective sections.&#x20;
 
 This parameter can have following values depending upon where it is being used:
 
 1. `left`, `right`, `top`, `bottom` can be to control the position of padding when used with pad resize. [Learn from example](resize-crop-and-other-transformations.md#example-all-padding-on-one-side).
-2. `fo-custom` can be used to define a specific focus area when used with [maintain ratio](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain_ratio) and [extract crop](resize-crop-and-other-transformations.md#example-focus-using-custom-coordinates).
+2. `fo-custom` can be used to define a specific focus area when used with [maintain ratio](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain\_ratio) and [extract crop](resize-crop-and-other-transformations.md#example-focus-using-custom-coordinates).
 3. `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right` can be used to define relative cropping during extract crop. [Learn from examples](resize-crop-and-other-transformations.md#examples-center-and-relative-focus).
 
 Apart from above, `fo` parameter also have two additional options that intelligently detect the most important part of an image to create thumbnails i.e. `auto` and `face`. Let's see them in action:
@@ -433,15 +433,15 @@ Used to specify the quality of the output image for lossy formats like JPEG, Web
 
 {% tabs %}
 {% tab title="quality=90" %}
-URL - [https://ik.imagekit.io/demo/tr:q-90/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:q-90/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:q-90/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:q-90/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:q-90/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:q-90/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="quality=10" %}
-URL - [https://ik.imagekit.io/demo/tr:q-10/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:q-10/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:q-10/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:q-10/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:q-10/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:q-10/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
@@ -449,12 +449,12 @@ URL - [https://ik.imagekit.io/demo/tr:q-10/medium_cafe_B1iTdD0C.jpg](https://ik.
 
 Used to specify the format of the output image. If no output image format is specified then based on your image settings in the dashboard, ImageKit.io [automatically picks the best format](../image-optimization/automatic-image-format-conversion.md) for that image request.
 
- Possible values include `auto` ,`jpg` , `jpeg` , `webp`, `avif` and `png`
+&#x20;Possible values include `auto` ,`jpg` , `jpeg` , `webp`, `avif` and `png`
 
 **Default Value** - `auto` (from dashboard settings)
 
 {% hint style="info" %}
-A few WebP images may not render correctly in Safari v14+ on MacOS v11+ and IOS 14 because of a [possible OS-level issue](https://bugs.webkit.org/show_bug.cgi?id=219977).
+A few WebP images may not render correctly in Safari v14+ on MacOS v11+ and IOS 14 because of a [possible OS-level issue](https://bugs.webkit.org/show\_bug.cgi?id=219977).
 {% endhint %}
 
 ### Blur - (bl)
@@ -463,15 +463,15 @@ Used to specify the gaussian blur that must be applied to an image. The value of
 
 {% tabs %}
 {% tab title="Original" %}
-URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="blur=10" %}
-URL - [https://ik.imagekit.io/demo/tr:bl-10/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:bl-10/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:bl-10/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:bl-10/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:bl-10/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:bl-10/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
@@ -481,15 +481,15 @@ Used to turn an image to a grayscale version.
 
 {% tabs %}
 {% tab title="Normal" %}
-URL - [https://ik.imagekit.io/demo/tr:h-300/sample_image.jpg](https://ik.imagekit.io/demo/tr:h-300/sample_image.jpg)
+URL - [https://ik.imagekit.io/demo/tr:h-300/sample\_image.jpg](https://ik.imagekit.io/demo/tr:h-300/sample\_image.jpg)
 
-![](https://ik.imagekit.io/demo/tr:h-300/sample_image.jpg)
+![](https://ik.imagekit.io/demo/tr:h-300/sample\_image.jpg)
 {% endtab %}
 
 {% tab title="Grayscale" %}
-URL - [https://ik.imagekit.io/demo/tr:h-300,e-grayscale/sample_image.jpg](https://ik.imagekit.io/demo/tr:h-300,e-grayscale/sample_image.jpg)
+URL - [https://ik.imagekit.io/demo/tr:h-300,e-grayscale/sample\_image.jpg](https://ik.imagekit.io/demo/tr:h-300,e-grayscale/sample\_image.jpg)
 
-![](https://ik.imagekit.io/demo/tr:h-300,e-grayscale/sample_image.jpg)
+![](https://ik.imagekit.io/demo/tr:h-300,e-grayscale/sample\_image.jpg)
 {% endtab %}
 {% endtabs %}
 
@@ -511,7 +511,7 @@ Alternatively, you can specify the `auto` value for this parameter (dpr-auto). D
 \
 For example, we can create a named transformation - `thumbnail` for a transformation string - `tr:w-100,h-100,c-at_max,fo-auto` and is used like:\
 \
-[https://ik.imagekit.io/demo/img/tr:n-media_library_thumbnail/default-image.jpg](https://ik.imagekit.io/demo/img/tr:n-media_library_thumbnail/default-image.jpg)
+[https://ik.imagekit.io/demo/img/tr:n-media\_library\_thumbnail/default-image.jpg](https://ik.imagekit.io/demo/img/tr:n-media\_library\_thumbnail/default-image.jpg)
 
 ### Default image - (di)
 
@@ -519,7 +519,11 @@ When an image that is requested using Imagekit.io does not exist, a 404 error is
 
 Imagekit.io provides an alternative to achieve this without having to make changes at the application level using this parameter. The image specified in this parameter should be accessible using the default endpoint of your ImageKit.io account.\
 \
-[https://ik.imagekit.io/demo/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg](https://ik.imagekit.io/demo/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg)
+[https://ik.imagekit.io/demo/tr:di-medium\_cafe\_B1iTdD0C.jpg/non\_existent\_image.jpg](https://ik.imagekit.io/demo/tr:di-medium\_cafe\_B1iTdD0C.jpg/non\_existent\_image.jpg)
+
+> If the default image is nested inside multiple folders, then you need to specify the entire default image path in this parameter. Replace `/` with `@@` in the default image path. For example, if the default image is accessible on `https://ik.imagekit.io/demo/path/to/image.jpg`, then the `di` parameter should be `di-@@path@@to@@image.jpg`.
+
+
 
 ### Progressive image - (pr)
 
@@ -527,7 +531,7 @@ Used to specify whether the output JPEG image must be rendered progressively. In
 \
 **Possible values **include `true`  and `false` .\
 \
-[https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,pr-true/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,pr-true/medium_cafe_B1iTdD0C.jpg)
+[https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,pr-true/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,pr-true/medium\_cafe\_B1iTdD0C.jpg)
 
 ### Lossless WebP and PNG - (lo)
 
@@ -535,7 +539,7 @@ Used to specify whether the output image (if in JPEG or PNG) must be compressed 
 \
 **Possible Values**- `true`  and `false` \
 \
-[https://ik.imagekit.io/demo/tr:w-500,h-361,lo-true/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-500,h-361,lo-true/medium_cafe_B1iTdD0C.jpg)
+[https://ik.imagekit.io/demo/tr:w-500,h-361,lo-true/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-500,h-361,lo-true/medium\_cafe\_B1iTdD0C.jpg)
 
 ### Trim edges - (t)
 
@@ -547,25 +551,25 @@ Usage - `t-true|Number`\
 
 {% tabs %}
 {% tab title="Trim true" %}
-URL - [https://ik.imagekit.io/demo/img/tr:t-true/trim_example_BkgQVu7oX.png](https://ik.imagekit.io/demo/img/tr:t-true/trim_example_BkgQVu7oX.png)
+URL - [https://ik.imagekit.io/demo/img/tr:t-true/trim\_example\_BkgQVu7oX.png](https://ik.imagekit.io/demo/img/tr:t-true/trim\_example\_BkgQVu7oX.png)
 
-![](https://ik.imagekit.io/demo/img/tr:t-true/trim_example_BkgQVu7oX.png)
+![](https://ik.imagekit.io/demo/img/tr:t-true/trim\_example\_BkgQVu7oX.png)
 {% endtab %}
 
 {% tab title="With trim equal to 5" %}
-URL - [https://ik.imagekit.io/demo/img/tr:t-5/trim_example_BkgQVu7oX.png](https://ik.imagekit.io/demo/img/tr:t-5/trim_example_BkgQVu7oX.png)\
+URL - [https://ik.imagekit.io/demo/img/tr:t-5/trim\_example\_BkgQVu7oX.png](https://ik.imagekit.io/demo/img/tr:t-5/trim\_example\_BkgQVu7oX.png)\
 \
 Here some trimming does take place (you can notice that the grey circle in the background is getting cut off), but it is not as much as what happened when the value of trim was set to `true`
 
-![](https://ik.imagekit.io/demo/img/tr:t-5/trim_example_BkgQVu7oX.png)
+![](https://ik.imagekit.io/demo/img/tr:t-5/trim\_example\_BkgQVu7oX.png)
 {% endtab %}
 
 {% tab title="With trim equal to 15" %}
-URL - [https://ik.imagekit.io/demo/img/tr:t-15/trim_example_BkgQVu7oX.png](https://ik.imagekit.io/demo/img/tr:t-15/trim_example_BkgQVu7oX.png)\
+URL - [https://ik.imagekit.io/demo/img/tr:t-15/trim\_example\_BkgQVu7oX.png](https://ik.imagekit.io/demo/img/tr:t-15/trim\_example\_BkgQVu7oX.png)\
 \
 Here the amount of trimming is higher than what happened with trim set to `true`. This is because with a higher value specified for trim, more and more pixels are considered as similar and redundant and hence get removed.
 
-![](https://ik.imagekit.io/demo/img/tr:t-15/trim_example_BkgQVu7oX.png)
+![](https://ik.imagekit.io/demo/img/tr:t-15/trim\_example\_BkgQVu7oX.png)
 {% endtab %}
 {% endtabs %}
 
@@ -579,15 +583,15 @@ The width is specified as a number which is equivalent to the border width in pi
 
 {% tabs %}
 {% tab title="5px yellow border" %}
-URL - [https://ik.imagekit.io/demo/tr:w-300,b-5\_FFF000/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-300,b-5\_FFF000/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:w-300,b-5\_FFF000/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-300,b-5\_FFF000/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:w-300,b-5\_FFF000/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:w-300,b-5\_FFF000/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="20px red border" %}
-URL - [https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
@@ -601,17 +605,17 @@ It is used to specify whether the output image should contain the color profile 
 
 {% tabs %}
 {% tab title="cp=false (Default)" %}
-URL - [https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,cp-false/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,cp-false/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,cp-false/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,cp-false/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,cp-false/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,cp-false/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="cp=true" %}
-URL - [https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,cp-true/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,cp-true/medium_cafe_B1iTdD0C.jpg)\
+URL - [https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,cp-true/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,cp-true/medium\_cafe\_B1iTdD0C.jpg)\
 \
 You might not observe any change in this particular image. It depends on if the original image has any specific color profile or not.
 
-![](https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,cp-true/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,cp-true/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
@@ -635,15 +639,15 @@ Use `auto` if you want ImageKit.io to automatically rotate image based on EXIF o
 
 {% tabs %}
 {% tab title="rt=90" %}
-URL - [https://ik.imagekit.io/demo/tr:rt-90/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:rt-90/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:rt-90/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:rt-90/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:rt-90/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:rt-90/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="rt=180" %}
-URL - [https://ik.imagekit.io/demo/tr:rt-180/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:rt-180/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:rt-180/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:rt-180/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:rt-180/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:rt-180/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
@@ -659,23 +663,23 @@ For simpler cases, you can use radius in the same transformation as the height a
 
 {% tabs %}
 {% tab title="r=20" %}
-URL - [https://ik.imagekit.io/demo/tr:r-20/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:r-20/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:r-20/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:r-20/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:r-20/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:r-20/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="r=50" %}
-URL - [https://ik.imagekit.io/demo/tr:r-50/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:r-50/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:r-50/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:r-50/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:r-50/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:r-50/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="r=max (Round)" %}
-URL - [https://ik.imagekit.io/demo/tr:r-max/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:r-max/medium_cafe_B1iTdD0C.jpg)\
+URL - [https://ik.imagekit.io/demo/tr:r-max/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:r-max/medium\_cafe\_B1iTdD0C.jpg)\
 \
 This is good for creating profile pictures.
 
-![](https://ik.imagekit.io/demo/tr:r-max/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:r-max/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
@@ -691,28 +695,28 @@ It is used to specify the background color in RGB Hex Code (e.g. FF0000) or an R
 
 {% tabs %}
 {% tab title="bg=272B38" %}
-URL - [https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad_extract,bg-272B38/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad_extract,bg-272B38/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_extract,bg-272B38/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_extract,bg-272B38/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad_extract,bg-272B38/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_extract,bg-272B38/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
 {% tab title="bg=A94D34" %}
-URL - [https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad_extract,bg-A94D34/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad_extract,bg-A94D34/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_extract,bg-A94D34/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_extract,bg-A94D34/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad_extract,bg-A94D34/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_extract,bg-A94D34/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
 #### **Specifying a background for a PNG image**
 
-URL - [https://ik.imagekit.io/demo/img/logo-white_SJwqB4Nfe.png?tr=bg-F00000](https://ik.imagekit.io/demo/img/logo-white_SJwqB4Nfe.png?tr=bg-F00000)
+URL - [https://ik.imagekit.io/demo/img/logo-white\_SJwqB4Nfe.png?tr=bg-F00000](https://ik.imagekit.io/demo/img/logo-white\_SJwqB4Nfe.png?tr=bg-F00000)
 
-![](https://ik.imagekit.io/demo/img/logo-white_SJwqB4Nfe.png?tr=bg-F00000)
+![](https://ik.imagekit.io/demo/img/logo-white\_SJwqB4Nfe.png?tr=bg-F00000)
 
 ### Original image - (orig)
 
 By default, any image that is delivered via ImageKit.io always gets optimized in some way or the other. While this automatic optimization is great for web and apps, there might be certain cases where you want to get the original image as is. You can do so by using the parameter `orig`  and set the value to `true` .  If there are any other transformation parameters specified along with `orig-true` , then those get ignored.
 
-Example - [https://ik.imagekit.io/demo/tr:orig-true/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:orig-true/medium_cafe_B1iTdD0C.jpg)
+Example - [https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:orig-true/medium_cafe_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg)
