@@ -24,7 +24,7 @@ An object that describes the rules for the custom metadata key.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="Custom metadata field successfully created. In the response, you will get the field id, field name and, field schema." %}
-```
+```json
 {
     "id": "598821f949c0a938d57563dd",
     "name": "price",

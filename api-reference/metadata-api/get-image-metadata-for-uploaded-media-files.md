@@ -16,14 +16,7 @@ The unique fileId of the uploaded file. fileId is returned in list files API and
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
-base64 encoding of 
-
-`your_private_api_key:`
-
-\
-
-
-
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
