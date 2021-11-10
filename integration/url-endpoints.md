@@ -20,7 +20,7 @@ Here are the steps to add a new URL endpoint:
 6. Choose the second origin, which would be our **Product images bucket**.
 7. Click "Submit".
 
-![Add a URL pattern exclusive for one category (eg. product images)](<../.gitbook/assets/image (7).png>)
+![Add a URL pattern exclusive for one category (eg. product images)](<../.gitbook/assets/image (8).png>)
 
 ## Image origin preference
 
@@ -32,7 +32,7 @@ Let's understand this with an example. When an image is requested at `https://ik
 2. Second image origin is accessed, i.e., **S3 Bucket Product Images.** If the image is found, a response is returned. If not, we move to the third origin.
 3. Third image origin is accessed, i.e., **Backup S3 Images Bucket.** If the image is found, a response is returned. If not, a default image, or `404` response is returned as there are no more image origins configured with this URL-endpoint.
 
-![Image Origin Preference](<../.gitbook/assets/image (8).png>)
+![Image Origin Preference](<../.gitbook/assets/image (12).png>)
 
 ## Mapping custom domain for a URL endpoint
 

@@ -60,12 +60,12 @@ $imageKit = new ImageKit(
 
 ```
 
-* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard#url-endpoints](https://imagekit.io/dashboard#url-endpoints). 
+* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard#url-endpoints](https://imagekit.io/dashboard#url-endpoints).&#x20;
 * `publicKey` and `privateKey` parameters are also required as these would be used for all ImageKit API, server-side upload, and generating token for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
 
 ## Generating url for rendering images
 
-#### URL for image with relative path 
+#### URL for image with relative path&#x20;
 
 ```php
 $imageURL = $imageKit->url(['path' => '/default-image.jpg']);
@@ -88,7 +88,7 @@ echo('Url : ' . $imageURL);
 // https://ik.imagekit.io/test/default-image.jpg
 ```
 
-####  URL for image with absolute url 
+#### &#x20;URL for image with absolute url&#x20;
 
 If you have an absolute image path coming from the backend API e.g. `https://www.custom-domain.com/default-image.jpg` then you can use `src` prop to load the image.
 
@@ -110,7 +110,7 @@ This section covers the basics:
 * [Chained transformation](php.md#chained-transformation)
 * [Sharpening and contrast transforms](php.md#sharpening-and-contrast-transformation)
 
-The PHP SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable.  See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-php#list-of-supported-transformations) in PHP SDK on Github. 
+The PHP SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable.  See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-php#list-of-supported-transformations) in PHP SDK on Github.&#x20;
 
 👉 If the property does not match any of the available options, it is added as it is.\
 👉 Note that you can also use `h` and `w` parameter instead of `height` and `width`. See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
@@ -135,7 +135,7 @@ echo('Url : ' . $imageURL);
 
 ```
 
-![400x300 image](<../../.gitbook/assets/image (57) (1).png>)
+![400x300 image](<../../.gitbook/assets/image (66).png>)
 
 ### Quality manipulation
 
@@ -155,13 +155,13 @@ echo('Url : ' . $imageURL);
 // https://ik.imagekit.io/demo/tr:q-40/default-image.jpg
 ```
 
-![](<../../.gitbook/assets/image (56) (1).png>)
+![](<../../.gitbook/assets/image (67).png>)
 
 ### Chained transformation
 
 You can pass more than one object in `transformation` parameter to chain these transformations sequentially.
 
-For example, the following values will first resize the image to width 400, height 300, and then [rotate](../../features/image-transformations/resize-crop-and-other-transformations.md#rotate-rt) to 90 degrees. 
+For example, the following values will first resize the image to width 400, height 300, and then [rotate](../../features/image-transformations/resize-crop-and-other-transformations.md#rotate-rt) to 90 degrees.&#x20;
 
 ```javascript
 $imageURL = $imageKit->url(array(
@@ -183,7 +183,7 @@ echo('Url : ' . $imageURL);
 // https://ik.imagekit.io/demo/tr:w-400,h-300:rt-90/default-image.jpg
 ```
 
-![](<../../.gitbook/assets/image (58) (1).png>)
+![](<../../.gitbook/assets/image (68).png>)
 
 ### Sharpening and contrast transformation
 
@@ -208,7 +208,7 @@ echo('Url : ' . $imageURL);
 // https://ik.imagekit.io/demo/tr:f-jpg,pr-true,e-sharpen,e-contrast-1/sample_image.jpg
 ```
 
-![](<../../.gitbook/assets/image (59) (1).png>)
+![](<../../.gitbook/assets/image (69).png>)
 
 ## Adding overlays to images in PHP
 
@@ -238,7 +238,7 @@ echo('Url : ' . $imageURL);
 // https://ik.imagekit.io/pshbwfiho/tr:w-300,h-300,oi-default-image.jpg,ow-100,ox-0,oib-10_CDDC39/default-image.jpg
 ```
 
-![](<../../.gitbook/assets/image (61) (1).png>)
+![](<../../.gitbook/assets/image (70).png>)
 
 ## Generating Signed URL for images in PHP
 
@@ -375,7 +375,7 @@ $imagekit->moveFile('/source/path', '/destination/path');
 
 ### Rename file
 
-This will rename an already existing file in the media library as per [API Documentation here](../../api-reference/media-api/rename-file.md). This method accepts the source file's path, the new name of the file, and an optional boolean parameter to purge the CDN cache after renaming. 
+This will rename an already existing file in the media library as per [API Documentation here](../../api-reference/media-api/rename-file.md). This method accepts the source file's path, the new name of the file, and an optional boolean parameter to purge the CDN cache after renaming.&#x20;
 
 {% hint style="info" %}
 **Limits on purge**\

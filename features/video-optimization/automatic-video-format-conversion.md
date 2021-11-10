@@ -10,7 +10,7 @@ Today, the most common video codec is H.264. A typical `.mp4` video is usually e
 
 VP9 is an open and royalty-free video coding format developed by Google. It provides excellent compression and is supported by major browsers.
 
-![VP9 support - https://caniuse.com/](../../.gitbook/assets/image%20%2836%29.png)
+![VP9 support - https://caniuse.com/](<../../.gitbook/assets/image (29).png>)
 
 ImageKit chooses between H.264 and VP9 codec and delivers the video in the appropriate format automatically based on browser support.
 
@@ -24,7 +24,7 @@ Automatic format optimization is off by default. You can enable or disable autom
 
 Select settings from the left main menu. Inside Videos, under optimization, toggle "Use best format for video delivery" option to enable or disable this feature.
 
-![Video settings](../../.gitbook/assets/screenshot-2021-07-13-at-5.00.50-pm.png)
+![Video settings](<../../.gitbook/assets/Screenshot 2021-07-13 at 5.00.50 PM.png>)
 
 ### Can I selectively choose the best format for a particular request?
 
@@ -44,7 +44,7 @@ Use `f-mp4` parameter e.g.
 
 `https://ik.imagekit.io/demo/sample-video.mp4?tr=f-mp4`
 
-![](../../.gitbook/assets/screenshot-2021-07-16-at-5.08.09-pm.png)
+![](<../../.gitbook/assets/Screenshot 2021-07-16 at 5.08.09 PM.png>)
 
 #### WebM format
 
@@ -52,9 +52,6 @@ Use `f-webm` parameter e.g.
 
 `https://ik.imagekit.io/demo/sample-video.mp4?tr=f-webm`
 
-![](../../.gitbook/assets/screenshot-2021-07-16-at-5.07.53-pm.png)
+![](<../../.gitbook/assets/Screenshot 2021-07-16 at 5.07.53 PM.png>)
 
-####  
-
-
-
+####

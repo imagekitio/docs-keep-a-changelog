@@ -8,9 +8,9 @@ description: >-
 
 When ImageKit gets an error while trying to fetch the original image from your external origin, it responds with `404` status code along with a generic "Not Found" message like below:
 
-![](../.gitbook/assets/screenshot-2020-10-05-at-7.36.53-pm.png)
+![](<../.gitbook/assets/Screenshot 2020-10-05 at 7.36.53 PM.png>)
 
-To help you troubleshot the error, the response is accompanied by an** **`ik-error`** **header, which expounds more detail about the nature of the error. 
+To help you troubleshot the error, the response is accompanied by an** **`ik-error`** **header, which expounds more detail about the nature of the error.&#x20;
 
 The value of `ik-error` header is: `ERROR_CODE - ERROR_MESSAGE`
 
@@ -26,7 +26,7 @@ http://ik.imagekit.io/violetviolinist/false/RANDOM_NAME.jpg
 
 ImageKit returns a blank white page with a `Not Found` message, but you can inspect the `ik-error` header from the developer tools (Ctrl + Shift + i for Chrome) like this
 
-![ik-error has a value composed of an error code and an error message](<../.gitbook/assets/image (13).png>)
+![ik-error has a value composed of an error code and an error message](<../.gitbook/assets/image (14).png>)
 
 This helps you identify that the error is caused because the file name specified in the URL does not exist on the origin. The origin, in this case, is an S3 bucket, but it can be [any origin](../integration/configure-origin/) that ImageKit supports.
 

@@ -38,9 +38,9 @@ vue create vuejs
 
 It will prompt the vue version and a few other options, select default by pressing enter. It will create a dummy project like this:
 
-![](../../.gitbook/assets/screenshot-2020-09-25-at-1.34.44-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-09-25 at 1.34.44 PM.png>)
 
-#### Install imagekitio-vue 
+#### Install imagekitio-vue&#x20;
 
 ```
 npm install imagekitio-vue
@@ -158,7 +158,7 @@ renders to:
 
 The final result looks like this:
 
-![](../../.gitbook/assets/screenshot-2020-09-25-at-4.04.40-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-09-25 at 4.04.40 PM.png>)
 
 #### Loading image from an absolute path
 
@@ -174,7 +174,7 @@ For example:
 
 The output looks like this:
 
-![](../../.gitbook/assets/screenshot-2020-09-25-at-5.52.41-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-09-25 at 5.52.41 PM.png>)
 
 ## Common image manipulation in Vue.js
 
@@ -186,7 +186,7 @@ This section covers the basics:
 
 The Vuejs SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. If the property does not match any of the available options, it is added as it is. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-vuejs#list-of-supported-transformations) in Vuejs SDK on Github.
 
-:point_right: Note that you can also use `h` and `w` parameter instead of `height` and `width`. See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
+:point\_right: Note that you can also use `h` and `w` parameter instead of `height` and `width`. See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
 
 ### Resizing images in Vue.js
 
@@ -200,7 +200,7 @@ Let's resize the image to width 300 and height 300.
 
 The output looks like:
 
-![](../../.gitbook/assets/screenshot-2020-09-25-at-5.52.29-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-09-25 at 5.52.29 PM.png>)
 
 ### Quality manipulation
 
@@ -214,13 +214,13 @@ You can use the [quality parameter](../../features/image-transformations/resize-
 
 The output is:
 
-![](../../.gitbook/assets/screenshot-2020-09-25-at-6.12.00-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-09-25 at 6.12.00 PM.png>)
 
 ### Chained transformation
 
 You can pass more than one object in `transformation` prop to chain these transformations sequentially.
 
-For example, the following values will first resize the image to width 300, height 300, and then [rotate](../../features/image-transformations/resize-crop-and-other-transformations.md#rotate-rt) to 90 degrees. 
+For example, the following values will first resize the image to width 300, height 300, and then [rotate](../../features/image-transformations/resize-crop-and-other-transformations.md#rotate-rt) to 90 degrees.&#x20;
 
 ```javascript
 // It means first resize the image to 400x400 and then rotate 90 degree
@@ -245,7 +245,7 @@ So the following:
 
 renders to:
 
-![](../../.gitbook/assets/screenshot-2020-09-25-at-6.15.57-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-09-25 at 6.15.57 PM.png>)
 
 ## Adding overlays to images in Vue.js
 
@@ -274,7 +274,7 @@ Renders to:
 
 The output looks like:
 
-![](../../.gitbook/assets/screenshot-2020-09-26-at-2.51.34-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-09-26 at 2.51.34 PM.png>)
 
 
 
@@ -287,7 +287,7 @@ The SDK uses a fixed threshold based on the effective connection type to ensure 
 On fast connections (e.g 4G), the value of the threshold is `1250px` and on slower connections (e.g 3G), it is `2500px`.
 
 {% hint style="info" %}
-You should always set the `height` and `width` of image element to avoid [layout shift](https://www.youtube.com/watch?v=4-d_SoCHeWE) when lazy-loading images.
+You should always set the `height` and `width` of image element to avoid [layout shift](https://www.youtube.com/watch?v=4-d\_SoCHeWE) when lazy-loading images.
 {% endhint %}
 
 Example usage:
@@ -342,7 +342,7 @@ You have the option to lazy-load the original image only when the user scrolls n
 
 ## Uploading files in Vue.js
 
-Vuejs SDK provides `ik-upload` component which can generate an `input type="file"` tag that you can use to upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side. 
+Vuejs SDK provides `ik-upload` component which can generate an `input type="file"` tag that you can use to upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side.&#x20;
 
 For using upload functionality, we need to pass `publicKey` and `authenticationEndpoint` while [initializing the SDK](vuejs.md#initialize-sdk).  Replace `your_url_endpoint` , `your_public_key`, `your_authentication_endpoint` with actual values.
 
@@ -371,7 +371,7 @@ For this quickstart guide, we have provided a sample implementation of `http://l
 
 Let's create a file `index.js` inside `server` folder in the project root. It should look like this:
 
-![](../../.gitbook/assets/screenshot-2020-09-25-at-6.46.25-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-09-25 at 6.46.25 PM.png>)
 
 We will use the [ImageKit Node.js SDK](https://github.com/imagekit-developer/imagekit-nodejs) to implement `http://localhost:3001/auth`.
 
@@ -506,17 +506,17 @@ export default {
 
 The output looks like:
 
-![](../../.gitbook/assets/screenshot-2020-09-25-at-8.55.09-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-09-25 at 8.55.09 PM.png>)
 
 When you choose a file, the file is uploaded. You can pass optional `onSuccess` and `onError` callback functions as props like we have.
 
 After successful upload, you should see the upload API response in the console like this:
 
-![](../../.gitbook/assets/screenshot-2020-09-25-at-8.57.39-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-09-25 at 8.57.39 PM.png>)
 
 ## **What's next**
 
-The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here: 
+The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here:&#x20;
 
 * [Image Transformations](https://docs.imagekit.io/features/image-transformations)
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)

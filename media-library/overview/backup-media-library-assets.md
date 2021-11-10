@@ -7,11 +7,11 @@
 
 You can backup all media library assets in your S3 bucket by setting up an active backup.
 
-Go to Settings :arrow_right: Backup bucket - [https://imagekit.io/dashboard#settings-backup-bucket](https://imagekit.io/dashboard#settings-backup-bucket).
+Go to Settings :arrow\_right: Backup bucket - [https://imagekit.io/dashboard#settings-backup-bucket](https://imagekit.io/dashboard#settings-backup-bucket).
 
-![](<../../.gitbook/assets/image (54).png>)
+![](<../../.gitbook/assets/image (53).png>)
 
-Here you have to enter the S3 bucket credentials with write permission. 
+Here you have to enter the S3 bucket credentials with write permission.&#x20;
 
 Learn how to grant write access to an S3 bucket - [https://aws.amazon.com/blogs/security/writing-iam-policies-how-to-grant-access-to-an-amazon-s3-bucket/](https://aws.amazon.com/blogs/security/writing-iam-policies-how-to-grant-access-to-an-amazon-s3-bucket/)
 

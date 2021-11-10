@@ -21,7 +21,7 @@ This guide walks you through the following topics: ‌
 
 ## **Setup ImageKit React SDK**
 
-For this tutorial, it is recommended to create a dummy React app, as shown below. 
+For this tutorial, it is recommended to create a dummy React app, as shown below.&#x20;
 
 **Create a React app:**
 
@@ -70,7 +70,7 @@ export default App;
 ```
 {% endcode %}
 
- Now run the app:
+&#x20;Now run the app:
 
 ```
 npm start
@@ -154,7 +154,7 @@ Remember the default image we mentioned earlier? It should be available at the f
 https://ik.imagekit.io/<YOUR_IMAGEKIT_ID>/default-image.jpg
 ```
 
-Let's fetch and display it! For this, we will use the `IKImage` component. 
+Let's fetch and display it! For this, we will use the `IKImage` component.&#x20;
 
 Import `IKImage` from the SDK:
 
@@ -219,7 +219,7 @@ You can pass styles and other attributes as props. For e.g. lets add 400px width
 
 **This is how the output should look now:**
 
-![Resized image (width=400px)](../../.gitbook/assets/react-sdk-render-image-resized.png)
+![Resized image (width=400px)](<../../.gitbook/assets/react-sdk-render-image-resized (1).png>)
 
 {% hint style="info" %}
 Note that here we have set the width to 400px at the `<img>` tag level only. Intrinsically, the fetched image is still 1000px wide.
@@ -242,7 +242,7 @@ If you have an absolute image path coming from the backend API e.g. `https://www
 
 **The output looks like this:**
 
-![Render image on custom domain via absolute path](../../.gitbook/assets/react-sdk-render-image-absolute-path.png)
+![Render image on custom domain via absolute path](<../../.gitbook/assets/react-sdk-render-image-absolute-path (1).png>)
 
 ## **Setting ImageKit context for the SDK**
 
@@ -297,7 +297,7 @@ export default App;
 
 Let’s now learn how to manipulate images using transformations.
 
-* [Resizing images](react.md#height-and-width-manipulation) 
+* [Resizing images](react.md#height-and-width-manipulation)&#x20;
 * [Quality manipulation](react.md#quality-manipulation)
 * [Crop mode](react.md#crop-mode)
 * [Chained transformation](react.md#chained-transformation)
@@ -356,11 +356,11 @@ You can use the [quality parameter](../../features/image-transformations/resize-
   path="default-image.jpg" width="400" alt="">
 ```
 
-![Quality manipulation (q=10)](../../.gitbook/assets/react-sdk-basic-quality.png)
+![Quality manipulation (q=10)](<../../.gitbook/assets/react-sdk-basic-quality (1).png>)
 
 ### **Crop mode**‌
 
-Let’s now see how [cropping](../../features/image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus) works. We will try the [`extract`](../../features/image-transformations/resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) crop strategy.  In this strategy, instead of resizing the whole image, we extract out a region of the requested dimension from the original image. You can read more about this [here](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#extract-crop-strategy-cm-extract). 
+Let’s now see how [cropping](../../features/image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus) works. We will try the [`extract`](../../features/image-transformations/resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) crop strategy.  In this strategy, instead of resizing the whole image, we extract out a region of the requested dimension from the original image. You can read more about this [here](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#extract-crop-strategy-cm-extract).&#x20;
 
 ```jsx
 <IKImage
@@ -407,7 +407,7 @@ Let’s try it out by [resizing](../../features/image-transformations/resize-cro
   alt="">
 ```
 
-![Resized and cropped (200x300px)](../../.gitbook/assets/react-sdk-basic-chained-1.png)
+![Resized and cropped (200x300px)](<../../.gitbook/assets/react-sdk-basic-chained-1 (1).png>)
 
 Now, rotate the image by 90 degrees.
 
@@ -484,7 +484,7 @@ For example, a text overlay can be used to superimpose text on an image. Try it 
   alt="">
 ```
 
-![Text Overlay (300x300px)](../../.gitbook/assets/react-sdk-overlay-text.png)
+![Text Overlay (300x300px)](<../../.gitbook/assets/react-sdk-overlay-text (1).png>)
 
 ## **Lazy-loading images in React**
 
@@ -493,7 +493,7 @@ You can lazy load images using the `loading` prop in `IKImage` component. When y
 The SDK uses a fixed threshold based on the effective connection type to ensure that images are loaded early enough so that they have finished loading once the user scrolls near to them.
 
 {% hint style="info" %}
-You should always set the height and width of the image element to avoid[ layout shift](https://www.youtube.com/watch?v=4-d_SoCHeWE) when lazy-loading images.
+You should always set the height and width of the image element to avoid[ layout shift](https://www.youtube.com/watch?v=4-d\_SoCHeWE) when lazy-loading images.
 {% endhint %}
 
 ```jsx
@@ -554,7 +554,7 @@ To implement this functionality, a backend server is needed to authenticate the 
 
 ### **Setup the backend app**
 
-For this quickstart guide, we will create a sample Node.js server which will provide an authentication endpoint at `http://localhost:3001/auth`. 
+For this quickstart guide, we will create a sample Node.js server which will provide an authentication endpoint at `http://localhost:3001/auth`.&#x20;
 
 Let's create a file `index.js` inside `server` folder in the project root.
 
@@ -751,13 +751,13 @@ This is how it looks in the UI:
 
 **Direct file uploading from the browser**
 
-Let’s now upload an image by selecting a file from the file input. 
+Let’s now upload an image by selecting a file from the file input.&#x20;
 
 When you choose a file, the file is immediately uploaded.  You can pass optional `onSuccess` and `onError` callback functions as props like we have.
 
 You can verify that file was successfully uploaded by checking the browser console. In case of success, it should print a success message, like this:
 
-![Upload Success Response](../../.gitbook/assets/react-sdk-file-upload-2.png)
+![Upload Success Response](<../../.gitbook/assets/react-sdk-file-upload-2 (2).png>)
 
 The response object would look similar to this (values may vary):
 
@@ -791,7 +791,7 @@ The app should display your uploaded image correctly!
 
 ## **Error boundaries**
 
-We strongly recommend using [Error Boundaries](https://reactjs.org/docs/error-boundaries.html) to handle errors in the React UI. `ErrorBoundary` is used to gracefully handle errors anywhere in the child component tree of a React app. 
+We strongly recommend using [Error Boundaries](https://reactjs.org/docs/error-boundaries.html) to handle errors in the React UI. `ErrorBoundary` is used to gracefully handle errors anywhere in the child component tree of a React app.&#x20;
 
 It can be used to log errors and display a fallback UI instead of the component tree that crashed.
 
@@ -810,7 +810,7 @@ It can be used to log errors and display a fallback UI instead of the component 
 
 ## **What's next**
 
-The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here: 
+The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here:&#x20;
 
 * [Image Transformations](https://docs.imagekit.io/features/image-transformations)
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)

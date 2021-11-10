@@ -4,11 +4,11 @@ Whether you are serving a few hundred, or a few billion images, you can easily i
 
 ## Step 1: Create an account
 
-:point_right: If you have not created an account yet, [sign-up for free.](https://imagekit.io/registration?planType=free)
+:point\_right: If you have not created an account yet, [sign-up for free.](https://imagekit.io/registration?planType=free)
 
 ImageKit.io offers a forever free plan with generous limits. If you are just getting started with your website, our free plan has got you covered.
 
-![Sign-up for ImageKit.io](../../.gitbook/assets/screenshot-2020-09-25-at-3.30.23-pm.png)
+![Sign-up for ImageKit.io](<../../.gitbook/assets/Screenshot 2020-09-25 at 3.30.23 PM.png>)
 
 #### Choosing Imagekit Id
 
@@ -20,7 +20,7 @@ https://ik.imagekit.io/your_imagekit_id/image.jpg
 
 #### Choosing an image processing region
 
-:point_right: If you plan to use ImageKit with your [existing image storage or server](../../integration/configure-origin/), choose one of the following processing regions. Choose a region that is closest to your origin server location:
+:point\_right: If you plan to use ImageKit with your [existing image storage or server](../../integration/configure-origin/), choose one of the following processing regions. Choose a region that is closest to your origin server location:
 
 1. North California (United States)
 2. North Virginia (United States)
@@ -31,7 +31,7 @@ https://ik.imagekit.io/your_imagekit_id/image.jpg
 
 ## Step 2: Configure external storage (optional)
 
-ImageKit comes with an [integrated media library](../../media-library/overview/) with infinite storage, folder management, file tagging,  powerful search features. 
+ImageKit comes with an [integrated media library](../../media-library/overview/) with infinite storage, folder management, file tagging,  powerful search features.&#x20;
 
 If you don't want to upload files in the media library, you can choose to [configure your external storage](../../integration/configure-origin/) so that ImageKit can pull files from there.
 
@@ -57,7 +57,7 @@ https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=w-300,h-300
 https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=q-50
 ```
 
-:point_right: See the full list of [image transformation](../../features/image-transformations/) options available in ImageKit.io.
+:point\_right: See the full list of [image transformation](../../features/image-transformations/) options available in ImageKit.io.
 
 Follow one of the platform-specific quick start guides to integrate ImageKit in your application:
 

@@ -12,11 +12,11 @@ Basic searching allows you to search a file or folder by name. Enter the full na
 
 All files or folders whose name either matches exactly or begins with the provided input will be returned.
 
-![Media library basic search](../../.gitbook/assets/screenshot-2021-05-31-at-10.33.09-am.png)
+![Media library basic search](<../../.gitbook/assets/Screenshot 2021-05-31 at 10.33.09 AM.png>)
 
 You can limit the search to a certain type of file using the dropdown before the input field.
 
-![](../../.gitbook/assets/screenshot-2021-05-31-at-10.35.59-am.png)
+![](<../../.gitbook/assets/Screenshot 2021-05-31 at 10.35.59 AM.png>)
 
 By default, all files are searched, but if you are only looking for an image file then select images in this dropdown.
 

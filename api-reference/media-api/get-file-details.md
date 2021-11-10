@@ -5,23 +5,20 @@
 Get all the file details and attributes.
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="fileId" type="string" %}
-The unique fileId of the uploaded file. 
+{% swagger-parameter in="path" name="fileId" type="string" required="false" %}
+The unique fileId of the uploaded file.
 
 `fileId`
 
- is returned in list files API and upload API.
+is returned in list files API and upload API.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="Authorization" type="string" %}
-base64 encoding of 
+{% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
+base64 encoding of
 
 `your_private_api_key:`
 
-\
-
-
-
+\\
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
@@ -62,15 +59,15 @@ The JSON-encoded response details of the file can have the following properties:
 | Property name     | Description                                                                                                                                                                          |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | fileId            | The unique fileId of the uploaded file.                                                                                                                                              |
-| type              | <p>Type of item. It can be either <code>file</code> or <code>folder</code>.<br></p>                                                                                                  |
+| type              | <p>Type of item. It can be either <code>file</code> or <code>folder</code>.<br></p>                                                                                                  |
 | name              | Name of the file or folder.                                                                                                                                                          |
-| filePath          | <p>The relative path of the file. In the case of an image, you can use this <br>path to construct different <a href="../../features/image-transformations/">transformations</a>.</p> |
+| filePath          | <p>The relative path of the file. In the case of an image, you can use this <br>path to construct different <a href="../../features/image-transformations/">transformations</a>.</p> |
 | tags              | Array of tags associated with the image. If no tags are set, it will be `null`.                                                                                                      |
 | isPrivateFile     | Is the file marked as private. It can be either `true` or `false`.                                                                                                                   |
-| customCoordinates | <p>Value of custom coordinates associated with the image in format <code>x,y,width,height</code>. <br>If customCoordinates are not defined then it is <code>null</code>.</p>         |
+| customCoordinates | <p>Value of custom coordinates associated with the image in format <code>x,y,width,height</code>.<br>If customCoordinates are not defined then it is <code>null</code>.</p>          |
 | url               | A publicly accessible URL of the file.                                                                                                                                               |
 | thumbnail         | In case of an image, a small thumbnail URL.                                                                                                                                          |
-| fileType          | The type of file, could be either `image` or `non-image`.                                                                                                                            |
+| fileType          | The type of file, could be either `image` or `non-image`.                                                                                                                            |
 | mime              | MIME Type of the file. For example - `image/jpeg`                                                                                                                                    |
 | height            | Height of the image in pixels (Only for images)                                                                                                                                      |
 | width             | Width of the image in pixels (Only for Images)                                                                                                                                       |
@@ -78,6 +75,8 @@ The JSON-encoded response details of the file can have the following properties:
 | hasAlpha          | TODO                                                                                                                                                                                 |
 | createdAt         | The date and time when the file was first uploaded. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                         |
 | updatedAt         | The date and time when the file was last updated. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                           |
+
+## Examples
 
 ## Examples
 

@@ -19,7 +19,7 @@ This guide walks you through the following topics:
 
 ## Setting up ImageKit Ruby SDK
 
-For this tutorial, we will create a fresh rails application and work with it. If you already have an existing Rails app, it is also possible to use that, although you would need to modify the terminal commands and configurations in this tutorial as applicable. 
+For this tutorial, we will create a fresh rails application and work with it. If you already have an existing Rails app, it is also possible to use that, although you would need to modify the terminal commands and configurations in this tutorial as applicable.&#x20;
 
 Let's create a new rails application. Create a new directory and enter the command:
 
@@ -37,7 +37,7 @@ In your web browser, navigate to [`http://localhost:3000/`](http://localhost:300
 
 You should see a generic welcome message (_Yay! You're on Rails!_).
 
-![Welcome message for a fresh Ruby on Rails application](<../../.gitbook/assets/image (23).png>)
+![Welcome message for a fresh Ruby on Rails application](<../../.gitbook/assets/image (16).png>)
 
 Next, to use ImageKit functionality in our app, we will create a new controller with the following command:
 
@@ -137,7 +137,7 @@ This fetches the image from the URL stored in `@image_url` that we created in th
 
 Rerunning the server should now display this default image in its full size:
 
-![Image in its original dimensions (1000px \* 1000px)](<../../.gitbook/assets/image (24).png>)
+![Image in its original dimensions (1000px \* 1000px)](<../../.gitbook/assets/image (17).png>)
 
 ## Common image manipulation in Ruby on Rails
 
@@ -171,7 +171,7 @@ https://ik.imagekit.io/violetviolinist/tr:h-200,w-200/default-image.jpg?ik-sdk-v
 
 Refresh your browser to get the resized image.
 
-![Resized image (200px \* 200px)](<../../.gitbook/assets/image (22).png>)
+![Resized image (200px \* 200px)](<../../.gitbook/assets/image (18).png>)
 
 ### **Chained transformation**
 
@@ -201,7 +201,7 @@ https://ik.imagekit.io/violetviolinist/tr:h-300,w-200/default-image.jpg?ik-sdk-v
 
 **Output Image:**
 
-![Resized and cropped (200px \* 300px)](<../../.gitbook/assets/image (19).png>)
+![Resized and cropped (200px \* 300px)](<../../.gitbook/assets/image (20).png>)
 
 Now, rotate the image by 90 degrees.
 
@@ -232,7 +232,7 @@ https://ik.imagekit.io/violetviolinist/tr:h-300,w-200:rt-90/default-image.jpg?ik
 
 **Output Image:**
 
-![Resized, then rotated](<../../.gitbook/assets/image (20).png>)
+![Resized, then rotated](<../../.gitbook/assets/image (21).png>)
 
 Let’s flip the order of transformation and see what happens.
 
@@ -263,7 +263,7 @@ https://ik.imagekit.io/violetviolinist/tr:rt-90:h-300,w-200/default-image.jpg?ik
 
 **Output Image:**
 
-![Rotated, then resized](<../../.gitbook/assets/image (18).png>)
+![Rotated, then resized](<../../.gitbook/assets/image (22).png>)
 
 ## Adding overlays to images in Ruby on Rails
 
@@ -298,11 +298,11 @@ https://ik.imagekit.io/violetviolinist/tr:h-300,w-300,ot-ImageKit,ots-50,otc-065
 
 **Output Image:**
 
-![Text Overlay (300px \* 300px)](<../../.gitbook/assets/image (21).png>)
+![Text Overlay (300px \* 300px)](<../../.gitbook/assets/image (19).png>)
 
 #### **Image overlay**
 
-Image overlay can be used to superimpose an image on another image. For example, we will upload a while logo image on [this link](https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png) into our account and use it for the overlay image.
+Image overlay can be used to superimpose an image on another image. For example, we will upload a while logo image on [this link](https://ik.imagekit.io/demo/logo-white\_SJwqB4Nfe.png) into our account and use it for the overlay image.
 
 Base Image: `default-image.jpg`
 
@@ -331,7 +331,7 @@ https://ik.imagekit.io/violetviolinist/tr:h-300,w-300,oi-overlay-image.png/defau
 
 **Output Image:**
 
-![Overlay image over another image](<../../.gitbook/assets/image (14).png>)
+![Overlay image over another image](<../../.gitbook/assets/image (24).png>)
 
 ## Secure signed URL generation
 
@@ -416,15 +416,15 @@ def upload
 end
 ```
 
-Here, we first extract the file from the _:picture_ property of the _params_ object, and then upload the file to our Media Library by the name of _new_file.jpg,_ using the `upload_file()` API. We also attach an example tag '_hello_' to the image.
+Here, we first extract the file from the _:picture_ property of the _params_ object, and then upload the file to our Media Library by the name of _new\_file.jpg,_ using the `upload_file()` API. We also attach an example tag '_hello_' to the image.
 
 Now, refresh the home page, and you should see the upload field.
 
-![Upload field](<../../.gitbook/assets/image (17).png>)
+![Upload field](<../../.gitbook/assets/image (13).png>)
 
 Select an image/file from your local computer, and click on the _Upload_ button. A success message shall flash below the file field.
 
-_Your image has been uploaded successfully with the name \<NAME_OF_FILE>_
+_Your image has been uploaded successfully with the name \<NAME\_OF\_FILE>_
 
 Now, after upload, if you go to the [Media Library](https://imagekit.io/dashboard#media-library) section of your ImageKit dashboard, you should see the newly uploaded image.
 
@@ -629,7 +629,7 @@ get 'welcome/auth_params'
 </div>
 ```
 
-The `get_authentication_parameters(token = nil, expire = nil)`  takes two optional arguments, `token`, and `expire`. `token` defaults to a random string if not provided. `expire` defaults to infinite. 
+The `get_authentication_parameters(token = nil, expire = nil)`  takes two optional arguments, `token`, and `expire`. `token` defaults to a random string if not provided. `expire` defaults to infinite.&#x20;
 
 You should see an output like this:
 
@@ -643,7 +643,7 @@ You should see an output like this:
 
 ## **What's next**
 
-The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here: 
+The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here:&#x20;
 
 * [Image Transformations](https://docs.imagekit.io/features/image-transformations)
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)

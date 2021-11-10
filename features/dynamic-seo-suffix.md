@@ -12,9 +12,9 @@ Image SEO starts with the file name. Google uses the URL path as well as the fil
 
 For example, consider the following image of the Eiffel Tower:
 
-![](../.gitbook/assets/eiffel-tower.jpg)
+![](<../.gitbook/assets/Eiffel Tower.jpg>)
 
-The image URL should have "Eiffel Tower" instead of "DSC1234.jpg". 
+The image URL should have "Eiffel Tower" instead of "DSC1234.jpg".&#x20;
 
 {% hint style="danger" %}
 **Bad image URL**\
@@ -46,7 +46,7 @@ https://ik.imagekit.io/demo/ik-seo/DSC1234/eiffel-tower.jpg
 
 So the following URL:\
 \
-https://ik.imagekit.io/demo/`ik-seo`/DSC1234/eiffel-tower.jpg 
+https://ik.imagekit.io/demo/`ik-seo`/DSC1234/eiffel-tower.jpg&#x20;
 
 will fetch the same image as:\
 \
@@ -54,11 +54,11 @@ https://ik.imagekit.io/demo/DSC1234.jpg
 
 Essentially
 
-your-url-endpoint/old-file-name.extension 
+your-url-endpoint/old-file-name.extension&#x20;
 
 becomes:
 
-your_url_endpoint/**`ik-seo`**/old-file-name/**`seo-friendly-file-name`**.extension
+your\_url\_endpoint/**`ik-seo`**/old-file-name/**`seo-friendly-file-name`**.extension
 
 ### Accessing file that is stored in a nested folder
 

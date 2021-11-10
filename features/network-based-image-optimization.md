@@ -10,7 +10,7 @@ This helps you deliver the best available version of an image so that your end-u
 
 Go to the Network-optimization tab under [image settings](https://imagekit.io/dashboard?redirectTo=settings) and enable the setting.
 
-![Network based image optimization setting in ImageKit.io dashboard](../.gitbook/assets/screenshot-2020-06-30-at-7.54.41-pm.png)
+![Network based image optimization setting in ImageKit.io dashboard](<../.gitbook/assets/Screenshot 2020-06-30 at 7.54.41 PM.png>)
 
 ### Step 2: Configure quality settings and exclusions
 

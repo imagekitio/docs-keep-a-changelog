@@ -11,7 +11,7 @@ Navigate to [Purge Cache](https://imagekit.io/dashboard#cache) within the dashbo
 
 Click on 'New Request' at the top right corner of the page to open a popup.
 
-![](../.gitbook/assets/screenshot-2020-06-15-at-1.11.33-pm.png)
+![](<../.gitbook/assets/Screenshot 2020-06-15 at 1.11.33 PM.png>)
 
 Enter the full image URL for which you want to clear the cache. If the URL contains [path transformation parameters](image-transformations/#transformations-as-a-path-parameter) or [query transformation parameters](image-transformations/#transformations-as-a-query-parameter), add those parameters as well to clear the cache. You can enter multiple URLs separated by a new line, and a maximum of 100 URLs can be submitted in a single request.
 
@@ -21,20 +21,20 @@ You can purge the cache for multiple files within a directory by appending a wil
 
 1. The path consists of at least two levels of nesting: \
    The path of the directory, excluding your imagekitId and URL pattern, contains at least two levels of nesting, starting from the root as shown below:\
-    :white_check_mark: `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/LEVEL_1/LEVEL_2*`\
-    :x: `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/LEVEL_1*`\
+   &#x20;:white\_check\_mark: `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/LEVEL_1/LEVEL_2*`\
+   &#x20;:x: `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/LEVEL_1*`\
    \
    For example, the path `/images/upload*` is valid, but `/images*` is not.\
 
 2. The path length is at least 15 characters:\
    The path of the directory, excluding your imagekitId and URL pattern, is at least 15 characters in length, as shown below:\
-    :white_check_mark: `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/FIFTEEN_CHARACTERS*`\
+   &#x20;:white\_check\_mark: `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/FIFTEEN_CHARACTERS*`\
    \
    However, if the first condition is met, i.e. the path consists of at least two levels of nesting, then it need not be 15 characters long.\
 
 3. The path is a complete file path:\
    The path specified is a complete path pointing to a file, with the file extension present at the end of the path, as shown below:\
-    :white_check_mark: `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/FILE.EXT*`\
+   &#x20;:white\_check\_mark: `https://ik.imagekit.io/IMAGEKIT_ID/PATTERN/FILE.EXT*`\
    \
    For example, the path `/sample.jpg*` is valid, despite not being 15 characters long, or having two levels of nesting.
 

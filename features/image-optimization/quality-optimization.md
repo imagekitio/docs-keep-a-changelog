@@ -21,7 +21,7 @@ When you start using ImageKit.io, the default image quality is set to 80. This m
 
 The image quality can be selected from the ImageKit.io dashboard. This setting is accessible under the Optimization section of [Image Settings](https://imagekit.io/dashboard?redirectTo=settings#settings).
 
-![Image quality settings in ImageKit.io dashboard](../../.gitbook/assets/image-quality-from-dashboard.png)
+![Image quality settings in ImageKit.io dashboard](<../../.gitbook/assets/image quality from dashboard.png>)
 
 This setting is turned ON by default at quality 80. If you do not want ImageKit.io to change your image's quality, you can turn this setting OFF.
 
@@ -35,7 +35,7 @@ ImageKit.io lets you control the quality of the image using the URL parameter `q
 
 **Syntax** : `q-integer` integer between 1-100
 
-Image URL using `q` parameter: [http://ik.imagekit.io/demo/img/tr:q-80/medium_cafe_B1iTdD0C.jpg](http://ik.imagekit.io/demo/img/tr:q-80/medium_cafe_B1iTdD0C.jpg)
+Image URL using `q` parameter: [http://ik.imagekit.io/demo/img/tr:q-80/medium\_cafe\_B1iTdD0C.jpg](http://ik.imagekit.io/demo/img/tr:q-80/medium\_cafe\_B1iTdD0C.jpg)
 
 {% hint style="info" %}
 Use the `orig` [URL parameter](broken-reference) if you want to deliver the original image without applying any ImageKit.io quality optimizations.

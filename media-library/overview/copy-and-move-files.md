@@ -17,7 +17,7 @@ ImageKit.io provides users with the ability to copy and move files across differ
 
 ![Copy and move controls](<../../.gitbook/assets/copy-file (1).png>)
 
-![New destination for copying/moving the selected files](<../../.gitbook/assets/choose-destination-path (2).png>)
+![New destination for copying/moving the selected files](../../.gitbook/assets/choose-destination-path.png)
 
 {% embed url="https://youtu.be/XNWs5mPvnz4" %}
 Copy multiple files

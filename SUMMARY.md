@@ -138,6 +138,11 @@
 * [Metadata API](api-reference/metadata-api/README.md)
   * [Get image metadata for uploaded media files](api-reference/metadata-api/get-image-metadata-for-uploaded-media-files.md)
   * [Get image metadata from remote URL](api-reference/metadata-api/get-image-metadata-from-remote-url.md)
+* [Custom metadata fields API](api-reference/custom-metadata-fields-api/README.md)
+  * [Create custom metadata field](api-reference/custom-metadata-fields-api/create-custom-metadata-field.md)
+  * [Get custom metadata field](api-reference/custom-metadata-fields-api/get-custom-metadata-field.md)
+  * [Update custom metadata field](api-reference/custom-metadata-fields-api/update-custom-metadata-field.md)
+  * [Delete custom metadata field](api-reference/custom-metadata-fields-api/delete-custom-metadata-field.md)
 
 ## EXTENSIONS
 

@@ -18,26 +18,20 @@ Video quality optimization is off by default. You can enable or disable it for y
 
 Select settings from the left main menu. Inside Videos, under optimization, toggle "optimize video quality" control.
 
-
 ### How to control video quality from the dashboard?
 
 By default, ImageKit sets the video quality to 50. You can change this.
 
 Select settings from the left main menu. Inside Videos, under optimization, select the default quality level.
 
-![Video default quality settings](../../.gitbook/assets/screenshot-2021-07-13-at-5.08.08-pm.png)
-
-
+![Video default quality settings](<../../.gitbook/assets/Screenshot 2021-07-13 at 5.08.08 PM.png>)
 
 ### How to override quality?
 
 Use `q` parameter to override default quality settings.
 
-For example, a video file served in `q-20` is 397KB in size and has relatively low perceptual quality compared to a `q-90`  which is around 7.6MB.
+For example, a video file served in `q-20` is 397KB in size and has relatively low perceptual quality compared to a `q-90` which is around 7.6MB.
 
-![Quality 20](../../.gitbook/assets/screenshot-2021-07-16-at-5.12.33-pm.png)
+![Quality 20](<../../.gitbook/assets/Screenshot 2021-07-16 at 5.12.33 PM.png>)
 
-![Quality 90](../../.gitbook/assets/screenshot-2021-07-16-at-5.13.01-pm%20%281%29.png)
-
-
-
+![Quality 90](<../../.gitbook/assets/Screenshot 2021-07-16 at 5.13.01 PM (1).png>)

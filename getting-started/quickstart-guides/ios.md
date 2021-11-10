@@ -34,7 +34,7 @@ pod install
 ```
 
 {% hint style="warning" %}
-If you do not have CocoaPods Installed on your Mac, you can learn about setting up the development environment here [https://guides.cocoapods.org/using/getting-started.html](https://guides.cocoapods.org/using/getting-started.html). 
+If you do not have CocoaPods Installed on your Mac, you can learn about setting up the development environment here [https://guides.cocoapods.org/using/getting-started.html](https://guides.cocoapods.org/using/getting-started.html).&#x20;
 {% endhint %}
 
 Once the dependencies have been installed, run the following command to open the Xcode Workspace:
@@ -45,11 +45,11 @@ open ImagekitDemo.xcodeworkspace
 
 Select the emulator from the dropdown. Then run the app by clicking on the Run button or by pressing ⌘ + R
 
-![](../../.gitbook/assets/screenshot-2020-11-02-at-8.15.32-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-11-02 at 8.15.32 PM.png>)
 
 You should see the following screen. This means the sample app has been set up correctly.
 
-![](../../.gitbook/assets/screenshot-2020-11-02-at-8.22.01-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-11-02 at 8.22.01 PM.png>)
 
 ## **Setup ImageKit iOS SDK**
 
@@ -117,7 +117,7 @@ let urlConstructor = ImageKit.shared.url(
 The transformation position (path or query) is only valid when creating a URL from the image path. Transformations are always added as query parameters if the URL is created from an absolute image path using **src**.
 {% endhint %}
 
-The iOS SDK provides a [function](https://github.com/imagekit-developer/imagekit-ios#list-of-supported-transformations) for each transformation parameter, making the code simpler and readable. To add transformations, the functions can be chained with `urlConstructor`. 
+The iOS SDK provides a [function](https://github.com/imagekit-developer/imagekit-ios#list-of-supported-transformations) for each transformation parameter, making the code simpler and readable. To add transformations, the functions can be chained with `urlConstructor`.&#x20;
 
 ```swift
 urlConstructor = urlConstructor.height(height: 400)
@@ -134,7 +134,7 @@ let url = urlConstructor.create()
 It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations. \
 
 
-![](../../.gitbook/assets/screenshot-2020-11-03-at-1.45.39-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-11-03 at 1.45.39 PM.png>)
 
 ## Common image manipulation in iOS application
 
@@ -161,11 +161,11 @@ let url = urlConstructor.create()
 
 Output:
 
-![](../../.gitbook/assets/screenshot-2020-11-03-at-1.51.37-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-11-03 at 1.51.37 PM.png>)
 
 ### Crop mode
 
-Let’s now see how different crop mode works. We will try the [`pad_resize`](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#pad-resize-crop-strategy-cm-pad_resize) crop strategy. In this strategy, the output image's dimension (height and width) is the same as requested, no cropping occurs, and the aspect ratio is preserved. This is accomplished by adding padding around the output image to get it to match the exact dimension as requested. You can read more about this [here](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#pad-resize-crop-strategy-cm-pad_resize).
+Let’s now see how different crop mode works. We will try the [`pad_resize`](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#pad-resize-crop-strategy-cm-pad\_resize) crop strategy. In this strategy, the output image's dimension (height and width) is the same as requested, no cropping occurs, and the aspect ratio is preserved. This is accomplished by adding padding around the output image to get it to match the exact dimension as requested. You can read more about this [here](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#pad-resize-crop-strategy-cm-pad\_resize).
 
 ```swift
 urlConstructor = urlConstructor.width(width: 300)
@@ -176,7 +176,7 @@ let url = urlConstructor.create()
 
 Output:
 
-![](../../.gitbook/assets/screenshot-2020-11-03-at-2.08.01-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-11-03 at 2.08.01 PM.png>)
 
 ### Aspect ratio
 
@@ -190,7 +190,7 @@ let url = urlConstructor.create()
 
 Output:
 
-![](../../.gitbook/assets/screenshot-2020-11-03-at-2.10.38-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-11-03 at 2.10.38 PM.png>)
 
 ### Chained transformation
 
@@ -208,7 +208,7 @@ let url = urlConstructor.create()
 
 Output:
 
-![](../../.gitbook/assets/screenshot-2020-11-03-at-2.12.07-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-11-03 at 2.12.07 PM.png>)
 
 ## **Adding an overlay to images in iOS application**
 
@@ -230,7 +230,7 @@ let url = urlConstructor.create()
 
 Output:
 
-![](../../.gitbook/assets/screenshot-2020-11-03-at-3.29.26-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-11-03 at 3.29.26 PM.png>)
 
 ### Image overlay
 
@@ -245,13 +245,13 @@ let url = urlConstructor.create()
 
 Output:
 
-![](../../.gitbook/assets/screenshot-2020-11-03-at-3.41.13-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-11-03 at 3.41.13 PM.png>)
 
 ## **Client-side file uploading**
 
 Let's learn how to upload an image to our media library.
 
-iOS SDK provides `ImageKitUploader` which provide functions to allow upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side. 
+iOS SDK provides `ImageKitUploader` which provide functions to allow upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side.&#x20;
 
 For using upload functionality, we need to pass `publicKey` and `authenticationEndpoint` while [initializing the SDK](ios.md#setup-imagekit-ios-sdk).  Replace `your_url_endpoint` , `your_public_key`, `your_authentication_endpoint` with actual values.
 
@@ -267,7 +267,7 @@ ImageKit.init(
 \
 For this, we would need a dummy backend app to authenticate our upload request. API authentication for upload always happens on the backend for security reasons.
 
-The tutorial repository comes with a sample backend server that we can use. 
+The tutorial repository comes with a sample backend server that we can use.&#x20;
 
 ### **Setting up the backend app**
 
@@ -334,11 +334,11 @@ If you run `curl http://localhost:8080/auth` in the terminal, you should see a J
 
 Head over to `AppDelegate.swift` and ensure the** **`authenticationEndpoint` is set to `http://localhost:8080/auth`
 
-![](../../.gitbook/assets/screenshot-2020-11-10-at-12.49.24-pm.png)
+![](<../../.gitbook/assets/Screenshot 2020-11-10 at 12.49.24 PM.png>)
 
 ### **Upload a file**
 
-To upload an image to the media library, the ImageKit iOS SDK provides `ImageKitUploader` . For complete API reference for the image upload function, check out the [docs](https://github.com/imagekit-developer/imagekit-ios#file-upload) on the ImageKit iOS Git Repository. 
+To upload an image to the media library, the ImageKit iOS SDK provides `ImageKitUploader` . For complete API reference for the image upload function, check out the [docs](https://github.com/imagekit-developer/imagekit-ios#file-upload) on the ImageKit iOS Git Repository.&#x20;
 
 The `ImageKit.shared.uploader().upload` function can ingest files through `UIImage`, `NSData` or `Url of a remote image`
 
@@ -374,7 +374,7 @@ If you don't see the file, check if there are any errors in the error log. Make 
 
 ## What's next
 
-The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here: 
+The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here:&#x20;
 
 * [Image Transformations](https://docs.imagekit.io/features/image-transformations)
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)
