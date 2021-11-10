@@ -6,7 +6,7 @@ You can use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-s
 
 {% hint style="info" %}
 **File size limit**\
-****The maximum upload file size is limited to 25MB.
+The maximum upload file size is limited to 25MB.
 {% endhint %}
 
 ## Endpoint
