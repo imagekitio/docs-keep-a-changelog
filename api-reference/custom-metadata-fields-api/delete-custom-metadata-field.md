@@ -6,14 +6,7 @@
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-base64 encoding of 
-
-`your_private_api_key:`
-
-\
-
-
-
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}

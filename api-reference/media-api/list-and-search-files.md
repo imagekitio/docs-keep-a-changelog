@@ -2,153 +2,51 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files" method="get" summary="List and search file API" %}
 {% swagger-description %}
-This API can list all the uploaded files and folders in your ImageKit.io media library. You can fine-tune your query by specifying various filters by generating a query string in a Lucene-like syntax and provide this generated string as the value of the
-
-`searchQuery`
-
-.
+This API can list all the uploaded files and folders in your ImageKit.io media library. You can fine-tune your query by specifying various filters by generating a query string in a Lucene-like syntax and provide this generated string as the value of the `searchQuery`.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
-base64 encoding of
-
-`your_private_api_key:`
-
-\\
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="type" type="string" required="false" %}
-Limit search to either
+Limit search to either `file` or `folder`. Pass `all` to include both files and folders in search results.
 
-`file`
-
-or
-
-`folder`
-
-. Pass
-
-`all`
-
-to include both files and folders in search results.
-
-\\
-
-\\
-
-**Default value**
-
-\-
-
-`file`
+**Default value** \- `file`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="sort" type="string" required="false" %}
 You can sort based on the following fields:
 
-\\
+1\. name - `ASC_NAME` or `DESC_NAME`
 
-1\. name -
+2\. createdAt - `ASC_CREATED` or `DESC_CREATED`
 
-`ASC_NAME`
+3\. updatedAt - `ASC_UPDATED` or `DESC_UPDATED`
 
-or
+4\. height - `ASC_HEIGHT` or `DESC_HEIGHT`
 
-`DESC_NAME`
+5\. width - `ASC_WIDTH` or `DESC_WIDTH`
 
-\\
+6\. size - `ASC_SIZE` or `DESC_SIZE`
 
-2\. createdAt -
-
-`ASC_CREATED`
-
-or
-
-`DESC_CREATED`
-
-\\
-
-3\. updatedAt -
-
-`ASC_UPDATED`
-
-or
-
-`DESC_UPDATED`
-
-\\
-
-4\. height -
-
-`ASC_HEIGHT`
-
-or
-
-`DESC_HEIGHT`
-
-\\
-
-5\. width -
-
-`ASC_WIDTH`
-
-or
-
-`DESC_WIDTH`
-
-\\
-
-6\. size -
-
-`ASC_SIZE`
-
-or
-
-`DESC_SIZE`
-
-\\
-
-\\
-
-**Default value**
-
-\-
-
-`ASC_CREATED`
+**Default value** \- `ASC_CREATED`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="path" type="string" required="false" %}
-Folder path if you want to limit the search within a specific folder. For example,
-
-`/sales-banner/`
-
-will only search in folder sales-banner.
+Folder path if you want to limit the search within a specific folder. For example, `/sales-banner/` will only search in folder sales-banner.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="searchQuery" type="string" required="false" %}
 Query string in a Lucene-like query language. Learn more about the query expression later in this section.
 
-\\
-
-**Note**
-
-: When the
-
-_searchQuery_
-
-parameter is present, the following query parameters will have no effect on the result:
-
-\\
+**Note** : When the `searchQuery` parameter is present, the following query parameters will have no effect on the result:
 
 1\. tags
 
-\\
-
 2\. type
-
-\\
 
 3\. name
 {% endswagger-parameter %}
@@ -156,96 +54,44 @@ parameter is present, the following query parameters will have no effect on the 
 {% swagger-parameter in="query" name="fileType" type="string" required="false" %}
 Type of files to include in the result set. Accepts three values:
 
-\\
+`all` \- include all types of files in the result set
 
-`all`
+`image` \- only search in image type files
 
-\- include all types of files in the result set
+`non-image` \- only search in files that are not images, e.g., JS or CSS or video files.
 
-\\
-
-`image`
-
-\- only search in image type files
-
-\\
-
-`non-image`
-
-\- only search in files that are not images, e.g., JS or CSS or video files.
-
-\\
-
-\\
-
-\*\*Default value \*\*
-
-\-
-
-`all`
+**Default value** \- `all`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="limit" type="string" required="false" %}
 The maximum number of results to return in response:
 
-\\
+**Minimum value** \- `1`
 
-\\
+**Maximum value** \- `1000`
 
-**Minimum value**
-
-\-
-
-`1`
-
-\\
-
-**Maximum value**
-
-\-
-
-`1000`
-
-\\
-
-**Default value**
-
-\-
-
-`1000`
+**Default value** \- `1000`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="skip" type="string" required="false" %}
 The number of results to skip before returning results.
 
-\\
+**Minimum value** \- `0`
 
-**Minimum value**
-
-\-
-
-`0`
-
-\\
-
-**Default value**
-
-\-
-
-`0`
+**Default value** \- `0`
 {% endswagger-parameter %}
 
-{% swagger-response status="200" description="" %}
+{% swagger-response status="200" description="An array of file objects is returned." %}
 ```javascript
 [
-	{
-	    "fileId" : "598821f949c0a938d57563bd",
+    {
+      "fileId": "598821f949c0a938d57563bd",
       "type": "file",
       "name": "file1.jpg",
       "filePath": "/images/products/file1.jpg",
-      "tags": ["t-shirt","round-neck","sale2019"],
-      "isPrivateFile" : false,
-      "customCoordinates" : null,
+      "tags": ["t-shirt", "round-neck", "sale2019"],
+      "isPrivateFile": false,
+      "customCoordinates": null,
       "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
       "thumbnail": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
       "fileType": "image",
@@ -254,11 +100,15 @@ The number of results to skip before returning results.
       "height": 100,
       "size": 100,
       "hasAlpha": false,
+      "customMetadata": {
+        "brand": "Nike",
+        "color": "red"
+      },
       "createdAt": "2019-08-24T06:14:41.313Z",
       "updatedAt": "2019-08-24T06:14:41.313Z"
-  },
-	...more items
-]
+    },
+    ...more items
+  ];
 ```
 {% endswagger-response %}
 {% endswagger %}

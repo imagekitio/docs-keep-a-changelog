@@ -6,35 +6,20 @@ Add tags to multiple files in a single request.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
-base64 encoding of 
-
-`your_private_api_key:`
-
-\
-
-
-
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="fileIds" type="array" %}
-Each value should be a unique 
-
-`fileId`
-
- of the uploaded file. 
-
-`fileId`
-
- is returned in list files API and upload API
+Each value should be a unique `fileId`of the uploaded file. `fileId` is returned in list files API and upload API.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="tags" type="array" %}
 An array of tags to add to these files.
 {% endswagger-parameter %}
 
-{% swagger-response status="200" description="" %}
+{% swagger-response status="200" description="On success, you will receive a 200 status code with an array of successfully updated fileIds." %}
 ```javascript
 {
     "successfullyUpdatedFileIds": [

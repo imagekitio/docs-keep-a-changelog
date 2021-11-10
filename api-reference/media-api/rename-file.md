@@ -6,16 +6,7 @@ You can programmatically rename an already existing file in the media library us
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
-base64 encoding of 
-
-`your_private_api_key:`
-
- 
-
-\
-
-
-
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
@@ -27,99 +18,17 @@ The full path of the file you want to rename. For example - /path/to/file.jpg
 {% swagger-parameter in="body" name="newFileName" type="string" %}
 The new name of the file. A filename can contain:
 
-\
+\- Alphanumeric Characters: `a-z`, `A-Z`, `0-9` (including Unicode letters, marks, and numerals in other languages). 
 
+\- Special Characters: `.`, `_`, and `-`.
 
-
-
-\
-
-
-\- Alphanumeric Characters: 
-
-`a-z`
-
- , 
-
-`A-Z`
-
- , 
-
-`0-9`
-
- (including Unicode letters, marks, and numerals in other languages). 
-
-\
-
-
-\- Special Characters: 
-
-`.`
-
- 
-
-`_`
-
- and 
-
-`-`
-
-\
-
-
-
-
-\
-
-
-Any other character, including space, will be replaced by 
-
-`_`
-
-.
-
-\
-
-
-
+Any other character, including space, will be replaced by `_`.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="purgeCache" type="boolean" %}
-Option to purge cache for the old file URL. 
+Option to purge cache for the old file URL. When set to `true`, it will internally issue a purge cache request on CDN to remove cached content on the old URL. E.g. if an old file was accessible at  - `https://ik.imagekit.io/demo/old-filename.jpg`, a purge cache request will be issued to remove the CDN cache for this URL. This purge request is counted against your monthly purge quota.
 
-\
-
-
-
-
-\
-
-
-When set to 
-
-`true`
-
-, it will internally issue a purge cache request on CDN to remove cached content on the old URL. E.g. if an old file was accessible at  -
-
-`https://ik.imagekit.io/demo/old-filename.jpg`
-
-, a purge cache request will be issued to remove the CDN cache for this URL. This purge request is counted against your monthly purge quota.
-
-\
-
-
-
-
-\
-
-
-
-
-**Default value**
-
- \- 
-
-`false`
+**Default value** \- `false`
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="On success, you will receive purgeRequestId in the response body, which can be used to get the purge request status. This is only sent if the purgeCache is set to true in the request. Otherwise, the response is an empty JSON." %}

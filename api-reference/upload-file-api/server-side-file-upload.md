@@ -31,6 +31,7 @@ The maximum upload file size is limited to 25MB.
 | <p><strong>overwriteAITags</strong></p><p>optional</p>         | Default is `true`. If set to `true` and a file already exists at the exact location, its `AITags` will be removed. Set `overwriteAITags` to `false` to preserve `AITags`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | <p><strong>overwriteTags</strong></p><p>optional</p>           | Default is `true`. If the request does not have `tags` , `overwriteTags` is set to `true` and a file already exists at the exact location, exiting `tags` will be removed. In case the request body has `tags`, setting `overwriteTags` to `false` has no effect and request's `tags` are set on the asset.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | <p><strong>overwriteCustomMetadata</strong></p><p>optional</p> | Default is `true`. If the request does not have `customMetadata` , `overwriteCustomMetadata` is set to `true` and a file already exists at the exact location, exiting `customMetadata` will be removed. In case the request body has `customMetadata`, setting `overwriteCustomMetadata` to `false` has no effect and request's `customMetadata` is set on the asset.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| <p><strong>customMetadata</strong></p><p>optional</p>          |  A key-value data associated with the the asset. Before setting any custom metadata on an asset you have to create the field using [custom metadata fields API](../custom-metadata-fields-api/).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 ### Response code and structure (JSON)
 
@@ -43,21 +44,21 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 */
 
 {
-    "fileId" : "598821f949c0a938d57563bd",
+    "fileId": "598821f949c0a938d57563bd",
     "name": "file1.jpg",
     "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
     "thumbnailUrl": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
-    "height" : 300,
-    "width" : 200,
-    "size" : 83622,
+    "height": 300,
+    "width": 200,
+    "size": 83622,
     "filePath": "/images/products/file1.jpg",
-    "tags": ["t-shirt","round-neck","sale2019"],
+    "tags": ["t-shirt", "round-neck", "sale2019"],
     "AITags": null,
-    "isPrivateFile" : false,
-    "customCoordinates" : null,
+    "isPrivateFile": false,
+    "customCoordinates": null,
     "customMetadata": {
-        "brand":"Nike", 
-        "color":"red"
+        "brand": "Nike",
+        "color": "red"
     },
     "fileType": "image"
 }

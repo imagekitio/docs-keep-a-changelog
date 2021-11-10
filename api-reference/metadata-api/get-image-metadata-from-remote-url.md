@@ -6,29 +6,15 @@ Get image EXIF, pHash, and other metadata from ImageKit.io powered remote URL us
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
-base64 encoding of 
-
-`your_private_api_key:`
-
-\
-
-
-
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="url" type="string" %}
-The encoded URL of the image. 
+The encoded URL of the image.
 
-\
-
-
-
-
-**Note:**
-
- This URL should be accessible using your ImageKit.io account.
+**Note:** This URL should be accessible using your ImageKit.io account.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="On success, you will receive the image metadata in JSON-encoded response body." %}

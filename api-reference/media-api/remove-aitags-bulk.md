@@ -6,36 +6,17 @@ Remove AITags from multiple files in a single request.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
-base64 encoding of 
-
-`your_private_api_key:`
-
-\
-
-
-
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="fileIds" type="array" %}
-Each value should be a unique 
-
-`fileId`
-
- of the uploaded file. 
-
-`fileId`
-
- is returned in list files API and upload API.
+Each value should be a unique `fileId` of the uploaded file. `fileId` is returned in list files API and upload API.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="AITags" type="array" %}
-An array of 
-
-`AITags`
-
- to remove from these files.
+An array of `AITags` to remove from these files.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="An array of fileIds from which specified AITags were successfully removed." %}
@@ -52,7 +33,7 @@ An array of
 {% endswagger-response %}
 
 {% swagger-response status="404" description="If any fileId is not found in your media library then a 404 response is returned and no AITags are removed from any file. The whole operation fails." %}
-```bash
+```javascript
 {
     "message": "The requested file(s) does not exist.",
     "help": "For support kindly contact us at support@imagekit.io .",
@@ -67,7 +48,7 @@ An array of
 
 ### Response structure and status code 
 
-In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with an array of successfully updated `fileIds`.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with an array of successfully updated `fileIds`.
 
 ### Examples
 

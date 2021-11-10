@@ -6,19 +6,11 @@ Get all the file details and attributes.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="fileId" type="string" required="false" %}
-The unique fileId of the uploaded file.
-
-`fileId`
-
-is returned in list files API and upload API.
+The unique fileId of the uploaded file. `fileId` is returned in list files API and upload API.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
-base64 encoding of
-
-`your_private_api_key:`
-
-\\
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
@@ -26,13 +18,13 @@ base64 encoding of
 {% swagger-response status="200" description="On success, you will get file details in the JSON-encoded response body." %}
 ```javascript
 {
-    "fileId" : "598821f949c0a938d57563bd",
+    "fileId": "598821f949c0a938d57563bd",
     "type": "file",
     "name": "file1.jpg",
     "filePath": "/images/products/file1.jpg",
-    "tags": ["t-shirt","round-neck","sale2019"],
-    "isPrivateFile" : false,
-    "customCoordinates" : null,
+    "tags": ["t-shirt", "round-neck", "sale2019"],
+    "isPrivateFile": false,
+    "customCoordinates": null,
     "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
     "thumbnail": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
     "fileType": "image",
@@ -41,6 +33,10 @@ base64 encoding of
     "height": 100,
     "size": 100,
     "hasAlpha": false,
+    "customMetadata": {
+        "brand": "Nike",
+        "color": "red"
+    },
     "createdAt": "2019-08-24T06:14:41.313Z",
     "updatedAt": "2019-08-24T06:14:41.313Z"
 }

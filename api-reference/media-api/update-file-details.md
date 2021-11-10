@@ -2,101 +2,39 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/details" method="patch" summary="Update file details API" %}
 {% swagger-description %}
-Update file details such as 
-
-`tags`
-
-, 
-
-`customCoordinates`
-
-attributes, remove existing 
-
-`AITags`
-
-and apply 
-
-[extensions](../../extensions/overview/)
-
- using update file detail API.
+Update file details such as `tags`, `customCoordinates` attributes, remove existing `AITags` and apply [extensions](../../extensions/overview/) using update file detail API.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="fileId" type="string" required="false" %}
-The unique fileId of the uploaded file.
-
-`fileId` is returned in list files API and upload API.
+The unique fileId of the uploaded file. `fileId` is returned in list files API and upload API.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
-base64 encoding of
-
-`your_private_api_key:`
-
-
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="removeAITags" type="array" required="false" %}
-An array of AITags associated with the file that you want to remove e.g. `["car", "vehicle", "motorsports"]`. If you want to remove all
+An array of AITags associated with the file that you want to remove e.g. `["car", "vehicle", "motorsports"]`. If you want to remove all `AITags` associated with the file, send a string - `"all"`.
 
-`AITags`associated with the file, send a string -
-
-`"all"`.
-
-
-
-**Note:** Remove operation for`AITags`executes before any of the `extensions`are processed**.**
+**Note:** Remove operation for`AITags`executes before any of the `extensions`are processed.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="webhookUrl" type="string" required="false" %}
-Final status of pending extensions will be sent to this URL. To learn more about how ImageKit uses webhooks, refer here.
-
-\\
-
-https://docs.imagekit.io/extensions/overview#webhooks
+Final status of pending extensions will be sent to this URL. To learn more about how ImageKit uses webhooks, refer [here](../../extensions/overview/#webhooks).
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="extensions" type="array" required="false" %}
-Stringified JSON object with array of extensions to be processed on the image.
-
-\\
-
-\\
-
-For reference about extensions read here.
-
-\\
-
-https://docs.imagekit.io/extensions/overview
+Stringified JSON object with array of extensions to be processed on the image. For reference about extensions read [here](../../extensions/overview/).
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="tags" type="array" required="false" %}
-An array of tags associated with the file e.g.
-
-`["tag1", "tag2"]`
-
-. If you want to unset it send
-
-`null`
-
-.
+An array of tags associated with the file e.g. `["tag1", "tag2"]`. If you want to unset it send `null`.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="customCoordinates" type="string" required="false" %}
-Define an important area in the image in the format
-
-`x,y,width,height`
-
-e.g.
-
-`10,10,100,100`
-
-. If you want to unset this send
-
-`null`
-
-.
+Define an important area in the image in the format `x,y,width,height` e.g. `10,10,100,100`. If you want to unset this send `null`.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="On success, you will receive the updated file details in the JSON-encoded response body." %}

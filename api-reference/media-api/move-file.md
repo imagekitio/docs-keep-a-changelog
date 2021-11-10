@@ -6,27 +6,20 @@ This will move a file from one folder to another.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
-base64 encoding of 
-
-`your_private_api_key:`
-
-\
-
-
-
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="sourceFilePath" type="string" %}
-The full path of the file you want to move. For example - /path/to/file.jpg
+The full path of the file you want to move. For example - `/path/to/file.jpg`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="destinationPath" type="string" %}
-Full path to the folder you want to move the above file into. For example - /folder/to/move/into/
+Full path to the folder you want to move the above file into. For example - `/folder/to/move/into/`
 {% endswagger-parameter %}
 
-{% swagger-response status="204" description="" %}
+{% swagger-response status="204" description="Empty body is returned." %}
 ```
 ```
 {% endswagger-response %}

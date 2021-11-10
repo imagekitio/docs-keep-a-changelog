@@ -6,31 +6,20 @@ This will copy a file from one folder to another.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
-base64 encoding of 
-
-`your_private_api_key:`
-
-\
-
-
-
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="sourceFilePath" type="string" %}
-The full path of the file you want to copy. For example - 
-
-`/path/to/file.jpg`
+The full path of the file you want to copy. For example - `/path/to/file.jpg`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="destinationPath" type="string" %}
-Full path to the folder you want to copy the above file into. For example - 
-
-`/folder/to/copy/into/`
+Full path to the folder you want to copy the above file into. For example - `/folder/to/copy/into/`
 {% endswagger-parameter %}
 
-{% swagger-response status="204" description="" %}
+{% swagger-response status="204" description="Empty body is returned." %}
 ```
 ```
 {% endswagger-response %}
@@ -48,7 +37,7 @@ Full path to the folder you want to copy the above file into. For example -
 
 ### Response structure and status code
 
-In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `204` status code with an empty body.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `204` status code with an empty body.
 
 ### Examples
 

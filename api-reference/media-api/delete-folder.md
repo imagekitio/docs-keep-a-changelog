@@ -6,31 +6,22 @@ This will delete the specified folder and all nested files & folders. This actio
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
-base64 encoding of 
-
-`your_private_api_key:`
-
-\
-
-
-
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="folderPath" type="string" %}
-Full path to the folder you want to delete. For example 
-
-`folder/to/delete/`
+Full path to the folder you want to delete. For example `folder/to/delete/`.
 {% endswagger-parameter %}
 
-{% swagger-response status="204" description="Folder deleted successfully" %}
+{% swagger-response status="204" description="Empty body is returned." %}
 ```
 ```
 {% endswagger-response %}
 
 {% swagger-response status="404" description="If no folder is found at the specified folderPath then a 404 response is returned. " %}
-```
+```json
 {
      "message" : "No folder found with folderPath folder/to/delete/",
      "help" : "For support kindly contact us at support@imagekit.io .",

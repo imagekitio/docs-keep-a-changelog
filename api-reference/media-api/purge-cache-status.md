@@ -6,22 +6,11 @@ Get the status of the submitted purge request.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="requestId" type="string" %}
-The 
-
-`requestId`
-
- returned in the response of purge cache API.
+The `requestId` returned in the response of purge cache API.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
-base64 encoding of 
-
-`your_private_api_key:`
-
-\
-
-
-
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
@@ -37,7 +26,7 @@ base64 encoding of
 
 ### Response structure and status code (application/JSON)
 
-In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the purge request status in a JSON-encoded response body.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the purge request status in a JSON-encoded response body.
 
 ### Understanding the response
 

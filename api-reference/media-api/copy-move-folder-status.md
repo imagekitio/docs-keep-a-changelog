@@ -6,22 +6,11 @@ This endpoint allows you to get the status of a bulk operation e.g. copy or move
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="jobId" type="string" %}
-The 
-
-`jobId`
-
- you get in the response of bulk job API e.g. copy folder or move folder API.
+The `jobId` you get in the response of bulk job API e.g. copy folder or move folder API.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
-base64 encoding of 
-
-`your_private_api_key:`
-
-\
-
-
-
+base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
@@ -39,7 +28,7 @@ base64 encoding of
 
 ### Response structure and status code (application/JSON)
 
-In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with a JSON-encoded body.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with a JSON-encoded body.
 
 ### Understanding the response
 

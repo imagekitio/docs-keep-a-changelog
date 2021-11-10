@@ -6,30 +6,17 @@ This will copy one folder into another.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
-base64 encoding of 
+base64 encoding of `your_private_api_key:`
 
-`your_private_api_key:`
-
-\
-
-
-Note the colon in the end
+**Note the colon in the end.**
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="sourceFolderPath" type="string" %}
-The full path to the source folder you want to copy. For example - 
-
-`/path/of/source/folder`
-
-.
+The full path to the source folder you want to copy. For example - `/path/of/source/folder`.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="destinationPath" type="string" %}
-Full path to the destination folder where you want to copy the source folder into. For example - 
-
-`/path/of/destination/folder/`
-
-.
+Full path to the destination folder where you want to copy the source folder into. For example - `/path/of/destination/folder`.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="On success, you will receive a jobId which can be used to get the copy operation's status." %}
@@ -53,7 +40,7 @@ Full path to the destination folder where you want to copy the source folder int
 
 ### Response structure and status code
 
-In case of error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with JSON encoded response containing information about `jobId`. You can use `jobId` to get the status of this job using [bulk job status API](copy-move-folder-status.md). 
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with JSON encoded response containing information about `jobId`. You can use `jobId` to get the status of this job using [bulk job status API](copy-move-folder-status.md). 
 
 ### Examples
 
