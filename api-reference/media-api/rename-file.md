@@ -43,7 +43,7 @@ Option to purge cache for the old file URL. When set to `true`, it will internal
 ```
 {% endswagger-response %}
 
-{% swagger-response status="207" description="In case purgeCache is set to true in the request and your total purge request count has exceeded the quota, we will rename the file but won't be able to purge the old URL from the CDN." %}
+{% swagger-response status="207" description="In case purgeCache is set to true and total purge request count has exceeded the quota, we will rename the file but won't purge CDN cache." %}
 ```javascript
 {
     "message" : "File renamed successfully but we could not purge the CDN cache for old URL because of rate limits on purge API.",

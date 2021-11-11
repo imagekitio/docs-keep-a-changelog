@@ -21,7 +21,7 @@ Full path to the folder you want to delete. For example `folder/to/delete/`.
 {% endswagger-response %}
 
 {% swagger-response status="404" description="If no folder is found at the specified folderPath then a 404 response is returned. " %}
-```json
+```javascript
 {
      "message" : "No folder found with folderPath folder/to/delete/",
      "help" : "For support kindly contact us at support@imagekit.io .",
