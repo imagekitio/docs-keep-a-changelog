@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files" method="get" summary="List and search file API" %}
 {% swagger-description %}
-This API can list all the uploaded files and folders in your ImageKit.io media library. You can fine-tune your query by specifying various filters by generating a query string in a Lucene-like syntax and provide this generated string as the value of the `searchQuery`.
+This API can list all the uploaded files and folders in your ImageKit.io media library. In addition, you can fine-tune your query by specifying various filters by generating a query string in a Lucene-like syntax and provide this generated string as the value of the `searchQuery`.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
@@ -14,23 +14,31 @@ base64 encoding of `your_private_api_key:`
 {% swagger-parameter in="query" name="type" type="string" required="false" %}
 Limit search to either `file` or `folder`. Pass `all` to include both files and folders in search results.
 
+
 **Default value** \- `file`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="sort" type="string" required="false" %}
 You can sort based on the following fields:
 
+
 1\. name - `ASC_NAME` or `DESC_NAME`
+
 
 2\. createdAt - `ASC_CREATED` or `DESC_CREATED`
 
+
 3\. updatedAt - `ASC_UPDATED` or `DESC_UPDATED`
+
 
 4\. height - `ASC_HEIGHT` or `DESC_HEIGHT`
 
+
 5\. width - `ASC_WIDTH` or `DESC_WIDTH`
 
+
 6\. size - `ASC_SIZE` or `DESC_SIZE`
+
 
 **Default value** \- `ASC_CREATED`
 {% endswagger-parameter %}
@@ -46,7 +54,9 @@ Query string in a Lucene-like query language. Learn more about the query express
 
 1\. tags
 
+
 2\. type
+
 
 3\. name
 {% endswagger-parameter %}
@@ -54,11 +64,15 @@ Query string in a Lucene-like query language. Learn more about the query express
 {% swagger-parameter in="query" name="fileType" type="string" required="false" %}
 Type of files to include in the result set. Accepts three values:
 
-`all` \- include all types of files in the result set
 
-`image` \- only search in image type files
+`all` \- include all types of files in the result set.
+
+
+`image` \- only search in image type files.
+
 
 `non-image` \- only search in files that are not images, e.g., JS or CSS or video files.
+
 
 **Default value** \- `all`
 {% endswagger-parameter %}
@@ -66,9 +80,12 @@ Type of files to include in the result set. Accepts three values:
 {% swagger-parameter in="query" name="limit" type="string" required="false" %}
 The maximum number of results to return in response:
 
+
 **Minimum value** \- `1`
 
+
 **Maximum value** \- `1000`
+
 
 **Default value** \- `1000`
 {% endswagger-parameter %}
@@ -76,7 +93,9 @@ The maximum number of results to return in response:
 {% swagger-parameter in="query" name="skip" type="string" required="false" %}
 The number of results to skip before returning results.
 
+
 **Minimum value** \- `0`
+
 
 **Default value** \- `0`
 {% endswagger-parameter %}
@@ -159,7 +178,7 @@ You can use parenthesis `(` and `)` to group multiple queries and create complex
 
 ### Search based on file and folder names
 
-For example, let's say you have uploaded two files `red-dress-summer.jpg` and `red-dress-winter.jpg` in the [media library](../../media-library/overview/).
+For example, let's say you have uploaded two files, `red-dress-summer.jpg` and `red-dress-winter.jpg` in the [media library](../../media-library/overview/).
 
 {% hint style="info" %}
 The name match is case-sensitive.
@@ -167,13 +186,13 @@ The name match is case-sensitive.
 
 {% tabs %}
 {% tab title="Exact match" %}
-To find a file or folder using the exact name, use `=` operator. For example:
+To find a file or folder using the exact name, use the `=` operator. For example:
 
 ```
 name = "red-dress-summer.jpg"
 ```
 
-This will only return the file with the name `red-dress-summer.jpg`
+This will only return the file with the name `red-dress-summer.jpg`.
 {% endtab %}
 
 {% tab title="Begins with match" %}
@@ -191,11 +210,11 @@ This will return both `red-dress-summer.jpg` and `red-dress-winter.jpg`.
 
 You can filter using `createdAt` and `updatedAt` to search based on the first uploaded or last modified time.
 
-`createdAt` and `updatedAt` accepts ISO 8601 format string or relative unit.
+`createdAt` and `updatedAt` accept ISO 8601 format string or relative unit.
 
 {% tabs %}
 {% tab title="ISO 8601 format" %}
-The API supports a string in ISO 8601 format.
+The API supports a string in the ISO 8601 format.
 
 * `YYYY-MM-DD` - When no time is provided, it is set to 00:00:00 UTC by default.
 * `YYYY-MM-DDTHH:MM:SS`
@@ -211,11 +230,11 @@ createdAt < "2020-01-01T12:12:12"
 {% endtab %}
 
 {% tab title="Relative units" %}
-The API supports relative time units, e.g:
+The API supports relative time units, e.g.
 
 * `1h` - one hour in the past
 * `2d` - two days in the past
-* Similarly `3w`, `4m` etc.
+* Similarly `3w`, `4m`, etc.
 
 Example usage:
 
@@ -230,13 +249,13 @@ createdAt < 2y (createdAt should be before two years ago)
 
 ### Search based on custom metadata or embedded metadata values
 
-You can use [custom metadata](../custom-metadata-fields-api) and embedded metadata fields in your search query.
+In your search query, you can use [custom metadata](../custom-metadata-fields-api) and embedded metadata fields.
 
 Every embedded metadata field must be prefixed with 'embeddedMetadata' and a period, and it must be enclosed within double quotes. For example, `"embeddedMetadata.Keywords" IN ["black"]`
 
-Every custom metadata field must be prefixed with 'customMetadata' and a period, and it must be enclosed within double quotes. For example, `"customMetadata.description" IN ["black"]`
+Every custom metadata field must be prefixed with 'customMetadata' and a period, and it must be enclosed within double-quotes. For example, `"customMetadata.description" IN ["black"]`
 
-Refer to the [supported parameters](list-and-search-files.md#supported-parameters) table to see which embedded metadata values are supported, and the corresponding supported operators and examples. The table also specifies the supported operators and examples corresponding to each custom metadata type.
+Refer to the [supported parameters](list-and-search-files.md#supported-parameters) table to see which embedded metadata values are supported and the corresponding supported operators and examples. The table also specifies the supported operators and examples corresponding to each custom metadata type.
 
 ### Supported parameters
 
@@ -266,7 +285,7 @@ Refer to the [supported parameters](list-and-search-files.md#supported-parameter
 
 ## Understanding response
 
-In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the list of files in JSON-encoded response body.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. You will receive a `200` status code with the list of files in the JSON-encoded response body on success.
 
 The JSON-encoded response has an array of items. Each item can have the following properties.
 
@@ -474,7 +493,7 @@ list_files = imagekitio.list_files({searchQuery : 'createdAt >= "7d" AND size > 
 
 ### Custom metadata based search
 
-List all files that belong to the `clothing` or `accessories` categories by using a custom metadata field called `category`. The [custom metadata schema](../custom-metadata-fields-api/create-custom-metadata-field.md) for this field must have been defined first.
+List all files belonging to the `clothing` or `accessories` categories using a custom metadata field called `category`. The [custom metadata schema](../custom-metadata-fields-api/create-custom-metadata-field.md) for this field must have been defined first.
 
 `"customMetadata.category IN ["clothing", "accessories"]"`
 
