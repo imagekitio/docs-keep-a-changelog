@@ -18,7 +18,7 @@ base64 encoding of `your_private_api_key:`
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="In the response, you will get an array of all the custom metadata fields with each object having field id, name, label and schema." %}
-```
+```javascript
 [
     {
         "id": "598821f949c0a938d57563dd",
