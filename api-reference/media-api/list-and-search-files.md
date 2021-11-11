@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files" method="get" summary="List and search file API" %}
 {% swagger-description %}
-This API can list all the uploaded files and folders in your ImageKit.io media library. You can fine-tune your query by specifying various filters by generating a query string in a Lucene-like syntax and provide this generated string as the value of the `searchQuery`.
+This API can list all the uploaded files and folders in your ImageKit.io media library. In addition, you can fine-tune your query by specifying various filters by generating a query string in a Lucene-like syntax and provide this generated string as the value of the `searchQuery`.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
@@ -14,23 +14,31 @@ base64 encoding of `your_private_api_key:`
 {% swagger-parameter in="query" name="type" type="string" required="false" %}
 Limit search to either `file` or `folder`. Pass `all` to include both files and folders in search results.
 
+
 **Default value** \- `file`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="sort" type="string" required="false" %}
 You can sort based on the following fields:
 
+
 1\. name - `ASC_NAME` or `DESC_NAME`
+
 
 2\. createdAt - `ASC_CREATED` or `DESC_CREATED`
 
+
 3\. updatedAt - `ASC_UPDATED` or `DESC_UPDATED`
+
 
 4\. height - `ASC_HEIGHT` or `DESC_HEIGHT`
 
+
 5\. width - `ASC_WIDTH` or `DESC_WIDTH`
 
+
 6\. size - `ASC_SIZE` or `DESC_SIZE`
+
 
 **Default value** \- `ASC_CREATED`
 {% endswagger-parameter %}
@@ -46,7 +54,9 @@ Query string in a Lucene-like query language. Learn more about the query express
 
 1\. tags
 
+
 2\. type
+
 
 3\. name
 {% endswagger-parameter %}
@@ -54,11 +64,15 @@ Query string in a Lucene-like query language. Learn more about the query express
 {% swagger-parameter in="query" name="fileType" type="string" required="false" %}
 Type of files to include in the result set. Accepts three values:
 
-`all` \- include all types of files in the result set
 
-`image` \- only search in image type files
+`all` \- include all types of files in the result set.
+
+
+`image` \- only search in image type files.
+
 
 `non-image` \- only search in files that are not images, e.g., JS or CSS or video files.
+
 
 **Default value** \- `all`
 {% endswagger-parameter %}
@@ -66,9 +80,12 @@ Type of files to include in the result set. Accepts three values:
 {% swagger-parameter in="query" name="limit" type="string" required="false" %}
 The maximum number of results to return in response:
 
+
 **Minimum value** \- `1`
 
+
 **Maximum value** \- `1000`
+
 
 **Default value** \- `1000`
 {% endswagger-parameter %}
@@ -76,7 +93,9 @@ The maximum number of results to return in response:
 {% swagger-parameter in="query" name="skip" type="string" required="false" %}
 The number of results to skip before returning results.
 
+
 **Minimum value** \- `0`
+
 
 **Default value** \- `0`
 {% endswagger-parameter %}
@@ -159,7 +178,7 @@ You can use parenthesis `(` and `)` to group multiple queries and create complex
 
 ### Search based on file and folder names
 
-For example, let's say you have uploaded two files `red-dress-summer.jpg` and `red-dress-winter.jpg` in the [media library](../../media-library/overview/).
+For example, let's say you have uploaded two files, `red-dress-summer.jpg` and `red-dress-winter.jpg` in the [media library](../../media-library/overview/).
 
 {% hint style="info" %}
 The name match is case-sensitive.
@@ -167,13 +186,13 @@ The name match is case-sensitive.
 
 {% tabs %}
 {% tab title="Exact match" %}
-To find a file or folder using the exact name, use `=` operator. For example:
+To find a file or folder using the exact name, use the `=` operator. For example:
 
 ```
 name = "red-dress-summer.jpg"
 ```
 
-This will only return the file with the name `red-dress-summer.jpg`
+This will only return the file with the name `red-dress-summer.jpg`.
 {% endtab %}
 
 {% tab title="Begins with match" %}
@@ -191,11 +210,11 @@ This will return both `red-dress-summer.jpg` and `red-dress-winter.jpg`.
 
 You can filter using `createdAt` and `updatedAt` to search based on the first uploaded or last modified time.
 
-`createdAt` and `updatedAt` accepts ISO 8601 format string or relative unit.
+`createdAt` and `updatedAt` accept ISO 8601 format string or relative unit.
 
 {% tabs %}
 {% tab title="ISO 8601 format" %}
-The API supports a string in ISO 8601 format.
+The API supports a string in the ISO 8601 format.
 
 * `YYYY-MM-DD` - When no time is provided, it is set to 00:00:00 UTC by default.
 * `YYYY-MM-DDTHH:MM:SS`
@@ -211,11 +230,11 @@ createdAt < "2020-01-01T12:12:12"
 {% endtab %}
 
 {% tab title="Relative units" %}
-The API supports relative time units, e.g:
+The API supports relative time units, e.g.
 
 * `1h` - one hour in the past
 * `2d` - two days in the past
-* Similarly `3w`, `4m` etc.
+* Similarly `3w`, `4m`, etc.
 
 Example usage:
 
@@ -230,43 +249,43 @@ createdAt < 2y (createdAt should be before two years ago)
 
 ### Search based on custom metadata or embedded metadata values
 
-You can use custom metadata and embedded metadata fields in your search query.
+In your search query, you can use [custom metadata](../custom-metadata-fields-api) and embedded metadata fields.
 
 Every embedded metadata field must be prefixed with 'embeddedMetadata' and a period, and it must be enclosed within double quotes. For example, `"embeddedMetadata.Keywords" IN ["black"]`
 
-Every custom metadata field must be prefixed with 'customMetadata' and a period, and it must be enclosed within double quotes. For example, `"customMetadata.description" IN ["black"]`
+Every custom metadata field must be prefixed with 'customMetadata' and a period, and it must be enclosed within double-quotes. For example, `"customMetadata.description" IN ["black"]`
 
-Refer to the [supported parameters](list-and-search-files.md#supported-parameters) table to see which embedded metadata values are supported, and the corresponding supported operators and examples. The table also specifies the supported operators and examples corresponding to each custom metadata type.
+Refer to the [supported parameters](list-and-search-files.md#supported-parameters) table to see which embedded metadata values are supported and the corresponding supported operators and examples. The table also specifies the supported operators and examples corresponding to each custom metadata type.
 
 ### Supported parameters
 
-| Field                                 | Supported Operators                                                                                                                                                                   | Examples                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| name                                  | <ul><li>=</li><li>:</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                                                                 | <p>Accepts a string value in quotes. For example:</p><p><code>name = "red-dress.jpg" </code>will return all<br>files &#x26; folders with the exact name <code>red-dress.jpg</code>.</p><p><code>name: "red-dress"</code> will return all files &#x26; folders</p><p>with a name starting with <code>red-dress</code>.</p><p><code>name IN ["red-dress.jpg", "red-dress.png"]</code> will return</p><p>all files &#x26; folders with the name either <code>red-dress.jpg</code> or</p><p><code>red-dress.png</code>.</p><p><code>name NOT = "red-dress.jpg"</code> will return all files and folders</p><p>with a name other than <code>red-dress.jpg</code>.</p>                                                                                                                                       |
-| tags                                  | <ul><li>IN</li><li>NOT IN</li></ul>                                                                                                                                                   | <p>Accepts an array of string values.</p><p><code>tags IN ["summer-collection", "sale"]</code> will return all files that have either <code>summer-collection</code> or <code>sale</code> inside either the tags array or the AITags array.</p><p><code>tags NOT IN ["big-banner"]</code> will return all files that do not have <code>big-banner</code> inside neither the tags array nor the AITags array.</p>                                                                                                                                                                                                                                                                                                                                                                                       |
-| type                                  | <ul><li>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                                                                           | <p>Possible values are <code>file</code> or <code>folder</code> in quotes or in the array.</p><p><code>type = "file"</code> will only return files in the search result.<br></p><p><code>type = "folder"</code> will only return folders in the search result.<br></p><p><code>type IN ["file", "folder"]</code> will return both files and folders in the search result.</p>                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| createdAt                             | <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                       | <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>, or <code>4m</code>.<br></p><p><code>createdAt > "2020-01-01"</code> will return all files first uploaded<br>after 1 Jan 2020 at 00:00 hours in UTC.</p><p><code>createdAt > "2020-01-01T12:12:12"</code> will return all files first uploaded after 1 Jan 2020 12:12:12 hours in UTC.</p><p><code>createdAt > "7d"</code> will return all files first uploaded in the last 7 days.</p>                                                                                                                                                                                                                                                                                      |
-| updatedAt                             | <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                       | <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>, or <code>4m</code>.<br></p><p><code>updatedAt > "2020-01-01"</code> will return all files last modified<br>after 1 Jan 2020 at 00:00 hours in UTC.</p><p><code>updatedAt > "2020-01-01T12:12:12"</code> will return all files last modified after 1 Jan 2020 12:12:12 hours in UTC.</p><p><code>updatedAt > "7d"</code> will return all files last modified in the last 7 days.</p>                                                                                                                                                                                                                                                                                         |
-| height                                | <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                       | <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> etc. This is only applicable for image-type assets.</p><p><code>height > 200</code> will return all image files with a height greater than 200px.</p><p><code>height &#x3C;= 400</code> will return all image files with a height less than or equal to 400px.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| width                                 | <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                       | <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> etc. This is only applicable for image-type assets.</p><p><code>width > 200</code> will return all image files with a width greater than 200px.</p><p><code>width &#x3C;= 400</code> will return all image files with a width less than or equal to 400px.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| size                                  | <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                       | <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> or string e.g. <code>1mb</code>, <code>10kb</code> etc.</p><p><code>size > 1024</code> will return all assets with a file size greater than 1024 bytes.<br></p><p><code>size &#x3C;= "1mb"</code> will return all assets with a file size less than or equal to 1MB.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| format                                | <ul><li>=</li><li>IN</li></ul>                                                                                                                                                        | <p>Accepts a string value.<br><br>Allowed values are <code>jpg</code>, <code>webp</code>, <code>png</code>, <code>gif</code>, <code>svg</code>, <code>avif</code>, <code>pdf</code>, <code>js</code>, <code>woff2</code>, <code>woff</code>, <code>ttf</code>, <code>otf</code>, <code>eot</code>, <code>css</code>, <code>txt</code>, <code>mp4</code>, <code>webm</code>, <code>mov</code>, <code>swf</code>, <code>ts</code>, <code>m3u8</code>, <code>ico</code>.</p><p><br><code>format = "jpg"</code> will return all JPG image files.</p>                                                                                                                                                                                                                                                       |
-| private                               | <ul><li>=</li></ul>                                                                                                                                                                   | <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without quotes.</p><p><code>private = true</code> will return all files marked as private during upload.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| embeddedMetadata.LocationTaken        | <ul><li>=</li></ul>                                                                                                                                                                   | <p>Accepts a location value in one of the supported types:</p><ul><li>"40,100 5km" - Returns items that are within a 5 km distance from the specified coordinate</li><li>"40,100|50,105" - Returns items that are inside the square whose diagonal is the line made by the two specified points</li><li>"0,0|0,100|40,100|40,0" - Returns items that are inside the rectangle whose vertices are the four specified points.</li></ul><p><strong>Note</strong>: All coordinates are in the format <code>latitude,longitude</code></p>                                                                                                                                                                                                                                                                   |
-| embeddedMetadata.Keywords             | <ul><li>IN</li><li>NOT IN</li></ul>                                                                                                                                                   | <p>Accepts an array of string values.</p><p><code>embeddedMetadata.Keywords IN ["luxury", "dress"]</code> will return all files that have either <code>luxury</code> or <code>dress</code> as one of the values in its Keywords field.</p><p><code>embeddedMetadata.Keywords NOT IN ["big-banner"]</code> will return all files that do not have <code>big-banner</code> as one of the values in its Keywords field.</p>                                                                                                                                                                                                                                                                                                                                                                               |
-| embeddedMetadata.DateTimeOriginal     | <p></p><ul><li>=</li></ul><ul><li>&#x3C;</li></ul><ul><li>&#x3C;=</li></ul><ul><li>></li></ul><ul><li>>=</li></ul><ul><li>IN</li></ul><ul><li>NOT =</li></ul><ul><li>NOT IN</li></ul> | <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>, or <code>4m</code>.<br></p><p><code>"embeddedMetadata.DateTimeOriginal" > "2020-01-01"</code> will return all files with a value later than 1 Jan 2020 at 00:00 hours in UTC.</p><p><code>"embeddedMetadata.DateTimeOriginal" > "2020-01-01T12:12:12"</code> will return all files with a value later than 1 Jan 2020 12:12:12 hours in UTC.</p><p><code>"embeddedMetadata.DateTimeOriginal" > "7d"</code> will return all files with a value that lies in the last 7 days.</p>                                                                                                                                                                                             |
-| Custom metadata `Text` type field     | <p></p><ul><li>=</li></ul><ul><li>:</li></ul><ul><li>IN</li></ul><ul><li>NOT =</li></ul><ul><li>NOT IN</li></ul>                                                                      | <p>Accepts a string value in quotes. For example:</p><p><code>"customMetadata.description" = "black cars" </code>will return all files &#x26; folders with the description custom field exactly equal to <code>black cars</code>.</p><p><code>"customMetadata.description": "red"</code> will return all files &#x26; folders with the description custom field starting with <code>red</code>.</p><p><code>"customMetadata.description" IN ["red cars", "black cars"]</code> will return all files &#x26; folders with the description custom field either <code>red cars</code> or</p><p><code>black cars</code>.</p><p><code>"customMetadata.description" NOT = "red dress"</code> will return all files and folders</p><p>with the description custom field other than <code>red dress</code>.</p> |
-| Custom metadata `Textarea` type field | <p></p><ul><li>=</li></ul><ul><li>:</li></ul><ul><li>IN</li></ul><ul><li>NOT =</li></ul><ul><li>NOT IN</li></ul>                                                                      | <p>Accepts a string value in quotes. For example:</p><p></p><p><code>"customMetadata.longDescription": "luxury"</code> will return all files &#x26; folders with the longDescription custom field starting with <code>luxury</code>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Custom metadata `Date` type field     | <p></p><ul><li>=</li></ul><ul><li>&#x3C;</li></ul><ul><li>&#x3C;=</li></ul><ul><li>></li></ul><ul><li>>=</li></ul><ul><li>IN</li></ul><ul><li>NOT =</li></ul><ul><li>NOT IN</li></ul> | <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>, or <code>4m</code>.<br></p><p><code>"customMetadata.purchaseDate" > "2020-01-01"</code> will return all files with a purchaseDate value later than 1 Jan 2020 at 00:00 hours in UTC.</p><p><code>"customMetadata.purchaseDate" > "2020-01-01T12:12:12"</code> will return all files with a purchaseDate value later than 1 Jan 2020 12:12:12 hours in UTC.</p><p><code>"customMetadata.purchaseDate" > "7d"</code> will return all files with a purchaseDate value that lies in the last 7 days.</p>                                                                                                                                                                        |
-| Custom metadata `Number` type field   | <p></p><ul><li>=</li></ul><ul><li>&#x3C;</li></ul><ul><li>&#x3C;=</li></ul><ul><li>></li></ul><ul><li>>=</li></ul><ul><li>IN</li></ul><ul><li>NOT =</li></ul><ul><li>NOT IN</li></ul> | <p>Accepts a numeric value e.g. <code>500</code>, <code>200.125</code> , etc.</p><p></p><p><code>"customMetadata.quantitySold" > 200</code> will return all items with a quantitySold value greater than 200.</p><p><code>"customMetadata.quantitySold" &#x3C;= 400</code> will return all items with a quantitySold value less than or equal to 400.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Custom metadata `Boolean` type field  | <ul><li>=</li></ul>                                                                                                                                                                   | <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without quotes.</p><p><code>"customMetadata.active" = true</code> will return all items with an active value equal to true.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Custom metadata `SingleSelect` type   | <p></p><ul><li>=</li></ul><ul><li>:</li></ul><ul><li>IN</li></ul><ul><li>NOT =</li></ul><ul><li>NOT IN</li><li>></li><li>>=</li><li>&#x3C;</li><li>&#x3C;=</li></ul>                  | <p>Accepts boolean, numerical, or string values.</p><p></p><p><strong>Note</strong>: certain operators will be valid only for certain types of values. For example, the >= operator will be valid only for numerical values.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Custom metadata `MultiSelect` type    | <ul><li>IN</li><li>NOT IN</li></ul>                                                                                                                                                   | <p>Accepts an array of boolean, numerical, or string values.</p><p><code>customMetadata.tuple IN ["luxury", 500, true]</code> will return all files that have either <code>luxury</code> or <code>500</code> or <code>true</code> as one of the values in its tuples field.</p><p><code>customMetadata.tuples NOT IN ["big-banner"]</code> will return all files that do not have <code>big-banner</code> as one of the values in its tuples field.</p>                                                                                                                                                                                                                                                                                                                                                |
-| transparency                          | <ul><li>=</li></ul>                                                                                                                                                                   | <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without quotes. This is only applicable to images.</p><p><code>transparency = true</code> will return all image files that have an alpha layer. However, the presence of the alpha layer does not guarantee transparency if all pixels in the alpha layer have the value 1.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Field | Supported Operators | Examples|
+| ----------------------------------------------------------------------- | --------- | ---------------------- |
+|<p>  name                                   </p>| <ul><li>=</li><li>:</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                                                                 | <p>Accepts a string value in quotes. For example:</p><p><code>name = "red-dress.jpg" </code>will return all<br>files &#x26; folders with the exact name <code>red-dress.jpg</code>.</p><p><code>name: "red-dress"</code> will return all files &#x26; folders</p><p>with a name starting with <code>red-dress</code>.</p><p><code>name IN ["red-dress.jpg", "red-dress.png"]</code> will return</p><p>all files &#x26; folders with the name either <code>red-dress.jpg</code> or</p><p><code>red-dress.png</code>.</p><p><code>name NOT = "red-dress.jpg"</code> will return all files and folders</p><p>with a name other than <code>red-dress.jpg</code>.</p>                                                                                                                                       |
+|<p>  tags                                   </p>| <ul><li>IN</li><li>NOT IN</li></ul>                                                                                                                                                   | <p>Accepts an array of string values.</p><p><code>tags IN ["summer-collection", "sale"]</code> will return all files that have either <code>summer-collection</code> or <code>sale</code> inside either the tags array or the AITags array.</p><p><code>tags NOT IN ["big-banner"]</code> will return all files that do not have <code>big-banner</code> inside neither the tags array nor the AITags array.</p>                                                                                                                                                                                                                                                                                                                                                                                       |
+|<p>  type                                   </p>| <ul><li>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                                                                           | <p>Possible values are <code>file</code> or <code>folder</code> in quotes or in the array.</p><p><code>type = "file"</code> will only return files in the search result.<br></p><p><code>type = "folder"</code> will only return folders in the search result.<br></p><p><code>type IN ["file", "folder"]</code> will return both files and folders in the search result.</p>                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|<p>  createdAt                              </p>| <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                       | <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>, or <code>4m</code>.<br></p><p><code>createdAt > "2020-01-01"</code> will return all files first uploaded<br>after 1 Jan 2020 at 00:00 hours in UTC.</p><p><code>createdAt > "2020-01-01T12:12:12"</code> will return all files first uploaded after 1 Jan 2020 12:12:12 hours in UTC.</p><p><code>createdAt > "7d"</code> will return all files first uploaded in the last 7 days.</p>                                                                                                                                                                                                                                                                                      |
+|<p>  updatedAt                              </p>| <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                       | <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>, or <code>4m</code>.<br></p><p><code>updatedAt > "2020-01-01"</code> will return all files last modified<br>after 1 Jan 2020 at 00:00 hours in UTC.</p><p><code>updatedAt > "2020-01-01T12:12:12"</code> will return all files last modified after 1 Jan 2020 12:12:12 hours in UTC.</p><p><code>updatedAt > "7d"</code> will return all files last modified in the last 7 days.</p>                                                                                                                                                                                                                                                                                         |
+|<p>  height                                 </p>| <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                       | <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> etc. This is only applicable for image-type assets.</p><p><code>height > 200</code> will return all image files with a height greater than 200px.</p><p><code>height &#x3C;= 400</code> will return all image files with a height less than or equal to 400px.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|<p>  width                                  </p>| <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                       | <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> etc. This is only applicable for image-type assets.</p><p><code>width > 200</code> will return all image files with a width greater than 200px.</p><p><code>width &#x3C;= 400</code> will return all image files with a width less than or equal to 400px.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|<p>  size                                   </p>| <ul><li>=</li><li>&#x3C;</li><li>&#x3C;=</li><li>></li><li>>=</li><li>IN</li><li>NOT =</li><li>NOT IN</li></ul>                                                                       | <p>Accepts a numeric value e.g. <code>500</code>, <code>200</code> or string e.g. <code>1mb</code>, <code>10kb</code> etc.</p><p><code>size > 1024</code> will return all assets with a file size greater than 1024 bytes.<br></p><p><code>size &#x3C;= "1mb"</code> will return all assets with a file size less than or equal to 1MB.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|<p>  format                                 </p>| <ul><li>=</li><li>IN</li></ul>                                                                                                                                                        | <p>Accepts a string value.<br><br>Allowed values are <code>jpg</code>, <code>webp</code>, <code>png</code>, <code>gif</code>, <code>svg</code>, <code>avif</code>, <code>pdf</code>, <code>js</code>, <code>woff2</code>, <code>woff</code>, <code>ttf</code>, <code>otf</code>, <code>eot</code>, <code>css</code>, <code>txt</code>, <code>mp4</code>, <code>webm</code>, <code>mov</code>, <code>swf</code>, <code>ts</code>, <code>m3u8</code>, <code>ico</code>.</p><p><br><code>format = "jpg"</code> will return all JPG image files.</p>                                                                                                                                                                                                                                                       |
+|<p>  private                                </p>| <ul><li>=</li></ul>                                                                                                                                                                   | <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without quotes.</p><p><code>private = true</code> will return all files marked as private during upload.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|<p>  transparency                           </p>| <ul><li>=</li></ul>                                                                                                                                                                   | <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without quotes. This is only applicable to images.</p><p><code>transparency = true</code> will return all image files that have an alpha layer. However, the presence of the alpha layer does not guarantee transparency if all pixels in the alpha layer have the value 1.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|<p>  embeddedMetadata.LocationTaken         </p>| <ul><li>=</li></ul>                                                                                                                                                                   | <p>Accepts a location value in one of the supported types:</p><ul><li>"40,100 5km" - Returns items that are within a 5 km distance from the specified coordinate</li><li>"40,100\|50,105" - Returns items that are inside the square whose diagonal is the line made by the two specified points</li><li>"0,0\|0,100\|40,100\|40,0" - Returns items that are inside the rectangle whose vertices are the four specified points.</li></ul><p><strong>Note</strong>: All coordinates are in the format <code>latitude,longitude</code><p>                                                                                                                                                                                                                                                                   |
+|<p>  embeddedMetadata.Keywords              </p>| <ul><li>IN</li><li>NOT IN</li></ul>                                                                                                                                                   | <p>Accepts an array of string values.</p><p><code>"embeddedMetadata.Keywords" IN ["luxury", "dress"]</code> will return all files that have either <code>luxury</code> or <code>dress</code> as one of the values in its Keywords field.</p><p><code>"embeddedMetadata.Keywords" NOT IN ["big-banner"]</code> will return all files that do not have <code>big-banner</code> as one of the values in its Keywords field.</p>                                                                                                                                                                                                                                                                                                                                                                               |
+|<p>  embeddedMetadata.DateTimeOriginal      </p>| <p></p><ul><li>=</li></ul><ul><li>&#x3C;</li></ul><ul><li>&#x3C;=</li></ul><ul><li>></li></ul><ul><li>>=</li></ul><ul><li>IN</li></ul><ul><li>NOT =</li></ul><ul><li>NOT IN</li></ul> | <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>, or <code>4m</code>.<br></p><p><code>"embeddedMetadata.DateTimeOriginal" > "2020-01-01"</code> will return all files with a value later than 1 Jan 2020 at 00:00 hours in UTC.</p><p><code>"embeddedMetadata.DateTimeOriginal" > "2020-01-01T12:12:12"</code> will return all files with a value later than 1 Jan 2020 12:12:12 hours in UTC.</p><p><code>"embeddedMetadata.DateTimeOriginal" > "7d"</code> will return all files with a value that lies in the last 7 days.</p>                                                                                                                                                                                             |
+|<p>  Custom metadata `Text` type field      </p>| <p></p><ul><li>=</li></ul><ul><li>:</li></ul><ul><li>IN</li></ul><ul><li>NOT =</li></ul><ul><li>NOT IN</li></ul>                                                                      | <p>Accepts a string value in quotes. For example:</p><p><code>"customMetadata.description" = "black cars" </code>will return all files &#x26; folders with the description custom field exactly equal to <code>black cars</code>.</p><p><code>"customMetadata.description": "red"</code> will return all files &#x26; folders with the description custom field starting with <code>red</code>.</p><p><code>"customMetadata.description" IN ["red cars", "black cars"]</code> will return all files &#x26; folders with the description custom field either <code>red cars</code> or</p><p><code>black cars</code>.</p><p><code>"customMetadata.description" NOT = "red dress"</code> will return all files and folders</p><p>with the description custom field other than <code>red dress</code>.</p> |
+|<p>  Custom metadata `Textarea` type field  </p>| <p></p><ul><li>=</li></ul><ul><li>:</li></ul><ul><li>IN</li></ul><ul><li>NOT =</li></ul><ul><li>NOT IN</li></ul>                                                                      | <p>Accepts a string value in quotes. For example:</p><p></p><p><code>"customMetadata.longDescription": "luxury"</code> will return all files &#x26; folders with the longDescription custom field starting with <code>luxury</code>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|<p>  Custom metadata `Date` type field      </p>| <p></p><ul><li>=</li></ul><ul><li>&#x3C;</li></ul><ul><li>&#x3C;=</li></ul><ul><li>></li></ul><ul><li>>=</li></ul><ul><li>IN</li></ul><ul><li>NOT =</li></ul><ul><li>NOT IN</li></ul> | <p>Accepts a string value in ISO 8601 format or relative time units e.g <code>1h</code>, <code>2d</code>, <code>3w</code>, or <code>4m</code>.<br></p><p><code>"customMetadata.purchaseDate" > "2020-01-01"</code> will return all files with a purchaseDate value later than 1 Jan 2020 at 00:00 hours in UTC.</p><p><code>"customMetadata.purchaseDate" > "2020-01-01T12:12:12"</code> will return all files with a purchaseDate value later than 1 Jan 2020 12:12:12 hours in UTC.</p><p><code>"customMetadata.purchaseDate" > "7d"</code> will return all files with a purchaseDate value that lies in the last 7 days.</p>                                                                                                                                                                        |
+|<p>  Custom metadata `Number` type field    </p>| <p></p><ul><li>=</li></ul><ul><li>&#x3C;</li></ul><ul><li>&#x3C;=</li></ul><ul><li>></li></ul><ul><li>>=</li></ul><ul><li>IN</li></ul><ul><li>NOT =</li></ul><ul><li>NOT IN</li></ul> | <p>Accepts a numeric value e.g. <code>500</code>, <code>200.125</code> , etc.</p><p></p><p><code>"customMetadata.quantitySold" > 200</code> will return all items with a quantitySold value greater than 200.</p><p><code>"customMetadata.quantitySold" &#x3C;= 400</code> will return all items with a quantitySold value less than or equal to 400.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|<p>  Custom metadata `Boolean` type field   </p>| <ul><li>=</li></ul>                                                                                                                                                                   | <p>Accepts a boolean value i.e. <code>true</code> or <code>false</code> without quotes.</p><p><code>"customMetadata.active" = true</code> will return all items with an active value equal to true.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|<p>  Custom metadata `SingleSelect` type       &nbsp; &nbsp; &nbsp; &nbsp;</p>| <p></p><ul><li>=</li></ul><ul><li>:</li></ul><ul><li>IN</li></ul><ul><li>NOT =</li></ul><ul><li>NOT IN</li><li>></li><li>>=</li><li>&#x3C;</li><li>&#x3C;=</li></ul>                  | <p>Accepts boolean, numeric, or string values.</p><p><code>"customMetadata.rating" = "excellent"</code> will return all files with a rating value equal to <code>excellent</code></p><p><code>"customMetadata.rating" > 4.3</code> will return all files that have a numeric rating value that is greater than 4.3</p><p><strong>Note</strong>: certain operators will be valid only for certain types of values. For example, the >= operator will be valid only for numeric values.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|<p>  Custom metadata `MultiSelect` type     </p>| <ul><li>IN</li><li>NOT IN</li></ul>                                                                                                                                                   | <p>Accepts an array of boolean, numeric, or string values.</p><p><code>"customMetadata.tuple" IN ["luxury", 500, true]</code> will return all files that have either <code>luxury</code> or <code>500</code> or <code>true</code> as one of the values in its tuples field.</p><p><code>"customMetadata.tuples" NOT IN ["big-banner"]</code> will return all files that do not have <code>big-banner</code> as one of the values in its tuples field.</p>                                                                                                                                                                                                                                                                                                                                                |
 
 ## Understanding response
 
-In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the list of files in JSON-encoded response body.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. You will receive a `200` status code with the list of files in the JSON-encoded response body on success.
 
 The JSON-encoded response has an array of items. Each item can have the following properties.
 
@@ -472,6 +491,182 @@ list_files = imagekitio.list_files({searchQuery : 'createdAt >= "7d" AND size > 
 {% endtab %}
 {% endtabs %}
 
+### Custom metadata based search
+
+List all files belonging to the `clothing` or `accessories` categories using a custom metadata field called `category`. The [custom metadata schema](../custom-metadata-fields-api/create-custom-metadata-field.md) for this field must have been defined first.
+
+`"customMetadata.category IN ["clothing", "accessories"]"`
+
+{% tabs %}
+{% tab title="cURL" %}
+```bash
+curl -X GET 'https://api.imagekit.io/v1/files' \
+-G --data-urlencode "searchQuery=\"customMetadata.category\" IN [\"clothing\", \"accessories\"]" \
+-u your_private_api_key:
+```
+{% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.listFiles({
+    searchQuery : '"customMetadata.category" IN ["clothing", "accessories"]"'
+}, function(error, result) { 
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+list_files = imagekit.list_files({'searchQuery': '"customMetadata.category" IN ["clothing", "accessories"]"'})
+
+print("List files-", "\n", list_files)
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$listFiles = $imageKit->listFiles(array(
+    "searchQuery" => '"customMetadata.category" IN ["clothing", "accessories"]"',
+));
+
+echo ("List files : " . json_encode($listFiles));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+Map<String , String> options=new HashMap<>();
+options.put("searchQquery",'"customMetadata.category" IN ["clothing", "accessories"]"');
+ResultList resultList=ImageKit.getInstance().getFileList(options);
+```
+{% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
+list_files = imagekitio.list_files({searchQuery : '"customMetadata.category" IN ["clothing", "accessories"]"'})
+```
+{% endtab %}
+{% endtabs %}
+
+### Embedded metadata based search
+
+List all files with a `DateTimeOriginal` value later than one year ago by using the `embeddedMetadata.DateTimeOriginal` field. i.e. all files that were originally created within the last one year.
+
+`"embeddedMetadata.DateTimeOriginal" > "1y"`
+
+{% tabs %}
+{% tab title="cURL" %}
+```bash
+curl -X GET 'https://api.imagekit.io/v1/files' \
+-G --data-urlencode "searchQuery=\"embeddedMetadata.DateTimeOriginal\" > \"1y\"" \
+-u your_private_api_key:
+```
+{% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.listFiles({
+    searchQuery : '"embeddedMetadata.DateTimeOriginal" > "1y"'
+}, function(error, result) { 
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+list_files = imagekit.list_files({'searchQuery': '"embeddedMetadata.DateTimeOriginal" > "1y"'})
+
+print("List files-", "\n", list_files)
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$listFiles = $imageKit->listFiles(array(
+    "searchQuery" => '"embeddedMetadata.DateTimeOriginal" > "1y"',
+));
+
+echo ("List files : " . json_encode($listFiles));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+Map<String , String> options=new HashMap<>();
+options.put("searchQquery",'"embeddedMetadata.DateTimeOriginal" > "1y"');
+ResultList resultList=ImageKit.getInstance().getFileList(options);
+```
+{% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
+list_files = imagekitio.list_files({searchQuery : '"embeddedMetadata.DateTimeOriginal" > "1y"'})
+```
+{% endtab %}
+{% endtabs %}
+ 
 ### Search media library files by name
 
 List all files with filename `file-name.jpg`. We will use the following value of the`searchQuery` parameter. The match is always case-sensitive.
