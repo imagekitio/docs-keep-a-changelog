@@ -222,7 +222,7 @@ createdAt < 2y (createdAt should be before two years ago)
 
 ### Search based on custom metadata or embedded metadata values
 
-You can use [custom metadata](../custom-metadata-fields-api) and embedded metadata fields in your search query.
+You can use [custom metadata](../../custom-metadata-fields-api) and embedded metadata fields in your search query.
 
 Every embedded metadata field must be prefixed with 'embeddedMetadata' and a period, and it must be enclosed within double quotes. For example, `"embeddedMetadata.Keywords" IN ["black"]`
 
@@ -465,7 +465,7 @@ list_files = imagekitio.list_files({searchQuery : 'createdAt >= "7d" AND size > 
 
 ### Custom metadata based search
 
-List all files that belong to the `clothing` or `accessories` categories by using a custom metadata field called `category`. The [custom metadata schema](../api-reference/custom-metadata-fields-api/create-custom-metadata-field) for this field must have been defined first.
+List all files that belong to the `clothing` or `accessories` categories by using a custom metadata field called `category`. The [custom metadata schema](../../api-reference/custom-metadata-fields-api/create-custom-metadata-field) for this field must have been defined first.
 
 `"customMetadata.category IN ["clothing", "accessories"]"`
 
