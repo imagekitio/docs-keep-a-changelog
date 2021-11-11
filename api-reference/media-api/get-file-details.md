@@ -23,6 +23,14 @@ base64 encoding of `your_private_api_key:`
     "name": "file1.jpg",
     "filePath": "/images/products/file1.jpg",
     "tags": ["t-shirt", "round-neck", "sale2019"],
+    "AITags": [
+        {
+            "name": "Shirt",
+            "confidence": 90.12,
+            "source": "google-auto-tagging"
+        },
+        /* ... more googleVision tags ... */
+    ],
     "isPrivateFile": false,
     "customCoordinates": null,
     "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
@@ -34,8 +42,8 @@ base64 encoding of `your_private_api_key:`
     "size": 100,
     "hasAlpha": false,
     "customMetadata": {
-        "brand": "Nike",
-        "color": "red"
+        brand: "Nike",
+        color: "red"
     },
     "createdAt": "2019-08-24T06:14:41.313Z",
     "updatedAt": "2019-08-24T06:14:41.313Z"
@@ -52,26 +60,27 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 
 The JSON-encoded response details of the file can have the following properties:
 
-| Property name     | Description                                                                                                                                                                          |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| fileId            | The unique fileId of the uploaded file.                                                                                                                                              |
-| type              | <p>Type of item. It can be either <code>file</code> or <code>folder</code>.<br></p>                                                                                                  |
-| name              | Name of the file or folder.                                                                                                                                                          |
-| filePath          | <p>The relative path of the file. In the case of an image, you can use this <br>path to construct different <a href="../../features/image-transformations/">transformations</a>.</p> |
-| tags              | Array of tags associated with the image. If no tags are set, it will be `null`.                                                                                                      |
-| isPrivateFile     | Is the file marked as private. It can be either `true` or `false`.                                                                                                                   |
-| customCoordinates | <p>Value of custom coordinates associated with the image in format <code>x,y,width,height</code>.<br>If customCoordinates are not defined then it is <code>null</code>.</p>          |
-| url               | A publicly accessible URL of the file.                                                                                                                                               |
-| thumbnail         | In case of an image, a small thumbnail URL.                                                                                                                                          |
-| fileType          | The type of file, could be either `image` or `non-image`.                                                                                                                            |
-| mime              | MIME Type of the file. For example - `image/jpeg`                                                                                                                                    |
-| height            | Height of the image in pixels (Only for images)                                                                                                                                      |
-| width             | Width of the image in pixels (Only for Images)                                                                                                                                       |
-| size              | Size of the image file in Bytes                                                                                                                                                      |
-| hasAlpha          | A boolean indicating if the image has an alpha layer or not.                                                                                                                         |
-| customMetadata    | A key-value data associated with the asset. Before setting any custom metadata on an asset you have to create the field using [custom metadata fields API](../custom-metadata-fields-api/)                                       |
-| createdAt         | The date and time when the file was first uploaded. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                         |
-| updatedAt         | The date and time when the file was last updated. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                           |
+| Property name     | Description                                                                                                                                                                                                                             |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fileId            | The unique fileId of the uploaded file.                                                                                                                                                                                                 |
+| type              | Type of item. It can be either `file` or `folder`.                                                                                                                                                                                      |
+| name              | Name of the file or folder.                                                                                                                                                                                                             |
+| filePath          | The relative path of the file. In the case of an image, you can use this path to construct different transformations.                                                                                                                   |
+| tags              | The array of tags associated with the image. If no tags are set, it will be `null`.                                                                                                                                                     |
+| AITags            | Array of `AITags` associated with the image. If no `AITags` are set, it will be `null`. These tags can be added using the `google-auto-tagging` or `aws-auto-tagging` [extensions](../../extensions/overview/ai-based-auto-tagging.md). |
+| isPrivateFile     | Is the file marked as private. It can be either `true` or `false`.                                                                                                                                                                      |
+| customCoordinates | <p>Value of custom coordinates associated with the image in the format <code>x,y,width,height</code>. If customCoordinates are not defined, then it is <code>null</code>.<br></p>                                                       |
+| url               | A publicly accessible URL of the file.                                                                                                                                                                                                  |
+| thumbnail         | In the case of an image, a small thumbnail URL.                                                                                                                                                                                         |
+| fileType          | The type of file could be either `image` or `non-image`.                                                                                                                                                                                |
+| mime              | MIME Type of the file. For example - `image/jpeg`                                                                                                                                                                                       |
+| height            | Height of the image in pixels (Only for images)                                                                                                                                                                                         |
+| width             | Width of the image in pixels (Only for Images)                                                                                                                                                                                          |
+| size              | Size of the image file in Bytes                                                                                                                                                                                                         |
+| hasAlpha          | A boolean indicating if the image has an alpha layer or not.                                                                                                                                                                            |
+| customMetadata    | A key-value data associated with the asset. Before setting any custom metadata on an asset, you have to create the field using [custom metadata fields API](../custom-metadata-fields-api/).                                            |
+| createdAt         | The date and time when the file was first uploaded. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                                                                            |
+| updatedAt         | The date and time when the file was last updated. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                                                                              |
 
 ## Examples
 

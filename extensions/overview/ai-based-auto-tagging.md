@@ -88,7 +88,7 @@ The `AITags` field is populated only because the `google-auto-tagging` extension
 
 You can include a `webhookUrl` parameter in your update/upload API calls. The final status of extensions after they have completed execution will be delivered to this endpoint as a POST request. The request body sent to this endpoint will look like the examples below.
 
-To learn more about how ImageKit uses webhooks, refer [here](./#webhooks).
+To learn more about how webhooks works, refer [this](./#webhooks).
 
 ```javascript
 // A SUCCESS webhook request for a google auto-tagging extension

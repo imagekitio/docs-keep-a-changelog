@@ -85,28 +85,36 @@ The number of results to skip before returning results.
 ```javascript
 [
     {
-      "fileId": "598821f949c0a938d57563bd",
-      "type": "file",
-      "name": "file1.jpg",
-      "filePath": "/images/products/file1.jpg",
-      "tags": ["t-shirt", "round-neck", "sale2019"],
-      "isPrivateFile": false,
-      "customCoordinates": null,
-      "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
-      "thumbnail": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
-      "fileType": "image",
-      "mime": "image/jpeg",
-      "width": 100,
-      "height": 100,
-      "size": 100,
-      "hasAlpha": false,
-      "customMetadata": {
-        "brand": "Nike",
-        "color": "red"
-      },
-      "createdAt": "2019-08-24T06:14:41.313Z",
-      "updatedAt": "2019-08-24T06:14:41.313Z"
-    },
+        "fileId": "598821f949c0a938d57563bd",
+        "type": "file",
+        "name": "file1.jpg",
+        "filePath": "/images/products/file1.jpg",
+        "tags": ["t-shirt", "round-neck", "sale2019"],
+        "AITags": [
+            {
+                "name": "Shirt",
+                "confidence": 90.12,
+                "source": "google-auto-tagging"
+            },
+            /* ... more googleVision tags ... */
+        ],
+        "isPrivateFile": false,
+        "customCoordinates": null,
+        "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
+        "thumbnail": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
+        "fileType": "image",
+        "mime": "image/jpeg",
+        "width": 100,
+        "height": 100,
+        "size": 100,
+        "hasAlpha": false,
+        "customMetadata": {
+            brand: "Nike",
+            color: "red"
+        },
+        "createdAt": "2019-08-24T06:14:41.313Z",
+        "updatedAt": "2019-08-24T06:14:41.313Z"
+    }
     ...more items
   ];
 ```
@@ -280,7 +288,7 @@ The JSON-encoded response has an array of items. Each item can have the followin
 | width             | Width of the image in pixels (Only for Images)                                                                                                                                                                                          |
 | size              | Size of the image file in Bytes                                                                                                                                                                                                         |
 | hasAlpha          | A boolean indicating if the image has an alpha layer or not.                                                                                                                                                                            |
-| customMetadata    | A key-value data associated with the asset. Before setting any custom metadata on an asset you have to create the field using [custom metadata fields API](../custom-metadata-fields-api/)                                       |
+| customMetadata    | A key-value data associated with the asset. Before setting any custom metadata on an asset, you have to create the field using [custom metadata fields API](../custom-metadata-fields-api/).                                            |
 | createdAt         | The date and time when the file was first uploaded. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                                                                            |
 | updatedAt         | The date and time when the file was last updated. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                                                                              |
 
