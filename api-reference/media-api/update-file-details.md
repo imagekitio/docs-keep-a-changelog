@@ -37,6 +37,10 @@ An array of tags associated with the file e.g. `["tag1", "tag2"]`. If you want t
 Define an important area in the image in the format `x,y,width,height` e.g. `10,10,100,100`. If you want to unset this send `null`.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="customMetadata" type="json" required="false" %}
+Define an important area in the image in the format `x,y,width,height` e.g. `10,10,100,100`. If you want to unset this send `null`.
+{% endswagger-parameter %}
+
 {% swagger-response status="200" description="On success, you will receive the updated file details in the JSON-encoded response body." %}
 ```javascript
 /*

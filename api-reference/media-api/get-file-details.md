@@ -68,7 +68,8 @@ The JSON-encoded response details of the file can have the following properties:
 | height            | Height of the image in pixels (Only for images)                                                                                                                                      |
 | width             | Width of the image in pixels (Only for Images)                                                                                                                                       |
 | size              | Size of the image file in Bytes                                                                                                                                                      |
-| hasAlpha          | TODO                                                                                                                                                                                 |
+| hasAlpha          | A boolean indicating if the image has an alpha layer or not.                                                                                                                         |
+| customMetadata    | A key-value data associated with the asset. Before setting any custom metadata on an asset you have to create the field using [custom metadata fields API](../custom-metadata-fields-api/)                                       |
 | createdAt         | The date and time when the file was first uploaded. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                         |
 | updatedAt         | The date and time when the file was last updated. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                           |
 
