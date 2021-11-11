@@ -12,9 +12,7 @@ base64 encoding of `your_private_api_key:`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="includeDeleted" %}
-`true`
-
- if you want to receive deleted fields too
+Set it to `true` if you want to receive deleted fields as well in the API response.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="In the response, you will get an array of all the custom metadata fields with each object having field id, name, label and schema." %}

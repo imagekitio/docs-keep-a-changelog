@@ -12,19 +12,14 @@ base64 encoding of `your_private_api_key:`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="label" type="string" required="false" %}
-Label of the metadata field, unique across all non deleted custom metadata fields.
-
-Required if `schema` is not provided.
+Label of the metadata field, unique across all non deleted custom metadata fields. This parameter is required if `schema` is not provided.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="schema" type="object" %}
-An object that describes the rules for the custom metadata key.
-
-Required if `label` is not provided.
+An object that describes the rules for the custom metadata key. This parameter is required if `label` is not provided.
 
 
-
-**Note: **`type` cannot be updated and will be ignored if sent with the `schema`, the schema will be validated with existing `type` and rest of the parameters sent through this API and errors will be returned accordingly.
+**Note:** `type` cannot be updated and will be ignored if sent with the `schema`. The schema will be validated as per the existing `type`.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="Custom metadata definition successfully updated. In the response, you will get the field id, field name and, field schema." %}

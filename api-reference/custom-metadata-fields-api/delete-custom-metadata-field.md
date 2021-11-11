@@ -11,11 +11,11 @@ base64 encoding of `your_private_api_key:`
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
-{% swagger-response status="200: OK" description="" %}
+{% swagger-response status="204: OK" description="Empty body is returned." %}
 
 {% endswagger-response %}
 
-{% swagger-response status="404: Not Found" description="If no custom metadata is found with this id, 404 is returned" %}
+{% swagger-response status="404: Not Found" description="If no custom metadata is found with this id, 404 is returned." %}
 
 {% endswagger-response %}
 {% endswagger %}
