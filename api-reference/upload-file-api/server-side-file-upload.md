@@ -153,8 +153,8 @@ import sys
 from imagekitio import ImageKit
 
 imagekit = ImageKit(
-    private_key='your_private_key',
     public_key='your_public_key',
+    private_key='your_private_key',
     url_endpoint = 'your_url_endpoint'
 )
 
