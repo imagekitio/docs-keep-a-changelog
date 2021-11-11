@@ -99,8 +99,8 @@ The JSON-encoded response contains details of the file which can have the follow
 The `signature` is HMAC-SHA1 digest of the string `token+expire` using your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key) as a key. The `signature` should be in lowercase.
 
 {% hint style="danger" %}
-**Never publish your private key on client-side **\
-****The Private API key should be kept confidential and only stored on your own servers.
+**Never publish your private key on client-side**\
+The Private API key should be kept confidential and only stored on your own servers.
 {% endhint %}
 
 If you are using ImageKit.io [client-end SDK](../api-introduction/sdk.md#client-side-sdks) for file upload, it requires an `authenticationEndpoint` endpoint for getting authentication parameters required in the upload API.
@@ -198,11 +198,13 @@ echo("Auth params : " . json_encode($authenticationParameters));
 {% endtabs %}
 
 {% hint style="danger" %}
-**Never publish your private key on client-side **\
-****The Private API key should be kept confidential and only stored on your own servers.
+**Never publish your private key on client-side**\
+The Private API key should be kept confidential and only stored on your own servers.
 {% endhint %}
 
 ## Examples
+
+The example below demonstrates only basic usage. Refer to [these examples](server-side-file-upload.md#examples) in the server-side upload section to learn about different use-cases. The only difference between client-side and server-side upload is how API authentication works.
 
 Make sure you have implemented `authenticationEndpoint` endpoint on your server as shown [here](client-side-file-upload.md#how-to-implement-authenticationendpoint-endpoint) before using the below examples.
 
@@ -367,111 +369,5 @@ export default {
 };
 </script>
 ```
-{% endtab %}
-{% endtabs %}
-
-## Uploading file and sending custom metadata along
-
-{% tabs %}
-{% tab title="JavaScript SDK" %}
-{% code title="index.html" %}
-```javascript
-<form action="#" onsubmit="upload()">
-	<input type="file" id="file1" />
-	<input type="submit" />
-</form>
-<script type="text/javascript" src="../dist/imagekit.js"></script>
-
-<script>
-    /* 
-        SDK initilization
-        
-        authenticationEndpoint should be implemented on your server 
-        as shown above 
-    */
-    var imagekit = new ImageKit({
-        publicKey : "your_public_api_key",
-        urlEndpoint : "https://ik.imagekit.io/your_imagekit_id",
-        authenticationEndpoint : "https://www.yourserver.com/auth"
-    });
-    
-    // Upload function internally uses the ImageKit.io javascript SDK
-    function upload(data) {
-        var file = document.getElementById("file1");
-        imagekit.upload({
-            file : file.files[0],
-            fileName : "abc.jpg",
-            customMetadata : '{"leaves":"green", "object":"hand"}'
-        }, function(err, result) {
-            console.log(arguments);
-            console.log(imagekit.url({
-                src: result.url,
-                transformation : [{ height: 300, width: 400}]
-            }));
-        })
-    }
-</script>
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="jQuery (without SDK)" %}
-{% code title="index.html" %}
-```javascript
-<form action="#" onsubmit="upload()">
-	<input type="file" id="file1" />
-	<input type="submit" />
-</form>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-<script>
-	// This endpoint should be implemented on your server as shown above 
-	var authenticationEndpoint = "https://www.yourserver.com/auth";
-	
-	function upload() {
-	  var file = document.getElementById("file1");
-		var formData = new FormData();
-		formData.append("file", file.files[0]);
-		formData.append("fileName", "abc.jpg");
-		formData.append("publicKey", "your_public_api_key");
-		formData.append("customMetadata", '{"leaves":"green", "object":"hand"}');
-	
-		// Let's get the signature, token and expire from server side
-		$.ajax({
-		    url : authenticationEndpoint,
-		    method : "GET",
-		    dataType : "json",
-		    success : function(body) {
-		        formData.append("signature", body.signature || "");
-		        formData.append("expire", body.expire || 0);
-		        formData.append("token", body.token);
-	
-						// Now call ImageKit.io upload API
-		        $.ajax({
-		            url : "https://upload.imagekit.io/api/v1/files/upload",
-		            method : "POST",
-		            mimeType : "multipart/form-data",
-		            dataType : "json",
-		            data : formData,
-		            processData : false,
-		            contentType : false,
-		            error : function(jqxhr, text, error) {
-		                console.log(error)
-		            },
-		            success : function(body) {
-		                console.log(body)
-		            }
-		        });
-	
-		    },
-	
-		    error : function(jqxhr, text, error) {
-		        console.log(arguments);
-		    }
-		});
-	}
-</script>
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

@@ -323,8 +323,6 @@ upload = imagekitio.upload_file(
 
 ### Uploading file via URL
 
-## Uploading file and sending custom metadata along
-
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
@@ -426,6 +424,8 @@ upload = imagekitio.upload_file(
 ```
 {% endtab %}
 {% endtabs %}
+
+### Setting custom metadata during upload
 
 {% tabs %}
 {% tab title="cURL" %}

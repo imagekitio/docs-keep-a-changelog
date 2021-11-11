@@ -9,7 +9,7 @@ Both methods use the same endpoint, but there is a slight change in the request 
 
 {% hint style="info" %}
 **File size limit**\
-****The maximum upload file size is limited to 25MB.
+The maximum upload file size is limited to 25MB.
 {% endhint %}
 
 ## Allowed file types for uploading
