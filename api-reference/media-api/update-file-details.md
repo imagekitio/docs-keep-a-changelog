@@ -2,11 +2,31 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/details" method="patch" summary="Update file details API" %}
 {% swagger-description %}
-Update file details such as `tags`, `customCoordinates` attributes, remove existing `AITags` and apply [extensions](../../extensions/overview/) using update file detail API.
+Update file details such as 
+
+`tags`
+
+, 
+
+`customCoordinates`
+
+ attributes, remove existing 
+
+`AITags`
+
+ and apply 
+
+[extensions](../../extensions/overview/)
+
+ using update file detail API.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="fileId" type="string" required="false" %}
-The unique fileId of the uploaded file. `fileId` is returned in list files API and upload API.
+The unique fileId of the uploaded file. 
+
+`fileId`
+
+ is returned in list files API and upload API.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
@@ -22,19 +42,51 @@ An array of AITags associated with the file that you want to remove e.g. `["car"
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="webhookUrl" type="string" required="false" %}
-Final status of pending extensions will be sent to this URL. To learn more about how ImageKit uses webhooks, refer [here](../../extensions/overview/#webhooks).
+Final status of pending extensions will be sent to this URL. To learn more about how ImageKit uses webhooks, refer 
+
+[here](../../extensions/overview/#webhooks)
+
+.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="extensions" type="array" required="false" %}
-Stringified JSON object with array of extensions to be processed on the image. For reference about extensions read [here](../../extensions/overview/).
+Stringified JSON object with array of extensions to be processed on the image. For reference about extensions read 
+
+[here](../../extensions/overview/)
+
+.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="tags" type="array" required="false" %}
-An array of tags associated with the file e.g. `["tag1", "tag2"]`. If you want to unset it send `null`.
+An array of tags associated with the file e.g. 
+
+`["tag1", "tag2"]`
+
+. If you want to unset it send 
+
+`null`
+
+.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="customCoordinates" type="string" required="false" %}
-Define an important area in the image in the format `x,y,width,height` e.g. `10,10,100,100`. If you want to unset this send `null`.
+Define an important area in the image in the format 
+
+`x,y,width,height`
+
+ e.g. 
+
+`10,10,100,100`
+
+. If you want to unset this send 
+
+`null`
+
+.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="customMetadata" type="JSON" %}
+customMetadata
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="On success, you will receive the updated file details in the JSON-encoded response body." %}
@@ -78,7 +130,7 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 | fileId            | The unique `fileId` of the uploaded file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | type              | <p>Type of item. It can be either <code>file</code> or <code>folder</code>.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | name              | Name of the file or folder.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| filePath          | <p>The relative path of the file. In the case of an image, you can use this <br>path to construct different <a href="../../features/image-transformations/">transformations</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                               |
+| filePath          | <p>The relative path of the file. In the case of an image, you can use this<br>path to construct different <a href="../../features/image-transformations/">transformations</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                |
 | tags              | Array of tags associated with the image. If no tags are set, it will be `null`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | AITags            | Array of `AITags` associated with the image. If no `AITags` are set, it will be `null`. These tags can be added using the `google-auto-tagging` or `aws-auto-tagging` [extensions](../../extensions/overview/ai-based-auto-tagging.md).                                                                                                                                                                                                                                                                                                                                            |
 | isPrivateFile     | Is the file marked as private. It can be either `true` or `false`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
