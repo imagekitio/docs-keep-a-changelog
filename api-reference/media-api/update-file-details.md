@@ -97,8 +97,6 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 
 ## Examples
 
-## Examples
-
 {% tabs %}
 {% tab title="cURL" %}
 ```bash

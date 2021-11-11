@@ -74,8 +74,6 @@ The JSON-encoded response details of the file can have the following properties:
 
 ## Examples
 
-## Examples
-
 Here is the example request to understand the API usage.
 
 {% tabs %}
