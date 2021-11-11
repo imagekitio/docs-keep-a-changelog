@@ -467,13 +467,13 @@ list_files = imagekitio.list_files({searchQuery : 'createdAt >= "7d" AND size > 
 
 List all files that belong to the `clothing` or `accessories` categories by using a custom metadata field called `category`. 
 
-`"customMetadata.categories IN ["clothing", "accessories"]"`
+`"customMetadata.category IN ["clothing", "accessories"]"`
 
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
 curl -X GET 'https://api.imagekit.io/v1/files' \
--G --data-urlencode "searchQuery=createdAt >= \"7d\" AND size > \"2mb\"" \
+-G --data-urlencode "searchQuery=\"customMetadata.category\" IN [\"clothing\", \"accessories\"]" \
 -u your_private_api_key:
 ```
 {% endtab %}
@@ -489,7 +489,7 @@ var imagekit = new ImageKit({
 });
 
 imagekit.listFiles({
-    searchQuery : '"customMetadata.categories IN ["clothing", "accessories"]"'
+    searchQuery : '"customMetadata.category" IN ["clothing", "accessories"]"'
 }, function(error, result) { 
     if(error) console.log(error);
     else console.log(result);
@@ -507,7 +507,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({'searchQuery': '"customMetadata.categories IN ["clothing", "accessories"]"'})
+list_files = imagekit.list_files({'searchQuery': '"customMetadata.category" IN ["clothing", "accessories"]"'})
 
 print("List files-", "\n", list_files)
 ```
@@ -528,7 +528,7 @@ $imageKit = new ImageKit(
 );
 
 $listFiles = $imageKit->listFiles(array(
-    "searchQuery" => '"customMetadata.categories IN ["clothing", "accessories"]"',
+    "searchQuery" => '"customMetadata.category" IN ["clothing", "accessories"]"',
 ));
 
 echo ("List files : " . json_encode($listFiles));
@@ -538,7 +538,7 @@ echo ("List files : " . json_encode($listFiles));
 {% tab title="Java" %}
 ```java
 Map<String , String> options=new HashMap<>();
-options.put("searchQquery",'"customMetadata.categories IN ["clothing", "accessories"]"');
+options.put("searchQquery",'"customMetadata.category" IN ["clothing", "accessories"]"');
 ResultList resultList=ImageKit.getInstance().getFileList(options);
 ```
 {% endtab %}
@@ -546,10 +546,99 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-list_files = imagekitio.list_files({searchQuery : '"customMetadata.categories IN ["clothing", "accessories"]"'})
+list_files = imagekitio.list_files({searchQuery : '"customMetadata.category" IN ["clothing", "accessories"]"'})
 ```
 {% endtab %}
 {% endtabs %}
+
+### Embedded metadata based search
+
+List all files with a `DateTimeOriginal` value later than one year ago by using the `embeddedMetadata.DateTimeOriginal` field.
+
+`"embeddedMetadata.DateTimeOriginal" > "1y"`
+
+{% tabs %}
+{% tab title="cURL" %}
+```bash
+curl -X GET 'https://api.imagekit.io/v1/files' \
+-G --data-urlencode "searchQuery=\"embeddedMetadata.DateTimeOriginal\" > \"1y\"" \
+-u your_private_api_key:
+```
+{% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.listFiles({
+    searchQuery : '"embeddedMetadata.DateTimeOriginal" > "1y"'
+}, function(error, result) { 
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+list_files = imagekit.list_files({'searchQuery': '"embeddedMetadata.DateTimeOriginal" > "1y"'})
+
+print("List files-", "\n", list_files)
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$listFiles = $imageKit->listFiles(array(
+    "searchQuery" => '"embeddedMetadata.DateTimeOriginal" > "1y"',
+));
+
+echo ("List files : " . json_encode($listFiles));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+Map<String , String> options=new HashMap<>();
+options.put("searchQquery",'"embeddedMetadata.DateTimeOriginal" > "1y"');
+ResultList resultList=ImageKit.getInstance().getFileList(options);
+```
+{% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
+list_files = imagekitio.list_files({searchQuery : '"embeddedMetadata.DateTimeOriginal" > "1y"'})
+```
+{% endtab %}
+{% endtabs %}
+ 
 ### Search media library files by name
 
 List all files with filename `file-name.jpg`. We will use the following value of the`searchQuery` parameter. The match is always case-sensitive.
