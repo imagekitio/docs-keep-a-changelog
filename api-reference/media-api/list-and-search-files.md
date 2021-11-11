@@ -553,7 +553,7 @@ list_files = imagekitio.list_files({searchQuery : '"customMetadata.category" IN 
 
 ### Embedded metadata based search
 
-List all files with a `DateTimeOriginal` value later than one year ago by using the `embeddedMetadata.DateTimeOriginal` field. i.e. all that were originally created within the last one year.
+List all files with a `DateTimeOriginal` value later than one year ago by using the `embeddedMetadata.DateTimeOriginal` field. i.e. all files that were originally created within the last one year.
 
 `"embeddedMetadata.DateTimeOriginal" > "1y"`
 
