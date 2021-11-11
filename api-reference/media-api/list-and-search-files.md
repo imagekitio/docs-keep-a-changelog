@@ -465,7 +465,7 @@ list_files = imagekitio.list_files({searchQuery : 'createdAt >= "7d" AND size > 
 
 ### Custom metadata based search
 
-List all files that belong to the `clothing` or `accessories` categories by using a custom metadata field called `category`. 
+List all files that belong to the `clothing` or `accessories` categories by using a custom metadata field called `category`. The custom metadata schema for this field must have been defined first.
 
 `"customMetadata.category IN ["clothing", "accessories"]"`
 
