@@ -39,7 +39,7 @@ An object that describes the rules for the custom metadata key.
 {% endswagger-response %}
 
 {% swagger-response status="400" description="A 400 response is returned along with an errors object if there is an error in validating field object." %}
-```
+```javascript
 {
     "message": "Invalid field object",
     "help": "For support kindly contact us at support@imagekit.io .",

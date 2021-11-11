@@ -28,7 +28,7 @@ Required if `label` is not provided.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="Custom metadata definition successfully updated. In the response, you will get the field id, field name and, field schema." %}
-```
+```javascript
 {
     "id": "598821f949c0a938d57563dd",
     "name": "price",
@@ -43,7 +43,7 @@ Required if `label` is not provided.
 {% endswagger-response %}
 
 {% swagger-response status="400" description="A 400 response is returned along with an errors object with the key-value pair of all the errors if there is an error in schema object validation." %}
-```
+```javascript
 {
     "message": "Invalid field object",
     "help": "For support kindly contact us at support@imagekit.io .",
