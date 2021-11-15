@@ -8,10 +8,6 @@ description: >-
 
 ## Basic video resizing
 
-{% hint style="info" %}
-Check out the [limitations of alpha release](./#limitations-of-the-alpha-release) before using real-time transformations in your application.
-{% endhint %}
-
 ### Width - (w)
 
 Used to specify the width of the output video. Accepts integer value greater than 1.

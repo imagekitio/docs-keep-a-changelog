@@ -6,7 +6,7 @@ description: List of fonts available for text overlay.
 
 ## In built fonts
 
-ImageKit.io currently supports following fonts out of the box.
+ImageKit.io currently supports the following fonts out of the box.
 
 | Font         | Support for Bold |  Support for Italics |
 | ------------ | ---------------- | -------------------- |
