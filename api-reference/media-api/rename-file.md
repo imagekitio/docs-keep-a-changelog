@@ -12,7 +12,7 @@ base64 encoding of `your_private_api_key:`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="filePath" type="string" %}
-The full path of the file you want to rename. For example - /path/to/file.jpg
+The full path of the file you want to rename. For example - `/path/to/file.jpg`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="newFileName" type="string" %}

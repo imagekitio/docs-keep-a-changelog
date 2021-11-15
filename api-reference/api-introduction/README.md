@@ -1,19 +1,12 @@
 # API Introduction
 
-ImageKit.io offers REST API so that you can programmatically integrate ImageKit.io in your application. Currently, we offer APIs for:
+ImageKit.io offers REST API so that you can programmatically integrate ImageKit.io into your application. Currently, we offer APIs for:
 
-1. [Uploading files](../upload-file-api/) in the Media library.
-2. [Updating files details](../media-api/update-file-details.md), e.g., tags and custom coordinates for cropping.
-3. [Listing and searching files](../media-api/list-and-search-files.md) in the Media library by file/folder name, tags.
-4. [Getting individual file details](../media-api/get-file-details.md).
-5. [Deleting files](../media-api/delete-file.md).
-6. [Delete files in bulk](../media-api/delete-files-bulk.md).
-7. [Purging cache](../media-api/purge-cache.md) on CDN.
-8. [Getting image metadata](../metadata-api/get-image-metadata-for-uploaded-media-files.md) for an image file.
-9. Bulk [add](../media-api/add-tags-bulk.md) or [remove](../media-api/remove-tags-bulk.md) tags.
-10. [Copy](../media-api/copy-file.md) or [move](../media-api/move-file.md) files.
-11. [Copy](../media-api/copy-folder.md) or [move](../media-api/move-folder.md) folder.
-12. [Get bulk job status](../media-api/copy-move-folder-status.md) for copy and move folder jobs.
+* [File upload](../upload-file-api/) - Upload files from server or client-side.
+* [Media management](../media-api/) - Integrate easy-to-use media management APIs in your application for searching, updating, copying, moving, renaming and deleting media.
+* [File metadata](../metadata-api/) - Get embedded file metadata.
+* [Custom metadata fields management](../custom-metadata-fields-api) - Imagekit.io allows you to define a schema for your custom metadata keys. Value filled against that key will have to adhere to those rules. You can create, read and update custom metadata rules and update your file with custom metadata value in file update API or file upload API.
+
 
 ## Request and response encoding
 
@@ -35,7 +28,7 @@ ImageKit.io API uses standard HTTP error codes.
 | <p><strong>400</strong><br>Bad request</p>                                  | The request was unacceptable, often due to missing or invalid parameter(s). In this case, a JSON-encoded error response is returned with the `message` property. `message` contains the details about the error and possible solution.                                                                                                                                                                             |
 | <p><strong>401</strong><br>Unauthorized<br></p>                             | No valid API key was provided.                                                                                                                                                                                                                                                                                                                                                                                     |
 | <p><strong>403</strong></p><p>Forbidden</p>                                 | <p>Can be for the following reasons which will be indicated in the <code>message</code>field in the response:<br></p><ul><li>ImageKit could not authenticate your account with the keys provided.</li><li>An expired key (public or private) was used with the request.</li><li>The account is disabled.</li><li>If you are using the upload API, the total storage limit (or upload limit) is exceeded.</li></ul> |
-| <p><strong>429</strong><br>Too Many Requests<br></p>                        | <p>Too many requests hit the API too quickly.<br>We recommend you throttle the request rate as per the <br>value of <code>X-RateLimit-Limit</code> and <code>X-RateLimit-Reset</code> response headers and stay within <a href="rate-limits.md">rate limits</a>.</p>                                                                                                                                               |
+| <p><strong>429</strong><br>Too Many Requests<br></p>                        | <p>Too many requests hit the API too quickly.<br>We recommend you throttle the request rate as per the <br>value of <code>X-RateLimit-Limit</code> and <code>X-RateLimit-Reset</code> response headers and stay within <a href="rate-limits.md">rate limits</a>.</p>                                                                                                                                               |
 | <p><strong>500, 502, 503, 504</strong><br><strong></strong>Server error</p> | <p>Something went wrong with ImageKit.io API. <br>Please create a support ticket by emailing us at <a href="mailto:supprort@imagekit.io">support@imagekit.io</a>.</p>                                                                                                                                                                                                                                              |
 
 ## Request ID (x-ik-requestId)
