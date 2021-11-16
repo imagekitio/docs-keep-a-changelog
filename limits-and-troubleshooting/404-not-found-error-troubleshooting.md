@@ -16,7 +16,7 @@ The value of `ik-error` header is: `ERROR_CODE - ERROR_MESSAGE`
 
 For example, when you try to access an image from your AWS S3 bucket that doesn't exist, you will receive a `404` status code with an `ik-error`_ _header as follows:
 
-`ENOENT - No file was found on S3 at the specified path`
+`ENOENT - No such file was found on S3 at the specified path`
 
 You can use browser developer tools to inspect the response header and read the error message. For example, if we try to access the below non-existing image:
 
