@@ -720,3 +720,15 @@ By default, any image that is delivered via ImageKit.io always gets optimized in
 Example - [https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg)
 
 ![](https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg)
+
+### Downloading image - (ik-attachment)
+
+There might be scenarios where you would want to download the image as an attachment rather than viewing it on the web browser. To download an image, you can use `ik-attachment=true` as a query parameter in the image URL. By specifying this parameter in the image URL, you'd be given an option to download and save the image file on your system.
+
+Example - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?ik-attachment=true](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?ik-attachment=true)
+
+![](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?ik-attachment=true)
+
+{% hint style="info" %}
+Unlike other transformations, the ik-attachment parameter works without using the **tr** keyword. 
+{% endhint %}
