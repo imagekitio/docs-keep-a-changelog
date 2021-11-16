@@ -56,6 +56,31 @@ Notice that width is automatically adjusted to maintain the aspect ratio.
 {% endtab %}
 {% endtabs %}
 
+### Aspect ratio - (ar)
+
+Used to specify the aspect ratio of the output video. It is the ratio of width to height of the output video. This parameter must be used along with either the [height(h)](resize-crop-and-other-common-video-transformations.md#height-h) or [width(w)](resize-crop-and-other-common-video-transformations#width-w) parameter but not both.
+
+Usage = `ar-<width>-<height>`
+
+{% hint style="info" %}
+If you specify both [height(h)](resize-crop-and-other-common-video-transformations#height-h) and [width(w)](resize-crop-and-other-common-video-transformations#width-w) in the URL along with [aspect ratio(ar)](resize-crop-and-other-common-video-transformations#aspect-ration-ar), then the aspect ratio is ignored.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Original" %}
+URL - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
+
+{% endtab %}
+
+{% tab title="width 400px and aspect ratio 4:3" %}
+URL - [https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium\_cafe\_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium\_cafe\_B1iTdD0C.jpg)
+{% endtab %}
+{% endtabs %}
+
 ## Crop, Crop Modes, and Focus
 
 If only, one of the [height(h)](resize-crop-and-other-common-video-transformations.md#height-h) or [width(w)](resize-crop-and-other-common-video-transformations.md#width-w) is specified, then ImageKit.io adjusts the other dimension accordingly to preserve aspect ratio and no cropping takes place.
@@ -255,3 +280,122 @@ URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200,cm-pad\_resiz
 ### Audio codec - (ac)
 
 To remove the audio channel from a video set `ac-none` parameter.
+
+### Angle - (a)
+
+It rotates or flips the video as per the specified number of degrees or automatically based on the orientation tag in embedded metadata.
+
+Usage - `a-<degree>`
+
+`degree` is the number of degrees to rotate the video clockwise. For counter-clockwise, prefix the value with `N` e.g. `a-N10`. If the specified angle is not a multiple of 90, a rectangular bounding box is added containing the rotated video.
+
+{% hint style="info" %}
+Use `auto` if you want ImageKit.io to automatically rotate video based on the orientation tag in video metadata.
+{% endhint %}
+
+{% tabs %}
+{% tab title="a=90" %}
+URL - [https://ik.imagekit.io/demo/tr:a-90/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:rt-90/medium\_cafe\_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:rt-90/medium\_cafe\_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="a=20" %}
+URL - [https://ik.imagekit.io/demo/tr:rt-180/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:rt-180/medium\_cafe\_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:rt-180/medium\_cafe\_B1iTdD0C.jpg)
+{% endtab %}
+{% endtabs %}
+
+### DPR - (dpr)
+
+Used to specify the device pixel ratio that is used to calculate the dimensions of the output video. Extremely helpful when creating video transformations for devices with a high device pixel ratio (DPR > 1), like the iPhone or high-end Android devices.
+
+Usage - `dpr-<value>`
+
+**Possible Values** - `0.1`  to `5`.
+
+The `dpr` parameter can only be used when either the height or width of the desired output video is specified.
+
+{% hint style="info" %}
+When using a DPR value larger than `1`, you should always specify the height or width on the image or video tag in HTML for the browser to render the media correctly.
+{% endhint %}
+
+### Blur - (bl)
+
+It applies a gussian blurring effect to the video. The value of `bl` specifies the standard deviation of Gaussian blur. A higher value results in a more blurred video.
+
+Usage - `bl-<value>`
+
+**Possible Values** - `1`  to `100`.
+
+{% tabs %}
+{% tab title="Original" %}
+URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="blur=10" %}
+URL - [https://ik.imagekit.io/demo/tr:bl-10/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:bl-10/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:bl-10/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+{% endtabs %}
+
+### Border - (b)
+
+This adds a border to the video. It accepts two parameters - the width of the border and the color of the border.
+
+Usage - `b-<border-width>-<hex code>`
+
+The width is specified as a number which is equivalent to the border width in pixels. The color code is specified as a 6-character hex code RRGGBB.
+
+{% tabs %}
+{% tab title="5px yellow border" %}
+URL - [https://ik.imagekit.io/demo/tr:w-300,b-5\_FFF000/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-300,b-5\_FFF000/medium\_cafe\_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:w-300,b-5\_FFF000/medium\_cafe\_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="20px red border" %}
+URL - [https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium\_cafe\_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium\_cafe\_B1iTdD0C.jpg)
+{% endtab %}
+{% endtabs %}
+
+### Radius - (r)
+
+Get a video with a rounded corner. Control the radius of the corner using this parameter. To get a circle or oval shape, set the value to `max`.
+
+Usage - `r-<value>`
+
+**Possible Values** - Any positive integer or `max`.
+
+{% hint style="info" %}
+You can also change the background color of the video from the default white color using the [background parameter](resize-crop-and-other-common-video-transformations.md#background-color-bg).
+{% endhint %}
+
+{% tabs %}
+{% tab title="r=20" %}
+URL - [https://ik.imagekit.io/demo/tr:r-20/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:r-20/medium\_cafe\_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:r-20/medium\_cafe\_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="r=50" %}
+URL - [https://ik.imagekit.io/demo/tr:r-50/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:r-50/medium\_cafe\_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:r-50/medium\_cafe\_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="r=max" %}
+If the input asset has 1:1 aspect ratio, using `max` will result in a circle shape. However, if the input asset is rectangular, using `max` will result in an oval shape.
+
+URL - [https://ik.imagekit.io/demo/tr:r-max/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:r-max/medium_cafe_B1iTdD0C.jpg)
+
+
+![](https://ik.imagekit.io/demo/tr:r-max/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+{% endtabs %}

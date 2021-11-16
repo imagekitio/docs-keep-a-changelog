@@ -459,7 +459,7 @@ A few WebP images may not render correctly in Safari v14+ on MacOS v11+ and IOS 
 
 ### Blur - (bl)
 
-Used to specify the gaussian blur that must be applied to an image. The value of `bl` specifies the radius of the Gaussian Blur that is to be applied. Higher the value, larger the radius of Gaussian Blur.  Possible values include integers between `1` and `100` .
+Used to specify the gaussian blur that must be applied to an image. The value of `bl` specifies the radius of the Gaussian Blur that is to be applied. Higher the value, the larger the radius of Gaussian Blur. Possible values include integers between `1` and `100`.
 
 {% tabs %}
 {% tab title="Original" %}
@@ -495,15 +495,15 @@ URL - [https://ik.imagekit.io/demo/tr:h-300,e-grayscale/sample\_image.jpg](https
 
 ### DPR - (dpr)
 
-Used to specify the device pixel ratio that is used to calculate the dimensions of the output image. Extremely helpful when creating image transformations for devices with high device pixel ratio (DPR > 1), like the iPhone or high-end Android devices. \
-\
-The `dpr`parameter can only be used when either the height or width of the desired output image is specified.\
-\
-If the output image's height or width after considering the specified DPR  is less than 1px or greater than 5000px, the value of DPR is not considered and the height or width used in the URL is used.\
-\
+Used to specify the device pixel ratio that is used to calculate the dimensions of the output image. Extremely helpful when creating image transformations for devices with a high device pixel ratio (DPR > 1), like the iPhone or high-end Android devices.
+
+The `dpr` parameter can only be used when either the height or width of the desired output image is specified.
+
+If the output image's height or width after considering the specified DPR is less than 1px or greater than 5000px, the value of DPR is not considered and the height or width used in the URL is used.
+
 **Possible Values**- `0.1`  to `5` .
 
-Alternatively, you can specify the `auto` value for this parameter (dpr-auto). Doing so will instruct ImageKit to read the dpr value from the [DPR Client Hint](https://imagekit.io/responsive-images/#dpr) request header. Learn more about client hints [here](../client-hints.md).
+Alternatively, you can specify the `auto` value for this parameter (`dpr-auto`). Doing so will instruct ImageKit to read the `dpr` value from the [DPR Client Hint](https://imagekit.io/responsive-images/#dpr) request header. Learn more about client hints [here](../client-hints.md).
 
 ### Named transformation - (n)
 
