@@ -723,7 +723,7 @@ Example - [https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg](
 
 ### Downloading file - (ik-attachment)
 
-Set `ik-attachment=true` query param in the URL to download the file as an attachment rather than viewing it inline in the web browser
+Set `ik-attachment=true` query param in the URL to download the file as an attachment rather than viewing it inline in the web browser.
 
 By specifying this parameter in the file URL, ImageKit sets the `content-disposition` header in the response with the value `attachment` along with the file name.
 
