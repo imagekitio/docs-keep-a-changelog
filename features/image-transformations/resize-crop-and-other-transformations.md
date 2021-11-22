@@ -723,12 +723,10 @@ Example - [https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg](
 
 ### Downloading image - (ik-attachment)
 
-There might be scenarios where you would want to download the image as an attachment rather than viewing it on the web browser. To download an image, you can use `ik-attachment=true` as a query parameter in the image URL. By specifying this parameter in the image URL, you'd be given an option to download and save the image file on your system.
+Set `ik-attachment=true` query param in the URL to download the image as an attachment rather than viewing it inline in the web browser
 
-Example - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?ik-attachment=true](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?ik-attachment=true)
+By specifying this parameter in the image URL, ImageKit sets the `content-disposition` header in the response with the value `attachment` along with the file name.
 
-![](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?ik-attachment=true)
+Example - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true)
 
-{% hint style="info" %}
-Unlike other transformations, the ik-attachment parameter works without using the **tr** keyword. 
-{% endhint %}
+![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true)
