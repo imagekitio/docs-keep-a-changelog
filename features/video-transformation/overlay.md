@@ -1,7 +1,7 @@
 ---
 description: >-
-  A comprehensive guide that covers how you can overlay images, text, and videos over
-  another video.
+  A comprehensive guide that covers how you can add images, text, subtitles and videos over
+  a base video.
 ---
 
 # Overlay

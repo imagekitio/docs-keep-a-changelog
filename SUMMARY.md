@@ -75,6 +75,8 @@
   * [PNG Compression](features/image-optimization/png-compression.md)
 * [Video Transformation (Beta release)](features/video-transformation/README.md)
   * [Resize, crop, and other common video transformations](features/video-transformation/resize-crop-and-other-common-video-transformations.md)
+  * [Overlays in video](features/overlay.md)
+  * [Adaptive bitrate streaming](features/video-transformation/adaptive-bitrate-streaming.md)
 * [Video Optimization (Beta release)](features/video-optimization/README.md)
   * [Automatic video format conversion](features/video-optimization/automatic-video-format-conversion.md)
   * [Quality Optimization](features/video-optimization/quality-optimization.md)
