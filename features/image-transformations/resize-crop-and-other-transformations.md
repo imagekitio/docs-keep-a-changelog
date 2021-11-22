@@ -721,11 +721,11 @@ Example - [https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg](
 
 ![](https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg)
 
-### Downloading image - (ik-attachment)
+### Downloading file - (ik-attachment)
 
-Set `ik-attachment=true` query param in the URL to download the image as an attachment rather than viewing it inline in the web browser
+Set `ik-attachment=true` query param in the URL to download the file as an attachment rather than viewing it inline in the web browser
 
-By specifying this parameter in the image URL, ImageKit sets the `content-disposition` header in the response with the value `attachment` along with the file name.
+By specifying this parameter in the file URL, ImageKit sets the `content-disposition` header in the response with the value `attachment` along with the file name.
 
 Example - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true)
 
