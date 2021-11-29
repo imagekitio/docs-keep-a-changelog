@@ -11,7 +11,7 @@ Here is an implementation using a [custom loader](https://nextjs.org/docs/api-re
 
 Inside the `imageKitLoader` function, you will have to replace `urlEndpoint` with your ImageKit account's URL-endpoint. You can get URL-endpoint from your ImageKit dashboard - https://imagekit.io/dashboard#url-endpoints.
 
-```js
+```javascript
 import Image from "next/image";
 
 const imageKitLoader = ({ src, width, quality }) => {
