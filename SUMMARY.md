@@ -11,6 +11,7 @@
   * [React Native](getting-started/quickstart-guides/react-native.md)
   * [Ruby on Rails](getting-started/quickstart-guides/ruby-on-rails.md)
   * [Vue.js](getting-started/quickstart-guides/vuejs.md)
+  * [Next.js](getting-started/quickstart-guides/nextjs.md)
 * [How to use ImageKit.io?](getting-started/how-to-use-imagekit.io.md)
 
 ## 🔧External storage <a href="integration" id="integration"></a>

@@ -333,7 +333,7 @@ A 500x100px thumbnail with cm-extract crop strategy and fo-custom.
 
 ImageKit can be configured to [auto-rotate images](../image-optimization/metadata-color-profile-and-orientation.md#image-orientation) based on the `Orientation` value in the image metadata. This could result in unexpected behavior when using, `cm-extract`. In that case, you will have to adjust the values of `x` and `y` to accommodate for the oriented image.
 
-### **Pad extract crop strategy - (**cm-pad\_extract)
+### Pad extract crop strategy - (cm-pad_extract)
 
 The pad extract crop strategy is an extension of the [extract crop strategy](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract). In the extract crop strategy, we were extracting out a smaller area from a larger image. Now, there can be a scenario where the original image is small and we want to extract out a larger area (which is practically not possible without padding). So the pad extract mode adds a solid colored padding around the image to make it match the exact size requested.
 
@@ -720,3 +720,13 @@ By default, any image that is delivered via ImageKit.io always gets optimized in
 Example - [https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg)
 
 ![](https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg)
+
+### Downloading file - (ik-attachment)
+
+Set `ik-attachment=true` query param in the URL to download the file as an attachment rather than viewing it inline in the web browser.
+
+By specifying this parameter in the file URL, ImageKit sets the `content-disposition` header in the response with the value `attachment` along with the file name.
+
+Example - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true)
+
+![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true)
