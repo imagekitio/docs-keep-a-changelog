@@ -27,14 +27,14 @@ For example, in the following URL, we are adding a logo image `logo.png` on top 
 Here the parent base video has one layer inside it. A layer can also nest another layer.
 
 ```markup
-        URL-endpoint                                      Layer
-┌──────────────────────────┐               ┌──────────────────────────────────┐
-https://ik.imagekit.io/demo/tr:w-300,h-300,l-image,i-logo.png,w-10,rt-90,l-end/sample-video.mp4
-                               └────┬────┘                    └────┬────┘
-                                    │                              │
-                                    │        These transformations are applied to logo.png
-                                    │
-            These transformations are applied to sample-video.mp4
+        URL-endpoint                                                      Layer
+┌──────────────────────────┐                                ┌──────────────────────────────────┐
+https://ik.imagekit.io/demo/sample-video.mp4?tr=w-300,h-300,l-image,i-logo.png,w-10,rt-90,l-end
+                                                └────┬────┘                    └────┬────┘
+                                                     │                              │
+                                                     │        These transformations are applied to logo.png
+                                                     │
+                           These transformations are applied to sample-video.mp4
 ```
 
 ## Position of layer
@@ -100,9 +100,9 @@ ImageKit supports many [image transformaton parameters](../image-transformations
 
 | Parameter                                                                                                      | Description                  |
 |----------------------------------------------------------------------------------------------------------------|------------------------------|
-| [w](../image-transformations/resize-crop-and-other-transformations.md#width-w)                                 | Width of image.  |
-| [h](../image-transformations/resize-crop-and-other-transformations.md#height-h)                                | Height of image. |
-| [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)                        | Apect ratio of image. |
+| [w](../image-transformations/resize-crop-and-other-transformations.md#width-w)                                 | Width of overlay image.  |
+| [h](../image-transformations/resize-crop-and-other-transformations.md#height-h)                                | Height of overlay image. |
+| [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)                        | Apect ratio of overlay image. |
 | [c](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)               | Cropping method. Accepts `force`, `at_max`, and `at_least`. |
 | [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)              | Crom mode. Supports `extract` and `pad_resize`. |
 | `x`, `y`, `xc`, and `yc` to control [custom coordinates](../image-transformations/resize-crop-and-other-transformations.md#example-focus-using-custom-coordinates).  | Control the custom coordinates for focus point. |
