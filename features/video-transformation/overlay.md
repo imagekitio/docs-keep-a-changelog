@@ -1,12 +1,12 @@
 ---
 description: >-
-  A comprehensive guide that covers how you can add images, text, subtitles and videos over
+  A comprehensive guide that covers how you can add images, text, subtitles, and videos over
   a base video.
 ---
 
 # Overlay
 
-In ImageKit, you can add images, text, subtitles and videos over a base video using [layers](#layers). Skip to the relevant section to understand with a quick example:
+In ImageKit, you can add images, text, subtitles, and videos over a base video using [layers](#layers). Skip to the relevant section to understand with a quick example:
 
 * [Add images over video](overlay.md#add-images-over-video)
 * [Add text over video](overlay.md#add-text-over-video)
@@ -18,11 +18,11 @@ A layer is a special kind of transformation that allows you to modify the overla
 
 ## Syntax of layers
 
-A layer starts with `l-<type>` and ends with `l-end`. All the positional and transformation parmaters of that layer is between `l-<type>` and `l-end` and are only applicable to that layer and not base asset.
+A layer starts with `l-<type>` and ends with `l-end`. All the positional and transformation parameters of that layer are between `l-<type>` and `l-end` and only apply to that layer and not the parent base asset.
 
 `type` can be `image`, `text`, `video` or `subtitles`.
 
-For example, in the following URL, we are adding a logo image `logo.png` on top of a base video i.e. `sample-video.mp4`. However we are appling width (`w-10`) and rotation (`rt-90`) transformations on this overlay logo image before placing it on the base video. Transformations `w-300,h-300` are applied to `sample-video.mp4`.
+For example, in the following URL, we are adding a logo image `logo.png` on top of a base video, i.e. `sample-video.mp4`. However, we applied width (`w-10`) and rotation (`rt-90`) transformations on this overlay logo image before placing it on the base video. Transformations `w-300,h-300` are applied to `sample-video.mp4`.
 
 Here the parent base video has one layer inside it. A layer can also nest another layer.
 
@@ -39,10 +39,10 @@ https://ik.imagekit.io/demo/sample-video.mp4?tr=w-300,h-300,l-image,i-logo.png,w
 
 ## Position of layer
 
-Position of the layer can be controlled using the following parameters. Position of the layer is always relative to the immediate parent. For instance, in above example, the parent is base video and logo image is the nested layer. 
+The position of the layer can be controlled using the following parameters. The position of the layer is always relative to the immediate parent. For instance, the parent is the base video in the above example, and the logo image is the nested layer. 
 
 {% hint style="info" %}
-Position of subtitiles cannot be controlled at this point.
+The position of subtitles cannot be controlled at this point.
 {% endhint %}
 
 | Parameter   | Description |
@@ -50,29 +50,29 @@ Position of subtitiles cannot be controlled at this point.
 | lx          | `x` of the top-left corner in the base asset where layer would be placed.    |
 | ly          | `y` of the top-left corner in the base asset where layer would be placed.    |
 | lfo         | Positoin of layer in relative terms e.g. `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`.       |
-| lso         | Start time of base video in seconds when the layer should appear. |
+| lso         | Start time of the base video in seconds when the layer should appear. |
 | ldu         | Duration in seconds during which layer should appear on the base video. |
-| leo         | End time of base video when this layer should disappear. In case both `leo` and `ldu` is present, `ldu` is ignored.  |
+| leo         | End time of the base video when this layer should disappear. In case both `leo` and `ldu` are present, `ldu` is ignored.  |
 
 
 ## Transformation of layer
 
-You can apply transformations to the layer as you would otherwise. Any transformation paramter inside the layer is only applicable to that layer and not the parent.
+You can apply transformations to the layer as you would otherwise. However, any transformation parameter inside the layer is only applicable to that layer and not the parent.
 
-However, different type of layers support different type of transformations which are covered in respective sections.
+However, different types of layers support different types of transformations which are covered in respective sections.
 
 * [Transformation of images overlay](overlay.md#transformation-of-image-overlay)
 * [Transformation of text overlay](overlay.md#transformation-of-text-overlay)
 * [Transformation of video overlay](overlay.md#transformation-of-video-overlay)
 * [Transformation of subtitles overlay](overlay.md#transformation-of-subtitles-overlay)
 
-Transformation inside a layer can be chained together to achieve desired outcome.
+Transformations inside a layer can be chained together to achieve the desired outcome.
 
 ## Nesting of layers
 
-A layer can have nested layer upto 3 levels. 
+A layer can have a nested layer up to 3 levels. 
 
-For example, in the below URL, `i-inner.png` is rendered on top-left corner of `i-outer.png` using `lfo-top_left` parameter.
+For example, in the below URL, `i-inner.png` is rendered on the top-left corner of `i-outer.png` using the `lfo-top_left` parameter.
 
 ```markup
                           Parent layer
@@ -96,7 +96,7 @@ You can also control the position of image overlay using these [positional param
 
 ## Transformation of image overlay
 
-ImageKit supports many [image transformaton parameters](../image-transformations/README.md), however inside a layer, you can apply the following tranformations to the image overlay before it is placed on the base video. You can [chain the transformations](../image-transformations/chained-transformations.md) one after other to achieve the desired outcome.
+ImageKit supports many [image transformation parameters](../image-transformations/README.md), however inside a layer, you can apply the following transformations to the image overlay before it is placed on the base video. You can [chain the transformations](../image-transformations/chained-transformations.md) one after other to achieve the desired outcome.
 
 | Parameter                                                                                                      | Description                  |
 |----------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -137,7 +137,7 @@ Following transformation parameters are supported on the text inside a layer.
 | fs                                 | Font size  |
 | ff                                 | Font family |
 | co                                 | Color  |
-| ia                                 | Inner alignment. Accepts `left`, `right` and `center`. Default value is `center`. |
+| ia                                 | Inner alignment. Accepts `left`, `right` and `center`. The default value is `center`. |
 | pd                                 | Padding |
 | al                                 | Alpha |
 | tg                                 | Typography |
@@ -187,7 +187,7 @@ You can add subtitles over a base video using the following example.
 ```markup
 https://ik.imagekit.io/demo/base-video.mp4?tr=l-subtitles,i-english.srt,l-end
 ```
-Position of subtitiles cannot be controlled at this point.
+Position of subtitles cannot be controlled at this point.
 
 ## Transformation of subtitles overlay
 
