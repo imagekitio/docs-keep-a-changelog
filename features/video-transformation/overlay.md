@@ -27,8 +27,8 @@ For example, in the following URL, we are adding a logo image `logo.png` on top 
 Here the parent base video has one layer inside it. A layer can also nest another layer.
 
 ```markup
-        URL-endpoint                                                      Layer
-┌──────────────────────────┐                                ┌──────────────────────────────────┐
+        URL-endpoint           Base video                                   Layer
+┌──────────────────────────┐┌──────────────┐                ┌─────────────────────────────────┐
 https://ik.imagekit.io/demo/sample-video.mp4?tr=w-300,h-300,l-image,i-logo.png,w-10,rt-90,l-end
                                                 └────┬────┘                    └────┬────┘
                                                      │                              │
@@ -89,7 +89,7 @@ You can add an image over a base video using the following example.
 ## Usage syntax
 
 ```markup
-https://ik.imagekit.io/demo/tr:l-image,i-logo.png,l-end/base-video.mp4
+https://ik.imagekit.io/demo/base-video.mp4?tr=l-image,i-logo.png,l-end
 ```
 
 You can also control the position of image overlay using these [positional parameters](overlay.md#position-of-layer).
@@ -121,7 +121,7 @@ You can add any text string over a base video using the following example.
 ## Usage syntax
 
 ```markup
-https://ik.imagekit.io/demo/tr:l-text,i-hello,l-end/base-video.mp4
+https://ik.imagekit.io/demo/base-video.mp4?tr=l-text,i-hello,l-end
 ```
 
 You can also control the position of text overlay using these [positional parameters](overlay.md#position-of-layer).
@@ -151,7 +151,7 @@ You can add video over a base video using the following example.
 ## Usage syntax
 
 ```markup
-https://ik.imagekit.io/demo/tr:l-video,i-overlay.mp4,l-end/base-video.mp4
+https://ik.imagekit.io/demo/base-video.mp4?tr=l-video,i-overlay.mp4,l-end
 ```
 
 You can also control the position of text overlay using these [positional parameters](overlay.md#position-of-layer).
@@ -185,7 +185,7 @@ You can add subtitles over a base video using the following example.
 ## Usage syntax
 
 ```markup
-https://ik.imagekit.io/demo/tr:l-subtitles,i-english.srt,l-end/base-video.mp4
+https://ik.imagekit.io/demo/base-video.mp4?tr=l-subtitles,i-english.srt,l-end
 ```
 Position of subtitiles cannot be controlled at this point.
 
