@@ -18,20 +18,14 @@ ImageKit supports the following streaming protocols. Both leverage existing HTTP
 
 
 ## HTTP Live Streaming (HLS)
-
-Use `sp-<streaming_profile>` transformation to generate the master manifest file for HLS along with necessary variants and segments.
+The following URL will generate HLS manifest and five variants at differernt resolutions i.e. 240p, 360p, 480p, 720p and 1080p.
 
 ```markup
-https://ik.imagekit.io/demo/sample-video.mp4/master.m3u8?tr=sp-full_id
+https://ik.imagekit.io/demo/sample-video.mp4/master.m3u8?tr=sp-240_360_480_720_1080
 ```
 
 ## Dynamic Adaptive Streaming over HTTP (MPEG-DASH) protocol
-
-Use `sr-<representations>` transformation to generate the master manifest file for DASH along with necessary variants and segments.
-
-`representations` is the list of different representations you want to create separated by an underscore `_`.
-
-For exampe, the following URL will generate 5 variants starting i.e. 240p, 360p, 480p, 720p and 1080p.
+The following URL will generate DASH manifest and five variants at differernt resolutions i.e. 240p, 360p, 480p, 720p and 1080p.
 
 ```markup
 https://ik.imagekit.io/demo/sample-video.mp4/master.mpd?tr=sp-240_360_480_720_1080
@@ -41,7 +35,15 @@ https://ik.imagekit.io/demo/sample-video.mp4/master.mpd?tr=sp-240_360_480_720_10
 The first time you access the manifest URL, a `202` HTTP status code is returned with an empty response. In the background, ImageKit will generate the required variants as per the requested `streaming_profile`. It could take up to a minute or two for this to finish. The next time you request the same URL, a manifest file is returned in the response with a `200` status code.
 {% endhint %}
 
-## List of supported representations
+
+## Representations
+Use `sr-<representations>` transformation to generate the master manifest file for DASH along with necessary variants and segments.
+
+`representations` is the list of different representations you want to create separated by an underscore `_`.
+
+For exampe, the following URL will generate 5 variants starting i.e. 240p, 360p, 480p, 720p and 1080p.
+
+### List of supported representations
 
 `sr-<representations>` transformation is used to specify representations you want to create separated by an underscore `_`. Here is the list of supported representations for both HLS and DASH.
 
