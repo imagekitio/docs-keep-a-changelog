@@ -47,9 +47,9 @@ The position of subtitles cannot be controlled at this point.
 
 | Parameter   | Description |
 | ----------- | ----------- |
-| lx          | `x` of the top-left corner in the base asset where layer would be placed.    |
-| ly          | `y` of the top-left corner in the base asset where layer would be placed.    |
-| lfo         | Positoin of layer in relative terms e.g. `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`.       |
+| lx          | `x` of the top-left corner in the base asset where layer's top-left corner would be placed.    |
+| ly          | `y` of the top-left corner in the base asset where layer's top-left corner would be placed.    |
+| lfo         | Position of layer in relative terms e.g. `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`.       |
 | lso         | Start time of the base video in seconds when the layer should appear. |
 | ldu         | Duration in seconds during which layer should appear on the base video. |
 | leo         | End time of the base video when this layer should disappear. In case both `leo` and `ldu` are present, `ldu` is ignored.  |
@@ -106,7 +106,7 @@ ImageKit supports many [image transformation parameters](../image-transformation
 | [c](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)               | Cropping method. Accepts `force`, `at_max`, and `at_least`. |
 | [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)              | Crom mode. Supports `extract` and `pad_resize`. |
 | `x`, `y`, `xc`, and `yc` to control [custom coordinates](../image-transformations/resize-crop-and-other-transformations.md#example-focus-using-custom-coordinates).  | Control the custom coordinates for focus point. |
-| [fo](../image-transformations/resize-crop-and-other-transformations.md#focus-fo)                               | Relative focus value. Accpets `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. |
+| [fo](../image-transformations/resize-crop-and-other-transformations.md#focus-fo)                               | Relative focus area used during cropping. Accpets `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. |
 | [bl](../image-transformations/resize-crop-and-other-transformations.md#blur-bl)                                | Blur the overlay image  |
 | [dpr](../image-transformations/resize-crop-and-other-transformations.md#dpr-dpr)                               | Specify the device pixel ratio that is used to calculate the dimensions of the output image. The `dpr` parameter can only be used when either the height or width of the desired output image is specified.                             |
 | [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                                | This adds a border to the overlay image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>` |
@@ -138,7 +138,7 @@ Following transformation parameters are supported on the text inside a layer.
 | ff                                 | Font family |
 | co                                 | Color  |
 | ia                                 | Inner alignment. Accepts `left`, `right` and `center`. The default value is `center`. |
-| pd                                 | Padding |
+| pa                                 | Padding |
 | al                                 | Alpha |
 | tg                                 | Typography |
 | [bg](../video-transformation/resize-crop-and-other-common-video-transformations.md#background-color-bg)                    | It is used to specify the background color in RGB Hex Code (e.g. FF0000) or an RGBA Code (e.g. FFAABB50) that must be used for the video. If you specify an 8 character background, the last two characters must be a number between 00 and 99 , which is used to indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01`  represents opacity level `0.01`, and so on. |
@@ -168,7 +168,7 @@ Following transformation parameters are supported on the video inside a layer.
 | [c](../video-transformation/resize-crop-and-other-common-video-transformations.md#crop-crop-modes-and-focus)               | Cropping method. Accepts `force`, `at_max`, and `at_least`. |
 | [cm](../video-transformation/resize-crop-and-other-common-video-transformations.md#crop-crop-modes-and-focus)              | Crom mode. Supports `extract` and `pad_resize`. |
 | `x`, `y`, `xc`, and `yc` to control [custom coordinates](../video-transformation/resize-crop-and-other-common-video-transformations.md#example-focus-using-custom-coordinates).  | Control the custom coordinates for focus point. |
-| [fo](../video-transformation/resize-crop-and-other-common-video-transformations.md#focus-fo)                               | Relative focus value. Accpets `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. |
+| [fo](../video-transformation/resize-crop-and-other-common-video-transformations.md#focus-fo)                               | Relative focus area used during cropping. Accpets `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. |
 | [so](../video-transformation/resize-crop-and-other-common-video-transformations.md#start-offset-so)         | Start offset in seconds in overlay video. Video before `so` time will be trimmed. |
 | [du](../video-transformation/resize-crop-and-other-common-video-transformations.md#duration-du)        | Duration in seconds of overlay video. After this, remaining video will be trimmed. |
 | [eo](../video-transformation/resize-crop-and-other-common-video-transformations.md#end-offset-eo)       | End offset in seconds in overlay video. Video after `eo` time will be trimmed. In case both `eo` and `du` is present, `du` is ignored.  |
@@ -187,8 +187,8 @@ You can add subtitles over a base video using the following example.
 ```markup
 https://ik.imagekit.io/demo/base-video.mp4?tr=l-subtitles,i-english.srt,l-end
 ```
-Position of subtitles cannot be controlled at this point.
+The position of subtitles cannot be controlled in the beta version.
 
 ## Transformation of subtitles overlay
 
-Transformation of subtitles are not supported at this point.
+Transformation of subtitles are not supported in the beta version.
