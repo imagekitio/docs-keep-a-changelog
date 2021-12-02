@@ -47,7 +47,7 @@ For exampe, the following URL will generate 5 variants starting i.e. 240p, 360p,
 
 `sr-<representations>` transformation is used to specify representations you want to create separated by an underscore `_`. Here is the list of supported representations for both HLS and DASH.
 
-| Representations     | Aspect Ratio	 | 
+| Representations     | Resolution	 | 
 | ------------------- | -------------- | 
 | 240                 |     426x240    |
 | 360                 |     640x360    |
