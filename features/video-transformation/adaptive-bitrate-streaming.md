@@ -41,8 +41,6 @@ Use `sr-<representations>` transformation to generate the master manifest file f
 
 `representations` is the list of different representations you want to create separated by an underscore `_`.
 
-For exampe, the following URL will generate 5 variants starting i.e. 240p, 360p, 480p, 720p and 1080p.
-
 ### List of supported representations
 
 `sr-<representations>` transformation is used to specify representations you want to create separated by an underscore `_`. Here is the list of supported representations for both HLS and DASH.
