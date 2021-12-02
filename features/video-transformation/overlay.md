@@ -154,7 +154,7 @@ You can add video over a base video using the following example.
 https://ik.imagekit.io/demo/base-video.mp4?tr=l-video,i-overlay.mp4,l-end
 ```
 
-You can also control the position of text overlay using these [positional parameters](overlay.md#position-of-layer).
+You can also control the position of video overlay using these [positional parameters](overlay.md#position-of-layer).
 
 ## Transformation of video overlay
 
