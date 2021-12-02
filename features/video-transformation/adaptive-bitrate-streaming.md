@@ -32,7 +32,7 @@ https://ik.imagekit.io/demo/sample-video.mp4/master.mpd?tr=sr-240_360_480_720_10
 ```
 
 {% hint style="info" %}
-The first time you access the manifest URL, a `202` HTTP status code is returned with an empty response. In the background, ImageKit will generate the required variants as per the requested `streaming_profile`. It could take up to a minute or two for this to finish. The next time you request the same URL, a manifest file is returned in the response with a `200` status code.
+The first time you access the manifest URL, a `202` HTTP status code is returned with an empty response. In the background, ImageKit will generate the required variants as per the value of `sr`. It could take up to a minute or two for this to finish. The next time you request the same URL, a manifest file is returned in the response with a `200` status code.
 {% endhint %}
 
 
