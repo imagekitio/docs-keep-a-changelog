@@ -10,12 +10,12 @@ This is a quick start guide to show you how to integrate ImageKit in the Ruby on
 
 This guide walks you through the following topics:
 
-* [Setting up ImageKit Ruby SDK](ruby-on-rails.md#setting-up-imagekit-ruby-sdk)
-* [Rendering images](ruby-on-rails.md#rendering-images-in-ruby-on-rails)
-* [Applying common image manipulations](ruby-on-rails.md#common-image-manipulation-in-ruby-on-rails)
-* [Secure signed URL generation](ruby-on-rails.md#secure-signed-url-generation)
-* [Adding overlays to images](ruby-on-rails.md#adding-overlays-to-images-in-ruby-on-rails)
-* [Uploading files](ruby-on-rails.md#uploading-file-in-ruby-on-rails-application)
+* [Setting up ImageKit Ruby SDK](ruby.md#setting-up-imagekit-ruby-sdk)
+* [Rendering images](ruby.md#rendering-images-in-ruby-on-rails)
+* [Applying common image manipulations](ruby.md#common-image-manipulation-in-ruby-on-rails)
+* [Secure signed URL generation](ruby.md#secure-signed-url-generation)
+* [Adding overlays to images](ruby.md#adding-overlays-to-images-in-ruby-on-rails)
+* [Uploading files](ruby.md#uploading-file-in-ruby-on-rails-application)
 
 ## Setting up ImageKit Ruby SDK
 
@@ -28,6 +28,7 @@ rails new sample-app
 ```
 
 Now, navigate to the newly created directory, and run the app:
+
 
 ```bash
 rails server

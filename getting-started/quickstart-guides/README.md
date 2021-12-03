@@ -73,8 +73,8 @@ Follow one of the platform-specific quick start guides to integrate ImageKit in 
 [react-native.md](react-native.md)
 {% endcontent-ref %}
 
-{% content-ref url="ruby-on-rails.md" %}
-[ruby-on-rails.md](ruby-on-rails.md)
+{% content-ref url="ruby.md" %}
+[ruby.md](ruby.md)
 {% endcontent-ref %}
 
 {% content-ref url="vuejs.md" %}
@@ -100,5 +100,5 @@ We have published libraries in popular programming languages so that you can eas
 * [x] [NodeJS](https://www.npmjs.com/package/imagekit)
 * [x] [PHP](https://github.com/imagekit-developer/imagekit-php)
 * [x] [JAVA](https://github.com/imagekit-developer/imagekit-java)
-* [x] [Ruby on rails](https://github.com/imagekit-developer/imagekit-ruby)
+* [x] [Ruby](https://github.com/imagekit-developer/imagekit-ruby)
 * [x] [.Net](https://github.com/imagekit-developer/imagekit-dotnet)

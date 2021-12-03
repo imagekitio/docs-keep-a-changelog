@@ -9,7 +9,7 @@
   * [PHP](getting-started/quickstart-guides/php.md)
   * [React](getting-started/quickstart-guides/react.md)
   * [React Native](getting-started/quickstart-guides/react-native.md)
-  * [Ruby on Rails](getting-started/quickstart-guides/ruby-on-rails.md)
+  * [Ruby](getting-started/quickstart-guides/ruby.md)
   * [Vue.js](getting-started/quickstart-guides/vuejs.md)
 * [How to use ImageKit.io?](getting-started/how-to-use-imagekit.io.md)
 
