@@ -1,6 +1,6 @@
 ---
 description: >-
-  Sample of plan ruby and ruby on rails applications guides.
+  Samples of plan ruby and ruby on rails applications guides.
 ---
 
 # Ruby
@@ -9,7 +9,7 @@ This is a quick start guide to show you how to integrate ImageKit in the Ruby ap
 
 This guide walks you through the following topics:
 
-* [Setting up ImageKit Ruby SDK](ruby-guides/ruby_app.md)
-* [CarrierWave Rails Application Example](ruby-guides/ruby_on_rails_with_carrierwave.md)
-* [ActiveStorage Rails Application Example](ruby-guides/ruby_on_rails_with_activestorage.md)
+* [Setting up ImageKit Ruby SDK](ruby_app.md)
+* [CarrierWave Rails Application Example](ruby_on_rails_with_carrierwave.md)
+* [ActiveStorage Rails Application Example](ruby_on_rails_with_activestorage.md)
 

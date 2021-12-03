@@ -74,7 +74,7 @@ Follow one of the platform-specific quick start guides to integrate ImageKit in 
 {% endcontent-ref %}
 
 {% content-ref url="ruby.md" %}
-[ruby.md](ruby.md)
+[ruby.md](ruby-guides/README.md)
 {% endcontent-ref %}
 
 {% content-ref url="vuejs.md" %}
