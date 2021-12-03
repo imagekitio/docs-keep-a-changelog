@@ -186,7 +186,7 @@ ResultMetaData result=ImageKit.getInstance().getRemoteFileMetadata("https://ik.i
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio.get_remote_file_url_metadata("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
+imagekitio.get_remote_file_url_metadata(remote_file_url: "https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
 ```
 {% endtab %}
 {% endtabs %}

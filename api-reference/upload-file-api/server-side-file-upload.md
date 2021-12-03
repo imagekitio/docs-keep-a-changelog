@@ -324,17 +324,17 @@ Result result = ImageKit.getInstance().upload(fileCreateRequest);
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 
 image64 = Base64.encode64(File.open("sample.jpg", "rb").read)
 
 upload = imagekitio.upload_file(
-    file = image64, file_name = "testing",
-    options = {
-        response_fields: 'tags,customCoordinates,isPrivateFile,metadata',
-        tags: %w[abc def],
-        use_unique_file_name: true
- })
+    file: image64,
+    file_name: "testing",
+    response_fields: 'tags,customCoordinates,isPrivateFile,metadata',
+    tags: %w[abc def],
+    use_unique_file_name: true
+ )
 ```
 {% endtab %}
 {% endtabs %}
@@ -435,9 +435,8 @@ Result result = ImageKit.getInstance().upload(fileCreateRequest);
 imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
 
 upload = imagekitio.upload_file(
-    file = "image-url",
-    file_name = "testing",
-    options = {}
+    file: "image-url",
+    file_name: "testing"
 )
 ```
 {% endtab %}
@@ -534,13 +533,12 @@ echo ("Upload URL" . json_encode($uploadFile));
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 upload = imagekitio.upload_file(
-    file = "https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
-    file_name = "women_in_red.jpg",
-    options = {
-        customMetadata : '{"brand":"Nike", "color":"red"}'    
+    file: "https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
+    file_name: "women_in_red.jpg",
+    custom_metadata: {
+      "brand":"Nike", "color":"red"
     }
 )
 ```
