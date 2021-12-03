@@ -149,8 +149,8 @@ ResultCache result=ImageKit.getInstance().purgeCache("https://ik.imagekit.io/you
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-purge_cache = imagekitio.purge_file_cache("https://ik.imagekit.io/your_imagekit_id/default-image.jpg")
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+purge_cache = imagekitio.purge_file_cache(file_url: "https://ik.imagekit.io/your_imagekit_id/default-image.jpg")
 ```
 {% endtab %}
 {% endtabs %}

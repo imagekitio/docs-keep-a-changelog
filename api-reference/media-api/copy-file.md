@@ -56,4 +56,13 @@ curl -X POST "https://api.imagekit.io/v1/files/copy" \
 '
 ```
 {% endtab %}
+{% tab title='Ruby' %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.copy_file(
+  source_file_path: '/pah/to/file.jpg',
+  destination_path: '/folder/to/copy/into/*'
+)
+```
+{% endtab %}
 {% endtabs %}

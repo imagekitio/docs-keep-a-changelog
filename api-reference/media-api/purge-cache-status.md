@@ -110,8 +110,8 @@ ResultCacheStatus result=ImageKit.getInstance().getPurgeCacheStatus("cache_reque
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-purge_cache_status = imagekitio.purge_file_cache_status("cache_request_id")
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+purge_cache_status = imagekitio.purge_file_cache_status(request_id: "cache_request_id")
 ```
 {% endtab %}
 {% endtabs %}
