@@ -1,6 +1,6 @@
 ---
 description: >-
-  Samples of plan ruby and ruby on rails applications guides.
+  Samples of plain ruby and ruby on rails applications.
 ---
 
 # Ruby
