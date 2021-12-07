@@ -51,4 +51,10 @@ curl -X DELETE "https://api.imagekit.io/v1/folder/" \
 '
 ```
 {% endtab %}
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.delete_folder(folder_path: 'folder/to/delete/')
+```
+{% endtab %}
 {% endtabs %}

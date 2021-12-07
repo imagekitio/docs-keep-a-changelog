@@ -186,8 +186,8 @@ ResultMetaData result=ImageKit.getInstance().getFileMetadata("file_id");
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-file_metadata = imagekitio.get_file_metadata("file_id")
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+file_metadata = imagekitio.get_file_metadata(file_id: "file_id")
 ```
 {% endtab %}
 {% endtabs %}

@@ -89,4 +89,19 @@ curl -X POST "https://api.imagekit.io/v1/customMetadataFields" \
 '
 ```
 {% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.create_custom_metadata_field(
+  name: 'price',
+  label: 'price',
+  schema: {
+    type: 'Number',
+    minValue: 1000,
+    maxValue: 3000
+  }
+)
+```
+{% endtab %}
 {% endtabs %}

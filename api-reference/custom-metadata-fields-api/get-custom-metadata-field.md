@@ -54,4 +54,12 @@ curl -X GET "https://api.imagekit.io/v1/customMetadataFields" \
 -u your_private_key:
 ```
 {% endtab %}
+
+{% tab title='Ruby' %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.get_custom_metadata_field(include_deleted: true)
+```
+
+{% endtab %}
 {% endtabs %}

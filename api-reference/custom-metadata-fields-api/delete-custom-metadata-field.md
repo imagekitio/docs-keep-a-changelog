@@ -30,4 +30,10 @@ curl -X DELETE "https://api.imagekit.io/v1/customMetadataFields/6152fc9a2fd12044
 -u your_private_key:
 ```
 {% endtab %}
+{% tab title='Ruby' %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.delete_custom_metadata_field(id: '6152fc9a2fd12044cb4cefe2')
+```
+{% endtab %}
 {% endtabs %}

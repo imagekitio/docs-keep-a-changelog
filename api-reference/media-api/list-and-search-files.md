@@ -397,7 +397,7 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({skip: 0, limit: 5})
 ```
 {% endtab %}
@@ -485,8 +485,8 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-list_files = imagekitio.list_files({searchQuery : 'createdAt >= "7d" AND size > "2mb"'})
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+list_files = imagekitio.list_files({search_query: 'createdAt >= "7d" AND size > "2mb"'})
 ```
 {% endtab %}
 {% endtabs %}
@@ -573,8 +573,8 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-list_files = imagekitio.list_files({searchQuery : '"customMetadata.category" IN ["clothing", "accessories"]"'})
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+list_files = imagekitio.list_files({search_query: '"customMetadata.category" IN ["clothing", "accessories"]"'})
 ```
 {% endtab %}
 {% endtabs %}
@@ -661,8 +661,8 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-list_files = imagekitio.list_files({searchQuery : '"embeddedMetadata.DateTimeOriginal" > "1y"'})
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+list_files = imagekitio.list_files({search_query: '"embeddedMetadata.DateTimeOriginal" > "1y"'})
 ```
 {% endtab %}
 {% endtabs %}
@@ -749,8 +749,8 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-list_files = imagekitio.list_files({searchQuery : 'name="file-name.jpg"'})
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+list_files = imagekitio.list_files({search_query: 'name="file-name.jpg"'})
 ```
 {% endtab %}
 {% endtabs %}
@@ -838,8 +838,8 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-list_files = imagekitio.list_files({path : "products"})
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+list_files = imagekitio.list_files({path: "products"})
 ```
 {% endtab %}
 {% endtabs %}
@@ -923,7 +923,7 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({tags : "sale,summer"})
 ```
 {% endtab %}
@@ -1011,8 +1011,8 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-list_files = imagekitio.list_files({searchQuery : 'format="png"'})
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+list_files = imagekitio.list_files({search_query: 'format="png"'})
 ```
 {% endtab %}
 {% endtabs %}

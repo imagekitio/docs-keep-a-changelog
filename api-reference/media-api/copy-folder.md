@@ -59,6 +59,15 @@ curl -X POST "https://api.imagekit.io/v1/bulkJobs/copyFolder" \
 '
 ```
 {% endtab %}
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.copy_folder(
+  source_folder_path: '/folder/to/copy',
+  destination_path: '/folder/to/copy/into/'
+)
+```
+{% endtab %}
 {% endtabs %}
 
 

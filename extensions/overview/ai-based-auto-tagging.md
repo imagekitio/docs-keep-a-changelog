@@ -337,23 +337,21 @@ echo("Updated detail : " . json_encode($updateFileDetails));
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 updated_detail = imagekitio.update_file_details(
-    "file_id",
-    {
-        "extensions": [
-            {
-                "name": "google-auto-tagging",
-                "maxTags": 5,
-                "minConfidence": 50
-            },
-            {
-                "name": "aws-auto-tagging",
-                "maxTags": 5,
-                "minConfidence": 50
-            }
-        ]
-    }
+    file_id: "file_id_xyz",
+    extensions: [
+       {
+          "name": "google-auto-tagging",
+          "maxTags": 5,
+          "minConfidence": 50
+       },
+       {
+          "name": "aws-auto-tagging",
+          "maxTags": 5,
+          "minConfidence": 50
+       }
+    ]
 )
 ```
 {% endtab %}

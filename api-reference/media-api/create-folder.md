@@ -48,4 +48,11 @@ curl -X POST "https://api.imagekit.io/v1/folder/" \
 '
 ```
 {% endtab %}
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.create_folder(folder_name: 'new_folder', parent_folder_path: 'source/folder/path')
+```
+{% endtab %}
+
 {% endtabs %}
