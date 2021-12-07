@@ -40,9 +40,9 @@ It loads the imagekitio gem in our application. Before the SDK can be used, let'
 Open the `app.rb` file and add your public and private API keys, as well as the URL Endpoint as follows: (You can find these keys in the Developer section of your ImageKit Dashboard)
 
 ```ruby
-public_key = 'YOUR_PUBLIC_KEY_XYZ'
-private_key = 'YOUR_PRIVATE_KEY_XYZ'
-url_endpoint = 'YOUR_URL_ENDPOINT_XYZ' #eg: https://ik.imagekit.io/kcncvxhg23n
+public_key = 'your_public_key'
+private_key = 'your_private_key'
+url_endpoint = 'your_url_endpoint' #eg: https://ik.imagekit.io/kcncvxhg23n
 
 imagekitio = ImageKitIo::Client.new(private_key, public_key, url_endpoint)
 ```

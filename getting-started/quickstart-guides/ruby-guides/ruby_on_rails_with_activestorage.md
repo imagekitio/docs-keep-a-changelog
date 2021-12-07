@@ -78,14 +78,14 @@ Create a file `config/initializers/imagekitio.rb`, open it and add your public a
 ```ruby
 ImageKitIo.configure do |config|
   if Rails.env.development?
-    config.public_key = 'YOUR_PUBLIC_KEY'
-    config.private_key = 'YOUR_PRIVATE_KEY'
-    config.url_endpoint = 'YOUR_URL_ENDPOINT' #https://ik.imagekit.io/dgn23df2n
+    config.public_key = 'your_public_key'
+    config.private_key = 'your_private_key'
+    config.url_endpoint = 'your_url_endpoint' #https://ik.imagekit.io/dgn23df2n
   end
   config.service = :active_storage
   # config.constants.MISSING_PRIVATE_KEY = 'custom error message'
 end
-#make sure to replace the YOUR_PUBLIC_KEY, YOUR_PRIVATE_KEY and YOUR_URL_ENDPOINT with your keys
+#make sure to replace the your_public_key, your_private_key and your_url_endpoint with your keys
 ```
 
 Restart the application

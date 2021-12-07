@@ -76,9 +76,9 @@ Create a file `config/initializers/imagekitio.rb`, open it and add your public a
 ```ruby
 ImageKitIo.configure do |config|
   if Rails.env.development?
-    config.public_key = 'YOUR_PUBLIC_KEY'
-    config.private_key = 'YOUR_PRIVATE_KEY'
-    config.url_endpoint = 'YOUR_URL_ENDPOINT' #https://ik.imagekit.io/dgn23df2n
+    config.public_key = 'your_public_key'
+    config.private_key = 'your_private_key'
+    config.url_endpoint = 'your_url_endpoint' #https://ik.imagekit.io/dgn23df2n
   end
   config.service = :carrierwave
   # config.constants.MISSING_PRIVATE_KEY = 'custom error message'

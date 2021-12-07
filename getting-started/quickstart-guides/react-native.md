@@ -378,7 +378,7 @@ cp sample.env .env
 Obtain your [API private key](../../api-reference/api-introduction/api-keys.md#private-key) from the developer section from the ImageKit dashboard, and paste it in the server `.env` file.
 
 ```bash
-PRIVATE_KEY = <YOUR_PRIVATE_KEY>
+PRIVATE_KEY = <your_private_key>
 ```
 
 Finally, run the backend app.
