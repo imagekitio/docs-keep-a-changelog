@@ -195,7 +195,7 @@ _index.html.erb_
 <%= @posts.each do |post| %>
     <div class="post">
         <div class="image">
-            <%= image_tag post.picture.url %>
+            <%= image_tag post.picture.url(transformation: [{height: 200, width: 300}]) %>
         </div>
         <div class="content">
             <%= link_to "#{post.title}", post_path(post), class: "header" %>
