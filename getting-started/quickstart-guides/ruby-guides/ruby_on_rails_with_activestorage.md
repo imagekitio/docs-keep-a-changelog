@@ -1,6 +1,6 @@
 ---
 description: >-
- File uploading in Ruby on Rails application with activestorage gem using ImageKit.io.
+ File uploading in Ruby on Rails application with Active Storage gem using ImageKit.io.
 ---
 
 # Ruby on Rails with ActiveStorage
@@ -14,7 +14,9 @@ This guide walks you through the following topics:
 
 ## Setting up ImageKit Ruby on Rails SDK
 
-For this tutorial, we will create a fresh rails application and work with it. If you already have an existing Rails app, it is also possible to use that, although you would need to modify the terminal commands and configurations in this tutorial as applicable.&#x20;
+We will create a new rails application for this tutorial and work with it. 
+
+If you already have an existing Rails app, you would need to modify the terminal commands and configurations in this tutorial as applicable.
 
 Let's create a new rails application. Create a new directory and enter the command:
 

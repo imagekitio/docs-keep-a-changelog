@@ -19,16 +19,16 @@ This guide walks you through the following topics:
 
 ## Setting up ImageKit Ruby SDK
 
-For this tutorial, we will create a fresh Ruby application and work with it.
-First we are going to install the imagekitio gem in our machine by executing following command on your terminal.
+We will create a fresh Ruby application for this tutorial and work with it.
+
+First, we will install the imagekitio gem in our machine by executing the following command on your terminal.
 
 ```ruby
 gem install imagekitio
 ```
 
-It will download the latest version(ie. >= 2) of imagekitio sdk gem in our machine.
-Now let's create a new file `app.rb` and begin to write code in it.
-Open the new `app.rb` file with your favourite editor.
+It will download the latest version(ie. >= 2) of imagekitio sdk gem in our machine. Now let's create a new file `app.rb` and begin to write code in it.
+Open the new `app.rb` file with your favorite editor.
 
 We are going to require the gem `imagekitio` at the top of the file as follow:
 
@@ -47,11 +47,11 @@ url_endpoint = 'YOUR_URL_ENDPOINT_XYZ' #eg: https://ik.imagekit.io/kcncvxhg23n
 imagekitio = ImageKitIo::Client.new(private_key, public_key, url_endpoint)
 ```
 
-The imagekitio client is configured with the user specific credentials.
+The imagekitio client is configured with user-specific credentials.
 
 ## **Uploading images in Ruby app**
 
-There are different ways to upload the file in imagekitio. Let's upload the remote file to imagekitio using following code:
+There are different ways to upload the file in imagekitio. Let's upload the remote file to imagekitio using the following code:
 
 ```ruby
 upload = imagekitio.upload_file(
