@@ -78,7 +78,7 @@ ImageKitIo.configure do |config|
   if Rails.env.development?
     config.public_key = 'your_public_key'
     config.private_key = 'your_private_key'
-    config.url_endpoint = 'your_url_endpoint' #https://ik.imagekit.io/dgn23df2n
+    config.url_endpoint = 'your_url_endpoint' # https://ik.imagekit.io/your_imagekit_id
   end
   config.service = :carrierwave
   # config.constants.MISSING_PRIVATE_KEY = 'custom error message'

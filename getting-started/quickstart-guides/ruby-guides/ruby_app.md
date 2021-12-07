@@ -42,7 +42,7 @@ Open the `app.rb` file and add your public and private API keys, as well as the 
 ```ruby
 public_key = 'your_public_key'
 private_key = 'your_private_key'
-url_endpoint = 'your_url_endpoint' #eg: https://ik.imagekit.io/kcncvxhg23n
+url_endpoint = 'your_url_endpoint' # https://ik.imagekit.io/your_imagekit_id
 
 imagekitio = ImageKitIo::Client.new(private_key, public_key, url_endpoint)
 ```
@@ -66,7 +66,7 @@ puts "upload remote file => ", upload
 The output should like this:
 ```ruby
 upload remote file => 
-{:response=>{"fileId"=>"61a87b98dfsc0486be6e2741a", "name"=>"testing.jpg", "size"=>102117, "filePath"=>"/testing.jpg", "url"=>"https://ik.imagekit.io/kcvxhdfgfkn/testing.jpg", "fileType"=>"image", "height"=>700, "width"=>1050, "thumbnailUrl"=>"https://ik.imagekit.io/kcncvxhgfkn/tr:n-media_library_thumbnail/testing.jpg", "tags"=>["abc", "def"], "AITags"=>nil, "isPrivateFile"=>true, "customCoordinates"=>nil, "metadata"=>{"height"=>700, "width"=>1050, "size"=>102117, "format"=>"jpg", "hasColorProfile"=>true, "quality"=>0, "density"=>72, "hasTransparency"=>false, "exif"=>{}, "pHash"=>"902d9df1fc74367"}}, :error=>nil}
+{:response=>{"fileId"=>"61a87b98dfsc0486be6e2741a", "name"=>"testing.jpg", "size"=>102117, "filePath"=>"/testing.jpg", "url"=>"https://ik.imagekit.io/demo/testing.jpg", "fileType"=>"image", "height"=>700, "width"=>1050, "thumbnailUrl"=>"https://ik.imagekit.io/demo/tr:n-media_library_thumbnail/testing.jpg", "tags"=>["abc", "def"], "AITags"=>nil, "isPrivateFile"=>true, "customCoordinates"=>nil, "metadata"=>{"height"=>700, "width"=>1050, "size"=>102117, "format"=>"jpg", "hasColorProfile"=>true, "quality"=>0, "density"=>72, "hasTransparency"=>false, "exif"=>{}, "pHash"=>"902d9df1fc74367"}}, :error=>nil}
 ```
 
 Congratulation file uploaded successfully.
