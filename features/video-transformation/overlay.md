@@ -37,6 +37,9 @@ https://ik.imagekit.io/demo/sample-video.mp4?tr=w-300,h-300,l-image,i-logo.png,w
                            These transformations are applied to sample-video.mp4
 ```
 
+## Input of layer
+The input of the layer can be specified using `i` or `ie` (base54 encoded) parameter. In case both `i` and `ie` is present, `i` is ignored.
+
 ## Position of layer
 
 The position of the layer can be controlled using the following parameters. The position of the layer is always relative to the immediate parent. For instance, the parent is the base video in the above example, and the logo image is the nested layer. 
