@@ -6,7 +6,7 @@ description: >-
 
 # Ruby Application
 
-This is a quick start guide to show you how to integrate ImageKit in the Ruby application. The code samples covered here are hosted on Github -  [https://github.com/imagekit-samples/quickstart/tree/master/ruby-on-rails](https://github.com/imagekit-samples/quickstart/tree/master/ruby-on-rails).
+This is a quick start guide to show you how to integrate ImageKit in the Ruby application. The code samples covered here are hosted on Github -  [https://github.com/imagekit-samples/quickstart/tree/master/ruby/ruby_app](https://github.com/imagekit-samples/quickstart/tree/master/ruby/ruby_app).
 
 This guide walks you through the following topics:
 

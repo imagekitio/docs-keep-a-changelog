@@ -5,7 +5,7 @@ description: >-
 
 # Ruby on Rails with ActiveStorage
 
-This is a quick start guide to show you how to integrate ImageKit in the Ruby on rails application with active_storage gem. The code samples covered here are hosted on Github -  [https://github.com/imagekit-samples/quickstart/tree/master/ruby-on-rails](https://github.com/imagekit-samples/quickstart/tree/master/ruby-on-rails).
+This is a quick start guide to show you how to integrate ImageKit in the Ruby on rails application with active_storage gem. The code samples covered here are hosted on Github -  [https://github.com/imagekit-samples/quickstart/tree/master/ruby/sample-app-with-activestorage](https://github.com/imagekit-samples/quickstart/tree/master/ruby/sample-app-with-activestorage).
 
 This guide walks you through the following topics:
 
