@@ -281,13 +281,13 @@ URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200,cm-pad\_resiz
 
 To remove the audio channel from a video set `ac-none` parameter.
 
-### Angle - (a)
+### Rotate - (rt)
 
 It rotates or flips the video as per the specified number of degrees or automatically based on the orientation tag in embedded metadata.
 
-Usage - `a-<degree>`
+Usage - `rt-<degree>`
 
-`degree` is the number of degrees to rotate the video clockwise. For counter-clockwise, prefix the value with `N` e.g. `a-N10`. If the specified angle is not a multiple of 90, a rectangular bounding box is added containing the rotated video.
+`degree` is the number of degrees to rotate the video clockwise. For counter-clockwise, prefix the value with `N` e.g. `rt-N10`. If the specified angle is not a multiple of 90, a rectangular bounding box is added containing the rotated video.
 
 {% hint style="info" %}
 Use `auto` if you want ImageKit.io to automatically rotate video based on the orientation tag in video metadata.
