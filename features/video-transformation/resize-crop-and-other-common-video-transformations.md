@@ -281,32 +281,6 @@ URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200,cm-pad\_resiz
 
 To remove the audio channel from a video set `ac-none` parameter.
 
-### Rotate - (rt)
-
-It rotates or flips the video as per the specified number of degrees or automatically based on the orientation tag in embedded metadata.
-
-Usage - `rt-<degree>`
-
-`degree` is the number of degrees to rotate the video clockwise. For counter-clockwise, prefix the value with `N` e.g. `rt-N10`. If the specified angle is not a multiple of 90, a rectangular bounding box is added containing the rotated video.
-
-{% hint style="info" %}
-Use `auto` if you want ImageKit.io to automatically rotate video based on the orientation tag in video metadata.
-{% endhint %}
-
-{% tabs %}
-{% tab title="a=90" %}
-URL - [https://ik.imagekit.io/demo/tr:a-90/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:rt-90/medium\_cafe\_B1iTdD0C.jpg)
-
-![](https://ik.imagekit.io/demo/tr:rt-90/medium\_cafe\_B1iTdD0C.jpg)
-{% endtab %}
-
-{% tab title="a=20" %}
-URL - [https://ik.imagekit.io/demo/tr:rt-180/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:rt-180/medium\_cafe\_B1iTdD0C.jpg)
-
-![](https://ik.imagekit.io/demo/tr:rt-180/medium\_cafe\_B1iTdD0C.jpg)
-{% endtab %}
-{% endtabs %}
-
 ### DPR - (dpr)
 
 Used to specify the device pixel ratio that is used to calculate the dimensions of the output video. Extremely helpful when creating video transformations for devices with a high device pixel ratio (DPR > 1), like the iPhone or high-end Android devices.
@@ -320,28 +294,6 @@ The `dpr` parameter can only be used when either the height or width of the desi
 {% hint style="info" %}
 When using a DPR value larger than `1`, you should always specify the height or width on the image or video tag in HTML for the browser to render the media correctly.
 {% endhint %}
-
-### Blur - (bl)
-
-It applies a gussian blurring effect to the video. The value of `bl` specifies the standard deviation of Gaussian blur. A higher value results in a more blurred video.
-
-Usage - `bl-<value>`
-
-**Possible Values** - `1`  to `100`.
-
-{% tabs %}
-{% tab title="Original" %}
-URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
-
-![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg)
-{% endtab %}
-
-{% tab title="blur=10" %}
-URL - [https://ik.imagekit.io/demo/tr:bl-10/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:bl-10/medium_cafe_B1iTdD0C.jpg)
-
-![](https://ik.imagekit.io/demo/tr:bl-10/medium_cafe_B1iTdD0C.jpg)
-{% endtab %}
-{% endtabs %}
 
 ### Border - (b)
 
