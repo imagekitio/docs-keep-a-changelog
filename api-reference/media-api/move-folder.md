@@ -59,4 +59,10 @@ curl -X POST "https://api.imagekit.io/v1/bulkJobs/moveFolder" \
 '
 ```
 {% endtab %}
+{% tab title='Ruby' %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.move_folder(source_folder_path: '/folder/to/move', destination_path: '/folder/to/move/into/')
+```
+{% endtab %%}
 {% endtabs %}

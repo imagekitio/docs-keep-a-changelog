@@ -105,9 +105,9 @@ ResultFileDelete result=ImageKit.getInstance().bulkDeleteFiles(fileIds);
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 bulk_ids = Array["fileId1","fileId2"]
-imagekitio.bulk_file_delete(bulk_ids)
+imagekitio.delete_bulk_files(file_ids: bulk_ids)
 ```
 {% endtab %}
 {% endtabs %}

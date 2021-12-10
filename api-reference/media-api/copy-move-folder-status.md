@@ -39,3 +39,12 @@ The JSON-encoded response will have the following properties:
 | jobId         | The `jobId` you get in the response of bulk job API e.g. copy folder or move folder API.                                                                                                                                     |
 | type          | The type of operation, it could be either `COPY_FOLDER` or `MOVE_FOLDER`.                                                                                                                                                    |
 | status        | <p>The current status of the job. It can be either:<br></p><ul><li><code>Pending</code> - The job has been successfully submitted and is in progress.</li><li><code>Completed</code> - The job has been completed.</li></ul> |
+
+{% tabs %}
+{% tab title="Ruby" %}
+ ```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.bulk_job_status(job_id: '598821f949c0a938d57563bd')
+```
+{% endtab %}
+{% endtabs %}

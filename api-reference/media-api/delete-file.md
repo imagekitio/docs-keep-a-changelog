@@ -105,8 +105,8 @@ Result result=ImageKit.getInstance().deleteFile("file_id");
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-delete = imagekitio.delete_file("file_id")
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+delete = imagekitio.delete_file(file_id: "file_id_xyz")
 ```
 {% endtab %}
 {% endtabs %}

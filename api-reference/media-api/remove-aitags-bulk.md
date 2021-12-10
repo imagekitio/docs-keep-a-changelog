@@ -75,4 +75,18 @@ curl -X POST "https://api.imagekit.io/v1/files/removeAITags" \
 '
 ```
 {% endtab %}
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.delete_bulk_ai_tags(
+  file_ids:  [
+    "5e21880d5efe355febd4bccd",
+    "5e1c13c1c55ec3437c451403",
+    "5f4abf6fae77ae7f0acda3d1",
+    "5f207bd1bd2741182ceadd55"
+    ],
+    ai_tags: ['ai-tag-to-remove-1', 'ai-tag-to-remove-2']
+)
+```
+{% endtab %}
 {% endtabs %}

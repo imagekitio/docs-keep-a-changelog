@@ -94,7 +94,8 @@ String url = ImageKit.getInstance().getUrl(options);
 
 {% tab title="Ruby" %}
 ```ruby
-image_url = imagekit.url({
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+image_url = imagekitio.url({
     path: "/default-image",
     query_parameters: {
                 "v": "123"

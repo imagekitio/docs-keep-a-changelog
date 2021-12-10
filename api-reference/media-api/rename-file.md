@@ -117,4 +117,14 @@ curl -X PUT "https://api.imagekit.io/v1/files/rename" \
 '
 ```
 {% endtab %}
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.rename_file(
+  file_path: '/path/to/old-file-name.jpg',
+  new_file_name: 'new-file-name.jpg',
+  purge_cache: true #optional
+)
+```
+{% endtab %}
 {% endtabs %}

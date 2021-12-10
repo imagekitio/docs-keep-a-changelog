@@ -1,33 +1,29 @@
 ---
 description: >-
-  Real-time image resizing, automatic optimization, and file uploading in Ruby
-  on Rails using ImageKit.io.
+ File uploading in Ruby on Rails application with carrierwave gem using ImageKit.io.
 ---
 
-# Ruby on Rails
+# Ruby on Rails with carrierwave
 
-This is a quick start guide to show you how to integrate ImageKit in the Ruby on Rails application. The code samples covered here are hosted on Github -  [https://github.com/imagekit-samples/quickstart/tree/master/ruby-on-rails](https://github.com/imagekit-samples/quickstart/tree/master/ruby-on-rails).
+This is a quick start guide to show you how to integrate ImageKit in the Ruby on rails application with carrierwave gem. The code samples covered here are hosted on Github -  [https://github.com/imagekit-samples/quickstart/tree/master/ruby/sample-app-with-carrierwave](https://github.com/imagekit-samples/quickstart/tree/master/ruby/sample-app-with-carrierwave).
 
 This guide walks you through the following topics:
 
-* [Setting up ImageKit Ruby SDK](ruby-on-rails.md#setting-up-imagekit-ruby-sdk)
-* [Rendering images](ruby-on-rails.md#rendering-images-in-ruby-on-rails)
-* [Applying common image manipulations](ruby-on-rails.md#common-image-manipulation-in-ruby-on-rails)
-* [Secure signed URL generation](ruby-on-rails.md#secure-signed-url-generation)
-* [Adding overlays to images](ruby-on-rails.md#adding-overlays-to-images-in-ruby-on-rails)
-* [Uploading files](ruby-on-rails.md#uploading-file-in-ruby-on-rails-application)
+* [Setting up ImageKit Ruby SDK](ruby_on_rails_with_carrierwave.md#setting-up-imagekit-ruby-on-rails-sdk)
+* [Upload images](ruby_on_rails_with_carrierwave.md#uploading-images-in-ruby-on-rails-application)
 
-## Setting up ImageKit Ruby SDK
+## Setting up ImageKit Ruby on Rails SDK
 
 For this tutorial, we will create a fresh rails application and work with it. If you already have an existing Rails app, it is also possible to use that, although you would need to modify the terminal commands and configurations in this tutorial as applicable.&#x20;
 
 Let's create a new rails application. Create a new directory and enter the command:
 
 ```bash
-rails new sample-app
+rails new sample-app-with-carrierwave
 ```
 
 Now, navigate to the newly created directory, and run the app:
+
 
 ```bash
 rails server
@@ -37,7 +33,7 @@ In your web browser, navigate to [`http://localhost:3000/`](http://localhost:300
 
 You should see a generic welcome message (_Yay! You're on Rails!_).
 
-![Welcome message for a fresh Ruby on Rails application](<../../.gitbook/assets/image (16).png>)
+![Welcome message for a fresh Ruby on Rails application](<../../../.gitbook/assets/image (16).png>)
 
 Next, to use ImageKit functionality in our app, we will create a new controller with the following command:
 
@@ -57,7 +53,7 @@ Here, we are doing two things:
 1. One, creating a route at the path _welcome/index, _to direct requests coming on that path to go to the index action of the Welcome controller, which we will add soon.
 2. Second, we are declaring the root path to be directed to _welcome/index. _This means that all requests on `http://localhost:3000/` will go to `http://localhost:3000/welcome/index`
 
-**Installing the SDK**
+## **Installing the SDK**
 
 First, add this line to your Gemfile to add the 'imagekitio' gem as a dependency.
 
@@ -71,26 +67,23 @@ Next, run the bundle install command to install the imagekitio gem from the Ruby
 bundle install
 ```
 
-**Initializing the SDK**
+#### **Initializing the SDK**
 
 Before the SDK can be used, let's learn about and configure the requisite authentication parameters that need to be provided to the SDK.
 
-Open the `app/controllers/application_controller.rb` file and add your public and private API keys, as well as the URL Endpoint as follows: (You can find these keys in the Developer section of your ImageKit Dashboard)
+Create a file `config/initializers/imagekitio.rb`, open it and add your public and private API keys, as well as the URL Endpoint as follows: (You can find these keys in the Developer section of your ImageKit Dashboard)
 
 ```ruby
-class ApplicationController < ActionController::Base
-    before_action :init_ik
-
-    def init_ik
-        private_key = "YOUR_PRIVATE_KEY"
-        public_key = "YOUR_PUBLIC_KEY"
-        # default value for endpoint is: https://ik.imagekit.io/<YOUR_IMAGEKIT_ID>/
-        url_endpoint = "YOUR_URL_ENDPOINT"
-
-        # here we initialize an instance of the SDK, which we will use to work with images
-        @imagekitio = ImageKit::ImageKitClient.new(private_key, public_key, url_endpoint)
-    end
+ImageKitIo.configure do |config|
+  if Rails.env.development?
+    config.public_key = 'your_public_key'
+    config.private_key = 'your_private_key'
+    config.url_endpoint = 'your_url_endpoint' # https://ik.imagekit.io/your_imagekit_id
+  end
+  config.service = :carrierwave
+  # config.constants.MISSING_PRIVATE_KEY = 'custom error message'
 end
+
 ```
 
 Restart the application
@@ -100,274 +93,18 @@ rails server
 ```
 
 The home screen will display an error message stating that the index action could not be found for the WelcomeController. Let's fix that.
-
-## **Rendering images in Ruby on Rails**
-
 Open up the project in your text editor of choice, and navigate to `app/controllers/welcome_controller.rb`. Edit it to make it look like the following:
 
 ```ruby
 class WelcomeController < ApplicationController
   def index
-    # Configure your URL here
   end
 end
 ```
 
-Here, declare a variable to store the image URL generated by the SDK. Like this:
+and create `app/views/welcome/index.html.erb` file and edit file with text `Hello world`. Now refresh the browser it renders the `Hello world`.
 
-```ruby
-class WelcomeController < ApplicationController
-  def index
-    @image_url = @imagekitio.url({
-      path: 'default-image.jpg',
-    })
-  end
-end
-```
-
-Now, `@image_url` has the URL `https://ik.imagekit.io/<your_imagekit_id>/default-image.jpg` stored in it.  This variable can now be read by the index view, where we will display the image.
-
-Go to `app/views/welcome/index.html.erb`, and add the following line:
-
-```ruby
-<%= image_tag @image_url %>
-```
-
-This fetches the image from the URL stored in `@image_url` that we created in the controller file.
-
-Rerunning the server should now display this default image in its full size:
-
-![Image in its original dimensions (1000px \* 1000px)](<../../.gitbook/assets/image (17).png>)
-
-## Common image manipulation in Ruby on Rails
-
-Let’s now learn how to manipulate images using [ImgeKit transformations](../../features/image-transformations/).
-
-### **Height and width manipulation**
-
-To resize an image along with its height or width, we need to pass the `transformation` as an array to the `imagekitio.url()` method.
-
-Let’s resize the default image to 200px height and width:
-
-```jsx
-class WelcomeController < ApplicationController
-  def index
-    @image_url = @imagekitio.url({
-      path: 'default-image.jpg',
-      transformation: [{
-        height: "200",
-        width: "200",
-      }]
-    })
-  end
-end
-```
-
-**Transformation URL:**
-
-```http
-https://ik.imagekit.io/violetviolinist/tr:h-200,w-200/default-image.jpg?ik-sdk-version=ruby-1.0.6
-```
-
-Refresh your browser to get the resized image.
-
-![Resized image (200px \* 200px)](<../../.gitbook/assets/image (18).png>)
-
-### **Chained transformation**
-
-[Chained transformations](https://docs.imagekit.io/features/image-transformations/chained-transformations) provide a simple way to control the sequence in which transformations are applied.
-
-Let’s try it out by resizing an image, then rotating it:
-
-```jsx
-class WelcomeController < ApplicationController
-  def index
-    @image_url = @imagekitio.url({
-      path: 'default-image.jpg',
-      transformation: [{
-        height: "300",
-        width: "200",
-      }]
-    })
-  end
-end
-```
-
-**Transformation URL:**
-
-```http
-https://ik.imagekit.io/violetviolinist/tr:h-300,w-200/default-image.jpg?ik-sdk-version=ruby-1.0.5
-```
-
-**Output Image:**
-
-![Resized and cropped (200px \* 300px)](<../../.gitbook/assets/image (20).png>)
-
-Now, rotate the image by 90 degrees.
-
-```ruby
-class WelcomeController < ApplicationController
-  def index
-    @image_url = @imagekitio.url({
-      path: 'default-image.jpg',
-      transformation: [
-      {
-        height: "300",
-        width: "200",
-      },
-      {
-        rt: 90,
-      },
-    ],
-    })
-  end
-end
-```
-
-**Chained Transformation URL:**
-
-```http
-https://ik.imagekit.io/violetviolinist/tr:h-300,w-200:rt-90/default-image.jpg?ik-sdk-version=ruby-1.0.5
-```
-
-**Output Image:**
-
-![Resized, then rotated](<../../.gitbook/assets/image (21).png>)
-
-Let’s flip the order of transformation and see what happens.
-
-```ruby
-class WelcomeController < ApplicationController
-  def index
-    @image_url = @imagekitio.url({
-      path: 'default-image.jpg',
-      transformation: [
-      {
-        rt: 90,
-      },
-      {
-        height: "300",
-        width: "200",
-      },
-    ],
-    })
-  end
-end
-```
-
-**Chained Transformation URL:**
-
-```http
-https://ik.imagekit.io/violetviolinist/tr:rt-90:h-300,w-200/default-image.jpg?ik-sdk-version=ruby-1.0.5
-```
-
-**Output Image:**
-
-![Rotated, then resized](<../../.gitbook/assets/image (22).png>)
-
-## Adding overlays to images in Ruby on Rails
-
-ImageKit.io allows you to add [text](../../features/image-transformations/overlay.md#text-overlay) and [image overlay](../../features/image-transformations/overlay.md) dynamically.
-
-#### **Text overlay**
-
-Text overlay can be used to superimpose text on an image. For example:
-
-```ruby
-class WelcomeController < ApplicationController
-  def index
-    @image_url = @imagekitio.url({
-      path: 'default-image.jpg',
-      transformation: [{
-        height: "300",
-        width: "300",
-        overlay_text: 'ImageKit',
-        overlay_text_font_size: 50,
-        overlay_text_color: '0651D5',
-      }],
-    })
-  end
-end
-```
-
-**Transformation URL:**
-
-```http
-https://ik.imagekit.io/violetviolinist/tr:h-300,w-300,ot-ImageKit,ots-50,otc-0651D5/default-image.jpg?ik-sdk-version=ruby-1.0.5
-```
-
-**Output Image:**
-
-![Text Overlay (300px \* 300px)](<../../.gitbook/assets/image (19).png>)
-
-#### **Image overlay**
-
-Image overlay can be used to superimpose an image on another image. For example, we will upload a while logo image on [this link](https://ik.imagekit.io/demo/logo-white\_SJwqB4Nfe.png) into our account and use it for the overlay image.
-
-Base Image: `default-image.jpg`
-
-Overlay Image: `overlay-image.png`
-
-```ruby
-class WelcomeController < ApplicationController
-  def index
-    @image_url = @imagekitio.url({
-      path: 'default-image.jpg',
-      transformation: [{
-        height: "300",
-        width: "300",
-        overlay_image: "overlay-image.png"
-      }],
-    })
-  end
-end
-```
-
-**Transformation URL:**
-
-```http
-https://ik.imagekit.io/violetviolinist/tr:h-300,w-300,oi-overlay-image.png/default-image.jpg?ik-sdk-version=ruby-1.0.6
-```
-
-**Output Image:**
-
-![Overlay image over another image](<../../.gitbook/assets/image (24).png>)
-
-## Secure signed URL generation
-
-You can use the SDK to generate a signed URL of an image, that expires in a given number of seconds.
-
-```ruby
-# app/controllers/welcome_controller.rb
-
-def signed_url
-  @signed_image_url = @imagekitio.url({
-    path: 'default-image.jpg',
-    signed: true,
-    expire_seconds: 10,
-  })
-end
-```
-
-```ruby
-# config/routes.rb
-
-get 'welcome/signed_url'
-```
-
-```markup
-# app/controllers/views/welcome/signed_url.html.erb
-
-<span>
-    <%= @signed_image_url %>
-</span>
-```
-
-The above snippets create a signed URL with an expiry time of 10 seconds.
-
-![Signed URL generation](<../../.gitbook/assets/image (25).png>)
-
-## **Uploading file in Ruby on Rails application**
+## **Uploading images in Ruby on Rails application**
 
 There are two different methods of uploading a file to your ImageKit Media Library:
 
@@ -403,16 +140,18 @@ Now, we have the route and the HTML markup set up to submit a file for uploading
 ```ruby
 def upload
     uploaded_file = params[:picture]
-    output = @imagekitio.upload_file
-    (
-        file = uploaded_file, # required
-        file_name= "new_file.jpg",  # required
-        options= {response_fields: 'tags', tags: ["hello"]}
+    @imagekitio = ImageKitIo.client
+    output = @imagekitio.upload_file(
+        file: uploaded_file,
+        file_name: "new_file.jpg",
+        response_fields: 'tags',
+        tags: ["hello"]
     )
     if output[:error]
         redirect_to "/", notice: "There was some problem uploading your image"
     else
-        redirect_to "/", notice: "Your image has been uploaded successfully with the name of #{output[:response]["name"]}"    end
+        redirect_to "/", notice: "Your image has been uploaded successfully with the name of #{output[:response]["name"]}"
+    end
 end
 ```
 
@@ -420,7 +159,7 @@ Here, we first extract the file from the _:picture_ property of the _params_ obj
 
 Now, refresh the home page, and you should see the upload field.
 
-![Upload field](<../../.gitbook/assets/image (13).png>)
+![Upload field](<../../../.gitbook/assets/image (13).png>)
 
 Select an image/file from your local computer, and click on the _Upload_ button. A success message shall flash below the file field.
 
@@ -441,19 +180,15 @@ Fetch the uploaded image and display it in the UI by adding this line to your `a
 The app should render your uploaded image correctly.
 
 ### **Attaching the image to a model (using CarrierWave)**
+You can attach an image as an attribute of one of your models, making it convenient to write a model-oriented code. This method uses the CarrierWave gem, which is a dependency of the imagekitio gem.
 
-You can attach an image as an attribute of one of your models, making it convenient to write a model-oriented code. This method uses the CarrierWave gem, which is a dependency of the imagekitio gem.\
-\
-First, add the following configurations to `config/environments/development.rb` and `config/environments/production.rb`
+Open `Gemfile` and add carrierwave gem
 
 ```ruby
-config.imagekit = 
-{
-  private_key: "<your-private-key>",
-  public_key: "<your-public-key>",
-  url_endpoint: "<endpoint-url>"
-}
+gem 'carrierwave', '~> 2.0'
 ```
+
+run `bundle install`
 
 Next, we'll create an entity called an uploader.
 
@@ -467,8 +202,7 @@ rails g uploader Picture
 Now, go to the generated uploader file - `app/uploaders/<name>_uploader.eb`, and enter the following code. The _options_ configuration is optional.
 
 ```ruby
-# Set store as imagekit_store
-storage :imagekit_store
+include ImageKitIo::CarrierWave
 
 # If you want to add uploading options then create this method inside uploader file as an example
 
@@ -598,6 +332,12 @@ _show.html.erb_
 </div>
 <%= link_to 'Back', posts_path %>
 ```
+And finally let's add the routes
+`config/routes.rb`
+
+```ruby
+resources :posts
+```
 
 Now, restart the server and go to _http://localhost:3000/posts/new. _You should see two form fields, for _title_, and _picture_. Enter a text value for the title field, and upload an image/file for the picture field, and click on Submit. This should redirect you to _http://localhost:3000/posts/1, _displaying the title and the image.
 
@@ -611,6 +351,7 @@ You can use the SDK to generate [authentication](https://docs.imagekit.io/api-re
 # app/controllers/welcome_controller.rb
 
 def auth_params
+  @imagekitio = ImageKitIo.client
   @auth_params = @imagekitio.get_authentication_parameters()
 end
 ```
@@ -622,7 +363,7 @@ get 'welcome/auth_params'
 ```
 
 ```ruby
-# app/views/welcome/auth_parameters.html.erb
+# app/views/welcome/auth_params.html.erb
 
 <div>
     <%= @auth_params %>

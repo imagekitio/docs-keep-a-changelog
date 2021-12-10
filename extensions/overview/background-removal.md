@@ -250,16 +250,14 @@ echo("Updated detail : " . json_encode($updateFileDetails));
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 updated_detail = imagekitio.update_file_details(
-    "file_id",
-    {
-        "extensions": [
-            {
-                "name": "remove-bg",
-            }
-        ]
-    }
+    file_id: "file_id_xyz",
+    extensions: [
+      {
+        "name": "remove-bg",
+      }
+    ]
 )
 ```
 {% endtab %}

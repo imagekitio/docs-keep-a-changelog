@@ -415,18 +415,17 @@ echo("Updated detail : " . json_encode($updateFileDetails));
 
 {% tab title="Ruby" %}
 ```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 updated_detail = imagekitio.update_file_details(
-    "file_id",
-    {
-        "extensions": [
-            {
-                "name": "google-auto-tagging",
-                "maxTags": 5,
-                "minConfidence": 95
-            }
-        ]
-    }
+    file_id: "598821f949c0a938d57563bd", #required
+    extension: [
+      {
+        name: 'google-auto-tagging',
+        maxTags: 5,
+        minConfidence: 95
+      }
+    ],
+    custom_coordinates: '10,10,100,200'
 )
 ```
 {% endtab %}

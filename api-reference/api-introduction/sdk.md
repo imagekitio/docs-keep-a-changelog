@@ -19,7 +19,7 @@ The ImageKit.io team has developed these libraries. If you find a bug or have su
 * [x] [NodeJS](https://www.npmjs.com/package/imagekit)
 * [x] [PHP](https://github.com/imagekit-developer/imagekit-php)
 * [x] [JAVA](https://github.com/imagekit-developer/imagekit-java)
-* [x] [Ruby on rails](https://github.com/imagekit-developer/imagekit-ruby)
+* [x] [Ruby](https://github.com/imagekit-developer/imagekit-ruby)
 * [x] [.Net](https://github.com/imagekit-developer/imagekit-dotnet)
 
 ## Want to contribute? :raised_hands: 
