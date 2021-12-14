@@ -110,7 +110,7 @@ image_url = imagekitio.url({
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/violetviolinist/tr:h-200,w-200/default-image.jpg?ik-sdk-version=ruby-1.0.6
+https://ik.imagekit.io/demo/tr:h-200,w-200/default-image.jpg?ik-sdk-version=ruby-1.0.6
 ```
 
 Refresh your browser with new url to get the resized image.
@@ -136,7 +136,7 @@ image_url = imagekitio.url({
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/violetviolinist/tr:h-300,w-200/default-image.jpg?ik-sdk-version=ruby-1.0.5
+https://ik.imagekit.io/demo/tr:h-300,w-200/default-image.jpg?ik-sdk-version=ruby-1.0.5
 ```
 
 **Output Image:**
@@ -162,7 +162,7 @@ image_url = imagekitio.url({
 **Chained Transformation URL:**
 
 ```http
-https://ik.imagekit.io/violetviolinist/tr:h-300,w-200:rt-90/default-image.jpg?ik-sdk-version=ruby-1.0.5
+https://ik.imagekit.io/demo/tr:h-300,w-200:rt-90/default-image.jpg?ik-sdk-version=ruby-1.0.5
 ```
 
 **Output Image:**
@@ -188,7 +188,7 @@ image_url = imagekitio.url({
 **Chained Transformation URL:**
 
 ```http
-https://ik.imagekit.io/violetviolinist/tr:rt-90:h-300,w-200/default-image.jpg?ik-sdk-version=ruby-1.0.5
+https://ik.imagekit.io/demo/tr:rt-90:h-300,w-200/default-image.jpg?ik-sdk-version=ruby-1.0.5
 ```
 
 **Output Image:**
@@ -219,7 +219,7 @@ image_url = imagekitio.url({
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/violetviolinist/tr:h-300,w-300,ot-ImageKit,ots-50,otc-0651D5/default-image.jpg?ik-sdk-version=ruby-1.0.5
+https://ik.imagekit.io/demo/tr:h-300,w-300,ot-ImageKit,ots-50,otc-0651D5/default-image.jpg?ik-sdk-version=ruby-1.0.5
 ```
 
 **Output Image:**
@@ -228,11 +228,11 @@ https://ik.imagekit.io/violetviolinist/tr:h-300,w-300,ot-ImageKit,ots-50,otc-065
 
 #### **Image overlay**
 
-Image overlay can be used to superimpose an image on another image. For example, we will upload a while logo image on [this link](https://ik.imagekit.io/demo/logo-white\_SJwqB4Nfe.png) into our account and use it for the overlay image.
+Image overlay can be used to superimpose an image on another image. For example, we will upload a while logo image on [this link](https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png) into our account and use it for the overlay image.
 
 Base Image: `default-image.jpg`
 
-Overlay Image: `overlay-image.png`
+Overlay Image: `logo-white_SJwqB4Nfe.png`
 
 ```ruby
 image_url = imagekitio.url({
@@ -240,7 +240,7 @@ image_url = imagekitio.url({
   transformation: [{
     height: "300",
     width: "300",
-    overlay_image: "overlay-image.png"
+    overlay_image: "logo-white_SJwqB4Nfe.png"
   }],
 })
 ```
@@ -248,7 +248,7 @@ image_url = imagekitio.url({
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/violetviolinist/tr:h-300,w-300,oi-overlay-image.png/default-image.jpg?ik-sdk-version=ruby-1.0.6
+https://ik.imagekit.io/demo/tr:h-300,w-300,oi-logo-white_SJwqB4Nfe.png/default-image.jpg?ik-sdk-version=ruby-1.0.6
 ```
 
 **Output Image:**
