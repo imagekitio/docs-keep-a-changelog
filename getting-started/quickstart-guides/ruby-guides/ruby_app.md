@@ -224,7 +224,7 @@ https://ik.imagekit.io/demo/tr:h-300,w-300,ot-ImageKit,ots-50,otc-0651D5/default
 
 **Output Image:**
 
-![Text Overlay (300px \* 300px)](<../../../.gitbook/assets/ruby-app-with-overlay-image.png>)
+![Text Overlay (300px \* 300px)](<../../../.gitbook/assets/ruby-app-with-overlay-text.png>)
 
 #### **Image overlay**
 
