@@ -14,6 +14,7 @@
     * [Ruby on Rails with active_storage](getting-started/quickstart-guides/ruby-guides/ruby_on_rails_with_activestorage.md)
     * [Ruby on Rails with carrierwave](getting-started/quickstart-guides/ruby-guides/ruby_on_rails_with_carrierwave.md)
   * [Vue.js](getting-started/quickstart-guides/vuejs.md)
+  * [Next.js](getting-started/quickstart-guides/nextjs.md)
 * [How to use ImageKit.io?](getting-started/how-to-use-imagekit.io.md)
 
 ## 🔧External storage <a href="integration" id="integration"></a>
@@ -76,9 +77,11 @@
   * [Data Saver Mode](features/image-optimization/data-saver-mode.md)
   * [Metadata, Color Profile and Orientation](features/image-optimization/metadata-color-profile-and-orientation.md)
   * [PNG Compression](features/image-optimization/png-compression.md)
-* [Video Transformation (Alpha release)](features/video-transformation/README.md)
+* [Video Transformation (Beta release)](features/video-transformation/README.md)
   * [Resize, crop, and other common video transformations](features/video-transformation/resize-crop-and-other-common-video-transformations.md)
-* [Video Optimization (Alpha release)](features/video-optimization/README.md)
+  * [Overlays in video](features/video-transformation/overlay.md)
+  * [Adaptive bitrate streaming](features/video-transformation/adaptive-bitrate-streaming.md)
+* [Video Optimization (Beta release)](features/video-optimization/README.md)
   * [Automatic video format conversion](features/video-optimization/automatic-video-format-conversion.md)
   * [Quality Optimization](features/video-optimization/quality-optimization.md)
 * [Named Transformations](features/named-transformations.md)

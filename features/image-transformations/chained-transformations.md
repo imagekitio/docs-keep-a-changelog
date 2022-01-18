@@ -13,8 +13,8 @@ Each step in the chained transform is separated by a colon `:`. The step appeari
 {% tabs %}
 {% tab title="Chained transformation" %}
 ```markup
-      URL-endpoint               1st         2nd                                  
-┌──────────────────────────┐┌────────────┐ ┌────┐
+      URL-endpoint               1st        2nd                                  
+┌──────────────────────────┐┌────────────┐ ┌───┐
 https://ik.imagekit.io/demo/tr:w-400,h-300:rt-90/default-image.jpg
 ```
 {% endtab %}
