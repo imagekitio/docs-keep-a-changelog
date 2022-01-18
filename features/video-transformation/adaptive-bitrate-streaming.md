@@ -45,15 +45,16 @@ Use `sr-<representations>` transformation to generate the master manifest file f
 
 `sr-<representations>` transformation is used to specify representations you want to create separated by an underscore `_`. Here is the list of supported representations for both HLS and DASH.
 
-| Representations     | Resolution	 | 
-| ------------------- | -------------- | 
-| 240                 |     426x240    |
-| 360                 |     640x360    |
-| 480                 |     854x480    |
-| 720                 |     1280x720   |
-| 1080                |     1920x1080  |
-| 1440                |     2560x1440  |
-| 2160                |     3840x2160  |
+| Representations | Resolution | Max Bitrate | Video Codec | Audio Codec | Format |
+|-----------------|------------|-------------|-------------|-------------|--------|
+| 240             | 426x240    | 200K        | h264        | aac         | mp4    |
+| 360             | 640x360    | 400K        | h264        | aac         | mp4    |
+| 480             | 854x480    | 800K        | h264        | aac         | mp4    |
+| 720             | 1280x720   | 3300K       | h264        | aac         | mp4    |
+| 1080            | 1920x1080  | 5500K       | h264        | aac         | mp4    |
+| 1440            | 2560x1440  | 12000K      | h264        | aac         | mp4    |
+| 2160            | 3840x2160  | 18000K      | h264        | aac         | mp4    |
+
 
 {% hint style="info" %}
 ImageKit uses H.264 codec for encoding video and AAC for encoding audio for both HLS and DASH.
