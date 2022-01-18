@@ -1,8 +1,4 @@
-# Video Optimization \(Alpha release\)
-
-{% hint style="info" %}
-Check out the [limitations of alpha release](../video-transformation/#limitations-of-the-alpha-release) before using video optimization features in your application.
-{% endhint %}
+# Video Optimization \(Beta release\)
 
 Websites with video lead to higher engagement and sales. But videos files are big and it is important that you deliver the video properly and ensure that the playback of the video is seamless and doesn't stall. When a smaller video is downloaded, video playback occurs sooner, and the video buffer fills up faster.
 
