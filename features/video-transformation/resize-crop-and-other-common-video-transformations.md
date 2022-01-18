@@ -142,7 +142,7 @@ Notice that the aspect ratio is changed and the video looks squeezed.
 
 
 
-### Max-size cropping strategy - (c-at\_max)
+### Max-size cropping strategy - (c-at_max)
 
 In the max-size crop strategy, whole video content is preserved without any cropping, the aspect ratio is preserved, but one of the dimensions (height or width) is adjusted.
 
@@ -154,9 +154,9 @@ Notice that the aspect ratio is maintained and there is no cropping. But the hei
 
 ![](<../../.gitbook/assets/image (38).png>)
 
-### Min-size cropping strategy - (c-at\_least)
+### Min-size cropping strategy - (c-at_least)
 
-This strategy is similar to the [max-size cropping](resize-crop-and-other-common-video-transformations.md#max-size-cropping-strategy-c-at\_max) strategy, with the only difference being that, unlike the max-size strategy, the output video's diemsnion is equal to or larger than the requested dimensions. One of the dimensions will be exactly the same as what is requested, while the other dimension will be equal to or larger than what is requested.
+This strategy is similar to the [max-size cropping](resize-crop-and-other-common-video-transformations.md#max-size-cropping-strategy-c-at\_max) strategy, with the only difference being that, unlike the max-size strategy, the output video dimension is equal to or larger than the requested dimensions. One of the dimensions will be exactly the same as what is requested, while the other dimension will be equal to or larger than what is requested.
 
 URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-200,h-200,c-at\_least](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-200,h-200,c-at\_least)
 
@@ -277,24 +277,6 @@ URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200,cm-pad\_resiz
 
 **Possible Values** - Valid RGB Hex Code
 
-### Audio codec - (ac)
-
-To remove the audio channel from a video set `ac-none` parameter.
-
-### DPR - (dpr)
-
-Used to specify the device pixel ratio that is used to calculate the dimensions of the output video. Extremely helpful when creating video transformations for devices with a high device pixel ratio (DPR > 1), like the iPhone or high-end Android devices.
-
-Usage - `dpr-<value>`
-
-**Possible Values** - `0.1`  to `5`.
-
-The `dpr` parameter can only be used when either the height or width of the desired output video is specified.
-
-{% hint style="info" %}
-When using a DPR value larger than `1`, you should always specify the height or width on the image or video tag in HTML for the browser to render the media correctly.
-{% endhint %}
-
 ### Border - (b)
 
 This adds a border to the video. It accepts two parameters - the width of the border and the color of the border.
@@ -351,3 +333,74 @@ URL - [https://ik.imagekit.io/demo/tr:r-max/medium_cafe_B1iTdD0C.jpg](https://ik
 ![](https://ik.imagekit.io/demo/tr:r-max/medium_cafe_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
+
+## Trimming
+
+You can trim a video using using `so`, `eo` and `du` options to specify start offset, end offset or duration.
+
+### Start offset - (so)
+
+Specify start offset in seconds. The video before the start offset is removed from the output.
+
+Usage - `so-<value>`
+
+**Possible Values** - Positive integer to specify the time in seconds e.g. `10`. It must be less than the duration of the input video.
+
+### End offset - (eo)
+
+Specify end offset in seconds. The video after end offset is removed from the output.
+
+Usage - `eo-<value>`
+
+**Possible Values** - Positive integer to specify the time in seconds e.g. `10`. It must be less than the duration of the input video.
+
+### Duration - (du)
+
+Specify duration in seconds. It is often used with `so` to control duration of the video to keep in output starting after `so` seconds.
+
+Usage - `du-<value>`
+
+**Possible Values** - Positive integer to specify the duration time in seconds e.g. `10`. It must be less than or equal to the duration of the input video.
+
+## Get thumbnail from a video
+
+To get the first frame from the video `ik-thumbnail.jpg` after the video resource URL.
+
+```markup
+https://ik.imagekit.io/demo/sample-video.mp4/ik-thumbnail.jpg
+```
+
+To get the snapshot from a specific time point, use the `so` parameter. 
+
+You can tranform the output image using following parameters.
+
+| Parameter   | Description |
+| ----------- | ----------- |
+| `l` and other [layer positional parameters](../video-transformation/roverlay.md#position-of-layer).           | [Layers](../video-transformation/roverlay.md#layers) to overlay images and text.   |
+| [w](../image-transformations/resize-crop-and-other-transformations.md#width-w)                                 | Width of overlay image.  |
+| [h](../image-transformations/resize-crop-and-other-transformations.md#height-h)                                | Height of overlay image. |
+| [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)                        | Apect ratio of overlay image. |
+| [c](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)               | Cropping method. Accepts `force`, `at_max`, and `at_least`. |
+| [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)              | Crom mode. Supports `extract` and `pad_resize`. |
+| [fo](../image-transformations/resize-crop-and-other-transformations.md#focus-fo)                               | Relative focus area used during cropping. Accpets `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. |
+| [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                                | This adds a border to the overlay image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>` |
+| [bg](../image-transformations/resize-crop-and-other-transformations.md#background-color-bg)                    | It is used to specify the background color in RGB Hex Code (e.g. FF0000) or an RGBA Code (e.g. FFAABB50) that must be used for the image. If you specify an 8 character background, the last two characters must be a number between 00 and 99 , which is used to indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01`  represents opacity level `0.01`, and so on. |
+| [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)                                | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
+| [so](../video-transformation/resize-crop-and-other-common-video-transformations.md#start-offset-so)         | Start offset in seconds in overlay video. Video before `so` time will be trimmed. |
+| fs                                 | Font size  |
+| ff                                 | Font family |
+| co                                 | Color  |
+| ia                                 | Inner alignment. Accepts `left`, `right` and `center`. The default value is `center`. |
+| pa                                 | Padding |
+| al                                 | Alpha |
+| tg                                 | Typography |
+
+## Gif to MP4
+
+To covert a gif to mp4 video, add `ik-gif-video.mp4` after the gif resource URL.
+
+```markup
+https://ik.imagekit.io/demo/sample.gif/ik-gif-video.mp4
+```
+
+You can transform the final video using any video transformation supported by ImageKit.

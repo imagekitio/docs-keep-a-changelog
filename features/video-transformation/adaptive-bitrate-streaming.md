@@ -58,3 +58,7 @@ Use `sr-<representations>` transformation to generate the master manifest file f
 {% hint style="info" %}
 ImageKit uses H.264 codec for encoding video and AAC for encoding audio for both HLS and DASH.
 {% endhint %}
+
+### Transformation
+
+You can transform the final video using any [supported video transformation parameter](../video-transformation/resize-crop-and-other-common-video-transformations.md) in ImageKit except `w`, `h`, `ar`, `f`, `vc`, `ac`, and `q`.
