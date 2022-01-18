@@ -32,7 +32,7 @@ https://ik.imagekit.io/demo/sample-video.mp4/master.mpd?tr=sr-240_360_480_720_10
 ```
 
 {% hint style="info" %}
-The first time you access the manifest URL, a `202` HTTP status code is returned with an empty response. In the background, ImageKit will generate the required variants as per the value of `sr`. It could take up to a minute or two for this to finish. The next time you request the same URL, a manifest file is returned in the response with a `200` status code.
+The first time you access the manifest URL, a `202` HTTP status code is returned with an empty response. In the background, ImageKit will generate the required variants as per the value of `sr`. It could take up to a minute or two for this to finish. This also depends on video file size and your origin location. The next time you request the same URL, a manifest file is returned in the response with a `200` status code.
 {% endhint %}
 
 
@@ -60,6 +60,6 @@ Use `sr-<representations>` transformation to generate the master manifest file f
 ImageKit uses H.264 codec for encoding video and AAC for encoding audio for both HLS and DASH.
 {% endhint %}
 
-### Transformation
+## Transformation
 
 You can transform the final video using any [supported video transformation parameter](../video-transformation/resize-crop-and-other-common-video-transformations.md) in ImageKit except `w`, `h`, `ar`, `f`, `vc`, `ac`, and `q`.
