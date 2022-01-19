@@ -498,7 +498,7 @@ Font size is set to 45 using [ots](overlay.md#overlay-text-size-ots) parameter.
 It is similar to [overlay text (ot)](overlay.md#overlay-text-ot) but it allows you to overlay special unicode characters (e.g. ©, ®, ™ etc.) that you cannot otherwise pass in a URL as plain string. It accepts base64 string.
 
 {% hint style="info" %}
-1. The base64 string should be made URL safe to ensure that all padding characters(=) are included correctly. A function like `encodeURIComponent()` can be used for this.
+1. The base64 string should be made URL safe to ensure that all padding characters(=) are included correctly. In Javascript, a function like `encodeURIComponent()` can be used for this.
 2. Input above the length of 144 characters will be truncated.
 {% endhint %}
 

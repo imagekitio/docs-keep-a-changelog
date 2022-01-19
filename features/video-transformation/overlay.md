@@ -38,7 +38,7 @@ https://ik.imagekit.io/demo/sample-video.mp4?tr=w-300,h-300,l-image,i-logo.png,w
 ```
 
 ## Input of layer
-The input of the layer can be specified using `i` or `ie` (base54 encoded) parameter. In case both `i` and `ie` is present, `i` is ignored.
+The input of the layer can be specified using `i` or `ie` (base64 encoded) parameter. In case both `i` and `ie` is present, `i` is ignored. The base64 string should be made URL safe to ensure that all padding characters(=) are included correctly. In Javascript, a function like `encodeURIComponent()` can be used for this.
 
 ## Position of layer
 
