@@ -376,7 +376,7 @@ You can tranform the output image using following parameters.
 
 | Parameter   | Description |
 | ----------- | ----------- |
-| `l` and other [layer positional parameters](../video-transformation/roverlay.md#position-of-layer).           | [Layers](../video-transformation/roverlay.md#layers) to overlay images and text.   |
+| `l` and other [layer positional parameters](../video-transformation/overlay.md#position-of-layer).           | [Layers](../video-transformation/overlay.md#layers) to overlay images and text.   |
 | [w](../image-transformations/resize-crop-and-other-transformations.md#width-w)                                 | Width of overlay image.  |
 | [h](../image-transformations/resize-crop-and-other-transformations.md#height-h)                                | Height of overlay image. |
 | [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)                        | Apect ratio of overlay image. |

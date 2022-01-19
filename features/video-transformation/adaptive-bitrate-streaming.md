@@ -21,14 +21,14 @@ ImageKit supports the following streaming protocols. Both leverage existing HTTP
 The following URL will generate HLS manifest and five variants at differernt resolutions i.e. 240p, 360p, 480p, 720p and 1080p.
 
 ```markup
-https://ik.imagekit.io/demo/sample-video.mp4/master.m3u8?tr=sr-240_360_480_720_1080
+https://ik.imagekit.io/demo/sample-video.mp4/ik-master.m3u8?tr=sr-240_360_480_720_1080
 ```
 
 ## Dynamic Adaptive Streaming over HTTP (MPEG-DASH) protocol
 The following URL will generate DASH manifest and five variants at differernt resolutions i.e. 240p, 360p, 480p, 720p and 1080p.
 
 ```markup
-https://ik.imagekit.io/demo/sample-video.mp4/master.mpd?tr=sr-240_360_480_720_1080
+https://ik.imagekit.io/demo/sample-video.mp4/ik-master.mpd?tr=sr-240_360_480_720_1080
 ```
 
 {% hint style="info" %}
