@@ -98,6 +98,7 @@
 * [Non-image file compression](features/non-image-file-compression.md)
 * [Performance monitoring](features/performance-monitoring.md)
 * [User access management](features/user-access-management.md)
+* [Billing alerts](features/billing-alerts.md)
 
 ## Platform guides
 
