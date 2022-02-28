@@ -12,8 +12,8 @@ This feature is currently available only to paid users.
 You can follow the following steps to set up billing alerts:
 
 1. Navigate to your [billing alerts screen](https://imagekit.io/dashboard/billing/alerts)
-2. Enter the `Threshold amount` in the form
-3. Press 'Enter' or click `Save` button
+2. Enter the 'Threshold amount' in the form
+3. Press 'Enter' or click on the 'Save' button
 
 You may also review your recent invoices to find a suitable billing amount.
 
@@ -22,6 +22,6 @@ You may also review your recent invoices to find a suitable billing amount.
 ## Removing billing alert
 
 1. Navigate to your [billing alerts screen](https://imagekit.io/dashboard/billing/alerts)
-2. Click on `Remove alerts` button
+2. Click on 'Remove alerts' button
 
 ![remove-billing-alert-screenshot](<../.gitbook/assets/remove-billing-alert.jpg>)
