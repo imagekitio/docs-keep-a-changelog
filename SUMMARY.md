@@ -49,6 +49,7 @@
   * [Custom focus area](media-library/overview/custom-focus-area.md)
   * [Edit image](media-library/overview/edit-image.md)
   * [Backup media library assets](media-library/overview/backup-media-library-assets.md)
+  * [Download media library assets as zip](media-library/overview/download-media-library-assets-as-zip.md)
 
 ## Limits and troubleshooting
 
