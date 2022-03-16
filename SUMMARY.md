@@ -77,9 +77,11 @@
   * [Data Saver Mode](features/image-optimization/data-saver-mode.md)
   * [Metadata, Color Profile and Orientation](features/image-optimization/metadata-color-profile-and-orientation.md)
   * [PNG Compression](features/image-optimization/png-compression.md)
-* [Video Transformation (Alpha release)](features/video-transformation/README.md)
+* [Video Transformation (Beta release)](features/video-transformation/README.md)
   * [Resize, crop, and other common video transformations](features/video-transformation/resize-crop-and-other-common-video-transformations.md)
-* [Video Optimization (Alpha release)](features/video-optimization/README.md)
+  * [Overlays in video](features/video-transformation/overlay.md)
+  * [Adaptive bitrate streaming](features/video-transformation/adaptive-bitrate-streaming.md)
+* [Video Optimization (Beta release)](features/video-optimization/README.md)
   * [Automatic video format conversion](features/video-optimization/automatic-video-format-conversion.md)
   * [Quality Optimization](features/video-optimization/quality-optimization.md)
 * [Named Transformations](features/named-transformations.md)
@@ -96,6 +98,8 @@
 * [Non-image file compression](features/non-image-file-compression.md)
 * [Performance monitoring](features/performance-monitoring.md)
 * [User access management](features/user-access-management.md)
+* [Multi factor authentication](features/multi-factor-authentication.md)
+* [Billing alerts](features/billing-alerts.md)
 
 ## Platform guides
 

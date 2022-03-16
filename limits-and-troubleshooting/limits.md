@@ -17,13 +17,13 @@ There are certain limits, like those on image transformation dimensions, which a
 | Name                                                                                                             | Default  | Adjustable |
 | ---------------------------------------------------------------------------------------------------------------- | -------- | ---------- |
 | <p>Image input size</p><p>(accessed from your origin or media library)</p>                                       | 40MB     | Yes        |
-| <p>Output image resolution <br>(width x height; for example 1000 x 1000 = 1MP)</p>                               | 100 MP   | Yes        |
+| <p>Input image resolution <br>(width x height; for example 1000 x 1000 = 1MP)</p>                               | 100 MP   | Yes        |
 | Max image transformation dimensions (dimensions greater than this in the transformation string will get ignored) | 65535 px | No         |
 | Max WebP image transformation dimensions (dimensions greater than this will not work for transformation)         | 16383 px | No         |
 
 ## Video limits
 
-Video real-time manipulation and optimization service in alpha release. Refer to [limits](../features/video-transformation/#limitations-of-the-alpha-release) before using in production.
+Video real-time manipulation and optimization service is in Beta release. Refer to [limits](../features/video-transformation/#limitations-of-the-beta-release) before using in production.
 
 
 
