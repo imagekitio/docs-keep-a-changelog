@@ -8,11 +8,11 @@ If a file or specific transformation has been requested in the past, then the re
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId" method="delete" summary="Delete file API" %}
 {% swagger-description %}
-Deletes a file from the media library.
+Deletes a file and all its versions from the media library.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="fileId" type="string" %}
-The unique fileId of the uploaded file. `fileId` is returned in list files API and upload API.
+The unique fileId of current version of the uploaded file. `fileId` is returned in list files API and upload API.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}

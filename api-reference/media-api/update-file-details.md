@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/details" method="patch" summary="Update file details API" %}
 {% swagger-description %}
-Update file details such as `tags`, `customCoordinates` attributes, remove existing `AITags` and apply [extensions](../../extensions/overview/) using update file detail API.
+Update file details such as `tags`, `customCoordinates` attributes, remove existing `AITags` and apply [extensions](../../extensions/overview/) of current version of file using update file detail API.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="fileId" type="string" required="false" %}
@@ -26,7 +26,7 @@ The final status of pending extensions will be sent to this URL. To learn more a
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="extensions" type="array" required="false" %}
-Stringified JSON object with array of extensions to be processed on the image. For reference about extensions refer [this](../../extensions/overview/).
+Stringified JSON object with array of extensions to be processed on the image. For reference about extensions refer [this](../../extensions/overview/). Note: [Remove.bg](../../extensions/overview/background-removal.md) extension creates a new file version which will also have the updated file details.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="tags" type="array" required="false" %}
@@ -58,6 +58,10 @@ A key-value data to be associated with the asset. To unset a key, send `null` va
         },
         /* ... more googleVision tags ... */
     ],
+    "versionInfo": {
+            "id": "598821f949c0a938d57563bd",
+            "name": "Version 1"
+    },
     "isPrivateFile" : false,
     "customCoordinates" : null,
     "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
@@ -91,12 +95,13 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 
 | Property name     | Description                                                                                                                                                                                                                             |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fileId            | The unique fileId of the uploaded file.                                                                                                                                                                                                 |
-| type              | Type of item. It can be either `file` or `folder`.                                                                                                                                                                                      |
+| fileId            | The unique fileId of the uploaded file.  All versions of a file will have the same <code>fileId</code> associated with it.                                                                           |
+| type              | Type of item.  It will be `file`.                |
 | name              | Name of the file or folder.                                                                                                                                                                                                             |
 | filePath          | The relative path of the file. In the case of an image, you can use this path to construct different transformations.                                                                                                                   |
 | tags              | The array of tags associated with the image. If no tags are set, it will be `null`.                                                                                                                                                     |
 | AITags            | Array of `AITags` associated with the image. If no `AITags` are set, it will be `null`. These tags can be added using the `google-auto-tagging` or `aws-auto-tagging` [extensions](../../extensions/overview/ai-based-auto-tagging.md). |
+| versionInfo       | An object containing the file or file version's <code>id</code> (versionId) and <code>name</code>. |
 | isPrivateFile     | Is the file marked as private. It can be either `true` or `false`.                                                                                                                                                                      |
 | customCoordinates | <p>Value of custom coordinates associated with the image in the format <code>x,y,width,height</code>. If customCoordinates are not defined, then it is <code>null</code>.<br></p>                                                       |
 | url               | A publicly accessible URL of the file.                                                                                                                                                                                                  |

@@ -8,7 +8,7 @@ If a file or specific transformation has been requested in the past, then the re
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/batch/deleteByFileIds" method="post" summary="Bulk file delete API" %}
 {% swagger-description %}
-Deletes multiple files from the media library.
+Deletes multiple files and their versions from the media library.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
@@ -18,7 +18,7 @@ base64 encoding of `your_private_api_key:`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="fileIds" type="array" %}
-Each value should be a unique fileId of the uploaded file. `fileId` is returned in list files API and upload API.
+Each value should be a unique fileId of current version of the uploaded file. `fileId` is returned in list files API and upload API.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="On success, a 200 is returned along with the array of fileIds which are successfully deleted." %}

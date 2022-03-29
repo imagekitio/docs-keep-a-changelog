@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/folder/" method="delete" summary="Delete folder API" %}
 {% swagger-description %}
-This will delete the specified folder and all nested files & folders. This action is cannot be undone.
+This will delete the specified folder and all nested files, their versions & folders. This action is cannot be undone.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
