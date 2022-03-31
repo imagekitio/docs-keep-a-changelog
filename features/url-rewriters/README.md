@@ -3,16 +3,16 @@
 After migrating to ImageKit.io from another service, ImageKit.io can translate your pre-existing transformation URLs written in the syntax of your previous service provider to ImageKit's syntax. This allows you to continue using your already written URLs with minimal changes.
 For example, if you are migrating from Cloudinary, ImageKit can translate the following URL written in Cloudinary's syntax to ImageKit's syntax:
 
-Cloudinary URL: `https://res.cloudinary.com/demo/image/upload/h_300,w_300,c_crop/folder/image.jpg`
+Cloudinary URL: `https://res.cloudinary.com/<cloudinary_cloud_name>/image/upload/h_300,w_300,c_crop/folder/image.jpg`<br>
 ImageKit URL:  `https://ik.iamgekit.io/<your_imagekit_id>/tr:h-300,w-300,cm-extract/folder/image.jpg`
 
 ```markup
              static part                            transformations        file path
 ┌───────────────────────────────────────────┐┌─────────────────────────┐┌──────────────┐
-https://res.cloudinary.com/demo/image/upload/h_300,w_300,c_crop,g_north/folder/image.jpg
+https://res.cloudinary.com/<cloudinary_cloud_name>/image/upload/h_300,w_300,c_crop,g_north/folder/image.jpg
 ```
 
-* The static part - `https://res.cloudinary.com/demo/image/upload` must be manually replaced by you with `https://ik.iamgekit.io/<your_imagekit_id>`
+* The static part - `https://res.cloudinary.com/<cloudinary_cloud_name>/image/upload` must be manually replaced by you with `https://ik.iamgekit.io/<your_imagekit_id>`
 * The transformations part - `h_300,w_300,c_crop,g_north` will be translated by ImageKit to produce `tr:h-300,w-300,cm-extract`
 * The file path - `folder/medium_cafe_B1iTdD0C.jpg` will stay as it is unless your file structure has changed during migration
 
