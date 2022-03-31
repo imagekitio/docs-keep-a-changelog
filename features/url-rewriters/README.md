@@ -34,7 +34,6 @@ ImageKit.io currently supports rewriting URLs for the following services:
 1. [Cloudinary](cloudinary)
 
 <br>
-<br>
 
 ## How to use a URL-rewriter
 
