@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/rename" method="put" summary="Rename file API" %}
 {% swagger-description %}
-You can programmatically rename an already existing file in the media library using rename file API.
+You can programmatically rename an already existing file in the media library using rename file API. This operation would rename all file versions of the file.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
@@ -26,7 +26,7 @@ Any other character, including space, will be replaced by `_`.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="purgeCache" type="boolean" %}
-Option to purge cache for the old file URL. When set to `true`, it will internally issue a purge cache request on CDN to remove cached content on the old URL. E.g. if an old file was accessible at  - `https://ik.imagekit.io/demo/old-filename.jpg`, a purge cache request will be issued to remove the CDN cache for this URL. This purge request is counted against your monthly purge quota.
+Option to purge cache for the old file URL. When set to `true`, it will internally issue a purge cache request on CDN to remove cached content on the old URL. E.g. if an old file was accessible at  - `https://ik.imagekit.io/demo/old-filename.jpg`, a purge cache request will be issued to remove the CDN cache for this URL. This purge request is counted against your monthly purge quota. Note: Cache will be purged only for the current version of file.
 
 **Default value** \- `false`
 {% endswagger-parameter %}

@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/bulkJobs/moveFolder" method="post" summary="Move folder API" %}
 {% swagger-description %}
-This will move one folder into another.
+This will move one folder into another. The selected folder, it's nested folders, files and their versions are moved in this operation.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}

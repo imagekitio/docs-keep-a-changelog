@@ -19,6 +19,12 @@ The full path to the source folder you want to copy. For example - `/path/of/sou
 Full path to the destination folder where you want to copy the source folder into. For example - `/path/of/destination/folder`.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="includeVersions" type="boolean" %}
+Option to copy all versions of files that are nested inside the selected folder. By default, only current version of files are copied. When set to `true`, all versions of files will be copied. 
+
+**Default value** \- `false`
+{% endswagger-parameter %}
+
 {% swagger-response status="200" description="On success, you will receive a jobId which can be used to get the copy operation's status." %}
 ```javascript
 {
