@@ -75,8 +75,7 @@ Here is the example request to understand the API usage.
 # The unique id of the created custom metadata schema is returned with this api along with key name and schema object.
 curl -X POST "https://api.imagekit.io/v1/customMetadataFields" \
 -H 'Content-Type: application/json' \
--u your_private_key: 
--d'
+-u your_private_key: -d'
 {
     "name": "price",
     "label": "price",
