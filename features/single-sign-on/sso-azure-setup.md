@@ -6,8 +6,8 @@ There are two main steps required to set up SSO using Azure on ImageKit:
 1. [Enable SSO login on ImageKit](#enable-sso-login-on-imagekit)
 
 {% hint style="info" %}
-**Role provisioning**\
-Although you may use a free plan on Azure to set up and test the SSO application, having a premium Azure subscription is recommended for seamless role provisioning for your users. Read more [here](#attributes-and-claims).
+**Azure subscription**\
+Although you may use a free account on Azure to set up and test the SSO application, having a premium Azure subscription is recommended for seamless role provisioning for your users. Read more [here](#attributes-and-claims).
 {% endhint %}
 
 
@@ -19,11 +19,11 @@ You may refer to the official documentation by Microsoft [here](https://docs.mic
 
 1. Log in to [Microsoft Azure portal](https://portal.azure.com) and open Azure Active Directory
 1. Navigate to the "Enterprise applications" screen using the side navigation menu
-1. Click the "+ New application" button, then click on "+ Create your own application"
+1. Click the "New application" button, then click on "Create your own application"
 1. In the form that opens up, choose the "Non-gallery application" radio button as shown below. 
 1. Input a name for the application, we will use "ImageKit" for this guide.
 
-Click "Create", and wait till you are redirected to the application page.
+Click "Create" and wait until you are redirected to the application page.
 
 ![Create a non-gallery application](<../../.gitbook/assets/sso-setup-azure-1.png>)
 
@@ -58,11 +58,11 @@ Now you need to specify four keys that ImageKit uses to authorize and provision 
 | full_name              | The full name of the user. It can be a combination of their given name and surname on Azure AD.  | `Join (user.givenname, " ", user.surname)`                                                           |
 | imagekit_role          | <p>The role to assign to the user on ImageKit which would decide their access privileges.<br></p><p></p><p>Accepted values of this key in the SAML response sent to ImageKit are: </p><p></p><p><ul><li><code>account_administrator</code></li><li><code>developer</code></li><li><code>media_library_full_access</code></li><li><code>media_library_view_only_access</code></li><li><code>finance</code></li></ul></p><p></p><p>Read more about different ImageKit roles and their privileges [here](../user-access-management.md#user-roles).</p> | <p><code>user.<your_custom_attribute></code> OR a custom transformation, as per your Azure user schema.<br></p><p></p><p>The final computed value of this claim **must** be one of the accepted role strings from the list specified alongside.</p>      |
 
-For this guide, we will map "imagekit_role" to `user.department` Azure key. Ensure that this field is populated correctly in your Azure user object while testing the app.
-
-Save the list of attributes and claims to finish this step.
+For the purpose of this guide, we will map "imagekit_role" to `user.department` Azure key. Ensure that this field is populated correctly in your Azure user object while testing the app.
 
 ![Attributes and claims](<../../.gitbook/assets/sso-setup-azure-4.png>)
+
+Save the list of attributes and claims to finish this step.
 
 ### Federation Metadata XML
 
@@ -72,7 +72,7 @@ Download the **Federation Metadata XML** file and keep it in a safe location. Yo
 
 ### Assign users to the SSO application on Azure
 
-Refer to the official Microsoft guide to [assign users to the ImageKit application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users).
+Refer to the official Microsoft guide to [assign users](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) to the ImageKit application.
 
 
 ## Enable SSO login on ImageKit
