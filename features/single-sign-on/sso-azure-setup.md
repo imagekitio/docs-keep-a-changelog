@@ -6,7 +6,7 @@ There are two main steps required to set up SSO using Azure on ImageKit:
 1. [Enable SSO login on ImageKit](#enable-sso-login-on-imagekit)
 
 {% hint style="info" %}
-**Role provisioning ** \
+**Role provisioning**\
 Although you may use a free plan on Azure to set up and test the SSO application, having a premium Azure subscription is recommended for seamless role provisioning for your users. Read more [here](#attributes-and-claims).
 {% endhint %}
 
@@ -37,7 +37,7 @@ On the application page, navigate to the 'Single sign-on' screen. Select "SAML" 
 
 On the next screen, we will configure various authentication URLs as shown:
 
-| Name                  | Value                                          |
+| **Field**                  | **Value**                                          |
 | --------------------- | ---------------------------------------------- |
 | Identifier            | `https://imagekit.io/saml/consume`             |
 | Reply URL             | `https://imagekit.io/saml/consume`             |
@@ -51,12 +51,12 @@ On the next screen, we will configure various authentication URLs as shown:
 
 Now you need to specify four keys that ImageKit uses to authorize and provision your users:
 
-| Name                         | Description                                         | Claim composition                                                                          |
-| ---------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Unique User Identifier       | The unique email address of the user that will be used to identify them on ImageKit. | `user.mail`                                                                                          |
-| imagekit_id                  | The ImageKit ID of your organization account.  | `<your_imagekit_id>`                                                                                 |
-| full_name                    | The full name of the user. It can be a combination of their given name and surname on Azure AD.  | `Join (user.givenname, " ", user.surname)`                                                           |
-| imagekit_role                | <p>The role to assign to the user on ImageKit which would decide their access privileges.</p><p><p>Accepted values of this key in the SAML response sent to ImageKit are: <ul><li><code>account_administrator</code></li> <li><code>developer</code></li> <li><code>media_library_full_access</code></li> <li><code>media_library_view_only_access</code></li><li><code>finance</code></li></ul></p><p></p></p><p>Read more about different ImageKit roles and their privileges [here](../user-access-management.md).</p> | <p><code>user.<your_custom_attribute></code> OR a custom transformation, as per your Azure user schema.</p><p></p><p>The final computed value of this claim **must** be one of the accepted role strings from the list specified alongside.</p>      |
+| **Field**                   | **Description**                                         | **Claim composition**                                        |
+| ---------------------- | --------------------------------------------------- | -------------------------------------------------------- |
+| Unique User Identifier | The unique email address of the user that will be used to identify them on ImageKit. | `user.mail`                                                                                          |
+| imagekit_id            | The ImageKit ID of your organization account.  | `<your_imagekit_id>`                                                                                 |
+| full_name              | The full name of the user. It can be a combination of their given name and surname on Azure AD.  | `Join (user.givenname, " ", user.surname)`                                                           |
+| imagekit_role          | <p>The role to assign to the user on ImageKit which would decide their access privileges.</p><p><p>Accepted values of this key in the SAML response sent to ImageKit are: <ul><li><code>account_administrator</code></li> <li><code>developer</code></li> <li><code>media_library_full_access</code></li> <li><code>media_library_view_only_access</code></li><li><code>finance</code></li></ul></p><p></p></p><p>Read more about different ImageKit roles and their privileges [here](../user-access-management.md).</p> | <p><code>user.<your_custom_attribute></code> OR a custom transformation, as per your Azure user schema.</p><p></p><p>The final computed value of this claim **must** be one of the accepted role strings from the list specified alongside.</p>      |
 
 For this guide, we will map "imagekit_role" to `user.department` Azure key. Ensure that this field is populated correctly in your Azure user object while testing the app.
 
