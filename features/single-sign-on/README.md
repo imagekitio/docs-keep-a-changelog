@@ -16,7 +16,7 @@ SSO adds a layer of centralized control to user management. You can manage all t
 
 If you have administrator privileges on your ImageKit account, you can set up SSO for all the users in your account by following these guides for supported Identity Providers:
 
-1. [Setup Microsoft Azure SSO for login on ImageKit](sso-azure-setup.md)
+- [Set up SSO for ImageKit on Azure](sso-azure-setup.md)
 
 
 ## How does ImageKit use SSO?
