@@ -21,7 +21,7 @@ If you have administrator privileges on your ImageKit account, you can set up SS
 
 ## How does ImageKit use SSO?
 
-ImageKit uses SAML based authentication for "Just In Time" (JIT) provisioning for your users. JIT provisioning means that you do not need to create or update users on ImageKit User Management page manually. This will be done automatically whenever a user that exists on your IdP logs into ImageKit using SSO.
+ImageKit uses SAML-based authentication for "Just In Time" (JIT) provisioning for your users. JIT provisioning means that you do not need to create or update users on the ImageKit [User management](../user-access-management.md) page manually. This will be done automatically whenever a user that exists on your IdP logs into ImageKit using SSO.
 
 For this, you need to configure SAML provisions on your Identity Provider platform.
 
