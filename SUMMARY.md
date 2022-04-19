@@ -100,6 +100,8 @@
 * [User access management](features/user-access-management.md)
 * [Multi factor authentication](features/multi-factor-authentication.md)
 * [Billing alerts](features/billing-alerts.md)
+* [Single sign-on](features/single-sign-on/README.md)
+  * [Setup SSO for ImageKit on Azure](features/single-sign-on/sso-azure-setup.md)
 
 ## Platform guides
 
