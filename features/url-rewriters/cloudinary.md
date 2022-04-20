@@ -6,7 +6,6 @@ ImageKit can translate transformations written in Cloudinary's syntax to ImageKi
 
 Here's a list of supported Cloudinary transformations for translation:
 
-
 | Cloudinary transform | Example translation | Remarks |
 | - | - | - |
 | <p>width</p> | <ul> <li> `w_100` => `w-100`</li> </ul> |  |
