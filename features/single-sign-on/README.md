@@ -1,4 +1,4 @@
-# Single sign on
+# Single sign-on
 
 {% hint style="info" %}
 **Paid plan only**\
