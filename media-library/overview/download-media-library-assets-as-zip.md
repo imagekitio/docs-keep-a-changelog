@@ -1,31 +1,40 @@
-# Download media library assets as a zip 
+# Download media library assets as a zip file
 
-You can select and download multiple files, folders, and all of their contents, including any sub-folders as a single zip file. The downloaded zip maintains the original folder structure.
+ImageKit Media Library allows you to download multiple files, folders, and all of their contents including sub-folders as a single zip file. The downloaded zip maintains the original folder structure.
+
+![Video demonstration of download (as zip) feature](<../../.gitbook/assets/download-as-zip-demonstration.mov>)
 
 {% hint style="info" %}
-**maximum size limit**\
-The maximum number of files and folders you can download is limited to 300.
-Also, the total size of the files you can download is limited to 1 GB.
+**Download limits**\
+A maximum of 300 files and folders can be downloaded in a single zip file.
+The total size of the assets to be downloaded cannot exceed 1 GB.
 {% endhint %}
 
-## How to start downloading?
+## How to download as zip?
 
-Go to your media library on the Imagekit dashboard and select multiple files or folders using command + click ( for Mac users ). As soon as multiple files or folders are selected, the "Download (as zip)" option is available on the context menu. 
+Go to your [media library](https://imagekit.io/dashboard/media-library) on the Imagekit dashboard and select multiple files or folders using ctrl + click (or command + click for Mac users). When multiple files or folders are selected, the "Download (as zip)" option is available in the context menu. 
 
 ![Download (as zip) option in context menu](<../../.gitbook/assets/download-as-zip-context-menu.png>)
 
-As soon as you click on the "Download (as zip)" option, A dialog box appears that allows you to apply a transformation on all the images in selected files and folders. All other files (e.g., videos, text files,  etc. ) are not modified. This feature could be helpful for the marketing team, allowing them to create a particular dimension variant for all images inside a folder. 
+Click on the "Download (as zip)" option. In the pop-up dialog box, you may apply an optional transformation to all the images in the selected files and folders. Static and video files are not modified.
+
+{% hint style="info" %}
+**Download transformed images**\
+Marketing teams may find this feature useful, as it allows the creation of a single type of variant for all images inside a folder with particular height and width dimensions. 
+{% endhint %}
+
 
 ![Transformation dialog box](<../../.gitbook/assets/download-as-zip-transformation-modal.png>)
 
-By clicking on "Submit", the zip generation begins. The status of download requests being processed appears in the bottom panel. Once the zip file is successfully generated, it automatically starts downloading.
-You can navigate out of the media library and carry on with other tasks without waiting while your download requests are being processed. Later, you can go to the downloads section to download your zip files.
+Click on "Submit" to start the zip generation process. The status of download requests being processed appears in the bottom panel. Once the zip file is successfully generated, it will be downloaded automatically.
 
-For visiting the downloads section, click on the "Downloads" in the panel at the bottom of your media library. 
+## Downloads page
+
+You can navigate out of the media library screen and carry on with other tasks without waiting for your download requests to be processed. Later on, you can go to the [Downloads page](https://imagekit.io/dashboard/media-library/downloads) by clicking on the "Downloads" link in the bottom-right corner of the media library screen.
 
 ![Downlaods button in media library bottom panel](<../../.gitbook/assets/download-as-zip-bottom-panel.png>)
 
-Here you can view the basic information about all your zip file downloads like name, creation time, file count, folder count of zip file up to the past seven days. You can search or sort based on name, time, etc. You can also download your zip file again using the link provided in the table.
+Here you can view the basic details about your zip file downloads, like name, creation time, file count, and folder count of zip files created up to the past seven days. You can search or sort the list based on name, time, etc. You can also download your zip file again using the link provided in the table.
 
 ![Downloads section](<../../.gitbook/assets/download-as-zip-download-table.png>)
 
@@ -33,7 +42,3 @@ Here you can view the basic information about all your zip file downloads like n
 **Download link validity**\
 The download link generated is valid up to seven days from the time of zip generation.
 {% endhint %}
-
-Still having problems in understanding how this feature works, here is a complete demonstration on how to download media file assets as a zip file:
-
-![Video demonstration of download (as zip) feature](<../../.gitbook/assets/download-as-zip-demonstration.mov>)
