@@ -102,7 +102,7 @@
 * [Billing alerts](features/billing-alerts.md)
 * [Single sign-on](features/single-sign-on/README.md)
   * [Setup SSO for ImageKit on Azure](features/single-sign-on/sso-azure-setup.md)
-* [URL rewriters](features/url-rewriters/README.md)
+* [URL-rewriters](features/url-rewriters/README.md)
   * [Cloudinary](features/url-rewriters/cloudinary.md)
 
 ## Platform guides

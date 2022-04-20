@@ -2,16 +2,21 @@
 
 ImageKit can translate transformations written in Cloudinary's syntax to ImageKit's syntax. Learn how to use a URL-rewriter on [this page](/features/url-rewriters).
 
+{% hint style="info" %}
+**Beta feature**\
+This feature is currently in beta. Some transformations may not work as expected.
+{% endhint %}
+
 ## Supported Transformations
 
-Here's a list of supported Cloudinary transformations for translation:
+The following Cloudinary transformations are supported for translation:
 
 | Cloudinary transform | Example translation | Remarks |
 | - | - | - |
 | <p>width</p> | <ul> <li> `w_100` => `w-100`</li> </ul> |  |
 | <p>height</p> | <ul> <li>`h_100` => `h-100`</li> </ul> |  |
 | <p>aspect ratio</p> | <ul> <li>`ar_2.5` => `ar-2.5-1`</li><li>`ar_3` => `ar-3-1`</li><li>`ar_4:3` => `ar-4-3`</li> </ul> |  |
-| <p>gravity</p> | <ul> <li>`g_north` => `fo-top`</li><li>`g_center` => `fo-center`</li><li>`g_auto` => `fo-auto`</li><li>`g_face` => `fo-face`</li> </ul> | Supported values: <ul><li>north</li><li>south</li><li>east</li><li>west</li><li>north_west</li><li>north_east</li><li>south_east</li><li>south_west</li><li>auto</li><li>cusotm</li><li>face</li></ul> |
+| <p>gravity</p> | <ul> <li>`g_north` => `fo-top`</li><li>`g_center` => `fo-center`</li><li>`g_auto` => `fo-auto`</li><li>`g_face` => `fo-face`</li> </ul> | Supported values: <ul><li>north</li><li>south</li><li>east</li><li>west</li><li>north_west</li><li>north_east</li><li>south_east</li><li>south_west</li><li>auto</li><li>custom</li><li>face</li></ul> |
 | <p>x</p> | <ul> <li>`x_100` => `x-100`</li> </ul> |  |
 | <p>y</p> | <ul> <li>`y_100` => `y-100`</li> </ul> |  |
 | <p>format</p> | <ul> <li>`f_jpg` => `f-jpg`</li> </ul> | Supported values: <ul><li>auto</li><li>jpg</li><li>jpeg</li><li>png</li><li>webp</li><li>gif</li><li>avif</li></ul> |
@@ -27,3 +32,5 @@ Here's a list of supported Cloudinary transformations for translation:
 | <p>image overlays</p> | <ul> <li>`l_<imagePath>` => `oi-<imagePath>`</li> </ul> | Full path to the overlaid image in the Media Library must be specified |
 | <p>named transform</p> | <ul> <li>`t_<transform_name>` => `n-<transform_name>`</li> </ul> | ImageKit does not translate the actual underlying transformations associated with your named transforms. They must be manually translated and [added in your ImageKit dashboard](/features/named-transformations#creating-named-transformations) while retaining the same name. |
 | <p>fl_layer_apply</p> |  | Marks the end of a group of transformations being applied in the context of an overlay. ImageKit detects the presence of an `fl_layer_apply` and applies the relevantly positioned transforms to the overlaid asset instead of the main asset. |
+
+**Note:** The rewriter will silently ignore any transformation that has a valid key, but with an invalid value. For example, `h_100,w_<invalid>/a_90`  will be translated to `h-100:rt-90`. Refer to the table to see what constitutes a valid value for different transforms.

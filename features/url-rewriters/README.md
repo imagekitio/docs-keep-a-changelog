@@ -1,4 +1,4 @@
-# URL rewriters
+# URL-rewriters
 
 After migrating to ImageKit.io from another service, ImageKit.io can translate your pre-existing transformation URLs written in the syntax of your previous service provider to ImageKit's syntax. This allows you to continue using your already written URLs with minimal changes.
 For example, if you are migrating from Cloudinary, ImageKit can translate the following URL written in Cloudinary's syntax to ImageKit's syntax:
