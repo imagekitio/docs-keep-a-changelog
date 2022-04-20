@@ -2,8 +2,6 @@
 
 ImageKit Media Library allows you to download multiple files, folders, and all of their contents including sub-folders as a single zip file. The downloaded zip maintains the original folder structure.
 
-![Video demonstration of download (as zip) feature](<../../.gitbook/assets/download-as-zip-demonstration.mov>)
-
 {% hint style="info" %}
 **Download limits**\
 A maximum of 300 files and folders can be downloaded in a single zip file.
@@ -36,9 +34,9 @@ You can navigate out of the media library screen and carry on with other tasks w
 
 Here you can view the basic details about your zip file downloads, like name, creation time, file count, and folder count of zip files created up to the past seven days. You can search or sort the list based on name, time, etc. You can also download your zip file again using the link provided in the table.
 
-![Downloads section](<../../.gitbook/assets/download-as-zip-download-table.png>)
-
 {% hint style="info" %}
 **Download link validity**\
 The download link generated is valid up to seven days from the time of zip generation.
 {% endhint %}
+
+![Downloads section](<../../.gitbook/assets/download-as-zip-download-table.png>)
