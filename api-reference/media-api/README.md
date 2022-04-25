@@ -9,8 +9,8 @@ ImageKit.io allows you to manage media assets programmatically. All the function
 * [List file versions](get-versions-details.md). - Get details of all versions of a file.
 * [Deleting assets](delete-file.md).
 * [Delete assets in bulk](delete-files-bulk.md).
-* [Delete asset version](delete-file-version.md). - Delete a non-current version of a file.
-* [Delete file version](restore-file-version.md). - Delete a non-current version of a file.
+* [Delete file version](delete-file-version.md). - Delete a non-current version of a file.
+* [Restore file version](restore-file-version.md). - Restore to a non-current version of a file.
 * [Purging cache](purge-cache.md) on CDN.
 * [Getting image metadata](../metadata-api/get-image-metadata-for-uploaded-media-files.md) for an image file.
 * Bulk [add](add-tags-bulk.md) or [remove](remove-tags-bulk.md) user added tags.

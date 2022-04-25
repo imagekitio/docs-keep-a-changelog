@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/copy" method="post" summary="Copy file API" %}
 {% swagger-description %}
-This will copy a file from one folder to another. Note: If any file at destination has the same name as source file, then source file and its versions (if `includeVersions` is set to true) will be appended to the destination file.
+This will copy a file from one folder to another. Note: If any file at destination has the same name as source file, then source file and its versions (if `includeVersions` is set to true) will be appended to the destination file version history.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
