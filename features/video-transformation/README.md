@@ -33,7 +33,7 @@ These transformation parameters `w-300,h-300` can be added in the URL as path pa
 * Input video upto `300MB` in size is supported for transformations. This limit can be adjusted based on your pricing plan.
 * When you request a new transformation or have turned on video optimization features, if the video is not cached on CDN or our internal caches, ImageKit will transform the video in real-time. However if the video file is being downloaded from your origin takes more than 15 seconds, ImageKit will give a 302 and serve the original content. Within a few seconds, optimized transformations are generated and stored in our caches. From that point onwards, we will serve the actual transformed video.
 
-## Recommendataions
+## Recommendations
 
 Here are a few recommendations you should follow while using video API in a live environment.
 
