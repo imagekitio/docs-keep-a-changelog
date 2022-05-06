@@ -139,7 +139,7 @@
   * [Copy file](api-reference/media-api/copy-file.md)
   * [Move file](api-reference/media-api/move-file.md)
   * [Rename file](api-reference/media-api/rename-file.md)
-  * [Delete file version](api-reference/media-api/restore-file-version.md)
+  * [Delete file version](api-reference/media-api/delete-file-version.md)
   * [Create folder](api-reference/media-api/create-folder.md)
   * [Delete folder](api-reference/media-api/delete-folder.md)
   * [Copy folder](api-reference/media-api/copy-folder.md)
