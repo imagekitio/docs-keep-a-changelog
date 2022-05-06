@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/move" method="post" summary="Move file API" %}
 {% swagger-description %}
-This will move a file and all its versions from one folder to another. Note: If any file at destination has the same name as source file, then source file and its versions will be appended to the destination file.
+This will move a file and all its versions from one folder to another. Note: If any file at the destination has the same name as the source file, then the source file and its versions will be appended to the destination file.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
