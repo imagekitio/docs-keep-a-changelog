@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/details" method="patch" summary="Update file details API" %}
 {% swagger-description %}
-Update file details such as `tags`, `customCoordinates` attributes, remove existing `AITags` and apply [extensions](../../extensions/overview/) of current version of file using update file detail API.
+Update file details such as `tags`, `customCoordinates` attributes, remove existing `AITags` and apply [extensions](../../extensions/overview/) using update file detail API. This operation can only be performed on the current version of the file.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="fileId" type="string" required="false" %}
