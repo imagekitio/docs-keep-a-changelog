@@ -20,7 +20,7 @@ Full path to the folder you want to copy the above file into. For example - `/fo
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="includeVersions" type="boolean" %}
-Option to copy all versions of file. By default, only current version of file is copied. When set to `true`, all versions of file will be copied. 
+Option to copy all versions of a file. By default, only the current version of the file is copied. When set to `true`, all versions of the file will be copied.
 
 **Default value** \- `false`
 {% endswagger-parameter %}
