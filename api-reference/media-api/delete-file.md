@@ -12,7 +12,7 @@ Deletes a file and all its versions from the media library.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="fileId" type="string" %}
-The unique fileId of current version of the uploaded file. `fileId` is returned in list files API and upload API.
+The unique fileId of the uploaded file. `fileId` is returned in list files API and upload API.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
