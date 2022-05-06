@@ -19,11 +19,11 @@ base64 encoding of `your_private_api_key:`
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
-{% swagger-response status="200" description="On success, you will get file details in the JSON-encoded response body." %}
+{% swagger-response status="200" description="On success, you will get file or file version details in the JSON-encoded response body." %}
 ```javascript
 {
     "fileId": "598821f949c0a938d57563bd",
-    "type": "file",
+    "type": "file-version",
     "name": "file1.jpg",
     "filePath": "/images/products/file1.jpg",
     "tags": ["t-shirt", "round-neck", "sale2019"],
