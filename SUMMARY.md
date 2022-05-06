@@ -49,6 +49,7 @@
   * [Custom focus area](media-library/overview/custom-focus-area.md)
   * [Edit image](media-library/overview/edit-image.md)
   * [Backup media library assets](media-library/overview/backup-media-library-assets.md)
+  * [Download media library assets as zip](media-library/overview/download-media-library-assets-as-zip.md)
 
 ## Limits and troubleshooting
 
@@ -100,6 +101,10 @@
 * [User access management](features/user-access-management.md)
 * [Multi factor authentication](features/multi-factor-authentication.md)
 * [Billing alerts](features/billing-alerts.md)
+* [Single sign-on](features/single-sign-on/README.md)
+  * [Setup SSO for ImageKit on Azure](features/single-sign-on/sso-azure-setup.md)
+* [URL-rewriters](features/url-rewriters/README.md)
+  * [Cloudinary](features/url-rewriters/cloudinary.md)
 
 ## Platform guides
 

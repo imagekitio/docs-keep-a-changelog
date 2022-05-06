@@ -202,11 +202,10 @@ rails g uploader Picture
 Now, go to the generated uploader file - `app/uploaders/<name>_uploader.eb`, and enter the following code. The _options_ configuration is optional.
 
 ```ruby
-include ImageKitIo::CarrierWave
+class PictureUploader < CarrierWave::Uploader::Base
+  include ImageKitIo::CarrierWave
 
-# If you want to add uploading options then create this method inside uploader file as an example
-
-def options
+  def options
     options = 
     {
         response_fields: 'isPrivateFile, tags',
@@ -214,12 +213,14 @@ def options
         use_unique_file_name: false,
         folder: "your_directory/"
     }
-end
+  end
 
-# If you want to set upload dir then you can use following method or you can also use options method.
-# This method shuld return string
-def store_dir
-    "your_directory/"
+  # If you want to set upload dir then you can use following method or you can also use options method.
+  # This method shuld return string
+  def store_dir
+      "your_directory/"
+  end
+
 end
 ```
 
