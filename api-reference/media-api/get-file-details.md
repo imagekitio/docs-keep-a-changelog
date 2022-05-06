@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/details" method="get" summary="Get file details API" %}
 {% swagger-description %}
-Get all the file details and attributes of current version of file.
+Get all the details and attributes of the current version of the file.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="fileId" type="string" required="false" %}
