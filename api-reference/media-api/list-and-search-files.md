@@ -12,7 +12,7 @@ base64 encoding of `your_private_api_key:`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="type" type="string" required="false" %}
-Limit search to either `file`, `file-version` or `folder`. Pass `all` to include both files and folders in search results.
+Limit search to one of `file`, `file-version`, or `folder`.  Pass `all` to include files and folders in search results (`file-version` will not be included in this case).
 
 
 **Default value** \- `file`
