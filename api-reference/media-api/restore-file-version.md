@@ -59,7 +59,7 @@ base64 encoding of `your_private_api_key:`
 ```
 {% endswagger-response %}
 
-{% swagger-response status="404" description="If the requested file or file version is not found in the media library, then a 404 response is returned." %}
+{% swagger-response status="404" description="If the requested file is not found in the media library, then a 404 response is returned." %}
 ```javascript
 {
      "message": "The requested file does not exist.",
