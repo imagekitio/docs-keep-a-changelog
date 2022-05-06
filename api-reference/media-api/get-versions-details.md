@@ -58,7 +58,7 @@ base64 encoding of `your_private_api_key:`
 ```
 {% endswagger-response %}
 
-{% swagger-response status="404" description="If the requested file version is not found in the media library, then a 404 response is returned." %}
+{% swagger-response status="404" description="If the requested asset is not found in the media library, then a 404 response is returned." %}
 ```javascript
 {
      "message" : "The requested asset does not exist.",
@@ -106,7 +106,7 @@ Here is the example request to understand the API usage.
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
-# The unique fileId and versionId of the uploaded file. fileId is returned in response of list files API and upload API.
+# The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
 curl -X GET "https://api.imagekit.io/v1/files/fileId/versions" \
 -u your_private_api_key:
 ```
