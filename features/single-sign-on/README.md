@@ -2,7 +2,7 @@
 
 {% hint style="info" %}
 **Paid plan only**\
-This feature is currently available only to paid users.
+At the moment, this feature is available in all paid plans. But soon, it will be only available on custom enterprise pricing plans.
 {% endhint %}
 
 Single sign-on (SSO) is an authentication method that allows users to log in to ImageKit with a single unique ID provided through a trusted Identity Provider (IdP).
