@@ -1,21 +1,25 @@
-# Get file details
+# Restore file version
 
-{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/details" method="get" summary="Get file details API" %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/versions/:versionId/restore" method="put" summary="Restore file version API" %}
 {% swagger-description %}
-Get all the details and attributes of the current version of the file.
+Restore file version to a different version of a file.
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="fileId" type="string" required="false" %}
+{% swagger-parameter in="path" name="fileId" type="string" required="true" %}
 The unique fileId of the uploaded file. `fileId` is returned in list files API and upload API.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="Authorization" type="string" required="false" %}
+{% swagger-parameter in="path" name="versionId" type="string" required="true" %}
+The unique versionId of the uploaded file's version. This is returned in list files API and upload API as `id` within the `versionInfo` parameter.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
 base64 encoding of `your_private_api_key:`
 
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
-{% swagger-response status="200" description="On success, you will get file details in the JSON-encoded response body." %}
+{% swagger-response status="200" description="On success, you will get file details of the restored file in the JSON-encoded response body." %}
 ```javascript
 {
     "fileId": "598821f949c0a938d57563bd",
@@ -32,8 +36,8 @@ base64 encoding of `your_private_api_key:`
         /* ... more googleVision tags ... */
     ],
     "versionInfo": {
-            "id": "598821f949c0a938d57563bd",
-            "name": "Version 1"
+            "id": "697821f849c0a938d57563ce",
+            "name": "Version 2"
     },
     "isPrivateFile": false,
     "customCoordinates": null,
@@ -50,7 +54,25 @@ base64 encoding of `your_private_api_key:`
         color: "red"
     },
     "createdAt": "2019-08-24T06:14:41.313Z",
-    "updatedAt": "2019-08-24T06:14:41.313Z"
+    "updatedAt": "2019-09-24T06:14:41.313Z"
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404" description="If the requested file is not found in the media library, then a 404 response is returned." %}
+```javascript
+{
+     "message": "The requested file does not exist.",
+     "help": "For support kindly contact us at support@imagekit.io ."
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404" description="If the requested file version does not exist for that file, then a 404 response is returned." %}
+```javascript
+{
+     "message": "The requested file version does not exist.",
+     "help": "For support kindly contact us at support@imagekit.io ."
 }
 ```
 {% endswagger-response %}
@@ -62,7 +84,7 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 
 ### Understanding response
 
-The JSON-encoded response details of the file can have the following properties:
+The JSON-encoded response details of the file or file version can have the following properties:
 
 | Property name     | Description                                                                                                                                                                                                                             |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -94,74 +116,9 @@ Here is the example request to understand the API usage.
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
-# The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
-curl -X GET "https://api.imagekit.io/v1/files/fileId/details" \
+# The unique fileId and versionId of the uploaded file. fileId and versionId (versionInfo.id) is returned in response of list files API and upload API.
+curl -X PUR "https://api.imagekit.io/v1/files/fileId/versions/versionId/restore" \
 -u your_private_api_key:
-```
-{% endtab %}
-
-{% tab title="Node.js" %}
-```javascript
-var ImageKit = require("imagekit");
-
-var imagekit = new ImageKit({
-    publicKey : "your_public_api_key",
-    privateKey : "your_private_api_key",
-    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
-});
-
-imagekit.getFileDetails("fileId", function(error, result) {
-    if(error) console.log(error);
-    else console.log(result);
-});
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-from imagekitio import ImageKit
-
-imagekit = ImageKit(
-    public_key='your_public_api_key',
-    private_key='your_private_api_key',
-    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
-)
-
-details = imagekit.get_file_details(file_id)
-
-print("File detail-", details, end="\n\n")
-```
-{% endtab %}
-
-{% tab title="PHP" %}
-```php
-use ImageKit\ImageKit;
-
-$public_key = "your_public_api_key";
-$your_private_key = "your_private_api_key";
-$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
-
-$imageKit = new ImageKit(
-    $public_key,
-    $your_private_key,
-    $url_end_point
-);
-
-$getFileDetails = $imageKit->getDetails($fileId);
-
-echo("File details : " . json_encode($getFileDetails));
-```
-{% endtab %}
-
-{% tab title="Java" %}
-```java
-Result result=ImageKit.getInstance().getFileDetail("fileId");
-```
-{% endtab %}
-{% tab title="Ruby" %}
-```ruby
-imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.get_file_deltails(file_id: 'file_id_xyz')
 ```
 {% endtab %}
 {% endtabs %}

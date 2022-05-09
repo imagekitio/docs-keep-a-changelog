@@ -8,7 +8,7 @@ If a file or specific transformation has been requested in the past, then the re
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId" method="delete" summary="Delete file API" %}
 {% swagger-description %}
-Deletes a file from the media library.
+Deletes a file and all its versions from the media library.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="fileId" type="string" %}

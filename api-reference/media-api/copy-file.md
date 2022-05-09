@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/copy" method="post" summary="Copy file API" %}
 {% swagger-description %}
-This will copy a file from one folder to another.
+This will copy a file from one folder to another. Note: If any file at the destination has the same name as the source file, then the source file and its versions (if `includeVersions` is set to true) will be appended to the destination file version history.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
@@ -17,6 +17,12 @@ The full path of the file you want to copy. For example - `/path/to/file.jpg`
 
 {% swagger-parameter in="body" name="destinationPath" type="string" %}
 Full path to the folder you want to copy the above file into. For example - `/folder/to/copy/into/`
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="includeVersions" type="boolean" %}
+Option to copy all versions of a file. By default, only the current version of the file is copied. When set to `true`, all versions of the file will be copied.
+
+**Default value** \- `false`
 {% endswagger-parameter %}
 
 {% swagger-response status="204" description="Empty body is returned." %}
