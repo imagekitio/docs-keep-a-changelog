@@ -4,9 +4,13 @@ ImageKit.io allows you to manage media assets programmatically. All the function
 
 * [Listing and searching assets](list-and-search-files.md) - Search existing assets in the Media library by the combination of multiple asset attributes e.g., name, location, associated tags, embedded and custom metadata associated with the asset.
 * [Updating asset](update-file-details.md) - Updating tags, adding custom coordinates for cropping, applying background removal extension, updating tags using machine learning, or updating associated custom metadata with the asset.
-* [Getting individual asset details](get-file-details.md). - Get details of an individual asset.
+* [Getting individual file details](get-file-details.md). - Get details of an individual current file.
+* [Getting individual file version details](get-file-version-details.md). - Get details of an individual file version.
+* [Get file versions](get-file-versions.md). - Get details of all versions of a file.
 * [Deleting assets](delete-file.md).
 * [Delete assets in bulk](delete-files-bulk.md).
+* [Delete file version](delete-file-version.md). - Delete a non-current version of a file.
+* [Restore file version](restore-file-version.md). - Restore to a non-current version of a file.
 * [Purging cache](purge-cache.md) on CDN.
 * [Getting image metadata](../metadata-api/get-image-metadata-for-uploaded-media-files.md) for an image file.
 * Bulk [add](add-tags-bulk.md) or [remove](remove-tags-bulk.md) user added tags.
