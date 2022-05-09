@@ -133,7 +133,7 @@
   * [List and search files](api-reference/media-api/list-and-search-files.md)
   * [Get file details](api-reference/media-api/get-file-details.md)
   * [Get file version details](api-reference/media-api/get-file-version-details.md)
-  * [Get version details](api-reference/media-api/get-versions-details.md)
+  * [Get file versions](api-reference/media-api/get-file-versions.md)
   * [Update file details](api-reference/media-api/update-file-details.md)
   * [Add tags (bulk)](api-reference/media-api/add-tags-bulk.md)
   * [Remove tags (bulk)](api-reference/media-api/remove-tags-bulk.md)

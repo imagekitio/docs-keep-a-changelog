@@ -27,7 +27,7 @@ base64 encoding of `your_private_api_key:`
 {% swagger-response status="400" description="If the requested file version to delete is the current version of file" %}
 ```javascript
 {
-     "message" : "You cannot delete current version of a file. Please restore file to a different version to delete this version.",
+     "message" : "You cannot delete current version of a file.",
      "help" : "For support kindly contact us at support@imagekit.io ."
 }
 ```

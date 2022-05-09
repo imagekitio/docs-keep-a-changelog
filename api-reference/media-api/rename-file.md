@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/files/rename" method="put" summary="Rename file API" %}
 {% swagger-description %}
-You can programmatically rename an already existing file in the media library using rename file API. This operation would rename all file versions of the file.
+You can programmatically rename an already existing file in the media library using rename file API. This operation would rename all file versions of the file. Note: The old URLs will stop working. The file/file version URLs cached on CDN will continue to work unless a purge is requested.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
