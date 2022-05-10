@@ -26,7 +26,9 @@ A asset can have a maximum of 100 versions.
 
 Go to your [media library](https://imagekit.io/dashboard/media-library) in ImageKit's dashboard and click on the search bar. Check the option to include file versions in search results to get the desired outcome. You can identify if an asset is a file version by looking at a badge marking it.
 
-![Include file versions in search results](<../../.gitbook/assets/file-version-search.mov>)
+Check out the video below to learn how to include file versions in search results.
+
+{% embed url="https://www.youtube.com/watch?v=qjDKpSYCW7U" %}
 
 {% hint style="info" %}
 **Viewing versions**\
