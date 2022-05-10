@@ -1,6 +1,6 @@
 # Asset versioning
 
-Versioning in ImageKit keeps multiple variants of an asset. It allows you to preserve, retrieve, and restore every version of any asset object stored in your media library. As a result, you can recover more quickly from both unintended user actions and application failures with versioning.
+Versioning in ImageKit keeps multiple variants of an asset. It allows you to preserve, retrieve, and restore every version of any asset stored in your media library. As a result, you can recover more quickly from both unintended user actions and application failures with versioning.
 
 If ImageKit receives multiple upload requests for the same asset with the same name and location, it creates a new version.
 
