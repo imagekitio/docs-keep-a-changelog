@@ -5,7 +5,6 @@ Versioning in ImageKit keeps multiple variants of an asset. It allows you to pre
 If ImageKit receives multiple upload requests for the same asset with the same name and location, it creates a new version.
 
 {% hint style="info" %}
-**Paid plan only**\
 Versioning is enabled on all accounts on any pricing plan. All current plus previous versions of an asset count towards your total storage usage.
 {% endhint %}
 
