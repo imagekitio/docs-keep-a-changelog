@@ -50,6 +50,7 @@
   * [Edit image](media-library/overview/edit-image.md)
   * [Backup media library assets](media-library/overview/backup-media-library-assets.md)
   * [Download media library assets as zip](media-library/overview/download-media-library-assets-as-zip.md)
+  * [Asset versioning](media-library/overview/asset-versioning.md)
 
 ## Limits and troubleshooting
 
