@@ -1,9 +1,17 @@
 # Asset versioning
 
-ImageKit's media library allows you to maintain and manage multiple versions of an asset. These actions can be performed from the dashboard and programmatically via the APIs. 
+Versioning in ImageKit keeps multiple variants of an asset. It allows you to preserve, retrieve, and restore every version of any asset object stored in your media library. As a result, you can recover more quickly from both unintended user actions and application failures with versioning.
 
-You can-
-1. Create a new file version by uploading a file with the same name and location as an existing file. Using [Remove.bg extension](../../extensions/background-removal.md) creates a new version of the file.
+If ImageKit receives multiple upload requests for the same asset with the same name and location, it creates a new version.
+
+{% hint style="info" %}
+**Paid plan only**\
+Versioning is enabled on all accounts on any pricing plan. All current plus previous versions of an asset count towards your total storage usage.
+{% endhint %}
+
+The following actions can be performed from the dashboard and programmatically via the APIs:
+
+1. Create a new file version by uploading a file with the same name and location as an existing file. This can be done by using upload API or using [Remove.bg extension](../../extensions/background-removal.md) which uploads a new file with background removed.
 2. Restore the file to a previous version.
 3. Delete any non-current file version.
 4. Get any file version's detail.
