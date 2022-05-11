@@ -5,7 +5,7 @@ You can add your existing Amazon S3 bucket as an origin in ImageKit.io. This all
 **Note: **We do not start copying images from your bucket as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
 
 {% hint style="info" %}
-Amazon S3 buckets in regions launched after 2019-03-20, such as South Africa (Cape Town), Middle East (Bahrain) and Asia Pacific (Hong Kong), must be added to ImageKit as S3 compatible external storages with the endpoint of that region, (e.g. `https://af-south-1.s3.amazonaws.com`). Read more about [how to add S3 compatible resources to ImageKit](../../integration/configure-origin/s3-compatible-external-storages.md).
+Amazon S3 buckets in regions launched after 2019-03-20, such as South Africa (Cape Town), Middle East (Bahrain) and Asia Pacific (Hong Kong), must be added to ImageKit as S3 compatible external storages with the endpoint of that region, (e.g. `https://af-south-1.s3.amazonaws.com`). Read more about [how to add S3 compatible external storages to ImageKit](../../integration/configure-origin/s3-compatible-external-storages.md).
 {% endhint %}
 
 ## Step 1: Configure origin
