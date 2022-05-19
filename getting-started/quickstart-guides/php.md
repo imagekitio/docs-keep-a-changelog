@@ -265,21 +265,79 @@ echo('Signed url : ' . $imageURL);
 
 You can manage [security settings](../../features/security/#restricting-unsigned-urls) from the dashboard to prevent unsigned URLs usage. In that case, if the URL doesn't have signature `ik-s` parameter or the signature is invalid, ImageKit will return a forbidden error instead of an actual image.
 
-## Server-side file uploading
+## Server-side File Upload
 
-The SDK provides a simple interface using the `$imageKit->upload()` method to upload files to the ImageKit Media Library. It accepts all the parameters supported by the [ImageKit Upload API](../../api-reference/upload-file-api/server-side-file-upload.md).
+The SDK provides a simple interface using the `$imageKit->upload()` or `$imageKit->uploadFile()` method to upload files to the [ImageKit Media Library](https://imagekit.io/dashboard/media-library). 
 
-The `uploadFiles()` method requires at least the `file` and the `fileName` parameter to upload a file and returns a JSON response. You can pass other parameters supported by the ImageKit upload API using the same parameter name as specified in the upload API documentation. For example, to specify tags for a file at the time of upload use the `tags` parameter as specified in the [documentation here](../../api-reference/upload-file-api/server-side-file-upload.md).
+- [Check all the supported file types and extensions](https://docs.imagekit.io/api-reference/upload-file-api#allowed-file-types-for-uploading).
+- [Check all the supported parameters and details](https://docs.imagekit.io/api-reference/upload-file-api/server-side-file-upload).
 
-```javascript
-$imageKit->upload(array(
-    "file" => "your_file", // required, can be base64 or binary or a remote url
-    "fileName" => "your_file_name.jpg", // required
-    ... // Additional Parameters can be refered to Server Side file Upload Documentation, https://docs.imagekit.io/api-reference/upload-file-api/server-side-file-upload
-));
+#### Usage
+```php
+// Set of optional parameters
+$uploadOptions = [
+    "useUniqueFileName" => true,            // true|false
+    "tags" => implode(",",["abd", "def"]),  // max: 500 chars
+    "folder" => "/sample-folder",           
+    "isPrivateFile" => false,               // true|false
+    "customCoordinates" => implode(",", ["10", "10", "100", "100"]),    // max: 500 chars
+    "responseFields" => implode(",", ["tags", "customMetadata"]),
+    "extensions" => json_encode([       
+        [
+            "name" => "remove-bg",
+            "options" => [  // refer https://docs.imagekit.io/extensions/overview
+                "add_shadow" => true
+            ]
+        ]
+    ]),
+    "webhookUrl" => "https://example.com/webhook",
+    "overwriteFile" => true,        // in case of false useUniqueFileName should be true
+    "overwriteAITags" => true,      // set to false in order to preserve overwriteAITags
+    "overwriteTags" => true,
+    "overwriteCustomMetadata" => true,
+    // "customMetadata" => json_encode([
+    //         "SKU" => "VS882HJ2JD",
+    //         "price" => 599.99,
+    // ])
+];
+
+// Attempt File Uplaod
+$uploadFile = $imageKit->upload([
+    'file' => 'your_file',                  //  required, "binary" or "base64" or "file url"
+    'fileName' => 'your_file_name.jpg',     //  required
+    'options' => $uploadOptions             // optional
+]);
+```  
+#### Response
+```json
+{
+    "err": null,
+    "success": {
+        "fileId": "6286329dfef1b033aee60211",
+        "name": "your_file_name_S-PgGysnR.jpg",
+        "size": 94466,
+        "versionInfo": {
+            "id": "6286329dfef1b033aee60211",
+            "name": "Version 1"
+        },
+        "filePath": "/sample-folder/your_file_name_S-PgGysnR.jpg",
+        "url": "https://ik.imagekit.io/demo/sample-folder/your_file_name_S-PgGysnR.jpg",
+        "fileType": "image",
+        "height": 640,
+        "width": 960,
+        "thumbnailUrl": "https://ik.imagekit.io/demo/tr:n-ik_ml_thumbnail/sample-folder/your_file_name_S-PgGysnR.jpg",
+        "tags": [
+            "abd",
+            "def"
+        ],
+        "AITags": null,
+        "customMetadata": { },
+        "extensionStatus": {
+            "remove-bg": "failed"   // failed in case of third party connection failure
+        }
+    }
+}
 ```
-
-If the upload succeeds, `error` will be `null` and the `result` will be the same as what is received from ImageKit's servers. If the upload fails, `error` will be the same as what is received from ImageKit's servers and the `result` will be null.
 
 ## ImageKit Media API
 
