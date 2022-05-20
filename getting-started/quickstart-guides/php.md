@@ -468,7 +468,7 @@ $getFileDetails = $imageKit->getFileDetails('file_id');
 ### 3. Get File Version Details
 
 This API can get you all the details and attributes for the provided version of the file.`versionID` can be found in the following APIs as `id` within the `versionInfo` parameter:
-- [Server-side File Upload API](#server-side-file-uploading).
+- [Server-side File Upload API](#server-side-file-upload).
 - [List & Search File API](#1-list-and-search-files)
 - [Get File Details API](#2-get-file-details)
 
