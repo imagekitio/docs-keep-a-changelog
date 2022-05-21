@@ -661,16 +661,30 @@ $bulkAddTags = $imageKit->bulkAddTags($fileIds, $tags);
 }
 ```
 
-### Bulk remove tags
+### 7. Remove Tags (Bulk) API
 
-Remove tags from multiple files in a single request as per [API documentation here](https://docs.imagekit.io/api-reference/media-api/remove-tags-bulk). The method accepts an array of `fileIds` of the files and an array of tags that have to be removed from those files.
+Remove tags from multiple files in a single request. The method accepts an array of `fileIds` of the files and an array of `tags` that have to be removed from those files.
 
+#### Basic Usage
 ```php
-$fileIds = [ 'file_id_1', 'file_id_2' ];
-$tags = ['image_tag_1'];
+$fileIds = ['file_id1','file_id2'];
+$tags = ['image_tag_1', 'image_tag_2'];
 
-$bulkAddTags = $imageKit->bulkRemoveTags($fileIds, $tags);
+$bulkRemoveTags = $imageKit->bulkRemoveTags($fileIds, $tags);
 ```
+#### Response
+```json
+{
+    "err": null,
+    "success": {
+        "successfullyUpdatedFileIds": [
+            "5e21880d5efe355febd4bccd",
+            "5e1c13c1c55ec3437c451403"
+        ]
+    }
+}
+```
+
 
 ### Delete file
 
