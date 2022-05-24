@@ -872,6 +872,27 @@ $renameFile = $imageKit->renameFile([
 ```
 
 
+### 16. Create Folder API
+
+This will create a new folder. You can specify the folder name and location of the parent folder where this new folder should be created.
+
+
+#### Basic Usage
+```php
+$folderName = 'new-folder';
+$parentFolderPath = '/';
+$createFolder = $imageKit->createFolder([
+    'folderName' => $folderName,
+    'parentFolderPath' => $parentFolderPath,
+]);
+```
+#### Response
+```json
+{
+    "err": { },
+    "success": null
+}
+```
 
 
 ### Delete file
