@@ -21,7 +21,7 @@ For example, you can resize all landscape images to a certain width, say 200, wh
 https://ik.imagekit.io/demo/tr:if-ar_gt_1,w-200,if-else,w-300,if-end/default-image.jpg
 ```
 
-1. **condition**: A condition based on a property of the image that evaluates to either true or false. It has the format `if-{property}_{operator}_{value}`. [Read more](/features/image-transformations/conditional-transformations#how-to-specify-the-condition-part)
+1. **condition**: A condition based on a property of the image that evaluates to either true or false. It has the format `if-{property}_{operator}_{value}`. [Read more](#how-to-specify-transformations)
 2. **transformations_on_true**: Transformations that are applied only if the preceeding condition evaluates to true. This can be a [chain](/features/image-transformations/chained-transformations.md) of transformations as well.
 2. **transformations_on_false** (optional): Transformations that are applied only if the preceeding condition evaluates to false. This can be a [chain](/features/image-transformations/chained-transformations.md) of transformations as well. This part along with the preceeding `if-else` are optional and can be skipped.
 
