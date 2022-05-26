@@ -71,6 +71,7 @@
   * [Overlay](features/image-transformations/overlay.md)
   * [Image enhancement & color manipulation](features/image-transformations/image-enhancement-and-color-manipulation.md)
   * [Chained transformations](features/image-transformations/chained-transformations.md)
+  * [Conditional transformations](features/image-transformations/conditional-transformations.md)
   * [Supported text font list](features/image-transformations/supported-text-font-list.md)
 * [Image Optimization](features/image-optimization/README.md)
   * [Automatic image format conversion](features/image-optimization/automatic-image-format-conversion.md)
