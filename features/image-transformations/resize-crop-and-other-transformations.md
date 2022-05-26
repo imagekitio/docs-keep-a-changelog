@@ -685,13 +685,14 @@ This is good for creating profile pictures.
 
 ### Background color - (bg)
 
-It is used to specify the background color in RGB Hex Code (e.g. FF0000) or an RGBA Code (e.g. FFAABB50) that must be used for the image. If you specify an 8 character background, the last two characters must be a number between `00` and `99` , which is used to indicate the opacity level of the background. 
+It is used to specify the background color that can be used along with some cropping strategies while resizing an image.
 
-`00` represents an opacity level of 0.00, `01`  represents opacity level 0.01, and so on.\
-\
-**Default Value** -  Black 00000
+**Possible Values**
+* RGB Hex code: A 6-digit hex code (eg. AAFF00, 0f0fac)
+* RGBA Hex code: An 8-digit hex code. Last two characters must be a number between `00` and `99`, specifying the opacity level (eg. AAFF0040, 0f0fac75) 
+* Color name: A standard color name in lowercase (eg. lightgreen, beige)
 
-**Possible Values** - Valid RGB Hex Code
+**Default Value** - black (00000)
 
 {% tabs %}
 {% tab title="bg=272B38" %}
