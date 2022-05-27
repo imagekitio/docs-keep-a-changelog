@@ -1282,10 +1282,12 @@ Imagekit.io allows you to define a `schema` for your metadata keys and the value
 
 For detailed explanation refer to the [Custom Metadata Documentaion](https://docs.imagekit.io/api-reference/custom-metadata-fields-api).
 
+
 ### 1. Create Fields
 
 Create a Custom Metadata Field with this API.
 
+#### Example
 ```php
 $body = [
     "name" => "price",              // required
@@ -1299,7 +1301,62 @@ $body = [
 
 $createCustomMetadataField = $imageKit->createCustomMetadataField($body);
 ```
+
+#### Response
+```json
+{
+    "err": null,
+    "success": {
+        "id": "598821f949c0a938d57563dd",
+        "name": "price",
+        "label": "price",
+        "schema": {
+            "type": "Number",
+            "minValue": 1000,
+            "maxValue": 3000
+        }
+    }
+}
+```
 Check for the [Allowed Values In The Schema](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/create-custom-metadata-field#allowed-values-in-the-schema-object).
+
+### 2. Get Fields
+
+Get a list of all the custom metadata fields.
+
+#### Example
+```php
+$includeDeleted = false;
+$getCustomMetadataField = $imageKit->getCustomMetadataField($includeDeleted);
+```
+
+#### Response
+```json
+{
+    "err": null,
+    "success": [
+        {
+            "id": "598821f949c0a938d57563dd",
+            "name": "brand",
+            "label": "brand",
+            "schema": {
+                "type": "Text",
+                "defaultValue": "Nike"
+            }
+        },
+        {
+            "id": "865421f949c0a835d57563dd"
+            "name": "price",
+            "label": "price",
+            "schema": {
+                "type": "Number",
+                "minValue": 1000,
+                "maxValue": 3000
+            }
+        }
+    ]
+}
+```
 
 
 
