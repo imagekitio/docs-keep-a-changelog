@@ -64,206 +64,361 @@ $imageKit = new ImageKit(
 * `publicKey` and `privateKey` parameters are also required as these would be used for all ImageKit API, server-side upload, and generating token for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
 
 ## Generating url for rendering images
+ImageKit provides inbuild media storage and integration with external origins. Refer to the [Documentation](https://docs.imagekit.io/integration/url-endpoints) to learn more about URL endpoints and external [Image Origins](https://docs.imagekit.io/integration/configure-origin) supported by ImageKit.  
 
-#### URL for image with relative path&#x20;
+### Using Image path and image hostname or endpoint 
+  
+This method allows you to create a URL using the image's path and the ImageKit URL endpoint (urlEndpoint) you want to use to access the image.   
+  
+#### Example
+```php  
+$imageURL = $imageKit->url(
+    [
+        'path' => '/default-image.jpg', 
+        'transformation' => [
+            [
+                'height' => '300', 
+                'width' => '400'
+            ]
+        ]
+    ]
+);
+```  
 
-```php
-$imageURL = $imageKit->url(['path' => '/default-image.jpg']);
+#### Response
 
-echo('Url : ' . $imageURL); 
-// https://ik.imagekit.io/demo/default-image.jpg
-```
+```  
+https://ik.imagekit.io/your_imagekit_id/endpoint/tr:h-300,w-400/default-image.jpg 
+```  
 
-![](../../.gitbook/assets/default-image.jpeg)
 
-#### URL for image with relative path and custom URL-endpoint
+### Using full image URL
+This method allows you to add transformation parameters to an absolute ImageKit powered URL. This method should be used if you have the absolute URL stored in your database.
 
-```php
+#### Example
+```php  
 $imageURL = $imageKit->url([
-      'urlEndpoint' => 'https://ik.imagekit.io/test',
-      'path' => '/default-image.jpg',
+    'src' => 'https://ik.imagekit.io/your_imagekit_id/endpoint/default-image.jpg',
+    'transformation' => [
+        [
+            'height' => '300',
+            'width' => '400'
+        ]
+    ]
 ]);
+```  
 
-echo('Url : ' . $imageURL); 
-// https://ik.imagekit.io/test/default-image.jpg
+#### Response
 ```
+https://ik.imagekit.io/your_imagekit_id/endpoint/tr:h-300,w-400/default-image.jpg  
+```  
 
-#### &#x20;URL for image with absolute url&#x20;
+The `$imageKit->url()` method accepts the following parameters.
 
-If you have an absolute image path coming from the backend API e.g. `https://www.custom-domain.com/default-image.jpg` then you can use `src` prop to load the image.
+| Option                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |  
+| :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |  
+| urlEndpoint           | Optional. The base URL to be appended before the path of the image. If not specified, the URL Endpoint specified at the time of SDK initialization is used. For example, https://ik.imagekit.io/your_imagekit_id/endpoint/                                                                                                                                                                                                                                                                                                                                                               |  
+| path                  | Conditional. This is the path at which the image exists. For example, `/path/to/image.jpg`. Either the `path` or `src` parameter needs to be specified for URL generation.                                                                                                                                                                                                                                                                                                                                                                                                                |  
+| src                   | Conditional. This is the complete URL of an image already mapped to ImageKit. For example, `https://ik.imagekit.io/your_imagekit_id/endpoint/path/to/image.jpg`. Either the `path` or `src` parameter needs to be specified for URL generation.                                                                                                                                                                                                                                                                                                                                           |  
+| transformation        | Optional. An array of objects specifying the transformation to be applied in the URL. The transformation name and the value should be specified as a key-value pair in the object. Different steps of a [chained transformation](https://docs.imagekit.io/features/image-transformations/chained-transformations) can be specified as different objects of the array. The complete [List of supported transformations](#list-of-supported-transformations) in the SDK and some examples of using them are given later. If you use a transformation name that is not specified in the SDK, it gets applied as it is in the URL. |  
+| transformationPosition | Optional. The default value is `path` that places the transformation string as a path parameter in the URL. It can also be specified as `query`, which adds the transformation string as the query parameter `tr` in the URL. If you use the `src` parameter to create the URL, the transformation string is always added as a query parameter.                                                                                                                                                                                                                                                 |  
+| queryParameters       | Optional. These are the other query parameters that you want to add to the final URL. These can be any query parameters and are not necessarily related to ImageKit. Especially useful if you want to add some versioning parameters to your URLs.                                                                                                                                                                                                                                                                                                                                           |  
+| signed                | Optional. Boolean. The default value is `false`. If set to `true`, the SDK generates a signed image URL adding the image signature to the image URL.                                                                                                                                                                                                                                                                                                              |  
+| expireSeconds         | Optional. Integer. It is used along with the `signed` parameter. It specifies the time in seconds from now when the signed URL will expire. If specified, the URL contains the expiry timestamp in the URL, and the image signature is modified accordingly.                                                                                                                                                
 
-```php
-$imageURL = $imageKit->url([
-    'src' => 'https://example.com/default-image.jpg'
-]);
-
-echo('Url : ' . $imageURL); 
-// https://ik.imagekit.io/demo/default-image.jpg
-```
-
-## Applying common image manipulations
+### Applying Chained Transformations, Common Image Manipulations, Signed URL & Conditional Transformation
 
 This section covers the basics:
 
-* [Resizing images ](php.md#resizing-images-in-php)
-* [Quality manipulation](php.md#quality-manipulation)
-* [Chained transformation](php.md#chained-transformation)
-* [Sharpening and contrast transforms](php.md#sharpening-and-contrast-transformation)
+* [Chained Transformations as a query parameter](#1-chained-transformations-as-a-query-parameter)
+* [Image Enhancement & Color Manipulation](#2-image-enhancement-and-color-manipulation)
+* [Resizing images](#3-resizing-images)
+* [Quality manipulation](#4-quality-manipulation)
+* [Adding overlays to images](#5-adding-overlays-to-images)
+* [Signed URL](#6-signed-url)
+* [Conditional Transformation](6#conditional-transformation)
 
-The PHP SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable.  See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-php#list-of-supported-transformations) in PHP SDK on Github.&#x20;
+The PHP SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable.  See the [Full list of supported transformations](#list-of-supported-transformations) in PHP SDK on Github.&#x20;
 
 👉 If the property does not match any of the available options, it is added as it is.\
-👉 Note that you can also use `h` and `w` parameter instead of `height` and `width`. See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
+👉 Note that you can also use `h` and `w` parameter instead of `height` and `width`. 
 
-### Resizing images in PHP
+### 1. Chained Transformations as a query parameter
 
+#### Example
+```php  
+$imageURL = $imageKit->url([
+    'path' => '/default-image.jpg',
+    'urlEndpoint' => 'https://ik.imagekit.io/your_imagekit_id/endpoint/', 
+    'transformation' => [
+        [
+            'height' => '300',
+            'width' => '400'
+        ],
+        [
+            'rotation' => 90
+        ],
+    ], 
+    'transformationPosition' => 'query'
+]);
+```  
+#### Response
+```  
+https://ik.imagekit.io/your_imagekit_id/endpoint/default-image.jpg?tr=h-300,w-400:rt-90
+```  
+![](<../../.gitbook/assets/image (68).png>)
+
+### 2. Image enhancement and color manipulation
+
+Some transformations like [Contrast stretch](https://docs.imagekit.io/features/image-transformations/image-enhancement-and-color-manipulation#contrast-stretch-e-contrast) , [Sharpen](https://docs.imagekit.io/features/image-transformations/image-enhancement-and-color-manipulation#sharpen-e-sharpen) and [Unsharp mask](https://docs.imagekit.io/features/image-transformations/image-enhancement-and-color-manipulation#unsharp-mask-e-usm) can be added to the URL with or without any other value. To use such transforms without specifying a value, specify the value as "-" in the transformation object. Otherwise, specify the value that you want to be added to this transformation.
+
+#### Example
+```php  
+$imageURL = $imageKit->url([
+    'src' => 'https://ik.imagekit.io/your_imagekit_id/endpoint/default-image.jpg', 
+    'transformation' => 
+    [
+        [
+            'format' => 'jpg', 
+            'progressive' => true,
+            'effectSharpen' => '-', 
+            'effectContrast' => '1'
+        ]
+    ]
+]);
+```  
+#### Response
+```  
+https://ik.imagekit.io/0wbiqzorc/tr:f-jpg,pr-true,e-sharpen,e-contrast-1/default-image.jpg 
+```  
+![](<../../.gitbook/assets/image (69).png>)
+
+### 3. Resizing images
 Let's resize the image to width 400 and height 300.
+Check detailed instructions on [Resize, Crop and Other Common Transformations](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations)
 
-```javascript
+#### Example
+```php
 $imageURL = $imageKit->url(array(
     'path' => '/default-image.jpg',
-    'transformation' => array(
-        array(
+    'transformation' => [
+        [
             'height' => '300',
             'width' => '400',
-        ),
-    ),
+        ]
+    ]
 ));
-
-echo('Url : ' . $imageURL);
-// https://ik.imagekit.io/demo/tr:w-400,h-300/default-image.jpg
-
 ```
-
+#### Response
+```
+https://ik.imagekit.io/demo/tr:w-400,h-300/default-image.jpg
+```
 ![400x300 image](<../../.gitbook/assets/image (66).png>)
 
-### Quality manipulation
+### 4. Quality manipulation
+You can use the [Quality Parameter](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#quality-q) to change quality like this.
 
-You can use the [quality parameter](../../features/image-transformations/resize-crop-and-other-transformations.md#quality-q) to change quality like this.
-
-```javascript
+#### Example
+```php
 $imageURL = $imageKit->url(array(
     'path' => '/default-image.jpg',
-    'transformation' => array(
-        array(
+    'transformation' => [
+        [
             'quality' => '40',
-        ),
-    ),
+        ]
+    ]
 ));
+```
 
-echo('Url : ' . $imageURL);
-// https://ik.imagekit.io/demo/tr:q-40/default-image.jpg
+#### Response
+```
+https://ik.imagekit.io/demo/tr:q-40/default-image.jpg
 ```
 
 ![](<../../.gitbook/assets/image (67).png>)
 
-### Chained transformation
 
-You can pass more than one object in `transformation` parameter to chain these transformations sequentially.
+### 5. Adding overlays to images
+ImageKit.io  allows to overlay [images](https://docs.imagekit.io/features/image-transformations/overlay#image-overlay) or [text](https://docs.imagekit.io/features/image-transformations/overlay#text-overlay) over other images for watermarking or creating a dynamic banner using custom text.
 
-For example, the following values will first resize the image to width 400, height 300, and then [rotate](../../features/image-transformations/resize-crop-and-other-transformations.md#rotate-rt) to 90 degrees.&#x20;
-
-```javascript
-$imageURL = $imageKit->url(array(
-    'path' => '/default-image.jpg',
-    
-    // It means first resize the image to 400x300 and then rotate 90 degree
-    'transformation' => array(
-        array(
-            'height' => '300',
-            'width' => '400',
-        ),
-        array(
-            'rotation' => '90'
-        )
-    ),
-));
-
-echo('Url : ' . $imageURL);
-// https://ik.imagekit.io/demo/tr:w-400,h-300:rt-90/default-image.jpg
-```
-
-![](<../../.gitbook/assets/image (68).png>)
-
-### Sharpening and contrast transformation
-
-You can enhance images and manipulate colors like this.
-
-```javascript
-$imageURL = $imageKit->url(array(
-    'path' => '/sample_image.jpg',
-    
-    // It means first resize the image to 400x300 and then rotate 90 degree
-    'transformation' => array(
-        [
-            'format' => 'jpg',
-            'progressive' => true,
-            'effectSharpen' => '-',
-            'effectContrast' => '1',
-        ],
-    ),
-));
-
-echo('Url : ' . $imageURL);
-// https://ik.imagekit.io/demo/tr:f-jpg,pr-true,e-sharpen,e-contrast-1/sample_image.jpg
-```
-
-![](<../../.gitbook/assets/image (69).png>)
-
-## Adding overlays to images in PHP
-
-ImageKit.io allows you to can add [text](../../features/image-transformations/overlay.md#text-overlay) and [image overlay](../../features/image-transformations/overlay.md) dynamically.
-
-For example:
-
-```javascript
+#### Example
+```php
 $imageURL = $imageKit->url(array(
     'path' => '/default-image.jpg',
     'urlEndpoint' => 'https://ik.imagekit.io/pshbwfiho'
     
     // It means first resize the image to 400x300 and then rotate 90 degree
-    'transformation' => array(
-        array(
+    'transformation' => [
+        [
             'height' => '300',
             'width' => '300',
             'overlayImage' => 'default-image.jpg',
             'overlaywidth' => '100',
             'overlayX' => '0',
             'overlayImageBorder' => '10_CDDC39' // 10px border of color CDDC39
-        )
-    ),
+        ]
+    ]
 ));
-
-echo('Url : ' . $imageURL);
-// https://ik.imagekit.io/pshbwfiho/tr:w-300,h-300,oi-default-image.jpg,ow-100,ox-0,oib-10_CDDC39/default-image.jpg
 ```
-
+#### Response
+```
+https://ik.imagekit.io/demo/tr:w-300,h-300,oi-default-image.jpg,ow-100,ox-0,oib-10_CDDC39/default-image.jpg
+```
 ![](<../../.gitbook/assets/image (70).png>)
 
-## Generating Signed URL for images in PHP
+### 6. Signed URL
 
-ImageKit.io PHP SDK can generate a secure [signed url](../../features/security/signed-urls.md) that allows you to protect your media assets.
+Signed URL that expires in 300 seconds with the default URL endpoint and other query parameters.
+For detailed explanation on Signed URL refer to this [Official Doc](https://docs.imagekit.io/features/security/signed-urls).
 
-For example:
+#### Example
+```php  
+$imageURL = $imageKit->url([
+    "path" => "/default-image.jpg",
+    "queryParameters" => 
+    [
+        "v" => "123"
+    ],
+    "transformation" => [
+        [
+            "height" => "300",
+            "width" => "400"
+        ]
+    ],
+    "signed" => true,
+    "expireSeconds" => 300,
+]);
+```  
+#### Response
+```  
+https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400/default-image.jpg?v=123&ik-t=1654183277&ik-s=f98618f264a9ccb3c017e7b7441e86d1bc9a7ebb
+```  
+
+You can manage [Security Settings](https://docs.imagekit.io/features/security#restricting-unsigned-urls) from the dashboard to prevent unsigned URLs usage. In that case, if the URL doesn't have signature `ik-s` parameter or the signature is invalid, ImageKit will return a forbidden error instead of an actual image.
+
+
+### 7. Conditional Transformation
+
+Transformations can be applied conditionally i.e. only if certain properties of the input asset satisfy a given condition.
+- Please find the allowed [**Conditional Properties list**](#list-of-supported-properties-for-condition-transformation).
+- Please find the allowed [**Conditional Operators list**](#list-of-supported-operators-for-condition-transformation).
 
 ```php
 $imageURL = $imageKit->url([
-    'path' => '/default-image.jpg',
+    'src' => 'https://ik.imagekit.io/your_imagekit_id/endpoint/default-image.jpg',
     'transformation' => [
         [
-            'height' => '300',
-            'width' => '400',
-        ],
+            'if' => [
+                'condition' => [        // required
+                    'originalHeight' => '100',
+                    'operator' => '<'   // required
+                ],
+                'true' => [             // required
+                    'width' =>  '200',
+                ],
+                'false' => [
+                    'width' =>  '300',
+                ],
+            ],
+        ]
     ],
-    'signed' => true,
-    'expireSeconds' => 300,
 ]);
-
-echo('Signed url : ' . $imageURL);
-// https://ik.imagekit.io/demo/tr:h-300,w-400/default-image.jpg?ik-t=1632816299&ik-s=ffe7bc9445f95b4e33b4fb25ac504557a4ae03fc
+```
+#### Response
+```
+https://ik.imagekit.io/your_imagekit_id/endpoint/tr:if-ih_lt_100,w-200,if-else,w-300,if-end/default-image.jpg
 ```
 
-You can manage [security settings](../../features/security/#restricting-unsigned-urls) from the dashboard to prevent unsigned URLs usage. In that case, if the URL doesn't have signature `ik-s` parameter or the signature is invalid, ImageKit will return a forbidden error instead of an actual image.
+### List of supported transformations
+
+The complete list of transformations supported and their usage in ImageKit can be found [here](https://docs.imagekit.io/features/image-transformations). The SDK gives a name to each transformation parameter, making the code simpler and readable. If a transformation is supported in ImageKit, but a name for it cannot be found in the table below, use the transformation code from ImageKit docs as the name when using it in the `url` function.
+
+| Supported Transformation Name | Translates to parameter |  
+| ----------------------------- | ----------------------- |  
+| height                        | h                       |  
+| width                         | w                       |  
+| aspectRatio                   | ar                      |  
+| quality                       | q                       |  
+| crop                          | c                       |  
+| cropMode                      | cm                      |  
+| x                             | x                       |  
+| y                             | y                       |  
+| focus                         | fo                      |  
+| format                        | f                       |  
+| radius                        | r                       |  
+| background                    | bg                      |  
+| border                        | bo                      |  
+| rotation                      | rt                      |  
+| blur                          | bl                      |  
+| named                         | n                       |  
+| overlayImage                  | oi                      |  
+| overlayX                      | ox                      |  
+| overlayY                      | oy                      |  
+| overlayFocus                  | ofo                     |  
+| overlayHeight                 | oh                      |  
+| overlayWidth                  | ow                      |  
+| overlayText                   | ot                      |  
+| overlayTextFontSize           | ots                     |  
+| overlayTextFontFamily         | otf                     |  
+| overlayTextColor              | otc                     |  
+| overlayAlpha                  | oa                      |  
+| overlayTextTypography         | ott                     |  
+| overlayBackground             | obg                     |  
+| overlayImageTrim              | oit                     |  
+| progressive                   | pr                      |  
+| lossless                      | lo                      |  
+| trim                          | t                       |  
+| metadata                      | md                      |  
+| colorProfile                  | cp                      |  
+| defaultImage                  | di                      |  
+| dpr                           | dpr                     |  
+| effectSharpen                 | e-sharpen               |  
+| effectUSM                     | e-usm                   |  
+| effectContrast                | e-contrast              |  
+| effectGray                    | e-grayscale             |  
+| original                      | orig                    |  
+| rotate                        | rt                      |  
+| overlayImageAspectRatio       | oiar                    |  
+| overlayImageBackground        | oibg                    |  
+| overlayImageBorder            | oib                     |  
+| overlayImageDPR               | oidpr                   |  
+| overlayImageQuality           | oiq                     |  
+| overlayImageCropping          | oic                     |  
+| overlayTextTransparency       | oa                      |  
+| overlayTextEncoded            | ote                     |  
+| overlayTextWidth              | otw                     |  
+| overlayTextBackground         | otbg                    |  
+| overlayTextPadding            | otp                     |  
+| overlayTextInnerAlignment     | otia                    |  
+| overlayRadius                 | or                      |  
+| overlayImageFocus             | oifo                    |  
+
+
+### List of Supported Properties For Condition Transformation
+
+For detailed explanation refer to [Supported Properties](https://docs.imagekit.io/features/image-transformations/conditional-transformations#supported-properties).
+|   Supported Property Name     | Translates to parameter |  
+| ----------------------------- | ----------------------- |  
+| height                        | h                       |  
+| width                         | w                       |  
+| aspectRatio                   | ar                      |  
+| originalHeight                | ih                      |  
+| originalWidth                 | iw                      |  
+| originalAspectRatio           | iar                     |  
+
+
+### List of Supported Operators For Condition Transformation
+
+For detailed explanation refer to [Supported Operators](https://docs.imagekit.io/features/image-transformations/conditional-transformations#supported-operators).
+|   Supported Property Name     | Translates to parameter |  
+| ----------------------------- | ----------------------- |  
+| ==                            | eq                      |  
+| !=                            | w                       |  
+| >                             | gt                      |  
+| >=                            | gte                     |  
+| <                             | lt                      |  
+| <=                            | lte                     |  
+
 
 ## Server-side File Upload
 
