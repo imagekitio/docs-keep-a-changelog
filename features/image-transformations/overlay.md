@@ -139,7 +139,7 @@ If you want to overlay a solid color block over a base image, use `obg` paramete
 * RGBA Hex code: An 8-digit hex code. Last two characters must be a number between `00` and `99`, specifying the opacity level (eg. AAFF0040, 0f0fac75) 
 * Color name: A standard color name in lowercase (eg. lightgreen, beige)
 
-**Overlay Background Transparency**
+#### Overlay Background Transparency
 This is supported via alpha component in RGB hex code which takes a numeric value between `00` and `99`, or via [oa](overlay.md#overlay-transparency-oa).
 
 {% hint style="info" %}
@@ -166,7 +166,7 @@ You can control the relative position of overlay image using `ofo` parameter. Th
 
 Possible values include `center` , `top` , `left` , `bottom` , `right` , `top_left` , `top_right` , `bottom_left` , and `bottom_right` .\
 \
-**Default Value**- `center`
+**Default Value** - `center`
 
 {% tabs %}
 {% tab title="Default center" %}
@@ -310,11 +310,18 @@ URL - [https://ik.imagekit.io/ikmedia/tr:w-715,h-460:oi-women-dress-2.jpg,ox-0,o
 
 It is used to specify the background color that must be used for the overlay image.
 
-**Default Value - ** Black 00000\
+**Default Value** - Black 00000\
 **Possible Values**
 * RGB Hex code: A 6-digit hex code (eg. AAFF00, 0f0fac)
 * RGBA Hex code: An 8-digit hex code. Last two characters must be a number between `00` and `99`, specifying the opacity level (eg. AAFF0040, 0f0fac75) 
 * Color name: A standard color name in lowercase (eg. lightgreen, beige)
+
+#### Overlay Image Background Transparency
+This is supported via alpha component in RGB hex code which takes a numeric value between `00` and `99`, or via [oa](overlay.md#overlay-transparency-oa).
+
+{% hint style="info" %}
+If both [oibg](overlay.md#overlay-image-background-oibg) and [oa](overlay.md#overlay-transparency-oa) are set in a single transformation and [oibg](overlay.md#overlay-image-background-oibg) has an alpha component, then this value is used to set overlay image background transparency. Otherwise, [oa](overlay.md#overlay-transparency-oa) value is used. If [oibg](overlay.md#overlay-image-background-oibg) is set to a standard color name (eg. `blue`), then the [oa](overlay.md#overlay-transparency-oa) value is ignored.
+{% endhint %}
 
 {% tabs %}
 {% tab title="oibg=0F0F0F" %}
@@ -470,7 +477,7 @@ By default, ImageKit.io trims the overlay image before overlaying it on the base
 
 This removes the transparency of the overlaid image.\
 \
-**Default Value **- `true`
+**Default Value** - `true`
 
 Learn more from [example here](overlay.md#trimming-of-the-overlay-image).
 
@@ -544,8 +551,7 @@ If you want to give the text block a background color, use this parameter.
 * RGBA Hex code: An 8-digit hex code. Last two characters must be a number between `00` and `99`, specifying the opacity level (eg. AAFF0040, 0f0fac75) 
 * Color name: A standard color name in lowercase (eg. lightgreen, beige)
 
-#### Overlay text background transparency
-
+#### Overlay Text Background Transparency
 This is supported via alpha component in RGB hex code which takes a numeric value between `00` and `99`, or via [oa](overlay.md#overlay-transparency-oa).
 
 {% hint style="info" %}
@@ -647,7 +653,7 @@ To specify the color and transparency of the overlaid text on the image. \
 * RGBA Hex code: An 8-digit hex code. Last two characters must be a number between `00` and `99`, specifying the opacity level (eg. AAFF0040, 0f0fac75) 
 * Color name: A standard color name in lowercase (eg. lightgreen, beige)
 
-**Overlay Text Transparency**
+#### Overlay Text Transparency
 This is supported via alpha component in RGB hex code which takes a numeric value between 00 and 99, or via [oa](overlay.md#overlay-transparency-oa).
 
 {% hint style="info" %}
