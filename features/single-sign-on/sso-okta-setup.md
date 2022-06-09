@@ -17,7 +17,7 @@ First, you need to create an application on Okta and generate an IdP Metadata XM
 
 You may refer to the official documentation by Okta [here](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard_SAML.htm) or follow our brief guide below:
 
-1. Log in to [Okta portal](https://www.okta.com/) and open the organization admin panel
+1. Log in to the [Okta portal](https://www.okta.com/) and open the organization admin panel
 1. Navigate to the "Applications" screen using the side navigation menu
 1. Click the "Create App Integration" button
 1. In the modal popup that opens, choose the "SAML 2.0" radio button as shown below, then click "Next"
@@ -52,8 +52,8 @@ Now you need to specify three more keys that ImageKit uses to authorize and prov
 | **Field**                   | **Description**                                         | **Claim composition**                                        |
 | ---------------------- | --------------------------------------------------- | -------------------------------------------------------- |
 | imagekit_id            | The ImageKit ID of your organization account.  | `<your_imagekit_id>`                                                                                 |
-| full_name              | The full name of the user. It can be a combination of their first name and last name in Okta universal directory.  | e.g. `appuser.full_name` which should internally map to `user.firstName + " " + user.lastName`                                                           |
-| imagekit_role          | <p>The role to assign to the user on ImageKit which would decide their access privileges.<br></p><p></p><p>Accepted values of this key in the SAML response sent to ImageKit are: </p><p></p><p><ul><li><code>account_administrator</code></li><li><code>developer</code></li><li><code>media_library_full_access</code></li><li><code>media_library_view_only_access</code></li><li><code>finance</code></li></ul></p><p></p><p>Read more about different ImageKit roles and their privileges [here](../user-access-management.md#user-roles).</p> | <p><code>user.<your_custom_attribute></code> OR a custom transformation, as per your Okta user mapping.<br></p><p></p><p>The final computed value of this claim **must** be one of the accepted role strings from the list specified alongside.</p>      |
+| full_name              | The full name of the user. It can be a combination of their first name and last name in the Okta universal directory.  | e.g. `appuser.full_name` which should internally map to `user.firstName + " " + user.lastName`                                                           |
+| imagekit_role          | <p>The role to assign to the user on ImageKit that would decide their access privileges.<br></p><p></p><p>Accepted values of this key in the SAML response sent to ImageKit are: </p><p></p><p><ul><li><code>account_administrator</code></li><li><code>developer</code></li><li><code>media_library_full_access</code></li><li><code>media_library_view_only_access</code></li><li><code>finance</code></li></ul></p><p></p><p>Read more about different ImageKit roles and their privileges [here](../user-access-management.md#user-roles).</p> | <p><code>user.<your_custom_attribute></code> OR a custom transformation, as per your Okta user mapping.<br></p><p></p><p>The final computed value of this claim **must** be one of the accepted role strings from the list specified alongside.</p>      |
 
 To do this, you need to create "Profile Mappings" on Okta. Read the official guide [here](https://help.okta.com/oie/en-us/Content/Topics/Security/idp-config-ud-mappings.htm) or follow the quick version below.
 
@@ -62,7 +62,7 @@ Navigate to "Directory > Profile Editor", and create user attributes that will b
 ![Attributes and claims](<../../.gitbook/assets/sso-setup-okta-4.png>)
 ![User profile mappings](<../../.gitbook/assets/sso-setup-okta-5.png>)
 
-Back on the SSO application page under SAML section, ensure that these field are included correctly in your Okta user object.
+Back on the SSO application page under the SAML section, ensure that these fields are included correctly in your Okta user object.
 
 ![SAML attribute statements](<../../.gitbook/assets/sso-setup-okta-7.png>)
 
@@ -94,7 +94,7 @@ If you have administrator privileges on your ImageKit account, you can enable SS
 1. Copy and paste the entire contents of the file into the Metadata XML input box.
 1. Click on the 'Save' button.
 
-Your users should now be able to use Okta SSO to log into ImageKit. You can verify this by clicking the 'Test' button on the 'Single sign-on' set up screen on Okta.
+Your users should now be able to use Okta SSO to log into ImageKit.
 
 ### First-time login
 
