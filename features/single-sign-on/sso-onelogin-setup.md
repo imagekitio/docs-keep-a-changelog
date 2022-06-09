@@ -77,7 +77,7 @@ Navigate to "Users > Custom User Fields", and create user attributes that will b
 
 ![Custom User Fields](<../../.gitbook/assets/sso-setup-onelogin-9.png>)
 
-Back on the SSO application page under the SAML section, ensure that these fields are included correctly in your OneLogin user object.
+Back on the application page under the "Parameters" section, ensure that these fields are included correctly in your OneLogin user object.
 
 ![Attach claims](<../../.gitbook/assets/sso-setup-onelogin-5.png>)
 ![Attach claims](<../../.gitbook/assets/sso-setup-onelogin-6.png>)
