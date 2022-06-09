@@ -112,6 +112,7 @@ ImageKit supports many [image transformation parameters](../image-transformation
 | [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                                | This adds a border to the overlay image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>` |
 | [bg](../image-transformations/resize-crop-and-other-transformations.md#background-color-bg)                    | It is used to specify the background color in RGB Hex Code (e.g. FF0000) or an RGBA Code (e.g. FFAABB50) that must be used for the image. If you specify an 8 character background, the last two characters must be a number between 00 and 99 , which is used to indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01`  represents opacity level `0.01`, and so on. |
 | [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)                                | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
+| [rt](../video-transformations/resize-crop-and-other-common-video-transformations.md#rotate-rt)                                | It is used to specify the degree by which the overlay image must be rotated. To get a circle or oval shape, set the value to `max`. |
 
 # Add text over video
 
@@ -132,7 +133,6 @@ Following transformation parameters are supported on the text inside a layer.
 | Parameter                          | Description                  |
 |------------------------------------|------------------------------|
 | w                                  | Width of the whole text layer.  |
-| h                                  | Height of the whole text layer.  |
 | fs                                 | Font size  |
 | ff                                 | Font family |
 | co                                 | Color  |

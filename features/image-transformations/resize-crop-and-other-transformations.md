@@ -89,8 +89,8 @@ If only, one of the [height(h)](resize-crop-and-other-transformations.md#height-
 But when you specify both [height(h)](resize-crop-and-other-transformations.md#height-h) and [width(w)](resize-crop-and-other-transformations.md#width-w) dimensions, you need to choose the right cropping strategy based on your website layout and desired output image.
 
 {% hint style="info" %}
-**Tip for choosing the right cropping strategy**:sunglasses:****\
-****When choosing among different strategies for cropping, think in terms of your website layout and desired output image.
+**Tip for choosing the right cropping strategy**\
+When choosing among different strategies for cropping, think in terms of your website layout and desired output image.
 {% endhint %}
 
 * If you want to preserve the whole image content (no cropping) and need the exact same dimensions (height and width) in the output image as requested, choose either of the [pad resize crop](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad\_resize) or [forced crop strategy](resize-crop-and-other-transformations.md#forced-crop-strategy-c-force).

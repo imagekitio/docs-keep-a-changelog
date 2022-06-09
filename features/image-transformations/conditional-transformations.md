@@ -67,5 +67,5 @@ Conditional transformations are not supported for gif files yet.
 An if block can be one of the steps in a [chain](/features/image-transformations/chained-transformations.md) of transformations. For example, in `h-200,c-pad_resize:if-h_eq_200,w-100,if-end:rt-90`, the if block is the second step in a chain of three steps. The height value that this, if block receives for evaluating the `h_eq_100` condition, will be 200 since the previous step in the chain resizes the image to a height of 200. Hence, the condition will evaluate to true.
 
 {% hint style="warning" %}
-A step containing an if block cnanot contain any other comma-separated transform within that step. For example, `h-400:rt-90,if-h_eq_200,w-100,if-end:rt-90` or `h-400:if-h_eq_200,w-100,if-end,bl-10:rt-90` or `h-100,if-h_eq_200,w-100,if-end` are all invalid.
+A step containing an if block cannot contain any other comma-separated transform within that step. For example, `h-400:rt-90,if-h_eq_200,w-100,if-end:rt-90` or `h-400:if-h_eq_200,w-100,if-end,bl-10:rt-90` or `h-100,if-h_eq_200,w-100,if-end` are all invalid.
 {% endhint %}
