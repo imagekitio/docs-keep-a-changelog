@@ -316,13 +316,6 @@ It is used to specify the background color that must be used for the overlay ima
 * RGBA Hex code: An 8-digit hex code. Last two characters must be a number between `00` and `99`, specifying the opacity level (eg. AAFF0040, 0f0fac75) 
 * Color name: A standard color name in lowercase (eg. lightgreen, beige)
 
-#### Overlay Image Background Transparency
-This is supported via alpha component in RGB hex code which takes a numeric value between `00` and `99`, or via [oa](overlay.md#overlay-transparency-oa).
-
-{% hint style="info" %}
-If both [oibg](overlay.md#overlay-image-background-oibg) and [oa](overlay.md#overlay-transparency-oa) are set in a single transformation and [oibg](overlay.md#overlay-image-background-oibg) has an alpha component, then this value is used to set overlay image background transparency. Otherwise, [oa](overlay.md#overlay-transparency-oa) value is used. If [oibg](overlay.md#overlay-image-background-oibg) is set to a standard color name (eg. `blue`), then the [oa](overlay.md#overlay-transparency-oa) value is ignored.
-{% endhint %}
-
 {% tabs %}
 {% tab title="oibg=0F0F0F" %}
 URL - [https://ik.imagekit.io/ikmedia/white-canvas.png?tr=w-666,h-1000:oi-women-dress-1.jpg,ox-0,oy-0,ow-666,oh-500,oicm-pad_resize,oifo-left,oibg-0F0F0F:oi-women-dress-4.jpg,ox-0,oy-500,ow-666,oh-500,oicm-pad_resize,oifo-right,oibg-0F0F0F:b-5\_0F0F0F](https://ik.imagekit.io/ikmedia/white-canvas.png?tr=w-666,h-1000:oi-women-dress-1.jpg,ox-0,oy-0,ow-666,oh-500,oicm-pad_resize,oifo-left,oibg-0F0F0F:oi-women-dress-4.jpg,ox-0,oy-500,ow-666,oh-500,oicm-pad_resize,oifo-right,oibg-0F0F0F:b-5\_0F0F0F)
