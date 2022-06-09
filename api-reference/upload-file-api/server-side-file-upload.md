@@ -560,22 +560,9 @@ upload = imagekitio.upload_file(
 ```bash
 curl -X POST "https://upload.imagekit.io/api/v1/files/upload" \
 -u your_private_api_key: \
--F 'file=@/Users/username/Desktop/my_file_name.jpg;type=image/jpg' \
--F 'fileName=my_file_name.jpg'
--F 'extensions="[
-  { 
-      \"name\": \"remove-bg\",                       
-      \"options\": {
-           \"add_shadow\": true,
-           \"bg_colour\": \"green\"
-      }
-  },
-  {
-      \"name\": \"google-auto-tagging\",
-      \"minConfidence\": 55,
-      \"maxTags\": 15
-  }
-]"'
+-F 'file=@/Users/username/Desktop/my_file_name.jpg' \
+-F 'fileName=my_file_name.jpg' \
+-F 'extensions=[{"name":"remove-bg","options":{"add_shadow":true,"bg_colour":"green"}},{"name":"google-auto-tagging","maxTags":5,"minConfidence":95}]'
 ```
 {% endtab %}
 
