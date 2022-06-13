@@ -32,6 +32,27 @@ Each value should be a unique fileId of the uploaded file. `fileId` is returned 
 ```
 {% endswagger-response %}
 
+{% swagger-response status="207" description="An array of fileIds is returned for successful and error cases on partial success." %}
+```javascript
+{
+    "successfullyDeletedFileIds": [
+        "5e1c13d0c55ec3437c451406",
+        ...
+    ],
+    "errors": [
+        {
+            fileId: "3e21880d5efe355febd4bccx",
+            error: "Error in adding tags"
+        },
+        {
+            fileId: "5fc1c55efe355febddcda3d1",
+            error: "Error in adding tags"
+        }
+    ]
+}
+```
+{% endswagger-response %}
+
 {% swagger-response status="404" description="If any of the fileId is not found in your media library then a 404 response is returned and no file is deleted. The whole operation fails." %}
 ```javascript
 {

@@ -20,13 +20,36 @@ An array of `AITags` to remove from these files.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="An array of fileIds from which specified AITags were successfully removed." %}
-```bash
+```javascript
 {
     "successfullyUpdatedFileIds": [
 				"5e21880d5efe355febd4bccd",
 				"5e1c13c1c55ec3437c451403",
 				"5f4abf6fae77ae7f0acda3d1", 
 				"5f207bd1bd2741182ceadd55"
+    ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="207" description="An array of fileIds is returned for successful and error cases on partial success." %}
+```javascript
+{
+    "successfullyUpdatedFileIds": [
+				"5e21880d5efe355febd4bccd",
+				"5e1c13c1c55ec3437c451403",
+				"5f4abf6fae77ae7f0acda3d1", 
+				"5f207bd1bd2741182ceadd55"
+    ],
+    "errors": [
+        {
+            fileId: "3e21880d5efe355febd4bccx",
+            error: "Error in adding tags"
+        },
+        {
+            fileId: "5fc1c55efe355febddcda3d1",
+            error: "Error in adding tags"
+        }
     ]
 }
 ```
