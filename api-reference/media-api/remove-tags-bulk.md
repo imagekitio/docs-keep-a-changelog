@@ -44,11 +44,11 @@ An array of tags to remove from these files.
     "errors": [
         {
             fileId: "3e21880d5efe355febd4bccx",
-            error: "Error in adding tags"
+            error: "Error in removing tags"
         },
         {
             fileId: "5fc1c55efe355febddcda3d1",
-            error: "Error in adding tags"
+            error: "Error in removing tags"
         }
     ]
 }

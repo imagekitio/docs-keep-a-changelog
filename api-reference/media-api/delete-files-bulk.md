@@ -42,11 +42,11 @@ Each value should be a unique fileId of the uploaded file. `fileId` is returned 
     "errors": [
         {
             fileId: "3e21880d5efe355febd4bccx",
-            error: "Error in adding tags"
+            error: "Error in deleting tags"
         },
         {
             fileId: "5fc1c55efe355febddcda3d1",
-            error: "Error in adding tags"
+            error: "Error in deleting tags"
         }
     ]
 }
