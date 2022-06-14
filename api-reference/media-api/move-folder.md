@@ -65,4 +65,14 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.move_folder(source_folder_path: '/folder/to/move', destination_path: '/folder/to/move/into/')
 ```
 {% endtab %%}
+{% tab title="Java" %}
+```java
+
+MoveFolderRequest moveFolderRequest = new MoveFolderRequest();
+moveFolderRequest.setSourceFolderPath("/folder/to/move");
+moveFolderRequest.setDestinationPath("/folder/to/move/into/");
+Result result = ImageKit.getInstance().moveFolder(moveFolderRequest);
+
+```
+{% endtab %}
 {% endtabs %}

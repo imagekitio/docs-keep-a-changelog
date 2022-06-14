@@ -62,4 +62,12 @@ imagekitio.get_custom_metadata_fields(include_deleted: false)
 ```
 
 {% endtab %}
+{% tab title="Java" %}
+```java
+
+boolean includeDeleted = false;
+Result result = ImageKit.getInstance().getCustomMetaDataFields(includeDeleted);
+
+```
+{% endtab %}
 {% endtabs %}

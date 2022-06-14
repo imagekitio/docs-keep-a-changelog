@@ -112,4 +112,21 @@ imagekitio.delete_bulk_tags(
 )
 ```
 {% endtab %}
+{% tab title="Java" %}
+```java
+List<String> fileIds = new ArrayList<>();
+fileIds.add("5e21880d5efe355febd4bccd");
+fileIds.add("5e1c13c1c55ec3437c451403");
+fileIds.add("5f4abf6fae77ae7f0acda3d1");
+fileIds.add("5f207bd1bd2741182ceadd55");
+List<String> tags = new ArrayList<>();
+tags.add("tag-to-remove-1");
+tags.add("tag-to-remove-2");
+TagsRequest tagsRequest =new TagsRequest();
+tagsRequest.setFileIds(fileIds);
+tagsRequest.setTags(tags);
+Result result = ImageKit.getInstance().removeTags(tagsRequest);
+
+```
+{% endtab %}
 {% endtabs %}

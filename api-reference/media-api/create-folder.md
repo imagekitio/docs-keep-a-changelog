@@ -54,5 +54,15 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.create_folder(folder_name: 'new_folder', parent_folder_path: 'source/folder/path')
 ```
 {% endtab %}
+{% tab title="Java" %}
+```java
+
+CreateFolderRequest createFolderRequest = new CreateFolderRequest();
+createFolderRequest.setFolderName("new_folder");
+createFolderRequest.setParentFolderPath("source/folder/path");
+Result result = ImageKit.getInstance().createFolder(createFolderRequest);
+
+```
+{% endtab %}
 
 {% endtabs %}

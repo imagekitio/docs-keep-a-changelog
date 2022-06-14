@@ -65,4 +65,14 @@ imagekitio.move_file(
 )
 ```
 {% endtab %}
+{% tab title="Java" %}
+```java
+
+MoveFileRequest moveFileRequest = new MoveFileRequest();
+moveFileRequest.setSourceFilePath("/path/to/file.jpg");
+moveFileRequest.setDestinationPath("/folder/to/move/into/");
+Result result = ImageKit.getInstance().moveFile(moveFileRequest);
+
+```
+{% endtab %}
 {% endtabs %}

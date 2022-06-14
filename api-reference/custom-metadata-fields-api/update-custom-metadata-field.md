@@ -85,5 +85,21 @@ imagekitio.update_custom_metadata_field(
 )
 ```
 {% endtab %}
+{% tab title="Java" %}
+```java
+
+CustomMetaDataFieldSchemaObject schemaObject = new CustomMetaDataFieldSchemaObject();
+schemaObject.setMinValue(500);
+schemaObject.setMaxValue(2500);
+
+CustomMetaDataFieldUpdateRequest customMetaDataFieldUpdateRequest = new CustomMetaDataFieldUpdateRequest();
+customMetaDataFieldUpdateRequest.setId("6152fc9a2fd12044cb4cefe2");
+customMetaDataFieldUpdateRequest.setLabel("");
+customMetaDataFieldUpdateRequest.setSchema(schemaObject);
+
+Result result = ImageKit.getInstance().updateCustomMetaDataFields(customMetaDataFieldUpdateRequest);
+
+```
+{% endtab %}
 
 {% endtabs %}

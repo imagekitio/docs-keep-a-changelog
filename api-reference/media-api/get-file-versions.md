@@ -84,4 +84,12 @@ curl -X GET "https://api.imagekit.io/v1/files/fileId/versions" \
 -u your_private_api_key:
 ```
 {% endtab %}
+{% tab title="Java" %}
+```java
+
+String fileId = "fileId";
+Result result = ImageKit.getInstance().getFileVersions(fileId);
+
+```
+{% endtab %}
 {% endtabs %}
