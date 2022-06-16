@@ -55,9 +55,9 @@ use ImageKit\ImageKit;
   
 // For demonstration purposes, the documentation would use https://ik.imagekit.io/demo as urlEndpoint
 $imageKit = new ImageKit(
-    "your_public_key",
-    "your_private_key",
-    "your_url_endpoint"
+    "publicKey",
+    "privateKey",
+    "urlEndpoint"
 );
 ```
 * `publicKey` and `privateKey` parameters are required as these would be used for all ImageKit API, server-side upload, and generating token for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
@@ -121,7 +121,7 @@ $imageURL = $imageKit->url(
 #### Response
 
 ```  
-https://ik.imagekit.io/your_imagekit_id/endpoint/tr:h-300,w-400/default-image.jpg 
+https://ik.imagekit.io/demo/tr:h-300,w-400/default-image.jpg 
 ```  
 
 
@@ -1541,21 +1541,9 @@ It will return
 
 ```json
 {
-    "error": {
-        "token": "5d1c4a22-54f2-40bb-9e8c-99daaeeb7307",
-        "expire": 1654207193,
-        "signature": "a03a88b814570a3d92919c16a1b8bd4491f053c3"
-    },
-    "result": null,
-    "responseMetadata": {
-        "headers": [ ],
-        "raw": {
-            "token": "5d1c4a22-54f2-40bb-9e8c-99daaeeb7307",
-            "expire": 1654207193,
-            "signature": "a03a88b814570a3d92919c16a1b8bd4491f053c3"
-        },
-        "statusCode": null
-    }
+    "token": "5d1c4a22-54f2-40bb-9e8c-99daaeeb7307",
+    "expire": 1654207193,
+    "signature": "a03a88b814570a3d92919c16a1b8bd4491f053c3"
 }
 ```  
 
