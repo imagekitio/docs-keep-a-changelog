@@ -58,26 +58,21 @@ Notice that width is automatically adjusted to maintain the aspect ratio.
 
 ### Aspect ratio - (ar)
 
-Used to specify the aspect ratio of the output video. It is the ratio of width to height of the output video. This parameter must be used along with either the [height(h)](resize-crop-and-other-common-video-transformations.md#height-h) or [width(w)](resize-crop-and-other-common-video-transformations#width-w) parameter but not both.
+Used to specify the aspect ratio of the output video. It is the ratio of width to height of the output video. This parameter must be used along with either the [height(h)](resize-crop-and-other-common-video-transformations.md#height-h) or [width(w)](resize-crop-and-other-common-video-transformations.md#width-w) parameter but not both.
 
 Usage = `ar-<width>-<height>`
 
 {% hint style="info" %}
-If you specify both [height(h)](resize-crop-and-other-common-video-transformations#height-h) and [width(w)](resize-crop-and-other-common-video-transformations#width-w) in the URL along with [aspect ratio(ar)](resize-crop-and-other-common-video-transformations#aspect-ration-ar), then the aspect ratio is ignored.
+If you specify both [height(h)](resize-crop-and-other-common-video-transformations.md#height-h) and [width(w)](resize-crop-and-other-common-video-transformations.md#width-w) in the URL along with [aspect ratio(ar)](resize-crop-and-other-common-video-transformations.md#aspect-ration-ar), then the aspect ratio is ignored.
 {% endhint %}
 
 {% tabs %}
 {% tab title="Original" %}
-URL - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
-
-![](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
-
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4](https://ik.imagekit.io/ikmedia/sample-video.mp4)
 {% endtab %}
 
-{% tab title="width 400px and aspect ratio 4:3" %}
-URL - [https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium\_cafe\_B1iTdD0C.jpg)
-
-![](https://ik.imagekit.io/demo/tr:ar-4-3,w-400/medium\_cafe\_B1iTdD0C.jpg)
+{% tab title="width 400px and aspect ratio 4:1" %}
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=ar-4-1,h-100](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=ar-4-1,h-100)
 {% endtab %}
 {% endtabs %}
 
@@ -88,7 +83,7 @@ If only, one of the [height(h)](resize-crop-and-other-common-video-transformatio
 But when you specify both [height(h)](resize-crop-and-other-common-video-transformations.md#height-h) and [width(w)](resize-crop-and-other-common-video-transformations.md#width-w) dimensions, you need to choose the right cropping strategy based on your website layout and desired output video.
 
 {% hint style="info" %}
-**Tip for choosing the right cropping strategy**:sunglasses:****\
+**Tip for choosing the right cropping strategy**\
 ****When choosing among different strategies for cropping, think in terms of your website layout and desired output video dimension.
 {% endhint %}
 
@@ -281,22 +276,23 @@ URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200,cm-pad\_resiz
 
 This adds a border to the video. It accepts two parameters - the width of the border and the color of the border.
 
-Usage - `b-<border-width>-<hex code>`
+Usage - `b-<border-width>_<hex code>`
 
 The width is specified as a number which is equivalent to the border width in pixels. The color code is specified as a 6-character hex code RRGGBB.
 
 {% tabs %}
 {% tab title="5px yellow border" %}
-URL - [https://ik.imagekit.io/demo/tr:w-300,b-5\_FFF000/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-300,b-5\_FFF000/medium\_cafe\_B1iTdD0C.jpg)
-
-![](https://ik.imagekit.io/demo/tr:w-300,b-5\_FFF000/medium\_cafe\_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-5_yellow](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-5_yellow)
 {% endtab %}
 
-{% tab title="20px red border" %}
-URL - [https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium\_cafe\_B1iTdD0C.jpg)
-
-![](https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium\_cafe\_B1iTdD0C.jpg)
+{% tab title="15px red border" %}
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-15_red](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-15_red)
 {% endtab %}
+
+{% tab title="15px #5587d9" %}
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-15_5587d9](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-15_5587d9)
+{% endtab %}
+
 {% endtabs %}
 
 ### Radius - (r)
@@ -313,24 +309,33 @@ You can also change the background color of the video from the default white col
 
 {% tabs %}
 {% tab title="r=20" %}
-URL - [https://ik.imagekit.io/demo/tr:r-20/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:r-20/medium\_cafe\_B1iTdD0C.jpg)
-
-![](https://ik.imagekit.io/demo/tr:r-20/medium\_cafe\_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=r-20](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=r-20)
 {% endtab %}
 
 {% tab title="r=50" %}
-URL - [https://ik.imagekit.io/demo/tr:r-50/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:r-50/medium\_cafe\_B1iTdD0C.jpg)
-
-![](https://ik.imagekit.io/demo/tr:r-50/medium\_cafe\_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=r-50](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=r-50)
 {% endtab %}
 
 {% tab title="r=max" %}
 If the input asset has 1:1 aspect ratio, using `max` will result in a circle shape. However, if the input asset is rectangular, using `max` will result in an oval shape.
 
-URL - [https://ik.imagekit.io/demo/tr:r-max/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:r-max/medium_cafe_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=r-max](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=r-max)
+{% endtab %}
+{% endtabs %}
 
+### Rotate - (rt)
 
-![](https://ik.imagekit.io/demo/tr:r-max/medium_cafe_B1iTdD0C.jpg)
+It is used to specify the degree by which the output video must be rotated.
+
+**Possible Values** - `0` , `90` , `180` , `270` and `360`.
+
+{% tabs %}
+{% tab title="rt=90" %}
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=w-200,rt-90](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=w-200,rt-90)
+{% endtab %}
+
+{% tab title="rt=180" %}
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=w-200,rt-180](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=w-200,rt-180)
 {% endtab %}
 {% endtabs %}
 

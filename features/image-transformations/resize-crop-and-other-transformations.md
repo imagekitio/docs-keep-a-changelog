@@ -89,8 +89,8 @@ If only, one of the [height(h)](resize-crop-and-other-transformations.md#height-
 But when you specify both [height(h)](resize-crop-and-other-transformations.md#height-h) and [width(w)](resize-crop-and-other-transformations.md#width-w) dimensions, you need to choose the right cropping strategy based on your website layout and desired output image.
 
 {% hint style="info" %}
-**Tip for choosing the right cropping strategy**:sunglasses:****\
-****When choosing among different strategies for cropping, think in terms of your website layout and desired output image.
+**Tip for choosing the right cropping strategy**\
+When choosing among different strategies for cropping, think in terms of your website layout and desired output image.
 {% endhint %}
 
 * If you want to preserve the whole image content (no cropping) and need the exact same dimensions (height and width) in the output image as requested, choose either of the [pad resize crop](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad\_resize) or [forced crop strategy](resize-crop-and-other-transformations.md#forced-crop-strategy-c-force).
@@ -685,13 +685,14 @@ This is good for creating profile pictures.
 
 ### Background color - (bg)
 
-It is used to specify the background color in RGB Hex Code (e.g. FF0000) or an RGBA Code (e.g. FFAABB50) that must be used for the image. If you specify an 8 character background, the last two characters must be a number between `00` and `99` , which is used to indicate the opacity level of the background. 
+It is used to specify the background color that can be used along with some cropping strategies while resizing an image.
 
-`00` represents an opacity level of 0.00, `01`  represents opacity level 0.01, and so on.\
-\
-**Default Value** -  Black 00000
+**Possible Values**
+* RGB Hex code: A 6-digit hex code (eg. AAFF00, 0f0fac)
+* RGBA Hex code: An 8-digit hex code. Last two characters must be a number between `00` and `99`, specifying the opacity level (eg. AAFF0040, 0f0fac75) 
+* Color name: A standard color name in lowercase (eg. lightgreen, beige)
 
-**Possible Values** - Valid RGB Hex Code
+**Default Value** - black (00000)
 
 {% tabs %}
 {% tab title="bg=272B38" %}

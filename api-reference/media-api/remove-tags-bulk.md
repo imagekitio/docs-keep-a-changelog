@@ -23,10 +23,33 @@ An array of tags to remove from these files.
 ```javascript
 {
     "successfullyUpdatedFileIds": [
-				"5e21880d5efe355febd4bccd",
-				"5e1c13c1c55ec3437c451403",
-				"5f4abf6fae77ae7f0acda3d1", 
-				"5f207bd1bd2741182ceadd55"
+        "5e21880d5efe355febd4bccd",
+        "5e1c13c1c55ec3437c451403",
+        "5f4abf6fae77ae7f0acda3d1", 
+        "5f207bd1bd2741182ceadd55"
+    ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="207" description="An array of fileIds is returned for successful and error cases on partial success." %}
+```javascript
+{
+    "successfullyUpdatedFileIds": [
+        "5e21880d5efe355febd4bccd",
+        "5e1c13c1c55ec3437c451403",
+        "5f4abf6fae77ae7f0acda3d1", 
+        "5f207bd1bd2741182ceadd55"
+    ],
+    "errors": [
+        {
+            fileId: "3e21880d5efe355febd4bccx",
+            error: "Error in removing tags"
+        },
+        {
+            fileId: "5fc1c55efe355febddcda3d1",
+            error: "Error in removing tags"
+        }
     ]
 }
 ```
