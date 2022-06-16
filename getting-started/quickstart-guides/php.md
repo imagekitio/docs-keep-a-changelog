@@ -42,26 +42,59 @@ It will prompt a few options. Select defaults by pressing enter.
 composer require imagekit/imagekit
 ```
 
-#### Initialize SDK
+## Quick Examples
+
+#### Create an ImageKit Instance
 
 ```php
 // Import autoloader from vendor
 // If not using PSR-4 is not configured in composer.json file for your project
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ImageKit\ImageKit;
-
+use ImageKit\ImageKit;  
+  
 // For demonstration purposes, the documentation would use https://ik.imagekit.io/demo as urlEndpoint
 $imageKit = new ImageKit(
-    "{publicKey}",
-    "{publicKey}",
-    "{urlEndpoint}" 
+    "your_public_key",
+    "your_private_key",
+    "your_url_endpoint"
 );
+```
+* `publicKey` and `privateKey` parameters are required as these would be used for all ImageKit API, server-side upload, and generating token for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
+* `urlEndpoint` is also a required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard#url-endpoints](https://imagekit.io/dashboard#url-endpoints).&#x20;
 
+#### URL Generation
+```php
+// For URL Generation
+$imageURL = $imageKit->url(
+    [
+        'path' => '/default-image.jpg',
+    ]
+);
+echo $imageURL;
 ```
 
-* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard#url-endpoints](https://imagekit.io/dashboard#url-endpoints).&#x20;
-* `publicKey` and `privateKey` parameters are also required as these would be used for all ImageKit API, server-side upload, and generating token for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
+#### File Upload
+```php
+// For File Upload
+$uploadFile = $imageKit->upload([
+    'file' => 'file-url',
+    'fileName' => 'new-file'
+]);
+```
+
+#### Response Structure
+```json
+{
+    "error": {},
+    "result": {},
+    "responseMetadata": {
+        "headers": {},
+        "raw": {},
+        "statusCode": {statusCode}
+    }
+}
+```
 
 ## Generating url for rendering images
 ImageKit provides inbuild media storage and integration with external origins. Refer to the [Documentation](https://docs.imagekit.io/integration/url-endpoints) to learn more about URL endpoints and external [Image Origins](https://docs.imagekit.io/integration/configure-origin) supported by ImageKit.  
@@ -125,6 +158,7 @@ The `$imageKit->url()` method accepts the following parameters.
 | queryParameters       | Optional. These are the other query parameters that you want to add to the final URL. These can be any query parameters and are not necessarily related to ImageKit. Especially useful if you want to add some versioning parameters to your URLs.                                                                                                                                                                                                                                                                                                                                           |  
 | signed                | Optional. Boolean. The default value is `false`. If set to `true`, the SDK generates a signed image URL adding the image signature to the image URL.                                                                                                                                                                                                                                                                                                              |  
 | expireSeconds         | Optional. Integer. It is used along with the `signed` parameter. It specifies the time in seconds from now when the signed URL will expire. If specified, the URL contains the expiry timestamp in the URL, and the image signature is modified accordingly.                                                                                                                                                
+                                             
 
 ### Applying Chained Transformations, Common Image Manipulations, Signed URL & Conditional Transformation
 
@@ -138,10 +172,23 @@ This section covers the basics:
 * [Signed URL](#6-signed-url)
 * [Conditional Transformation](6#conditional-transformation)
 
-The PHP SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable.  See the [Full list of supported transformations](#list-of-supported-transformations) in PHP SDK on Github.&#x20;
 
-👉 If the property does not match any of the available options, it is added as it is.\
+The PHP SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable.  See the [Full list of supported transformations](#list-of-supported-transformations).
+
+👉 If the property does not match any of the available options, it is added as it is.\ e.g
+```php
+[
+    'effectGray' => 'e-grayscale'
+]
+// and
+[
+    'e-grayscale' => ''
+]
+// works the same
+```
 👉 Note that you can also use `h` and `w` parameter instead of `height` and `width`. 
+
+For more examples check the [Demo Application](https://github.com/imagekit-developer/imagekit-php/tree/master/sample).
 
 ### 1. Chained Transformations as a query parameter
 
@@ -149,7 +196,7 @@ The PHP SDK gives a name to each transformation parameter e.g. `height` for `h` 
 ```php  
 $imageURL = $imageKit->url([
     'path' => '/default-image.jpg',
-    'urlEndpoint' => 'https://ik.imagekit.io/your_imagekit_id/endpoint/', 
+    'urlEndpoint' => 'https://ik.imagekit.io/demo/', 
     'transformation' => [
         [
             'height' => '300',
@@ -164,7 +211,7 @@ $imageURL = $imageKit->url([
 ```  
 #### Response
 ```  
-https://ik.imagekit.io/your_imagekit_id/endpoint/default-image.jpg?tr=h-300,w-400:rt-90
+https://ik.imagekit.io/demo/default-image.jpg?tr=h-300,w-400:rt-90
 ```  
 ![](<../../.gitbook/assets/image (68).png>)
 
@@ -175,7 +222,7 @@ Some transformations like [Contrast stretch](https://docs.imagekit.io/features/i
 #### Example
 ```php  
 $imageURL = $imageKit->url([
-    'src' => 'https://ik.imagekit.io/your_imagekit_id/endpoint/default-image.jpg', 
+    'src' => 'https://ik.imagekit.io/demo/default-image.jpg', 
     'transformation' => 
     [
         [
@@ -189,7 +236,7 @@ $imageURL = $imageKit->url([
 ```  
 #### Response
 ```  
-https://ik.imagekit.io/0wbiqzorc/tr:f-jpg,pr-true,e-sharpen,e-contrast-1/default-image.jpg 
+https://ik.imagekit.io/demo/tr:f-jpg,pr-true,e-sharpen,e-contrast-1/default-image.jpg 
 ```  
 ![](<../../.gitbook/assets/image (69).png>)
 
@@ -427,7 +474,7 @@ The SDK provides a simple interface using the `$imageKit->upload()` or `$imageKi
 - [Check all the supported file types and extensions](https://docs.imagekit.io/api-reference/upload-file-api#allowed-file-types-for-uploading).
 - [Check all the supported parameters and details](https://docs.imagekit.io/api-reference/upload-file-api/server-side-file-upload).
 
-#### Basic Usage
+#### Example
 ```php
 $uploadFile = $imageKit->upload([
     'file' => 'your_file',              //  required, "binary","base64" or "file url"
@@ -437,8 +484,8 @@ $uploadFile = $imageKit->upload([
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
+    "error": null,
+    "result": {
         "fileId": "6286329dfef1b033aee60211",
         "name": "your_file_name_S-PgGysnR.jpg",
         "size": 94466,
@@ -456,6 +503,37 @@ $uploadFile = $imageKit->upload([
         "AITags": null,
         "customMetadata": { },
         "extensionStatus": {}
+    },
+    "responseMetadata":{
+        "headers":{
+            "access-control-allow-origin": "*",
+            "x-ik-requestid": "e98f2464-2a86-4934-a5ab-9a226df012c9",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "434",
+            "etag": "W/"1b2-reNzjRCFNt45rEyD7yFY/dk+Ghg"",
+            "date": "Thu, 16 Jun 2022 14:22:01 GMT",
+            "x-request-id": "e98f2464-2a86-4934-a5ab-9a226df012c9"
+        },
+        "raw":{
+            "fileId": "6286329dfef1b033aee60211",
+            "name": "your_file_name_S-PgGysnR.jpg",
+            "size": 94466,
+            "versionInfo": {
+                "id": "6286329dfef1b033aee60211",
+                "name": "Version 1"
+            },
+            "filePath": "/your_file_name_S-PgGysnR.jpg",
+            "url": "https://ik.imagekit.io/demo/your_file_name_S-PgGysnR.jpg",
+            "fileType": "image",
+            "height": 640,
+            "width": 960,
+            "thumbnailUrl": "https://ik.imagekit.io/demo/tr:n-ik_ml_thumbnail/your_file_name_S-PgGysnR.jpg",
+            "tags": [],
+            "AITags": null,
+            "customMetadata": { },
+            "extensionStatus": {}
+        },
+        "statusCode":200
     }
 }
 ```
@@ -469,23 +547,23 @@ $uploadOptions = [
     "isPrivateFile" => false,               // true|false
     "customCoordinates" => implode(",", ["10", "10", "100", "100"]),    // max: 500 chars
     "responseFields" => implode(",", ["tags", "customMetadata"]),
-    "extensions" => json_encode([       
+    "extensions" => [       
         [
             "name" => "remove-bg",
             "options" => [  // refer https://docs.imagekit.io/extensions/overview
                 "add_shadow" => true
             ]
         ]
-    ]),
+    ],
     "webhookUrl" => "https://example.com/webhook",
     "overwriteFile" => true,        // in case of false useUniqueFileName should be true
     "overwriteAITags" => true,      // set to false in order to preserve overwriteAITags
     "overwriteTags" => true,
     "overwriteCustomMetadata" => true,
-    // "customMetadata" => json_encode([
+    // "customMetadata" => [
     //         "SKU" => "VS882HJ2JD",
     //         "price" => 599.99,
-    // ])
+    // ]
 ];
 
 // Attempt File Uplaod
@@ -505,7 +583,7 @@ The SDK provides a simple interface for all the following [Media APIs](https://d
 
 This API can list all the uploaded files and folders in your [ImageKit.io](https://docs.imagekit.io/api-reference/media-api) media library.
 
-#### Basic Usage
+#### Example
 ```php
 $listFiles = $imageKit->listFiles();
 ```
@@ -577,7 +655,7 @@ Detailed documentaion can be found here for [Advance Search Queries](https://doc
 
 This API can get you all the details and attributes of the current version of the file.
 
-#### Basic Usage
+#### Example
 ```php
 $getFileDetails = $imageKit->getFileDetails('file_id');
 ```
@@ -627,7 +705,7 @@ This API can get you all the details and attributes for the provided version of 
 - [List & Search File API](#1-list-and-search-files)
 - [Get File Details API](#2-get-file-details)
 
-#### Basic Usage
+#### Example
 ```php
 $getFileVersionDetails = $imageKit->getFileVersionDetails('file_id','version_id');
 ```
@@ -674,7 +752,7 @@ $getFileVersionDetails = $imageKit->getFileVersionDetails('file_id','version_id'
 
 This API can get you all the versions of the file.
 
-#### Basic Usage
+#### Example
 ```php
 $getFileVersions = $imageKit->getFileVersions('file_id');
 ```
@@ -724,7 +802,7 @@ $getFileVersions = $imageKit->getFileVersions('file_id');
 
 Update file details such as tags, customCoordinates attributes, remove existing AITags and apply [extensions](https://docs.imagekit.io/extensions/overview) using Update File Details API. This operation can only be performed on the current version of the file.
 
-#### Basic Usage
+#### Example
 ```php
 // Update parameters
 $updateData = [
@@ -796,7 +874,7 @@ $updateFileDetails = $imageKit->updateFileDetails(
 
 Add tags to multiple files in a single request. The method accepts an array of `fileIds` of the files and an array of `tags` that have to be added to those files.
 
-#### Basic Usage
+#### Example
 ```php
 $fileIds = ['file_id1','file_id2'];
 $tags = ['image_tag_1', 'image_tag_2'];
@@ -806,13 +884,10 @@ $bulkAddTags = $imageKit->bulkAddTags($fileIds, $tags);
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "successfullyUpdatedFileIds": [
-            "5e21880d5efe355febd4bccd",
-            "5e1c13c1c55ec3437c451403"
-        ]
-    }
+    "successfullyUpdatedFileIds": [
+        "5e21880d5efe355febd4bccd",
+        "5e1c13c1c55ec3437c451403"
+    ]
 }
 ```
 
@@ -820,7 +895,7 @@ $bulkAddTags = $imageKit->bulkAddTags($fileIds, $tags);
 
 Remove tags from multiple files in a single request. The method accepts an array of `fileIds` of the files and an array of `tags` that have to be removed from those files.
 
-#### Basic Usage
+#### Example
 ```php
 $fileIds = ['file_id1','file_id2'];
 $tags = ['image_tag_1', 'image_tag_2'];
@@ -830,13 +905,10 @@ $bulkRemoveTags = $imageKit->bulkRemoveTags($fileIds, $tags);
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "successfullyUpdatedFileIds": [
-            "5e21880d5efe355febd4bccd",
-            "5e1c13c1c55ec3437c451403"
-        ]
-    }
+    "successfullyUpdatedFileIds": [
+        "5e21880d5efe355febd4bccd",
+        "5e1c13c1c55ec3437c451403"
+    ]
 }
 ```
 
@@ -844,7 +916,7 @@ $bulkRemoveTags = $imageKit->bulkRemoveTags($fileIds, $tags);
 
 Remove AI tags from multiple files in a single request. The method accepts an array of `fileIds` of the files and an array of `AITags` that have to be removed from those files.
 
-#### Basic Usage
+#### Example
 ```php
 $fileIds = ['file_id1','file_id2'];
 $AITags = ['image_AITag_1', 'image_AITag_2'];
@@ -854,13 +926,10 @@ $bulkRemoveTags = $imageKit->bulkRemoveTags($fileIds, $AITags);
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "successfullyUpdatedFileIds": [
-            "5e21880d5efe355febd4bccd",
-            "5e1c13c1c55ec3437c451403"
-        ]
-    }
+    "successfullyUpdatedFileIds": [
+        "5e21880d5efe355febd4bccd",
+        "5e1c13c1c55ec3437c451403"
+    ]
 }
 ```
 
@@ -876,14 +945,6 @@ You can programmatically delete uploaded files in the media library using delete
 $fileId = 'file_id';
 $deleteFile = $imageKit->deleteFile($fileId);
 ```
-#### Response
-```json
-{
-    "err": null,
-    "success": null
-}
-```
-
 
 ### 10. Delete File Version API
 
@@ -891,25 +952,18 @@ You can programmatically delete uploaded file version in the media library using
 
 > You can delete only the non-current version of a file.
 
-#### Basic Usage
+#### Example
 ```php
 $fileId = 'file_id';
 $versionId = 'version_id';
 $deleteFileVersion = $imageKit->deleteFileVersion($fileId, $versionId);
-```
-#### Response
-```json
-{
-    "err": null,
-    "success": null
-}
 ```
 
 ### 11. Delete Files (Bulk) API
 
 Deletes multiple files and their versions from the media library.
 
-#### Basic Usage
+#### Example
 ```php
 $fileIds = ["5e1c13d0c55ec3437c451406", ...];
 $deleteFiles = $imageKit->bulkFileDeleteByIds($fileIds);
@@ -917,13 +971,10 @@ $deleteFiles = $imageKit->bulkFileDeleteByIds($fileIds);
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "successfullyDeletedFileIds": [
-            "5e1c13d0c55ec3437c451406",
-            ...
-        ]
-    }
+    "successfullyDeletedFileIds": [
+        "5e1c13d0c55ec3437c451406",
+        ...
+    ]
 }
 ```
 
@@ -940,20 +991,12 @@ $sourceFilePath = '/sample-folder1/sample-file.jpg';
 $destinationPath = '/sample-folder2/';
 $includeVersions = false;
 
-$copyFile = $imageKit->copyFile([
+$copyFile = $imageKit->copy([
     'sourceFilePath' => $sourceFilePath,
     'destinationPath' => $destinationPath,
     'includeVersions' => $includeVersions
 ]);
 ```
-#### Response
-```json
-{
-    "err": null,
-    "success": null
-}
-```
-
 
 ### 13. Move File API
 
@@ -961,22 +1004,15 @@ This will move a file and all its versions from one folder to another.
 
 >  If any file at the destination has the same name as the source file, then the source file and its versions will be appended to the destination file.
 
-#### Basic Usage
+#### Example
 ```php
 $sourceFilePath = '/sample-file.jpg';
 $destinationPath = '/sample-folder/';
 
-$moveFile = $imageKit->moveFile([
+$moveFile = $imageKit->move([
     'sourceFilePath' => $sourceFilePath,
     'destinationPath' => $destinationPath
 ]);
-```
-#### Response
-```json
-{
-    "err": null,
-    "success": null
-}
 ```
 
 ### 14. Rename File API
@@ -985,33 +1021,22 @@ You can programmatically rename an already existing file in the media library us
 
 >  The old URLs will stop working. The file/file version URLs cached on CDN will continue to work unless a purge is requested.
 
-#### Basic Usage
+#### Example
 ```php
 // Purge Cache would default to false
 
 $filePath = '/sample-folder/sample-file.jpg';
 $newFileName = 'sample-file2.jpg';
-$renameFile = $imageKit->renameFile([
+$renameFile = $imageKit->rename([
     'filePath' => $filePath,
     'newFileName' => $newFileName,
 ]);
 ```
-#### Response
-```json
-{
-    "err": null,
-    "success": {}
-}
-```
-
 When `purgeCache` is set to `true`, response will return `purgeRequestId`. This `purgeRequestId` can be used to get the purge request status.
-
-#### Example
-
 ```php
 $filePath = '/sample-folder/sample-file.jpg';
 $newFileName = 'sample-file2.jpg';
-$renameFile = $imageKit->renameFile([
+$renameFile = $imageKit->rename([
     'filePath' => $filePath,
     'newFileName' => $newFileName,
 ],true);
@@ -1019,19 +1044,15 @@ $renameFile = $imageKit->renameFile([
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "purgeRequestId": "598821f949c0a938d57563bd"
-    }
+    "purgeRequestId": "598821f949c0a938d57563bd"
 }
 ```
-
 
 ### 15. Restore File Version API
 
 This will restore the provided file version to a different version of the file. The new restored version of the file will be returned in response.
 
-#### Basic Usage
+#### Example
 ```php
 $fileId = 'fileId';
 $versionId = 'versionId';
@@ -1043,53 +1064,47 @@ $restoreFileVersion = $imageKit->restoreFileVersion([
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "fileId": "598821f949c0a938d57563bd",
-        "type": "file",
-        "name": "file1.jpg",
-        "filePath": "/images/products/file1.jpg",
-        "tags": ["t-shirt", "round-neck", "sale2019"],
-        "AITags": [
-            {
-                "name": "Shirt",
-                "confidence": 90.12,
-                "source": "google-auto-tagging"
-            },
-            /* ... more googleVision tags ... */
-        ],
-        "versionInfo": {
-                "id": "697821f849c0a938d57563ce",
-                "name": "Version 2"
+    "fileId": "598821f949c0a938d57563bd",
+    "type": "file",
+    "name": "file1.jpg",
+    "filePath": "/images/products/file1.jpg",
+    "tags": ["t-shirt", "round-neck", "sale2019"],
+    "AITags": [
+        {
+            "name": "Shirt",
+            "confidence": 90.12,
+            "source": "google-auto-tagging"
         },
-        "isPrivateFile": false,
-        "customCoordinates": null,
-        "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
-        "thumbnail": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
-        "fileType": "image",
-        "mime": "image/jpeg",
-        "width": 100,
-        "height": 100,
-        "size": 100,
-        "hasAlpha": false,
-        "customMetadata": {
-            "brand": "Nike",
-            "color": "red"
-        },
-        "createdAt": "2019-08-24T06:14:41.313Z",
-        "updatedAt": "2019-09-24T06:14:41.313Z"
-    }
+        /* ... more googleVision tags ... */
+    ],
+    "versionInfo": {
+            "id": "697821f849c0a938d57563ce",
+            "name": "Version 2"
+    },
+    "isPrivateFile": false,
+    "customCoordinates": null,
+    "url": "https://ik.imagekit.io/your_imagekit_id/images/products/file1.jpg",
+    "thumbnail": "https://ik.imagekit.io/your_imagekit_id/tr:n-media_library_thumbnail/images/products/file1.jpg",
+    "fileType": "image",
+    "mime": "image/jpeg",
+    "width": 100,
+    "height": 100,
+    "size": 100,
+    "hasAlpha": false,
+    "customMetadata": {
+        "brand": "Nike",
+        "color": "red"
+    },
+    "createdAt": "2019-08-24T06:14:41.313Z",
+    "updatedAt": "2019-09-24T06:14:41.313Z"
 }
 ```
-
-
 
 ### 16. Create Folder API
 
 This will create a new folder. You can specify the folder name and location of the parent folder where this new folder should be created.
 
-
-#### Basic Usage
+#### Example
 ```php
 $folderName = 'new-folder';
 $parentFolderPath = '/';
@@ -1098,38 +1113,22 @@ $createFolder = $imageKit->createFolder([
     'parentFolderPath' => $parentFolderPath,
 ]);
 ```
-#### Response
-```json
-{
-    "err": { },
-    "success": null
-}
-```
-
 
 ### 17. Delete Folder API
 
 This will delete the specified folder and all nested files, their versions & folders. This action cannot be undone.
 
-#### Basic Usage
+#### Example
 ```php
 $folderPath = '/new-folder';
 $deleteFolder = $imageKit->deleteFolder($folderPath);
 ```
-#### Response
-```json
-{
-    "err": null,
-    "success": null
-}
-```
-
 
 ### 18. Copy Folder API
 
 This will copy one folder into another.
 
-#### Basic Usage
+#### Example
 ```php
 $sourceFolderPath = '/source-folder/';
 $destinationPath = '/destination-folder/';
@@ -1143,13 +1142,9 @@ $copyFolder = $imageKit->copyFolder([
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "jobId": "598821f949c0a938d57563bd"
-    }
+    "jobId": "598821f949c0a938d57563bd"
 }
 ```
-
 
 ### 19. Move Folder API
 
@@ -1157,7 +1152,7 @@ This will move one folder into another. The selected folder, its nested folders,
 
 > If any file at the destination has the same name as the source file, then the source file and its versions will be appended to the destination file version history.
 
-#### Basic Usage
+#### Example
 ```php
 $sourceFolderPath = '/sample-folder/';
 $destinationPath = '/destination-folder/';
@@ -1169,10 +1164,7 @@ $moveFolder = $imageKit->moveFolder([
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "jobId": "598821f949c0a938d57563bd"
-    }
+    "jobId": "598821f949c0a938d57563bd"
 }
 ```
 
@@ -1181,8 +1173,7 @@ $moveFolder = $imageKit->moveFolder([
 
 This endpoint allows you to get the status of a bulk operation e.g. [Copy Folder API](#18-copy-folder-api) or [Move Folder API](#19-move-folder-api).
 
-
-#### Basic Usage
+#### Example
 ```php
 $jobId = 'jobId';
 $bulkJobStatus = $imageKit->getBulkJobStatus($jobId);
@@ -1190,12 +1181,9 @@ $bulkJobStatus = $imageKit->getBulkJobStatus($jobId);
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-      "jobId": "598821f949c0a938d57563bd",
-      "type": "COPY_FOLDER",
-      "status": "Completed" // or "Pending"
-    }
+    "jobId": "598821f949c0a938d57563bd",
+    "type": "COPY_FOLDER",
+    "status": "Completed" // or "Pending"
 }
 ```
 
@@ -1203,8 +1191,7 @@ $bulkJobStatus = $imageKit->getBulkJobStatus($jobId);
 
 This will purge CDN and ImageKit.io's internal cache. In response `requestId` is returned which can be used to fetch the status of the submitted purge request with [Purge Cache Status API](#22-purge-cache-status-api).
 
-
-#### Basic Usage
+#### Example
 ```php
 $image_url = 'https://ik.imagekit.io/demo/sample-folder/sample-file.jpg';
 $purgeCache = $imageKit->purgeCache($image_url);
@@ -1212,21 +1199,16 @@ $purgeCache = $imageKit->purgeCache($image_url);
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "requestId" : "598821f949c0a938d57563bd"
-    }
+    "requestId" : "598821f949c0a938d57563bd"
 }
 ```
 You can purge the cache for multiple files. Check [Purge Cache Multiple Files](https://docs.imagekit.io/api-reference/media-api/purge-cache#purge-cache-for-multiple-files).
-
 
 ### 22. Purge Cache Status API
 
 Get the purge cache request status using the `requestId` returned when a purge cache request gets submitted with [Purge Cache API](#21-purge-cache-api)
 
-
-#### Basic Usage
+#### Example
 ```php
 $cacheRequestId = '598821f949c0a938d57563bd';
 $purgeCacheStatus = $imageKit->purgeCacheStatus($cacheRequestId);
@@ -1234,20 +1216,15 @@ $purgeCacheStatus = $imageKit->purgeCacheStatus($cacheRequestId);
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "status" : "Pending" // or "Completed"
-    }
+    "status" : "Pending" // or "Completed"
 }
 ```
-
 
 ### 23. Get File Metadata API (From File ID)
 
 Get the image EXIF, pHash, and other metadata for uploaded files in ImageKit.io media library using this API.
 
-
-#### Basic Usage
+#### Example
 ```php
 $fileId = '598821f949c0a938d57563bd';
 $getFileMetadata = $imageKit->getFileMetaData($fileId);
@@ -1255,93 +1232,89 @@ $getFileMetadata = $imageKit->getFileMetaData($fileId);
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "height": 68,
-        "width": 100,
-        "size": 7749,
-        "format": "jpg",
-        "hasColorProfile": true,
-        "quality": 0,
-        "density": 72,
-        "hasTransparency": false,
-        "pHash": "f06830ca9f1e3e90",
+    "height": 68,
+    "width": 100,
+    "size": 7749,
+    "format": "jpg",
+    "hasColorProfile": true,
+    "quality": 0,
+    "density": 72,
+    "hasTransparency": false,
+    "pHash": "f06830ca9f1e3e90",
+    "exif": {
+        "image": {
+            "Make": "Canon",
+            "Model": "Canon EOS 40D",
+            "Orientation": 1,
+            "XResolution": 72,
+            "YResolution": 72,
+            "ResolutionUnit": 2,
+            "Software": "GIMP 2.4.5",
+            "ModifyDate": "2008:07:31 10:38:11",
+            "YCbCrPositioning": 2,
+            "ExifOffset": 214,
+            "GPSInfo": 978
+        },
+        "thumbnail": {
+            "Compression": 6,
+            "XResolution": 72,
+            "YResolution": 72,
+            "ResolutionUnit": 2,
+            "ThumbnailOffset": 1090,
+            "ThumbnailLength": 1378
+        },
         "exif": {
-            "image": {
-                "Make": "Canon",
-                "Model": "Canon EOS 40D",
-                "Orientation": 1,
-                "XResolution": 72,
-                "YResolution": 72,
-                "ResolutionUnit": 2,
-                "Software": "GIMP 2.4.5",
-                "ModifyDate": "2008:07:31 10:38:11",
-                "YCbCrPositioning": 2,
-                "ExifOffset": 214,
-                "GPSInfo": 978
-            },
-            "thumbnail": {
-                "Compression": 6,
-                "XResolution": 72,
-                "YResolution": 72,
-                "ResolutionUnit": 2,
-                "ThumbnailOffset": 1090,
-                "ThumbnailLength": 1378
-            },
-            "exif": {
-                "ExposureTime": 0.00625,
-                "FNumber": 7.1,
-                "ExposureProgram": 1,
-                "ISO": 100,
-                "ExifVersion": "0221",
-                "DateTimeOriginal": "2008:05:30 15:56:01",
-                "CreateDate": "2008:05:30 15:56:01",
-                "ShutterSpeedValue": 7.375,
-                "ApertureValue": 5.625,
-                "ExposureCompensation": 0,
-                "MeteringMode": 5,
-                "Flash": 9,
-                "FocalLength": 135,
-                "SubSecTime": "00",
-                "SubSecTimeOriginal": "00",
-                "SubSecTimeDigitized": "00",
-                "FlashpixVersion": "0100",
-                "ColorSpace": 1,
-                "ExifImageWidth": 100,
-                "ExifImageHeight": 68,
-                "InteropOffset": 948,
-                "FocalPlaneXResolution": 4438.356164383562,
-                "FocalPlaneYResolution": 4445.969125214408,
-                "FocalPlaneResolutionUnit": 2,
-                "CustomRendered": 0,
-                "ExposureMode": 1,
-                "WhiteBalance": 0,
-                "SceneCaptureType": 0
-            },
-            "gps": {
-                "GPSVersionID": [
-                    2,
-                    2,
-                    0,
-                    0
-                ]
-            },
-            "interoperability": {
-                "InteropIndex": "R98",
-                "InteropVersion": "0100"
-            },
-            "makernote": {}
-        }
+            "ExposureTime": 0.00625,
+            "FNumber": 7.1,
+            "ExposureProgram": 1,
+            "ISO": 100,
+            "ExifVersion": "0221",
+            "DateTimeOriginal": "2008:05:30 15:56:01",
+            "CreateDate": "2008:05:30 15:56:01",
+            "ShutterSpeedValue": 7.375,
+            "ApertureValue": 5.625,
+            "ExposureCompensation": 0,
+            "MeteringMode": 5,
+            "Flash": 9,
+            "FocalLength": 135,
+            "SubSecTime": "00",
+            "SubSecTimeOriginal": "00",
+            "SubSecTimeDigitized": "00",
+            "FlashpixVersion": "0100",
+            "ColorSpace": 1,
+            "ExifImageWidth": 100,
+            "ExifImageHeight": 68,
+            "InteropOffset": 948,
+            "FocalPlaneXResolution": 4438.356164383562,
+            "FocalPlaneYResolution": 4445.969125214408,
+            "FocalPlaneResolutionUnit": 2,
+            "CustomRendered": 0,
+            "ExposureMode": 1,
+            "WhiteBalance": 0,
+            "SceneCaptureType": 0
+        },
+        "gps": {
+            "GPSVersionID": [
+                2,
+                2,
+                0,
+                0
+            ]
+        },
+        "interoperability": {
+            "InteropIndex": "R98",
+            "InteropVersion": "0100"
+        },
+        "makernote": {}
     }
 }
 ```
-
 
 ### 24. Get File Metadata API (From Remote URL)
 
 Get image EXIF, pHash, and other metadata from ImageKit.io powered remote URL using this API.
 
-#### Basic Usage
+#### Example
 ```php
 $image_url = 'https://ik.imagekit.io/demo/sample-folder/sample-file.jpg';
 $getFileMetadataFromRemoteURL = $imageKit->getFileMetadataFromRemoteURL($image_url);
@@ -1349,87 +1322,83 @@ $getFileMetadataFromRemoteURL = $imageKit->getFileMetadataFromRemoteURL($image_u
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "height": 68,
-        "width": 100,
-        "size": 7749,
-        "format": "jpg",
-        "hasColorProfile": true,
-        "quality": 0,
-        "density": 72,
-        "hasTransparency": false,
-        "pHash": "f06830ca9f1e3e90",
+    "height": 68,
+    "width": 100,
+    "size": 7749,
+    "format": "jpg",
+    "hasColorProfile": true,
+    "quality": 0,
+    "density": 72,
+    "hasTransparency": false,
+    "pHash": "f06830ca9f1e3e90",
+    "exif": {
+        "image": {
+            "Make": "Canon",
+            "Model": "Canon EOS 40D",
+            "Orientation": 1,
+            "XResolution": 72,
+            "YResolution": 72,
+            "ResolutionUnit": 2,
+            "Software": "GIMP 2.4.5",
+            "ModifyDate": "2008:07:31 10:38:11",
+            "YCbCrPositioning": 2,
+            "ExifOffset": 214,
+            "GPSInfo": 978
+        },
+        "thumbnail": {
+            "Compression": 6,
+            "XResolution": 72,
+            "YResolution": 72,
+            "ResolutionUnit": 2,
+            "ThumbnailOffset": 1090,
+            "ThumbnailLength": 1378
+        },
         "exif": {
-            "image": {
-                "Make": "Canon",
-                "Model": "Canon EOS 40D",
-                "Orientation": 1,
-                "XResolution": 72,
-                "YResolution": 72,
-                "ResolutionUnit": 2,
-                "Software": "GIMP 2.4.5",
-                "ModifyDate": "2008:07:31 10:38:11",
-                "YCbCrPositioning": 2,
-                "ExifOffset": 214,
-                "GPSInfo": 978
-            },
-            "thumbnail": {
-                "Compression": 6,
-                "XResolution": 72,
-                "YResolution": 72,
-                "ResolutionUnit": 2,
-                "ThumbnailOffset": 1090,
-                "ThumbnailLength": 1378
-            },
-            "exif": {
-                "ExposureTime": 0.00625,
-                "FNumber": 7.1,
-                "ExposureProgram": 1,
-                "ISO": 100,
-                "ExifVersion": "0221",
-                "DateTimeOriginal": "2008:05:30 15:56:01",
-                "CreateDate": "2008:05:30 15:56:01",
-                "ShutterSpeedValue": 7.375,
-                "ApertureValue": 5.625,
-                "ExposureCompensation": 0,
-                "MeteringMode": 5,
-                "Flash": 9,
-                "FocalLength": 135,
-                "SubSecTime": "00",
-                "SubSecTimeOriginal": "00",
-                "SubSecTimeDigitized": "00",
-                "FlashpixVersion": "0100",
-                "ColorSpace": 1,
-                "ExifImageWidth": 100,
-                "ExifImageHeight": 68,
-                "InteropOffset": 948,
-                "FocalPlaneXResolution": 4438.356164383562,
-                "FocalPlaneYResolution": 4445.969125214408,
-                "FocalPlaneResolutionUnit": 2,
-                "CustomRendered": 0,
-                "ExposureMode": 1,
-                "WhiteBalance": 0,
-                "SceneCaptureType": 0
-            },
-            "gps": {
-                "GPSVersionID": [
-                    2,
-                    2,
-                    0,
-                    0
-                ]
-            },
-            "interoperability": {
-                "InteropIndex": "R98",
-                "InteropVersion": "0100"
-            },
-            "makernote": {}
-        }
+            "ExposureTime": 0.00625,
+            "FNumber": 7.1,
+            "ExposureProgram": 1,
+            "ISO": 100,
+            "ExifVersion": "0221",
+            "DateTimeOriginal": "2008:05:30 15:56:01",
+            "CreateDate": "2008:05:30 15:56:01",
+            "ShutterSpeedValue": 7.375,
+            "ApertureValue": 5.625,
+            "ExposureCompensation": 0,
+            "MeteringMode": 5,
+            "Flash": 9,
+            "FocalLength": 135,
+            "SubSecTime": "00",
+            "SubSecTimeOriginal": "00",
+            "SubSecTimeDigitized": "00",
+            "FlashpixVersion": "0100",
+            "ColorSpace": 1,
+            "ExifImageWidth": 100,
+            "ExifImageHeight": 68,
+            "InteropOffset": 948,
+            "FocalPlaneXResolution": 4438.356164383562,
+            "FocalPlaneYResolution": 4445.969125214408,
+            "FocalPlaneResolutionUnit": 2,
+            "CustomRendered": 0,
+            "ExposureMode": 1,
+            "WhiteBalance": 0,
+            "SceneCaptureType": 0
+        },
+        "gps": {
+            "GPSVersionID": [
+                2,
+                2,
+                0,
+                0
+            ]
+        },
+        "interoperability": {
+            "InteropIndex": "R98",
+            "InteropVersion": "0100"
+        },
+        "makernote": {}
     }
 }
 ```
-
 
 ## Custom Metadata Fields API
 
@@ -1487,32 +1456,28 @@ $getCustomMetadataField = $imageKit->getCustomMetadataField($includeDeleted);
 
 #### Response
 ```json
-{
-    "err": null,
-    "success": [
-        {
-            "id": "598821f949c0a938d57563dd",
-            "name": "brand",
-            "label": "brand",
-            "schema": {
-                "type": "Text",
-                "defaultValue": "Nike"
-            }
-        },
-        {
-            "id": "865421f949c0a835d57563dd"
-            "name": "price",
-            "label": "price",
-            "schema": {
-                "type": "Number",
-                "minValue": 1000,
-                "maxValue": 3000
-            }
+[
+    {
+        "id": "598821f949c0a938d57563dd",
+        "name": "brand",
+        "label": "brand",
+        "schema": {
+            "type": "Text",
+            "defaultValue": "Nike"
         }
-    ]
-}
+    },
+    {
+        "id": "865421f949c0a835d57563dd"
+        "name": "price",
+        "label": "price",
+        "schema": {
+            "type": "Number",
+            "minValue": 1000,
+            "maxValue": 3000
+        }
+    }
+]
 ```
-
 
 ### 3. Update Fields
 
@@ -1534,19 +1499,15 @@ $updateCustomMetadataField = $imageKit->updateCustomMetadataField($customMetadat
 #### Response
 ```json
 {
-    "err": null,
-    "success": {
-        "id": "598821f949c0a938d57563dd",
-        "name": "price",
-        "label": "Net Price",
-        "schema": {
-            "type": "Number"
-        }
+    "id": "598821f949c0a938d57563dd",
+    "name": "price",
+    "label": "Net Price",
+    "schema": {
+        "type": "Number"
     }
 }
 ```
 Check for the [Allowed Values In The Schema](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/create-custom-metadata-field#allowed-values-in-the-schema-object).
-
 
 
 ### 4. Delete Fields
@@ -1558,139 +1519,6 @@ Delete a custom metadata field.
 $customMetadataFieldId = '598821f949c0a938d57563dd';
 
 $deleteCustomMetadataField = $imageKit->deleteCustomMetadataField($customMetadataFieldId);
-```
-
-#### Response
-```json
-{
-    "err": null,
-    "success": null
-}
-```
-
-
-### Delete file
-
-Delete a file as per the [API documentation here](https://docs.imagekit.io/api-reference/media-api/delete-file). The method accepts the file ID of the file that has to be deleted.
-
-```php
-$imageKit->deleteFile($fileId);
-```
-
-### Delete files bulk
-
-Deletes multiple files and all their transformations as per the [API documentation here](https://docs.imagekit.io/api-reference/media-api/delete-files-bulk). The method accepts the array of file IDs that have to be deleted.
-
-```php
-$imageKit->bulkFileDeleteByIds(array(
-    "fileIds" => array("file_id_1", "file_id_2", ...)
-));
-```
-
-### Copy file
-
-This will copy a file from one location to another as per [API documentation here](https://docs.imagekit.io/api-reference/media-api/copy-file). This method accepts the source file's path and destination folder path.
-
-```php
-$imagekit->copyFile('/source/path', '/destination/path');
-```
-
-### Move file
-
-This will move a file from one location to another as per [API documentation here](https://docs.imagekit.io/api-reference/media-api/move-file). This method accepts the source file's path and destination folder path.
-
-```php
-$imagekit->moveFile('/source/path', '/destination/path');
-```
-
-### Rename file
-
-This will rename an already existing file in the media library as per [API Documentation here](../../api-reference/media-api/rename-file.md). This method accepts the source file's path, the new name of the file, and an optional boolean parameter to purge the CDN cache after renaming.&#x20;
-
-{% hint style="info" %}
-**Limits on purge**\
-****Purging has account-level limits. Please refer to [purging limits](../../api-reference/media-api/purge-cache.md#limitations) before using this parameter.
-{% endhint %}
-
-```php
-// Purge Cache would default to false
-$imagekit->renameFile('/filePath', 'newFileName');
-
-// Purge Cache explicitly set to false
-$imagekit->renameFile('/filePath', 'newFileName', false);
-
-// Purge Cache explicitly set to true
-$imagekit->renameFile('/filePath', 'newFileName', true);
-```
-
-### Create folder
-
-This will create a new folder as per [API documentation here](https://docs.imagekit.io/api-reference/media-api/create-folder). This method accepts the folder name and parent folder path.
-
-```php
-$imagekit->createFolder('folderName', '/parentFolderPath');
-```
-
-### **Delete folder**
-
-This will delete the specified folder and all nested files & folders as per [API documentation here](https://docs.imagekit.io/api-reference/media-api/delete-folder). This method accepts the full path of the folder that is to be deleted.
-
-```php
-$imagekit->deleteFolder('/folderPath');
-```
-
-### Copy folder
-
-This will copy one folder into another as per [API documentation here](https://docs.imagekit.io/api-reference/media-api/copy-folder). This method accepts the source folder's path and destination folder path.
-
-```php
-$imagekit->copyFolder('/source/path', '/destination/path');
-```
-
-### Move folder
-
-This will move one folder into another as per [API documentation here](https://docs.imagekit.io/api-reference/media-api/move-folder). This method accepts the source folder's path and destination folder path.
-
-```php
-$imagekit->moveFolder('/source/path', '/destination/path');
-```
-
-### Get bulk job status
-
-This allows us to get a bulk operation status e.g. copy or move folder as per [API documentation here](https://docs.imagekit.io/api-reference/media-api/copy-move-folder-status). This method accepts `jobId` that is returned by copy and move folder operations.
-
-```php
-$imagekit->getBulkJobStatus('jobId');
-```
-
-### Purge cache
-
-Programmatically issue a cache clear request as per the [API documentation here](https://docs.imagekit.io/api-reference/media-api/purge-cache). Accepts the full URL of the file for which the cache has to be cleared.
-
-```php
-$imagekit->purgeCache('image_url');
-```
-
-### Purge cache status
-
-Get the purge cache request status using the request ID returned when a purge cache request gets submitted as per the [API documentation here](https://docs.imagekit.io/api-reference/media-api/purge-cache-status)
-
-```php
-$imagekit->getPurgeCacheStatus('request_id');
-```
-
-### **Get file metadata**
-
-Accepts the file ID and fetches the metadata as per the [API documentation here](https://docs.imagekit.io/api-reference/metadata-api/get-image-metadata-for-uploaded-media-files).
-
-```php
-$imageKit->getFileMetaData("file_id");
-```
-
-You can also** **get metadata of the image using the absolute image URL. The image URL should be powered by ImageKit and accessible via your account.
-
-```php
-$imageKit->getFileMetadataFromRemoteURL("imagekit_remote_url");
 ```
 
 ## Utility Functions
