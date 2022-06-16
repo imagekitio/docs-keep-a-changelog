@@ -51,13 +51,13 @@ Example
   id: "f30b0f2f-145e-4591-8e56-a6d0168fe123",
   created_at: "2022-05-25T08:53:28.143Z",
   request: {
-    x_request_id: "123456712",
-    url: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
+    x_request_id: "f1c3c506-30b8-4534-860c-224952b3ed22",
+    url: "https://ik.imagekit.io/demo/sample-video.mp4?tr=f-webm,q-10",
     user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36",
   },
   data: {
     asset: {
-      url: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
+      url: "https://ik.imagekit.io/demo/sample-video.mp4",
     },
     transformation: {
       type: "video-transformation",
@@ -109,8 +109,8 @@ Example
   id: "f30b0f2f-145e-4591-8e56-a6d0168fe123",
   created_at: "2022-05-25T08:53:28.143Z",
   request: {
-    x_request_id: "123456712",
-    url: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
+    x_request_id: "f1c3c506-30b8-4534-860c-224952b3ed22",
+    url: "https://ik.imagekit.io/demo/sample-video.mp4",
     user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36",
   },
   timings: {
@@ -119,7 +119,7 @@ Example
   },
   data: {
     asset: {
-      url: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
+      url: "https://ik.imagekit.io/demo/sample-video.mp4?tr=f-webm,q-10",
     },
     transformation: {
       type: "video-transformation",
@@ -131,9 +131,9 @@ Example
         format: "webm",
       },
       output: {
-        url: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
+        url: "https://ik.imagekit.io/demo/sample-video.mp4",
         video_metadata: {
-          duration: 2.037,
+          duration: 15.02,
           width: 854,
           height: 480,
           bitrate: 2.037,
@@ -170,28 +170,27 @@ Example
 
 ```js
 {
-  type: "video.transformation.ready",
+  type: "video.transformation.error",
   id: "f30b0f2f-145e-4591-8e56-a6d0168fe123",
   created_at: "2022-05-25T08:53:28.143Z",
   request: {
     x_request_id: "123456712",
-    url: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
+    url: "https://ik.imagekit.io/demo/sample-video.mp?tr=l-image,i-nonexistent.png,l-end",
     user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36",
   },
   data: {
-    asset: {
-      url: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
-    },
+    asset: { url: "https://ik.imagekit.io/demo/sample-video.mp4" },
     transformation: {
       type: "video-transformation",
       options: {
         video_codec: "vp9",
         audio_codec: "opus",
-        auto_rotate: true,
-        quality: 10,
-        format: "webm",
+        auto_rotate: false,
+        quality: 50,
+        format: "webm"
       },
-    },
-  },
+      error: { reason: "download_failed" }
+    }
+  }
 }
 ```
