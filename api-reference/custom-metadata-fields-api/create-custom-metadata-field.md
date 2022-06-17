@@ -103,4 +103,20 @@ imagekitio.create_custom_metadata_field(
 )
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+import "github.com/dhaval070/imagekit-go/api/media/metadata"
+
+resp, err := ik.Metadata.CreateCustomField(ctx, metadata.CreateFieldParam{
+    Name: "Price",
+    Label: "price",
+    Schema: metadata.Schema{
+        Type: "Number",
+        MinValue: "1000",
+        MaxValue: "3000",
+    }
+})
+
+```
+{% endtab %}
 {% endtabs %}

@@ -36,4 +36,10 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.delete_custom_metadata_field(id: '6152fc9a2fd12044cb4cefe2')
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Metadata.DeleteCustomField(ctx, "6152fc9a2fd12044cb4cefe2")
+
+```
+{% endtab %}
 {% endtabs %}

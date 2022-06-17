@@ -57,4 +57,11 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.delete_folder(folder_path: 'folder/to/delete/')
 ```
 {% endtab %}
+[% tab title="Go" %}
+```Go
+resp, err := ik.Media.DeleteFolder(ctx, media.DeleteFolderParam{
+    FolderPath: "/some/pics/nature",
+})
+```
+{% endtab %}
 {% endtabs %}

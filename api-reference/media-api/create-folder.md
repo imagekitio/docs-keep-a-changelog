@@ -54,5 +54,12 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.create_folder(folder_name: 'new_folder', parent_folder_path: 'source/folder/path')
 ```
 {% endtab %}
-
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.CreateFolder(ctx, media.CreateFolderParam{
+   FolderName: "nature",
+   ParentFolderPath: "/some/pics"
+}
+```
+{% endtab %}
 {% endtabs %}

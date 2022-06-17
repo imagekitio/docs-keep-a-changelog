@@ -94,4 +94,12 @@ curl -X PUT "https://api.imagekit.io/v1/files/fileId/versions/versionId/restore"
 -u your_private_api_key:
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.RestoreVersion(ctx, media.AssetVersionsParam{
+    FileId: "324325334",
+    VersionId: "243434",
+})
+```
+{% endtab %}
 {% endtabs %}

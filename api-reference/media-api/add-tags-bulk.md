@@ -112,4 +112,12 @@ curl -X POST "https://api.imagekit.io/v1/files/addTags" \
 )
  ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.AddTags(ctx, media.TagsParam{
+    FileIds: []string{"3243244", "23532566"},
+    Tags: []string{"tag1", "tag2"},
+})
+```
+{% endtab %}
 {% endtabs %}

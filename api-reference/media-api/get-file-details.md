@@ -137,4 +137,11 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.get_file_deltails(file_id: 'file_id_xyz')
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.AssetById(ctx, media.AssetByIdParams{
+    FileId: "3253253453",
+})
+```
+{% endtab %}
 {% endtabs %}

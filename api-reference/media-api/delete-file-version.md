@@ -59,4 +59,12 @@ curl -X DELETE "https://api.imagekit.io/v1/files/fileId/versions/versionId" \
 -u your_private_api_key:
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+fileId := "345324325555"
+versionId := "version-1"
+
+resp, err := ik.Media.DeleteAssetVersion(ctx, fileId, verisonId)
+```
+{% endtab %}
 {% endtabs %}
