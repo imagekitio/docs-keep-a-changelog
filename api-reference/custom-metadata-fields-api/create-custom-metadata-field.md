@@ -116,7 +116,7 @@ customMetaDataFieldCreateRequest.setName("price");
 customMetaDataFieldCreateRequest.setLabel("price");
 customMetaDataFieldCreateRequest.setSchema(customMetaDataFieldSchemaObject);
 
-Result result = ImageKit.getInstance().createCustomMetaDataFields(customMetaDataFieldCreateRequest);
+ResultCustomMetaDataField resultCustomMetaDataField = ImageKit.getInstance().createCustomMetaDataFields(customMetaDataFieldCreateRequest);
 
 ```
 {% endtab %}

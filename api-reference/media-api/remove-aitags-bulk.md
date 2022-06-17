@@ -125,7 +125,7 @@ aiTags.add("ai-tag-to-remove-2");
 AITagsRequest aiTagsRequest = new AITagsRequest();
 aiTagsRequest.setFileIds(fileIds);
 aiTagsRequest.setAITags(aiTags);
-Result result = ImageKit.getInstance().removeAITags(aiTagsRequest);
+ResultTags resultTags = ImageKit.getInstance().removeAITags(aiTagsRequest);
 
 ```
 {% endtab %}

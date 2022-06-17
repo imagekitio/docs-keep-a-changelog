@@ -97,7 +97,7 @@ customMetaDataFieldUpdateRequest.setId("6152fc9a2fd12044cb4cefe2");
 customMetaDataFieldUpdateRequest.setLabel("");
 customMetaDataFieldUpdateRequest.setSchema(schemaObject);
 
-Result result = ImageKit.getInstance().updateCustomMetaDataFields(customMetaDataFieldUpdateRequest);
+ResultCustomMetaDataField resultCustomMetaDataField = ImageKit.getInstance().updateCustomMetaDataFields(customMetaDataFieldUpdateRequest);
 
 ```
 {% endtab %}

@@ -125,7 +125,7 @@ tags.add("tag-to-add-2");
 TagsRequest tagsRequest =new TagsRequest();
 tagsRequest.setFileIds(fileIds);
 tagsRequest.setTags(tags);
-Result result = ImageKit.getInstance().addTags(tagsRequest);
+ResultTags resultTags = ImageKit.getInstance().addTags(tagsRequest);
 
 ```
 {% endtab %}

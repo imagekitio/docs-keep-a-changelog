@@ -71,7 +71,7 @@ imagekitio.move_folder(source_folder_path: '/folder/to/move', destination_path: 
 MoveFolderRequest moveFolderRequest = new MoveFolderRequest();
 moveFolderRequest.setSourceFolderPath("/folder/to/move");
 moveFolderRequest.setDestinationPath("/folder/to/move/into/");
-Result result = ImageKit.getInstance().moveFolder(moveFolderRequest);
+ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().moveFolder(moveFolderRequest);
 
 ```
 {% endtab %}

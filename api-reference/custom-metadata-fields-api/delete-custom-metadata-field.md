@@ -39,7 +39,7 @@ imagekitio.delete_custom_metadata_field(id: '6152fc9a2fd12044cb4cefe2')
 {% tab title="Java" %}
 ```java
 
-Result result=ImageKit.getInstance().deleteCustomMetaDataField("6152fc9a2fd12044cb4cefe2");
+ResultNoContent resultNoContent=ImageKit.getInstance().deleteCustomMetaDataField("6152fc9a2fd12044cb4cefe2");
 
 ```
 {% endtab %}

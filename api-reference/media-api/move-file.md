@@ -71,7 +71,7 @@ imagekitio.move_file(
 MoveFileRequest moveFileRequest = new MoveFileRequest();
 moveFileRequest.setSourceFilePath("/path/to/file.jpg");
 moveFileRequest.setDestinationPath("/folder/to/move/into/");
-Result result = ImageKit.getInstance().moveFile(moveFileRequest);
+ResultNoContent resultNoContent = ImageKit.getInstance().moveFile(moveFileRequest);
 
 ```
 {% endtab %}

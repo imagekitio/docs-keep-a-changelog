@@ -77,7 +77,7 @@ imagekitio.copy_file(
 CopyFileRequest copyFileRequest = new CopyFileRequest();
 copyFileRequest.setSourceFilePath("/path/to/file.jpg");
 copyFileRequest.setDestinationPath("/folder/to/copy/into/");
-Result result = ImageKit.getInstance().copyFile(copyFileRequest);
+ResultNoContent resultNoContent = ImageKit.getInstance().copyFile(copyFileRequest);
 
 ```
 {% endtab %}

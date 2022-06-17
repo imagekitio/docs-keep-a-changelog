@@ -60,7 +60,7 @@ imagekitio.create_folder(folder_name: 'new_folder', parent_folder_path: 'source/
 CreateFolderRequest createFolderRequest = new CreateFolderRequest();
 createFolderRequest.setFolderName("new_folder");
 createFolderRequest.setParentFolderPath("source/folder/path");
-Result result = ImageKit.getInstance().createFolder(createFolderRequest);
+ResultEmptyBlock resultEmptyBlock = ImageKit.getInstance().createFolder(createFolderRequest);
 
 ```
 {% endtab %}

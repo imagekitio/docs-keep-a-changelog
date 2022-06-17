@@ -51,7 +51,7 @@ imagekitio.bulk_job_status(job_id: '598821f949c0a938d57563bd')
 ```java
 
 String jobId = "598821f949c0a938d57563bd";
-Result result = ImageKit.getInstance().getBulkJobStatus(jobId);
+ResultBulkJobStatus resultBulkJobStatus = ImageKit.getInstance().getBulkJobStatus(jobId);
 
 ```
 {% endtab %}

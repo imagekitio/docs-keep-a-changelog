@@ -134,7 +134,7 @@ RenameFileRequest renameFileRequest = new RenameFileRequest();
 renameFileRequest.setFilePath("/path/to/old-file-name.jpg");
 renameFileRequest.setNewFileName("new-file-name.jpg");
 renameFileRequest.setPurgeCache(false);
-Result result = ImageKit.getInstance().renameFile(renameFileRequest);
+ResultRenameFile resultRenameFile = ImageKit.getInstance().renameFile(renameFileRequest);
 
 ```
 {% endtab %}

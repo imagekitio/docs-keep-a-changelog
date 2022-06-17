@@ -62,7 +62,7 @@ imagekitio.delete_folder(folder_path: 'folder/to/delete/')
 
 DeleteFolderRequest deleteFolderRequest = new DeleteFolderRequest();
 deleteFolderRequest.setFolderPath("folder/to/delete/");
-Result result = ImageKit.getInstance().deleteFolder(deleteFolderRequest);
+ResultNoContent resultNoContent = ImageKit.getInstance().deleteFolder(deleteFolderRequest);
 
 ```
 {% endtab %}

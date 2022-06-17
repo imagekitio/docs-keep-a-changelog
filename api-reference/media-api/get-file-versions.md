@@ -88,7 +88,7 @@ curl -X GET "https://api.imagekit.io/v1/files/fileId/versions" \
 ```java
 
 String fileId = "fileId";
-Result result = ImageKit.getInstance().getFileVersions(fileId);
+ResultFileVersions resultFileVersions = ImageKit.getInstance().getFileVersions(fileId);
 
 ```
 {% endtab %}

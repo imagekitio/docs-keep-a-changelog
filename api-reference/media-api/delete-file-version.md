@@ -65,7 +65,7 @@ curl -X DELETE "https://api.imagekit.io/v1/files/fileId/versions/versionId" \
 DeleteFileVersionRequest deleteFileVersionRequest = new DeleteFileVersionRequest();
 deleteFileVersionRequest.setFileId("fileId");
 deleteFileVersionRequest.setVersionId("versionId");
-Result result = ImageKit.getInstance().deleteFileVersion(deleteFileVersionRequest);
+ResultNoContent resultNoContent = ImageKit.getInstance().deleteFileVersion(deleteFileVersionRequest);
 
 ```
 {% endtab %}

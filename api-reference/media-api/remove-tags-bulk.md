@@ -125,7 +125,7 @@ tags.add("tag-to-remove-2");
 TagsRequest tagsRequest =new TagsRequest();
 tagsRequest.setFileIds(fileIds);
 tagsRequest.setTags(tags);
-Result result = ImageKit.getInstance().removeTags(tagsRequest);
+ResultTags resultTags = ImageKit.getInstance().removeTags(tagsRequest);
 
 ```
 {% endtab %}

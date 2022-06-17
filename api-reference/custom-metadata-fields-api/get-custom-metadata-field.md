@@ -66,7 +66,7 @@ imagekitio.get_custom_metadata_fields(include_deleted: false)
 ```java
 
 boolean includeDeleted = false;
-Result result = ImageKit.getInstance().getCustomMetaDataFields(includeDeleted);
+ResultCustomMetaDataFieldList resultCustomMetaDataFieldList = ImageKit.getInstance().getCustomMetaDataFields(includeDeleted);
 
 ```
 {% endtab %}
