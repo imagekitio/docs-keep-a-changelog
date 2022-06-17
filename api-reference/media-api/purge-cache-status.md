@@ -118,4 +118,9 @@ purge_cache_status = imagekitio.purge_file_cache_status(request_id: "request_id"
 ```
 {% endtab %}
 
+{% tab title='Go' %}
+```Go
+resp, err := ik.Media.PurgeCacheStatus(ctx, "cache_request_id")
+```
+{% endtab %}
 {% endtabs %}

@@ -118,7 +118,15 @@ copyFileRequest.setSourceFilePath("/path/to/file.jpg");
 copyFileRequest.setDestinationPath("/folder/to/copy/into/");
 copyFileRequest.setIncludeFileVersions(true);
 ResultNoContent resultNoContent = ImageKit.getInstance().copyFile(copyFileRequest);
-
+```
+{% endtab %}
+{% tab title='Go' %}
+```Go
+resp, err := ik.Media.CopyAsset(ctx, media.CopyAssetParam{
+    SourcePath: "/source/a.jpg",
+    DestinationPath: "/target/",
+    IncludeVersions: true,
+})
 ```
 {% endtab %}
 

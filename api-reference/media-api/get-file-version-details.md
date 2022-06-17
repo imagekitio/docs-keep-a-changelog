@@ -86,7 +86,6 @@ curl -X GET "https://api.imagekit.io/v1/files/file_id/versions/version_id" \
 -u your_private_api_key:
 ```
 {% endtab %}
-
 {% tab title="Node.js" %}
 ```javascript
 var ImageKit = require("imagekit");
@@ -146,5 +145,12 @@ imagekitio.file_version_detail(
 )
 ```
 {% endtab %}
-
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.AssetVersions(ctx, media.AssetVersionsParam{
+    FileId: "34345342343",
+    VersionId: "version-id",
+})
+```
+{% endtab %}
 {% endtabs %}

@@ -144,4 +144,11 @@ bulk_ids = Array["file_id_1","file_id_2"]
 imagekitio.delete_bulk_files(file_ids: bulk_ids)
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.DeleteBulkAssets(ctx, media.FileIdsParam{
+    FileIds: []string{"324353234", "354332432"},
+)
+```
+{% endtab %}
 {% endtabs %}
