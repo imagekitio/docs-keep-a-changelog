@@ -23,7 +23,7 @@ It is triggered when a new video transformation request is accepted for processi
 
 Example payload looks like below:
 
-```js
+```javascript
 {
   type: "video.transformation.accepted",
   id: "f30b0f2f-145e-4591-8e56-a6d0168fe123",
@@ -77,7 +77,7 @@ It is triggered when a video encoding is finished, and the transformed resource 
 
 Example payload looks like below:
 
-```js
+```javascript
 {
   type: "video.transformation.ready",
   id: "f30b0f2f-145e-4591-8e56-a6d0168fe123",
@@ -153,7 +153,7 @@ It is triggered if an error occurs during encoding. Listen to this webhook to lo
 
 Example payload looks like below:
 
-```js
+```javascript
 {
   type: "video.transformation.error",
   id: "f30b0f2f-145e-4591-8e56-a6d0168fe123",
