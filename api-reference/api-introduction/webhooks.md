@@ -41,7 +41,7 @@ All webhook bodies are JSON encoded. The schema of the body may differ based on 
 
 ### Sample code
 
-Use a tool like [Ngrok](https://ngrok.com/) to expose your local server to outside work for testing webhook implementation locally. For example, here is the sample code for listing to webhook by ImageKit in Node.js.
+Here is the sample code for listing to webhook by ImageKit in Node.js. Use a tool like [Ngrok](https://ngrok.com/) to make your local server accessible from outside for testing webhook implementation. 
 
 ```js
 app.post('/webhook', express.json({type: 'application/json'}), (request, response) => {
