@@ -15,7 +15,6 @@
     * [Ruby on Rails with carrierwave](getting-started/quickstart-guides/ruby-guides/ruby_on_rails_with_carrierwave.md)
   * [Java](getting-started/quickstart-guides/java-guides/README.md)
     * [Plain Java](getting-started/quickstart-guides/java-guides/java_app.md)
-    * [Java with Sprint boot](getting-started/quickstart-guides/java-guides/java_with_spring-boot.md)
   * [Vue.js](getting-started/quickstart-guides/vuejs.md)
   * [Next.js](getting-started/quickstart-guides/nextjs.md)
 * [How to use ImageKit.io?](getting-started/how-to-use-imagekit.io.md)

@@ -78,16 +78,6 @@ The imagekitio client is configured with user-specific credentials.
 There are different ways to upload the file in imagekitio. Let's upload the remote file to imagekitio using the following code:
 
 ```java
-upload = imagekitio.upload_file(
-    file: "https://file-examples.com/wp-content/uploads/2017/10/file_example_JPG_100kB.jpg",
-    file_name: "testing",
-    response_fields: 'tags,customCoordinates,isPrivateFile,metadata',
-    tags: %w[abc def],
-)
-puts "upload remote file => ", upload
-```
-
-```java
 FileCreateRequest fileCreateRequest =new FileCreateRequest("https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",  "women_in_red.jpg");
 List<String> responseFields=new ArrayList<>();
 responseFields.add("thumbnail");
@@ -134,29 +124,32 @@ Let’s now learn how to manipulate images using [ImgeKit transformations](../..
 
 ### **Height and width manipulation**
 
-To resize an image along with its height or width, we need to pass the `transformation` as an array to the `imagekitio.url()` method.
+To resize an image along with its height or width, we need to pass the `transformation` as an options with mapping the values with list to the `ImageKit.getInstance().getUrl()` method.
 
 Let’s resize the default image to 200px height and width:
 
-```ruby
-image_url = imagekitio.url({
-  path: 'default-image.jpg',
-  transformation: [{
-     height: "200",
-     width: "200",
-   }]
-})
+```java
+List<Map<String, String>> transformation=new ArrayList<Map<String, String>>();
+Map<String, String> scale=new HashMap<>();
+scale.put("height","200");
+scale.put("width","200");
+transformation.add(scale);
+Map<String, Object> options=new HashMap();
+options.put("path", "/default-image.jpg");
+options.put("transformation", transformation);
+
+String image_url=ImageKit.getInstance().getUrl(options);
 ```
 
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/demo/tr:h-200,w-200/default-image.jpg?ik-sdk-version=ruby-1.0.6
+https://ik.imagekit.io/zv3rkhsym/tr:w-200,h-200/default-image.jpg?ik-sdk-version=java-1.0.3
 ```
 
 Refresh your browser with new url to get the resized image.
 
-![Resized image (200px \* 200px)](<../../../.gitbook/assets/ruby-app-resized-image.png>)
+![Resized image (200px \* 200px)](<../../../.gitbook/assets/java-app-resized-image.png>)
 
 ### **Chained transformation**
 
@@ -164,77 +157,84 @@ Refresh your browser with new url to get the resized image.
 
 Let’s try it out by resizing an image, then rotating it:
 
-```ruby
-image_url = imagekitio.url({
-  path: 'default-image.jpg',
-  transformation: [{
-    height: "300",
-    width: "200",
-  }]
-})
+```java
+List<Map<String, String>> transformation=new ArrayList<Map<String, String>>();
+Map<String, String> scale=new HashMap<>();
+scale.put("height","200");
+scale.put("width","200");
+transformation.add(scale);
+Map<String, Object> options=new HashMap();
+options.put("path", "/default-image.jpg");
+options.put("transformation", transformation);
+
+String image_url=ImageKit.getInstance().getUrl(options);
 ```
 
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/demo/tr:h-300,w-200/default-image.jpg?ik-sdk-version=ruby-1.0.5
+https://ik.imagekit.io/zv3rkhsym/tr:w-200,h-200/default-image.jpg?ik-sdk-version=java-1.0.3
 ```
 
 **Output Image:**
 
-![Resized and cropped (200px \* 300px)](<../../../.gitbook/assets/ruby-app-resized1-image.png>)
+![Resized and cropped (200px \* 300px)](<../../../.gitbook/assets/java-app-resized1-image.png>)
 
 Now, rotate the image by 90 degrees.
 
-```ruby
-image_url = imagekitio.url({
-  path: 'default-image.jpg',
-  transformation: [
-  {
-    height: "300",
-    width: "200",
-  },
-  {
-    rt: 90,
-  }],
-})
+```java
+List<Map<String, String>> transformation=new ArrayList<Map<String, String>>();
+Map<String, String> scale=new HashMap<>();
+scale.put("height","300");
+scale.put("width","200");
+transformation.add(scale);
+Map<String, String> rotate=new HashMap<>();
+rotate.put("rt","90");
+transformation.add(rotate);
+Map<String, Object> options=new HashMap();
+options.put("path", "/default-image.jpg");
+options.put("transformation", transformation);
+
+String image_url=ImageKit.getInstance().getUrl(options);
 ```
 
 **Chained Transformation URL:**
 
 ```http
-https://ik.imagekit.io/demo/tr:h-300,w-200:rt-90/default-image.jpg?ik-sdk-version=ruby-1.0.5
+https://ik.imagekit.io/zv3rkhsym/tr:w-200,h-300:rt-90/default-image.jpg?ik-sdk-version=java-1.0.3
 ```
 
 **Output Image:**
 
-![Resized, then rotated](<../../../.gitbook/assets/ruby-app-resized-rotate-image.png>)
+![Resized, then rotated](<../../../.gitbook/assets/java-app-resized-rotate-image.png>)
 
 Let’s flip the order of transformation and see what happens.
 
-```ruby
-image_url = imagekitio.url({
-  path: 'default-image.jpg',
-  transformation: [
-  {
-    rt: 90,
-  },
-  {
-    height: "300",
-    width: "200",
-  }],
-})
+```java
+List<Map<String, String>> transformation=new ArrayList<Map<String, String>>();
+Map<String, String> rotate=new HashMap<>();
+rotate.put("rt","90");
+transformation.add(rotate);
+Map<String, String> scale=new HashMap<>();
+scale.put("height","300");
+scale.put("width","200");
+transformation.add(scale);
+Map<String, Object> options=new HashMap();
+options.put("path", "/default-image.jpg");
+options.put("transformation", transformation);
+
+String image_url=ImageKit.getInstance().getUrl(options);
 ```
 
 **Chained Transformation URL:**
 
 ```http
-https://ik.imagekit.io/demo/tr:rt-90:h-300,w-200/default-image.jpg?ik-sdk-version=ruby-1.0.5
+https://ik.imagekit.io/zv3rkhsym/tr:rt-90:w-200,h-300/default-image.jpg?ik-sdk-version=java-1.0.3
 ```
 
 **Output Image:**
 
-![Rotated, then resized](<../../../.gitbook/assets/ruby-app-rotate-resized-image.png>)
+![Rotated, then resized](<../../../.gitbook/assets/java-app-rotate-resized-image.png>)
 
 ## Adding overlays to images in java App
 
@@ -244,28 +244,33 @@ ImageKit.io allows you to add [text](../../../features/image-transformations/ove
 
 Text overlay can be used to superimpose text on an image. For example:
 
-```ruby
-image_url = imagekitio.url({
-  path: 'default-image.jpg',
-  transformation: [{
-    height: "300",
-    width: "300",
-    overlay_text: 'ImageKit',
-    overlay_text_font_size: 50,
-    overlay_text_color: '0651D5',
-  }],
-})
+```java
+List<Map<String, String>> transformation=new ArrayList<Map<String, String>>();
+Map<String, String> scale=new HashMap<>();
+scale.put("height","300");
+scale.put("width","300");
+transformation.add(scale);
+Map<String, String> overlay=new HashMap<>();
+overlay.put("overlayText","ImageKit");
+overlay.put("overlayTextFontSize","50");
+overlay.put("overlayTextColor","0651D5");
+transformation.add(overlay);
+Map<String, Object> options=new HashMap();
+options.put("path", "/default-image.jpg");
+options.put("transformation", transformation);
+
+String image_url=ImageKit.getInstance().getUrl(options);
 ```
 
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/demo/tr:h-300,w-300,ot-ImageKit,ots-50,otc-0651D5/default-image.jpg?ik-sdk-version=ruby-1.0.5
+https://ik.imagekit.io/zv3rkhsym/tr:w-300,h-300:ots-50,ot-ImageKit,otc-0651D5/default-image.jpg?ik-sdk-version=java-1.0.3
 ```
 
 **Output Image:**
 
-![Text Overlay (300px \* 300px)](<../../../.gitbook/assets/ruby-app-with-overlay-text.png>)
+![Text Overlay (300px \* 300px)](<../../../.gitbook/assets/java-app-with-overlay-text.png>)
 
 #### **Image overlay**
 
@@ -275,42 +280,49 @@ Base Image: `default-image.jpg`
 
 Overlay Image: `logo-white_SJwqB4Nfe.png`
 
-```ruby
-image_url = imagekitio.url({
-  path: 'default-image.jpg',
-  transformation: [{
-    height: "300",
-    width: "300",
-    overlay_image: "logo-white_SJwqB4Nfe.png"
-  }],
-})
+```java
+List<Map<String, String>> transformation=new ArrayList<Map<String, String>>();
+Map<String, String> scale=new HashMap<>();
+scale.put("height","300");
+scale.put("width","300");
+transformation.add(scale);
+Map<String, String> overlay=new HashMap<>();
+overlay.put("overlayImage","logo-white_SJwqB4Nfe.png");
+transformation.add(overlay);
+Map<String, Object> options=new HashMap();
+options.put("path", "/default-image.jpg");
+options.put("transformation", transformation);
+
+String image_url=ImageKit.getInstance().getUrl(options);
 ```
 
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/demo/tr:h-300,w-300,oi-logo-white_SJwqB4Nfe.png/default-image.jpg?ik-sdk-version=ruby-1.0.6
+https://ik.imagekit.io/zv3rkhsym/tr:w-300,h-300:oi-logo-white_SJwqB4Nfe.png/default-image.jpg?ik-sdk-version=java-1.0.3
 ```
 
 **Output Image:**
 
-![Overlay image over another image](<../../../.gitbook/assets/ruby-app-with-overlay-image.png>)
+![Overlay image over another image](<../../../.gitbook/assets/java-app-with-overlay-image.png>)
 
 ## Secure signed URL generation
 
 You can use the SDK to generate a signed URL of an image, that expires in a given number of seconds.
 
-```ruby
-signed_image_url = imagekitio.url({
-  path: 'default-image.jpg',
-  signed: true,
-  expire_seconds: 10,
-})
+```java
+Map<String, Object> options=new HashMap();
+options.put("path", "/default-image.jpg");
+options.put("signed",true);
+options.put("transformation", new ArrayList<Map<String, String>>());
+options.put("expireSeconds",10);
+
+String signed_image_url=ImageKit.getInstance().getUrl(options);
 ```
 
 The above snippets create a signed URL with an expiry time of 10 seconds.
 
-![Signed URL generation](<../../../.gitbook/assets/ruby-app-with-signed-image.png>)
+![Signed URL generation](<../../../.gitbook/assets/java-app-with-signed-image.png>)
 
 ## **What's next**
 

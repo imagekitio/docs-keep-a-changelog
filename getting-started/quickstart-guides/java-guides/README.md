@@ -10,5 +10,4 @@ This is a quick start guide to show you how to integrate ImageKit in the Java ap
 This guide walks you through the following topics:
 
 * [Setting up ImageKit Java SDK](java_app.md)
-* [Java SpringBoot Application Example](java_with_spring-boot.md)
 
