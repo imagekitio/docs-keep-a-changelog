@@ -627,6 +627,7 @@ $getFileVersionDetails = $imageKit->getFileVersionDetails('file_id','version_id'
 ### 4. Get File Versions
 
 This API can get you all the versions of the file.
+
 Refer to the [Get File Versions API](https://docs.imagekit.io/api-reference/media-api/get-file-versions) for a better understanding of the **Request & Response Structure**.
 
 #### Example
@@ -637,6 +638,7 @@ $getFileVersions = $imageKit->getFileVersions('file_id');
 ### 5. Update File Details
 
 Update file details such as tags, customCoordinates attributes, remove existing AITags, and apply [extensions](https://docs.imagekit.io/extensions/overview) using Update File Details API. This operation can only be performed on the current version of the file.
+
 Refer to the [Update File Details API](https://docs.imagekit.io/api-reference/media-api/update-file-details) for better understanding about the **Request & Response Structure**.
 
 #### Example
@@ -674,6 +676,7 @@ $updateFileDetails = $imageKit->updateFileDetails(
 ### 6. Add Tags (Bulk) API
 
 Add tags to multiple files in a single request. The method accepts an array of `fileIds` of the files and an array of `tags` that have to be added to those files.
+
 Refer to the [Add Tags (Bulk) API](https://docs.imagekit.io/api-reference/media-api/add-tags-bulk) for a better understanding of the **Request & Response Structure**.
 
 #### Example
@@ -687,6 +690,7 @@ $bulkAddTags = $imageKit->bulkAddTags($fileIds, $tags);
 ### 7. Remove Tags (Bulk) API
 
 Remove tags from multiple files in a single request. The method accepts an array of `fileIds` of the files and an array of `tags` that have to be removed from those files.
+
 Refer to the [Remove Tags (Bulk) API](https://docs.imagekit.io/api-reference/media-api/remove-tags-bulk) for a better understanding of the **Request & Response Structure**.
 
 #### Example
@@ -700,6 +704,7 @@ $bulkRemoveTags = $imageKit->bulkRemoveTags($fileIds, $tags);
 ### 8. Remove AI Tags (Bulk) API
 
 Remove AI tags from multiple files in a single request. The method accepts an array of `fileIds` of the files and an array of `AITags` that have to be removed from those files.
+
 Refer to the [Remove AI Tags (Bulk) API](https://docs.imagekit.io/api-reference/media-api/remove-aitags-bulk) for a better understanding of the **Request & Response Structure**.
 
 #### Example
@@ -974,7 +979,7 @@ For a detailed explanation refer to the [Custom Metadata Documentaion](https://d
 
 Create a Custom Metadata Field with this API.
 
-Refer to the [Create Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/create-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
+Refer to the [Create Custom Metadata Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/create-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
 
 #### Example
 ```php
@@ -997,7 +1002,7 @@ Check for the [Allowed Values In The Schema](https://docs.imagekit.io/api-refere
 
 Get a list of all the custom metadata fields.
 
-Refer to the [Get Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/get-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
+Refer to the [Get Custom Metadata Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/get-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
 
 #### Example
 ```php
@@ -1009,7 +1014,7 @@ $getCustomMetadataField = $imageKit->getCustomMetadataField($includeDeleted);
 
 Update the `label` or `schema` of an existing custom metadata field.
 
-Refer to the [Update Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/update-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
+Refer to the [Update Custom Metadata Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/update-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
 
 #### Example
 ```php
@@ -1031,7 +1036,7 @@ Check for the [Allowed Values In The Schema](https://docs.imagekit.io/api-refere
 
 Delete a custom metadata field.
 
-Refer to the [Delete Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/delete-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
+Refer to the [Delete Custom Metadata Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/delete-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
 
 #### Example
 ```php
