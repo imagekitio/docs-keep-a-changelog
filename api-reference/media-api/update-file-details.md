@@ -163,9 +163,20 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$updateFileDetails = $imageKit->updateFileDetails("file_id", array("tags" => ['image_tag'], "customCoordinates" => "10,10,100,100"));
+// Update File Details
+$updateData = [
+    "removeAITags" => "all",    // "all" or ["tag1","tag2"]
+    "webhookUrl" => "https://example.com/webhook",
+    "tags" => ["tag3", "tag4"],
+    "customCoordinates" => "10,10,100,100"
+];
 
-echo("Updated detail : " . json_encode($updateFileDetails));
+$updateFileDetails = $imageKit->updateFileDetails(
+    $fileId,
+    $updateData
+);
+
+echo("Updated File Details : " . json_encode($updateFileDetails));
 ```
 {% endtab %}
 
@@ -266,9 +277,20 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$updateFileDetails = $imageKit->updateFileDetails("file_id", array("tags" => ['image_tag'], "customCoordinates" => "10,10,100,100"));
+// Update File Details
+$updateData = [
+    "removeAITags" => "all",    // "all" or ["tag1","tag2"]
+    "webhookUrl" => "https://example.com/webhook",
+    "tags" => ["tag3", "tag4"],
+    "customCoordinates" => "10,10,100,100"
+];
 
-echo("Updated detail : " . json_encode($updateFileDetails));
+$updateFileDetails = $imageKit->updateFileDetails(
+    $fileId,
+    $updateData
+);
+
+echo("Updated File Details : " . json_encode($updateFileDetails));
 ```
 {% endtab %}
 
@@ -386,9 +408,23 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$updateFileDetails = $imageKit->updateFileDetails("file_id", array("extensions" => [array("name" => "google-auto-tagging", "maxTags" => 5, "minConfidence" => 95)]));
+// Update File Details
+$updateData = [
+    "extensions" => [
+        [
+            "name" => "google-auto-tagging",
+            "maxTags" => 5, 
+            "minConfidence" => 95
+        ]
+    ]
+];
 
-echo("Updated detail : " . json_encode($updateFileDetails));
+$updateFileDetails = $imageKit->updateFileDetails(
+    $fileId,
+    $updateData
+);
+
+echo("Updated File Details : " . json_encode($updateFileDetails));
 ```
 {% endtab %}
 

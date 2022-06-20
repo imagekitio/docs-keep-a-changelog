@@ -120,7 +120,7 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$getFileDetails = $imageKit->getDetails($fileId);
+$getFileDetails = $imageKit->getFileDetails($fileId);
 
 echo("File details : " . json_encode($getFileDetails));
 ```

@@ -164,8 +164,10 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-// 27
+
 $distance = $imageKit->pHashDistance("63433b3ccf8e1ebe", "f5d2226cd9d32b16");
+echo $distance;
+// 27
 ```
 {% endtab %}
 {% endtabs %}

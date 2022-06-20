@@ -96,7 +96,8 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$purgeCacheStatus = $imageKit->purgeCacheApiStatus("cache_request_id");
+// The requestId returned in the response of purge cache API.
+$purgeCacheStatus = $imageKit->getPurgeCacheStatus($requestId);
 
 echo("Purge cache status : " . json_encode($purgeCacheStatus));
 ```

@@ -88,12 +88,30 @@ imagekit.bulk_file_delete(["file_id1", "file_id2"])
 
 {% tab title="PHP" %}
 ```php
-$imageKit->bulkFileDeleteByIds(array(
-    "fileIds" => array("file_id_1", "file_id_2")
-));
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileIds = [
+    	"5e21880d5efe355febd4bccd",
+    	"5e1c13c1c55ec3437c451403",
+    	"5f4abf6fae77ae7f0acda3d1", 
+    	"5f207bd1bd2741182ceadd55"
+    ];
+
+$deleteBulkFiles = $imageKit->bulkDeleteFiles($fileIds);
+
+echo("Delete Bulk files : " . json_encode($deleteBulkFiles));
 ```
 {% endtab %}
-
 {% tab title="Java" %}
 ```java
 List<String> fileIds=new ArrayList<>();

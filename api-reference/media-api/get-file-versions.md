@@ -84,4 +84,27 @@ curl -X GET "https://api.imagekit.io/v1/files/fileId/versions" \
 -u your_private_api_key:
 ```
 {% endtab %}
+
+{% tab title="PHP" %}
+```php
+# The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
+// Get File Versions
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$getFileVersions = $imageKit->getFileVersions($fileId);
+
+echo("File Versions : " . json_encode($getFileVersions));
+```
+{% endtab %}
+
 {% endtabs %}

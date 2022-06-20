@@ -74,7 +74,31 @@ imagekitio.copy_folder(
 )
 ```
 {% endtab %}
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$sourceFolderPath = '/sample-folder';
+$destinationPath = '/sample-folder';
+$includeVersions = false;
+$copyFolder = $imageKit->copyFolder([
+    'sourceFolderPath' => $sourceFolderPath,
+    'destinationPath' => $destinationPath,
+    'includeVersions' => $includeVersions
+]);
+
+echo("Copy Folder : " . json_encode($copyFolder));
+```
+{% endtab %}
+
 {% endtabs %}
-
-
-

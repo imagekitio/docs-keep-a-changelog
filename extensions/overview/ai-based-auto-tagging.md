@@ -329,7 +329,26 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$updateFileDetails = $imageKit->updateFileDetails("file_id", array("extensions" => [array("name" => "google-auto-tagging", "maxTags" => 5, "minConfidence" => 50), array("name" => "aws-auto-tagging", "maxTags" => 5, "minConfidence" => 50)]));
+// Update File Details
+$updateData = [
+    "extensions" => [
+        [
+            "name" => "google-auto-tagging",
+            "maxTags" => 5,
+            "minConfidence" => 50
+        ],
+        [
+            "name" => "aws-auto-tagging",
+            "maxTags" => 5,
+            "minConfidence" => 50
+        ]
+    ],
+];
+
+$updateFileDetails = $imageKit->updateFileDetails(
+    $fileId,
+    $updateData
+);
 
 echo("Updated detail : " . json_encode($updateFileDetails));
 ```

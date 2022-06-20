@@ -194,13 +194,18 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
+// Options
+$options = [
+    "tags" => implode(",", ["tag1", "tag2"]),
+    "customCoordinates" => implode(",", ["10", "10", "100", "100"])
+];
+
 // Upload Image - Binary
-$uploadFile = $imageKit->upload(array(
-    'file' => fopen(__DIR__."/image.jpg", "r"),
-    'fileName' => "my_file_name.jpg",
-    "tags" => implode(",", array("tag1", "tag2")),
-    "customCoordinates" => implode(",", array("10", "10", "100", "100"))
-));
+$uploadFile = $imageKit->upload([
+    "file" => fopen(__DIR__."/image.jpg", "r"),
+    "fileName" => "my_file_name.jpg",
+    "options" => $options
+]);
 
 echo ("Upload binary file : " . json_encode($uploadFile));
 ```
@@ -310,14 +315,23 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$base64Img = "iVBORw0KGgoAAAAN";
+$img = file_get_contents(__DIR__."/image.jpg");
+
+// Encode the image string data into base64
+$base64Img = base64_encode($img);
+
+// Options
+$options = [
+    "tags" => implode(",", ["tag1", "tag2"]),
+    "customCoordinates" => implode(",", ["10", "10", "100", "100"])
+];
 
 // Upload Image - base64
-$uploadFile = $imageKit->upload(array(
-    'file' => $base64Img,
-    'fileName' => "my_file_name.jpg",
-    "tags" => implode(",", array("t-shirt", "summer", "men"))
-));
+$uploadFile = $imageKit->upload([
+    "file" => $base64Img,
+    "fileName" => "my_file_name.jpg",
+    "options" => $options
+]);
 
 echo ("Upload base64" . json_encode($uploadFile));
 ```
@@ -422,10 +436,10 @@ $imageKit = new ImageKit(
 );
 
 // Upload Image - URL
-$uploadFile = $imageKit->upload(array(
-    'file' => "https://imagekit.io/image.jpg",
-    'fileName' => "my_file_name.jpg"
-));
+$uploadFile = $imageKit->upload([
+    "file" => "https://imagekit.io/image.jpg",
+    "fileName" => "my_file_name.jpg"
+]);
 
 echo ("Upload URL" . json_encode($uploadFile));
 ```
@@ -528,12 +542,20 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
+// Options
+$options = [
+    "customMetadata" => [
+        "brand" => "Nike",
+        "color" => "red",
+    ]
+];
+
 // Upload Image - URL
-$uploadFile = $imageKit->upload(array(
-    'file' => "https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
-    'fileName' => "women_in_red.jpg",
-    'customMetadata' => '{"brand":"Nike", "color":"red"}'
-));
+$uploadFile = $imageKit->upload([
+    "file" => "https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
+    "fileName" => "women_in_red.jpg",
+    "options" => $options,
+]);
 
 echo ("Upload URL" . json_encode($uploadFile));
 ```
@@ -614,6 +636,50 @@ fs.readFile('image.jpg', function(err, data) {
     else console.log(result);
   });
 });
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_key";
+$your_private_key = "your_private_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+$sample_file_path = "/sample.jpg";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+// Options
+$options = [
+    "extensions" => [
+        [
+            "name" => "remove-bg",
+            "options" => [
+                "add_shadow" => true,
+                "bg_colour" => "green"
+            ]
+        ],
+        [
+            "name" => "google-auto-tagging",
+            "maxTags" => 5,
+            "minConfidence" => 95
+        ]
+    ],
+];
+
+// Upload Image - URL
+$uploadFile = $imageKit->upload([
+    "file" => "https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
+    "fileName" => "women_in_red.jpg",
+    "options" => $options,
+]);
+
+echo ("Upload URL" . json_encode($uploadFile));
 ```
 {% endtab %}
 {% endtabs %}

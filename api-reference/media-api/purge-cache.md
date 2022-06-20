@@ -133,9 +133,8 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$purgeCache = $imageKit->purgeCacheApi(array(
-    "url" => "https://ik.imagekit.io/your_imagekit_id/default-image.jpg"
-));
+$image_url = $url_end_point.'/sample-folder/default-image.jpg';
+$purgeCache = $imageKit->purgeCache($image_url);
 
 echo("File details : " . json_encode($purgeCache));
 ```

@@ -85,5 +85,30 @@ imagekitio.update_custom_metadata_field(
 )
 ```
 {% endtab %}
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
 
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$body = [
+    "label" => "Net Price",
+    "schema" => [
+        "type"=>'Number'
+    ],
+];
+
+$updateCustomMetadataField = $imageKit->updateCustomMetadataField($customMetadataFieldId, $body);
+
+echo("Update Custom Metadata Field : " . json_encode($updateCustomMetadataField));
+```
+{% endtab %}
 {% endtabs %}
