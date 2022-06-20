@@ -227,6 +227,14 @@ upload = imagekitio.upload_file(file, "testing.jpg", {
 })
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+ik, err := ImageKit.New()
+var filePath = "/some/image.jpg"
+
+resp, err := ik.Upload.Upload(ctx, filePath, uploader.UploadParam{})
+```
+{% endtab %}
 {% endtabs %}
 
 ### Uploading base64 encoded file with some tags
@@ -345,6 +353,18 @@ upload = imagekitio.upload_file(
  )
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+ik, err := ImageKit.New()
+const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+
+resp, err := ik.Upload.Upload(ctx, base64Image, uploader.UploadParam{
+    FileName: "myimage.jpg",
+    Tags: "natural,landscape",
+})
+
+```
+{% endtab %}
 {% endtabs %}
 
 ### Uploading file via URL
@@ -448,6 +468,14 @@ upload = imagekitio.upload_file(
 )
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+url := "https://imagekit.io/image.jpg"
+resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
+    FileName: "image.jpg",
+})
+```
+{% endtab %}
 {% endtabs %}
 
 ### Setting custom metadata during upload
@@ -549,6 +577,15 @@ upload = imagekitio.upload_file(
       "brand":"Nike", "color":"red"
     }
 )
+```
+{% endtab %}
+{% tab title="Go" %}
+```Go
+url := "https://imagekit.io/image.jpg"
+resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
+    FileName: "image.jpg",
+    CustomMetadata: `{"brand":"Nike", "color":"red"}`,
+})
 ```
 {% endtab %}
 {% endtabs %}

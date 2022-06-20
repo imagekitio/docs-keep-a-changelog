@@ -65,4 +65,12 @@ imagekitio.move_file(
 )
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.MoveAsset(ctx, media.MoveAssetParam{
+    SourcePath: "/path/to/file.jpg",
+    DestinationPath: "/folder/to/move/into/*",
+})
+```
+{% endtab %}
 {% endtabs %}

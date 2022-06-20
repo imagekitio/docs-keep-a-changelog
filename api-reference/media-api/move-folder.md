@@ -65,4 +65,13 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.move_folder(source_folder_path: '/folder/to/move', destination_path: '/folder/to/move/into/')
 ```
 {% endtab %%}
+{% tab title='Go' %}
+```Go
+resp, err := ik.Media.MoveFolder(ctx, media.MoveFolderParam{
+    SourceFolderPath: "/folder/to/move",
+    DestinationPath: "/folder/to/move/into/",
+})
+
+```
+{% endtab %}
 {% endtabs %}

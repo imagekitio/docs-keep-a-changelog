@@ -71,4 +71,13 @@ imagekitio.copy_file(
 )
 ```
 {% endtab %}
+{% tab title='Go' %}
+```Go
+resp, err := ik.Media.CopyAsset(ctx, media.CopyAssetParam{
+    SourcePath: "/source/a.jpg",
+    DestinationPath: "/target/",
+    IncludeVersions: true,
+})
+```
+{% endtab %}
 {% endtabs %}

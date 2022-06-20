@@ -153,4 +153,11 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 purge_cache = imagekitio.purge_file_cache(file_url: "https://ik.imagekit.io/your_imagekit_id/default-image.jpg")
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.PurgeCache(ctx, media.PurgeCacheParam{
+    Url: "https://ik.imagekit.io/your_imagekit_id/default-image.jpg"
+})
+```
+{% endtab %}
 {% endtabs %}

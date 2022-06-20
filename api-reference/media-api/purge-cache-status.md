@@ -114,4 +114,9 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 purge_cache_status = imagekitio.purge_file_cache_status(request_id: "cache_request_id")
 ```
 {% endtab %}
+{% tab title='Go' %}
+```Go
+resp, err := ik.Media.PurgeCacheStatus(ctx, "cache_request_id")
+```
+{% endtab %}
 {% endtabs %}

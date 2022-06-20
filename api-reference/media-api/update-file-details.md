@@ -192,6 +192,14 @@ updated_detail = imagekitio.update_file_details(
 )
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.UpdateAsset(ctx, "fileId", media.UpdateAssetParam{
+    Tags: []string{"image_tag"},
+    CustomCoordinates: "10,10,100,100",
+})
+```
+{% endtab %}
 {% endtabs %}
 
 ### Understanding API usage

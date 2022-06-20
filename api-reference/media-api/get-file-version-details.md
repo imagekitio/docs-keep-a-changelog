@@ -85,4 +85,12 @@ curl -X GET "https://api.imagekit.io/v1/files/fileId/versions/versionId" \
 -u your_private_api_key:
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.AssetVersions(ctx, media.AssetVersionsParam{
+    FileId: "34345342343",
+    VersionId: "version-id",
+})
+```
+{% endtab %}
 {% endtabs %}
