@@ -202,4 +202,4 @@ Here is the description of all fields.
 | data.transformation.options.stream_protocol        | `HLS` or `DASH`                                                                     |
 | data.transformation.options.variants               | Array of representations for ABS e.g. `["360","480","720","1028"]`.                 |
 | data.transformation.options.auto_rotate            | A boolean indicating whether to autorotate the video based on their metadata.       |
-| data.transformation.error.reason                   | One of `ENCODING_FAILED`, `DOWNLOAD_FAILED`, `INTERNAL_SERVER_ERROR`.               |
+| data.transformation.error.reason                   | One of `encoding_failed`, `download_failed`, `internal_server_error`.               |
