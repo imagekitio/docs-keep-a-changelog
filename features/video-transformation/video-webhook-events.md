@@ -23,31 +23,31 @@ It is triggered when a new video transformation request is accepted for processi
 
 Example payload looks like below:
 
-```javascript
+```json
 {
-  type: "video.transformation.accepted",
-  id: "f30b0f2f-145e-4591-8e56-a6d0168fe123",
-  created_at: "2022-05-25T08:53:28.143Z",
-  request: {
-    x_request_id: "f1c3c506-30b8-4534-860c-224952b3ed22",
-    url: "https://ik.imagekit.io/demo/sample-video.mp4?tr=f-webm,q-10",
-    user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36",
+  "type": "video.transformation.accepted",
+  "id": "58e6d24d-6098-4319-be8d-40c3cb0a402d",
+  "created_at": "2022-06-20T11:59:58.461Z",
+  "request": {
+    "x_request_id": "fa98fa2e-d6cd-45b4-acf5-bc1d2bbb8ba9",
+    "url": "http://ik.imagekit.io/demo/sample-video.mp4?tr=f-webm,q-10",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:101.0) Gecko/20100101 Firefox/101.0"
   },
-  data: {
-    asset: {
-      url: "https://ik.imagekit.io/demo/sample-video.mp4",
+  "data": {
+    "asset": {
+      "url": "http://ik.imagekit.io/demo/sample-video.mp4"
     },
-    transformation: {
-      type: "video-transformation",
-      options: {
-        video_codec: "vp9",
-        audio_codec: "opus",
-        auto_rotate: true,
-        quality: 10,
-        format: "webm",
-      },
-    },
-  },
+    "transformation": {
+      "type": "video-transformation",
+      "options": {
+        "video_codec": "vp9",
+        "audio_codec": "opus",
+        "auto_rotate": true,
+        "quality": 10,
+        "format": "webm"
+      }
+    }
+  }
 }
 ```
 
@@ -77,44 +77,44 @@ It is triggered when a video encoding is finished, and the transformed resource 
 
 Example payload looks like below:
 
-```javascript
+```json
 {
-  type: "video.transformation.ready",
-  id: "f30b0f2f-145e-4591-8e56-a6d0168fe123",
-  created_at: "2022-05-25T08:53:28.143Z",
-  request: {
-    x_request_id: "f1c3c506-30b8-4534-860c-224952b3ed22",
-    url: "https://ik.imagekit.io/demo/sample-video.mp4",
-    user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36",
+  "type": "video.transformation.ready",
+  "id": "a03031b5-ad5f-4985-8cf5-4de67630f6d7",
+  "created_at": "2022-06-20T12:00:11.703Z",
+  "request": {
+    "x_request_id": "fa98fa2e-d6cd-45b4-acf5-bc1d2bbb8ba9",
+    "url": "http://ik.imagekit.io/demo/sample-video.mp4?tr=f-webm,q-10",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:101.0) Gecko/20100101 Firefox/101.0"
   },
-  timings: {
-    donwload_duration: 3351,
-    encoding_duration: 2353,
+  "timings": {
+    "download_duration": 2713,
+    "encoding_duration": 10175
   },
-  data: {
-    asset: {
-      url: "https://ik.imagekit.io/demo/sample-video.mp4?tr=f-webm,q-10",
+  "data": {
+    "asset": {
+      "url": "http://ik.imagekit.io/demo/sample-video.mp4"
     },
-    transformation: {
-      type: "video-transformation",
-      options: {
-        video_codec: "vp9",
-        audio_codec: "opus",
-        auto_rotate: true,
-        quality: 10,
-        format: "webm",
+    "transformation": {
+      "type": "video-transformation",
+      "options": {
+        "video_codec": "vp9",
+        "audio_codec": "opus",
+        "auto_rotate": true,
+        "quality": 10,
+        "format": "webm"
       },
-      output: {
-        url: "https://ik.imagekit.io/demo/sample-video.mp4",
-        video_metadata: {
-          duration: 15.02,
-          width: 854,
-          height: 480,
-          bitrate: 2.037,
-        },
-      },
-    },
-  },
+      "output": {
+        "url": "http://ik.imagekit.io/demo/sample-video.mp4?tr=f-webm,q-10",
+        "video_metadata": {
+          "duration": 15.023,
+          "width": 1280,
+          "height": 720,
+          "bitrate": 15.023
+        }
+      }
+    }
+  }
 }
 ```
 
@@ -153,30 +153,34 @@ It is triggered if an error occurs during encoding. Listen to this webhook to lo
 
 Example payload looks like below:
 
-```javascript
+```json
 {
-  type: "video.transformation.error",
-  id: "f30b0f2f-145e-4591-8e56-a6d0168fe123",
-  created_at: "2022-05-25T08:53:28.143Z",
-  request: {
-    x_request_id: "123456712",
-    url: "https://ik.imagekit.io/demo/sample-video.mp?tr=l-image,i-nonexistent.png,l-end",
-    user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36",
-  },
-  data: {
-    asset: { url: "https://ik.imagekit.io/demo/sample-video.mp4" },
-    transformation: {
-      type: "video-transformation",
-      options: {
-        video_codec: "vp9",
-        audio_codec: "opus",
-        auto_rotate: false,
-        quality: 50,
-        format: "webm"
-      },
-      error: { reason: "download_failed" }
+    "type": "video.transformation.error",
+    "request": {
+        "x_request_id": "f005b939-7ca3-4310-9e1e-009239b3616b",
+        "url": "http://ik.imagekit.io/demo/sample-video.mp4?tr=l-image,i-nonexistent.png,l-end",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:101.0) Gecko/20100101 Firefox/101.0"
+    },
+    "id": "293a65c6-ceb4-4b62-a10b-5f3333860fae",
+    "created_at": "2022-06-20T12:14:02.353Z",
+    "data": {
+        "asset": {
+            "url": "http://ik.imagekit.io/demo/sample-video.mp4"
+        },
+        "transformation": {
+            "type": "video-transformation",
+            "options": {
+                "video_codec": "vp9",
+                "audio_codec": "opus",
+                "auto_rotate": true,
+                "quality": 50,
+                "format": "webm"
+            },
+            "error": {
+                "reason": "download_failed"
+            }
+        }
     }
-  }
 }
 ```
 
