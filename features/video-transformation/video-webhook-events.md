@@ -144,9 +144,6 @@ Here is the description of all fields.
 | data.timings.download_duration                     | Time spent downloading the video from your origin or media library in milliseconds. |
 | data.timings.encoding_duration                     | Time spent in encoding in milliseconds.                                             |
 
-
-### Example payload
-
 ## video.transformation.error
 
 It is triggered if an error occurs during encoding. Listen to this webhook to log the reason. You should check your origin and URL-endpoint settings if the reason is related to download failure. If the reason seems like an error on the ImageKit side, then raise a support ticket at support@imagekit.io.
