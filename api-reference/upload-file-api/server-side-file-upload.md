@@ -548,7 +548,7 @@ FileCreateRequest fileCreateRequest =new FileCreateRequest("https://ik.imagekit.
 JsonObject jsonObjectCustomMetadata = new JsonObject();
 jsonObjectCustomMetadata.addProperty("test1", 10);
 fileCreateRequest.setCustomMetadata(jsonObjectCustomMetadata);
-Result result=ImageKit.getInstance().upload();
+Result result=ImageKit.getInstance().upload(fileCreateRequest);
 
 System.out.println(result);
 ```
@@ -637,7 +637,7 @@ JsonArray jsonArray = new JsonArray();
 jsonArray.add(innerObject1);
 jsonArray.add(innerObject2);
 fileCreateRequest.setExtensions(jsonArray);
-Result result=ImageKit.getInstance().upload();
+Result result=ImageKit.getInstance().upload(fileCreateRequest);
 
 System.out.println(result);
 ```
