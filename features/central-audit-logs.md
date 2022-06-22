@@ -5,19 +5,27 @@
 This feature is only available in custom enterprise pricing plans.
 {% endhint %}
 
-ImageKit logs all the CUD ( create, update and delete ) non media library operations . These logs can be useful for admins and auditors to diagnose and troubleshoot various issues ( misconfigurations, suspicious activities etc. ) leading to better productivity.
+ImageKit provides audit logs for all write (create, update and delete) operations performed on non-media library features. These logs can be helpful for admins and auditors to diagnose and troubleshoot various issues, for example, misconfigurations, suspicious activities, etc.
+
+Audit logs will be saved for these features:
+- External storage
+- URL endpoints
+- Performance center
+- Developer options
+- User management
+- Billing details
 
 ## Audit logs page
 
 ![Audit logs option in user menu](<../.gitbook/assets/audit-logs-in-menu.png>)
 
-You can access audit logs page from the user menu located on the bottom left corner of the screen.
+You can access the audit logs page from the user menu in the bottom left corner of the screen.
 
 ![Audit logs section](<../.gitbook/assets/audit-logs-screen.png>)
 
-Here you can view all the logs in the table and the associated request and response details like method, endpoint etc. in alongside detail section. You can filter logs on the basis of operations, users and time interval.
+Here you can view all the logs in the table and the associated request and response details like method, endpoint, etc. Moreover, you can filter the logs based on operations, users, and time intervals.
 
 {% hint style="info" %}
 **Time Interval Limits**\
-You can only search for logs that were generated upto 12 months from the current date.
+You can only search for logs up to the last 12 months from the current date.
 {% endhint %}
