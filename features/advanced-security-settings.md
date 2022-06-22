@@ -5,7 +5,7 @@
 This feature is only available in custom enterprise pricing plans.
 {% endhint %}
 
-ImageKit leverages AWS CloudFront functions and CloudFront distribution configurations to provide advanced security and optimization features that you can use to optimize your asset delivery flow and save costs.
+ImageKit provides advanced security and optimization features that you can use to optimize your asset delivery flow and save costs.
 
 It includes the following features:
 1. IP and IP range blocking
@@ -37,9 +37,7 @@ Examples of valid input-
 
 ## Geographic restriction
 
-ImageKit provides geographic restriction using [AWS CloudFront distribution's Geo restriction feature](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/georestrictions.html).
-
-You can restrict access to assets from your distribution using geographic restriction at the country level. CloudFront uses `MaxMind` GeoIP databases to determine the user's location. It also uses `ISO 3166-1-alpha-2` country codes.
+ImageKit provides geographic restriction that allows you to restrict access to assets from your distribution at the country level.
 
 There are three options for geographic restriction-
 
@@ -81,4 +79,4 @@ If you do not want any HTTP referer restriction, you can opt for no restriction,
 
 ## Improved caching and WebP image delivery for some mobile apps
 
-ImageKit provides cache key normalization for image delivery and WebP image delivery for some mobile devices by leveraging AWS CloudFront functions once the security settings are configured and used.
+ImageKit provides cache key normalization for image delivery and WebP image delivery for some mobile devices once the security settings are configured and used.
