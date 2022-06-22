@@ -53,7 +53,7 @@ By default, no geographic restrictions are applied.
 
 {% hint style="info" %}
 **Limits**\
-You can allowlist or blocklist at most 30 referers.
+You can allow or block at most 30 referers.
 {% endhint %}
 
 Referer restriction ensures that content only loads on requests from authorized domains. Any unauthorized request will result in an HTTP `403` error, and the asset will not be delivered.
@@ -64,18 +64,18 @@ ImageKit provides three options for referer restriction-
 - Allowlist
 - No restriction
 
-For blocking or allowing domains, you need to provide a list of valid URLs (Each URL must include at least the scheme and domain name) separated by a new line. The exact domain mentioned in the URLs would be allowlisted or blocklisted.
+For blocking or allowing domains, you need to provide a list of valid URLs (Each URL must include at least the scheme and domain name) separated by a new line. The exact domain mentioned in the URLs would be allowed or blocked.
 
-For example- 
-If you want to allowlist `ik.imagekit.io`, you can input `https://ik.imagekit.io`.
-If you input `https://developer.mozilla.org/en-US/search?q=URL`, the domain `developer.mozilla.org` will be restricted.
+For example:
+- If you add `https://ik.imagekit.io` to the allowlist, the URL `ik.imagekit.io` will be allowed.
+- If you add `https://developer.mozilla.org/en-US/search?q=URL` to the blocklist, the domain `developer.mozilla.org` will be restricted.
 
 **Note:** Wildcard domain restrictions are not supported as of now.
 
 ### Uses
 Using the blocklist will block domains that are hotlinking your content or assets, increasing your bandwidth usage and hosting costs. The blocklist saves costs significantly if your assets are undesirably hotlinked on other websites.
 
-The allowlist can be used to allow only selected domains to access your assets. For example, you can use it to serve content only on your allowlisted domains and automatically block other referers.
+The allowlist can be used to allow only selected domains to access your assets. For example, you can use it to serve content only on your allowed domains and automatically block other referers.
 
 If you do not want any HTTP referer restriction, you can opt for no restriction, which is the default behavior.
 
