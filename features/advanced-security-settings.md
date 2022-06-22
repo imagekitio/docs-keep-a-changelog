@@ -56,7 +56,7 @@ By default, no geographic restrictions are applied.
 You can allowlist or blocklist at most 30 referers.
 {% endhint %}
 
-Referer restriction ensures that content only loads from authorized domains. Any unauthorized request will result in an HTTP `403` error, and the asset will not be delivered.
+Referer restriction ensures that content only loads on requests from authorized domains. Any unauthorized request will result in an HTTP `403` error, and the asset will not be delivered.
 
 ImageKit provides three options for referer restriction-
 
