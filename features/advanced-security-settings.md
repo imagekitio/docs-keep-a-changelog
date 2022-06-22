@@ -81,4 +81,4 @@ If you do not want any HTTP referer restriction, you can opt for no restriction,
 
 ## Improved caching and WebP image delivery for some mobile apps
 
-Imagekit provides cache key normalization for image delivery and WebP image delivery for some mobile apps by leveraging AWS Cloudfront functions once the security settings are configured and used.
+Imagekit provides cache key normalization for image delivery and WebP image delivery for some mobile devices by leveraging AWS Cloudfront functions once the security settings are configured and used.
