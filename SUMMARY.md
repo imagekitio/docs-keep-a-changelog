@@ -108,6 +108,7 @@
   * [Setup SSO for ImageKit on Azure](features/single-sign-on/sso-azure-setup.md)
   * [Setup SSO for ImageKit on Okta](features/single-sign-on/sso-okta-setup.md)
   * [Setup SSO for ImageKit on OneLogin](features/single-sign-on/sso-onelogin-setup.md)
+* [Advanced security settings](features/advanced-security-settings.md)
 * [URL-rewriters](features/url-rewriters/README.md)
   * [Cloudinary](features/url-rewriters/cloudinary.md)
 
