@@ -71,6 +71,6 @@ app.post('/webhook', express.json({type: 'application/json'}), (request, respons
 
 Below is the list of events for which ImageKit calls your configured webhook.
 
-- [video.transformation.accepted](../../features/video-transformation/video-webhook-events.md#videotransformationaccepted)
-- [video.transformation.ready](../../features/video-transformation/video-webhook-events.md#videotransformationready)
-- [video.transformation.error](../../features/video-transformation/video-webhook-events.md#videotransformationerror)
+- [video.transformation.accepted](../../features/video-transformation/video-webhook-events.md#video.transformation.accepted)
+- [video.transformation.ready](../../features/video-transformation/video-webhook-events.md#video.transformation.ready)
+- [video.transformation.error](../../features/video-transformation/video-webhook-events.md#video.transformation.error)
