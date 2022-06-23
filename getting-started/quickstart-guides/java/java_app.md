@@ -39,7 +39,7 @@ allprojects {
 Step 2. Add the dependency on project's `build.gradle`:
 ```
 dependencies {
-        implementation 'com.github.imagekit-developer:imagekit-java:1.0.3'
+        implementation 'com.github.imagekit-developer:imagekit-java:2.0.0'
 }
 ```
 ### Maven users
@@ -57,7 +57,7 @@ Step 2. Add the dependency in POM file:
 <dependency>
     <groupId>com.github.imagekit-developer</groupId>
     <artifactId>imagekit-java</artifactId>
-    <version>1.0.3</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
@@ -66,9 +66,9 @@ Open or create the `config.properties` file and add your public and private API 
 
 ```editorconfig
 # Put essential values of keys [UrlEndpoint, PrivateKey, PublicKey]
-UrlEndpoint=<-YOUR-ENDPOINT-URL-HERE->
-PrivateKey=<-YOUR-PRIVATE-KEY-HERE->
-PublicKey=<-YOUR-PUBLIC-KEY-HERE->
+UrlEndpoint=your_url_endpoint
+PrivateKey=your_private_key
+PublicKey=your_public_key
 ```
 
 The imagekitio client is configured with user-specific credentials.
@@ -95,7 +95,34 @@ Result result=ImageKit.getInstance().upload(fileCreateRequest);
 The output should like this:
 ```java
 upload remote file => 
-{:response=>Result{isSuccessful=true, message='null', help='null', fileId='62ac768c7db9372ad1f07f0b', name='sample-image11__Unm_54pI.jpg', url='https://ik.imagekit.io/zv3rkhsym/sample-image11__Unm_54pI.jpg', thumbnail='null', height=0, width=0, size=169092, filePath='/sample-image11__Unm_54pI.jpg', tags='[Software, Developer, Engineer]', isPrivateFile=false, customCoordinates='null', fileType='non-image', aiTags=null, versionInfo={"id":"62ac768c7db9372ad1f07f0b","name":"Version 1"}, customMetadata=null, embeddedMetadata=null, extensionStatus=null, type='null', mime='null', hasAlpha=null, createdAt=null, updatedAt=null}
+{:response=>
+    Result{
+        isSuccessful=true,
+        message='null',
+        help='null',
+        fileId='62ac768c7db9372ad1f07f0b',
+        name='sample-image11__Unm_54pI.jpg',
+        url='https://ik.imagekit.io/zv3rkhsym/sample-image11__Unm_54pI.jpg',
+        thumbnail='null',
+        height=0,
+        width=0,
+        size=169092,
+        filePath='/sample-image11__Unm_54pI.jpg',
+        tags='[Software, Developer, Engineer]',
+        isPrivateFile=false,
+        customCoordinates='null',
+        fileType='non-image',
+        aiTags=null,
+        versionInfo={"id":"62ac768c7db9372ad1f07f0b","name":"Version 1"},
+        customMetadata=null,
+        embeddedMetadata=null,
+        extensionStatus=null,
+        type='null',
+        mime='null',
+        hasAlpha=null,
+        createdAt=null,
+        updatedAt=null
+    }
 }
 ```
 
