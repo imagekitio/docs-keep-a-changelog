@@ -179,6 +179,7 @@ List<Map<String, String>> transformation=new ArrayList<Map<String, String>>();
 Map<String, String> scale=new HashMap<>();
 scale.put("height","200");
 scale.put("width","200");
+scale.put("raw", "ar-4-3,q-40");
 transformation.add(scale);
 Map<String, Object> options=new HashMap();
 options.put("path", "/default-image.jpg");
@@ -190,7 +191,7 @@ String image_url=ImageKit.getInstance().getUrl(options);
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/zv3rkhsym/tr:w-200,h-200/default-image.jpg?ik-sdk-version=java-1.0.3
+https://ik.imagekit.io/zv3rkhsym/tr:w-200,h-200,ar-4-3,q-40/default-image.jpg?ik-sdk-version=java-1.0.3
 ```
 
 Refresh your browser with new url to get the resized image.
@@ -511,50 +512,51 @@ The above snippets create a signed URL with an expiry time of 10 seconds.
 
 The complete list of transformations supported and their usage in ImageKit can be found [here](https://docs.imagekit.io/features/image-transformations). The SDK gives a name to each transformation parameter, making the code simpler and readable. If a transformation is supported in ImageKit, but a name for it cannot be found in the table below, use the transformation code from ImageKit docs as the name when using it in the `getUrl()` function.
 
-| Supported Transformation Name | Translates to parameter |
-| ----------------------------- | ----------------------- |
-| height                        | h                       |
-| width                         | w                       |
-| aspectRatio                   | ar                      |
-| quality                       | q                       |
-| crop                          | c                       |
-| cropMode                      | cm                      |
-| x                             | x                       |
-| y                             | y                       |
-| focus                         | fo                      |
-| format                        | f                       |
-| radius                        | r                       |
-| background                    | bg                      |
-| border                        | bo                      |
-| rotation                      | rt                      |
-| blur                          | bl                      |
-| named                         | n                       |
-| overlayImage                  | oi                      |
-| overlayX                      | ox                      |
-| overlayY                      | oy                      |
-| overlayFocus                  | ofo                     |
-| overlayHeight                 | oh                      |
-| overlayWidth                  | ow                      |
-| overlayText                   | ot                      |
-| overlayTextFontSize           | ots                     |
-| overlayTextFontFamily         | otf                     |
-| overlayTextColor              | otc                     |
-| overlayAlpha                  | oa                      |
-| overlayTextTypography         | ott                     |
-| overlayBackground             | obg                     |
-| overlayImageTrim              | oit                     |
-| progressive                   | pr                      |
-| lossless                      | lo                      |
-| trim                          | t                       |
-| metadata                      | md                      |
-| colorProfile                  | cp                      |
-| defaultImage                  | di                      |
-| dpr                           | dpr                     |
-| effectSharpen                 | e-sharpen               |
-| effectUSM                     | e-usm                   |
-| effectContrast                | e-contrast              |
-| effectGray                    | e-grayscale             |
-| original                      | orig                    |
+| Supported Transformation Name | Translates to parameter           |
+| ----------------------------- | -----------------------           |
+| height                        | h                                 |
+| width                         | w                                 |
+| aspectRatio                   | ar                                |
+| quality                       | q                                 |
+| crop                          | c                                 |
+| cropMode                      | cm                                |
+| x                             | x                                 |
+| y                             | y                                 |
+| focus                         | fo                                |
+| format                        | f                                 |
+| radius                        | r                                 |
+| background                    | bg                                |
+| border                        | bo                                |
+| rotation                      | rt                                |
+| blur                          | bl                                |
+| named                         | n                                 |
+| overlayImage                  | oi                                |
+| overlayX                      | ox                                |
+| overlayY                      | oy                                |
+| overlayFocus                  | ofo                               |
+| overlayHeight                 | oh                                |
+| overlayWidth                  | ow                                |
+| overlayText                   | ot                                |
+| overlayTextFontSize           | ots                               |
+| overlayTextFontFamily         | otf                               |
+| overlayTextColor              | otc                               |
+| overlayAlpha                  | oa                                |
+| overlayTextTypography         | ott                               |
+| overlayBackground             | obg                               |
+| overlayImageTrim              | oit                               |
+| progressive                   | pr                                |
+| lossless                      | lo                                |
+| trim                          | t                                 |
+| metadata                      | md                                |
+| colorProfile                  | cp                                |
+| defaultImage                  | di                                |
+| dpr                           | dpr                               |
+| effectSharpen                 | e-sharpen                         |
+| effectUSM                     | e-usm                             |
+| effectContrast                | e-contrast                        |
+| effectGray                    | e-grayscale                       |
+| original                      | orig                              |
+| raw                           | replaced by the parameter value   |
 
 ## Server-side File Upload
 
