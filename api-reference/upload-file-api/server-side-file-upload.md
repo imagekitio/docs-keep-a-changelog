@@ -640,4 +640,23 @@ fs.readFile('image.jpg', function(err, data) {
 });
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+import (
+    "github.com/imagekit-developer/imagekit-go/extension"
+	"github.com/imagekit-developer/imagekit-go/api/uploader"
+)
+filePath := "/home/dhaval/Pictures/natural/beauty_of_nature_12.jpg"
+
+resp, err := ik.Uploader.Upload(ctx, filePath, uploader.UploadParam{
+    Extensions: []extension.IExtension{
+        extension.NewAutoTag(extension.AwsAutoTag, 0, 10),
+        extension.NewRemoveBg(extension.RemoveBgOption{}),
+    },
+})
+
+log.Println(resp.ResponseMetaData)
+
+```
+{% endtab %}
 {% endtabs %}
