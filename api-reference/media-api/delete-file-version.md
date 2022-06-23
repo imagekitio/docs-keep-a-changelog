@@ -62,7 +62,6 @@ curl -X DELETE "https://api.imagekit.io/v1/files/fileId/versions/versionId" \
 {% tab title="PHP" %}
 ```php
 # The unique fileId and versionId of the uploaded file. fileId and versionId (versionInfo.id) is returned in response of list files API and upload API.
-
 use ImageKit\ImageKit;
 
 $public_key = "your_public_api_key";
@@ -74,6 +73,9 @@ $imageKit = new ImageKit(
     $your_private_key,
     $url_end_point
 );
+
+$fileId = '5e21880d5efe355febd4bccd';
+$versionId = '4d921880d5efe355febd4beef';
 
 $deleteFileVersion = $imageKit->deleteFileVersion($fileId, $versionId);
 

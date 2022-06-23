@@ -88,9 +88,10 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$sourceFolderPath = '/sample-folder';
-$destinationPath = '/sample-folder';
+$sourceFolderPath = "/folder/to/copy";
+$destinationPath = "/folder/to/copy/into/";
 $includeVersions = false;
+
 $copyFolder = $imageKit->copyFolder([
     'sourceFolderPath' => $sourceFolderPath,
     'destinationPath' => $destinationPath,

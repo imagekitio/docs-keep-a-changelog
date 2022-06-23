@@ -149,7 +149,7 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$fileMetadata = $imageKit->getFileMetadataFromRemoteURL("remote_file_url")
+$fileMetadata = $imageKit->getFileMetadataFromRemoteURL("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
 
 echo("File metadata : " . json_encode($fileMetadata));
 ```
@@ -187,7 +187,7 @@ imagekit.get_remote_file_url_metadata("https://ik.imagekit.io/demo/tr:w-100/defa
 {% endtab %}
 
 {% tab title="PHP" %}
-```python
+```php
 $imageKit->getFileMetadataFromRemoteURL("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
 ```
 {% endtab %}

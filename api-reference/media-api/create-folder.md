@@ -68,8 +68,8 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$folderName = 'new-folder';
-$parentFolderPath = '/';
+$folderName = 'new_folder';
+$parentFolderPath = 'source/folder/path';
 $createFolder = $imageKit->createFolder([
     'folderName' => $folderName,
     'parentFolderPath' => $parentFolderPath,

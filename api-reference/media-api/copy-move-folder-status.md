@@ -61,7 +61,9 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
+$jobId = '598821f949c0a938d57563bd';
 // The jobId you get in the response of bulk job API e.g. copy folder or move folder API.
+
 $bulkJobStatus = $imageKit->getBulkJobStatus($jobId);
 
 echo("Bulk Job Status : " . json_encode($bulkJobStatus));

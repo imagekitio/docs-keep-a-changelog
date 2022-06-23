@@ -100,6 +100,9 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
+$fileId = '5e21880d5efe355febd4bccd';
+$versionId = '4d921880d5efe355febd4beef';
+
 $getFileVersionDetails = $imageKit->getFileVersionDetails($fileId,$versionId);
 
 echo("File Version details : " . json_encode($getFileVersionDetails));

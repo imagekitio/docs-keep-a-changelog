@@ -108,6 +108,9 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
+$fileId = '5e21880d5efe355febd4bccd';
+$versionId = '4d921880d5efe355febd4beef';
+
 $restoreFileVersion = $imageKit->restoreFileVersion([
     'fileId' => $fileId,
     'versionId' => $versionId,

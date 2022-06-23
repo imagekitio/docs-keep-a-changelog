@@ -71,7 +71,7 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$folderPath = '/sample-folder/new-folder';
+$folderPath = 'folder/to/delete/';
 $deleteFolder = $imageKit->deleteFolder($folderPath);
 
 echo("Delete Folder : " . json_encode($deleteFolder));

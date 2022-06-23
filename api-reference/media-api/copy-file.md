@@ -88,8 +88,8 @@ $imageKit = new ImageKit(
 
 $destinationPath = '/destination-folder';
 $copyFile = $imageKit->copy([
-    'sourceFilePath' => $sourceFilePath,
-    'destinationPath' => $destinationPath,
+    'sourceFilePath' => '/pah/to/file.jpg',
+    'destinationPath' => '/folder/to/copy/into/',
     'includeVersions' => false
 ]);
 

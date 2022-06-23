@@ -122,8 +122,8 @@ $body = [
     "label" => "Price",
     "schema" => [
         "type" => 'Number',
-        "minValue" => 100,
-        "maxValue" => 500,
+        "minValue" => 1000,
+        "maxValue" => 3000,
     ],
 ];
 

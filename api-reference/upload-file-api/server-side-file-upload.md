@@ -194,17 +194,14 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-// Options
-$options = [
-    "tags" => implode(",", ["tag1", "tag2"]),
-    "customCoordinates" => implode(",", ["10", "10", "100", "100"])
-];
+
 
 // Upload Image - Binary
-$uploadFile = $imageKit->upload([
+$uploadFile = $imageKit->uploadFile([
     "file" => fopen(__DIR__."/image.jpg", "r"),
     "fileName" => "my_file_name.jpg",
-    "options" => $options
+    "tags" => implode(",", ["tag1", "tag2"]),
+    "customCoordinates" => implode(",", ["10", "10", "100", "100"])
 ]);
 
 echo ("Upload binary file : " . json_encode($uploadFile));
@@ -320,17 +317,13 @@ $img = file_get_contents(__DIR__."/image.jpg");
 // Encode the image string data into base64
 $base64Img = base64_encode($img);
 
-// Options
-$options = [
-    "tags" => implode(",", ["tag1", "tag2"]),
-    "customCoordinates" => implode(",", ["10", "10", "100", "100"])
-];
 
 // Upload Image - base64
-$uploadFile = $imageKit->upload([
+$uploadFile = $imageKit->uploadFile([
     "file" => $base64Img,
     "fileName" => "my_file_name.jpg",
-    "options" => $options
+    "tags" => implode(",", ["tag1", "tag2"]),
+    "customCoordinates" => implode(",", ["10", "10", "100", "100"])
 ]);
 
 echo ("Upload base64" . json_encode($uploadFile));
@@ -436,7 +429,7 @@ $imageKit = new ImageKit(
 );
 
 // Upload Image - URL
-$uploadFile = $imageKit->upload([
+$uploadFile = $imageKit->uploadFile([
     "file" => "https://imagekit.io/image.jpg",
     "fileName" => "my_file_name.jpg"
 ]);
@@ -542,19 +535,14 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-// Options
-$options = [
+// Upload Image - URL
+$uploadFile = $imageKit->uploadFile([
+    "file" => "https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
+    "fileName" => "women_in_red.jpg",
     "customMetadata" => [
         "brand" => "Nike",
         "color" => "red",
     ]
-];
-
-// Upload Image - URL
-$uploadFile = $imageKit->upload([
-    "file" => "https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
-    "fileName" => "women_in_red.jpg",
-    "options" => $options,
 ]);
 
 echo ("Upload URL" . json_encode($uploadFile));
@@ -654,8 +642,11 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-// Options
-$options = [
+
+// Upload Image - URL
+$uploadFile = $imageKit->upload([
+    "file" => "https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
+    "fileName" => "women_in_red.jpg",
     "extensions" => [
         [
             "name" => "remove-bg",
@@ -670,13 +661,6 @@ $options = [
             "minConfidence" => 95
         ]
     ],
-];
-
-// Upload Image - URL
-$uploadFile = $imageKit->upload([
-    "file" => "https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
-    "fileName" => "women_in_red.jpg",
-    "options" => $options,
 ]);
 
 echo ("Upload URL" . json_encode($uploadFile));

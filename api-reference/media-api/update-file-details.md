@@ -165,9 +165,7 @@ $imageKit = new ImageKit(
 
 // Update File Details
 $updateData = [
-    "removeAITags" => "all",    // "all" or ["tag1","tag2"]
-    "webhookUrl" => "https://example.com/webhook",
-    "tags" => ["tag3", "tag4"],
+    "tags" => ["image_tag"],
     "customCoordinates" => "10,10,100,100"
 ];
 
@@ -279,9 +277,7 @@ $imageKit = new ImageKit(
 
 // Update File Details
 $updateData = [
-    "removeAITags" => "all",    // "all" or ["tag1","tag2"]
-    "webhookUrl" => "https://example.com/webhook",
-    "tags" => ["tag3", "tag4"],
+    "tags" => ["image_tag"],
     "customCoordinates" => "10,10,100,100"
 ];
 

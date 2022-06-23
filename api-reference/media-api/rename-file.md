@@ -141,12 +141,13 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$filePath='/sample-folder/sample-file.jpg';
-$newFileName = 'sample-file2.jpg';
+$filePath='/path/to/old-file-name.jpg';
+$newFileName = 'new-file-name.jpg';
 $renameFile = $imageKit->rename([
     'filePath' => $filePath,
     'newFileName' => $newFileName,
-], false);
+    'purgeCache' => false,  // optional
+]);
 
 echo("Rename File : " . json_encode($renameFile));
 ```

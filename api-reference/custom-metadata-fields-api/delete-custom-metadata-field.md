@@ -50,6 +50,7 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
+$customMetadataFieldId = '6152fc9a2fd12044cb4cefe2';
 $deleteCustomMetadataField = $imageKit->deleteCustomMetadataField($customMetadataFieldId);
 
 echo("Delete Custom Metadata Field : " . json_encode($deleteCustomMetadataField));

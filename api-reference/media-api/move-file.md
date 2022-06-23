@@ -79,9 +79,10 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$destinationPath = '/';
+$sourceFilePath = '/path/to/file.jpg';
+$destinationPath = '/folder/to/move/into/';
 $moveFile = $imageKit->move([
-    'sourceFilePath' => '/sample-folder/default-image.jpg',
+    'sourceFilePath' => $sourceFilePath,
     'destinationPath' => $destinationPath
 ]);
 

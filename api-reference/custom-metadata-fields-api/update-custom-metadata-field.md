@@ -100,12 +100,13 @@ $imageKit = new ImageKit(
 );
 
 $body = [
-    "label" => "Net Price",
     "schema" => [
-        "type"=>'Number'
-    ],
+        "minValue" => 500
+        "maxValue" => 2500
+    ]
 ];
 
+$customMetadataFieldId = '598821f949c0a938d57563dd';
 $updateCustomMetadataField = $imageKit->updateCustomMetadataField($customMetadataFieldId, $body);
 
 echo("Update Custom Metadata Field : " . json_encode($updateCustomMetadataField));

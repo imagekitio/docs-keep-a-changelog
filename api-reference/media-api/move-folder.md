@@ -79,8 +79,8 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$sourceFolderPath = '/sample-folder';
-$destinationPath = '/new-folder';
+$sourceFolderPath = '/folder/to/move';
+$destinationPath = '/folder/to/move/into/';
 $moveFolder = $imageKit->moveFolder([
     'sourceFolderPath' => $sourceFolderPath,
     'destinationPath' => $destinationPath
