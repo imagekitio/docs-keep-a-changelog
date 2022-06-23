@@ -135,6 +135,24 @@ curl -X POST "https://upload.imagekit.io/api/v1/files/upload" \
 ]"'
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+import (
+    "github.com/imagekit-developer/imagekit-go/extension"
+	"github.com/imagekit-developer/imagekit-go/api/uploader"
+)
+filePath := "/home/dhaval/Pictures/natural/beauty_of_nature_12.jpg"
+
+resp, err := ik.Uploader.Upload(ctx, filePath, uploader.UploadParam{
+    Extensions: []extension.IExtension{
+        extension.NewRemoveBg(extension.RemoveBgOption{}),
+    },
+})
+
+log.Println(resp.ResponseMetaData)
+
+```
+{% endtab %}
 {% endtabs %}
 
 #### Response
@@ -261,6 +279,25 @@ updated_detail = imagekitio.update_file_details(
 )
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+import (
+    "github.com/imagekit-developer/imagekit-go/extension"
+	"github.com/imagekit-developer/imagekit-go/api/media"
+)
+
+fileId := "62a35f6b0997a2c5ad376afe"
+
+resp, err := ik.Media.UpdateAsset(ctx, fileId, media.UpdateAssetParam{
+    Extensions: []extension.IExtension{
+        extension.NewRemoveBg(extension.RemoveBgOption{}),
+    },
+})
+
+log.Println(resp.ResponseMetaData)
+```
+{% endtab %}
+
 {% endtabs %}
 
 #### Response
