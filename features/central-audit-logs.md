@@ -14,6 +14,8 @@ Audit logs will be saved for these features:
 - Developer options
 - User management
 - Billing details
+- Settings
+- Purge cache center
 
 ## Audit logs page
 
