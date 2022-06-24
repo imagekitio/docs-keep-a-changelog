@@ -10,7 +10,7 @@ ImageKit provides advanced security and optimization features that you can use t
 It includes the following features:
 1. IP and IP range blocking
 2. Geographic restriction
-3. HTTP Referer restriction
+3. HTTP Referrer-based restriction
 4. Improved caching and WebP image delivery for some mobile apps
 
 ![Advanced security settings in ImageKit's dashboard](<../.gitbook/assets/advanced-security-settings.png>)
@@ -47,16 +47,18 @@ There are three options for geographic restriction-
 
 By default, no geographic restrictions are applied.
 
-## HTTP Referer restriction
+## HTTP Referrer-based restriction
 
 {% hint style="info" %}
 **Limits**\
-You can allow or block at most 30 referers.
+You can allow or block at most 30 referrers.
 {% endhint %}
 
-Referer restriction ensures that content only loads on requests from authorized domains. Any unauthorized request will result in an HTTP `403` error, and the asset will not be delivered.
+The Referer HTTP request header contains an absolute or partial address of the page that makes the request. The Referer header allows a server to identify a page where people are visiting it from.
 
-ImageKit provides three options for referer restriction-
+Referrer-based restriction ensures that content only loads on requests from authorized domains. Any unauthorized request will result in an HTTP `403` error, and the asset will not be delivered.
+
+ImageKit provides three options for referrer restriction-
 
 - Blocklist 
 - Allowlist
@@ -73,9 +75,9 @@ For example:
 ### Uses
 Using the blocklist will block domains that are hotlinking your content or assets, increasing your bandwidth usage and hosting costs. The blocklist saves costs significantly if your assets are undesirably hotlinked on other websites.
 
-The allowlist can be used to allow only selected domains to access your assets. For example, you can use it to serve content only on your allowed domains and automatically block other referers.
+The allowlist can be used to allow only selected domains to access your assets. For example, you can use it to serve content only on your allowed domains and automatically block other referrers.
 
-If you do not want any HTTP referer restriction, you can opt for no restriction, which is the default behavior.
+If you do not want any HTTP referrer restriction, you can opt for no restriction, which is the default behavior.
 
 ## Improved caching and WebP image delivery for some mobile apps
 
