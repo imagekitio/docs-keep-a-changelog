@@ -22,7 +22,7 @@ If your plan includes this feature, please contact us at support@imagekit.io to 
 ## IP and IP range blocking
 
 {% hint style="info" %}
-**Limits**\
+**Limits**
 - You can block at most 100 absolute IPs or IP ranges.
 - Only IPv4 blocking is supported.
 {% endhint %}
@@ -32,12 +32,12 @@ This feature blocks absolute IPs or IP ranges from accessing content. Any reques
 To block IPs, you need to provide a list of valid absolute IPv4 addresses or IPv4 ranges in CIDR notation separated by a new line in the input - using the advanced security settings in the dashboard.
 
 Examples of valid input- 
-- Absolute IPv4- `163.120.4.15`
-- IPv4 range using CIDR notation- `10.0.0.0/24`. This blocks all IPs in range `10.0.0.0` to `10.0.0.255`.
+- Absolute IPv4 - `163.120.4.15`
+- IPv4 range using CIDR notation - `10.0.0.0/24`. This blocks all IPs in range `10.0.0.0` to `10.0.0.255`.
 
 ## Geographic restriction
 
-ImageKit provides geographic restriction that allows you to restrict access to assets from your distribution at the country level.
+ImageKit provides geographic restriction that allows you to restrict access to assets at the country level.
 
 There are three options for geographic restriction-
 
@@ -78,7 +78,3 @@ Using the blocklist will block domains that are hotlinking your content or asset
 The allowlist can be used to allow only selected domains to access your assets. For example, you can use it to serve content only on your allowed domains and automatically block other referrers.
 
 If you do not want any HTTP referrer restriction, you can opt for no restriction, which is the default behavior.
-
-## Improved caching and WebP image delivery for some mobile apps
-
-ImageKit provides cache key normalization for image delivery and WebP image delivery for some mobile devices once the security settings are configured and used.
