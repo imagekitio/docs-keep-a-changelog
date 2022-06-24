@@ -70,7 +70,7 @@ base64 encoding of `your_private_api_key:`
 
 ### Response structure and status code (application/JSON)
 
-In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the [file object](./#file-object-structure) in JSON-encoded response body.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the list of [file object](./#file-object-structure) in the JSON-encoded response body on success.
 
 ## Examples
 
