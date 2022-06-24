@@ -1,8 +1,8 @@
 # Get all versions of a file
 
-{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/versions" method="get" summary="Get file version details API" %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/versions" method="get" summary="Get all versions of an asset" %}
 {% swagger-description %}
-Get all the file version details and attributes of a file.
+Get all versions of an asset using this API.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="fileId" type="string" required="true" %}
