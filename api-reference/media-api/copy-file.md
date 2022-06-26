@@ -57,7 +57,8 @@ curl -X POST "https://api.imagekit.io/v1/files/copy" \
 -u your_private_key: -d '
 {
 	"sourceFilePath" : "/path/to/file.jpg",
-	"destinationPath" : "/folder/to/copy/into/"
+	"destinationPath" : "/folder/to/copy/into/",
+    "includeFileVersions" : true
 }
 '
 ```
@@ -67,7 +68,8 @@ curl -X POST "https://api.imagekit.io/v1/files/copy" \
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.copy_file(
   source_file_path: '/pah/to/file.jpg',
-  destination_path: '/folder/to/copy/into/*'
+  destination_path: '/folder/to/copy/into/*',
+  include_file_versions: true
 )
 ```
 {% endtab %}

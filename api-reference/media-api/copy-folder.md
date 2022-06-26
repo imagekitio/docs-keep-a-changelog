@@ -60,7 +60,8 @@ curl -X POST "https://api.imagekit.io/v1/bulkJobs/copyFolder" \
 -u your_private_key: -d '
 {
 	"sourceFolderPath" : "/folder/to/copy",
-	"destinationPath" : "/folder/to/copy/into/"
+	"destinationPath" : "/folder/to/copy/into/",
+    "includeFileVersions": true
 }
 '
 ```
@@ -70,7 +71,8 @@ curl -X POST "https://api.imagekit.io/v1/bulkJobs/copyFolder" \
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.copy_folder(
   source_folder_path: '/folder/to/copy',
-  destination_path: '/folder/to/copy/into/'
+  destination_path: '/folder/to/copy/into/',
+  include_file_versions: true
 )
 ```
 {% endtab %}

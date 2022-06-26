@@ -84,4 +84,12 @@ curl -X GET "https://api.imagekit.io/v1/files/fileId/versions" \
 -u your_private_api_key:
 ```
 {% endtab %}
+{% tab title='Ruby' %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.file_versions(
+    file_id: 'file_id'
+)
+```
+{% endtab %}
 {% endtabs %}

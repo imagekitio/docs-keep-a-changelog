@@ -59,4 +59,12 @@ curl -X DELETE "https://api.imagekit.io/v1/files/fileId/versions/versionId" \
 -u your_private_api_key:
 ```
 {% endtab %}
+{% tab title='Ruby' %}
+```ruby
+imagekitio.delete_file_version(
+    file_id: 'file_id',
+    version_id: 'version_id'
+)
+```
+{% endtab %}
 {% endtabs %}

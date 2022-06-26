@@ -94,4 +94,12 @@ curl -X PUT "https://api.imagekit.io/v1/files/fileId/versions/versionId/restore"
 -u your_private_api_key:
 ```
 {% endtab %}
+{% tab title='Ruby' %}
+```ruby
+imagekitio.restore_file_version(
+    file_id: 'file_id',
+    version_id: 'version_id'
+)
+```
+{% endtab %}
 {% endtabs %}
