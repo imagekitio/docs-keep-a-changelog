@@ -61,7 +61,7 @@ curl -X POST "https://api.imagekit.io/v1/bulkJobs/copyFolder" \
 {
 	"sourceFolderPath" : "/folder/to/copy",
 	"destinationPath" : "/folder/to/copy/into/",
-    "includeFileVersions": true
+        "includeFileVersions": true
 }
 '
 ```
