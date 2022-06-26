@@ -55,6 +55,25 @@ curl -X GET "https://api.imagekit.io/v1/customMetadataFields" \
 ```
 {% endtab %}
 
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.getCustomMetadataFields({
+    includeDeleted: false
+}, function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")

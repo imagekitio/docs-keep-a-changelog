@@ -166,6 +166,23 @@ curl -X GET "https://api.imagekit.io/v1/metadata?url=https://ik.imagekit.io/demo
 ```
 {% endtab %}
 
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.getFileMetadata("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg", function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
 {% tab title="Python" %}
 ```python
 imagekit.get_remote_file_url_metadata("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
