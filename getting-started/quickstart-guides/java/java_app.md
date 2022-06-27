@@ -903,7 +903,15 @@ renameFileRequest.setPurgeCache(true);
 ResultRenameFile resultRenameFile = ImageKit.getInstance().renameFile(renameFileRequest);
 ```
 
-### 15. Create Folder API
+### 15. Restore file Version API
+This will restore file version to a different version of a file.
+Refer to the [Restore file Version API](https://docs.imagekit.io/api-reference/media-api/restore-file-version) for a better understanding of the **Request & Response Structure**.
+#### Example
+```java
+Result result = ImageKit.getInstance().restoreFileVersion("fileId", "versionId");
+```
+
+### 16. Create Folder API
 
 This will create a new folder. You can specify the folder name and location of the parent folder where this new folder should be created.
 
@@ -917,7 +925,7 @@ createFolderRequest.setParentFolderPath("/");
 ResultEmptyBlock resultEmptyBlock = ImageKit.getInstance().createFolder(createFolderRequest);
 ```
 
-### 16. Delete Folder API
+### 17. Delete Folder API
 
 This will delete the specified folder and all nested files, their versions & folders. This action cannot be undone.
 
@@ -931,7 +939,7 @@ deleteFolderRequest.setFolderPath(folderPath);
 ResultNoContent resultNoContent = ImageKit.getInstance().deleteFolder(deleteFolderRequest);
 ```
 
-### 17. Copy Folder API
+### 18. Copy Folder API
 
 This will copy one folder into another.
 
@@ -945,7 +953,7 @@ copyFolderRequest.setDestinationPath("/destination-folder");
 ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().copyFolder(copyFolderRequest);
 ```
 
-### 18. Move Folder API
+### 19. Move Folder API
 
 This will move one folder into another. The selected folder, its nested folders, files, and their versions are moved in this operation.
 
@@ -961,7 +969,7 @@ moveFolderRequest.setDestinationPath("/destination-folder");
 ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().moveFolder(moveFolderRequest);
 ```
 
-### 19. Bulk Job Status API
+### 20. Bulk Job Status API
 
 This endpoint allows you to get the status of a bulk operation e.g. [Copy Folder API](#17-copy-folder-api) or [Move Folder API](#18-move-folder-api).
 
@@ -973,7 +981,7 @@ String jobId = "job_id";
 ResultBulkJobStatus resultBulkJobStatus = ImageKit.getInstance().getBulkJobStatus(jobId);
 ```
 
-### 20. Purge Cache API
+### 21. Purge Cache API
 
 This will purge CDN and ImageKit.io's internal cache. In response `requestId` is returned which can be used to fetch the status of the submitted purge request with [Purge Cache Status API](#21-purge-cache-status-api).
 
@@ -984,7 +992,7 @@ Refer to the [Purge Cache API](https://docs.imagekit.io/api-reference/media-api/
 ResultCache result = ImageKit.getInstance().purgeCache("file-path");
 ```
 
-### 21. Purge Cache Status API
+### 22. Purge Cache Status API
 
 Get the purge cache request status using the `requestId` returned when a purge cache request gets submitted with [Purge Cache API](#20-purge-cache-api)
 
@@ -995,7 +1003,7 @@ Refer to the [Purge Cache Status API](https://docs.imagekit.io/api-reference/med
 ResultCacheStatus result = ImageKit.getInstance().getPurgeCacheStatus("request-id");
 ```
 
-### 22. Get File Metadata API (From File ID)
+### 23. Get File Metadata API (From File ID)
 
 Get the image EXIF, pHash, and other metadata for uploaded files in the ImageKit.io media library using this API.
 
@@ -1006,7 +1014,7 @@ Refer to the [Get image metadata for uploaded media files API](https://docs.imag
 ResultMetaData result = ImageKit.getInstance().getFileMetadata("file-id");
 ```
 
-### 23. Get File Metadata API (From Remote URL)
+### 24. Get File Metadata API (From Remote URL)
 
 Get image EXIF, pHash, and other metadata from ImageKit.io powered remote URL using this API.
 
