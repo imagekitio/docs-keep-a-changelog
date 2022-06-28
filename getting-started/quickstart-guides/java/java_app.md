@@ -848,7 +848,7 @@ ResultFileDelete result = ImageKit.getInstance().bulkDeleteFiles(fileIds);
 
 This will copy a file from one folder to another.
 
->  If any file at the destination has the same name as the source file, then the source file and its versions (if `includeVersions` is set to true) will be appended to the destination file version history.
+>  If any file at the destination has the same name as the source file, then the source file and its versions (if `includeFileVersions` is set to true) will be appended to the destination file version history.
 
 Refer to the [Copy File API](https://docs.imagekit.io/api-reference/media-api/copy-file) for a better understanding of the **Request & Response Structure**.
 
@@ -857,7 +857,7 @@ Refer to the [Copy File API](https://docs.imagekit.io/api-reference/media-api/co
 CopyFileRequest copyFileRequest = new CopyFileRequest();
 copyFileRequest.setSourceFilePath("/your-file-name.jpg");
 copyFileRequest.setDestinationPath("/test/");
-copyFileRequest.setIncludeVersions(true);
+copyFileRequest.setIncludeFileVersions(true);
 ResultNoContent resultNoContent = ImageKit.getInstance().copyFile(copyFileRequest);
 ```
 
@@ -942,6 +942,7 @@ ResultNoContent resultNoContent = ImageKit.getInstance().deleteFolder(deleteFold
 ### 18. Copy Folder API
 
 This will copy one folder into another.
+>  If any folder at the destination has the same name as the source folder, then the source folder and its versions (if `includeFileVersions` is set to true) will be appended to the destination folder version history.
 
 Refer to the [Copy Folder API](https://docs.imagekit.io/api-reference/media-api/copy-folder) for a better understanding of the **Request & Response Structure**.
 
@@ -950,6 +951,7 @@ Refer to the [Copy Folder API](https://docs.imagekit.io/api-reference/media-api/
 CopyFolderRequest copyFolderRequest = new CopyFolderRequest();
 copyFolderRequest.setSourceFolderPath("/source-folder");
 copyFolderRequest.setDestinationPath("/destination-folder");
+copyFolderRequest.setIncludeFileVersions(true);
 ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().copyFolder(copyFolderRequest);
 ```
 
