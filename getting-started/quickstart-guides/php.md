@@ -757,7 +757,7 @@ $deleteFiles = $imageKit->bulkFileDeleteByIds($fileIds);
 
 This will copy a file from one folder to another.
 
->  If any file at the destination has the same name as the source file, then the source file and its versions (if `includeVersions` is set to true) will be appended to the destination file version history.
+>  If any file at the destination has the same name as the source file, then the source file and its versions (if `includeFileVersions` is set to true) will be appended to the destination file version history.
 
 Refer to the [Copy File API](https://docs.imagekit.io/api-reference/media-api/copy-file) for a better understanding of the **Request & Response Structure**.
 
@@ -765,12 +765,12 @@ Refer to the [Copy File API](https://docs.imagekit.io/api-reference/media-api/co
 ```php
 $sourceFilePath = '/sample-folder1/sample-file.jpg';
 $destinationPath = '/sample-folder2/';
-$includeVersions = false;
+$includeFileVersions = false;
 
 $copyFile = $imageKit->copy([
     'sourceFilePath' => $sourceFilePath,
     'destinationPath' => $destinationPath,
-    'includeVersions' => $includeVersions
+    'includeFileVersions' => $includeFileVersions
 ]);
 ```
 
@@ -877,11 +877,11 @@ Refer to the [Copy Folder API](https://docs.imagekit.io/api-reference/media-api/
 ```php
 $sourceFolderPath = '/source-folder/';
 $destinationPath = '/destination-folder/';
-$includeVersions = false;
+$includeFileVersions = false;
 $copyFolder = $imageKit->copyFolder([
     'sourceFolderPath' => $sourceFolderPath,
     'destinationPath' => $destinationPath,
-    'includeVersions' => $includeVersions
+    'includeFileVersions' => $includeFileVersions
 ]);
 ```
 

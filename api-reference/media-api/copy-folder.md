@@ -19,7 +19,7 @@ The full path to the source folder you want to copy. For example - `/path/of/sou
 Full path to the destination folder where you want to copy the source folder into. For example - `/path/of/destination/folder`.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="includeVersions" type="boolean" %}
+{% swagger-parameter in="body" name="includeFileVersions" type="boolean" %}
 Option to copy all versions of files that are nested inside the selected folder. By default, only the current version of each file will be copied. When set to `true`, all versions of each file will be copied.
 
 **Default value** \- `false`
@@ -90,12 +90,12 @@ $imageKit = new ImageKit(
 
 $sourceFolderPath = "/folder/to/copy";
 $destinationPath = "/folder/to/copy/into/";
-$includeVersions = false;
+$includeFileVersions = false;
 
 $copyFolder = $imageKit->copyFolder([
     'sourceFolderPath' => $sourceFolderPath,
     'destinationPath' => $destinationPath,
-    'includeVersions' => $includeVersions
+    'includeFileVersions' => $includeFileVersions
 ]);
 
 echo("Copy Folder : " . json_encode($copyFolder));
