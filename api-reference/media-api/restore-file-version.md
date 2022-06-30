@@ -94,6 +94,27 @@ curl -X PUT "https://api.imagekit.io/v1/files/fileId/versions/versionId/restore"
 -u your_private_api_key:
 ```
 {% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.restoreFileVersion({
+     fileId: "fileId",
+     versionId: "versionId"
+}, function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
 ```ruby
 imagekitio.restore_file_version(
@@ -102,4 +123,5 @@ imagekitio.restore_file_version(
 )
 ```
 {% endtab %}
+
 {% endtabs %}
