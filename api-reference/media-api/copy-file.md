@@ -90,7 +90,7 @@ imagekit.copyFile({
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.copy_file(
   source_file_path: '/pah/to/file.jpg',
-  destination_path: '/folder/to/copy/into/*',
+  destination_path: '/folder/to/copy/into/',
   include_file_versions: false # optional
 )
 ```
