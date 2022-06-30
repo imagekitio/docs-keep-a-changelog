@@ -145,7 +145,7 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.rename_file(
   file_path: '/path/to/old-file-name.jpg',
   new_file_name: 'new-file-name.jpg',
-  purge_cache: true #optional
+  purge_cache: false #optional
 )
 ```
 {% endtab %}

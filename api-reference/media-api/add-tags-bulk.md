@@ -85,14 +85,12 @@ curl -X POST "https://api.imagekit.io/v1/files/addTags" \
 -u your_private_key: -d '
 {
 	"fileIds" : [
-		"5e21880d5efe355febd4bccd",
-		"5e1c13c1c55ec3437c451403",
-		"5f4abf6fae77ae7f0acda3d1", 
-		"5f207bd1bd2741182ceadd55"
+		"file_id_1",
+        "file_id_2"
 	],
 	"tags" : [
-		"tag-to-add-1", 
-		"tag-to-add-2"
+		"tag1",
+        "tag2"
 	]
 }
 '
@@ -109,7 +107,7 @@ var imagekit = new ImageKit({
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
-var fileIds = ["fileId1", "fileId2"];
+var fileIds = ["file_id_1", "file_id_2"];
 var tags = ["tag1", "tag2"];
 
 imagekit.bulkAddTags(fileIds, tags, function(error, result) {
@@ -124,12 +122,10 @@ imagekit.bulkAddTags(fileIds, tags, function(error, result) {
     imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
     imagekitio.add_bulk_tags(
       file_ids: [
-          "5e21880d5efe355febd4bccd",
-          "5e1c13c1c55ec3437c451403",
-          "5f4abf6fae77ae7f0acda3d1",
-          "5f207bd1bd2741182ceadd55"
+          "file_id_1",
+          "file_id_2"
         ],
-      tags: ['tag-to-add-1', 'tag-to-add-2']
+      tags: ["tag1", "tag2"]
 )
  ```
 {% endtab %}

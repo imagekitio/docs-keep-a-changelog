@@ -68,7 +68,7 @@ Here is the example request to understand the API usage.
 {% tab title="cURL" %}
 ```bash
 # The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
-curl -X GET "https://api.imagekit.io/v1/files/fileId/details" \
+curl -X GET "https://api.imagekit.io/v1/files/file_id/details" \
 -u your_private_api_key:
 ```
 {% endtab %}
@@ -83,7 +83,7 @@ var imagekit = new ImageKit({
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
-imagekit.getFileDetails("fileId", function(error, result) {
+imagekit.getFileDetails("file_id", function(error, result) {
     if(error) console.log(error);
     else console.log(result);
 });
@@ -100,7 +100,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-details = imagekit.get_file_details(file_id)
+details = imagekit.get_file_details("file_id")
 
 print("File detail-", details, end="\n\n")
 ```
@@ -120,7 +120,7 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$getFileDetails = $imageKit->getDetails($fileId);
+$getFileDetails = $imageKit->getDetails("file_id");
 
 echo("File details : " . json_encode($getFileDetails));
 ```
@@ -128,13 +128,13 @@ echo("File details : " . json_encode($getFileDetails));
 
 {% tab title="Java" %}
 ```java
-Result result=ImageKit.getInstance().getFileDetail("fileId");
+Result result=ImageKit.getInstance().getFileDetail("file_id");
 ```
 {% endtab %}
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.get_file_deltails(file_id: 'file_id_xyz')
+imagekitio.get_file_deltails(file_id: 'file_id')
 ```
 {% endtab %}
 {% endtabs %}

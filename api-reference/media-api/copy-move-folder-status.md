@@ -58,7 +58,7 @@ var imagekit = new ImageKit({
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
-var jobId = "jobId";
+var jobId = "job_id";
 imagekit.getBulkJobStatus(jobId, function(error, result) {
     if(error) console.log(error);
     else console.log(result);
@@ -69,7 +69,7 @@ imagekit.getBulkJobStatus(jobId, function(error, result) {
 {% tab title="Ruby" %}
  ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.bulk_job_status(job_id: '598821f949c0a938d57563bd')
+imagekitio.bulk_job_status(job_id: 'job_id')
 ```
 {% endtab %}
 {% endtabs %}

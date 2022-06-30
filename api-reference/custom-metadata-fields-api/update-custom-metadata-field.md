@@ -104,10 +104,10 @@ imagekit.updateCustomMetadataField(
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.update_custom_metadata_field(
-  id: '598821f949c0a938d57563dd', #required
-  label: '', #required if schema not available
+  id: '6152fc9a2fd12044cb4cefe2', #required
   schema: {   #required if label not available
-    minValue: 100
+    minValue: 500,
+    maxValue: 2500
   }
 )
 ```

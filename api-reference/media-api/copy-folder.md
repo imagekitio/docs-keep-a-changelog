@@ -94,7 +94,7 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.copy_folder(
   source_folder_path: '/folder/to/copy',
   destination_path: '/folder/to/copy/into/',
-  include_file_versions: true
+  include_file_versions: false # optional
 )
 ```
 {% endtab %}

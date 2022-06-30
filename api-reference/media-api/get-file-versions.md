@@ -80,7 +80,7 @@ Here is the example request to understand the API usage.
 {% tab title="cURL" %}
 ```bash
 # The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
-curl -X GET "https://api.imagekit.io/v1/files/fileId/versions" \
+curl -X GET "https://api.imagekit.io/v1/files/file_id/versions" \
 -u your_private_api_key:
 ```
 {% endtab %}
@@ -95,7 +95,7 @@ var imagekit = new ImageKit({
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
-imagekit.getFileVersions("fileId", function(error, result) {
+imagekit.getFileVersions("file_id", function(error, result) {
     if(error) console.log(error);
     else console.log(result);
 });
