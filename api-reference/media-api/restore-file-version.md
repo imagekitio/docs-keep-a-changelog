@@ -115,4 +115,13 @@ imagekit.restoreFileVersion({
 ```
 {% endtab %}
 
+{% tab title='Ruby' %}
+```ruby
+imagekitio.restore_file_version(
+    file_id: 'file_id',
+    version_id: 'version_id'
+)
+```
+{% endtab %}
+
 {% endtabs %}

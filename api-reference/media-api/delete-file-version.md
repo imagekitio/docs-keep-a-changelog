@@ -52,6 +52,7 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 Here is the example request to understand the API usage.
 
 {% tabs %}
+
 {% tab title="cURL" %}
 ```bash
 # The unique fileId and versionId of the uploaded file. fileId and versionId (versionInfo.id) is returned in response of list files API and upload API.
@@ -80,6 +81,15 @@ imagekit.deleteFileVersion({
     if(error) console.log(error);
     else console.log(result);
 });
+```
+{% endtab %}
+
+{% tab title='Ruby' %}
+```ruby
+imagekitio.delete_file_version(
+    file_id: 'file_id',
+    version_id: 'version_id'
+)
 ```
 {% endtab %}
 {% endtabs %}

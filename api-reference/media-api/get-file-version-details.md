@@ -105,4 +105,14 @@ imagekit.getFileVersionDetails({
 });
 ```
 {% endtab %}
+
+{% tab title='Ruby' %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.file_version_detail(
+    file_id: 'file_id',
+    version_id: 'version_id'
+)
+```
+{% endtab %}
 {% endtabs %}
