@@ -245,7 +245,6 @@ const startServer = async (port) => {
   server.route({
     method: "POST",
     url: WEBHOOK_ENDPOINT,
-    matchMedia: "*/*",
     handler: (req, res) => {
       // Handle webhook
       const signature = req.raw.headers["x-ik-signature"];
