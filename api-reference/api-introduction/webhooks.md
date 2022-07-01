@@ -39,6 +39,112 @@ All webhook bodies are JSON encoded. The schema of the body may differ based on 
 | createdAt | `string` | Timestamp of the event in ISO8601 format.|
 | data      | `JSON`   | Actual payload of event in JSON format.  |
 
+## Verify webhook signature
+
+Webhook endpoints are publicly accessible, therefore is important filter out malicious requests. We recommend that you use webhook signature to verify the authenticity of the webhook request.
+
+To achieve this, every imagekit webhook endpoint comes with a HMAC signature in the request header `x-ik-signature`. To generate this signature, webhook secret is required, you can find webhook secret in [Imagekit dashboard](https://imagekit.io/dashboard/developer/webhooks).
+
+> **Note:** Webhook secret should only be known to the server that is handling the webhook request.
+
+### Verify signature with imagekit SDK
+
+You can use imagekit SDK to verify & parse webhook request.
+
+```js
+const { Webhook } = require('imagekit');
+
+function handler(req, res) {
+  const signature = req.headers["x-ik-signature"];
+  const rawBody = req.rawBody; // Raw request body encoded as Uint8Array or UTF-8 string
+
+  const { timestamp, event } = Webhook.verify(rawBody, signature, WEBHOOK_SECRET);
+
+  // Check if timestamp is within the tolerance limit
+
+  // Handle event...
+
+  // If everything is ok, respond with status code 2xx
+  res.status(200).end();
+}
+```
+
+### Verify signature manually
+
+Imagekit webhook signature follows the following format:
+
+```js
+t=${UNIX_TIMSTAMP_IN_MILLISECONDS},v1=${HMAC_SIGNATURE}
+```
+
+- The timestamp of signature is a Unix timestamp in milliseconds, prefixed with `t=`.
+- The HMAC hash is prefixed with `v1=`.
+
+Example of webhook signature
+
+```txt
+t=1655795539264,v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946
+```
+
+Once you have retrived webhook signature from request header & raw request body, you can verify the authenticity of the webhook request in follow the following steps:
+
+Step 1: Extract each item from the signature, by splitting on `,` separator.
+
+```js
+items = 't=1655795539264,v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946'.split(',')
+// [ 't=1655795539264', 'v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946' ]
+```
+
+Step 2: Extract timestamp from the signature.
+
+```js
+timestamp = 't=1655795539264'.split('=')[1]
+// '1655795539264'
+```
+
+Step 3: Extract HMAC hash from the signature.
+
+```js
+hmac = 'v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946'.split('=')[1]
+// 'b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946'
+```
+
+Step 4: Compute the HMAC hash using the webhook secret, signature timestamp and raw request body.
+
+- HAMC key is the webhook secret.
+- HMAC payload is formed by concatenating the timestamp(as numeric string), character `.` and raw request body (encoded as UTF8 string).
+- Use SHA256 algorithm to compute the HMAC hash.
+- HMAC hash is hex encoded.
+
+```js
+computeHmac = Hmac('sha256')
+  .Key(webhookSecret)
+  .Payload(timestamp + '.' + rawRequestBody)
+  .Encode('hex')
+```
+
+Step 5: Compare the computed HMAC hash with the HMAC hash from signature.
+
+```js
+computeHmac === hmac
+```
+
+If the computed HMAC hash matches the HMAC hash in the signature, the webhook request can be considered valid.
+
+## Preventing replay attacks
+
+When an attacker intercepts a webhook request, he can replay the request multiple times with a valid signature.
+
+To mitigate this, Imagekit webhook signature contains a timestamp. The timestamp is generated right before the webhook request is sent to the server.
+
+For retriving this timestamp, the `verify` method in ImagekitSDK returns timestamp & parsed event object.
+
+If timestamp is within the tolerance limit, the request can be considered as valid, else the request must be stalled.
+
+> Optionally, a stronger approach is to use a nonce to prevent replay attacks. You can use Event ID as nonce, it is guaranteed to be unique across all events.
+>
+> You can find the event ID in `id` field of the event object.
+
 ### Sample code
 
 Here is the sample code for listing to webhook by ImageKit in Node.js. Use a tool like [Ngrok](https://ngrok.com/) to make your local server accessible from outside for testing webhook implementation. 
