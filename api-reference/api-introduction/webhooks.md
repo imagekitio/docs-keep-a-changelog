@@ -30,6 +30,8 @@ To update an existing endpoint, click on `...` and change the status.
 
 ## Listen to Webhook
 
+Use a tool like [Ngrok](https://ngrok.com/) to make your local server accessible from outside for testing webhook implementation.
+
 All webhook bodies are JSON encoded. The schema of the body may differ based on the event type, but the following fields are common.
 
 | Field     | DataType | Description                              |
@@ -51,6 +53,9 @@ To achieve this, every imagekit webhook endpoint comes with a HMAC signature in 
 
 You can use imagekit SDK to verify & parse webhook request.
 
+{% tabs %}
+{% tab title="NodeJS SDK" %}
+
 ```js
 const { Webhook } = require('imagekit');
 
@@ -68,6 +73,9 @@ function handler(req, res) {
   res.status(200).end();
 }
 ```
+
+{% endtab %}
+{% endtabs %}
 
 ### Verify signature manually
 
@@ -145,33 +153,240 @@ If timestamp is within the tolerance limit, the request can be considered as val
 >
 > You can find the event ID in `id` field of the event object.
 
-### Sample code
+## Sample Codes
 
-Here is the sample code for listing to webhook by ImageKit in Node.js. Use a tool like [Ngrok](https://ngrok.com/) to make your local server accessible from outside for testing webhook implementation. 
+{% tabs %}
+{% tab title="ExpressJS" %}
 
-```javascript
-app.post('/webhook', express.json({type: 'application/json'}), (request, response) => {
-  const event = request.body;
+```js
+const express = require("express");
+const { Webhook } = require("imagekit");
 
-  // Handle the event
-  switch (event.type) {
-    case 'video.transformation.accepted':
-      // It is triggered when a new video transformation request is accepted for processing. You can use this for debugging purposes.
-      break;
-    case 'video.transformation.ready':
-      // It is triggered when a video encoding is finished and the transformed resource is ready to be served. You should listen to this webhook and update any flag in your database or CMS against that particular asset so your application can start showing it to users.
-    case 'video.transformation.error':
-      // It is triggered if an error occurs during encoding. Listen to this webhook to log the reason. You should check your origin and URL-endpoint settings if the reason is related to download failure. If the reason seems like an error on the ImageKit side, then raise a support ticket at support@imagekit.io.
-      break;
-    // ... handle other event types
-    default:
-      console.log(`Unhandled event type ${event.type}`);
+// Webhook configs
+const WEBHOOK_ENDPOINT = "/webhook";
+const WEBHOOK_SECRET = "whsec_EvCLlGyctj2WyIMW2r62m3JnyN4SXMsY"; // Copy from Imagekit dashboard
+const WEBHOOK_EXPIRY_DURATION = 60 * 1000; // 60 seconds
+
+// Server configs
+const PORT = 8081;
+
+const app = express();
+
+app.post("/webhook", express.raw({ type: "*/*" }), (req, res) => {
+  const signature = req.headers["x-ik-signature"];
+  const rawBody = req.body;
+
+  // Verify webhook signature
+  let webhookResult;
+  try {
+    webhookResult = Webhook.verify(rawBody, signature, WEBHOOK_SECRET);
+  } catch (e) {
+    // Failed to verify webhook
+    return res.status(401).send(`Webhook error: ${e.message}`);
+  }
+  const { timestamp, event } = webhookResult;
+
+  // Check if webhook has expired
+  if (timestamp.getTime() + WEBHOOK_EXPIRY_DURATION < Date.now()) {
+    // Stall webhook
+    return res.status(401).send("Webhook signature expired");
   }
 
-  // Return a response to acknowledge receipt of the event
-  response.json({received: true});
+  // Handle webhook
+  switch (event.type) {
+    case "video.transformation.accepted":
+      console.log("Video transformation request accepted");
+      break;
+    case "video.transformation.ready":
+      console.log("Video transformation ready");
+      break;
+    case "video.transformation.error":
+      console.log("Video transformation error");
+      break;
+  }
+
+  // Acknowledge webhook is received and processed successfully
+  res.status(200).end();
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+  console.log(
+    `Webhook endpoint: 'http://localhost:${PORT}${WEBHOOK_ENDPOINT}'`,
+    "Do replace 'localhost' with public endpoint"
+  );
 });
 ```
+
+{% endtab %}
+
+{% tab title="Fastify" %}
+
+```js
+const fastify = require("fastify");
+const fastifyRawBody = require("fastify-raw-body");
+const { Webhook } = require("imagekit");
+
+// Webhook configs
+const WEBHOOK_ENDPOINT = "/webhook";
+const WEBHOOK_SECRET = "whsec_EvCLlGyctj2WyIMW2r62m3JnyN4SXMsY"; // Copy from Imagekit dashboard
+const WEBHOOK_EXPIRY_DURATION = 60 * 1000; // 60 seconds
+
+// Server configs
+const PORT = 8081;
+
+const server = fastify();
+
+const startServer = async (port) => {
+  // Use 'fastify-raw-body' package to retrive raw request body as utf8 string
+  await server.register(fastifyRawBody, { routes: [WEBHOOK_ENDPOINT] });
+
+  // Add webhook endpoint route
+  server.route({
+    method: "POST",
+    url: WEBHOOK_ENDPOINT,
+    matchMedia: "*/*",
+    handler: (req, res) => {
+      // Handle webhook
+      const signature = req.raw.headers["x-ik-signature"];
+      const rawBody = req.rawBody;
+
+      // Verify webhook signature
+      let webhookResult;
+      try {
+        webhookResult = Webhook.verify(rawBody, signature, WEBHOOK_SECRET);
+      } catch (e) {
+        // Webhook verification failed
+        return res.status(401).send(`Webhook error: ${e.message}`);
+      }
+      const { timestamp, event } = webhookResult;
+
+      // Check if webhook has expired
+      if (timestamp.getTime() + WEBHOOK_EXPIRY_DURATION < Date.now()) {
+        // Stall webhook
+        return res.status(401).send("Webhook signature expired");
+      }
+      
+      // Handle webhook
+      switch (event.type) {
+        case "video.transformation.accepted":
+          console.log("Video transformation request accepted");
+          break;
+        case "video.transformation.ready":
+          console.log("Video transformation ready");
+          break;
+        case "video.transformation.error":
+          console.log("Video transformation error");
+          break;
+      }
+
+      // Acknowledge webhook is received and processed successfully
+      res.status(200).send();
+    },
+  });
+
+  await server.listen({ port });
+};
+
+startServer(PORT).then(() => {
+  console.log(`Server listening on port ${PORT}`);
+  console.log(
+    `Webhook endpoint: 'http://localhost:${PORT}${WEBHOOK_ENDPOINT}'`,
+    "Do replace 'localhost' with public endpoint"
+  );
+});
+```
+
+{% endtab %}
+
+{% tab title="Node HTTP" %}
+
+```js
+const http = require("http");
+const { Webhook } = require("imagekit");
+
+// Webhook configs
+const WEBHOOK_ENDPOINT = "/webhook";
+const WEBHOOK_SECRET = "whsec_EvCLlGyctj2WyIMW2r62m3JnyN4SXMsY"; // Copy from Imagekit dashboard
+const WEBHOOK_EXPIRY_DURATION = 60 * 1000; // 60 seconds
+
+// Server configs
+const PORT = 8081;
+
+const webhookRoute = (req, res) => {
+  const signature = req.headers["x-ik-signature"];
+  const reqChunks = [];
+  req.setEncoding("utf8");
+  req.on("data", (chunk) => {
+    reqChunks.push(chunk);
+  });
+  req.on("end", () => {
+    const rawBody = reqChunks.join("");
+
+    // Verify webhook signature
+    let webhookResult;
+    try {
+      webhookResult = Webhook.verify(rawBody, signature, WEBHOOK_SECRET);
+    } catch (e) {
+      // Webhook signature verification failed
+      res.writeHead(401, `Webhook error: ${e.message}`);
+      res.end();
+      return;
+    }
+    const { timestamp, event } = webhookResult;
+
+    // Check if webhook has expired
+    if (timestamp.getTime() + WEBHOOK_EXPIRY_DURATION < Date.now()) {
+      // Stall webhook
+      res.writeHead(401, "Webhook signature expired");
+      res.end();
+      return;
+    }
+
+    // Handle webhook
+    switch (event.type) {
+      case "video.transformation.accepted":
+        console.log("Video transformation request accepted");
+        break;
+      case "video.transformation.ready":
+        console.log("Video transformation ready");
+        break;
+      case "video.transformation.error":
+        console.log("Video transformation error");
+        break;
+    }
+
+    // Acknowledge webhook is received and processed successfully
+    res.writeHead(200, "OK");
+    res.end();
+  });
+};
+
+const server = http.createServer((req, res) => {
+  switch (req.url) {
+    case WEBHOOK_ENDPOINT:
+      webhookRoute(req, res);
+      break;
+    default: {
+      res.writeHead(404);
+      res.end();
+    }
+  }
+});
+
+server.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+  console.log(
+    `Webhook endpoint: 'http://localhost:${PORT}${WEBHOOK_ENDPOINT}'`,
+    "Do replace 'localhost' with public endpoint"
+  );
+});
+
+```
+
+{% endtab %}
+
+{% endtabs %}
 
 ## List of events
 
