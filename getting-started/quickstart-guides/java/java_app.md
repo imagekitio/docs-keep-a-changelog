@@ -722,8 +722,14 @@ Refer to the [Update File Details API](https://docs.imagekit.io/api-reference/me
 List<String> tags = new ArrayList<>();
 tags.add("tag-1");
 tags.add("tag-2");
+
+List<String> aiTags = new ArrayList<>();
+aiTags.add("ai-tag-1");
+aiTags.add("ai-tag-2");
 FileUpdateRequest fileUpdateRequest = new FileUpdateRequest(fileId);
 fileUpdateRequest.setTags(tags);
+fileUpdateRequest.setRemoveAITags(aiTags);
+fileUpdateRequest.setWebhookUrl("url");
 
 JsonObject optionsInnerObject = new JsonObject();
 optionsInnerObject.addProperty("add_shadow", true);
@@ -740,6 +746,9 @@ jsonArray.add(innerObject1);
 jsonArray.add(innerObject2);
 fileUpdateRequest.setExtensions(jsonArray);
 fileUpdateRequest.setCustomCoordinates("10,10,40,40");
+JsonObject jsonObjectCustomMetadata = new JsonObject();
+jsonObjectCustomMetadata.addProperty("test10", 11);
+fileUpdateRequest.setCustomMetadata(jsonObjectCustomMetadata);
 Result result = ImageKit.getInstance().updateFileDetail(fileUpdateRequest);
 ```
 
