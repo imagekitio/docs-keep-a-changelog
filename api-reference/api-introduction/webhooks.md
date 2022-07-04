@@ -80,7 +80,7 @@ function handler(req, res) {
 
 ### Verify signature manually
 
-Imagekit webhook signature follows the following format:
+Imagekit webhook signature (`x-ik-signature` header) follows the following format:
 
 ```js
 t=${UNIX_TIMSTAMP_IN_MILLISECONDS},v1=${HMAC_SIGNATURE}
@@ -97,7 +97,7 @@ t=1655795539264,v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c
 
 Once you have retrived webhook signature from request header & raw request body, you can verify the authenticity of the webhook request in follow the following steps:
 
-Step 1: Extract each item from the `x-ik-signature` header, by splitting on `,` separator.
+Step 1: Extract each item from the `x-ik-signature`, by splitting on `,` separator.
 
 ```js
 items = 't=1655795539264,v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946'.split(',')
