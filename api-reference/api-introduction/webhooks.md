@@ -64,6 +64,7 @@ function handler(req, res) {
   const rawBody = req.rawBody; // Raw request body encoded as Uint8Array or UTF-8 string
 
   const { timestamp, event } = Webhook.verify(rawBody, signature, WEBHOOK_SECRET);
+  // If the request is can not be verified, the verify method will throw an error. You can handle this error by returning a 400 status code.
 
   // Check if timestamp is within the tolerance limit
 
@@ -125,10 +126,10 @@ Step 4: Compute the HMAC hash using the webhook secret, signature timestamp and 
 - HMAC hash is hex encoded.
 
 ```js
-computeHmac = Hmac('sha256')
-  .Key(webhookSecret)
-  .Payload(timestamp + '.' + rawRequestBody)
-  .Encode('hex')
+import { createHmac } from "crypto";
+createHmac("sha256", webhookSecret)
+  .update(timestamp + '.' + rawRequestBody)
+  .digest("hex");
 ```
 
 Step 5: Compare the computed HMAC hash with the HMAC hash from signature.
@@ -147,11 +148,9 @@ To mitigate this, Imagekit webhook signature contains a timestamp. The timestamp
 
 For retriving this timestamp, the `verify` method in ImagekitSDK returns timestamp & parsed event object.
 
-If timestamp is within the tolerance limit, the request can be considered as valid, else the request must be stalled.
+If timestamp is within the tolerance limit, the request can be considered as valid, else you can reject the request.
 
-> Optionally, a stronger approach is to use a nonce to prevent replay attacks. You can use Event ID as nonce, it is guaranteed to be unique across all events.
->
-> You can find the event ID in `id` field of the event object.
+Optionally, a stronger approach is to use a nonce to prevent replay attacks. You can use Event ID as nonce, it is guaranteed to be unique across all events. (You can find the event ID in `id` field of the event object)
 
 ## Sample Codes
 
@@ -172,7 +171,7 @@ const PORT = 8081;
 
 const app = express();
 
-app.post("/webhook", express.raw({ type: "*/*" }), (req, res) => {
+app.post("/webhook", express.raw({ type: "application/json" }), (req, res) => {
   const signature = req.headers["x-ik-signature"];
   const rawBody = req.body;
 
@@ -269,14 +268,17 @@ const startServer = async (port) => {
       // Handle webhook
       switch (event.type) {
         case "video.transformation.accepted":
-          console.log("Video transformation request accepted");
+          // It is triggered when a new video transformation request is accepted for processing. You can use this for debugging purposes.
           break;
         case "video.transformation.ready":
-          console.log("Video transformation ready");
+          // It is triggered when a video encoding is finished and the transformed resource is ready to be served. You should listen to this webhook and update any flag in your database or CMS against that particular asset so your application can start showing it to users.
           break;
         case "video.transformation.error":
-          console.log("Video transformation error");
+          // It is triggered if an error occurs during encoding. Listen to this webhook to log the reason. You should check your origin and URL-endpoint settings if the reason is related to download failure. If the reason seems like an error on the ImageKit side, then raise a support ticket at support@imagekit.io.
           break;
+        // ... handle other event types
+        default:
+          console.log(`Unhandled event type ${event.type}`);
       }
 
       // Acknowledge webhook is received and processed successfully
