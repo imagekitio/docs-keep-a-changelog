@@ -45,7 +45,7 @@ All webhook bodies are JSON encoded. The schema of the body may differ based on 
 
 Webhook endpoints are publicly accessible, therefore is important filter out malicious requests. We recommend that you use webhook signature to verify the authenticity of the webhook request.
 
-To achieve this, every imagekit webhook endpoint comes with a HMAC signature in the request header `x-ik-signature`. To generate this signature, webhook secret is required, you can find webhook secret in [Imagekit dashboard](https://imagekit.io/dashboard/developer/webhooks).
+To achieve this, every imagekit webhook endpoint comes with a signature in the request header `x-ik-signature`. To generate this signature, webhook secret is required, you can find webhook secret in [Imagekit dashboard](https://imagekit.io/dashboard/developer/webhooks).
 
 > **Note:** Webhook secret should only be known to the server that is handling the webhook request.
 
@@ -64,7 +64,7 @@ function handler(req, res) {
   const rawBody = req.rawBody; // Raw request body encoded as Uint8Array or UTF-8 string
 
   const { timestamp, event } = Webhook.verify(rawBody, signature, WEBHOOK_SECRET);
-  // If the request is can not be verified, the verify method will throw an error. You can handle this error by returning a 400 status code.
+  // If the request is can not be verified, the verify method will throw an error. You may handle this error by replying with status code 400.
 
   // Check if timestamp is within the tolerance limit
 
@@ -87,15 +87,15 @@ t=${UNIX_TIMSTAMP_IN_MILLISECONDS},v1=${HMAC_SIGNATURE}
 ```
 
 - The timestamp of signature is a Unix timestamp in milliseconds, prefixed with `t=`.
-- The HMAC hash is prefixed with `v1=`.
+- The HMAC signature is prefixed with `v1=`.
 
-Example of webhook signature
+Example of `x-ik-signature` header
 
 ```txt
 t=1655795539264,v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946
 ```
 
-Once you have retrived webhook signature from request header & raw request body, you can verify the authenticity of the webhook request in follow the following steps:
+Once you have retrived webhook signature from request header & raw request body, you can verify the authenticity of the webhook request in the following steps:
 
 Step 1: Extract each item from the `x-ik-signature`, by splitting on `,` separator.
 
@@ -104,14 +104,14 @@ items = 't=1655795539264,v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdc
 // [ 't=1655795539264', 'v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946' ]
 ```
 
-Step 2: Extract timestamp from the signature.
+Step 2: Extract timestamp.
 
 ```js
 timestamp = 't=1655795539264'.split('=')[1]
 // '1655795539264'
 ```
 
-Step 3: Extract HMAC hash from the signature.
+Step 3: Extract signature encoded as hex string.
 
 ```js
 signature = 'v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946'.split('=')[1]
@@ -123,22 +123,22 @@ Step 4: Compute the HMAC hash using the webhook secret, signature timestamp and 
 - HAMC key is the webhook secret.
 - HMAC payload is formed by concatenating the timestamp(as numeric string), character `.` and raw request body (encoded as UTF8 string).
 - Use SHA256 algorithm to compute the HMAC hash.
-- HMAC hash is hex encoded.
+- HMAC hash is encoded as hex string.
 
 ```js
 import { createHmac } from "crypto";
-createHmac("sha256", webhookSecret)
+computedHmac = createHmac("sha256", webhookSecret)
   .update(timestamp + '.' + rawRequestBody)
   .digest("hex");
 ```
 
-Step 5: Compare the computed HMAC hash with the HMAC hash from signature.
+Step 5: Compare the computed HMAC hash with the signature.
 
 ```js
-computeHmac === signature
+computedHmac === signature
 ```
 
-If the computed HMAC hash matches the HMAC hash in the signature, the webhook request can be considered valid.
+If the computed HMAC hash matches the signature, the webhook request can be considered valid.
 
 ## Preventing replay attacks
 
@@ -194,14 +194,17 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req, res) => {
   // Handle webhook
   switch (event.type) {
     case "video.transformation.accepted":
-      console.log("Video transformation request accepted");
+      // It is triggered when a new video transformation request is accepted for processing. You can use this for debugging purposes.
       break;
     case "video.transformation.ready":
-      console.log("Video transformation ready");
+      // It is triggered when a video encoding is finished and the transformed resource is ready to be served. You should listen to this webhook and update any flag in your database or CMS against that particular asset so your application can start showing it to users.
       break;
     case "video.transformation.error":
-      console.log("Video transformation error");
+      // It is triggered if an error occurs during encoding. Listen to this webhook to log the reason. You should check your origin and URL-endpoint settings if the reason is related to download failure. If the reason seems like an error on the ImageKit side, then raise a support ticket at support@imagekit.io.
       break;
+    // ... handle other event types
+    default:
+      console.log(`Unhandled event type ${event.type}`);
   }
 
   // Acknowledge webhook is received and processed successfully
@@ -268,17 +271,14 @@ const startServer = async (port) => {
       // Handle webhook
       switch (event.type) {
         case "video.transformation.accepted":
-          // It is triggered when a new video transformation request is accepted for processing. You can use this for debugging purposes.
+          console.log("Video transformation request accepted");
           break;
         case "video.transformation.ready":
-          // It is triggered when a video encoding is finished and the transformed resource is ready to be served. You should listen to this webhook and update any flag in your database or CMS against that particular asset so your application can start showing it to users.
+          console.log("Video transformation ready");
           break;
         case "video.transformation.error":
-          // It is triggered if an error occurs during encoding. Listen to this webhook to log the reason. You should check your origin and URL-endpoint settings if the reason is related to download failure. If the reason seems like an error on the ImageKit side, then raise a support ticket at support@imagekit.io.
+          console.log("Video transformation error");
           break;
-        // ... handle other event types
-        default:
-          console.log(`Unhandled event type ${event.type}`);
       }
 
       // Acknowledge webhook is received and processed successfully
