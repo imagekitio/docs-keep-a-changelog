@@ -1065,6 +1065,33 @@ ResultCustomMetaDataField resultCustomMetaDataField = ImageKit.getInstance()
 .createCustomMetaDataFields(customMetaDataFieldCreateRequest);
 ```
 
+#### MultiSelect type Exmample:
+
+```java
+List<Object> objectList = new ArrayList<>();
+objectList.add("small");
+objectList.add(30);
+objectList.add(40);
+objectList.add(true);
+
+List<Object> defaultValueObject = new ArrayList<>();
+defaultValueObject.add("small");
+defaultValueObject.add(30);
+defaultValueObject.add(true);
+CustomMetaDataFieldSchemaObject customMetaDataFieldSchemaObject = new CustomMetaDataFieldSchemaObject();
+customMetaDataFieldSchemaObject.setType("MultiSelect");
+customMetaDataFieldSchemaObject.setValueRequired(true);                 // optional
+customMetaDataFieldSchemaObject.setDefaultValue(defaultValueObject);    // required if isValueRequired set to true
+customMetaDataFieldSchemaObject.setSelectOptions(objectList);
+CustomMetaDataFieldCreateRequest customMetaDataFieldCreateRequest = new CustomMetaDataFieldCreateRequest();
+customMetaDataFieldCreateRequest.setName("Name-MultiSelect");
+customMetaDataFieldCreateRequest.setLabel("Label-MultiSelect");
+customMetaDataFieldCreateRequest.setSchema(customMetaDataFieldSchemaObject);
+
+ResultCustomMetaDataField resultCustomMetaDataField = ImageKit.getInstance()
+      .createCustomMetaDataFields(customMetaDataFieldCreateRequest);
+```
+
 Check for the [Allowed Values In The Schema](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/create-custom-metadata-field#allowed-values-in-the-schema-object).
 
 ### 2. Get Fields
