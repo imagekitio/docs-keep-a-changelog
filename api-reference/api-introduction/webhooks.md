@@ -161,15 +161,21 @@ Optionally, a stronger approach is to use a nonce to prevent replay attacks. You
 
 ```js
 const express = require('express');
-const { Webhook } = require('imagekit');
+const Imagekit = require('imagekit');
 
 // Webhook configs
 const WEBHOOK_ENDPOINT = '/webhook';
-const WEBHOOK_SECRET = 'whsec_EvCLlGyctj2WyIMW2r62m3JnyN4SXMsY'; // Copy from Imagekit dashboard
+const WEBHOOK_SECRET = 'whsec_0DrqBcZEGejn4fU0P6+EQNTPAEgUnIQW'; // Copy from Imagekit dashboard
 const WEBHOOK_EXPIRY_DURATION = 60 * 1000; // 60 seconds
 
 // Server configs
 const PORT = 8081;
+
+const imagekit = new Imagekit({
+  publicKey: 'pub_...',
+  urlEndpoint: 'https://ik.imagekit.io/example',
+  privateKey: 'pvt_...',
+})
 
 const app = express();
 
@@ -180,7 +186,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
   // Verify webhook signature
   let webhookResult;
   try {
-    webhookResult = Webhook.verify(rawBody, signature, WEBHOOK_SECRET);
+    webhookResult = imagekit.verifyWebhookEvent(rawBody, signature, WEBHOOK_SECRET);
   } catch (e) {
     // Failed to verify webhook
     return res.status(401).send(`Webhook error: ${e.message}`);
@@ -229,15 +235,21 @@ app.listen(PORT, () => {
 ```js
 const fastify = require('fastify');
 const fastifyRawBody = require('fastify-raw-body');
-const { Webhook } = require('imagekit');
+const Imagekit = require('imagekit');
 
 // Webhook configs
 const WEBHOOK_ENDPOINT = '/webhook';
-const WEBHOOK_SECRET = 'whsec_EvCLlGyctj2WyIMW2r62m3JnyN4SXMsY'; // Copy from Imagekit dashboard
+const WEBHOOK_SECRET = 'whsec_HWPhJHfjvZUWXN4AzncwIquFL2rdCfQU'; // Copy from Imagekit dashboard
 const WEBHOOK_EXPIRY_DURATION = 60 * 1000; // 60 seconds
 
 // Server configs
 const PORT = 8081;
+
+const imagekit = new Imagekit({
+  publicKey: 'pub_...',
+  urlEndpoint: 'https://ik.imagekit.io/example',
+  privateKey: 'pvt_...',
+})
 
 const server = fastify();
 
@@ -257,7 +269,7 @@ const startServer = async (port) => {
       // Verify webhook signature
       let webhookResult;
       try {
-        webhookResult = Webhook.verify(rawBody, signature, WEBHOOK_SECRET);
+        webhookResult = imagekit.verifyWebhookEvent(rawBody, signature, WEBHOOK_SECRET);
       } catch (e) {
         // Webhook verification failed
         return res.status(401).send(`Webhook error: ${e.message}`);
@@ -306,15 +318,21 @@ startServer(PORT).then(() => {
 
 ```js
 const http = require('http');
-const { Webhook } = require('imagekit');
+const Imagekit = require('imagekit');
 
 // Webhook configs
 const WEBHOOK_ENDPOINT = '/webhook';
-const WEBHOOK_SECRET = 'whsec_EvCLlGyctj2WyIMW2r62m3JnyN4SXMsY'; // Copy from Imagekit dashboard
+const WEBHOOK_SECRET = 'whsec_HWPhJHfjvZUWXN4AzncwIquFL2rdCfQU'; // Copy from Imagekit dashboard
 const WEBHOOK_EXPIRY_DURATION = 60 * 1000; // 60 seconds
 
 // Server configs
 const PORT = 8081;
+
+const imagekit = new Imagekit({
+  publicKey: 'pub_...',
+  urlEndpoint: 'https://ik.imagekit.io/example',
+  privateKey: 'pvt_...',
+})
 
 const webhookRoute = (req, res) => {
   const signature = req.headers['x-ik-signature'];
@@ -329,7 +347,7 @@ const webhookRoute = (req, res) => {
     // Verify webhook signature
     let webhookResult;
     try {
-      webhookResult = Webhook.verify(rawBody, signature, WEBHOOK_SECRET);
+      webhookResult = imagekit.verifyWebhookEvent(rawBody, signature, WEBHOOK_SECRET);
     } catch (e) {
       // Webhook signature verification failed
       res.writeHead(401, `Webhook error: ${e.message}`);
