@@ -14,7 +14,7 @@ The list of APIs whose requests can be authenticated using API keys can be found
 ## Types of keys
 
 - Standard keys: A standard API key has read and write access to all the APIs listed above.
-- Restricted key: A restricted API key allows only the minimum level of access that you specify across all the APIs listed above. The three access levels are: `None`, `Read only` and `Read and write`. For example, if you set `Read only` permission for Media access for your restricted keys, you will not be able to perform any uploads, updates, deletes, or such operations and will only be able to perform operations like list and search files, get file details, get file metadata etc.
+- Restricted key: A restricted API key allows only the minimum [level of access](#resource-list) that you specify across all the APIs listed above. The three access levels are: `None`, `Read only` and `Read and write`. For example, if you set `Read only` permission for Media access for your restricted keys, you will not be able to perform any uploads, updates, deletes, or such operations and will only be able to perform operations like list and search files, get file details, get file metadata etc.
 
 ## Obtaining your API keys
 
@@ -75,3 +75,23 @@ The three access levels across any resource are: `None`, `Read only` and `Read a
 ### Resource list
 
 - Media access: Permissions for operations on Upload, Media management, File metadata, and Custom metadata management APIs.
+
+| None          | Read                                                                                                          | Read and write (includes all read permissions)                           |
+| ------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| No permission | [List and search files](../media-api/list-and-search-files.md)                                                | [Server side file upload](../upload-file-api/server-side-file-upload.md) |
+|               | [Get file details](../media-api/get-file-details.md)                                                          | [Update file details](../media-api/update-file-details.md)               |
+|               | [Get file version details](../media-api/get-file-version-details.md)                                          | [Add tags (bulk)](../media-api/add-tags-bulk.md)                         |
+|               | [Get file versions](../media-api/get-file-versions.md)                                                        | [Remove tags (bulk)](../media-api/remove-tags-bulk.md)                   |
+|               | [Bulk job status](../media-api/copy-move-folder-status.md)                                                    | [Remove AITags (bulk)](../media-api/remove-aitags-bulk.md)               |
+|               | [Purge cache status](../media-api/purge-cache-status.md)                                                      | [Delete file](../media-api/delete-file.md)                               |
+|               | [Get image metadata for uploaded media files](../metadata-api/get-image-metadata-for-uploaded-media-files.md) | [Delete file version](../media-api/delete-file-version.md)               |
+|               | [Get image metadata from remote URL](../metadata-api/get-image-metadata-from-remote-url.md)                   | [Delete files (bulk)](../media-api/delete-files-bulk.md)                 |
+|               | [Get custom metadata field](../custom-metadata-fields-api/get-custom-metadata-field.md)                       | [Copy file](../media-api/copy-file.md)                                   |
+|               |                                                                                                               | [Move file](../media-api/move-file.md)                                   |
+|               |                                                                                                               | [Rename file](../media-api/rename-file.md)                               |
+|               |                                                                                                               | [Restore file version](../media-api/restore-file-version.md)             |
+|               |                                                                                                               | [Create folder](../media-api/create-folder.md)                           |
+|               |                                                                                                               | [Delete folder](../media-api/delete-folder.md)                           |
+|               |                                                                                                               | [Copy folder](../media-api/copy-folder.md)                               |
+|               |                                                                                                               | [Move folder](../media-api/move-folder.md)                               |
+|               |                                                                                                               | [Purge cache](../media-api/purge-cache.md)                               |
