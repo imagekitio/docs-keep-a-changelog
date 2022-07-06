@@ -55,11 +55,11 @@ The expiry period you choose blocks and expires the existing key after the time 
 
 ## Deleting keys
 
-You can delete any existing API keys in your account. However, your account will have at least one standard key pair at all times.
+You can delete any existing API key in your account. However, your account will always have at least one pair of active standard keys.
 
 ## Revealing keys
 
-By default, the private key is masked for security reasons. You can click on the reveal icon next to the private key and enter your password to authorize and reveal the API private keys.
+By default, the private key is masked for security reasons. You can click on the reveal icon next to the private key and enter your password to authorize and reveal the private keys.
 
 ## Restricted API keys
 
