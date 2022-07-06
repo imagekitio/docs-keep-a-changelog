@@ -650,20 +650,26 @@ Refer to the [List and Search File API](https://docs.imagekit.io/api-reference/m
 
 #### Example
 ```java
-ResultList resultList = ImageKit.getInstance().getFileList(new HashMap<>());
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 #### Applying Filters
 Filter out the files with an object specifying the parameters. 
 ```java
-Map<String, String> options = new HashMap<>();
-options.put("skip", "" + skip);
-options.put("limit", "" + limit);
-options.put("type", "file");
-options.put("sort", "ASC_CREATED");
-options.put("path", "/");
-options.put("fileType", "all");
-options.put("searchQuery", "size < \"20kb\"");
-ResultList resultList = ImageKit.getInstance().getFileList(options);
+String[] tags = new String[3];
+tags[0] = "tag-1";
+tags[1] = "tag-2";
+tags[2] = "tag-3";
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setType("file");
+getFileListRequest.setSort("ASC_CREATED");
+getFileListRequest.setPath("/");
+getFileListRequest.setSearchQuery("createdAt >= '2d' OR size < '2mb' OR format='png'");
+getFileListRequest.setFileType("all");
+getFileListRequest.setLimit("4");
+getFileListRequest.setSkip("1");
+getFileListRequest.setTags(tags);
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 
 #### Advance Search

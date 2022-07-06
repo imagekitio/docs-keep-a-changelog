@@ -368,10 +368,10 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("skip","0");
-options.put("limit", "10");
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setSkip("0");
+getFileListRequest.setLimit("10");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -457,9 +457,9 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("searchQquery",'createdAt >= "7d" AND size > "2mb"');
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setSearchQuery("createdAt >= '7d' AND size > '2mb'");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -545,9 +545,9 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("searchQquery",'"customMetadata.category" IN ["clothing", "accessories"]"');
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setSearchQuery("'customMetadata.category' IN ['clothing', 'accessories']'");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -633,9 +633,9 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("searchQquery",'"embeddedMetadata.DateTimeOriginal" > "1y"');
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setSearchQuery("'embeddedMetadata.DateTimeOriginal' > '1y'");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -721,9 +721,9 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("searchQquery",'name="file-name.jpg"');
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setSearchQuery("name='file-name.jpg'");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -810,9 +810,9 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("path","products");
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setPath("products");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -895,9 +895,13 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("tags","sale,summer");
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+String[] tags = new String[3];
+tags[0] = "tag-1";
+tags[1] = "tag-2";
+tags[2] = "tag-3";
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setTags(tags);
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -983,9 +987,9 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("searchQuery",'format="png"');
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setSearchQuery("format='png'");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
