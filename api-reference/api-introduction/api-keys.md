@@ -1,6 +1,6 @@
 # API keys
 
-ImageKit [authenticates](authentication.md) your API requests using your account’s API keys. If you don’t include your key when making an API request, or use an incorrect or outdated one, ImageKit returns a `403 - Forbidden` response.
+ImageKit [authenticates](authentication.md) your API requests using your account's API keys. If you don't include your key when making an API request or use an incorrect or outdated one, ImageKit returns a `403 - Forbidden` response.
 
 The list of APIs whose requests can be authenticated using API keys can be found [here](README.md).
 
@@ -14,7 +14,7 @@ The list of APIs whose requests can be authenticated using API keys can be found
 ## Types of keys
 
 - Standard keys: A standard API key has read and write access to all the APIs listed above.
-- Restricted key: A restricted API key allows only the minimum [level of access](#resource-list) that you specify across all the APIs listed above. The three access levels are: `None`, `Read only` and `Read and write`. For example, if you set `Read only` permission for Media access for your restricted keys, you will not be able to perform any uploads, updates, deletes, or such operations and will only be able to perform operations like list and search files, get file details, get file metadata etc.
+- Restricted key: A restricted API key allows only the minimum [level of access](#resource-list) that you specify across all the APIs listed above. The three access levels are: `None`, `Read only`, and `Read and write`. For example, if you set `Read only` permission for media access for your restricted key, you cannot use it to perform any upload, update, or delete operation. You can only perform operations like list and search files, get file details, get file metadata, etc.
 
 ## Obtaining your API keys
 
@@ -59,7 +59,7 @@ You can delete any existing API keys in your account. However, your account will
 
 ## Revealing keys
 
-By default, the private key is masked for security reasons. You can click on the reveal icon next to the private key and enter your password to authorise and reveal the API private keys.
+By default, the private key is masked for security reasons. You can click on the reveal icon next to the private key and enter your password to authorize and reveal the API private keys.
 
 ## Restricted API keys
 
@@ -70,7 +70,7 @@ You can:
 
 ![Create restricted API keys](../../.gitbook/assets/create-new-restricted-key.png)
 
-The three access levels across any resource are: `None`, `Read only` and `Read and write`.
+The three access levels across any resource are: `None`, `Read only`, and `Read and write`.
 
 ### Resource list
 
