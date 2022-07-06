@@ -2,13 +2,13 @@
 
 ImageKit [authenticates](authentication.md) your API requests using your account's API keys. If you don't include your key when making an API request or use an incorrect or outdated one, we return an error.
 
-The list of APIs whose requests can be authenticated using API keys can be found [here](README.md).
+You can use API keys to authenticate requests to [these API endpoints](README.md).
 
 {% hint style="info" %}
 **API key limits**\
 
 - You can only have five active API key pairs at once.
-- Your account will have at least one standard API key pair at all times.
+- Your account will always have at least one active pair of standard API keys.
   {% endhint %}
 
 ## Types of keys
@@ -18,7 +18,7 @@ The list of APIs whose requests can be authenticated using API keys can be found
 
 ## Obtaining your API keys
 
-[View](https://imagekit.io/dashboard/developer/api-keys) your API keys in the ImageKit.io dashboard in the **API keys** section under the **Developer options** tab. Every account is provided with one pair of standard public and private keys.
+[View](https://imagekit.io/dashboard/developer/api-keys) your API keys in the ImageKit.io dashboard in the **API keys** section under the **Developer options** tab. Every account has one pair of standard public and private keys by default.
 
 ![The API keys section in Developer options](../../.gitbook/assets/api-keys.png)
 
@@ -28,7 +28,7 @@ This is used to identify your account in certain client-side file upload impleme
 
 ### **Private key**
 
-This should be kept confidential and only stored on your servers. Private key is used to [authenticate](authentication.md) your account when you make an API request.
+This should be kept confidential and only stored on your servers. A private key is used to [authenticate](authentication.md) your account when you make an API request.
 
 ## Keeping your keys safe
 
@@ -55,11 +55,11 @@ The expiry period you choose blocks and expires the existing key after the time 
 
 ## Deleting keys
 
-You can delete any existing API keys in your account. However, your account will have at least one standard key pair at all times.
+You can delete any existing API key in your account. However, your account will always have at least one pair of active standard keys.
 
 ## Revealing keys
 
-By default, the private key is masked for security reasons. You can click on the reveal icon next to the private key and enter your password to authorize and reveal the API private keys.
+By default, the private key is masked for security reasons. You can click on the reveal icon next to the private key and enter your password to authorize and reveal the private keys.
 
 ## Restricted API keys
 
