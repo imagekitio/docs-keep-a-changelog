@@ -43,9 +43,9 @@ All webhook bodies are JSON encoded. The schema of the body may differ based on 
 
 ## Verify webhook signature
 
-Webhook endpoints are publicly accessible, therefore is important filter out malicious requests. We recommend that you use webhook signature to verify the authenticity of the webhook request.
+Webhook endpoints are publicly accessible, therefore is important to filter out malicious requests. We recommend to use webhook signature to verify the authenticity of the webhook request.
 
-To achieve this, every imagekit webhook endpoint comes with a signature in the request header `x-ik-signature`. To generate this signature, webhook secret is required, you can find webhook secret in [Imagekit dashboard](https://imagekit.io/dashboard/developer/webhooks).
+To achieve this, Imagekit sends `x-ik-signature` header in every webhook request. To generate this signature, a webhook secret is required. You can find the webhook secret in [Imagekit dashboard](https://imagekit.io/dashboard/developer/webhooks).
 
 {% hint style="info" %}
 Webhook secret should only be known to the server that is handling the webhook request.
