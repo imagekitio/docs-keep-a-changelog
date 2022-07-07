@@ -80,6 +80,7 @@ imagekitio.copy_folder(
 CopyFolderRequest copyFolderRequest = new CopyFolderRequest();
 copyFolderRequest.setSourceFolderPath("/folder/to/copy");
 copyFolderRequest.setDestinationPath("/folder/to/copy/into/");
+copyFolderRequest.setIncludeFileVersions(true);
 ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().copyFolder(copyFolderRequest);
 
 ```

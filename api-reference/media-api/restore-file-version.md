@@ -94,4 +94,9 @@ curl -X PUT "https://api.imagekit.io/v1/files/fileId/versions/versionId/restore"
 -u your_private_api_key:
 ```
 {% endtab %}
+{% tab title="java" %}
+```java
+Result result = ImageKit.getInstance().restoreFileVersion("fileId", "versionId");
+```
+{% endtab %}
 {% endtabs %}
