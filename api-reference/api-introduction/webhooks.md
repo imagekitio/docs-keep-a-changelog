@@ -194,7 +194,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
   const { timestamp, event } = webhookResult;
 
   // Check if webhook has expired
-  if (timestamp.getTime() + WEBHOOK_EXPIRY_DURATION < Date.now()) {
+  if (timestamp + WEBHOOK_EXPIRY_DURATION < Date.now()) {
     // Stall webhook
     return res.status(401).send('Webhook signature expired');
   }
@@ -277,7 +277,7 @@ const startServer = async (port) => {
       const { timestamp, event } = webhookResult;
 
       // Check if webhook has expired
-      if (timestamp.getTime() + WEBHOOK_EXPIRY_DURATION < Date.now()) {
+      if (timestamp + WEBHOOK_EXPIRY_DURATION < Date.now()) {
         // Stall webhook
         return res.status(401).send('Webhook signature expired');
       }
@@ -357,7 +357,7 @@ const webhookRoute = (req, res) => {
     const { timestamp, event } = webhookResult;
 
     // Check if webhook has expired
-    if (timestamp.getTime() + WEBHOOK_EXPIRY_DURATION < Date.now()) {
+    if (timestamp + WEBHOOK_EXPIRY_DURATION < Date.now()) {
       // Stall webhook
       res.writeHead(401, 'Webhook signature expired');
       res.end();
