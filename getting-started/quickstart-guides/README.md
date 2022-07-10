@@ -73,8 +73,8 @@ Follow one of the platform-specific quick start guides to integrate ImageKit in 
 [vuejs.md](vuejs.md)
 {% endcontent-ref %}
 
-{% content-ref url="next.md" %}
-[next.md](next.md)
+{% content-ref url="nextjs.md" %}
+[nextjs.md](nextjs.md)
 {% endcontent-ref %}
 
 {% content-ref url="ios.md" %}
