@@ -6,7 +6,7 @@ description: >-
 
 # Java Application
 
-This is a quick start guide to show you how to integrate ImageKit in the Java application. The code samples covered here are hosted on Github -  [https://github.com/imagekit-samples/quickstart/tree/master/java](https://github.com/imagekit-samples/quickstart/tree/master/java).
+This quick start guide shows you how to integrate ImageKit into the Java application. The code samples covered here are hosted on Github -  [https://github.com/imagekit-samples/quickstart/tree/master/java](https://github.com/imagekit-samples/quickstart/tree/master/java).
 
 This guide walks you through the following topics:
 
@@ -18,11 +18,11 @@ This guide walks you through the following topics:
 * [Server-side file uploading](java_app.md#server-side-file-upload)
 * [ImageKit Media API](java_app.md#imagekit-media-api)
 
-## Setting up ImageKit java SDK
+## Setting up ImageKit Java SDK
 
-We will create a fresh Java application for this tutorial and work with it.
+We will create a new Java application for this tutorial and work with it.
 
-First, we will install the imagekitio dependencies in our machine by applying the following things on our application.
+First, we will install the imagekitio dependencies in our machine by applying the following things to our application.
 
 ## Install dependencies
 
@@ -31,10 +31,10 @@ First, we will install the imagekitio dependencies in our machine by applying th
 Step 1. Add the JitPack repository to your build file
 ```
 allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }
-	}
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
 }
 ```
 Step 2. Add the dependency on project's `build.gradle`:
@@ -53,7 +53,7 @@ Step 1. Add the JitPack repository to your build file
     </repository>
 </repositories>
 ```
-Step 2. Add the dependency in POM file:
+Step 2. Add the dependency in the POM file:
 ```
 <dependency>
     <groupId>com.github.imagekit-developer</groupId>
@@ -68,7 +68,7 @@ It loads the imagekitio dependency in our application. Before the SDK can be use
 
 #### Initialize SDK with config.properties
 
-Open or create the `config.properties` file and add your public and private API keys, as well as the URL Endpoint as follows no need to use quote(' or ") in values: (You can find these keys in the Developer section of your ImageKit Dashboard)
+Open or create the `config.properties` file and add your public and private API keys, as well as the URL Endpoint, as follows no need to use quote('or ") in values: (You can find these keys in the Developer section of your ImageKit Dashboard)
 
 ```java
 //  Put essential values of keys [UrlEndpoint, PrivateKey, PublicKey]
@@ -86,7 +86,7 @@ imageKit.setConfig(config);
 
 The imagekitio client is configured with user-specific credentials.
 
-* `publicKey` and `privateKey` parameters are required as these would be used for all ImageKit API, server-side upload, and generating token for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
+* `publicKey` and `privateKey` parameters are required as these would be used for all ImageKit API, server-side upload, and generating tokens for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
 * `urlEndpoint` is also a required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard#url-endpoints](https://imagekit.io/dashboard#url-endpoints).&#x20;
 
 ## **Uploading images in java app**
@@ -169,9 +169,9 @@ Let’s now learn how to manipulate images using [ImgeKit transformations](../..
 
 ### **Height and width manipulation**
 
-To resize an image along with its height or width, we need to pass the `transformation` as an options with mapping the values with list to the `ImageKit.getInstance().getUrl()` method.
+To resize an image or video along with its height or width, we need to pass the `transformation` option in `ImageKit.getInstance().getUrl()` method.
 
-Let’s resize the default image to 200px height and width:
+Let's resize the default image to 200px height and width:
 
 #### Example
 ```java
@@ -194,7 +194,7 @@ String image_url=ImageKit.getInstance().getUrl(options);
 https://ik.imagekit.io/zv3rkhsym/tr:w-200,h-200,ar-4-3,q-40/default-image.jpg?ik-sdk-version=java-1.0.3
 ```
 
-Refresh your browser with new url to get the resized image.
+Refresh your browser with a new url to get the resized image.
 
 ![Resized image (200px \* 200px)](<../../../.gitbook/assets/java-app-resized-image.png>)
 
@@ -207,7 +207,7 @@ The `ageKit.getInstance().getUrl` method accepts the following parameters.
 | path                  | Conditional. This is the path on which the image exists. For example, `/path/to/image.jpg`. Either the `path` or `src` parameter needs to be specified for URL generation.                                                                                                                                                                                                                                                                                                                                                                                                                |  
 | src                   | Conditional. This is the complete URL of an image already mapped to ImageKit. For example, `https://ik.imagekit.io/your_imagekit_id/endpoint/path/to/image.jpg`. Either the `path` or `src` parameter needs to be specified for URL generation.                                                                                                                                                                                                                                                                                                                                           |  
 | transformation        | Optional. An array of objects specifying the transformation to be applied in the URL. The transformation name and the value should be specified as a key-value pair in the object. Different steps of a [chained transformation](https://docs.imagekit.io/features/image-transformations/chained-transformations) can be specified as different objects of the array. The complete [List of supported transformations](#list-of-supported-transformations) in the SDK and some examples of using them are given later. If you use a transformation name that is not specified in the SDK, it gets applied as it is in the URL. |  
-| transformationPosition | Optional. The default value is `path` which places the transformation string as a path parameter in the URL. It can also be specified as `query`, which adds the transformation string as the query parameter `tr` in the URL. If you use the `src` parameter to create the URL, the transformation string is always added as a query parameter.                                                                                                                                                                                                                                                 |  
+| transformationPosition | Optional. The default value is `path`, which places the transformation string as a path parameter in the URL. It can also be specified as `query`, which adds the transformation string as the query parameter `tr` in the URL. The transformation string is always added as a query parameter if you use the `src` parameter to create the URL.                                                                                                                                                                                                                                                 |  
 | queryParameters       | Optional. These are the other query parameters that you want to add to the final URL. These can be any query parameters and are not necessarily related to ImageKit. Especially useful if you want to add some versioning parameters to your URLs.                                                                                                                                                                                                                                                                                                                                           |  
 | signed                | Optional. Boolean. The default value is `false`. If set to `true`, the SDK generates a signed image URL adding the image signature to the image URL.                                                                                                                                                                                                                                                                                                              |  
 | expireSeconds         | Optional. Integer. It is used along with the `signed` parameter. It specifies the time in seconds from now when the signed URL will expire. If specified, the URL contains the expiry timestamp in the URL, and the image signature is modified accordingly.
@@ -223,9 +223,10 @@ This section covers the basics:
 * [Adding overlays to images](#5-adding-overlays-to-images)
 * [Signed URL](#6-secure-signed-url-generation)
 
-The Java SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable.  See the [Full list of supported transformations](#list-of-supported-transformations).
+The Java SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. See the [Full List of supported transformations](#list-of-supported-transformations).
 
-👉 If the property does not match any of the available options, it is added as it is.\ e.g
+👉 If the property does not match any of the available options, it is added as it is.
+
 ```java
 [
     'effectGray' => 'e-grayscale'
@@ -239,7 +240,7 @@ The Java SDK gives a name to each transformation parameter e.g. `height` for `h`
 
 👉 Note that you can also use the `h` and `w` parameters instead of `height` and `width`. 
 
-For more examples check the [Demo Application](https://github.com/imagekit-samples/quickstart/tree/master/java).
+For more examples, check the [Demo Application](https://github.com/imagekit-samples/quickstart/tree/master/java).
 
 ### 1. Chained Transformations
 
@@ -247,7 +248,7 @@ For more examples check the [Demo Application](https://github.com/imagekit-sampl
 
 Chained Transformations as a query parameter
 
-Let’s try it out by resizing an image, then rotating it:
+Let's try it out by resizing an image, then rotating it:
 
 #### Example
 ```java
@@ -303,7 +304,7 @@ https://ik.imagekit.io/zv3rkhsym/tr:w-200,h-300:rt-90/default-image.jpg?ik-sdk-v
 
 ![Resized, then rotated](<../../../.gitbook/assets/java-app-resized-rotate-image.png>)
 
-Let’s flip the order of transformation and see what happens.
+Let's flip the order of transformation and see what happens.
 
 #### Example
 ```java
@@ -510,7 +511,7 @@ The above snippets create a signed URL with an expiry time of 10 seconds.
 
 ### List of supported transformations
 
-The complete list of transformations supported and their usage in ImageKit can be found [here](https://docs.imagekit.io/features/image-transformations). The SDK gives a name to each transformation parameter, making the code simpler and readable. If a transformation is supported in ImageKit, but a name for it cannot be found in the table below, use the transformation code from ImageKit docs as the name when using it in the `getUrl()` function.
+The complete List of transformations supported and their usage in ImageKit can be found [here](https://docs.imagekit.io/features/image-transformations). The SDK gives a name to each transformation parameter, making the code simpler and readable. If a transformation is supported in ImageKit, but a name for it cannot be found in the table below, use the transformation code from ImageKit docs as the name when using it in the `getUrl()` function.
 
 | Supported Transformation Name | Translates to parameter           |
 | ----------------------------- | -----------------------           |
@@ -595,7 +596,7 @@ Result{
 
 ```
 #### Optional Parameters
-Please refer to [Server Side File Upload - Request Structure](https://docs.imagekit.io/api-reference/upload-file-api/server-side-file-upload#request-structure-multipart-form-data) for detailed explanation about mandatory and optional parameters.
+Please refer to [Server Side File Upload - Request Structure](https://docs.imagekit.io/api-reference/upload-file-api/server-side-file-upload#request-structure-multipart-form-data) for a detailed explanation of mandatory and optional parameters.
 
 #### Example
 ```java
@@ -676,7 +677,7 @@ ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 In addition, you can fine-tune your query by specifying various filters by generating a query string in a Lucene-like syntax and providing this generated string as the value of the `searchQuery`.
 ```java
 Map<String, String> options = new HashMap<>();
-options.put("searchQuery", "(size < \"1mb\" AND width < 500) OR (tags IN [\"summer-sale\",\"banner\"])");		
+options.put("searchQuery", "(size < \"1mb\" AND width < 500) OR (tags IN [\"summer-sale\",\"banner\"])");       
 ```
 Detailed documentation can be found here for [Advance Search Queries](https://docs.imagekit.io/api-reference/media-api/list-and-search-files#advanced-search-queries).
 
@@ -910,7 +911,7 @@ renameFileRequest.setNewFileName("new-file-name.jpg");
 ResultRenameFile resultRenameFile = ImageKit.getInstance().renameFile(renameFileRequest);
 ```
 When `purgeCache` is set to `true`, response will return `purgeRequestId`. This `purgeRequestId` can be used to get the purge request status.
-```java
+"`java
 RenameFileRequest renameFileRequest = new RenameFileRequest();
 renameFileRequest.setFilePath("/your-file-name.jpg");
 renameFileRequest.setNewFileName("new-file-name.jpg");
@@ -922,7 +923,7 @@ ResultRenameFile resultRenameFile = ImageKit.getInstance().renameFile(renameFile
 This will restore file version to a different version of a file.
 Refer to the [Restore file Version API](https://docs.imagekit.io/api-reference/media-api/restore-file-version) for a better understanding of the **Request & Response Structure**.
 #### Example
-```java
+"`java
 Result result = ImageKit.getInstance().restoreFileVersion("fileId", "versionId");
 ```
 
@@ -1102,7 +1103,7 @@ Check for the [Allowed Values In The Schema](https://docs.imagekit.io/api-refere
 
 ### 2. Get Fields
 
-Get a list of all the custom metadata fields. if includeDeleted params pass to true, list will include deleted fields also.
+Get a list of all the custom metadata fields. if includeDeleted params pass to true, List will include deleted fields also.
 
 Refer to the [Get Custom Metadata Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/get-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
 
@@ -1154,4 +1155,4 @@ The possibilities for image manipulation and optimization with ImageKit are endl
 * [Image Transformations](https://docs.imagekit.io/features/image-transformations)
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)
 * [Media Library](https://docs.imagekit.io/media-library/overview)
-* [Performance monitoring](../../features/performance-monitoring.md)
+* [Performance monitoring](../../../features/performance-monitoring.md)

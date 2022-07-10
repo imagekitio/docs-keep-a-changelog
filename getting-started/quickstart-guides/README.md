@@ -61,10 +61,6 @@ https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=q-50
 
 Follow one of the platform-specific quick start guides to integrate ImageKit in your application:
 
-{% content-ref url="php.md" %}
-[php.md](php.md)
-{% endcontent-ref %}
-
 {% content-ref url="react.md" %}
 [react.md](react.md)
 {% endcontent-ref %}
@@ -73,13 +69,30 @@ Follow one of the platform-specific quick start guides to integrate ImageKit in 
 [react-native.md](react-native.md)
 {% endcontent-ref %}
 
-{% content-ref url="ruby.md" %}
-[ruby.md](ruby-guides/README.md)
-{% endcontent-ref %}
-
 {% content-ref url="vuejs.md" %}
 [vuejs.md](vuejs.md)
 {% endcontent-ref %}
+
+{% content-ref url="next.md" %}
+[next.md](next.md)
+{% endcontent-ref %}
+
+{% content-ref url="ios.md" %}
+[ios.md](ios.md)
+{% endcontent-ref %}
+
+{% content-ref url="php.md" %}
+[php.md](php.md)
+{% endcontent-ref %}
+
+{% content-ref url="java/README.md" %}
+[java/README.md](java/README.md)
+{% endcontent-ref %}
+
+{% content-ref url="ruby-guides/README.md" %}
+[ruby-guides/README.md](ruby-guides/README.md)
+{% endcontent-ref %}
+
 
 ## SDK and libraries
 
