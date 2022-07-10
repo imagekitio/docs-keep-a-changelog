@@ -139,9 +139,7 @@ imagekitio.get_file_deltails(file_id: 'file_id_xyz')
 {% endtab %}
 {% tab title="Go" %}
 ```Go
-resp, err := ik.Media.AssetById(ctx, media.AssetByIdParams{
-    FileId: "3253253453",
-})
+resp, err := ik.Media.AssetById(ctx, "file_id")
 ```
 {% endtab %}
 {% endtabs %}

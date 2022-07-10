@@ -88,8 +88,7 @@ imagekitio.update_custom_metadata_field(
 {% tab title="Go" %}
 ```Go
 // Atleast Label or Schema is required
-resp, err := ik.Metadata.UpdateCustomField(ctx, UpdateCustomFieldParam{
-    FieldId: "598821f949c0a938d57563dd",
+resp, err := ik.Metadata.UpdateCustomField(ctx, "file_id", UpdateCustomFieldParam{
     Label: "Cost",
     Schema: {
         MinValue: 100,
