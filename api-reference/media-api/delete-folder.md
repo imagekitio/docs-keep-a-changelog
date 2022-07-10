@@ -75,4 +75,13 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.delete_folder(folder_path: 'folder/to/delete/')
 ```
 {% endtab %}
+{% tab title="Java" %}
+```java
+
+DeleteFolderRequest deleteFolderRequest = new DeleteFolderRequest();
+deleteFolderRequest.setFolderPath("folder/to/delete/");
+ResultNoContent resultNoContent = ImageKit.getInstance().deleteFolder(deleteFolderRequest);
+
+```
+{% endtab %}
 {% endtabs %}

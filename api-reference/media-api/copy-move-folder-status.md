@@ -72,4 +72,12 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.bulk_job_status(job_id: 'job_id')
 ```
 {% endtab %}
+{% tab title="Java" %}
+```java
+
+String jobId = "598821f949c0a938d57563bd";
+ResultBulkJobStatus resultBulkJobStatus = ImageKit.getInstance().getBulkJobStatus(jobId);
+
+```
+{% endtab %}
 {% endtabs %}

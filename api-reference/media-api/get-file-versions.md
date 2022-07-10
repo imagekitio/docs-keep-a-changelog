@@ -102,6 +102,15 @@ imagekit.getFileVersions("file_id", function(error, result) {
 ```
 {% endtab %}
 
+{% tab title="Java" %}
+```java
+
+String fileId = "file_id";
+ResultFileVersions resultFileVersions = ImageKit.getInstance().getFileVersions(fileId);
+
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")

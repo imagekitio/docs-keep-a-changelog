@@ -115,6 +115,12 @@ imagekit.restoreFileVersion({
 ```
 {% endtab %}
 
+{% tab title="java" %}
+```java
+Result result = ImageKit.getInstance().restoreFileVersion("file_id", "version_id");
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
 ```ruby
 imagekitio.restore_file_version(

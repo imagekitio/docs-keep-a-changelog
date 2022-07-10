@@ -539,6 +539,21 @@ echo ("Upload URL" . json_encode($uploadFile));
 ```
 {% endtab %}
 
+{% tab title="Java" %}
+```java
+
+// Upload Image - URL
+
+FileCreateRequest fileCreateRequest =new FileCreateRequest("https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",  "women_in_red.jpg");
+JsonObject jsonObjectCustomMetadata = new JsonObject();
+jsonObjectCustomMetadata.addProperty("test1", 10);
+fileCreateRequest.setCustomMetadata(jsonObjectCustomMetadata);
+Result result=ImageKit.getInstance().upload(fileCreateRequest);
+
+System.out.println(result);
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
@@ -601,6 +616,30 @@ fs.readFile('image.jpg', function(err, data) {
     else console.log(result);
   });
 });
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+
+FileCreateRequest fileCreateRequest =new FileCreateRequest("https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",  "women_in_red.jpg");
+JsonObject optionsInnerObject = new JsonObject();
+optionsInnerObject.addProperty("add_shadow", true);
+optionsInnerObject.addProperty("bg_colour", "green");
+JsonObject innerObject1 = new JsonObject();
+innerObject1.addProperty("name", "remove-bg");
+innerObject1.add("options", optionsInnerObject);
+JsonObject innerObject2 = new JsonObject();
+innerObject2.addProperty("name", "google-auto-tagging");
+innerObject2.addProperty("minConfidence", 5);
+innerObject2.addProperty("maxTags", 95);
+JsonArray jsonArray = new JsonArray();
+jsonArray.add(innerObject1);
+jsonArray.add(innerObject2);
+fileCreateRequest.setExtensions(jsonArray);
+Result result=ImageKit.getInstance().upload(fileCreateRequest);
+
+System.out.println(result);
 ```
 {% endtab %}
 {% endtabs %}

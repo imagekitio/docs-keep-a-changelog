@@ -149,4 +149,15 @@ imagekitio.rename_file(
 )
 ```
 {% endtab %}
+{% tab title="Java" %}
+```java
+
+RenameFileRequest renameFileRequest = new RenameFileRequest();
+renameFileRequest.setFilePath("/path/to/old-file-name.jpg");
+renameFileRequest.setNewFileName("new-file-name.jpg");
+renameFileRequest.setPurgeCache(false);
+ResultRenameFile resultRenameFile = ImageKit.getInstance().renameFile(renameFileRequest);
+
+```
+{% endtab %}
 {% endtabs %}

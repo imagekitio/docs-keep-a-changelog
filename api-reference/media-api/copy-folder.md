@@ -98,6 +98,17 @@ imagekitio.copy_folder(
 )
 ```
 {% endtab %}
+{% tab title="Java" %}
+```java
+
+CopyFolderRequest copyFolderRequest = new CopyFolderRequest();
+copyFolderRequest.setSourceFolderPath("/folder/to/copy");
+copyFolderRequest.setDestinationPath("/folder/to/copy/into/");
+copyFolderRequest.setIncludeFileVersions(true);
+ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().copyFolder(copyFolderRequest);
+
+```
+{% endtab %}
 {% endtabs %}
 
 

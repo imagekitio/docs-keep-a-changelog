@@ -129,4 +129,21 @@ imagekitio.delete_bulk_ai_tags(
 )
 ```
 {% endtab %}
+{% tab title="Java" %}
+```java
+List<String> fileIds = new ArrayList<>();
+fileIds.add("5e21880d5efe355febd4bccd");
+fileIds.add("5e1c13c1c55ec3437c451403");
+fileIds.add("5f4abf6fae77ae7f0acda3d1");
+fileIds.add("5f207bd1bd2741182ceadd55");
+List<String> aiTags = new ArrayList<>();
+aiTags.add("ai-tag-to-remove-1");
+aiTags.add("ai-tag-to-remove-2");
+AITagsRequest aiTagsRequest = new AITagsRequest();
+aiTagsRequest.setFileIds(fileIds);
+aiTagsRequest.setAITags(aiTags);
+ResultTags resultTags = ImageKit.getInstance().removeAITags(aiTagsRequest);
+
+```
+{% endtab %}
 {% endtabs %}

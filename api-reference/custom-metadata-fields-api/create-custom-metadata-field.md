@@ -131,4 +131,21 @@ imagekitio.create_custom_metadata_field(
 )
 ```
 {% endtab %}
+{% tab title="Java" %}
+```java
+
+CustomMetaDataFieldSchemaObject customMetaDataFieldSchemaObject = new CustomMetaDataFieldSchemaObject();
+customMetaDataFieldSchemaObject.setType("Number");
+customMetaDataFieldSchemaObject.setMinValue(1000);
+customMetaDataFieldSchemaObject.setMaxValue(3000);
+
+CustomMetaDataFieldCreateRequest customMetaDataFieldCreateRequest = new CustomMetaDataFieldCreateRequest();
+customMetaDataFieldCreateRequest.setName("price");
+customMetaDataFieldCreateRequest.setLabel("price");
+customMetaDataFieldCreateRequest.setSchema(customMetaDataFieldSchemaObject);
+
+ResultCustomMetaDataField resultCustomMetaDataField = ImageKit.getInstance().createCustomMetaDataFields(customMetaDataFieldCreateRequest);
+
+```
+{% endtab %}
 {% endtabs %}

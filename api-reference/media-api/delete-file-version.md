@@ -84,6 +84,16 @@ imagekit.deleteFileVersion({
 ```
 {% endtab %}
 
+{% tab title="Java" %}
+```java
+
+DeleteFileVersionRequest deleteFileVersionRequest = new DeleteFileVersionRequest();
+deleteFileVersionRequest.setFileId("file_id");
+deleteFileVersionRequest.setVersionId("version_id");
+ResultNoContent resultNoContent = ImageKit.getInstance().deleteFileVersion(deleteFileVersionRequest);
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
 ```ruby
 imagekitio.delete_file_version(
@@ -92,4 +102,5 @@ imagekitio.delete_file_version(
 )
 ```
 {% endtab %}
+
 {% endtabs %}
