@@ -160,7 +160,9 @@ import (
 	"github.com/imagekit-developer/imagekit-go/api/uploader"
 )
 
-resp, err := ik.Uploader.Upload(ctx, filePath, uploader.UploadParam{
+const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+
+resp, err := ik.Uploader.Upload(ctx, base64Image, uploader.UploadParam{
     Extensions: []extension.IExtension{
         extension.NewAutoTag(extension.GoogleAutoTag, 50, 5),
         extension.NewAutoTag(extension.AwsAutoTag, 50, 5),

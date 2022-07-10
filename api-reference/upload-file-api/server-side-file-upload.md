@@ -230,9 +230,9 @@ upload = imagekitio.upload_file(file, "testing.jpg", {
 {% tab title="Go" %}
 ```Go
 ik, err := ImageKit.New()
-var filePath = "/some/image.jpg"
 
-resp, err := ik.Upload.Upload(ctx, filePath, uploader.UploadParam{})
+const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+resp, err := ik.Upload.Upload(ctx, base64Image, uploader.UploadParam{})
 ```
 {% endtab %}
 {% endtabs %}
@@ -646,9 +646,10 @@ import (
     "github.com/imagekit-developer/imagekit-go/extension"
 	"github.com/imagekit-developer/imagekit-go/api/uploader"
 )
-filePath := "/home/dhaval/Pictures/natural/beauty_of_nature_12.jpg"
 
-resp, err := ik.Uploader.Upload(ctx, filePath, uploader.UploadParam{
+const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+
+resp, err := ik.Uploader.Upload(ctx, base64Image, uploader.UploadParam{
     Extensions: []extension.IExtension{
         extension.NewAutoTag(extension.AwsAutoTag, 0, 10),
         extension.NewRemoveBg(extension.RemoveBgOption{}),
