@@ -117,13 +117,35 @@ curl -X PUT "https://api.imagekit.io/v1/files/rename" \
 '
 ```
 {% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.renameFile({
+     filePath: "/path/to/old-file-name.jpg",
+     newFileName: "new-file-name.jpg",
+     purgeCache: false // optional
+}, function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.rename_file(
   file_path: '/path/to/old-file-name.jpg',
   new_file_name: 'new-file-name.jpg',
-  purge_cache: true #optional
+  purge_cache: false #optional
 )
 ```
 {% endtab %}

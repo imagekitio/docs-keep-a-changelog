@@ -83,7 +83,7 @@ curl -X POST "https://api.imagekit.io/v1/files/batch/deleteByFileIds" \
 -H 'Content-Type: application/json' \
 -u your_private_key: -d '
 {
-	"fileIds" : ["5e1c2079c55ec3437c451b6d"]
+	"fileIds" : ["file_id_1", "file_id_2"]
 }
 '
 ```
@@ -91,7 +91,7 @@ curl -X POST "https://api.imagekit.io/v1/files/batch/deleteByFileIds" \
 
 {% tab title="Node.js" %}
 ```javascript
-imagekit.bulkDeleteFiles(["fileId1","fileId2"])
+imagekit.bulkDeleteFiles(["file_id_1","file_id_2"])
 .then(response => {
     console.log(response);
 })
@@ -103,7 +103,7 @@ imagekit.bulkDeleteFiles(["fileId1","fileId2"])
 
 {% tab title="Python" %}
 ```python
-imagekit.bulk_file_delete(["file_id1", "file_id2"])
+imagekit.bulk_file_delete(["file_id_1", "file_id_2"])
 ```
 {% endtab %}
 
@@ -118,8 +118,8 @@ $imageKit->bulkFileDeleteByIds(array(
 {% tab title="Java" %}
 ```java
 List<String> fileIds=new ArrayList<>();
-fileIds.add("fileId1");
-fileIds.add("fileId2");
+fileIds.add("file_id_1");
+fileIds.add("file_id_2");
 ResultFileDelete result=ImageKit.getInstance().bulkDeleteFiles(fileIds);
 ```
 {% endtab %}
@@ -127,7 +127,7 @@ ResultFileDelete result=ImageKit.getInstance().bulkDeleteFiles(fileIds);
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-bulk_ids = Array["fileId1","fileId2"]
+bulk_ids = Array["file_id_1","file_id_2"]
 imagekitio.delete_bulk_files(file_ids: bulk_ids)
 ```
 {% endtab %}

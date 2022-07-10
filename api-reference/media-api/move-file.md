@@ -56,12 +56,33 @@ curl -X POST "https://api.imagekit.io/v1/files/move" \
 '
 ```
 {% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.moveFile({
+     sourceFilePath: "/path/to/file.jpg",
+     destinationPath: "/folder/to/move/into/"
+}, function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.move_file(
   source_file_path: '/path/to/file.jpg',
-  destination_path: '/folder/to/move/into/*'
+  destination_path: '/folder/to/move/into/'
 )
 ```
 {% endtab %}

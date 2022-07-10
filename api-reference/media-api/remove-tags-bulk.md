@@ -85,30 +85,47 @@ curl -X POST "https://api.imagekit.io/v1/files/removeTags" \
 -u your_private_key: -d '
 {
 	"fileIds" : [
-		"5e21880d5efe355febd4bccd",
-		"5e1c13c1c55ec3437c451403",
-		"5f4abf6fae77ae7f0acda3d1", 
-		"5f207bd1bd2741182ceadd55"
+		"file_id_1",
+		"file_id_2"
 	],
 	"tags" : [
-		"tag-to-remove-1", 
-		"tag-to-remove-2"
+		"tag_to_remove_1", 
+		"tag_to_remove_2"
 	]
 }
 '
 ```
 {% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+var fileIds = ["file_id_1", "file_id_2"];
+var tags = ["tag_to_remove_1", "tag_to_remove_2"];
+
+imagekit.bulkRemoveTags(fileIds, tags, function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.delete_bulk_tags(
   file_ids: [
-    "5e21880d5efe355febd4bccd",
-    "5e1c13c1c55ec3437c451403",
-    "5f4abf6fae77ae7f0acda3d1",
-    "5f207bd1bd2741182ceadd55"
+    "file_id_1",
+    "file_id_2"
     ],
-    tags: ['tag-to-remove-1', 'tag-to-remove-2']
+    tags: ['tag_to_remove_1', 'tag_to_remove_2']
 )
 ```
 {% endtab %}

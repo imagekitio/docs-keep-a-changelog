@@ -19,7 +19,7 @@ The full path to the source folder you want to copy. For example - `/path/of/sou
 Full path to the destination folder where you want to copy the source folder into. For example - `/path/of/destination/folder`.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="includeVersions" type="boolean" %}
+{% swagger-parameter in="body" name="includeFileVersions" type="boolean" %}
 Option to copy all versions of files that are nested inside the selected folder. By default, only the current version of each file will be copied. When set to `true`, all versions of each file will be copied.
 
 **Default value** \- `false`
@@ -60,17 +60,41 @@ curl -X POST "https://api.imagekit.io/v1/bulkJobs/copyFolder" \
 -u your_private_key: -d '
 {
 	"sourceFolderPath" : "/folder/to/copy",
-	"destinationPath" : "/folder/to/copy/into/"
+	"destinationPath" : "/folder/to/copy/into/",
+        "includeFileVersions": true
 }
 '
 ```
 {% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.copyFolder({
+     sourceFolderPath: "/folder/to/copy",
+     destinationPath: "/folder/to/copy/into/",
+     includeFileVersions: false // optional
+}, function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.copy_folder(
   source_folder_path: '/folder/to/copy',
-  destination_path: '/folder/to/copy/into/'
+  destination_path: '/folder/to/copy/into/',
+  include_file_versions: false # optional
 )
 ```
 {% endtab %}

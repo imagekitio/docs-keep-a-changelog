@@ -81,18 +81,48 @@ Here is the example request to understand the API usage.
 {% tab title="cURL" %}
 ```bash
 # The unique fileId and versionId of the uploaded file. fileId and versionId (versionInfo.id) is returned in response of list files API and upload API.
-curl -X GET "https://api.imagekit.io/v1/files/fileId/versions/versionId" \
+curl -X GET "https://api.imagekit.io/v1/files/file_id/versions/version_id" \
 -u your_private_api_key:
+```
+{% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.getFileVersionDetails({
+     fileId: "file_id",
+     versionId: "version_id"
+}, function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
 ```
 {% endtab %}
 
 {% tab title="Java" %}
 ```java
 
-String fileId = "fileId";
-String versionId = "versionId";
+String fileId = "file_id";
+String versionId = "version_id";
 ResultFileVersionDetails resultFileVersionDetails = ImageKit.getInstance().getFileVersionDetails(fileId, versionId);
-
 ```
 {% endtab %}
+
+{% tab title='Ruby' %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.file_version_detail(
+    file_id: 'file_id',
+    version_id: 'version_id'
+)
+```
+{% endtab %}
+
 {% endtabs %}
