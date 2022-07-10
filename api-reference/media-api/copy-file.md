@@ -57,17 +57,41 @@ curl -X POST "https://api.imagekit.io/v1/files/copy" \
 -u your_private_key: -d '
 {
 	"sourceFilePath" : "/path/to/file.jpg",
-	"destinationPath" : "/folder/to/copy/into/"
+	"destinationPath" : "/folder/to/copy/into/",
+    "includeFileVersions" : true
 }
 '
 ```
 {% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.copyFile({
+     sourceFilePath: "/path/to/file.jpg",
+     destinationPath: "/folder/to/copy/into/",
+     includeFileVersions: false // optional
+}, function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.copy_file(
   source_file_path: '/pah/to/file.jpg',
-  destination_path: '/folder/to/copy/into/*'
+  destination_path: '/folder/to/copy/into/',
+  include_file_versions: false # optional
 )
 ```
 {% endtab %}
