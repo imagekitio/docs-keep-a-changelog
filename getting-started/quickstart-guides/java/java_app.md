@@ -1119,7 +1119,7 @@ Check for the [Allowed Values In The Schema](https://docs.imagekit.io/api-refere
 
 ### 2. Get Fields
 
-Get a list of all the custom metadata fields. if includeDeleted params pass to true, List will include deleted fields also.
+Get a list of all the custom metadata fields. if includeDeleted is passed and set to `true`, the list will include deleted fields also.
 
 Refer to the [Get Custom Metadata Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/get-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
 
