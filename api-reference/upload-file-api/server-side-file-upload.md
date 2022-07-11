@@ -200,8 +200,8 @@ $imageKit = new ImageKit(
 $uploadFile = $imageKit->uploadFile([
     "file" => fopen(__DIR__."/image.jpg", "r"),
     "fileName" => "my_file_name.jpg",
-    "tags" => implode(",", ["tag1", "tag2"]),
-    "customCoordinates" => implode(",", ["10", "10", "100", "100"])
+    "tags" => ["tag1", "tag2"],
+    "customCoordinates" => "10,10,100,100"
 ]);
 
 echo ("Upload binary file : " . json_encode($uploadFile));
@@ -322,8 +322,8 @@ $base64Img = base64_encode($img);
 $uploadFile = $imageKit->uploadFile([
     "file" => $base64Img,
     "fileName" => "my_file_name.jpg",
-    "tags" => implode(",", ["tag1", "tag2"]),
-    "customCoordinates" => implode(",", ["10", "10", "100", "100"])
+    "tags" => ["tag1", "tag2"],
+    "customCoordinates" => "10,10,100,100"
 ]);
 
 echo ("Upload base64" . json_encode($uploadFile));

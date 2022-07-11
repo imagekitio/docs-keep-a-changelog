@@ -102,7 +102,8 @@ curl -X PATCH "https://api.imagekit.io/v1/files/fileId/details" \
 -u your_private_key: -d'
 {
     "tags": [
-        "image_tag"
+        "tag1",
+        "tag2"
     ],
     "customCoordinates": "10,10,100,100"
 }
@@ -165,7 +166,7 @@ $imageKit = new ImageKit(
 
 // Update File Details
 $updateData = [
-    "tags" => ["image_tag"],
+    "tags" => ["tag1","tag2"],
     "customCoordinates" => "10,10,100,100"
 ];
 
@@ -277,7 +278,7 @@ $imageKit = new ImageKit(
 
 // Update File Details
 $updateData = [
-    "tags" => ["image_tag"],
+    "tags" => ["tag1","tag2"],
     "customCoordinates" => "10,10,100,100"
 ];
 
