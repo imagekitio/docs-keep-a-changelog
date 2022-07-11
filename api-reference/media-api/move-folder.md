@@ -111,4 +111,14 @@ echo("Move Folder : " . json_encode($moveFolder));
 ```
 {% endtab %}
 
+{% tab title="Java" %}
+```java
+
+MoveFolderRequest moveFolderRequest = new MoveFolderRequest();
+moveFolderRequest.setSourceFolderPath("/folder/to/move");
+moveFolderRequest.setDestinationPath("/folder/to/move/into/");
+ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().moveFolder(moveFolderRequest);
+
+```
+{% endtab %}
 {% endtabs %}

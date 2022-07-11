@@ -110,7 +110,7 @@ Example payload looks like below:
           "duration": 15.023,
           "width": 1280,
           "height": 720,
-          "bitrate": 15.023
+          "bitrate": 180260
         }
       }
     }

@@ -128,6 +128,15 @@ echo("File Version details : " . json_encode($getFileVersionDetails));
 ```
 {% endtab %}
 
+{% tab title="Java" %}
+```java
+
+String fileId = "file_id";
+String versionId = "version_id";
+ResultFileVersionDetails resultFileVersionDetails = ImageKit.getInstance().getFileVersionDetails(fileId, versionId);
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")

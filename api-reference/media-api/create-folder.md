@@ -100,4 +100,15 @@ echo("Create Folder : " . json_encode($createFolder));
 ```
 {% endtab %}
 
+{% tab title="Java" %}
+```java
+
+CreateFolderRequest createFolderRequest = new CreateFolderRequest();
+createFolderRequest.setFolderName("new_folder");
+createFolderRequest.setParentFolderPath("source/folder/path");
+ResultEmptyBlock resultEmptyBlock = ImageKit.getInstance().createFolder(createFolderRequest);
+
+```
+{% endtab %}
+
 {% endtabs %}

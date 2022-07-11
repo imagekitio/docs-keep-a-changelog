@@ -96,4 +96,13 @@ echo("Delete Folder : " . json_encode($deleteFolder));
 ```
 {% endtab %}
 
+{% tab title="Java" %}
+```java
+
+DeleteFolderRequest deleteFolderRequest = new DeleteFolderRequest();
+deleteFolderRequest.setFolderPath("folder/to/delete/");
+ResultNoContent resultNoContent = ImageKit.getInstance().deleteFolder(deleteFolderRequest);
+
+```
+{% endtab %}
 {% endtabs %}

@@ -101,4 +101,13 @@ $getCustomMetadataField = $imageKit->getCustomMetadataFields($includeDeleted);
 echo("Get Custom Metadata Field : " . json_encode($getCustomMetadataField));
 ```
 {% endtab %}
+
+{% tab title="Java" %}
+```java
+
+boolean includeDeleted = false;
+ResultCustomMetaDataFieldList resultCustomMetaDataFieldList = ImageKit.getInstance().getCustomMetaDataFields(includeDeleted);
+
+```
+{% endtab %}
 {% endtabs %}

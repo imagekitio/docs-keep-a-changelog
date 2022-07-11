@@ -125,5 +125,15 @@ $copyFolder = $imageKit->copyFolder([
 echo("Copy Folder : " . json_encode($copyFolder));
 ```
 {% endtab %}
+{% tab title="Java" %}
+```java
 
+CopyFolderRequest copyFolderRequest = new CopyFolderRequest();
+copyFolderRequest.setSourceFolderPath("/folder/to/copy");
+copyFolderRequest.setDestinationPath("/folder/to/copy/into/");
+copyFolderRequest.setIncludeFileVersions(true);
+ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().copyFolder(copyFolderRequest);
+
+```
+{% endtab %}
 {% endtabs %}

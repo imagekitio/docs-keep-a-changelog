@@ -94,4 +94,13 @@ $bulkJobStatus = $imageKit->getBulkJobStatus($jobId);
 echo("Bulk Job Status : " . json_encode($bulkJobStatus));
 ```
 {% endtab %}
+
+{% tab title="Java" %}
+```java
+
+String jobId = "598821f949c0a938d57563bd";
+ResultBulkJobStatus resultBulkJobStatus = ImageKit.getInstance().getBulkJobStatus(jobId);
+
+```
+{% endtab %}
 {% endtabs %}
