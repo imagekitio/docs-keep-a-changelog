@@ -58,7 +58,7 @@ You can use imagekit SDK to verify & parse webhook request payload.
 {% tabs %}
 {% tab title="NodeJS SDK" %}
 
-```js
+```javascript
 const express = require('express');
 const Imagekit = require('imagekit');
 
@@ -136,21 +136,21 @@ Once you have retrieved the webhook signature from the request header & raw requ
 
 **Step 1:** Extract each item from the `x-ik-signature`, by splitting on `,` separator.
 
-```js
+```javascript
 items = 't=1655795539264,v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946'.split(',')
 // [ 't=1655795539264', 'v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946' ]
 ```
 
 **Step 2:** Extract timestamp.
 
-```js
+```javascript
 timestamp = 't=1655795539264'.split('=')[1]
 // '1655795539264'
 ```
 
 **Step 3:** Extract signature encoded as a hex string.
 
-```js
+```javascript
 signature = 'v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946'.split('=')[1]
 // 'b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946'
 ```
@@ -164,7 +164,7 @@ signature = 'v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946
 
 Here is an example in Node.js:
 
-```js
+```javascript
 const createHmac = require("crypto").createHmac;
 var signature = createHmac('sha256', webhookSecret)
   .update(timestamp + '.' + rawRequestBody)
@@ -190,7 +190,7 @@ Optionally, a stronger approach is to use a nonce to prevent replay attacks. You
 {% tabs %}
 {% tab title="ExpressJS" %}
 
-```js
+```javascript
 const express = require('express');
 const Imagekit = require('imagekit');
 
@@ -260,7 +260,7 @@ app.listen(3000, () => {
 
 {% tab title="Fastify" %}
 
-```js
+```javascript
 const fastify = require('fastify');
 const fastifyRawBody = require('fastify-raw-body');
 const Imagekit = require('imagekit');
@@ -341,7 +341,7 @@ startServer(3000).then(() => {
 
 {% tab title="Node HTTP" %}
 
-```js
+```javascript
 const http = require('http');
 const Imagekit = require('imagekit');
 
