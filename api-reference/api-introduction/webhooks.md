@@ -43,38 +43,79 @@ All webhook bodies are JSON encoded. The schema of the body may differ based on 
 
 ## Verify webhook signature
 
-Webhook endpoints are publicly accessible, therefore is important to filter out malicious requests. We recommend to use webhook signature to verify the authenticity of the webhook request.
+Webhook endpoints are publicly accessible, therefore it is essential to filter out malicious requests. We recommend using the webhook signature to verify the authenticity of the webhook request and payload.
 
-To achieve this, Imagekit sends `x-ik-signature` header in every webhook request. To generate this signature, a webhook secret is required. You can find the webhook secret in [Imagekit dashboard](https://imagekit.io/dashboard/developer/webhooks).
+To achieve this, Imagekit sends the signature in `x-ik-signature` request header in every webhook request. In your backend, you can generate the same signature using the [webhook secret](https://imagekit.io/dashboard/developer/webhooks) and compare it with the header value.
 
 {% hint style="info" %}
-Webhook secret should only be known to the server that is handling the webhook request.
+Keep webhook secret secure in your backend stored in an environment variable.
 {% endhint %}
 
-### Verify signature with imagekit SDK
+### Verify signature with ImageKit SDK
 
-You can use imagekit SDK to verify & parse webhook request.
+You can use imagekit SDK to verify & parse webhook request payload.
 
 {% tabs %}
 {% tab title="NodeJS SDK" %}
 
 ```js
-const { Webhook } = require('imagekit');
+const express = require('express');
+const Imagekit = require('imagekit');
 
-function handler(req, res) {
-  const signature = req.headers['x-ik-signature'];
-  const rawBody = req.rawBody; // Raw request body encoded as Uint8Array or UTF-8 string
+// Webhook configs
+const WEBHOOK_SECRET = 'whsec_...'; // Copy from Imagekit dashboard
+const WEBHOOK_EXPIRY_DURATION = 300 * 1000; // 300 seconds for example
 
-  const { timestamp, event } = Webhook.verify(rawBody, signature, WEBHOOK_SECRET);
-  // If the request is can not be verified, the verify method will throw an error. You may handle this error by replying with status code 400.
+const imagekit = new Imagekit({
+  publicKey: 'public_...',
+  urlEndpoint: 'https://ik.imagekit.io/imagekit_id',
+  privateKey: 'private_...',
+})
 
-  // Check if timestamp is within the tolerance limit
+const app = express();
 
-  // Handle event...
+app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
+    const signature = req.headers["x-ik-signature"];
+    const requestBody = req.body;
+    let webhookResult;
+    try {
+        webhookResult = imagekit.verifyWebhookEvent(requestBody, signature, WEBHOOK_SECRET);
+    } catch (e) {
+        // `verifyWebhookEvent` method will throw an error if signature is invalid
+        console.log(e);
+        res.status(400).send(`Webhook Error`);
+    }
 
-  // If everything is ok, respond with status code 2xx
-  res.status(200).end();
-}
+    const { timestamp, event } = webhookResult;
+
+    // Check if webhook has expired
+    if (timestamp + WEBHOOK_EXPIRY_DURATION < Date.now()) {
+        res.status(400).send(`Webhook Error`);
+    }
+
+    // Handle webhook
+    switch (event.type) {
+        case 'video.transformation.accepted':
+            // It is triggered when a new video transformation request is accepted for processing. You can use this for debugging purposes.
+            break;
+        case 'video.transformation.ready':
+            // It is triggered when a video encoding is finished, and the transformed resource is ready to be served. You should listen to this webhook and update any flag in your database or CMS against that particular asset so your application can start showing it to users.
+            break;
+        case 'video.transformation.error':
+            // It is triggered if an error occurs during encoding. Listen to this webhook to log the reason. You should check your origin and URL-endpoint settings if the reason is related to download failure. If the reason seems like an error on the ImageKit side, then raise a support ticket at support@imagekit.io.
+            break;
+        default:
+            // ... handle other event types
+            console.log(`Unhandled event type ${event.type}`);
+    }
+
+    // Return a response to acknowledge receipt of the event
+    res.send();
+})
+
+app.listen(3000, () => {
+    console.log(`Example app listening on port 3000`)
+})
 ```
 
 {% endtab %}
@@ -82,77 +123,67 @@ function handler(req, res) {
 
 ### Verify signature manually
 
-Imagekit webhook signature (`x-ik-signature` header) follows the following format:
-
-```js
-t=${UNIX_TIMSTAMP_IN_MILLISECONDS},v1=${HMAC_SIGNATURE}
-```
-
-- The timestamp of signature is a Unix timestamp in milliseconds, prefixed with `t=`.
-- The HMAC signature is prefixed with `v1=`.
-
-Example of `x-ik-signature` header
+Imagekit webhook request contains a `x-ik-signature` header like this:
 
 ```txt
-t=1655795539264,v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946
+x-ik-signature: t=1655795539264,v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946
 ```
 
-Once you have retrived webhook signature from request header & raw request body, you can verify the authenticity of the webhook request in the following steps:
+- The Timestamp of signature is a Unix timestamp in milliseconds, prefixed with `t=`.
+- The HMAC signature is prefixed with `v1=`.
 
-Step 1: Extract each item from the `x-ik-signature`, by splitting on `,` separator.
+Once you have retrieved the webhook signature from the request header & raw request body, you can verify the authenticity of the webhook request in the following steps:
+
+**Step 1:** Extract each item from the `x-ik-signature`, by splitting on `,` separator.
 
 ```js
 items = 't=1655795539264,v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946'.split(',')
 // [ 't=1655795539264', 'v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946' ]
 ```
 
-Step 2: Extract timestamp.
+**Step 2:** Extract timestamp.
 
 ```js
 timestamp = 't=1655795539264'.split('=')[1]
 // '1655795539264'
 ```
 
-Step 3: Extract signature encoded as hex string.
+**Step 3:** Extract signature encoded as a hex string.
 
 ```js
 signature = 'v1=b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946'.split('=')[1]
 // 'b6bc2aa82491c32f1cbef0eb52b7ffaa51467ea65a03b5d4ccdcfb9e0941c946'
 ```
 
-Step 4: Compute the HMAC hash using the webhook secret, signature timestamp and raw request body.
+**Step 4:** Compute the HMAC hash using the webhook secret, signature timestamp, and raw request body.
 
 - HAMC key is the webhook secret.
-- HMAC payload is formed by concatenating the timestamp(as numeric string), character `.` and raw request body (encoded as UTF8 string).
-- Use SHA256 algorithm to compute the HMAC hash.
-- HMAC hash is encoded as hex string.
+- HMAC payload is formed by concatenating the Timestamp (as numeric string), character `.`, and raw request body (encoded as UTF8 string).
+- Use the SHA256 algorithm to compute the HMAC hash.
+- HMAC hash is encoded as a hex string.
+
+Here is an example in Node.js:
 
 ```js
-import { createHmac } from 'crypto';
-computedHmac = createHmac('sha256', webhookSecret)
+const createHmac = require("crypto").createHmac;
+var signature = createHmac('sha256', webhookSecret)
   .update(timestamp + '.' + rawRequestBody)
   .digest('hex');
 ```
 
-Step 5: Compare the computed HMAC hash with the signature.
-
-```js
-computedHmac === signature
-```
-
-If the computed HMAC hash matches the signature, the webhook request can be considered valid.
+**Step 5:** Compare the signature with the signature received in the `x-ik-signature` header. The webhook request is valid if they are the same.
 
 ## Preventing replay attacks
 
-When an attacker intercepts a webhook request, he can replay the request multiple times with a valid signature.
+When an attacker intercepts a webhook request, they can replay it multiple times with a valid signature.
 
-To mitigate this, Imagekit webhook signature contains a timestamp. The timestamp is generated right before the webhook request is sent to the server.
+To mitigate this, Imagekit webhook signature contains a timestamp. The Timestamp is generated before the webhook request is sent to your server.
 
-For retriving this timestamp, the `verify` method in ImagekitSDK returns timestamp & parsed event object.
+The `verify` method in ImagekitSDK returns the Timestamp & parsed event object.
 
-If timestamp is within the tolerance limit, the request can be considered as valid, else you can reject the request.
+If the Timestamp is within the tolerance limit, the request can be considered valid, or you can reject it.
 
-Optionally, a stronger approach is to use a nonce to prevent replay attacks. You can use Event ID as nonce, it is guaranteed to be unique across all events. (You can find the event ID in `id` field of the event object)
+Optionally, a stronger approach is to use a nonce to prevent replay attacks. You can use Event ID as a nonce, it is guaranteed to be unique across all events. You can find the event ID in `id` field of the event object.
 
 ## Sample Codes
 
@@ -165,16 +196,13 @@ const Imagekit = require('imagekit');
 
 // Webhook configs
 const WEBHOOK_ENDPOINT = '/webhook';
-const WEBHOOK_SECRET = 'whsec_0DrqBcZEGejn4fU0P6+EQNTPAEgUnIQW'; // Copy from Imagekit dashboard
+const WEBHOOK_SECRET = 'whsec_...'; // Copy from Imagekit dashboard
 const WEBHOOK_EXPIRY_DURATION = 60 * 1000; // 60 seconds
 
-// Server configs
-const PORT = 8081;
-
 const imagekit = new Imagekit({
-  publicKey: 'pub_...',
-  urlEndpoint: 'https://ik.imagekit.io/example',
-  privateKey: 'pvt_...',
+  publicKey: 'public_...',
+  urlEndpoint: 'https://ik.imagekit.io/imagekit_id',
+  privateKey: 'private_...',
 })
 
 const app = express();
@@ -205,7 +233,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
       // It is triggered when a new video transformation request is accepted for processing. You can use this for debugging purposes.
       break;
     case 'video.transformation.ready':
-      // It is triggered when a video encoding is finished and the transformed resource is ready to be served. You should listen to this webhook and update any flag in your database or CMS against that particular asset so your application can start showing it to users.
+      // It is triggered when a video encoding is finished, and the transformed resource is ready to be served. You should listen to this webhook and update any flag in your database or CMS against that particular asset so your application can start showing it to users.
       break;
     case 'video.transformation.error':
       // It is triggered if an error occurs during encoding. Listen to this webhook to log the reason. You should check your origin and URL-endpoint settings if the reason is related to download failure. If the reason seems like an error on the ImageKit side, then raise a support ticket at support@imagekit.io.
@@ -219,8 +247,8 @@ app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
   res.status(200).end();
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+app.listen(3000, () => {
+  console.log("Server listening on port 3000");
   console.log(
     `Webhook endpoint: 'http://localhost:${PORT}${WEBHOOK_ENDPOINT}'`,
     'Do replace 'localhost' with public endpoint'
@@ -239,16 +267,13 @@ const Imagekit = require('imagekit');
 
 // Webhook configs
 const WEBHOOK_ENDPOINT = '/webhook';
-const WEBHOOK_SECRET = 'whsec_HWPhJHfjvZUWXN4AzncwIquFL2rdCfQU'; // Copy from Imagekit dashboard
+const WEBHOOK_SECRET = 'whsec_...'; // Copy from Imagekit dashboard
 const WEBHOOK_EXPIRY_DURATION = 60 * 1000; // 60 seconds
 
-// Server configs
-const PORT = 8081;
-
 const imagekit = new Imagekit({
-  publicKey: 'pub_...',
-  urlEndpoint: 'https://ik.imagekit.io/example',
-  privateKey: 'pvt_...',
+  publicKey: 'public_...',
+  urlEndpoint: 'https://ik.imagekit.io/imagekit_id',
+  privateKey: 'private_...',
 })
 
 const server = fastify();
@@ -264,7 +289,7 @@ const startServer = async (port) => {
     handler: (req, res) => {
       // Handle webhook
       const signature = req.raw.headers['x-ik-signature'];
-      const rawBody = req.rawBody;
+      const rawBody = req.body;
 
       // Verify webhook signature
       let webhookResult;
@@ -303,8 +328,8 @@ const startServer = async (port) => {
   await server.listen({ port });
 };
 
-startServer(PORT).then(() => {
-  console.log(`Server listening on port ${PORT}`);
+startServer(3000).then(() => {
+  console.log("Server listening on port 3000");
   console.log(
     `Webhook endpoint: 'http://localhost:${PORT}${WEBHOOK_ENDPOINT}'`,
     'Do replace 'localhost' with public endpoint'
@@ -322,16 +347,13 @@ const Imagekit = require('imagekit');
 
 // Webhook configs
 const WEBHOOK_ENDPOINT = '/webhook';
-const WEBHOOK_SECRET = 'whsec_HWPhJHfjvZUWXN4AzncwIquFL2rdCfQU'; // Copy from Imagekit dashboard
+const WEBHOOK_SECRET = 'whsec_...'; // Copy from Imagekit dashboard
 const WEBHOOK_EXPIRY_DURATION = 60 * 1000; // 60 seconds
 
-// Server configs
-const PORT = 8081;
-
 const imagekit = new Imagekit({
-  publicKey: 'pub_...',
-  urlEndpoint: 'https://ik.imagekit.io/example',
-  privateKey: 'pvt_...',
+  publicKey: 'public_...',
+  urlEndpoint: 'https://ik.imagekit.io/imagekit_id',
+  privateKey: 'private_...',
 })
 
 const webhookRoute = (req, res) => {
@@ -395,8 +417,8 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+server.listen(3000, () => {
+  console.log("Server listening on port 3000");
   console.log(
     `Webhook endpoint: 'http://localhost:${PORT}${WEBHOOK_ENDPOINT}'`,
     'Do replace 'localhost' with public endpoint'
