@@ -32,6 +32,27 @@ Each value should be a unique fileId of the uploaded file. `fileId` is returned 
 ```
 {% endswagger-response %}
 
+{% swagger-response status="207" description="An array of fileIds is returned for successful and error cases on partial success." %}
+```javascript
+{
+    "successfullyDeletedFileIds": [
+        "5e1c13d0c55ec3437c451406",
+        ...
+    ],
+    "errors": [
+        {
+            fileId: "3e21880d5efe355febd4bccx",
+            error: "Error in deleting tags"
+        },
+        {
+            fileId: "5fc1c55efe355febddcda3d1",
+            error: "Error in deleting tags"
+        }
+    ]
+}
+```
+{% endswagger-response %}
+
 {% swagger-response status="404" description="If any of the fileId is not found in your media library then a 404 response is returned and no file is deleted. The whole operation fails." %}
 ```javascript
 {
@@ -62,7 +83,7 @@ curl -X POST "https://api.imagekit.io/v1/files/batch/deleteByFileIds" \
 -H 'Content-Type: application/json' \
 -u your_private_key: -d '
 {
-	"fileIds" : ["5e1c2079c55ec3437c451b6d"]
+	"fileIds" : ["file_id_1", "file_id_2"]
 }
 '
 ```
@@ -70,7 +91,7 @@ curl -X POST "https://api.imagekit.io/v1/files/batch/deleteByFileIds" \
 
 {% tab title="Node.js" %}
 ```javascript
-imagekit.bulkDeleteFiles(["fileId1","fileId2"])
+imagekit.bulkDeleteFiles(["file_id_1","file_id_2"])
 .then(response => {
     console.log(response);
 })
@@ -82,7 +103,7 @@ imagekit.bulkDeleteFiles(["fileId1","fileId2"])
 
 {% tab title="Python" %}
 ```python
-imagekit.bulk_file_delete(["file_id1", "file_id2"])
+imagekit.bulk_file_delete(["file_id_1", "file_id_2"])
 ```
 {% endtab %}
 
@@ -110,8 +131,8 @@ echo("Delete Bulk files : " . json_encode($deleteBulkFiles));
 {% tab title="Java" %}
 ```java
 List<String> fileIds=new ArrayList<>();
-fileIds.add("fileId1");
-fileIds.add("fileId2");
+fileIds.add("file_id_1");
+fileIds.add("file_id_2");
 ResultFileDelete result=ImageKit.getInstance().bulkDeleteFiles(fileIds);
 ```
 {% endtab %}
@@ -119,7 +140,7 @@ ResultFileDelete result=ImageKit.getInstance().bulkDeleteFiles(fileIds);
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-bulk_ids = Array["fileId1","fileId2"]
+bulk_ids = Array["file_id_1","file_id_2"]
 imagekitio.delete_bulk_files(file_ids: bulk_ids)
 ```
 {% endtab %}

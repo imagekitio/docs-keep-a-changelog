@@ -15,7 +15,7 @@ base64 encoding of `your_private_api_key:`
 The exact URL of the file to be purged. For example - `https://ik.imageki.io/your_imagekit_id/rest-of-the-file-path.jpg`.
 {% endswagger-parameter %}
 
-{% swagger-response status="200" description="On success, you will receive a requestId which can be used to get the purge request status." %}
+{% swagger-response status="201" description="On success, you will receive a requestId which can be used to get the purge request status." %}
 ```javascript
 {
     requestId : "598821f949c0a938d57563bd"
@@ -26,7 +26,7 @@ The exact URL of the file to be purged. For example - `https://ik.imageki.io/you
 
 ### Response structure and status code
 
-In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the request ID returned in the JSON-encoded response body.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `201` status code with the request ID returned in the JSON-encoded response body.
 
 `requestId` can be used to fetch the status of the submitted purge request.
 

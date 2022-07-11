@@ -43,8 +43,8 @@ Here are some example requests to understand the API usage.
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
-# requestId returned in response of purge cache API.
-curl -X GET "https://api.imagekit.io/v1/files/purge/requestId" \
+# request_id is the requestId returned in response of purge cache API.
+curl -X GET "https://api.imagekit.io/v1/files/purge/request_id" \
 -u your_private_key:
 ```
 {% endtab %}
@@ -59,7 +59,7 @@ var imagekit = new ImageKit({
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
-imagekit.getPurgeCacheStatus("cache_request_id", function(error, result) {
+imagekit.getPurgeCacheStatus("request_id", function(error, result) {
     if(error) console.log(error);
     else console.log(result);
 });
@@ -76,7 +76,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-purge_cache_status = imagekit.get_purge_cache_status("cache_request_id")
+purge_cache_status = imagekit.get_purge_cache_status("request_id")
 
 print("Cache status-", purge_cache_status)
 ```
@@ -96,10 +96,10 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$requestId = '9418asd1u2naq12';
 // The requestId returned in the response of purge cache API.
+$requestId = 'request_id';
 
-$purgeCacheStatus = $imageKit->getPurgeCacheStatus($requestId);
+$purgeCacheStatus = $imageKit->purgeCacheApiStatus("request_id");
 
 echo("Purge cache status : " . json_encode($purgeCacheStatus));
 ```
@@ -107,14 +107,15 @@ echo("Purge cache status : " . json_encode($purgeCacheStatus));
 
 {% tab title="Java" %}
 ```java
-ResultCacheStatus result=ImageKit.getInstance().getPurgeCacheStatus("cache_request_id");
+ResultCacheStatus result=ImageKit.getInstance().getPurgeCacheStatus("request_id");
 ```
 {% endtab %}
 
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-purge_cache_status = imagekitio.purge_file_cache_status(request_id: "cache_request_id")
+purge_cache_status = imagekitio.purge_file_cache_status(request_id: "request_id")
 ```
 {% endtab %}
+
 {% endtabs %}

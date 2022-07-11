@@ -39,7 +39,7 @@ Here is the example request to understand the API usage.
 {% tab title="cURL" %}
 ```bash
 # The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
-curl -X DELETE "https://api.imagekit.io/v1/files/fileId" \
+curl -X DELETE "https://api.imagekit.io/v1/files/file_id" \
 -u your_private_key:
 ```
 {% endtab %}
@@ -108,7 +108,7 @@ Result result=ImageKit.getInstance().deleteFile("file_id");
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-delete = imagekitio.delete_file(file_id: "file_id_xyz")
+delete = imagekitio.delete_file(file_id: "file_id")
 ```
 {% endtab %}
 {% endtabs %}
