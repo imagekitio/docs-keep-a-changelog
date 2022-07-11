@@ -116,7 +116,7 @@ delete = imagekitio.delete_file(file_id: "file_id")
 ik, err := imagekit.New()
 
 resp, err := ik.Media.DeleteBulkAssets(ctx, media.FileIdsParam{
-    FileIds: []string{"324353234", "354332432"},
+    FileIds: []string{"file_id_1", "file_id_2"},
 )
 ```
 {% endtab %}

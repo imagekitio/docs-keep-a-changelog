@@ -299,9 +299,7 @@ import (
 	"github.com/imagekit-developer/imagekit-go/api/media"
 )
 
-fileId := "62a35f6b0997a2c5ad376afe"
-
-resp, err := ik.Media.UpdateAsset(ctx, fileId, media.UpdateAssetParam{
+resp, err := ik.Media.UpdateAsset(ctx, "file_id", media.UpdateAssetParam{
     Extensions: []extension.IExtension{
         extension.NewRemoveBg(extension.RemoveBgOption{}),
     },

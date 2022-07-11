@@ -148,8 +148,8 @@ imagekitio.file_version_detail(
 {% tab title="Go" %}
 ```Go
 resp, err := ik.Media.AssetVersions(ctx, media.AssetVersionsParam{
-    FileId: "34345342343",
-    VersionId: "version-id",
+    FileId: "file_id",
+    VersionId: "version_id",
 })
 ```
 {% endtab %}

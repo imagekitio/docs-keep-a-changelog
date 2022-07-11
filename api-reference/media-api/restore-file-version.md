@@ -160,8 +160,8 @@ imagekitio.restore_file_version(
 {% tab title="Go" %}
 ```Go
 resp, err := ik.Media.RestoreVersion(ctx, media.AssetVersionsParam{
-    FileId: "324325334",
-    VersionId: "243434",
+    FileId: "file_id",
+    VersionId: "version_id",
 })
 ```
 {% endtab %}
