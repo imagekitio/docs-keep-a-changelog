@@ -170,7 +170,6 @@ upload = imagekit.upload(
     file=open("image.jpg", "rb"),
     file_name="my_file_name.jpg",
     options={
-        "response_fields": ["is_private_file", "tags"],
         "tags": ["tag1", "tag2"]
     },
 )
@@ -194,14 +193,11 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-
-
 // Upload Image - Binary
 $uploadFile = $imageKit->uploadFile([
     "file" => fopen(__DIR__."/image.jpg", "r"),
     "fileName" => "my_file_name.jpg",
-    "tags" => ["tag1", "tag2"],
-    "customCoordinates" => "10,10,100,100"
+    "tags" => ["tag1", "tag2"]
 ]);
 
 echo ("Upload binary file : " . json_encode($uploadFile));
@@ -221,11 +217,8 @@ Result result = ImageKit.getInstance().upload(fileCreateRequest);
 ```ruby
 imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
 file = open("sample.jpg", "rb")
-upload = imagekitio.upload_file(file, "testing.jpg", {
-    response_fields: 'tags,customCoordinates,isPrivateFile,metadata',
-    tags: %w[abc def],
-    use_unique_file_name: false,
-    is_private_file: true
+upload = imagekitio.upload_file(file, "my_file_name.jpg", {
+    tags: %w[tag1 tag2]
 })
 ```
 {% endtab %}
@@ -240,7 +233,7 @@ curl -X POST "https://upload.imagekit.io/api/v1/files/upload" \
 -u your_private_api_key: \
 -F 'file=iVBORw0KGgoAAAAN' \
 -F 'fileName=my_file_name.jpg' \
--F 'tags=t-shirt,summer,men'
+-F 'tags=tag1,tag2'
 ```
 {% endtab %}
 
@@ -260,7 +253,7 @@ var base64Img = "iVBORw0KGgoAAAAN";
 imagekit.upload({
     file : base64Img, //required
     fileName : "my_file_name.jpg",   //required
-    tags: ["t-shirt","summer","men"]
+    tags: ["tag1","tag2"]
 }, function(error, result) {
     if(error) console.log(error);
     else console.log(result);
@@ -288,8 +281,7 @@ upload = imagekit.upload(
     file=imgstr,
     file_name="my_file_name.jpg",
     options={
-        "response_fields": ["is_private_file", "tags"],
-        "tags": ["t-shirt", "summer","men"]
+        "tags": ["tag1", "tag2"]
     },
 )
 
@@ -322,8 +314,7 @@ $base64Img = base64_encode($img);
 $uploadFile = $imageKit->uploadFile([
     "file" => $base64Img,
     "fileName" => "my_file_name.jpg",
-    "tags" => ["tag1", "tag2"],
-    "customCoordinates" => "10,10,100,100"
+    "tags" => ["tag1", "tag2"]
 ]);
 
 echo ("Upload base64" . json_encode($uploadFile));
@@ -345,10 +336,8 @@ image64 = Base64.encode64(File.open("sample.jpg", "rb").read)
 
 upload = imagekitio.upload_file(
     file: image64,
-    file_name: "testing",
-    response_fields: 'tags,customCoordinates,isPrivateFile,metadata',
-    tags: %w[abc def],
-    use_unique_file_name: true
+    file_name: "my_file_name.jpg",
+    tags: %w[tag1 tag2]
  )
 ```
 {% endtab %}
@@ -450,8 +439,8 @@ Result result = ImageKit.getInstance().upload(fileCreateRequest);
 imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
 
 upload = imagekitio.upload_file(
-    file: "image-url",
-    file_name: "testing"
+    file: "image_url",
+    file_name: "my_file_name.jpg"
 )
 ```
 {% endtab %}
@@ -484,7 +473,10 @@ var imagekit = new ImageKit({
 imagekit.upload({
     file : "https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
     fileName : "women_in_red.jpg",
-    customMetadata : '{"brand":"Nike", "color":"red"}'
+    customMetadata : {
+        "brand": "Nike",
+        "color": "red"
+    }
 }, function(error, result) {
     if(error) console.log(error);
     else console.log(result);
@@ -551,12 +543,10 @@ echo ("Upload URL" . json_encode($uploadFile));
 
 {% tab title="Java" %}
 ```java
-
-// Upload Image - URL
-
-FileCreateRequest fileCreateRequest =new FileCreateRequest("https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",  "women_in_red.jpg");
+FileCreateRequest fileCreateRequest = new FileCreateRequest("https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",  "women_in_red.jpg");
 JsonObject jsonObjectCustomMetadata = new JsonObject();
-jsonObjectCustomMetadata.addProperty("test1", 10);
+jsonObjectCustomMetadata.addProperty("brand", "Nike");
+jsonObjectCustomMetadata.addProperty("color", "red");
 fileCreateRequest.setCustomMetadata(jsonObjectCustomMetadata);
 Result result=ImageKit.getInstance().upload(fileCreateRequest);
 
@@ -571,7 +561,8 @@ upload = imagekitio.upload_file(
     file: "https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
     file_name: "women_in_red.jpg",
     custom_metadata: {
-      "brand":"Nike", "color":"red"
+      "brand": "Nike",
+      "color": "red"
     }
 )
 ```

@@ -25,7 +25,7 @@ An object that describes the rules for the custom metadata key. This parameter i
 {% swagger-response status="200" description="Custom metadata definition successfully updated. In the response, you will get the field id, field name and, field schema." %}
 ```javascript
 {
-    "id": "598821f949c0a938d57563dd",
+    "id": "field_id",
     "name": "price",
     "label": "price",
     "schema": {
@@ -60,7 +60,7 @@ An object that describes the rules for the custom metadata key. This parameter i
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
-curl -X PATCH "https://api.imagekit.io/v1/customMetadataFields/6152fc9a2fd12044cb4cefe2" \
+curl -X PATCH "https://api.imagekit.io/v1/customMetadataFields/field_id" \
 -H 'Content-Type: application/json' \
 -u your_private_key: -d'
 {
@@ -83,7 +83,7 @@ var imagekit = new ImageKit({
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
-var fieldId = "6152fc9a2fd12044cb4cefe2";
+var fieldId = "field_id";
 imagekit.updateCustomMetadataField(
     fieldId,
     {
@@ -100,18 +100,6 @@ imagekit.updateCustomMetadataField(
 ```
 {% endtab %}
 
-{% tab title='Ruby'%}
-```ruby
-imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.update_custom_metadata_field(
-  id: '6152fc9a2fd12044cb4cefe2', #required
-  schema: {   #required if label not available
-    minValue: 500,
-    maxValue: 2500
-  }
-)
-```
-{% endtab %}
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -133,7 +121,7 @@ $body = [
     ]
 ];
 
-$customMetadataFieldId = '598821f949c0a938d57563dd';
+$customMetadataFieldId = 'field_id';
 $updateCustomMetadataField = $imageKit->updateCustomMetadataField($customMetadataFieldId, $body);
 
 echo("Update Custom Metadata Field : " . json_encode($updateCustomMetadataField));
@@ -147,12 +135,25 @@ schemaObject.setMinValue(500);
 schemaObject.setMaxValue(2500);
 
 CustomMetaDataFieldUpdateRequest customMetaDataFieldUpdateRequest = new CustomMetaDataFieldUpdateRequest();
-customMetaDataFieldUpdateRequest.setId("6152fc9a2fd12044cb4cefe2");
+customMetaDataFieldUpdateRequest.setId("field_id");
 customMetaDataFieldUpdateRequest.setLabel("");
 customMetaDataFieldUpdateRequest.setSchema(schemaObject);
 
 ResultCustomMetaDataField resultCustomMetaDataField = ImageKit.getInstance().updateCustomMetaDataFields(customMetaDataFieldUpdateRequest);
 
+```
+{% endtab %}
+
+{% tab title='Ruby'%}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.update_custom_metadata_field(
+  id: 'field_id', #required
+  schema: {   #required if label not available
+    minValue: 500,
+    maxValue: 2500
+  }
+)
 ```
 {% endtab %}
 

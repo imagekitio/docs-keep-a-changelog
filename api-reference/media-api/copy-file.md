@@ -85,17 +85,6 @@ imagekit.copyFile({
 ```
 {% endtab %}
 
-{% tab title='Ruby' %}
-```ruby
-imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.copy_file(
-  source_file_path: '/pah/to/file.jpg',
-  destination_path: '/folder/to/copy/into/',
-  include_file_versions: false # optional
-)
-```
-{% endtab %}
-
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -132,4 +121,16 @@ ResultNoContent resultNoContent = ImageKit.getInstance().copyFile(copyFileReques
 
 ```
 {% endtab %}
+
+{% tab title='Ruby' %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.copy_file(
+  source_file_path: '/pah/to/file.jpg',
+  destination_path: '/folder/to/copy/into/',
+  include_file_versions: false # optional
+)
+```
+{% endtab %}
+
 {% endtabs %}

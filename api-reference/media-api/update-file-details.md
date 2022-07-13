@@ -93,145 +93,7 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 
 ## Examples
 
-{% tabs %}
-{% tab title="cURL" %}
-```bash
-# The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
-curl -X PATCH "https://api.imagekit.io/v1/files/fileId/details" \
--H 'Content-Type: application/json' \
--u your_private_key: -d'
-{
-    "tags": [
-        "tag1",
-        "tag2"
-    ],
-    "customCoordinates": "10,10,100,100"
-}
-'
-```
-{% endtab %}
-
-{% tab title="Node.js" %}
-```javascript
-var ImageKit = require("imagekit");
-
-var imagekit = new ImageKit({
-    publicKey : "your_public_api_key",
-    privateKey : "your_private_api_key",
-    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
-});
-
-imagekit.updateFileDetails("file_id", { 
-    tags : ['image_tag'],
-    customCoordinates : "10,10,100,100"
-}, function(error, result) { 
-    if(error) console.log(error);
-    else console.log(result);
-});
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-from imagekitio import ImageKit
-
-imagekit = ImageKit(
-    public_key='your_public_api_key',
-    private_key='your_private_api_key',
-    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
-)
-
-updated_detail = imagekit.update_file_details(
-    "file_id",
-    {"tags": ["image_tag"], "custom_coordinates": "10,10,100,100"},
-)
-
-print("Updated detail-", updated_detail, end="\n\n")
-```
-{% endtab %}
-
-{% tab title="PHP" %}
-```php
-use ImageKit\ImageKit;
-
-$public_key = "your_public_api_key";
-$your_private_key = "your_private_api_key";
-$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
-
-$imageKit = new ImageKit(
-    $public_key,
-    $your_private_key,
-    $url_end_point
-);
-
-// Update File Details
-$updateData = [
-    "tags" => ["tag1","tag2"],
-    "customCoordinates" => "10,10,100,100"
-];
-
-$updateFileDetails = $imageKit->updateFileDetails(
-    $fileId,
-    $updateData
-);
-
-echo("Updated File Details : " . json_encode($updateFileDetails));
-```
-{% endtab %}
-
-{% tab title="Java" %}
-```java
-
-List<String> tags = new ArrayList<>();
-tags.add("Software");
-tags.add("Developer");
-tags.add("Engineer");
-
-List<String> aiTags = new ArrayList<>();
-aiTags.add("Plant");
-FileUpdateRequest fileUpdateRequest = new FileUpdateRequest(fileId);
-fileUpdateRequest.setTags(tags);
-fileUpdateRequest.setRemoveAITags(aiTags);
-fileUpdateRequest.setWebhookUrl("https://webhook.site/c78d617f-33bc-40d9-9e61-608999721e2e");
-
-JsonObject optionsInnerObject = new JsonObject();
-optionsInnerObject.addProperty("add_shadow", true);
-optionsInnerObject.addProperty("bg_color", "yellow");
-JsonObject innerObject1 = new JsonObject();
-innerObject1.addProperty("name", "remove-bg");
-innerObject1.add("options", optionsInnerObject);
-JsonObject innerObject2 = new JsonObject();
-innerObject2.addProperty("name", "google-auto-tagging");
-innerObject2.addProperty("minConfidence", 15);
-innerObject2.addProperty("maxTags", 20);
-JsonArray jsonArray = new JsonArray();
-jsonArray.add(innerObject1);
-jsonArray.add(innerObject2);
-
-fileUpdateRequest.setExtensions(jsonArray);
-fileUpdateRequest.setCustomCoordinates("10,10,40,40");
-JsonObject jsonObjectCustomMetadata = new JsonObject();
-jsonObjectCustomMetadata.addProperty("test10", 11);
-fileUpdateRequest.setCustomMetadata(jsonObjectCustomMetadata);
-Result result = ImageKit.getInstance().updateFileDetail(fileUpdateRequest);
-```
-{% endtab %}
-
-{% tab title="Ruby" %}
-```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-updated_detail = imagekitio.update_file_details(
-    "file_id",
-    {
-        "tags": ['image_tag'],
-        "custom_coordinates": "10,10,100,100"
-    }
-)
-```
-{% endtab %}
-{% endtabs %}
-
-### Understanding API usage
+### Tags and custom coordinate update
 
 {% tabs %}
 {% tab title="cURL" %}
@@ -242,7 +104,7 @@ curl -X PATCH "https://api.imagekit.io/v1/files/:fileId/details" \
 -u your_private_key: -d'
 {
     "tags": [
-        "image_tag"
+        "tag1", "tag2"
     ],
     "customCoordinates": "10,10,100,100"
 }
@@ -282,7 +144,10 @@ imagekit = ImageKit(
 
 updated_detail = imagekit.update_file_details(
     "file_id",
-    {"tags": ["image_tag"], "custom_coordinates": "10,10,100,100"},
+    {
+        "tags": ["tag1", "tag2"], 
+        "custom_coordinates": "10,10,100,100"
+    },
 )
 
 print("Updated detail-", updated_detail, end="\n\n")
@@ -305,7 +170,7 @@ $imageKit = new ImageKit(
 
 // Update File Details
 $updateData = [
-    "tags" => ["tag1","tag2"],
+    "tags" => ["tag1", "tag2"],
     "customCoordinates" => "10,10,100,100"
 ];
 
@@ -322,7 +187,8 @@ echo("Updated File Details : " . json_encode($updateFileDetails));
 ```java
  FileUpdateRequest fileUpdateRequest =new FileUpdateRequest("file_id");
  List<String> tags=new ArrayList<>();
- tags.add("image_tag");
+ tags.add("tag1");
+ tags.add("tag2");
  fileUpdateRequest.setTags(tags);
  fileUpdateRequest.setCustomCoordinates("10,10,100,100");
  Result result=ImageKit.getInstance().updateFileDetail(fileUpdateRequest);
@@ -335,7 +201,7 @@ imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key",
 updated_detail = imagekitio.update_file_details(
     "file_id",
     {
-        "tags": ['image_tag'],
+        "tags": ["tag1", "tag2"],
         "custom_coordinates": "10,10,100,100"
     }
 )
@@ -352,7 +218,7 @@ updated_detail = imagekitio.update_file_details(
 ```bash
 # The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
 # Example of using the google-auto-tagging extension
-curl -X PATCH "https://api.imagekit.io/v1/files/fileId/details" \
+curl -X PATCH "https://api.imagekit.io/v1/files/file_id/details" \
 -H 'Content-Type: application/json' \
 -u your_private_key: -d'
 {
@@ -452,19 +318,31 @@ echo("Updated File Details : " . json_encode($updateFileDetails));
 ```
 {% endtab %}
 
+{% tab title="Java" %}
+```java
+JsonObject extension = new JsonObject();
+extension.addProperty("name", "google-auto-tagging");
+extension.addProperty("maxTags", 5);
+extension.addProperty("minConfidence", 95);
+JsonArray extensionArray = new JsonArray();
+extensionArray.add(extension);
+fileUpdateRequest.setExtensions(extensionArray);
+Result result = ImageKit.getInstance().updateFileDetail(fileUpdateRequest);
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 updated_detail = imagekitio.update_file_details(
-    file_id: "598821f949c0a938d57563bd", #required
+    file_id: "file_id", #required
     extension: [
       {
         name: 'google-auto-tagging',
         maxTags: 5,
         minConfidence: 95
       }
-    ],
-    custom_coordinates: '10,10,100,200'
+    ]
 )
 ```
 {% endtab %}

@@ -121,7 +121,7 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$fileIds = ["5e1c2079c55ec3437c451b6d"];
+$fileIds = ["file_id_1", "file_id_2"];
 
 $deleteBulkFiles = $imageKit->bulkDeleteFiles($fileIds);
 

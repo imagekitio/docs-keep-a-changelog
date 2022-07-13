@@ -120,7 +120,7 @@ Here are some example requests to understand the API usage.
 {% tab title="cURL" %}
 ```bash
 # The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
-curl -X GET "https://api.imagekit.io/v1/files/fileId/metadata" \
+curl -X GET "https://api.imagekit.io/v1/files/file_id/metadata" \
 -u your_private_api_key:
 ```
 {% endtab %}
@@ -135,7 +135,7 @@ var imagekit = new ImageKit({
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
-imagekit.getFileMetadata("fileId", function(error, result) {
+imagekit.getFileMetadata("file_id", function(error, result) {
     if(error) console.log(error);
     else console.log(result);
 });
@@ -172,7 +172,7 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$fileId = '5e21880d5efe355febd4bccd';
+$fileId = 'file_id';
 
 $fileMetadata = $imageKit->getFileMetaData($fileId);
 

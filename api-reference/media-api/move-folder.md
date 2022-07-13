@@ -80,12 +80,6 @@ imagekit.moveFolder({
 ```
 {% endtab %}
 
-{% tab title='Ruby' %}
-```ruby
-imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.move_folder(source_folder_path: '/folder/to/move', destination_path: '/folder/to/move/into/')
-```
-{% endtab %%}
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -113,12 +107,18 @@ echo("Move Folder : " . json_encode($moveFolder));
 
 {% tab title="Java" %}
 ```java
-
 MoveFolderRequest moveFolderRequest = new MoveFolderRequest();
 moveFolderRequest.setSourceFolderPath("/folder/to/move");
 moveFolderRequest.setDestinationPath("/folder/to/move/into/");
 ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().moveFolder(moveFolderRequest);
-
 ```
 {% endtab %}
+
+{% tab title='Ruby' %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.move_folder(source_folder_path: '/folder/to/move', destination_path: '/folder/to/move/into/')
+```
+{% endtab %%}
+
 {% endtabs %}

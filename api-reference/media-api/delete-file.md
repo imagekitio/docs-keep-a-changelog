@@ -91,7 +91,7 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$fileId = '5e21880d5efe355febd4bccd';
+$fileId = 'file_id';
 
 $deleteFile = $imageKit->deleteFile($fileId);
 

@@ -69,12 +69,6 @@ imagekit.deleteFolder("folder/to/delete/", function(error, result) {
 ```
 {% endtab %}
 
-{% tab title="Ruby" %}
-```ruby
-imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.delete_folder(folder_path: 'folder/to/delete/')
-```
-{% endtab %}
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -98,11 +92,17 @@ echo("Delete Folder : " . json_encode($deleteFolder));
 
 {% tab title="Java" %}
 ```java
-
 DeleteFolderRequest deleteFolderRequest = new DeleteFolderRequest();
 deleteFolderRequest.setFolderPath("folder/to/delete/");
 ResultNoContent resultNoContent = ImageKit.getInstance().deleteFolder(deleteFolderRequest);
-
 ```
 {% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.delete_folder(folder_path: 'folder/to/delete/')
+```
+{% endtab %}
+
 {% endtabs %}

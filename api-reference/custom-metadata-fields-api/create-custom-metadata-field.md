@@ -117,20 +117,6 @@ imagekit.createCustomMetadataField(
 ```
 {% endtab %}
 
-{% tab title="Ruby" %}
-```ruby
-imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.create_custom_metadata_field(
-  name: 'price',
-  label: 'price',
-  schema: {
-    type: 'Number',
-    minValue: 1000,
-    maxValue: 3000
-  }
-)
-```
-{% endtab %}
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -177,5 +163,21 @@ customMetaDataFieldCreateRequest.setSchema(customMetaDataFieldSchemaObject);
 ResultCustomMetaDataField resultCustomMetaDataField = ImageKit.getInstance().createCustomMetaDataFields(customMetaDataFieldCreateRequest);
 
 ```
+
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.create_custom_metadata_field(
+  name: 'price',
+  label: 'price',
+  schema: {
+    type: 'Number',
+    minValue: 1000,
+    maxValue: 3000
+  }
+)
+```
+{% endtab %}
+
 {% endtab %}
 {% endtabs %}

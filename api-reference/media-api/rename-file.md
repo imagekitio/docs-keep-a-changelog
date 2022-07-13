@@ -139,16 +139,6 @@ imagekit.renameFile({
 ```
 {% endtab %}
 
-{% tab title="Ruby" %}
-```ruby
-imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.rename_file(
-  file_path: '/path/to/old-file-name.jpg',
-  new_file_name: 'new-file-name.jpg',
-  purge_cache: false #optional
-)
-```
-{% endtab %}
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -177,13 +167,23 @@ echo("Rename File : " . json_encode($renameFile));
 
 {% tab title="Java" %}
 ```java
-
 RenameFileRequest renameFileRequest = new RenameFileRequest();
 renameFileRequest.setFilePath("/path/to/old-file-name.jpg");
 renameFileRequest.setNewFileName("new-file-name.jpg");
 renameFileRequest.setPurgeCache(false);
 ResultRenameFile resultRenameFile = ImageKit.getInstance().renameFile(renameFileRequest);
-
 ```
 {% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.rename_file(
+  file_path: '/path/to/old-file-name.jpg',
+  new_file_name: 'new-file-name.jpg',
+  purge_cache: false #optional
+)
+```
+{% endtab %}
+
 {% endtabs %}

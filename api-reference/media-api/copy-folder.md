@@ -88,16 +88,6 @@ imagekit.copyFolder({
 ```
 {% endtab %}
 
-{% tab title="Ruby" %}
-```ruby
-imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.copy_folder(
-  source_folder_path: '/folder/to/copy',
-  destination_path: '/folder/to/copy/into/',
-  include_file_versions: false # optional
-)
-```
-{% endtab %}
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -136,4 +126,16 @@ ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().copyFolder(
 
 ```
 {% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.copy_folder(
+  source_folder_path: '/folder/to/copy',
+  destination_path: '/folder/to/copy/into/',
+  include_file_versions: false # optional
+)
+```
+{% endtab %}
+
 {% endtabs %}

@@ -179,7 +179,7 @@ When an attacker intercepts a webhook request, they can replay it multiple times
 
 To mitigate this, Imagekit webhook signature contains a timestamp. The Timestamp is generated before the webhook request is sent to your server.
 
-The `verify` method in ImagekitSDK returns the Timestamp & parsed event object.
+The `verifyWebhookEvent` method in ImageKit SDK returns the Timestamp & parsed event object.
 
 If the Timestamp is within the tolerance limit, the request can be considered valid, or you can reject it.
 

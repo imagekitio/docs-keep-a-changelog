@@ -69,12 +69,6 @@ imagekit.createFolder({
 ```
 {% endtab %}
 
-{% tab title="Ruby" %}
-```ruby
-imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.create_folder(folder_name: 'new_folder', parent_folder_path: 'source/folder/path')
-```
-{% endtab %}
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -102,12 +96,17 @@ echo("Create Folder : " . json_encode($createFolder));
 
 {% tab title="Java" %}
 ```java
-
 CreateFolderRequest createFolderRequest = new CreateFolderRequest();
 createFolderRequest.setFolderName("new_folder");
 createFolderRequest.setParentFolderPath("source/folder/path");
 ResultEmptyBlock resultEmptyBlock = ImageKit.getInstance().createFolder(createFolderRequest);
+```
+{% endtab %}
 
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.create_folder(folder_name: 'new_folder', parent_folder_path: 'source/folder/path')
 ```
 {% endtab %}
 

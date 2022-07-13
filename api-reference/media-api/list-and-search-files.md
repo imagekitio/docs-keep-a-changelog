@@ -886,7 +886,7 @@ $imageKit = new ImageKit(
 );
 
 $listFiles = $imageKit->listFiles(array(
-    "tags" => implode(",", array("sale", "summer")),
+    "tags" => ["sale", "summer"],
 ));
 
 echo ("List files : " . json_encode($listFiles));

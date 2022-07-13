@@ -117,18 +117,6 @@ imagekit.bulkRemoveTags(fileIds, tags, function(error, result) {
 ```
 {% endtab %}
 
-{% tab title="Ruby" %}
-```ruby
-imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.delete_bulk_tags(
-  file_ids: [
-    "file_id_1",
-    "file_id_2"
-    ],
-    tags: ['tag_to_remove_1', 'tag_to_remove_2']
-)
-```
-{% endtab %}
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -144,15 +132,13 @@ $imageKit = new ImageKit(
 );
 
 $fileIds = [
-	"5e21880d5efe355febd4bccd",
-	"5e1c13c1c55ec3437c451403",
-	"5f4abf6fae77ae7f0acda3d1", 
-	"5f207bd1bd2741182ceadd55"
+	"file_id_1",
+	"file_id_2"
 ];
 
 $tags = [
-	"tag-to-remove-1", 
-	"tag-to-remove-2"
+	"tag_to_remove_1", 
+	"tag_to_remove_2"
 ];
 
 $bulkRemoveTags = $imageKit->bulkRemoveTags($fileIds, $tags);
@@ -164,18 +150,32 @@ echo("Remove Tags (Bulk) : " . json_encode($bulkRemoveTags));
 {% tab title="Java" %}
 ```java
 List<String> fileIds = new ArrayList<>();
-fileIds.add("5e21880d5efe355febd4bccd");
-fileIds.add("5e1c13c1c55ec3437c451403");
-fileIds.add("5f4abf6fae77ae7f0acda3d1");
-fileIds.add("5f207bd1bd2741182ceadd55");
+fileIds.add("file_id_1");
+fileIds.add("file_id_2");
 List<String> tags = new ArrayList<>();
-tags.add("tag-to-remove-1");
-tags.add("tag-to-remove-2");
+tags.add("tag_to_remove_1");
+tags.add("tag_to_remove_2");
 TagsRequest tagsRequest =new TagsRequest();
 tagsRequest.setFileIds(fileIds);
 tagsRequest.setTags(tags);
 ResultTags resultTags = ImageKit.getInstance().removeTags(tagsRequest);
-
 ```
 {% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.delete_bulk_tags(
+  file_ids: [
+        "file_id_1",
+        "file_id_2"
+    ],
+    tags: [
+        "tag_to_remove_1",
+        "tag_to_remove_2"
+    ]
+)
+```
+{% endtab %}
+
 {% endtabs %}

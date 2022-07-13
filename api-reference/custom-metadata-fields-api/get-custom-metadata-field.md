@@ -74,13 +74,6 @@ imagekit.getCustomMetadataFields({
 ```
 {% endtab %}
 
-{% tab title='Ruby' %}
-```ruby
-imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.get_custom_metadata_fields(include_deleted: false)
-```
-
-{% endtab %}
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -104,10 +97,16 @@ echo("Get Custom Metadata Field : " . json_encode($getCustomMetadataField));
 
 {% tab title="Java" %}
 ```java
-
 boolean includeDeleted = false;
 ResultCustomMetaDataFieldList resultCustomMetaDataFieldList = ImageKit.getInstance().getCustomMetaDataFields(includeDeleted);
-
 ```
 {% endtab %}
+
+{% tab title='Ruby' %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.get_custom_metadata_fields(include_deleted: false)
+```
+{% endtab %}
+
 {% endtabs %}
