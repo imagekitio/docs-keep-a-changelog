@@ -242,7 +242,19 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$updateFileDetails = $imageKit->updateFileDetails("file_id", array("extensions" => [array("name" => "remove-bg")]));
+// Update File Details
+$updateData = [
+    "extensions" => [
+        [
+            "name" => "remove-bg",
+        ],
+    ],
+];
+
+$updateFileDetails = $imageKit->updateFileDetails(
+    $fileId,
+    $updateData
+);
 
 echo("Updated detail : " . json_encode($updateFileDetails));
 ```

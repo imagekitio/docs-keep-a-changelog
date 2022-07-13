@@ -84,6 +84,25 @@ imagekit.deleteFileVersion({
 ```
 {% endtab %}
 
+{% tab title="PHP" %}
+```php
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileId = 'file_id';
+$versionId = 'version_id';
+
+$deleteFileVersion = $imageKit->deleteFileVersion($fileId, $versionId);
+```
+{% endtab %}
+
 {% tab title="Java" %}
 ```java
 

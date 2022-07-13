@@ -96,6 +96,9 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
+// The requestId returned in the response of purge cache API.
+$requestId = 'request_id';
+
 $purgeCacheStatus = $imageKit->purgeCacheApiStatus("request_id");
 
 echo("Purge cache status : " . json_encode($purgeCacheStatus));
@@ -114,4 +117,5 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 purge_cache_status = imagekitio.purge_file_cache_status(request_id: "request_id")
 ```
 {% endtab %}
+
 {% endtabs %}

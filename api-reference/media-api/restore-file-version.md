@@ -87,6 +87,7 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 Here is the example request to understand the API usage.
 
 {% tabs %}
+
 {% tab title="cURL" %}
 ```bash
 # The unique fileId and versionId of the uploaded file. fileId and versionId (versionInfo.id) is returned in response of list files API and upload API.
@@ -112,6 +113,32 @@ imagekit.restoreFileVersion({
     if(error) console.log(error);
     else console.log(result);
 });
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileId = 'file_id';
+$versionId = 'version_id';
+
+$restoreFileVersion = $imageKit->restoreFileVersion([
+    'fileId' => $fileId,
+    'versionId' => $versionId,
+]);
+
+echo("Restore File  Version : " . json_encode($restoreFileVersion));
 ```
 {% endtab %}
 

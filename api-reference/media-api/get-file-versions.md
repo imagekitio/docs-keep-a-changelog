@@ -102,6 +102,26 @@ imagekit.getFileVersions("file_id", function(error, result) {
 ```
 {% endtab %}
 
+{% tab title="PHP" %}
+```php
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileId = 'file_id';
+
+$getFileVersions = $imageKit->getFileVersions($fileId);
+
+echo("File Versions : " . json_encode($getFileVersions));
+```
+{% endtab %}
+
 {% tab title="Java" %}
 ```java
 

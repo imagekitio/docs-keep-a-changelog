@@ -72,6 +72,29 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.bulk_job_status(job_id: 'job_id')
 ```
 {% endtab %}
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$jobId = '598821f949c0a938d57563bd';
+// The jobId you get in the response of bulk job API e.g. copy folder or move folder API.
+
+$bulkJobStatus = $imageKit->getBulkJobStatus($jobId);
+
+echo("Bulk Job Status : " . json_encode($bulkJobStatus));
+```
+{% endtab %}
+
 {% tab title="Java" %}
 ```java
 

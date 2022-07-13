@@ -172,9 +172,11 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$getFileDetails = $imageKit->getMetaData("file_id");
+$fileId = '5e21880d5efe355febd4bccd';
 
-echo("File metadata : " . json_encode($getFileDetails));
+$fileMetadata = $imageKit->getFileMetaData($fileId);
+
+echo("File metadata : " . json_encode($fileMetadata));
 ```
 {% endtab %}
 

@@ -86,6 +86,31 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 imagekitio.move_folder(source_folder_path: '/folder/to/move', destination_path: '/folder/to/move/into/')
 ```
 {% endtab %%}
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$sourceFolderPath = '/folder/to/move';
+$destinationPath = '/folder/to/move/into/';
+$moveFolder = $imageKit->moveFolder([
+    'sourceFolderPath' => $sourceFolderPath,
+    'destinationPath' => $destinationPath
+]);
+
+echo("Move Folder : " . json_encode($moveFolder));
+```
+{% endtab %}
+
 {% tab title="Java" %}
 ```java
 
