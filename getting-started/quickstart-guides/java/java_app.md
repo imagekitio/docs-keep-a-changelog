@@ -86,8 +86,8 @@ imageKit.setConfig(config);
 
 The imagekitio client is configured with user-specific credentials.
 
-* `publicKey` and `privateKey` parameters are required as these would be used for all ImageKit API, server-side upload, and generating tokens for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
-* `urlEndpoint` is also a required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard#url-endpoints](https://imagekit.io/dashboard#url-endpoints).&#x20;
+* `publicKey` and `privateKey` parameters are required as these would be used for all ImageKit API, server-side upload, and generating tokens for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
+* `urlEndpoint` is also a required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).&#x20;
 
 ## **Uploading images in java app**
 

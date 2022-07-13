@@ -60,8 +60,8 @@ $imageKit = new ImageKit(
     "urlEndpoint"
 );
 ```
-* `publicKey` and `privateKey` parameters are required as these would be used for all ImageKit API, server-side upload, and generating token for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
-* `urlEndpoint` is also a required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard#url-endpoints](https://imagekit.io/dashboard#url-endpoints).&#x20;
+* `publicKey` and `privateKey` parameters are required as these would be used for all ImageKit API, server-side upload, and generating token for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
+* `urlEndpoint` is also a required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).&#x20;
 
 #### URL Generation
 ```php
@@ -85,7 +85,7 @@ $uploadFile = $imageKit->uploadFile([
 ```
 
 #### Response Structure
-Following is the response for [Server Side File Upload API](https://docs.imagekit.io/api-reference/upload-file-api/server-side-file-upload#response-code-and-structure-json)
+Following is the response for [Server Side File Upload API](../../api-reference/upload-file-api/server-side-file-upload.md#response-code-and-structure-json)
 ```JSON
 {
     "error": null,
@@ -143,7 +143,7 @@ Following is the response for [Server Side File Upload API](https://docs.imageki
 ```
 
 ## Generating URL for rendering images
-ImageKit provides inbuilt media storage and integration with external origins. Refer to the [Documentation](https://docs.imagekit.io/integration/url-endpoints) to learn more about URL endpoints and external [Image Origins](https://docs.imagekit.io/integration/configure-origin) supported by ImageKit.  
+ImageKit provides inbuilt media storage and integration with external origins. Refer to the [documentation](https://docs.imagekit.io/integration/url-endpoints) to learn more about URL endpoints and external [Image origins](https://docs.imagekit.io/integration/configure-origin) supported by ImageKit.  
 
 ### Using Image path and image hostname or endpoint 
   
@@ -233,7 +233,7 @@ The PHP SDK gives a name to each transformation parameter e.g. `height` for `h` 
 ```
 👉 Note that you can also use the `h` and `w` parameters instead of `height` and `width`. 
 
-For more examples check the [Demo Application](https://github.com/imagekit-developer/imagekit-php/tree/master/sample).
+For more examples check the [demo application](https://github.com/imagekit-developer/imagekit-php/tree/master/sample).
 
 ### 1. Chained Transformations as a query parameter
 
