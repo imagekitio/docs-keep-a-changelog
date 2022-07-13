@@ -8,7 +8,7 @@ description: >-
 
 [ImageKit's PHP SDK](https://github.com/imagekit-developer/imagekit-php) provides comprehensive yet straightforward asset upload, transformation, optimization, and delivery capabilities that you can implement seamlessly in your existing PHP application.
 
-This is a quick start guide to show you how to integrate ImageKit into your PHP application. The code samples covered here are hosted on Github - [https://github.com/imagekit-developer/imagekit-php/tree/master/sample](https://github.com/imagekit-developer/imagekit-php/tree/master/sample)[.](https://github.com/imagekit-developer/imagekit-php/tree/master/sample)
+This quick start guide shows you how to integrate ImageKit into your PHP application. The code samples covered here are hosted on Github - [https://github.com/imagekit-developer/imagekit-php/tree/master/sample](https://github.com/imagekit-developer/imagekit-php/tree/master/sample)[.](https://github.com/imagekit-developer/imagekit-php/tree/master/sample)
 
 This guide walks you through the following topics:
 
@@ -86,7 +86,7 @@ $uploadFile = $imageKit->uploadFile([
 
 #### Response Structure
 Following is the response for [Server Side File Upload API](https://docs.imagekit.io/api-reference/upload-file-api/server-side-file-upload#response-code-and-structure-json)
-```json
+```JSON
 {
     "error": null,
     "result": {
@@ -218,10 +218,10 @@ This section covers the basics:
 * [Signed URL](#6-signed-url)
 
 
-The PHP SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable.  See the [Full list of supported transformations](#list-of-supported-transformations).
+The PHP SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. See the [Full list of supported transformations](#list-of-supported-transformations).
 
 👉 If the property does not match any of the available options, it is added as it is.\ e.g
-```php
+```PHP
 [
     'effectGray' => 'e-grayscale'
 ]
@@ -589,7 +589,7 @@ $listFiles = $imageKit->listFiles([
 
 #### Advance Search
 In addition, you can fine-tune your query by specifying various filters by generating a query string in a Lucene-like syntax and providing this generated string as the value of the `searchQuery`.
-```php
+```PHP
 $listFiles = $imageKit->listFiles([
     "searchQuery" => '(size < "1mb" AND width > 500) OR (tags IN ["summer-sale","banner"])',
 ]);
@@ -918,7 +918,7 @@ $bulkJobStatus = $imageKit->getBulkJobStatus($jobId);
 
 ### 21. Purge Cache API
 
-This will purge CDN and ImageKit.io's internal cache. In response `requestId` is returned which can be used to fetch the status of the submitted purge request with [Purge Cache Status API](#22-purge-cache-status-api).
+This will purge CDN and ImageKit.io's internal cache. In response, `requestId` is returned, which can be used to fetch the status of the submitted purge request with [Purge Cache Status API](#22-purge-cache-status-api).
 
 Refer to the [Purge Cache API](https://docs.imagekit.io/api-reference/media-api/purge-cache) for a better understanding of the **Request & Response Structure**.
 
@@ -968,9 +968,9 @@ $getFileMetadataFromRemoteURL = $imageKit->getFileMetadataFromRemoteURL($image_u
 
 ## Custom Metadata Fields API
 
-Imagekit.io allows you to define a `schema` for your metadata keys and the value filled against that key will have to adhere to those rules. You can [Create](#1-create-fields), [Read](#2-get-fields) and [Update](#3-update-fields) custom metadata rules and update your file with custom metadata value in [File update API](#5-update-file-details) or [File Upload API](#server-side-file-upload).
+Imagekit.io allows you to define a `schema` for your metadata keys, and the value filled against that key will have to adhere to those rules. You can [Create](#1-create-fields), [Read](#2-get-fields) and [Update](#3-update-fields) custom metadata rules and update your file with custom metadata value in [File update API](#5-update-file-details) or [File Upload API](#server-side-file-upload).
 
-For a detailed explanation refer to the [Custom Metadata Documentaion](https://docs.imagekit.io/api-reference/custom-metadata-fields-api).
+For a detailed explanation, refer to the [Custom Metadata Documentaion](https://docs.imagekit.io/api-reference/custom-metadata-fields-api).
 
 
 ### 1. Create Fields
@@ -1010,7 +1010,7 @@ $getCustomMetadataField = $imageKit->getCustomMetadataField($includeDeleted);
 
 ### 3. Update Fields
 
-Update the `label` or `schema` of an existing custom metadata field.
+Update an existing custom metadata field's `label` or `schema`.
 
 Refer to the [Update Custom Metadata Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/update-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
 
@@ -1049,10 +1049,10 @@ We have included the following commonly used utility functions in this SDK.
 
 ### Authentication parameter generation
 
-In case you are looking to implement client-side file upload, you are going to need a `token`, `expiry` timestamp, and a valid `signature` for that upload. The SDK provides a simple method that you can use in your code to generate these authentication parameters for you.
+If you want to implement client-side file upload, you will need a `token`, `expiry` timestamp, and a valid `signature` for that upload. The SDK provides a simple method that you can use in your code to generate these authentication parameters for you.
 
 {% hint style="danger" %}
-The Private API Key should never be exposed in any client-side code. You must always generate these authentication parameters on the server side.
+The Private API Key should never be exposed in any client-side code. Instead, you must always generate these authentication parameters on the server side.
 {% endhint %}
 
 ```
@@ -1061,7 +1061,7 @@ $imageKit->getAuthenticationParameters($token = "", $expire = 0);
 
 It will return
 
-```json
+```JSON
 {
     "token": "5d1c4a22-54f2-40bb-9e8c-99daaeeb7307",
     "expire": 1654207193,
@@ -1069,7 +1069,7 @@ It will return
 }
 ```  
 
-Both the `token` and `expire` parameters are optional. If not specified, the SDK generates a random token and also generates a valid expiry timestamp internally. The value of the `token` and `expire` used to generate the signature is always returned in the response, no matter if they are provided as an input to this method or not.
+Both the `token` and `expire` parameters are optional. If not specified, the SDK internally generates a random token and a valid expiry timestamp. The value of the `token` and `expire` used to generate the signature is always returned in the response, whether it is provided as an input to this method or not.
 
 ### Distance calculation between two pHash values
 
