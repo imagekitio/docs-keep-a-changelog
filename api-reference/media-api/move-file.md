@@ -77,6 +77,40 @@ imagekit.moveFile({
 ```
 {% endtab %}
 
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$sourceFilePath = '/path/to/file.jpg';
+$destinationPath = '/folder/to/move/into/';
+$moveFile = $imageKit->move([
+    'sourceFilePath' => $sourceFilePath,
+    'destinationPath' => $destinationPath
+]);
+
+echo("Move File : " . json_encode($moveFile));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+MoveFileRequest moveFileRequest = new MoveFileRequest();
+moveFileRequest.setSourceFilePath("/path/to/file.jpg");
+moveFileRequest.setDestinationPath("/folder/to/move/into/");
+ResultNoContent resultNoContent = ImageKit.getInstance().moveFile(moveFileRequest);
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
@@ -86,14 +120,5 @@ imagekitio.move_file(
 )
 ```
 {% endtab %}
-{% tab title="Java" %}
-```java
 
-MoveFileRequest moveFileRequest = new MoveFileRequest();
-moveFileRequest.setSourceFilePath("/path/to/file.jpg");
-moveFileRequest.setDestinationPath("/folder/to/move/into/");
-ResultNoContent resultNoContent = ImageKit.getInstance().moveFile(moveFileRequest);
-
-```
-{% endtab %}
 {% endtabs %}

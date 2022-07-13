@@ -91,7 +91,9 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$deleteFile = $imageKit->deleteFile("file_id");
+$fileId = 'file_id';
+
+$deleteFile = $imageKit->deleteFile($fileId);
 
 echo("Delete file : " . json_encode($deleteFile));
 ```

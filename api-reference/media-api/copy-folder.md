@@ -88,14 +88,31 @@ imagekit.copyFolder({
 ```
 {% endtab %}
 
-{% tab title="Ruby" %}
-```ruby
-imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.copy_folder(
-  source_folder_path: '/folder/to/copy',
-  destination_path: '/folder/to/copy/into/',
-  include_file_versions: false # optional
-)
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$sourceFolderPath = "/folder/to/copy";
+$destinationPath = "/folder/to/copy/into/";
+$includeFileVersions = false;
+
+$copyFolder = $imageKit->copyFolder([
+    'sourceFolderPath' => $sourceFolderPath,
+    'destinationPath' => $destinationPath,
+    'includeFileVersions' => $includeFileVersions
+]);
+
+echo("Copy Folder : " . json_encode($copyFolder));
 ```
 {% endtab %}
 {% tab title="Java" %}
@@ -109,7 +126,16 @@ ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().copyFolder(
 
 ```
 {% endtab %}
+
+{% tab title="Ruby" %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.copy_folder(
+  source_folder_path: '/folder/to/copy',
+  destination_path: '/folder/to/copy/into/',
+  include_file_versions: false # optional
+)
+```
+{% endtab %}
+
 {% endtabs %}
-
-
-

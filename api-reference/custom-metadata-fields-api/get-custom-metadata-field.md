@@ -74,19 +74,39 @@ imagekit.getCustomMetadataFields({
 ```
 {% endtab %}
 
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$includeDeleted = false;
+$getCustomMetadataField = $imageKit->getCustomMetadataFields($includeDeleted);
+
+echo("Get Custom Metadata Field : " . json_encode($getCustomMetadataField));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+boolean includeDeleted = false;
+ResultCustomMetaDataFieldList resultCustomMetaDataFieldList = ImageKit.getInstance().getCustomMetaDataFields(includeDeleted);
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.get_custom_metadata_fields(include_deleted: false)
 ```
-
 {% endtab %}
-{% tab title="Java" %}
-```java
 
-boolean includeDeleted = false;
-ResultCustomMetaDataFieldList resultCustomMetaDataFieldList = ImageKit.getInstance().getCustomMetaDataFields(includeDeleted);
-
-```
-{% endtab %}
 {% endtabs %}
