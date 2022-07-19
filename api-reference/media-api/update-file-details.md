@@ -26,7 +26,7 @@ The final status of pending extensions will be sent to this URL. To learn more a
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="extensions" type="array" required="false" %}
-Stringified JSON object with array of extensions to be processed on the image. For reference about extensions refer [this](../../extensions/overview/). Note: [Remove.bg](../../extensions/overview/background-removal.md) extension creates a new file version which will also have the updated file details.
+Array of extensions to be processed on the asset. For reference about extensions refer [this](../../extensions/overview/). Note: [Remove.bg](../../extensions/overview/background-removal.md) extension creates a new file version which will also have the updated file details.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="tags" type="array" required="false" %}
