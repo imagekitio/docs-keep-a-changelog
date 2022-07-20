@@ -91,7 +91,7 @@ ResultNoContent resultNoContent=ImageKit.getInstance().deleteCustomMetaDataField
 {% endtab %}
 {% tab title="Go" %}
 ```Go
-resp, err := ik.Metadata.DeleteCustomField(ctx, "6152fc9a2fd12044cb4cefe2")
+resp, err := ik.Metadata.DeleteCustomField(ctx, "field_id")
 
 ```
 {% endtab %}
