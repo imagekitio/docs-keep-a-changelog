@@ -74,6 +74,22 @@ imagekit.getCustomMetadataFields({
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+get_custom_metadata_fields = imagekit.get_custom_metadata_fields()  # by default include_deleted boolean will be considered as False for set it to True, can pass it with imagekit.get_custom_metadata_fields(True)
+
+print("Get custom metadata field-", get_custom_metadata_fields, end="\n\n")
+```
+{% endtab %}
+
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

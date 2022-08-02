@@ -85,6 +85,24 @@ imagekit.copyFile({
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+copy_file = imagekit.copy_file(options={"source_file_path": "/file.jpg",
+                                            "destination_path": "/test",
+                                            "include_file_versions": True})
+
+print("Copy file-", copy_file, end="\n\n")
+```
+{% endtab %}
+
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

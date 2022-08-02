@@ -69,6 +69,22 @@ imagekit.createFolder({
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+create_folder = imagekit.create_folder(options={"folder_name": "/test", "parent_folder_path": "/"})
+
+print("Create folder-", create_folder, end="\n\n")
+```
+{% endtab %}
+
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

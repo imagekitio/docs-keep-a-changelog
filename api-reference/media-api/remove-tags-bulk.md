@@ -117,6 +117,23 @@ imagekit.bulkRemoveTags(fileIds, tags, function(error, result) {
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+remove_tags = imagekit.remove_tags(file_ids=['file-id-1', 'file-id-2'], tags=['tag1', 'tag2'])
+
+print("Remove tags-", remove_tags, end="\n\n")
+```
+{% endtab %}
+
+
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

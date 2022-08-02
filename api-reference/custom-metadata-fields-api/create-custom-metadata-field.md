@@ -117,6 +117,29 @@ imagekit.createCustomMetadataField(
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+create_custom_metadata_fields = imagekit.create_custom_metadata_fields(options={"name": "test",
+                                                          "label": "test",
+                                                          "schema":
+                                                              {"type": "Number",
+                                                               "min_value": 100,
+                                                               "max_value": 200}
+                                                          }
+                                                 )
+
+print("Create custom metadata field-", create_custom_metadata_fields, end="\n\n")
+```
+{% endtab %}
+
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

@@ -144,9 +144,11 @@ imagekit = ImageKit(
 
 updated_detail = imagekit.update_file_details(
     "file_id",
-    {
+    {   "remove_a_i_tags": ['remove-ai-tag-1', 'remove-ai-tag-2'],
+        "webhook_url": "url",
         "tags": ["tag1", "tag2"], 
-        "custom_coordinates": "10,10,100,100"
+        "custom_coordinates": "10,10,100,100",
+        "custom_metadata": {"test": 11}
     },
 )
 

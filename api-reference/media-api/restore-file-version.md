@@ -116,6 +116,22 @@ imagekit.restoreFileVersion({
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+restore_file_version = imagekit.restore_file_version("file_id", "version_id")
+
+print("Restore file version-", restore_file_version, end="\n\n")
+```
+{% endtab %}
+
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

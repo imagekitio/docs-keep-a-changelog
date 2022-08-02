@@ -69,6 +69,22 @@ imagekit.deleteFolder("folder/to/delete/", function(error, result) {
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+delete_folder = imagekit.delete_folder(options={"folder_path": "/test/demo"})
+
+print("Delete folder-", delete_folder, end="\n\n")
+```
+{% endtab %}
+
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

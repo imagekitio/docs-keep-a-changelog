@@ -80,6 +80,23 @@ imagekit.moveFolder({
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+move_folder = imagekit.move_folder(options={"source_folder_path": "/test",
+                                                "destination_path": "/demo"})
+
+print("Move folder-", move_folder, end="\n\n")
+```
+{% endtab %}
+
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

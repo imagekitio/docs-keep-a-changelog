@@ -281,8 +281,16 @@ upload = imagekit.upload(
     file=imgstr,
     file_name="my_file_name.jpg",
     options={
-        "tags": ["tag1", "tag2"]
-    },
+            "response_fields": ["is_private_file", "custom_metadata", "tags"],
+            "is_private_file": False,
+            "tags": ["tag1", "tag2"],
+            "webhook_url": "url",
+            "overwrite_file": False,
+            "overwrite_a_i_tags": False,
+            "overwrite_tags": False,
+            "overwrite_custom_metadata": True,
+            "custom_metadata": json.dumps({"test": 11})
+        },
 )
 
 print("Upload base64", upload)
@@ -617,6 +625,37 @@ fs.readFile('image.jpg', function(err, data) {
     else console.log(result);
   });
 });
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import base64
+import os
+import sys
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your public_key',
+    private_key='your private_key',
+    url_endpoint = 'your url_endpoint'
+)
+
+with open("image.jpg", mode="rb") as img:
+    imgstr = base64.b64encode(img.read())
+
+upload = imagekit.upload(
+    file="https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
+    file_name="women_in_red.jpg",
+    options={
+        "extensions": json.dumps(
+            ({"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "pink"}},
+                {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10})
+        ),
+    },
+)
+
+print("Upload url", upload)
 ```
 {% endtab %}
 
