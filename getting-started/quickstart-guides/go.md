@@ -350,7 +350,6 @@ See the complete list of transformations supported in ImageKit [here](https://do
 |effectContrast            |e-contrast|
 |effectGray                |e-grayscale|
 |original                  |orig|
-|attachment                |ik-attachment|
 
 ## Server-side file uploading
 
