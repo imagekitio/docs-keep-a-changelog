@@ -110,12 +110,4 @@ imagekitio.create_folder(folder_name: 'new_folder', parent_folder_path: 'source/
 ```
 {% endtab %}
 
-{% tab title="Go" %}
-```Go
-resp, err := ik.Media.CreateFolder(ctx, media.CreateFolderParam{
-   FolderName: "nature",
-   ParentFolderPath: "/some/pics"
-}
-```
-{% endtab %}
 {% endtabs %}

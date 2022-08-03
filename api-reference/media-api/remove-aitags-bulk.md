@@ -178,19 +178,4 @@ imagekitio.delete_bulk_ai_tags(
 ```
 {% endtab %}
 
-```
-{% endtab %}
-{% tab title="Go" %}
-```Go
-resp, err := ik.Media.RemoveAITags(ctx, media.AITagsParam{
-    FileIds: []string{
-        "5e21880d5efe355febd4bccd",
-        "5e1c13c1c55ec3437c451403",
-        "5f4abf6fae77ae7f0acda3d1",
-        "5f207bd1bd2741182ceadd55"
-    },
-    AITags: []string{"ai-tag-to-remove-1", "ai-tag-to-remove-2"},
-})
-```
-{% endtab %}
 {% endtabs %}

@@ -381,14 +381,6 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 list_files = imagekitio.list_files({skip: 0, limit: 5})
 ```
 {% endtab %}
-{% tab title="Go" %}
-```Go
-resp, err := ik.Media.Assets(ctx, media.AssetsParam{
-    Skip: 10,
-    Limit: 500,
-})
-```
-{% endtab %}
 {% endtabs %}
 
 ### Advance search using searchQuery
@@ -475,13 +467,6 @@ ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({search_query: 'createdAt >= "7d" AND size > "2mb"'})
-```
-{% endtab %}
-{% tab title="Go" %}
-```Go
-resp, err := ik.Media.Assets(ctx, media.AssetsParam{
-    SearchQuery: "createdAt >= \"7d\" AND size > \"2mb\"",
-})
 ```
 {% endtab %}
 {% endtabs %}
@@ -572,14 +557,6 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 list_files = imagekitio.list_files({search_query: '"customMetadata.category" IN ["clothing", "accessories"]"'})
 ```
 {% endtab %}
-{% tab title="Go" %}
-```Go
-resp, err := ik.Media.Assets(ctx, media.AssetsParam{
-    SearchQuery: `"customMetadata.category" IN ["clothing", "accessories"]"`,
-})
-
-```
-{% endtab %}
 {% endtabs %}
 
 ### Embedded metadata based search
@@ -666,14 +643,6 @@ ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({search_query: '"embeddedMetadata.DateTimeOriginal" > "1y"'})
-```
-{% endtab %}
-{% tab title="Go" %}
-```Go
-resp, err := ik.Media.Assets(ctx, media.AssetsParam{
-    SearchQuery: `"embeddedMetadata.DateTimeOriginal" > "1y"`,
-})
-
 ```
 {% endtab %}
 {% endtabs %}
@@ -764,12 +733,6 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 list_files = imagekitio.list_files({search_query: 'name="file-name.jpg"'})
 ```
 {% endtab %}
-{% tab title="Go" %}
-```Go
-resp, err := ik.Media.Assets(ctx, media.AssetsParam{
-    SearchQuery: `name="file-name.jpg"`,
-})
-{% endtab %}
 {% endtabs %}
 
 ### List files within a specific folder
@@ -857,13 +820,6 @@ ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({path: "products"})
-```
-{% endtab %}
-{% tab title="Go" %}
-```Go
-resp, err := ik.Media.Assets(ctx, media.AssetsParam{
-    Path: "products",
-})
 ```
 {% endtab %}
 {% endtabs %}
@@ -955,13 +911,6 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 list_files = imagekitio.list_files({tags : "sale,summer"})
 ```
 {% endtab %}
-{% tab title="Go" %}
-```Go
-resp, err := ik.Media.Assets(ctx, media.AssetsParam{
-    Tags: "sale,summer",
-})
-```
-{% endtab %}
 {% endtabs %}
 
 ### Search all PNG files
@@ -1048,13 +997,6 @@ ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({search_query: 'format="png"'})
-```
-{% endtab %}
-{% tab title="Go" %}
-```Go
-resp, err := ik.Media.Assets(ctx, media.AssetsParam{
-    SearchQuery: `format="png"`,
-})
 ```
 {% endtab %}
 {% endtabs %}

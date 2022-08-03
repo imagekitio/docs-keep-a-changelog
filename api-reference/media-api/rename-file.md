@@ -186,21 +186,4 @@ imagekitio.rename_file(
 ```
 {% endtab %}
 
-RenameFileRequest renameFileRequest = new RenameFileRequest();
-renameFileRequest.setFilePath("/path/to/old-file-name.jpg");
-renameFileRequest.setNewFileName("new-file-name.jpg");
-renameFileRequest.setPurgeCache(false);
-ResultRenameFile resultRenameFile = ImageKit.getInstance().renameFile(renameFileRequest);
-
-```
-{% endtab %}
-{% tab title="Go" %}
-```Go
-resp, err := ik.Media.RenameAsset(ctx, media.RenameAssetParam{
-    FilePath: "/path/to/old-file-name.jpg",
-    NewFileName: "new-file-name.jpg",
-    PurgeCache: true, // Optional
-})
-```
-{% endtab %}
 {% endtabs %}

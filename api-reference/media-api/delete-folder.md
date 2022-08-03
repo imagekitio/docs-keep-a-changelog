@@ -105,16 +105,4 @@ imagekitio.delete_folder(folder_path: 'folder/to/delete/')
 ```
 {% endtab %}
 
-DeleteFolderRequest deleteFolderRequest = new DeleteFolderRequest();
-deleteFolderRequest.setFolderPath("folder/to/delete/");
-ResultNoContent resultNoContent = ImageKit.getInstance().deleteFolder(deleteFolderRequest);
-```
-{% endtab %}
-[% tab title="Go" %}
-```Go
-resp, err := ik.Media.DeleteFolder(ctx, media.DeleteFolderParam{
-    FolderPath: "/some/pics/nature",
-})
-```
-{% endtab %}
 {% endtabs %}
