@@ -121,4 +121,18 @@ imagekitio.move_file(
 ```
 {% endtab %}
 
+MoveFileRequest moveFileRequest = new MoveFileRequest();
+moveFileRequest.setSourceFilePath("/path/to/file.jpg");
+moveFileRequest.setDestinationPath("/folder/to/move/into/");
+ResultNoContent resultNoContent = ImageKit.getInstance().moveFile(moveFileRequest);
+```
+{% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.MoveAsset(ctx, media.MoveAssetParam{
+    SourcePath: "/path/to/file.jpg",
+    DestinationPath: "/folder/to/move/into/*",
+})
+```
+{% endtab %}
 {% endtabs %}

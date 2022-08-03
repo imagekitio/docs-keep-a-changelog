@@ -111,4 +111,13 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 delete = imagekitio.delete_file(file_id: "file_id")
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+ik, err := imagekit.New()
+
+resp, err := ik.Media.DeleteBulkAssets(ctx, media.FileIdsParam{
+    FileIds: []string{"file_id_1", "file_id_2"},
+)
+```
+{% endtab %}
 {% endtabs %}

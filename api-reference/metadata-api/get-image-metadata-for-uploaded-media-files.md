@@ -192,6 +192,11 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 file_metadata = imagekitio.get_file_metadata(file_id: "file_id")
 ```
 {% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Metadata.FromAsset(ctx, "file_id")
+```
+{% endtab %}
 {% endtabs %}
 
 ### Calculate pHash distance between two images

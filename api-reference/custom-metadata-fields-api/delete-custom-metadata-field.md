@@ -86,4 +86,13 @@ imagekitio.delete_custom_metadata_field(id: 'field_id')
 ```
 {% endtab %}
 
+ResultNoContent resultNoContent=ImageKit.getInstance().deleteCustomMetaDataField("6152fc9a2fd12044cb4cefe2");
+```
+{% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Metadata.DeleteCustomField(ctx, "field_id")
+
+```
+{% endtab %}
 {% endtabs %}

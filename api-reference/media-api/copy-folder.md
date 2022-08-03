@@ -114,6 +114,14 @@ $copyFolder = $imageKit->copyFolder([
 
 echo("Copy Folder : " . json_encode($copyFolder));
 ```
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.CopyFolder(ctx, media.CopyFolderParam{
+    SourceFolderPath: "source/path",
+    DestinationPath: "destination/",
+    IncludeVersions: true
+})
+```
 {% endtab %}
 {% tab title="Java" %}
 ```java

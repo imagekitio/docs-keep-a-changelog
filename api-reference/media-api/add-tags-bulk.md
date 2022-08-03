@@ -178,5 +178,28 @@ ResultTags resultTags = ImageKit.getInstance().addTags(tagsRequest);
 )
  ```
 {% endtab %}
-
+{% tab title="Java" %}
+```java
+List<String> fileIds = new ArrayList<>();
+fileIds.add("5e21880d5efe355febd4bccd");
+fileIds.add("5e1c13c1c55ec3437c451403");
+fileIds.add("5f4abf6fae77ae7f0acda3d1");
+fileIds.add("5f207bd1bd2741182ceadd55");
+List<String> tags = new ArrayList<>();
+tags.add("tag-to-add-1");
+tags.add("tag-to-add-2");
+TagsRequest tagsRequest =new TagsRequest();
+tagsRequest.setFileIds(fileIds);
+tagsRequest.setTags(tags);
+ResultTags resultTags = ImageKit.getInstance().addTags(tagsRequest);
+```
+{% endtab %}
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.AddTags(ctx, media.TagsParam{
+    FileIds: []string{"3243244", "23532566"},
+    Tags: []string{"tag1", "tag2"},
+})
+```
+{% endtab %}
 {% endtabs %}
