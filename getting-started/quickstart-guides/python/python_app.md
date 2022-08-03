@@ -10,15 +10,15 @@ This quick start guide shows you how to integrate ImageKit into the Python appli
 
 This guide walks you through the following topics:
 
-* [Setting up ImageKit Java SDK](python_app.md#setting-up-imagekit-java-sdk)
-* [Upload images](python_app.md#uploading-images-in-java-app)
-* [Rendering images](python_app.md#generating-url-for-rendering-images-in-java-app)
-* [Applying common image manipulations](python_app.md#common-image-manipulation-in-java-app)
+* [Setting up ImageKit Python SDK](python_app.md#setting-up-imagekit-python-sdk)
+* [Upload images](python_app.md#uploading-images-in-python-app)
+* [Rendering images](python_app.md#generating-url-for-rendering-images-in-python-app)
+* [Applying common image manipulations](python_app.md#common-image-manipulation-in-python-app)
 * [Secure signed URL generation](python_app.md#6-secure-signed-url-generation)
 * [Server-side file uploading](python_app.md#server-side-file-upload)
 * [ImageKit Media API](python_app.md#imagekit-media-api)
 
-## Setting up ImageKit Java SDK
+## Setting up ImageKit Python SDK
 
 We will create a new Python application for this tutorial and work with it.
 
@@ -53,7 +53,7 @@ The imagekitio client is configured with user-specific credentials.
 * `publicKey` and `privateKey` parameters are required as these would be used for all ImageKit API, server-side upload, and generating tokens for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
 * `urlEndpoint` is also a required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).&#x20;
 
-## **Uploading images in java app**
+## **Uploading images in python app**
 
 There are different ways to upload the file in imagekitio. Let's upload the remote file to imagekitio using the following code:
 
@@ -148,7 +148,7 @@ open the url on browser, it should now display this default image in its full si
 
 ![Image in its original dimensions (1000px \* 1000px)](<../../../.gitbook/assets/python-app-default-image.png>)
 
-## Common image manipulation in java App
+## Common image manipulation in python App
 
 Let’s now learn how to manipulate images using [ImgeKit transformations](../../../features/image-transformations/).
 
@@ -203,7 +203,7 @@ This section covers the basics:
 * [Adding overlays to images](#5-adding-overlays-to-images)
 * [Signed URL](#6-secure-signed-url-generation)
 
-The Java SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. See the [Full List of supported transformations](#list-of-supported-transformations).
+The Python SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. See the [Full List of supported transformations](#list-of-supported-transformations).
 
 👉 If the property does not match any of the available options, it is added as it is.
 
@@ -296,3 +296,740 @@ https://ik.imagekit.io/fl0osl7rq9/tr:rt-90:h-300,w-200/default-image.jpg
 ![Rotated, then resized](<../../../.gitbook/assets/python-app-rotate-resized-image.png>)
 
 
+### 2. Image enhancement and color manipulation
+
+Some transformations like [Contrast stretch](https://docs.imagekit.io/features/image-transformations/image-enhancement-and-color-manipulation#contrast-stretch-e-contrast) , [Sharpen](https://docs.imagekit.io/features/image-transformations/image-enhancement-and-color-manipulation#sharpen-e-sharpen) and [Unsharp mask](https://docs.imagekit.io/features/image-transformations/image-enhancement-and-color-manipulation#unsharp-mask-e-usm) can be added to the URL with or without any other value. To use such transforms without specifying a value, specify the value as "-" in the transformation object. Otherwise, specify the value that you want to be added to this transformation.
+
+#### Example
+```python
+image_url = imagekit.url(
+        {
+            "path": "/default-image.jpg",
+            "transformation": [
+                {
+                    "format": "jpg",
+                    "progressive": "true",
+                    "effect_sharpen": "-",
+                    "effect_contrast": "1",
+                }
+            ],
+        }
+    )
+```
+
+**Transformation URL:**
+
+```http
+https://ik.imagekit.io/fl0osl7rq9/tr:f-jpg,pr-true,e-sharpen,e-contrast-1/default-image.jpg
+```
+
+**Output Image:**
+
+![Overlay image over another image](<../../../.gitbook/assets/python-app-with-enhancement-image.png>)
+
+### 3. Resizing images
+Let's resize the image to a width of 200 and a height of 200.
+Check detailed instructions on [Resize, Crop, and Other Common Transformations](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations)
+
+#### Example
+```python
+image_url = imagekit.url(
+        {
+            "path": "/default-image.jpg",
+            "transformation": [{"height": "200", "width": "200"}],
+        }
+    )
+```
+
+**Transformation URL:**
+
+```http
+https://ik.imagekit.io/fl0osl7rq9/tr:h-200,w-200/default-image.jpg
+```
+
+**Output Image:**
+
+![Overlay image over another image](<../../../.gitbook/assets/python-app-with-resizing-image.png>)
+
+### 4. Quality manipulation
+You can use the [Quality Parameter](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#quality-q) to change quality like this.
+
+#### Example
+```python
+image_url = imagekit.url(
+        {
+            "path": "/default-image.jpg",
+            "transformation": [{"quality": "40"}],
+        }
+    )
+```
+
+**Transformation URL:**
+
+```http
+https://ik.imagekit.io/fl0osl7rq9/tr:q-40/default-image.jpg
+```
+
+**Output Image:**
+
+![Overlay image over another image](<../../../.gitbook/assets/python-app-with-quality-image.png>)
+
+### 5. Adding overlays to images
+ImageKit.io allows overlaying [images](https://docs.imagekit.io/features/image-transformations/overlay#image-overlay) or [text](https://docs.imagekit.io/features/image-transformations/overlay#text-overlay) over other images for watermarking or creating a dynamic banner using custom text.
+
+#### **Text overlay**
+
+Text overlay can be used to superimpose text on an image. For example:
+
+#### Example
+```python
+image_url = imagekit.url(
+        {
+            "path": "/default-image.jpg",
+            "transformation": [{"height": "300", "width": "300"},
+                               {"overlay_text": "ImageKit", "overlay_text_font_size": "50",
+                                "overlay_text_color": "0651D5"}
+                               ],
+        }
+    )
+```
+
+**Transformation URL:**
+
+```http
+https://ik.imagekit.io/fl0osl7rq9/tr:h-300,w-300:ot-ImageKit,ots-50,otc-0651D5/default-image.jpg
+```
+
+**Output Image:**
+
+![Text Overlay (300px \* 300px)](<../../../.gitbook/assets/python-app-with-overlay-text.png>)
+
+#### **Image overlay**
+
+Image overlay can be used to superimpose an image on another image. For example, we will upload a while logo image on [this link](https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png) into our account and use it for the overlay image.
+
+Base Image: `default-image.jpg`
+
+Overlay Image: `logo-white_SJwqB4Nfe.png`
+
+#### Example
+```python
+image_url = imagekit.url(
+        {
+            "path": "/default-image.jpg",
+            "transformation": [{"height": "300", "width": "300"},
+                               {"overlay_image": "logo-white_SJwqB4Nfe.png"}
+                               ],
+        }
+    )
+```
+
+**Transformation URL:**
+
+```http
+https://ik.imagekit.io/fl0osl7rq9/tr:h-300,w-300:oi-logo-white_SJwqB4Nfe.png/default-image.jpg
+```
+
+**Output Image:**
+
+![Overlay image over another image](<../../../.gitbook/assets/python-app-with-overlay-image.png>)
+
+### 6. Secure signed URL generation
+
+You can use the SDK to generate a signed URL of an image, that expires in a given number of seconds.
+
+#### Example
+```python
+image_url = imagekit.url(
+        {
+            "path": "/default-image.jpg",
+            "signed": True,
+            "expire_seconds": 10,
+        }
+    )
+```
+
+The above snippets create a signed URL with an expiry time of 10 seconds.
+
+![Signed URL generation](<../../../.gitbook/assets/python-app-with-signed-image.png>)
+
+### List of supported transformations
+
+See the complete list of [image](https://docs.imagekit.io/features/image-transformations) and [video](https://docs.imagekit.io/features/video-transformation) transformations supported in ImageKit. The SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. If the property does not match any of the following supported options, it is added as it is.
+
+If you want to generate transformations in your application and add them to the URL as it is, use the `raw` parameter.
+
+| Supported Transformation Name | Translates to parameter |
+|-------------------------------|-------------------------|
+| height | h |
+| width | w |
+| aspect_ratio | ar |
+| quality | q |
+| crop | c |
+| crop_mode | cm |
+| x | x |
+| y | y |
+| focus | fo |
+| format | f |
+| radius | r |
+| background | bg |
+| border | b |
+| rotation | rt |
+| blur | bl |
+| named | n |
+| overlay_image | oi |
+| overlay_image_aspect_ratio | oiar |
+| overlay_image_background | oibg |
+| overlay_image_border | oib |
+| overlay_image_dpr | oidpr |
+| overlay_image_quality | oiq |
+| overlay_image_cropping | oic |
+| overlay_image_focus | oifo |
+| overlay_image_trim | oit |
+| overlay_x | ox |
+| overlay_y | oy |
+| overlay_focus | ofo |
+| overlay_height | oh |
+| overlay_width | ow |
+| overlay_text | ot |
+| overlay_text_font_size | ots |
+| overlay_text_font_family | otf |
+| overlay_text_color | otc |
+| overlay_text_transparency | oa |
+| overlay_alpha | oa |
+| overlay_text_typography | ott |
+| overlay_background | obg |
+| overlay_text_encoded | ote |
+| overlay_text_width | otw |
+| overlay_text_background | otbg |
+| overlay_text_padding | otp |
+| overlay_text_inner_alignment | otia |
+| overlay_radius | or |
+| progressive | pr |
+| lossless | lo |
+| trim | t |
+| metadata | md |
+| color_profile | cp |
+| default_image | di |
+| dpr | dpr |
+| effect_sharpen | e-sharpen |
+| effect_usm | e-usm |
+| effect_contrast | e-contrast |
+| effect_gray | e-grayscale |
+| original | orig |
+| raw | `replaced by the parameter value` |
+
+## Server-side File Upload
+
+The SDK provides a simple interface using the `imagekit.upload_file()` method to upload files to the [ImageKit Media Library](https://imagekit.io/dashboard/media-library).
+
+- [Check all the supported file types and extensions](https://docs.imagekit.io/api-reference/upload-file-api#allowed-file-types-for-uploading).
+- [Check all the supported parameters and details](https://docs.imagekit.io/api-reference/upload-file-api/server-side-file-upload).
+
+#### Example
+```python
+result = imagekit.upload_file(
+        file=open("sample.jpg", "rb"),
+        file_name="testing_upload_binary_signed_private.jpg",
+    )
+```
+#### Response
+```text
+{
+    'error': None,
+    'response': {
+        'file_id': 'file_id',
+        'name': 'test-file_IoXijIWV9.jpg',
+        'url': 'https://ik.imagekit.io/your-imagekit-id/test-file_IoXijIWV9.jpg',
+        'thumbnail_url': None,
+        'height': None,
+        'width': None,
+        'size': 59,
+        'file_path': '/test-file_IoXijIWV9.jpg',
+        'tags': None,
+        'ai_tags': None,
+        'version_info': {
+            'id': 'version_id',
+            'name': 'Version 1'
+        },
+        'is_private_file': False,
+        'custom_coordinates': None,
+        'custom_metadata': None,
+        'embedded_metadata': None,
+        'extension_status': None,
+        'file_type': 'non-image',
+        '_response_metadata': {
+            'raw': {
+                'fileId': 'file_id',
+                'name': 'test-file_IoXijIWV9.jpg',
+                'size': 59,
+                'versionInfo': {
+                    'id': 'version_id',
+                    'name': 'Version 1'
+                },
+                'filePath': '/test-file_IoXijIWV9.jpg',
+                'url': 'https://ik.imagekit.io/your-imagekit-id/test-file_IoXijIWV9.jpg',
+                'fileType': 'non-image',
+                'AITags': None
+            },
+            'httpStatusCode': 200,
+            'headers': {
+                'access-control-allow-origin': '*',
+                'x-ik-requestid': '6022b660-808f-4ec9-a220-e6d3cbb53c82',
+                'content-type': 'application/json; charset=utf-8',
+                'content-length': '287',
+                'etag': 'W/"11f-Ki5k5AxHqc49Rqj3jBQTGk0+Q0k"',
+                'date': 'Wed, 03 Aug 2022 05:01:01 GMT',
+                'x-request-id': '6022b660-808f-4ec9-a220-e6d3cbb53c82'
+            }
+        }
+    }
+}
+```
+#### Optional Parameters
+Please refer to [Server Side File Upload - Request Structure](https://docs.imagekit.io/api-reference/upload-file-api/server-side-file-upload#request-structure-multipart-form-data) for a detailed explanation of mandatory and optional parameters.
+
+#### Example
+```python
+result = imagekit.upload_file(
+        file=open("sample.jpg", "rb"),
+        file_name="testing-file.jpg",
+        options={
+            "use_unique_file_name": 'false',
+            "response_fields": ["is_private_file", "tags"],
+            "is_private_file": True,
+            "folder": "/testing-folder/",
+            "tags": ["tag-1", "tag-2"],
+            "extensions": json.dumps(
+                ({"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "pink"}},
+                 {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10})
+            ),
+            "webhook_url": "url",
+            "overwrite_file": False,
+            "overwrite_a_i_tags": False,
+            "overwrite_tags": False,
+            "overwrite_custom_metadata": True,
+            "custom_metadata": json.dumps({"test": 11})
+        },
+    )
+```
+
+## ImageKit Media API
+
+The SDK provides a simple interface for all the following [Media APIs](https://docs.imagekit.io/api-reference/media-api) to manage your files.
+
+### 1. List and Search Files
+
+This API can list all the uploaded files and folders in your [ImageKit.io](https://docs.imagekit.io/api-reference/media-api) media library.
+
+Refer to the [List and Search File API](https://docs.imagekit.io/api-reference/media-api/list-and-search-files) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+list_files = imagekit.list_files({})
+```
+#### Applying Filters
+Filter out the files with an object specifying the parameters. 
+```python
+list_files = imagekit.list_files({"type": "file", "sort": "ASC_CREATED", "path": "/",
+                                      "search_query": "createdAt >= '2d' OR size < '2mb' OR format='png'",
+                                      "file_type": "all", "limit": 5, "skip": 0,
+                                      "tags": "tag-1, tag-2, tag-3"})
+```
+
+#### Advance Search
+In addition, you can fine-tune your query by specifying various filters by generating a query string in a Lucene-like syntax and providing this generated string as the value of the `searchQuery`.
+```python
+list_files = imagekit.list_files({"search_query": "(size < '1mb' AND width < 500) OR (tags IN ['tag-1', 'tag-2'])"})   
+```
+Detailed documentation can be found here for [Advance Search Queries](https://docs.imagekit.io/api-reference/media-api/list-and-search-files#advanced-search-queries).
+
+### 2. Get File Details
+
+This API can get you all the details and attributes of the current version of the file.
+
+Refer to the [Get File Details API](https://docs.imagekit.io/api-reference/media-api/get-file-details) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+details = imagekit.get_file_details("file_id")
+```
+
+### 3. Get File Versions
+
+This API can get you all the versions of the file.
+
+Refer to the [Get File Versions API](https://docs.imagekit.io/api-reference/media-api/get-file-versions) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+file_versions = imagekit.get_file_versions('file_id')
+```
+
+### 4. Get File Version Details
+
+This API can get you all the details and attributes for the provided version of the file.`versionID` can be found in the following APIs as `id` within the `versionInfo` parameter:
+- [Server-side File Upload API](#server-side-file-upload).
+- [List & Search File API](#1-list-and-search-files)
+- [Get File Details API](#2-get-file-details)
+
+Refer to the [Get File Version Details API](https://docs.imagekit.io/api-reference/media-api/get-file-version-details) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+file_versions_details = imagekit.get_file_version_details('file_id', 'version_id')
+```
+
+### 5. Update File Details
+
+Update file details such as tags, customCoordinates attributes, remove existing AITags, and apply [extensions](https://docs.imagekit.io/extensions/overview) using Update File Details API. This operation can only be performed on the current version of the file.
+
+Refer to the [Update File Details API](https://docs.imagekit.io/api-reference/media-api/update-file-details) for better understanding about the **Request & Response Structure**.
+
+#### Example
+```python
+updated_detail = imagekit.update_file_details(
+        "file_id",
+        {"remove_a_i_tags": ['remove-ai-tag-1', 'remove-ai-tag-2'],
+         "webhook_url": "url",
+         "extensions": [{"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "red"}},
+                        {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10}],
+         "tags": ["tag-1", "tag-2"], "custom_coordinates": "10,10,100,100", "custom_metadata": {"test": 11}},
+    )
+```
+
+### 6. Add Tags (Bulk) API
+
+Add tags to multiple files in a single request. The method accepts an object which contains an array of `fileIds` of the files and an array of `tags` that have to be added to those files.
+
+Refer to the [Add Tags (Bulk) API](https://docs.imagekit.io/api-reference/media-api/add-tags-bulk) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+tags = imagekit.add_tags(file_ids=['file_id_1', 'file_id_2'], tags=['tag-to-add-1', 'tag-to-add-2'])
+```
+
+### 7. Remove Tags (Bulk) API
+
+Remove tags from multiple files in a single request. The method accepts an object which contains an array of `fileIds` of the files and an array of `tags` that have to be removed from those files.
+
+Refer to the [Remove Tags (Bulk) API](https://docs.imagekit.io/api-reference/media-api/remove-tags-bulk) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+remove_tags = imagekit.remove_tags(file_ids=['file_id_1', 'file_id_2'], tags=['tag-to-remove-1', 'tag-to-remove-2'])
+```
+
+### 8. Remove AI Tags (Bulk) API
+
+Remove AI tags from multiple files in a single request. The method accepts an object which contains an array of `fileIds` of the files and an array of `AITags` that have to be removed from those files.
+
+Refer to the [Remove AI Tags (Bulk) API](https://docs.imagekit.io/api-reference/media-api/remove-aitags-bulk) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+remove_ai_tags = imagekit.remove_ai_tags(file_ids=['file_id_1', 'file_id_2'], a_i_tags=['ai-tag-to-remove-1', 'ai-tag-to-remove-2'])
+```
+
+### 9. Delete File API
+
+You can programmatically delete uploaded files in the media library using delete file API.
+
+> If a file or specific transformation has been requested in the past, then the response is cached. Deleting a file does not purge the cache. You can purge the cache using [Purge Cache API](#21-purge-cache-api).
+
+Refer to the [Delete File API](https://docs.imagekit.io/api-reference/media-api/delete-file) for better understanding about the **Request & Response Structure**.
+
+#### Basic Usage
+```python
+delete_file = imagekit.delete_file('file_id')
+```
+
+### 10. Delete File Version API
+
+You can programmatically delete the uploaded file version in the media library using the delete file version API.
+
+> You can delete only the non-current version of a file.
+
+Refer to the [Delete File Version API](https://docs.imagekit.io/api-reference/media-api/delete-file-version) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+delete_file_version = imagekit.delete_file_version("file_id", "version_id")
+```
+
+### 11. Delete Files (Bulk) API
+
+Deletes multiple files and their versions from the media library.
+
+Refer to the [Delete Files (Bulk) API](https://docs.imagekit.io/api-reference/media-api/delete-files-bulk) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+bulk_file_delete = imagekit.bulk_file_delete(file_ids=['file-id-1', 'file-id-2'])
+```
+
+### 12. Copy File API
+
+This will copy a file from one folder to another.
+
+>  If any file at the destination has the same name as the source file, then the source file and its versions (if `includeFileVersions` is set to true) will be appended to the destination file version history.
+
+Refer to the [Copy File API](https://docs.imagekit.io/api-reference/media-api/copy-file) for a better understanding of the **Request & Response Structure**.
+
+#### Basic Usage
+```python
+copy_file = imagekit.copy_file(options={"source_file_path": "/your_file_name.jpg",
+                                            "destination_path": "/test",
+                                            "include_file_versions": True})
+```
+
+### 13. Move File API
+
+This will move a file and all its versions from one folder to another.
+
+>  If any file at the destination has the same name as the source file, then the source file and its versions will be appended to the destination file.
+
+Refer to the [Move File API](https://docs.imagekit.io/api-reference/media-api/move-file) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+move_file = imagekit.move_file(options={"source_file_path": "/your_file_name.jpg",
+                                            "destination_path": "/sample-folder"})
+```
+
+### 14. Rename File API
+
+You can programmatically rename an already existing file in the media library using Rename File API. This operation would rename all file versions of the file.
+
+>  The old URLs will stop working. The file/file version URLs cached on CDN will continue to work unless a purge is requested.
+
+Refer to the [Rename File API](https://docs.imagekit.io/api-reference/media-api/rename-file) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+# Purge Cache would default to false
+
+rename_file = imagekit.rename_file(options={"file_path": "/your_file_name.jpg",
+                                                "new_file_name": "new_file_name.jpg"})
+```
+When `purgeCache` is set to `true`, response will return `purgeRequestId`. This `purgeRequestId` can be used to get the purge request status.
+
+```python
+rename_file = imagekit.rename_file(options={"file_path": "/your_file_name.jpg",
+                                                "new_file_name": "new_file_name.jpg",
+                                                "purge_cache": True})
+```
+
+### 15. Restore file Version API
+This will restore file version to a different version of a file.
+Refer to the [Restore file Version API](https://docs.imagekit.io/api-reference/media-api/restore-file-version) for a better understanding of the **Request & Response Structure**.
+#### Example
+```python
+restore_file_version = imagekit.restore_file_version("file_id", "version_id")
+```
+
+### 16. Create Folder API
+
+This will create a new folder. You can specify the folder name and location of the parent folder where this new folder should be created.
+
+Refer to the [Create Folder API](https://docs.imagekit.io/api-reference/media-api/create-folder) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+create_folder = imagekit.create_folder(options={"folder_name": "new-folder", "parent_folder_path": "/"})
+```
+
+### 17. Delete Folder API
+
+This will delete the specified folder and all nested files, their versions & folders. This action cannot be undone.
+
+Refer to the [Delete Folder API](https://docs.imagekit.io/api-reference/media-api/delete-folder) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+delete_folder = imagekit.delete_folder(options={"folder_path": "/new-folder"})
+```
+
+### 18. Copy Folder API
+
+This will copy one folder into another.
+>  If any folder at the destination has the same name as the source folder, then the source folder and its versions (if `includeFileVersions` is set to true) will be appended to the destination folder version history.
+
+Refer to the [Copy Folder API](https://docs.imagekit.io/api-reference/media-api/copy-folder) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+copy_folder = imagekit.copy_folder(options={"source_folder_path": "/source-folder",
+                                                "destination_path": "/destination-folder",
+                                                "include_file_versions": True})
+```
+
+### 19. Move Folder API
+
+This will move one folder into another. The selected folder, its nested folders, files, and their versions are moved in this operation.
+
+> If any file at the destination has the same name as the source file, then the source file and its versions will be appended to the destination file version history.
+
+Refer to the [Move Folder API](https://docs.imagekit.io/api-reference/media-api/move-folder) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+move_folder = imagekit.move_folder(options={"source_folder_path": "/source-folder",
+                                                "destination_path": "/destination-folder"})
+```
+
+### 20. Bulk Job Status API
+
+This endpoint allows you to get the status of a bulk operation e.g. [Copy Folder API](#18-copy-folder-api) or [Move Folder API](#19-move-folder-api).
+
+Refer to the [Bulk Job Status API](https://docs.imagekit.io/api-reference/media-api/copy-move-folder-status) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+job_status = imagekit.get_bulk_job_status("job_id")
+```
+
+### 21. Purge Cache API
+
+This will purge CDN and ImageKit.io's internal cache. In response `requestId` is returned which can be used to fetch the status of the submitted purge request with [Purge Cache Status API](#22-purge-cache-status-api).
+
+Refer to the [Purge Cache API](https://docs.imagekit.io/api-reference/media-api/purge-cache) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+purge_cache = imagekit.purge_file_cache("file_url")
+```
+
+### 22. Purge Cache Status API
+
+Get the purge cache request status using the `requestId` returned when a purge cache request gets submitted with [Purge Cache API](#21-purge-cache-api)
+
+Refer to the [Purge Cache Status API](https://docs.imagekit.io/api-reference/media-api/purge-cache-status) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+purge_cache_status = imagekit.get_purge_file_cache_status("request_id")
+```
+
+### 23. Get File Metadata API (From File ID)
+
+Get the image EXIF, pHash, and other metadata for uploaded files in the ImageKit.io media library using this API.
+
+Refer to the [Get image metadata for uploaded media files API](https://docs.imagekit.io/api-reference/metadata-api/get-image-metadata-for-uploaded-media-files) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+file_metadata = imagekit.get_file_metadata("file_id")
+```
+
+### 24. Get File Metadata API (From Remote URL)
+
+Get image EXIF, pHash, and other metadata from ImageKit.io powered remote URL using this API.
+
+Refer to the [Get image metadata from remote URL API](https://docs.imagekit.io/api-reference/metadata-api/get-image-metadata-from-remote-url) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+remote_file_url_metadata = imagekit.get_remote_file_url_metadata("image_url")
+```
+
+## Custom Metadata Fields API
+
+Imagekit.io allows you to define a `schema` for your metadata keys and the value filled against that key will have to adhere to those rules. You can [Create](#1-create-fields), [Read](#2-get-fields), [Update](#3-update-fields) and [Delete](#4-delete-fields) custom metadata rules and update your file with custom metadata value in [File update API](#5-update-file-details) or [File Upload API](#server-side-file-upload).
+
+For a detailed explanation refer to the [Custom Metadata Documentaion](https://docs.imagekit.io/api-reference/custom-metadata-fields-api).
+
+
+### 1. Create Fields
+
+Create a Custom Metadata Field with this API.
+
+Refer to the [Create Custom Metadata Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/create-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+create_custom_metadata_fields = imagekit.create_custom_metadata_fields(options={"name": "test",
+                                                          "label": "test",
+                                                          "schema":
+                                                              {"type": "Number",
+                                                               "min_value": 100,
+                                                               "max_value": 200}
+                                                          }
+                                                 )
+```
+
+#### MultiSelect type Exmample:
+
+```python
+imagekit.create_custom_metadata_fields(options={"name": "test",
+                                                          "label": "test",
+                                                          "schema":
+                                                              {
+                                                                  "type": "MultiSelect",
+                                                                  "is_value_required": True,
+                                                                  "default_value": ["small", 30, True],
+                                                                  "select_options": ["small", "medium", "large", 30, 40,
+                                                                                     True]
+                                                              }
+                                                          }
+                                                 )
+```
+
+Check for the [Allowed Values In The Schema](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/create-custom-metadata-field#allowed-values-in-the-schema-object).
+
+### 2. Get Fields
+
+Get a list of all the custom metadata fields. if includeDeleted is passed and set to `true`, the list will include deleted fields also.
+
+Refer to the [Get Custom Metadata Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/get-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+get_custom_metadata_fields = imagekit.get_custom_metadata_fields() # includeDeleted would be False by default
+```
+
+
+```python
+get_custom_metadata_fields = imagekit.get_custom_metadata_fields(True)
+```
+
+### 3. Update Fields
+
+Update the `label` or `schema` of an existing custom metadata field.
+
+Refer to the [Update Custom Metadata Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/update-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+update_custom_metadata_fields = imagekit.update_custom_metadata_fields("id_of_custom_metadata_field", options={"label": "test",
+                                                                "schema":
+                                                                    {
+                                                                        "min_value": 100,
+                                                                        "max_value": 200
+                                                                    }
+                                                                }
+                                                 )
+```
+
+Check for the [Allowed Values In The Schema](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/create-custom-metadata-field#allowed-values-in-the-schema-object).
+
+
+### 4. Delete Fields
+
+Delete a custom metadata field.
+
+Refer to the [Delete Custom Metadata Fields API](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/delete-custom-metadata-field) for a better understanding of the **Request & Response Structure**.
+
+#### Example
+```python
+delete_custom_metadata_field = imagekit.delete_custom_metadata_field("id_of_custom_metadata_field")
+```
+
+## **What's next**
+
+The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here:&#x20;
+
+* [Image Transformations](https://docs.imagekit.io/features/image-transformations)
+* [Image optimization](https://docs.imagekit.io/features/image-optimization)
+* [Media Library](https://docs.imagekit.io/media-library/overview)
+* [Performance monitoring](../../../features/performance-monitoring.md)
