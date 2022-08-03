@@ -143,17 +143,7 @@ ResultCustomMetaDataField resultCustomMetaDataField = ImageKit.getInstance().upd
 
 ```
 {% endtab %}
-{% tab title="Go" %}
-```Go
-// Atleast Label or Schema is required
-resp, err := ik.Metadata.UpdateCustomField(ctx, "file_id", UpdateCustomFieldParam{
-    Label: "Cost",
-    Schema: {
-        MinValue: 100,
-    },
-})
-```
-{% endtab %}
+
 {% tab title='Ruby'%}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
@@ -166,4 +156,5 @@ imagekitio.update_custom_metadata_field(
 )
 ```
 {% endtab %}
+
 {% endtabs %}

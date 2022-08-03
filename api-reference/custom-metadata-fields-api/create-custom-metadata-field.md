@@ -161,21 +161,6 @@ customMetaDataFieldCreateRequest.setLabel("price");
 customMetaDataFieldCreateRequest.setSchema(customMetaDataFieldSchemaObject);
 
 ResultCustomMetaDataField resultCustomMetaDataField = ImageKit.getInstance().createCustomMetaDataFields(customMetaDataFieldCreateRequest);
-```
-{% endtab %}
-{% tab title="Go" %}
-```Go
-import "github.com/imagekit-developer/imagekit-go/api/media/metadata"
-
-resp, err := ik.Metadata.CreateCustomField(ctx, metadata.CreateFieldParam{
-    Name: "Price",
-    Label: "price",
-    Schema: metadata.Schema{
-        Type: "Number",
-        MinValue: "1000",
-        MaxValue: "3000",
-    }
-})
 
 ```
 

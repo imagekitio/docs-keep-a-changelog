@@ -109,14 +109,4 @@ imagekitio.get_custom_metadata_fields(include_deleted: false)
 ```
 {% endtab %}
 
-boolean includeDeleted = false;
-ResultCustomMetaDataFieldList resultCustomMetaDataFieldList = ImageKit.getInstance().getCustomMetaDataFields(includeDeleted);
-
-```
-{% endtab %}
-{% tab title="Go" %}
-```Go
-resp, err := ik.Metadata.CustomFields(ctx, false)
-```
-{% endtab %}
 {% endtabs %}

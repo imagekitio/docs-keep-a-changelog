@@ -103,14 +103,4 @@ imagekitio.bulk_job_status(job_id: 'job_id')
 ```
 {% endtab %}
 
-String jobId = "598821f949c0a938d57563bd";
-ResultBulkJobStatus resultBulkJobStatus = ImageKit.getInstance().getBulkJobStatus(jobId);
-
-```
-{% endtab %}
-{% tab title="Go" %}
-```Go
-jobId = "3232543"
-resp, err := ik.BulkJobStatus(ctx, jobId)
-```
 {% endtabs %}
