@@ -211,11 +211,11 @@ The Python SDK gives a name to each transformation parameter e.g. `height` for `
 [
     'effectGray' => 'e-grayscale'
 ]
-// and
+# and
 [
     'e-grayscale' => ''
 ]
-// works the same
+# works the same
 ```
 
 👉 Note that you can also use the `h` and `w` parameters instead of `height` and `width`. 
@@ -961,7 +961,7 @@ create_custom_metadata_fields = imagekit.create_custom_metadata_fields(options={
 #### MultiSelect type Exmample:
 
 ```python
-imagekit.create_custom_metadata_fields(options={"name": "test",
+create_custom_metadata_fields = imagekit.create_custom_metadata_fields(options={"name": "test",
                                                           "label": "test",
                                                           "schema":
                                                               {
@@ -987,7 +987,6 @@ Refer to the [Get Custom Metadata Fields API](https://docs.imagekit.io/api-refer
 ```python
 get_custom_metadata_fields = imagekit.get_custom_metadata_fields() # includeDeleted would be False by default
 ```
-
 
 ```python
 get_custom_metadata_fields = imagekit.get_custom_metadata_fields(True)
