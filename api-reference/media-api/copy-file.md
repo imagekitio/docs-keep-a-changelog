@@ -118,7 +118,6 @@ copyFileRequest.setSourceFilePath("/path/to/file.jpg");
 copyFileRequest.setDestinationPath("/folder/to/copy/into/");
 copyFileRequest.setIncludeFileVersions(true);
 ResultNoContent resultNoContent = ImageKit.getInstance().copyFile(copyFileRequest);
-
 ```
 {% endtab %}
 
@@ -130,6 +129,16 @@ imagekitio.copy_file(
   destination_path: '/folder/to/copy/into/',
   include_file_versions: false # optional
 )
+```
+{% endtab %}
+
+{% tab title='Go' %}
+```Go
+resp, err := ik.Media.CopyFile(ctx, media.CopyFileParam{
+    SourcePath: "/path/to/file.jpg",
+    DestinationPath: "/folder/to/copy/into/",
+    IncludeVersions: false, //optional
+})
 ```
 {% endtab %}
 

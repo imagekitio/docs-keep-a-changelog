@@ -167,6 +167,12 @@ imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key",
 imagekitio.get_remote_file_url_metadata("remote_file_url")
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```Go
+resp, err := ik.Metadata.FromUrl(ctx, "remote_file_url")
+```
+{% endtab %}
 {% endtabs %}
 
 ### Get metadata of a transformed image
@@ -219,6 +225,13 @@ ResultMetaData result=ImageKit.getInstance().getRemoteFileMetadata("https://ik.i
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.get_remote_file_url_metadata(remote_file_url: "https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```Go
+resp, err := ik.Metadata.FromUrl(ctx, "https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
+
 ```
 {% endtab %}
 {% endtabs %}

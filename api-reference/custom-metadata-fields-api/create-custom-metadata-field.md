@@ -163,6 +163,7 @@ customMetaDataFieldCreateRequest.setSchema(customMetaDataFieldSchemaObject);
 ResultCustomMetaDataField resultCustomMetaDataField = ImageKit.getInstance().createCustomMetaDataFields(customMetaDataFieldCreateRequest);
 
 ```
+{% endtab %}
 
 {% tab title="Ruby" %}
 ```ruby
@@ -179,5 +180,20 @@ imagekitio.create_custom_metadata_field(
 ```
 {% endtab %}
 
+{% tab title="Go" %}
+```go
+resp, err := ik.Metadata.CreateCustomField(ctx, metadata.CreateFieldParam{
+    Name:  "price",
+    Label: "price",
+    Schema: metadata.Schema{
+        Type: "Number",
+        MinValue: 1000,
+        MaxValue: 3000,
+    },
+})
+
+```
 {% endtab %}
+
+
 {% endtabs %}
