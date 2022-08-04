@@ -1,4 +1,4 @@
-# Video Optimization \(Beta release\)
+# Video Optimization
 
 Websites with video lead to higher engagement and sales. But videos files are big and it is important that you deliver the video properly and ensure that the playback of the video is seamless and doesn't stall. When a smaller video is downloaded, video playback occurs sooner, and the video buffer fills up faster.
 

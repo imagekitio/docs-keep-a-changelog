@@ -168,8 +168,8 @@ You can add subtitles over a base video using the following example.
 ```markup
 https://ik.imagekit.io/demo/base-video.mp4?tr=l-subtitles,i-english.srt,l-end
 ```
-The position of subtitles cannot be controlled in the beta version.
+The position of subtitles cannot be controlled.
 
 ## Transformation of subtitles overlay
 
-Transformation of subtitles are not supported in the beta version.
+Transformation of subtitles are not supported.
