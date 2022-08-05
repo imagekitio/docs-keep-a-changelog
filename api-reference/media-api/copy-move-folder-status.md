@@ -103,4 +103,9 @@ imagekitio.bulk_job_status(job_id: 'job_id')
 ```
 {% endtab %}
 
+{% tab title="Go" %}
+```Go
+resp, err := ik.BulkJobStatus(ctx, "job_id")
+```
+{% endtab %}
 {% endtabs %}

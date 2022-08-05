@@ -469,6 +469,14 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 list_files = imagekitio.list_files({search_query: 'createdAt >= "7d" AND size > "2mb"'})
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.Files(ctx, media.FilesParam{Path: "/"})
+    SearchQuery: "createdAt >= \"7d\" AND size > \"2mb\"",
+})
+```
+{% endtab %}
 {% endtabs %}
 
 ### Custom metadata based search
@@ -555,6 +563,15 @@ ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({search_query: '"customMetadata.category" IN ["clothing", "accessories"]"'})
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    SearchQuery: `"customMetadata.category" IN ["clothing", "accessories"]"`,
+})
+
 ```
 {% endtab %}
 {% endtabs %}
@@ -645,6 +662,15 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 list_files = imagekitio.list_files({search_query: '"embeddedMetadata.DateTimeOriginal" > "1y"'})
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    SearchQuery: `"embeddedMetadata.DateTimeOriginal" > "1y"`,
+})
+
+```
+{% endtab %}
 {% endtabs %}
  
 ### Search media library files by name
@@ -732,6 +758,13 @@ ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({search_query: 'name="file-name.jpg"'})
 ```
+{% endtab %}
+
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    SearchQuery: `name="file-name.jpg"`,
+})
 {% endtab %}
 {% endtabs %}
 
@@ -911,6 +944,14 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 list_files = imagekitio.list_files({tags : "sale,summer"})
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    Tags: "sale,summer",
+})
+```
+{% endtab %}
 {% endtabs %}
 
 ### Search all PNG files
@@ -997,6 +1038,14 @@ ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({search_query: 'format="png"'})
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    SearchQuery: `format="png"`,
+})
 ```
 {% endtab %}
 {% endtabs %}

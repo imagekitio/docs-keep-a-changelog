@@ -140,4 +140,11 @@ imagekitio.file_versions(
 ```
 {% endtab %}
 
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.FileVersions(ctx, media.FileVersionsParam{
+    FileId: "file_id",
+})
+```
+{% endtab %}
 {% endtabs %}

@@ -157,4 +157,17 @@ imagekitio.update_custom_metadata_field(
 ```
 {% endtab %}
 
+{% tab title="Go" %}
+```Go
+// Atleast Label or Schema is required
+resp, err := ik.Metadata.UpdateCustomField(ctx, "field_id", UpdateCustomFieldParam{
+    Label: "Cost",
+    Schema: {
+        MinValue: 100,
+        MaxValue: 2500,
+    },
+})
+```
+{% endtab %}
+
 {% endtabs %}
