@@ -87,7 +87,7 @@ imagekitio.delete_custom_metadata_field(id: 'field_id')
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Metadata.DeleteCustomField(ctx, "field_id")
 
 ```

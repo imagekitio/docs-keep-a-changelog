@@ -137,7 +137,7 @@ curl -X POST "https://upload.imagekit.io/api/v1/files/upload" \
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 import (
     "github.com/imagekit-developer/imagekit-go/extension"
 	"github.com/imagekit-developer/imagekit-go/api/uploader"
@@ -293,7 +293,7 @@ updated_detail = imagekitio.update_file_details(
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 import (
     "github.com/imagekit-developer/imagekit-go/extension"
 	"github.com/imagekit-developer/imagekit-go/api/media"

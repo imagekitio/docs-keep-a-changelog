@@ -113,7 +113,7 @@ delete = imagekitio.delete_file(file_id: "file_id")
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 ik, err := imagekit.New()
 
 resp, err := ik.Media.DeleteFile(ctx, "file_id")

@@ -209,7 +209,7 @@ updated_detail = imagekitio.update_file_details(
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.UpdateFile(ctx, "file_id", media.UpdateFileParam{
     Tags: []string{"tag1", "tag2"},
     CustomCoordinates: "10,10,100,100",
@@ -357,7 +357,7 @@ updated_detail = imagekitio.update_file_details(
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 import (
     "github.com/imagekit-developer/imagekit-go/extension"
 	"github.com/imagekit-developer/imagekit-go/api/uploader"

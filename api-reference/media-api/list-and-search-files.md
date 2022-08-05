@@ -471,7 +471,7 @@ list_files = imagekitio.list_files({search_query: 'createdAt >= "7d" AND size > 
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.Files(ctx, media.FilesParam{Path: "/"})
     SearchQuery: "createdAt >= \"7d\" AND size > \"2mb\"",
 })
@@ -567,7 +567,7 @@ list_files = imagekitio.list_files({search_query: '"customMetadata.category" IN 
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.Files(ctx, media.FilesParam{
     SearchQuery: `"customMetadata.category" IN ["clothing", "accessories"]"`,
 })
@@ -664,7 +664,7 @@ list_files = imagekitio.list_files({search_query: '"embeddedMetadata.DateTimeOri
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.Files(ctx, media.FilesParam{
     SearchQuery: `"embeddedMetadata.DateTimeOriginal" > "1y"`,
 })
@@ -761,7 +761,7 @@ list_files = imagekitio.list_files({search_query: 'name="file-name.jpg"'})
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.Files(ctx, media.FilesParam{
     SearchQuery: `name="file-name.jpg"`,
 })
@@ -946,7 +946,7 @@ list_files = imagekitio.list_files({tags : "sale,summer"})
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.Files(ctx, media.FilesParam{
     Tags: "sale,summer",
 })
@@ -1042,7 +1042,7 @@ list_files = imagekitio.list_files({search_query: 'format="png"'})
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.Files(ctx, media.FilesParam{
     SearchQuery: `format="png"`,
 })

@@ -140,7 +140,7 @@ imagekitio.get_file_deltails(file_id: 'file_id')
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.FileById(ctx, "file_id")
 ```
 {% endtab %}

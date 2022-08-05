@@ -169,7 +169,7 @@ imagekitio.get_remote_file_url_metadata("remote_file_url")
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Metadata.FromUrl(ctx, "remote_file_url")
 ```
 {% endtab %}
@@ -229,7 +229,7 @@ imagekitio.get_remote_file_url_metadata(remote_file_url: "https://ik.imagekit.io
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Metadata.FromUrl(ctx, "https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
 
 ```

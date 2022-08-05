@@ -180,7 +180,7 @@ ResultTags resultTags = ImageKit.getInstance().addTags(tagsRequest);
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.AddTags(ctx, media.TagsParam{
     FileIds: []string{"file_id_1", "file_id_2"},
     Tags: []string{"tag1", "tag2"},

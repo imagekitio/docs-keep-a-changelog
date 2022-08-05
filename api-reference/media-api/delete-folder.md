@@ -106,7 +106,7 @@ imagekitio.delete_folder(folder_path: 'folder/to/delete/')
 {% endtab %}
 
 [% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.DeleteFolder(ctx, media.DeleteFolderParam{
     FolderPath: "folder/to/delete/",
 })

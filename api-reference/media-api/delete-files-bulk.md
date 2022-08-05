@@ -146,7 +146,7 @@ imagekitio.delete_bulk_files(file_ids: bulk_ids)
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.DeleteBulkFiles(ctx, media.FileIdsParam{
     FileIds: []string{"file_id_1", "file_id_2"},
 )

@@ -123,7 +123,7 @@ imagekitio.delete_file_version(
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.DeleteFileVersion(ctx, "file_id", "version_id")
 ```
 {% endtab %}

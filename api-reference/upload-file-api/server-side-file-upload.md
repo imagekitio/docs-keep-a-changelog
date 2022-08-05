@@ -224,7 +224,7 @@ upload = imagekitio.upload_file(file, "my_file_name.jpg", {
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 ik, err := ImageKit.New()
 
 const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -352,7 +352,7 @@ upload = imagekitio.upload_file(
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 ik, err := ImageKit.New()
 const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 
@@ -468,7 +468,7 @@ upload = imagekitio.upload_file(
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 url := "https://imagekit.io/image.jpg"
 resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
     FileName: "my_file_name.jpg",
@@ -600,7 +600,7 @@ upload = imagekitio.upload_file(
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 url := "https://imagekit.io/image.jpg"
 resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
     FileName: "women_in_red.jpg",
@@ -726,7 +726,7 @@ System.out.println(result);
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 import (
     "github.com/imagekit-developer/imagekit-go/extension"
 	"github.com/imagekit-developer/imagekit-go/api/uploader"

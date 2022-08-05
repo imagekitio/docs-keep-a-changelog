@@ -179,7 +179,7 @@ imagekitio.delete_bulk_tags(
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.RemoveTags(ctx, media.TagsParam{
     FileIds: []string{
         "file_id_1",

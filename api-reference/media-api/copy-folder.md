@@ -140,7 +140,7 @@ imagekitio.copy_folder(
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.CopyFolder(ctx, media.CopyFolderParam{
     SourceFolderPath: "/folder/to/copy",
     DestinationPath: "/folder/to/copy/into/",

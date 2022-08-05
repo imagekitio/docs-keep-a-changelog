@@ -110,7 +110,7 @@ imagekitio.get_custom_metadata_fields(include_deleted: false)
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Metadata.CustomFields(ctx, false)
 ```
 {% endtab %}

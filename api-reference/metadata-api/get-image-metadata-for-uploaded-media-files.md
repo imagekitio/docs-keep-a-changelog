@@ -194,7 +194,7 @@ file_metadata = imagekitio.get_file_metadata(file_id: "file_id")
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Metadata.FromFile(ctx, "file_id")
 ```
 {% endtab %}

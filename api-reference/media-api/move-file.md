@@ -122,7 +122,7 @@ imagekitio.move_file(
 {% endtab %}
 
 {% tab title="Go" %}
-```Go
+```go
 resp, err := ik.Media.MoveFile(ctx, media.MoveFileParam{
     SourcePath: "/path/to/file.jpg",
     DestinationPath: "/folder/to/move/into/",
