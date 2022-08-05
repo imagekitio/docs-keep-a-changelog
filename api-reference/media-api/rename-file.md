@@ -186,4 +186,13 @@ imagekitio.rename_file(
 ```
 {% endtab %}
 
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.RenameFile(ctx, media.RenameFileParam{
+    FilePath: "/path/to/old-file-name.jpg",
+    NewFileName: "new-file-name.jpg",
+    PurgeCache: false, // Optional
+})
+```
+{% endtab %}
 {% endtabs %}

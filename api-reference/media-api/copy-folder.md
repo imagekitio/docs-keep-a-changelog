@@ -115,6 +115,7 @@ $copyFolder = $imageKit->copyFolder([
 echo("Copy Folder : " . json_encode($copyFolder));
 ```
 {% endtab %}
+
 {% tab title="Java" %}
 ```java
 
@@ -135,6 +136,16 @@ imagekitio.copy_folder(
   destination_path: '/folder/to/copy/into/',
   include_file_versions: false # optional
 )
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.CopyFolder(ctx, media.CopyFolderParam{
+    SourceFolderPath: "/folder/to/copy",
+    DestinationPath: "/folder/to/copy/into/",
+    IncludeVersions: false, // optional
+})
 ```
 {% endtab %}
 

@@ -178,4 +178,15 @@ imagekitio.delete_bulk_ai_tags(
 ```
 {% endtab %}
 
+{% tab title="Go" %}
+```Go
+resp, err := ik.Media.RemoveAITags(ctx, media.AITagsParam{
+    FileIds: []string{
+        "file_id_1",
+        "file_id_2",
+    },
+    AITags: []string{"ai_tag_to-remove_1", "ai_tag_to-remove_2"},
+})
+```
+{% endtab %}
 {% endtabs %}

@@ -222,6 +222,15 @@ upload = imagekitio.upload_file(file, "my_file_name.jpg", {
 })
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```Go
+ik, err := ImageKit.New()
+
+const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+resp, err := ik.Upload.Upload(ctx, base64Image, uploader.UploadParam{})
+```
+{% endtab %}
 {% endtabs %}
 
 ### Uploading base64 encoded file with some tags
@@ -341,6 +350,19 @@ upload = imagekitio.upload_file(
  )
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```Go
+ik, err := ImageKit.New()
+const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+
+resp, err := ik.Upload.Upload(ctx, base64Image, uploader.UploadParam{
+    FileName: "my_file_name.jpg",
+    Tags: "tag1,tag2",
+})
+
+```
+{% endtab %}
 {% endtabs %}
 
 ### Uploading file via URL
@@ -442,6 +464,15 @@ upload = imagekitio.upload_file(
     file: "image_url",
     file_name: "my_file_name.jpg"
 )
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```Go
+url := "https://imagekit.io/image.jpg"
+resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
+    FileName: "my_file_name.jpg",
+})
 ```
 {% endtab %}
 {% endtabs %}
@@ -567,6 +598,16 @@ upload = imagekitio.upload_file(
 )
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```Go
+url := "https://imagekit.io/image.jpg"
+resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
+    FileName: "women_in_red.jpg",
+    CustomMetadata: `{"brand":"Nike", "color":"red"}`,
+})
+```
+{% endtab %}
 {% endtabs %}
 
 ### Applying extensions while uploading
@@ -681,6 +722,26 @@ fileCreateRequest.setExtensions(jsonArray);
 Result result=ImageKit.getInstance().upload(fileCreateRequest);
 
 System.out.println(result);
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```Go
+import (
+    "github.com/imagekit-developer/imagekit-go/extension"
+	"github.com/imagekit-developer/imagekit-go/api/uploader"
+)
+
+const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+
+resp, err := ik.Uploader.Upload(ctx, base64Image, uploader.UploadParam{
+    Extensions: []extension.IExtension{
+        extension.NewAutoTag(extension.AwsAutoTag, 0, 10),
+        extension.NewRemoveBg(extension.RemoveBgOption{}),
+    },
+})
+
+
 ```
 {% endtab %}
 {% endtabs %}
