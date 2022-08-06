@@ -378,7 +378,16 @@ ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-list_files = imagekitio.list_files({skip: 0, limit: 5})
+list_files = imagekitio.list_files({skip: 0, limit: 10})
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    Skip: 0,
+    Limit: 10,
+})
 ```
 {% endtab %}
 {% endtabs %}
@@ -472,7 +481,7 @@ list_files = imagekitio.list_files({search_query: 'createdAt >= "7d" AND size > 
 
 {% tab title="Go" %}
 ```go
-resp, err := ik.Media.Files(ctx, media.FilesParam{Path: "/"})
+resp, err := ik.Media.Files(ctx, media.FilesParam{
     SearchQuery: "createdAt >= \"7d\" AND size > \"2mb\"",
 })
 ```
@@ -854,6 +863,14 @@ ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({path: "products"})
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    Path: "products",
+})
 ```
 {% endtab %}
 {% endtabs %}
