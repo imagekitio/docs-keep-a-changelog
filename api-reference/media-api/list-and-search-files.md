@@ -765,6 +765,7 @@ list_files = imagekitio.list_files({search_query: 'name="file-name.jpg"'})
 resp, err := ik.Media.Files(ctx, media.FilesParam{
     SearchQuery: `name="file-name.jpg"`,
 })
+```
 {% endtab %}
 {% endtabs %}
 
