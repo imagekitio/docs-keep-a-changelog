@@ -17,9 +17,13 @@ You are not billed for the storage consumed by the original, transformed, and op
 
 Cache-control time can be modified for the files that are being delivered from your storage or server attached to ImageKit.io, but not for the files stored within the [Media library](../media-library/overview/).
 
-### Origin Based Cache-Control
+### Origin-Based Cache Control
 
 This option allows caching based on the cache control headers being passed from your [origin](../integration/configure-origin/) attached to ImageKit.io. For example, if your origin (server or storage) sends a cache-control header to cache a file for 1 hour, ImageKit.io applies the cache-control header across all its internal caches, generated transformations, and CDN. This ensures that the cache control set by you is obeyed at all times.
+
+This feature can be applied for any URL endpoint in your ImageKit account.
+
+*Note: Origin-Based Cache Control is disabled by default. Reach out to ImageKit's support team to enable it for your account.*
 
 ## Internal Caching
 
