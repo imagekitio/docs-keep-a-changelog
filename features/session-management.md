@@ -2,7 +2,7 @@
 
 You may access the ImageKit dashboard on multiple devices at a time, like your computer, tablet, and phone. The dashboard is the central location for all your media assets. Therefore, keeping track of which devices you are logged in and from which location is vital.
 
-The session management panel helps you do this with a simple, easy-to-use interface. To view it, go to your user profile page and scroll down to the "Active sessions" table.
+The session management panel helps you do this with a simple, easy-to-use interface. To view it, go to your [user profile page](https://imagekit.io/dashboard/profile) and scroll down to the "Active sessions" table.
 
 The session table displays information about your active sessions, like the IP address, the device and browser used, and the last active time.
 
