@@ -1,5 +1,9 @@
 # Akeneo PIM
 
+{% hint style="info" %}
+This integration is currently not available for videos. It works for images and other static files like doc, PDF, etc.
+{% endhint %}
+
 Akeneo is a popular PIM used by several organizations to store, manage and enrich the information about their products.
 
 With this integration between ImageKit and Akeneo, you can access the images, and other non-media files (PDFs, docs, etc.) stored in your PIM and deliver optimized and transformed versions of them in real-time. 
