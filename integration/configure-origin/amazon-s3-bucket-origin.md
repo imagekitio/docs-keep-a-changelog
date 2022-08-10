@@ -2,7 +2,7 @@
 
 You can add your existing Amazon S3 bucket as an origin in ImageKit.io. This allows you to use ImageKit.io real-time image optimization and resizing features on all existing images stored in the bucket.
 
-**Note: **We do not start copying images from your bucket as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
+**Note:** We do not start copying images from your bucket as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
 
 {% hint style="info" %}
 Amazon S3 buckets in regions launched after 2019-03-20, such as South Africa (Cape Town), Middle East (Bahrain) and Asia Pacific (Hong Kong), must be added to ImageKit as S3 compatible external storages with the endpoint of that region, (e.g. `https://af-south-1.s3.amazonaws.com`). Read more about [how to add S3 compatible external storages to ImageKit](../../integration/configure-origin/s3-compatible-external-storages.md).
@@ -22,7 +22,7 @@ Amazon S3 buckets in regions launched after 2019-03-20, such as South Africa (Ca
 
 {% hint style="warning" %}
 **Read-only permission required**\
-****ImageKit.io needs read-only access to your S3 bucket. You can provide this by using the AWS Identity and Access Management (AIM) policy for your S3 bucket. Ideally, you should create a separate user for this purpose and assign the AIM policy for that particular user and the required buckets only.
+ImageKit.io needs read-only access to your S3 bucket. You can provide this by using the AWS Identity and Access Management (AIM) policy for your S3 bucket. Ideally, you should create a separate user for this purpose and assign the AIM policy for that particular user and the required buckets only.
 {% endhint %}
 
 Note that you need to provide permission for the operation s3::GetObject on the objects in your bucket. The minimal permission policy should look like below:
