@@ -49,15 +49,15 @@ When you add your first origin in the dashboard, the origin is by default made a
 Every media file in Akeneo has a `data` or a `code` value that looks like this `f/d/1/d/fd1d_myimagefilename.png`. To access a file, you need to create a URL using this `data` or `code` value, along with the media file type (`media-file`, `asset-media-file`, or `reference-entities-media-file`) and the URL endpoint. For example, for the above `code`, you can access the file as shown below.
 
 * **If it is a product media file**\
-  ****[https://ik.imagekit.io/your_imagekit_id/`media-files`/f/d/1/d/fd1d_myimagefilename.png](https://ik.imagekit.io/your_imagekit_id/media-files/f/d/1/d/fd1d_myimagefilename.png)
+  [https://ik.imagekit.io/your_imagekit_id/`media-files`/f/d/1/d/fd1d_myimagefilename.png](https://ik.imagekit.io/your_imagekit_id/media-files/f/d/1/d/fd1d_myimagefilename.png)
 * **If it is an asset media file**\
-  ****[https://ik.imagekit.io/your_imagekit_id/`asset-media-files`/f/d/1/d/fd1d_myimagefilename.png](https://ik.imagekit.io/your_imagekit_id/asset-media-files/f/d/1/d/fd1d_myimagefilename.png)
+  [https://ik.imagekit.io/your_imagekit_id/`asset-media-files`/f/d/1/d/fd1d_myimagefilename.png](https://ik.imagekit.io/your_imagekit_id/asset-media-files/f/d/1/d/fd1d_myimagefilename.png)
 * **If it is a reference entity media file**\
-  ****[https://ik.imagekit.io/your_imagekit_id/`reference-entities-media-files`/f/d/1/d/fd1d_myimagefilename.png](https://ik.imagekit.io/your_imagekit_id/reference-entities-media-files/f/d/1/d/fd1d_myimagefilename.png)
+  [https://ik.imagekit.io/your_imagekit_id/`reference-entities-media-files`/f/d/1/d/fd1d_myimagefilename.png](https://ik.imagekit.io/your_imagekit_id/reference-entities-media-files/f/d/1/d/fd1d_myimagefilename.png)
 
 For any of the three media types above, you can transform them by adding the transformation string like you would usually do for any other image origin.
 * **Transforming an image to 300 x 200 dimension**\
-  ****[https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-200`/media-files/f/d/1/d/fd1d_myimagefilename.png](https://ik.imagekit.io/your_imagekit_id/media-files/f/d/1/d/fd1d_myimagefilename.png)
+  [https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-200`/media-files/f/d/1/d/fd1d_myimagefilename.png](https://ik.imagekit.io/your_imagekit_id/media-files/f/d/1/d/fd1d_myimagefilename.png)
 
 {% tabs %}
 {% tab title="URL structure" %}
@@ -72,7 +72,7 @@ https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/media-files/rest-of-the-p
 If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](../../limits-and-troubleshooting/404-not-found-error-troubleshooting.md).
 
 {% hint style="info" %}
-man_mage:**Tips:** You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
+:man_mage:**Tips:** You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
 {% endhint %}
 
 ## Step 3: Integrate and Go live

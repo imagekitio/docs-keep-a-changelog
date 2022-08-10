@@ -2,7 +2,7 @@
 
 Any web server which is accessible over HTTP or HTTPS can be configured as an origin in ImageKit.io. This allows you to use ImageKit.io's real-time image optimization and transformation features on all existing images.
 
-**Note: **We do not start copying images from your server as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
+**Note:** We do not start copying images from your server as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
 
 ## Step 1: Configure origin
 
