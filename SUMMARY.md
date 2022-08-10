@@ -24,7 +24,7 @@
 * [Integration overview](integration/integration-overview.md)
 * [How it works?](integration/how-it-works.md)
 * [Configure origin](integration/configure-origin/README.md)
-  * [Akeneo PIM](integration/configure-origin/akeneo-pim.md)
+  * [Akeneo PIM](integration/configure-origin/akeneo.md)
   * [Alibaba Object Storage Service](integration/configure-origin/alibaba-object-storage-service.md)
   * [Amazon S3 bucket](integration/configure-origin/amazon-s3-bucket-origin.md)
   * [Azure Blob storage](integration/configure-origin/azure-blob-storage.md)
