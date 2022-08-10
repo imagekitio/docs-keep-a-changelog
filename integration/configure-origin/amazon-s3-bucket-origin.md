@@ -57,11 +57,11 @@ When you add your first origin in the dashboard, the origin is by default made a
 Let's look at a few examples to fetch the images:
 
 * **Original image through S3 bucket (old URL)**\
-  ****[https://example.com/rest-of-the-path.jpg](https://example.com/rest-of-the-path.jpg)
+  [https://example.com/rest-of-the-path.jpg](https://example.com/rest-of-the-path.jpg)
 * **The same master image using ImageKit.io URL-endpoint**\
-  ****[https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg)
+  [https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg)
 * **Resized 300x300 image**\
-  ****[https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-300`/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg)
+  [https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-300`/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg)
 
 So when you request `https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg`, ImageKit.io internally access object at path `rest-of-the-path.jpg` in your bucket.
 
@@ -78,7 +78,7 @@ https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg
 If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](../../limits-and-troubleshooting/404-not-found-error-troubleshooting.md).
 
 {% hint style="info" %}
-:man_mage:**Tips: **You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
+:man_mage:**Tips:** You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
 {% endhint %}
 
 ## Step 3: Integrate and Go live

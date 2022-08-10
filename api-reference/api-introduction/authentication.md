@@ -6,7 +6,7 @@ Authentication to the API is performed via [HTTP Basic Auth](http://en.wikipedia
 
 {% hint style="warning" %}
 **Only HTTPS supported**\
-****All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
+All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 {% endhint %}
 
 ## Examples
