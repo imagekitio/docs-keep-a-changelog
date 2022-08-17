@@ -92,7 +92,7 @@
   * [Automatic video format conversion](features/video-optimization/automatic-video-format-conversion.md)
   * [Quality Optimization](features/video-optimization/quality-optimization.md)
 * [Named Transformations](features/named-transformations.md)
-* [Network-based image optimization](features/network-based-image-optimization.md)
+* [Network-based Media Optimization](features/network-based-media-optimization.md)
 * [Client hints](features/client-hints.md)
 * [Caches](features/caches.md)
 * [Cache purging](features/cache-purging.md)
@@ -116,6 +116,9 @@
 * [URL-rewriters](features/url-rewriters/README.md)
   * [Cloudinary](features/url-rewriters/cloudinary.md)
 * [Session management](features/session-management.md)
+
+## Best Practices
+* [Mobile Apps](imagekit-best-practices/mobile-apps.md)
 
 ## Platform guides
 
