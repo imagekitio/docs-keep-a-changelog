@@ -61,7 +61,7 @@ The concept is simple.
 1. You determine the user's network speed
 2. You load a lighter file by compressing it more (by lowering the quality transformation parameter)
 
-You can read more about these two steps for implementing network-based optimization in your apps in detail here.
+You can read more about these two steps for [implementing network-based optimization in your apps](../features/network-based-media-optimization.md) in detail here.
 
 Additionally, to improve the developer experience and security of your file URLs, do explore features such as named transformations, signed URLs, and advanced security.
 
