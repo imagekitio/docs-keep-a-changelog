@@ -25,7 +25,7 @@ However, note that it is advisable to configure your origin using secure integra
 5. Now, select the options as shown in the following image. This ensures that ImageKit is allowed to only read images from your Azure container.
 6. Enter an **End** expiry time that is practically infinite. Preferably, enter a time 10 years from the start time (which should be right now)
 7. Click on 'Generate SAS and connection string'
-8. Note down the SAS token generated.
+8. Note down the SAS token generated. It should be of the format `?sv=2019-12-12&ss=bfqt.........`
 
 ![Options for creating a SAS token](<../../.gitbook/assets/image (5).png>)
 
@@ -39,7 +39,7 @@ We have now created a SAS token for ImageKit and granted it the Read permission 
 
 * **Azure storage account name: **The name of your storage account.
 * **Azure storage container name: **Name of the container that you want to integrate.
-* **SAS Token: **As generated in step 1.
+* **SAS Token: **As generated in step 1. Do note that the SAS token should begin with a `?` when adding it with the origin in ImageKit. For example - `?sv=2019-12-12&ss=bfqt.........`
 
 Now, go to the [External Storage](https://imagekit.io/dashboard#external-storage) section in the dashboard, click on the **Add New Origin **button, select Azure Storage in the **Origin Type** field, and enter the corresponding values, and click submit.
 
