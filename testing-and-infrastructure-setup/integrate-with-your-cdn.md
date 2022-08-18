@@ -29,7 +29,7 @@ We have integrated and tested ImageKit.io with the following CDNs so far:
 | Image transformation             | Yes            |
 | Automatic image optimization     | <p>Yes<br></p> |
 | Automatic format conversion      | Yes            |
-| Network-based image optimization | Yes            |
+| Network-based media optimization | Yes            |
 | Data Saver                       | No             |
 | Security                         | Yes            |
 
