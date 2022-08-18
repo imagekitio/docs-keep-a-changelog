@@ -1,6 +1,7 @@
 # Network-based media optimization
 
-**Note: **The service worker offered by ImageKit for network-based image optimization is now deprecated and will not receive any updates or fixes from ImageKit. If you are using the same on your website and need any support, reach out to us at support@imagekit.io, or refer to the general technique below to implement network-based media optimization on your own.
+{% hint style="warning" %}
+**Note:** The service worker offered by ImageKit for network-based image optimization is now deprecated and will not receive any updates or fixes from ImageKit. If you are using the same on your website and need any support, reach out to us at support@imagekit.io, or refer to the general technique below to implement network-based media optimization on your own.
 {% endhint %}
 
 With ImageKit.io, you can build the functionality to deliver different images and videos based on the end user's network connection speed. For example, a user experiencing slow download times on a 2G network can be served a lighter, more compressed media file, while users on a 4G network can be served higher quality files. This ensures that you deliver the best user experience to all your users regardless of their bandwidth constraints.
@@ -9,9 +10,7 @@ Let's look at how you can implement network-based media optimization on your web
 
 ## How to build apps and websites with network-based media optimization
 
-There are two steps to building this -
-
-<br/>
+There are two steps to building this:
 
 ### 1. Determine the user's network speed
 There are different ways of doing this on apps and websites. 
@@ -20,8 +19,6 @@ On any browser, web or mobile, that supports the `NetworkInformation` API, you c
 There are more accurate ways of determining the user's effective download speed on apps. Refer to these answers to get hints on how to do this 
 1. [For Android Apps](https://stackoverflow.com/a/55161717)
 2. [For iOS Apps](https://stackoverflow.com/a/9496235)
-
-<br/>
 
 ### 2. Adjust the file size based on the network speed
 Once you have determined whether the user has a fast or slow download speed, you can decide the compression level for that user. Remember that to decrease the file size, reduce the value of the quality transformation parameter in the URL. 
