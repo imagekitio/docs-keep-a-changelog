@@ -104,3 +104,6 @@ For example, if you set `https://www.example.com` as the base URL for canonical 
 ```http
 Link: <https://www.example.com/rest-of-the-path.jpg>; rel="canonical"
 ```
+### Use path-style URLs instead of virtual-hosted style URLs
+
+When enabled, path-style URLs will be used instead of the default, [virtual-hosted](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html) style URLs while fetching the image from your S3-compatible storage provider. This may be useful if your provider does not yet support the virtual-hosted style URLs i.e. URLs where the bucket name is a part of the hostname.
