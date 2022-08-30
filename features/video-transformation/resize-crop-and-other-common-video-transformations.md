@@ -253,19 +253,19 @@ Possible values include `auto` ,`mp4` , `webm` , `orig`.
 
 Used to specify the audio codec for encoding the output.
 
-Possible values include `aac`, `opus`, `orig`, `none`.
+Possible values include `aac`, `opus`, `orig`, and `none`.
 
-`none` - Is for removing audio from the source video. So the output will have no audio.
+Use `none` for removing audio from the source video. So the output will have no audio.
 
 ### Video codec - (vc)
 
 Used to specify the video codec for encoding the output.
 
-Possible values include `h264`, `vp9`, `orig`, `none`
+Possible values include `h264`, `vp9`, `orig`, and `none`
 
-`none` - Is for extracting audio from the source video. So the output will be an audio file.
+Use `none` for extracting audio from the source video. So the output will be an audio file.
 
-### Valid combinations for format (f), audio codec (ac) & video codec
+#### Valid combinations for format (f), audio codec (ac) & video codec
 
 | f    | ac   | vc   |
 | ---- | ---- | ---- |
