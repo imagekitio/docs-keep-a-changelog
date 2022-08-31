@@ -249,6 +249,33 @@ Possible values include `auto` ,`mp4` , `webm` , `orig`.
 
 **Default Value** - `auto`. You can disable [automatic video format conversion](../video-optimization/automatic-video-format-conversion.md) from the dashboard settings.&#x20;
 
+### Audio codec - (ac)
+
+Used to specify the audio codec for encoding the output.
+
+Possible values include `aac`, `opus`, `orig`, and `none`.
+
+Use `none` for removing audio from the source video. So the output will have no audio.
+
+### Video codec - (vc)
+
+Used to specify the video codec for encoding the output.
+
+Possible values include `h264`, `vp9`, `orig`, and `none`
+
+Use `none` for extracting audio from the source video. So the output will be an audio file.
+
+#### Valid combinations for format (f), audio codec (ac) & video codec
+
+| f    | ac   | vc   |
+| ---- | ---- | ---- |
+| mp4  | aac  | h264 |
+| mp4  | aac  | none |
+| mp4  | none | h264 |
+| webm | opus | vp9  |
+| webm | opus | none |
+| webm | none | vp9  |
+
 ### Named transformation - (n)
 
 [Named Transformations](../named-transformations.md) are an alias for the entire transformation string. \
