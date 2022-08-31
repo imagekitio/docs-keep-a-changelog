@@ -107,3 +107,10 @@ Link: <https://www.example.com/rest-of-the-path.jpg>; rel="canonical"
 ### Use path-style URLs instead of virtual-hosted style URLs
 
 When enabled, path-style URLs will be used instead of the default, [virtual-hosted](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html) style URLs while fetching the image from your S3-compatible storage provider. This may be useful if your provider does not yet support the virtual-hosted style URLs i.e. URLs where the bucket name is a part of the hostname.
+
+For example, if your service provider's endpoint is `https://s3.wasabisys.com`, your bucket is named `product-images`, and your file is named `red-dress.jpg`, then the URL generated as per each style will be:
+
+```markup
+virtual-hosted [default]: https://product-images.s3.wasabisys.com/red-dress.jpg
+path-style: https://s3.wasabisys.com/product-images/red-dress.jpg
+```
