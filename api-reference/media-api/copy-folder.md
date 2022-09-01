@@ -98,9 +98,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-copy_folder = imagekit.copy_folder(options={"source_folder_path": "/test",
-                                                "destination_path": "/demo",
-                                                "include_file_versions": True})
+copy_folder = imagekit.copy_folder(options=CopyFolderRequestOptions(source_folder_path='/source_folder_path',
+                                                                    destination_path='/destination/path',
+                                                                    include_file_versions=True))
 
 print("Copy folder-", copy_folder, end="\n\n")
 ```

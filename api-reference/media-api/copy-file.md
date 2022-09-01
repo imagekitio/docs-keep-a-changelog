@@ -95,9 +95,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-copy_file = imagekit.copy_file(options={"source_file_path": "/file.jpg",
-                                            "destination_path": "/test",
-                                            "include_file_versions": True})
+copy_file = imagekit.copy_file(options=CopyFileRequestOptions(source_file_path="/file.jpg",
+                                       destination_path="/test",
+                                       include_file_versions=True))
 
 print("Copy file-", copy_file, end="\n\n")
 ```

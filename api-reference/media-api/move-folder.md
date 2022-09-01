@@ -90,8 +90,8 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-move_folder = imagekit.move_folder(options={"source_folder_path": "/test",
-                                                "destination_path": "/demo"})
+move_folder = imagekit.move_folder(options=MoveFolderRequestOptions(source_folder_path="/demo1/testing",
+                                                                    destination_path="/"))
 
 print("Move folder-", move_folder, end="\n\n")
 ```

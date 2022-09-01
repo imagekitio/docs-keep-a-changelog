@@ -94,7 +94,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-delete_file_version = imagekit.delete_file_version("file_id", "version_id")
+delete_file_version = imagekit.delete_file_version(file_id="file_id", version_id="version_id")
 
 print("Delete file version-", delete_file_version, end="\n\n")
 ```

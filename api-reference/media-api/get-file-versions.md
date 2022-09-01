@@ -112,9 +112,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-file_versions = imagekit.get_file_versions('file_id')
+file_versions = imagekit.get_file_versions(file_identifier='file_id')
 
 print("Get File versions-", "\n", file_versions)
+
+# Raw Response
+print(file_versions.response_metadata.raw)
+
+# print that file's version id
+print(file_versions.list[0].version_info.id)
 ```
 {% endtab %}
 

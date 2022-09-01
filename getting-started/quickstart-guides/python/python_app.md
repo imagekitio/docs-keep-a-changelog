@@ -930,7 +930,7 @@ Refer to the [Get image metadata from remote URL API](https://docs.imagekit.io/a
 
 #### Example
 ```python
-remote_file_url_metadata = imagekit.get_remote_file_url_metadata("image_url")
+remote_file_url_metadata = imagekit.get_remote_file_url_metadata(remote_file_url="image_url")
 ```
 
 ## Custom Metadata Fields API

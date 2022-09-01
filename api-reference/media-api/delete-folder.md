@@ -79,7 +79,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-delete_folder = imagekit.delete_folder(options={"folder_path": "/test/demo"})
+delete_folder = imagekit.delete_folder(options=DeleteFolderRequestOptions(folder_path="/test/demo"))
 
 print("Delete folder-", delete_folder, end="\n\n")
 ```

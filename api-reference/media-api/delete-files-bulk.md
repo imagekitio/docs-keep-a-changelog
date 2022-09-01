@@ -103,7 +103,7 @@ imagekit.bulkDeleteFiles(["file_id_1","file_id_2"])
 
 {% tab title="Python" %}
 ```python
-imagekit.bulk_file_delete(["file_id_1", "file_id_2"])
+imagekit.bulk_file_delete(file_ids=["file_id_1", "file_id_2"])
 ```
 {% endtab %}
 

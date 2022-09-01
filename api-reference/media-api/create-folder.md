@@ -79,7 +79,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-create_folder = imagekit.create_folder(options={"folder_name": "/test", "parent_folder_path": "/"})
+create_folder = imagekit.create_folder(options=CreateFolderRequestOptions(folder_name="test", parent_folder_path="/"))
 
 print("Create folder-", create_folder, end="\n\n")
 ```

@@ -169,12 +169,18 @@ imagekit = ImageKit(
 upload = imagekit.upload(
     file=open("image.jpg", "rb"),
     file_name="my_file_name.jpg",
-    options={
-        "tags": ["tag1", "tag2"]
-    },
+    options=UploadFileRequestOptions(
+        tags = ["tag1", "tag2"]
+    )
 )
 
 print("Upload binary", upload)
+
+# Raw Response
+print(upload.response_metadata.raw)
+
+# print that uploaded file's ID
+print(upload.file_id)
 ```
 {% endtab %}
 
@@ -280,20 +286,29 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file=imgstr,
     file_name="my_file_name.jpg",
-    options={
-            "response_fields": ["is_private_file", "custom_metadata", "tags"],
-            "is_private_file": False,
-            "tags": ["tag1", "tag2"],
-            "webhook_url": "url",
-            "overwrite_file": False,
-            "overwrite_a_i_tags": False,
-            "overwrite_tags": False,
-            "overwrite_custom_metadata": True,
-            "custom_metadata": json.dumps({"test": 11})
-        },
+    options=UploadFileRequestOptions(
+            response_fields = ["is_private_file", "custom_metadata", "tags"],
+            is_private_file = False,
+            tags = ["tag1", "tag2"],
+            webhook_url = "url",
+            overwrite_file = False,
+            overwrite_a_i_tags = False,
+            overwrite_tags = False,
+            overwrite_custom_metadata = True,
+            custom_metadata = {"test": 11})
+    ),
 )
 
 print("Upload base64", upload)
+
+# Raw Response
+print(upload.response_metadata.raw)
+
+# print that uploaded file's ID
+print(upload.file_id)
+
+# print that uploaded file's version ID
+print(upload.version_info.id)
 ```
 {% endtab %}
 
@@ -403,10 +418,16 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file="https://imagekit.io/image.jpg",
     file_name="my_file_name.jpg",
-    options={},
+    options=UploadFileRequestOptions(),
 )
 
 print("Upload url", upload)
+
+# Raw Response
+print(upload.response_metadata.raw)
+
+# print that uploaded file's ID
+print(upload.file_id)
 ```
 {% endtab %}
 
@@ -511,12 +532,18 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file="https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
     file_name="women_in_red.jpg",
-    options={
-        "customMetadata" : '{"brand":"Nike", "color":"red"}'
-    },
+    options=UploadFileRequestOptions(
+        custom_metadata = {"brand":"Nike", "color":"red"}
+    ),
 )
 
 print("Upload url", upload)
+
+# Raw Response
+print(upload.response_metadata.raw)
+
+# print that uploaded file's ID
+print(upload.file_id)
 ```
 {% endtab %}
 
@@ -647,15 +674,19 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file="https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
     file_name="women_in_red.jpg",
-    options={
-        "extensions": json.dumps(
-            ({"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "pink"}},
+    options=UploadFileRequestOptions(
+        extensions = ({"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "pink"}},
                 {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10})
-        ),
-    },
+    ),
 )
 
 print("Upload url", upload)
+
+# Raw Response
+print(upload.response_metadata.raw)
+
+# print that uploaded file's ID
+print(upload.file_id)
 ```
 {% endtab %}
 

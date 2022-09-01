@@ -87,8 +87,8 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-move_file = imagekit.move_file(options={"source_file_path": "/file.jpg",
-                                            "destination_path": "/test"})
+move_file = imagekit.move_file(options=MoveFileRequestOptions(source_file_path="/file.jpg",
+                                                              destination_path="/test"))
 
 print("Move file-", move_file, end="\n\n")
 ```

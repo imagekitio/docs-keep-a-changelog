@@ -130,6 +130,15 @@ imagekit = ImageKit(
 remove_ai_tags = imagekit.remove_ai_tags(file_ids=['file-id-1', 'file-id-2'], a_i_tags=['remove-ai-tag-1', 'remove-ai-tag-2'])
 
 print("Remove AI tags-", remove_ai_tags, end="\n\n")
+
+# Raw Response
+print(remove_ai_tags.response_metadata.raw)
+
+# list successfully updated file ids
+print(remove_ai_tags.successfully_updated_file_ids)
+
+# print the first file's id
+print(remove_ai_tags.successfully_updated_file_ids[0])
 ```
 {% endtab %}
 

@@ -110,16 +110,23 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-update_custom_metadata_fields = imagekit.update_custom_metadata_fields("if", options={"label": "test-update",
-                                                                "schema":
-                                                                    {
-                                                                        "min_value": 100,
-                                                                        "max_value": 200
-                                                                    }
-                                                                }
-                                                 )
+update_custom_metadata_fields = imagekit.update_custom_metadata_fields(custom_metadata_field_identifier="id", 
+                                                 options=UpdateCustomMetadataFieldsRequestOptions(label="test-update",
+                                                  schema=CustomMetadataFieldsSchema(
+                                                      min_value=100,
+                                                      max_value=200))
+)
 
 print("Update custom metadata field-", update_custom_metadata_fields, end="\n\n")
+
+# Raw Response
+print(update_custom_metadata_fields.response_metadata.raw)
+
+# print the label of updated custom metadata fields
+print(update_custom_metadata_fields.label)
+
+# print the schema's min value of updated custom metadata fields
+print(update_custom_metadata_fields.schema.min_value)
 ```
 {% endtab %}
 

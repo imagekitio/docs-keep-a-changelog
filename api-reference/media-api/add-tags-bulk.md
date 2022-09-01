@@ -130,6 +130,15 @@ imagekit = ImageKit(
 tags = imagekit.add_tags(file_ids=['file-id-1', 'file-id-2'], tags=['tag1', 'tag2'])
 
 print("Add tags-", tags, end="\n\n")
+
+# Raw Response
+print(tags.response_metadata.raw)
+
+# list successfully updated file ids
+print(tags.successfully_updated_file_ids)
+
+# print the first file's id
+print(tags.successfully_updated_file_ids[0])
 ```
 {% endtab %}
 

@@ -76,7 +76,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-job_status = imagekit.get_bulk_job_status("job_id")
+job_status = imagekit.get_bulk_job_status(job_id="job_id")
 
 print("Bulk job status-", job_status, end="\n\n")
 ```

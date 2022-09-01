@@ -149,9 +149,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-rename_file = imagekit.rename_file(options={"file_path": "/file.jpg",
-                                                "new_file_name": "file-name.jpg",
-                                                "purge_cache": True})
+rename_file = imagekit.rename_file(options=RenameFileRequestOptions(file_path="/file_path.jpg",
+                                                                    new_file_name="new_file_name.jpg",
+                                                                    purge_cache=True))
 
 print("Rename file-", rename_file, end="\n\n")
 ```

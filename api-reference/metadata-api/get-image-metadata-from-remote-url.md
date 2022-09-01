@@ -131,7 +131,16 @@ curl -X GET "https://api.imagekit.io/v1/metadata?url=https://ik.imagekit.io/demo
 
 {% tab title="Python" %}
 ```python
-imagekit.get_remote_file_url_metadata("remote_file_url")
+get_metadata = imagekit.get_remote_file_url_metadata(remote_file_url="remote_file_url")
+
+print(get_metadata, end="\n\n")
+
+# Raw Response
+print(get_metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(get_metadata.width)
+print(get_metadata.exif.image.x_resolution)
 ```
 {% endtab %}
 
@@ -199,7 +208,16 @@ imagekit.getFileMetadata("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg
 
 {% tab title="Python" %}
 ```python
-imagekit.get_remote_file_url_metadata("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
+get_metadata = imagekit.get_remote_file_url_metadata(remote_file_url="https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
+
+print(get_metadata, end="\n\n")
+
+# Raw Response
+print(get_metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(get_metadata.width)
+print(get_metadata.exif.image.x_resolution)
 ```
 {% endtab %}
 

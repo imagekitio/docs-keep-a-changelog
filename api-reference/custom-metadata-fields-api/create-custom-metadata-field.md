@@ -127,16 +127,24 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-create_custom_metadata_fields = imagekit.create_custom_metadata_fields(options={"name": "test",
-                                                          "label": "test",
-                                                          "schema":
-                                                              {"type": "Number",
-                                                               "min_value": 100,
-                                                               "max_value": 200}
-                                                          }
-                                                 )
+create_custom_metadata_fields = imagekit.create_custom_metadata_fields(options=CreateCustomMetadataFieldsRequestOptions(name="test",
+                                                  label="test",
+                                                  schema=CustomMetadataFieldsSchema(
+                                                    type=CustomMetaDataTypeEnum.Number,
+                                                    min_value=100,
+                                                    max_value=200))
+)
 
 print("Create custom metadata field-", create_custom_metadata_fields, end="\n\n")
+
+# Raw Response
+print(create_custom_metadata_fields.response_metadata.raw)
+
+# print the id of created custom metadata fields
+print(create_custom_metadata_fields.id)
+
+# print the schema's type of created custom metadata fields
+print(create_custom_metadata_fiecreate_custom_metadata_fieldslds_number.schema.type)
 ```
 {% endtab %}
 

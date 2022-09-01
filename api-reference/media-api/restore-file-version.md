@@ -126,7 +126,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-restore_file_version = imagekit.restore_file_version("file_id", "version_id")
+restore_file_version = imagekit.restore_file_version(file_id="file_id", version_id="version_id")
 
 print("Restore file version-", restore_file_version, end="\n\n")
 ```
