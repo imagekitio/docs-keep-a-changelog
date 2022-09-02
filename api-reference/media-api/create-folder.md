@@ -82,6 +82,9 @@ imagekit = ImageKit(
 create_folder = imagekit.create_folder(options=CreateFolderRequestOptions(folder_name="test", parent_folder_path="/"))
 
 print("Create folder-", create_folder, end="\n\n")
+
+# Raw Response
+print(create_folder.response_metadata.raw)
 ```
 {% endtab %}
 

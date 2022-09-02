@@ -94,6 +94,12 @@ move_folder = imagekit.move_folder(options=MoveFolderRequestOptions(source_folde
                                                                     destination_path="/"))
 
 print("Move folder-", move_folder, end="\n\n")
+
+# Raw Response
+print(move_folder.response_metadata.raw)
+
+# print the job's id
+print(move_folder.job_id)
 ```
 {% endtab %}
 

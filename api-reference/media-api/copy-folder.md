@@ -103,6 +103,12 @@ copy_folder = imagekit.copy_folder(options=CopyFolderRequestOptions(source_folde
                                                                     include_file_versions=True))
 
 print("Copy folder-", copy_folder, end="\n\n")
+
+# Raw Response
+print(copy_folder.response_metadata.raw)
+
+# print the job's id
+print(copy_folder.job_id)
 ```
 {% endtab %}
 

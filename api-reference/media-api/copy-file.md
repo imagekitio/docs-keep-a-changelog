@@ -100,6 +100,9 @@ copy_file = imagekit.copy_file(options=CopyFileRequestOptions(source_file_path="
                                        include_file_versions=True))
 
 print("Copy file-", copy_file, end="\n\n")
+
+# Raw Response
+print(copy_file.response_metadata.raw)
 ```
 {% endtab %}
 

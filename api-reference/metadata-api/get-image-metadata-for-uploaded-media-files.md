@@ -162,6 +162,13 @@ print(metadata.response_metadata.raw)
 # print the file metadata fields
 print(metadata.width)
 print(metadata.exif.image.x_resolution)
+
+# Raw Response
+print(metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(metadata.width)
+print(metadata.exif.image.x_resolution)
 ```
 {% endtab %}
 

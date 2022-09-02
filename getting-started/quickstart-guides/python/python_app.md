@@ -63,67 +63,36 @@ url = "https://file-examples.com/wp-content/uploads/2017/10/file_example_JPG_100
 upload = imagekit.upload_file(
         file=url,
         file_name="test-url.jpg",
-        options={
-            "response_fields": ["is_private_file", "tags"],
-            "tags": ["tag1", "tag2"],
-        },
+        options=UploadFileRequestOptions(
+            response_fields=["is_private_file", "tags"],
+            tags=["tag1", "tag2"]
+        )
     )
 ```
 
 The output should like this:
 ```python
+# Final Result
+print(upload)
+<imagekitio.models.results.UploadFileResult.UploadFileResult object at 0x7f9f0ceb0dd8>
+
+# Raw Response
+print("raw", upload.response_metadata.raw)
 upload remote file =>
 {
-    'error': None,
-    'response': {
-        'file_id': 'file_id',
-        'name': 'test-url_uszVMbcXH.jpg',
-        'url': 'https://ik.imagekit.io/your_imagekit_id/test-url_uszVMbcXH.jpg',
-        'thumbnail_url': None,
-        'height': None,
-        'width': None,
-        'size': 1222,
-        'file_path': '/test-url_uszVMbcXH.jpg',
-        'tags': ['tag1', 'tag2'],
-        'ai_tags': None,
-        'version_info': {
-            'id': 'version_id',
-            'name': 'Version 1'
-        },
-        'is_private_file': False,
-        'custom_coordinates': None,
-        'custom_metadata': None,
-        'embedded_metadata': None,
-        'extension_status': None,
-        'file_type': 'non-image',
-        '_response_metadata': {
-            'raw': {
-                'fileId': 'file_id',
-                'name': 'test-url_uszVMbcXH.jpg',
-                'size': 1222,
-                'versionInfo': {
-                    'id': 'version_id',
-                    'name': 'Version 1'
-                },
-                'filePath': '/test-url_uszVMbcXH.jpg',
-                'url': 'https://ik.imagekit.io/your_imagekit_id/test-url_uszVMbcXH.jpg',
-                'fileType': 'non-image',
-                'tags': ['tag1', 'tag2'],
-                'AITags': None,
-                'isPrivateFile': False
-            },
-            'httpStatusCode': 200,
-            'headers': {
-                'access-control-allow-origin': '*',
-                'x-ik-requestid': '1c6a5aad-5ae2-4a6f-9b9d-adba88f0de82',
-                'content-type': 'application/json; charset=utf-8',
-                'content-length': '331',
-                'etag': 'W/"14b-YpacFYkpdLfpfZEwh38aymvxNnE"',
-                'date': 'Tue, 02 Aug 2022 11:14:48 GMT',
-                'x-request-id': '1c6a5aad-5ae2-4a6f-9b9d-adba88f0de82'
-            }
-        }
-    }
+    'fileId': '6311960051c0c0bdd51cff53',
+    'name': 'test-url_9lQZRkh8J.jpg',
+    'size': 1222,
+    'versionInfo': {
+        'id': '6311960051c0c0bdd51cff53',
+        'name': 'Version 1'
+    },
+    'filePath': '/test-url_9lQZRkh8J.jpg',
+    'url': 'https://ik.imagekit.io/your_imagekit_id/test-url_9lQZRkh8J.jpg',
+    'fileType': 'non-image',
+    'tags': ['tag1', 'tag2'],
+    'AITags': None,
+    'isPrivateFile': False
 }
 ```
 
@@ -530,60 +499,28 @@ The SDK provides a simple interface using the `imagekit.upload_file()` method to
 ```python
 result = imagekit.upload_file(
         file=open("sample.jpg", "rb"),
-        file_name="testing_upload_binary_signed_private.jpg",
+        file_name="test-file.jpg",
     )
 ```
 #### Response
-```text
+```python
+# Final Result
+print(upload)
+<imagekitio.models.results.UploadFileResult.UploadFileResult object at 0x7f9f0ceb0dd8>
+
+# Raw Response
 {
-    'error': None,
-    'response': {
-        'file_id': 'file_id',
-        'name': 'test-file_IoXijIWV9.jpg',
-        'url': 'https://ik.imagekit.io/your-imagekit-id/test-file_IoXijIWV9.jpg',
-        'thumbnail_url': None,
-        'height': None,
-        'width': None,
-        'size': 59,
-        'file_path': '/test-file_IoXijIWV9.jpg',
-        'tags': None,
-        'ai_tags': None,
-        'version_info': {
-            'id': 'version_id',
-            'name': 'Version 1'
-        },
-        'is_private_file': False,
-        'custom_coordinates': None,
-        'custom_metadata': None,
-        'embedded_metadata': None,
-        'extension_status': None,
-        'file_type': 'non-image',
-        '_response_metadata': {
-            'raw': {
-                'fileId': 'file_id',
-                'name': 'test-file_IoXijIWV9.jpg',
-                'size': 59,
-                'versionInfo': {
-                    'id': 'version_id',
-                    'name': 'Version 1'
-                },
-                'filePath': '/test-file_IoXijIWV9.jpg',
-                'url': 'https://ik.imagekit.io/your-imagekit-id/test-file_IoXijIWV9.jpg',
-                'fileType': 'non-image',
-                'AITags': None
-            },
-            'httpStatusCode': 200,
-            'headers': {
-                'access-control-allow-origin': '*',
-                'x-ik-requestid': '6022b660-808f-4ec9-a220-e6d3cbb53c82',
-                'content-type': 'application/json; charset=utf-8',
-                'content-length': '287',
-                'etag': 'W/"11f-Ki5k5AxHqc49Rqj3jBQTGk0+Q0k"',
-                'date': 'Wed, 03 Aug 2022 05:01:01 GMT',
-                'x-request-id': '6022b660-808f-4ec9-a220-e6d3cbb53c82'
-            }
-        }
-    }
+    'fileId': '631197af51c0c0bdd51f77da',
+    'name': 'test-file_X4nk4kIuC.jpg',
+    'size': 59,
+    'versionInfo': {
+        'id': '631197af51c0c0bdd51f77da',
+        'name': 'Version 1'
+    },
+    'filePath': '/test-file_X4nk4kIuC.jpg',
+    'url': 'https://ik.imagekit.io/zv3rkhsym/test-file_X4nk4kIuC.jpg',
+    'fileType': 'non-image',
+    'AITags': None
 }
 ```
 #### Optional Parameters
@@ -594,23 +531,24 @@ Please refer to [Server Side File Upload - Request Structure](https://docs.image
 result = imagekit.upload_file(
         file=open("sample.jpg", "rb"),
         file_name="testing-file.jpg",
-        options={
-            "use_unique_file_name": 'false',
-            "response_fields": ["is_private_file", "tags"],
-            "is_private_file": True,
-            "folder": "/testing-folder/",
-            "tags": ["tag-1", "tag-2"],
-            "extensions": json.dumps(
-                ({"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "pink"}},
-                 {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10})
+        options=UploadFileRequestOptions(
+            use_unique_file_name=False,
+            tags=["tag-1", "tag-2"],
+            folder="/testing-folder/",
+            is_private_file=True,
+            custom_coordinates="10,10,20,20",
+            response_fields=["is_private_file", "tags"],
+            extensions=(
+                {"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "pink"}},
+                {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10}
             ),
-            "webhook_url": "url",
-            "overwrite_file": False,
-            "overwrite_a_i_tags": False,
-            "overwrite_tags": False,
-            "overwrite_custom_metadata": True,
-            "custom_metadata": json.dumps({"test": 11})
-        },
+            webhook_url="url",
+            overwrite_file=True,
+            overwrite_a_i_tags=False,
+            overwrite_tags=False,
+            overwrite_custom_metadata=True,
+            custom_metadata={"test": 11}
+        ),
     )
 ```
 
@@ -626,21 +564,29 @@ Refer to the [List and Search File API](https://docs.imagekit.io/api-reference/m
 
 #### Example
 ```python
-list_files = imagekit.list_files({})
+list_files = imagekit.list_files()
 ```
 #### Applying Filters
 Filter out the files with an object specifying the parameters. 
 ```python
-list_files = imagekit.list_files({"type": "file", "sort": "ASC_CREATED", "path": "/",
-                                      "search_query": "createdAt >= '2d' OR size < '2mb' OR format='png'",
-                                      "file_type": "all", "limit": 5, "skip": 0,
-                                      "tags": "tag-1, tag-2, tag-3"})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(type="file", sort="ASC_CREATED", path="/",
+                                                                        search_query="created_at >= '2d' OR size < '2mb' OR format='png'",
+                                                                        file_type="all", limit=5, skip=0,
+                                                                        tags="tag-1, tag-2, tag-3"))
+# Final Result
+print(list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 
 #### Advance Search
 In addition, you can fine-tune your query by specifying various filters by generating a query string in a Lucene-like syntax and providing this generated string as the value of the `searchQuery`.
 ```python
-list_files = imagekit.list_files({"search_query": "(size < '1mb' AND width < 500) OR (tags IN ['tag-1', 'tag-2'])"})   
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query="(size < '1mb' AND width < 500) OR (tags IN ['tag-1', 'tag-2'])"))   
 ```
 Detailed documentation can be found here for [Advance Search Queries](https://docs.imagekit.io/api-reference/media-api/list-and-search-files#advanced-search-queries).
 
@@ -652,7 +598,15 @@ Refer to the [Get File Details API](https://docs.imagekit.io/api-reference/media
 
 #### Example
 ```python
-details = imagekit.get_file_details("file_id")
+details = imagekit.get_file_details(file_identifier="file_id")
+# Final Result
+print(details)
+
+# Raw Response
+print(details.response_metadata.raw)
+
+# print that file's id
+print(details.file_id)
 ```
 
 ### 3. Get File Versions
@@ -663,7 +617,14 @@ Refer to the [Get File Versions API](https://docs.imagekit.io/api-reference/medi
 
 #### Example
 ```python
-file_versions = imagekit.get_file_versions('file_id')
+file_versions = imagekit.get_file_versions(file_identifier='file_id')
+# Final Result
+print(file_versions)
+# Raw Response
+print(file_versions.response_metadata.raw)
+
+# print that file's version id
+print(file_versions.list[0].version_info.id)
 ```
 
 ### 4. Get File Version Details
@@ -677,7 +638,18 @@ Refer to the [Get File Version Details API](https://docs.imagekit.io/api-referen
 
 #### Example
 ```python
-file_versions_details = imagekit.get_file_version_details('file_id', 'version_id')
+file_versions_details = imagekit.get_file_version_details(file_identifier='file_id', version_identifier='version_id')
+# Final Result
+print(file_versions_details)
+
+# Raw Response
+print(file_versions_details.response_metadata.raw)
+
+# print that file's id
+print(file_versions_details.file_id)
+
+# print that file's version id
+print(file_versions_details.version_info.id)
 ```
 
 ### 5. Update File Details
@@ -689,13 +661,23 @@ Refer to the [Update File Details API](https://docs.imagekit.io/api-reference/me
 #### Example
 ```python
 updated_detail = imagekit.update_file_details(
-        "file_id",
-        {"remove_a_i_tags": ['remove-ai-tag-1', 'remove-ai-tag-2'],
-         "webhook_url": "url",
-         "extensions": [{"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "red"}},
-                        {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10}],
-         "tags": ["tag-1", "tag-2"], "custom_coordinates": "10,10,100,100", "custom_metadata": {"test": 11}},
-    )
+        file_id="file_id",
+        options=UpdateFileRequestOptions(remove_a_i_tags=['remove-ai-tag-1', 'remove-ai-tag-2'],
+                                         webhook_url="url",
+                                         extensions=[
+                                             {"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "red"}},
+                                             {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10}],
+                                         tags=["tag1", "tag2"], custom_coordinates="10,10,100,100",
+                                         custom_metadata={"test": 11})
+)
+# Final Result
+print(updated_detail)
+
+# Raw Response
+print(updated_detail.response_metadata.raw)
+
+# print that file's id
+print(updated_detail.file_id)
 ```
 
 ### 6. Add Tags (Bulk) API
@@ -707,6 +689,17 @@ Refer to the [Add Tags (Bulk) API](https://docs.imagekit.io/api-reference/media-
 #### Example
 ```python
 tags = imagekit.add_tags(file_ids=['file_id_1', 'file_id_2'], tags=['tag-to-add-1', 'tag-to-add-2'])
+# Final Result
+print(tags)
+
+# Raw Response
+print(tags.response_metadata.raw)
+
+# list successfully updated file ids
+print(tags.successfully_updated_file_ids)
+
+# print the first file's id
+print(tags.successfully_updated_file_ids[0])
 ```
 
 ### 7. Remove Tags (Bulk) API
@@ -718,6 +711,17 @@ Refer to the [Remove Tags (Bulk) API](https://docs.imagekit.io/api-reference/med
 #### Example
 ```python
 remove_tags = imagekit.remove_tags(file_ids=['file_id_1', 'file_id_2'], tags=['tag-to-remove-1', 'tag-to-remove-2'])
+# Final Result
+print(remove_tags)
+
+# Raw Response
+print(remove_tags.response_metadata.raw)
+
+# list successfully updated file ids
+print(remove_tags.successfully_updated_file_ids)
+
+# print the first file's id
+print(remove_tags.successfully_updated_file_ids[0])
 ```
 
 ### 8. Remove AI Tags (Bulk) API
@@ -729,6 +733,17 @@ Refer to the [Remove AI Tags (Bulk) API](https://docs.imagekit.io/api-reference/
 #### Example
 ```python
 remove_ai_tags = imagekit.remove_ai_tags(file_ids=['file_id_1', 'file_id_2'], a_i_tags=['ai-tag-to-remove-1', 'ai-tag-to-remove-2'])
+# Final Result
+print(remove_ai_tags)
+
+# Raw Response
+print(remove_ai_tags.response_metadata.raw)
+
+# list successfully updated file ids
+print(remove_ai_tags.successfully_updated_file_ids)
+
+# print the first file's id
+print(remove_ai_tags.successfully_updated_file_ids[0])
 ```
 
 ### 9. Delete File API
@@ -741,7 +756,12 @@ Refer to the [Delete File API](https://docs.imagekit.io/api-reference/media-api/
 
 #### Basic Usage
 ```python
-delete_file = imagekit.delete_file('file_id')
+delete_file = imagekit.delete_file(file_id='file_id')
+# Final Result
+print(delete_file)
+
+# Raw Response
+print(delete_file.response_metadata.raw)
 ```
 
 ### 10. Delete File Version API
@@ -754,7 +774,12 @@ Refer to the [Delete File Version API](https://docs.imagekit.io/api-reference/me
 
 #### Example
 ```python
-delete_file_version = imagekit.delete_file_version("file_id", "version_id")
+delete_file_version = imagekit.delete_file_version(file_id="file_id", version_id="version_id")
+# Final Result
+print(delete_file_version)
+
+# Raw Response
+print(delete_file_version.response_metadata.raw)
 ```
 
 ### 11. Delete Files (Bulk) API
@@ -766,6 +791,17 @@ Refer to the [Delete Files (Bulk) API](https://docs.imagekit.io/api-reference/me
 #### Example
 ```python
 bulk_file_delete = imagekit.bulk_file_delete(file_ids=['file-id-1', 'file-id-2'])
+# Final Result
+print(bulk_file_delete)
+
+# Raw Response
+print(bulk_file_delete.response_metadata.raw)
+
+# list successfully deleted file ids
+print(bulk_file_delete.successfully_deleted_file_ids)
+
+# print the first file's id
+print(bulk_file_delete.successfully_deleted_file_ids[0])
 ```
 
 ### 12. Copy File API
@@ -778,9 +814,14 @@ Refer to the [Copy File API](https://docs.imagekit.io/api-reference/media-api/co
 
 #### Basic Usage
 ```python
-copy_file = imagekit.copy_file(options={"source_file_path": "/your_file_name.jpg",
-                                            "destination_path": "/test",
-                                            "include_file_versions": True})
+copy_file = imagekit.copy_file(options=CopyFileRequestOptions(source_file_path="/your_file_name.jpg",
+                                                              destination_path="/test",
+                                                              include_file_versions=True))
+# Final Result
+print(copy_file)
+
+# Raw Response
+print(copy_file.response_metadata.raw)
 ```
 
 ### 13. Move File API
@@ -793,8 +834,13 @@ Refer to the [Move File API](https://docs.imagekit.io/api-reference/media-api/mo
 
 #### Example
 ```python
-move_file = imagekit.move_file(options={"source_file_path": "/your_file_name.jpg",
-                                            "destination_path": "/sample-folder"})
+move_file = imagekit.move_file(options=MoveFileRequestOptions(source_file_path="/your_file_name.jpg",
+                                                              destination_path="/test"))
+# Final Result
+print(move_file)
+
+# Raw Response
+print(move_file.response_metadata.raw)
 ```
 
 ### 14. Rename File API
@@ -809,15 +855,31 @@ Refer to the [Rename File API](https://docs.imagekit.io/api-reference/media-api/
 ```python
 # Purge Cache would default to false
 
-rename_file = imagekit.rename_file(options={"file_path": "/your_file_name.jpg",
-                                                "new_file_name": "new_file_name.jpg"})
+rename_file = imagekit.rename_file(options=RenameFileRequestOptions(file_path="/file_path.jpg",
+                                                                        new_file_name="new_file_name.jpg"))
+# Final Result
+print(rename_file)
+
+# Raw Response
+print(rename_file.response_metadata.raw)
+
+# print the purge request id
+print(rename_file.purge_request_id)
 ```
 When `purgeCache` is set to `true`, response will return `purgeRequestId`. This `purgeRequestId` can be used to get the purge request status.
 
 ```python
-rename_file = imagekit.rename_file(options={"file_path": "/your_file_name.jpg",
-                                                "new_file_name": "new_file_name.jpg",
-                                                "purge_cache": True})
+rename_file = imagekit.rename_file(options=RenameFileRequestOptions(file_path="/file_path.jpg",
+                                                                    new_file_name="new_file_name.jpg",
+                                                                    purge_cache=True))
+# Final Result
+print(rename_file)
+
+# Raw Response
+print(rename_file.response_metadata.raw)
+
+# print the purge request id
+print(rename_file.purge_request_id)
 ```
 
 ### 15. Restore file Version API
@@ -825,7 +887,15 @@ This will restore file version to a different version of a file.
 Refer to the [Restore file Version API](https://docs.imagekit.io/api-reference/media-api/restore-file-version) for a better understanding of the **Request & Response Structure**.
 #### Example
 ```python
-restore_file_version = imagekit.restore_file_version("file_id", "version_id")
+restore_file_version = imagekit.restore_file_version(file_id="file_id", version_id="version_id")
+# Final Result
+print(restore_file_version)
+
+# Raw Response
+print(restore_file_version.response_metadata.raw)
+
+# print that file's id
+print(restore_file_version.file_id)
 ```
 
 ### 16. Create Folder API
@@ -836,7 +906,13 @@ Refer to the [Create Folder API](https://docs.imagekit.io/api-reference/media-ap
 
 #### Example
 ```python
-create_folder = imagekit.create_folder(options={"folder_name": "new-folder", "parent_folder_path": "/"})
+create_folder = imagekit.create_folder(options=CreateFolderRequestOptions(folder_name="test",
+                                                                          parent_folder_path="/"))
+# Final Result
+print(create_folder)
+
+# Raw Response
+print(create_folder.response_metadata.raw)
 ```
 
 ### 17. Delete Folder API
@@ -847,7 +923,12 @@ Refer to the [Delete Folder API](https://docs.imagekit.io/api-reference/media-ap
 
 #### Example
 ```python
-delete_folder = imagekit.delete_folder(options={"folder_path": "/new-folder"})
+delete_folder = imagekit.delete_folder(options=DeleteFolderRequestOptions(folder_path="/test/demo"))
+# Final Result
+print(delete_folder)
+
+# Raw Response
+print(delete_folder.response_metadata.raw)
 ```
 
 ### 18. Copy Folder API
@@ -859,9 +940,17 @@ Refer to the [Copy Folder API](https://docs.imagekit.io/api-reference/media-api/
 
 #### Example
 ```python
-copy_folder = imagekit.copy_folder(options={"source_folder_path": "/source-folder",
-                                                "destination_path": "/destination-folder",
-                                                "include_file_versions": True})
+copy_folder = imagekit.copy_folder(options=CopyFolderRequestOptions(source_folder_path='/source_folder_path',
+                                                                    destination_path='/destination/path',
+                                                                    include_file_versions=True))
+# Final Result
+print(copy_folder)
+
+# Raw Response
+print(copy_folder.response_metadata.raw)
+
+# print the job's id
+print(copy_folder.job_id)
 ```
 
 ### 19. Move Folder API
@@ -874,8 +963,16 @@ Refer to the [Move Folder API](https://docs.imagekit.io/api-reference/media-api/
 
 #### Example
 ```python
-move_folder = imagekit.move_folder(options={"source_folder_path": "/source-folder",
-                                                "destination_path": "/destination-folder"})
+move_folder = imagekit.move_folder(options=MoveFolderRequestOptions(source_folder_path="/source-folder",
+                                                                    destination_path="/"))
+# Final Result
+print(move_folder)
+
+# Raw Response
+print(move_folder.response_metadata.raw)
+
+# print the job's id
+print(move_folder.job_id)
 ```
 
 ### 20. Bulk Job Status API
@@ -886,7 +983,18 @@ Refer to the [Bulk Job Status API](https://docs.imagekit.io/api-reference/media-
 
 #### Example
 ```python
-job_status = imagekit.get_bulk_job_status("job_id")
+job_status = imagekit.get_bulk_job_status(job_id="job_id")
+# Final Result
+print(job_status)
+
+# Raw Response
+print(job_status.response_metadata.raw)
+
+# print the job's id
+print(job_status.job_id)
+
+# print the status
+print(job_status.status)
 ```
 
 ### 21. Purge Cache API
@@ -897,7 +1005,15 @@ Refer to the [Purge Cache API](https://docs.imagekit.io/api-reference/media-api/
 
 #### Example
 ```python
-purge_cache = imagekit.purge_file_cache("file_url")
+purge_cache = imagekit.purge_cache(file_url="file_url")
+# Final Result
+print(purge_cache)
+
+# Raw Response
+print(purge_cache.response_metadata.raw)
+
+# print the purge file cache request id
+print(purge_cache.request_id)
 ```
 
 ### 22. Purge Cache Status API
@@ -908,7 +1024,15 @@ Refer to the [Purge Cache Status API](https://docs.imagekit.io/api-reference/med
 
 #### Example
 ```python
-purge_cache_status = imagekit.get_purge_file_cache_status("request_id")
+purge_cache_status = imagekit.get_purge_cache_status(purge_cache_id="request_id")
+# Final Result
+print(purge_cache_status)
+
+# Raw Response
+print(purge_cache_status.response_metadata.raw)
+
+# print the purge file cache status
+print(purge_cache_status.status)
 ```
 
 ### 23. Get File Metadata API (From File ID)
@@ -919,7 +1043,16 @@ Refer to the [Get image metadata for uploaded media files API](https://docs.imag
 
 #### Example
 ```python
-file_metadata = imagekit.get_file_metadata("file_id")
+file_metadata = imagekit.get_metadata(file_id="file_id")
+# Final Result
+print(file_metadata)
+
+# Raw Response
+print(file_metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(file_metadata.width)
+print(file_metadata.exif.image.x_resolution)
 ```
 
 ### 24. Get File Metadata API (From Remote URL)
@@ -931,6 +1064,15 @@ Refer to the [Get image metadata from remote URL API](https://docs.imagekit.io/a
 #### Example
 ```python
 remote_file_url_metadata = imagekit.get_remote_file_url_metadata(remote_file_url="image_url")
+# Final Result
+print(remote_file_url_metadata)
+
+# Raw Response
+print(remote_file_url_metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(remote_file_url_metadata.width)
+print(remote_file_url_metadata.exif.image.x_resolution)
 ```
 
 ## Custom Metadata Fields API
@@ -948,31 +1090,61 @@ Refer to the [Create Custom Metadata Fields API](https://docs.imagekit.io/api-re
 
 #### Example
 ```python
-create_custom_metadata_fields = imagekit.create_custom_metadata_fields(options={"name": "test",
-                                                          "label": "test",
-                                                          "schema":
-                                                              {"type": "Number",
-                                                               "min_value": 100,
-                                                               "max_value": 200}
-                                                          }
-                                                 )
+create_custom_metadata_fields_number = imagekit.create_custom_metadata_fields(
+    options=CreateCustomMetadataFieldsRequestOptions(
+                                                        name="test",
+                                                        label="test",
+                                                        schema=CustomMetadataFieldsSchema(
+                                                            type=CustomMetaDataTypeEnum.Number,
+                                                            min_value=100,
+                                                            max_value=200
+                                                        )
+                                                     )
+)
+# Final Result
+print(create_custom_metadata_fields_number)
+
+# Raw Response
+print(create_custom_metadata_fields_number.response_metadata.raw)
+
+# print the id of created custom metadata fields
+print(create_custom_metadata_fields_number.id)
+
+# print the schema's type of created custom metadata fields
+print(create_custom_metadata_fields_number.schema.type)
 ```
 
 #### MultiSelect type Exmample:
 
 ```python
-create_custom_metadata_fields = imagekit.create_custom_metadata_fields(options={"name": "test",
-                                                          "label": "test",
-                                                          "schema":
-                                                              {
-                                                                  "type": "MultiSelect",
-                                                                  "is_value_required": True,
-                                                                  "default_value": ["small", 30, True],
-                                                                  "select_options": ["small", "medium", "large", 30, 40,
-                                                                                     True]
-                                                              }
-                                                          }
-                                                 )
+create_custom_metadata_fields_multi_select = imagekit.create_custom_metadata_fields(
+    options=CreateCustomMetadataFieldsRequestOptions(
+                                                        name="test-MultiSelect",
+                                                        label="test-MultiSelect",
+                                                        schema=CustomMetadataFieldsSchema(
+                                                            type=CustomMetaDataTypeEnum.MultiSelect,
+                                                            is_value_required=True,
+                                                            default_value=[
+                                                                "small", 30,
+                                                                True],
+                                                            select_options=["small",
+                                                                        "medium",
+                                                                        "large", 30, 40,
+                                                                        True]
+                                                        )
+                                                    )
+)
+# Final Result
+print(create_custom_metadata_fields_multi_select)
+
+# Raw Response
+print(create_custom_metadata_fields_multi_select.response_metadata.raw)
+
+# print the name of created custom metadata fields
+print(create_custom_metadata_fields_multi_select.name)
+
+# print the schema's select options of created custom metadata fields
+print(create_custom_metadata_fields_multi_select.schema.select_options)
 ```
 
 Check for the [Allowed Values In The Schema](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/create-custom-metadata-field#allowed-values-in-the-schema-object).
@@ -985,11 +1157,27 @@ Refer to the [Get Custom Metadata Fields API](https://docs.imagekit.io/api-refer
 
 #### Example
 ```python
-get_custom_metadata_fields = imagekit.get_custom_metadata_fields() # includeDeleted would be False by default
+get_custom_metadata_fields = imagekit.get_custom_metadata_fields() # include_deleted would be False by default
+# Final Result
+print(get_custom_metadata_fields)
+
+# Raw Response
+print(get_custom_metadata_fields.response_metadata.raw)
+
+# print the first customMetadataField's id
+print(get_custom_metadata_fields.list[0].id)
 ```
 
 ```python
-get_custom_metadata_fields = imagekit.get_custom_metadata_fields(True)
+get_custom_metadata_fields = imagekit.get_custom_metadata_fields(include_deleted=True)
+# Final Result
+print(get_custom_metadata_fields)
+
+# Raw Response
+print(get_custom_metadata_fields.response_metadata.raw)
+
+# print the first customMetadataField's id
+print(get_custom_metadata_fields.list[0].id)
 ```
 
 ### 3. Update Fields
@@ -1000,14 +1188,27 @@ Refer to the [Update Custom Metadata Fields API](https://docs.imagekit.io/api-re
 
 #### Example
 ```python
-update_custom_metadata_fields = imagekit.update_custom_metadata_fields("id_of_custom_metadata_field", options={"label": "test",
-                                                                "schema":
-                                                                    {
-                                                                        "min_value": 100,
-                                                                        "max_value": 200
-                                                                    }
-                                                                }
-                                                 )
+update_custom_metadata_fields = imagekit.update_custom_metadata_fields(
+    custom_metadata_field_identifier="id_of_custom_metadata_field",
+    options=UpdateCustomMetadataFieldsRequestOptions(
+                                                        label="test-update",
+                                                        schema=CustomMetadataFieldsSchema(
+                                                            min_value=100,
+                                                            max_value=200
+                                                        )
+                                                    )
+)
+# Final Result
+print(update_custom_metadata_fields)
+
+# Raw Response
+print(update_custom_metadata_fields.response_metadata.raw)
+
+# print the label of updated custom metadata fields
+print(update_custom_metadata_fields.label)
+
+# print the schema's min value of updated custom metadata fields
+print(update_custom_metadata_fields.schema.min_value)
 ```
 
 Check for the [Allowed Values In The Schema](https://docs.imagekit.io/api-reference/custom-metadata-fields-api/create-custom-metadata-field#allowed-values-in-the-schema-object).
@@ -1021,7 +1222,13 @@ Refer to the [Delete Custom Metadata Fields API](https://docs.imagekit.io/api-re
 
 #### Example
 ```python
-delete_custom_metadata_field = imagekit.delete_custom_metadata_field("id_of_custom_metadata_field")
+delete_custom_metadata_field = imagekit.delete_custom_metadata_field(
+    custom_metadata_field_identifier="id_of_custom_metadata_field")
+# Final Result
+print(delete_custom_metadata_field)
+
+# Raw Response
+print(delete_custom_metadata_field.response_metadata.raw)
 ```
 
 ## **What's next**

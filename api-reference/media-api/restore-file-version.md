@@ -129,6 +129,12 @@ imagekit = ImageKit(
 restore_file_version = imagekit.restore_file_version(file_id="file_id", version_id="version_id")
 
 print("Restore file version-", restore_file_version, end="\n\n")
+
+# Raw Response
+print(restore_file_version.response_metadata.raw)
+
+# print that file's id
+print(restore_file_version.file_id)
 ```
 {% endtab %}
 

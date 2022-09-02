@@ -91,6 +91,9 @@ move_file = imagekit.move_file(options=MoveFileRequestOptions(source_file_path="
                                                               destination_path="/test"))
 
 print("Move file-", move_file, end="\n\n")
+
+# Raw Response
+print(move_file.response_metadata.raw)
 ```
 {% endtab %}
 

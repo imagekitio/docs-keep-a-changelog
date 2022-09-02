@@ -79,6 +79,12 @@ imagekit = ImageKit(
 purge_cache_status = imagekit.get_purge_cache_status(purge_cache_id="request_id")
 
 print("Cache status-", purge_cache_status)
+
+# Raw Response
+print(purge_cache_status.response_metadata.raw)
+
+# print the purge file cache status
+print(purge_cache_status.status)
 ```
 {% endtab %}
 

@@ -82,6 +82,9 @@ imagekit = ImageKit(
 delete_folder = imagekit.delete_folder(options=DeleteFolderRequestOptions(folder_path="/test/demo"))
 
 print("Delete folder-", delete_folder, end="\n\n")
+
+# Raw Response
+print(delete_folder.response_metadata.raw)
 ```
 {% endtab %}
 

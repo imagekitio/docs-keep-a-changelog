@@ -154,6 +154,12 @@ rename_file = imagekit.rename_file(options=RenameFileRequestOptions(file_path="/
                                                                     purge_cache=True))
 
 print("Rename file-", rename_file, end="\n\n")
+
+# Raw Response
+print(rename_file.response_metadata.raw)
+
+# print the purge request id
+print(rename_file.purge_request_id)
 ```
 {% endtab %}
 

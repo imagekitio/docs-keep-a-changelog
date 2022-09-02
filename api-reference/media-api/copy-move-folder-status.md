@@ -79,6 +79,15 @@ imagekit = ImageKit(
 job_status = imagekit.get_bulk_job_status(job_id="job_id")
 
 print("Bulk job status-", job_status, end="\n\n")
+
+# Raw Response
+print(job_status.response_metadata.raw)
+
+# print the job's id
+print(job_status.job_id)
+
+# print the status
+print(job_status.status)
 ```
 {% endtab %}
 

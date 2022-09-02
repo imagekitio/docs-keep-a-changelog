@@ -97,6 +97,9 @@ imagekit = ImageKit(
 delete_file_version = imagekit.delete_file_version(file_id="file_id", version_id="version_id")
 
 print("Delete file version-", delete_file_version, end="\n\n")
+
+# Raw Response
+print(delete_file_version.response_metadata.raw)
 ```
 {% endtab %}
 
