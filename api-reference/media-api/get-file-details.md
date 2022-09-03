@@ -100,7 +100,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-details = imagekit.get_file_details(file_identifier="file_id")
+details = imagekit.get_file_details(file_id="file_id")
 
 print("File detail-", details, end="\n\n")
 

@@ -292,7 +292,7 @@ upload = imagekit.upload(
             tags = ["tag1", "tag2"],
             webhook_url = "url",
             overwrite_file = False,
-            overwrite_a_i_tags = False,
+            overwrite_ai_tags = False,
             overwrite_tags = False,
             overwrite_custom_metadata = True,
             custom_metadata = {"test": 11})
@@ -675,8 +675,8 @@ upload = imagekit.upload(
     file="https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
     file_name="women_in_red.jpg",
     options=UploadFileRequestOptions(
-        extensions = ({"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "pink"}},
-                {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10})
+        extensions = [{"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "pink"}},
+                {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10}]
     ),
 )
 

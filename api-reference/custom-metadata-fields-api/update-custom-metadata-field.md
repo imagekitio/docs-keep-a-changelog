@@ -110,7 +110,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-update_custom_metadata_fields = imagekit.update_custom_metadata_fields(custom_metadata_field_identifier="id", 
+update_custom_metadata_fields = imagekit.update_custom_metadata_fields(field_id="id", 
                                                  options=UpdateCustomMetadataFieldsRequestOptions(label="test-update",
                                                   schema=CustomMetadataFieldsSchema(
                                                       min_value=100,

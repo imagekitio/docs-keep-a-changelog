@@ -62,7 +62,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-delete_custom_metadata_field = imagekit.delete_custom_metadata_field(custom_metadata_field_identifier="id_of_custom_metadata_field")
+delete_custom_metadata_field = imagekit.delete_custom_metadata_field(field_id="field_id")
 
 print("Delete custom metadata field-", delete_custom_metadata_field, end="\n\n")
 

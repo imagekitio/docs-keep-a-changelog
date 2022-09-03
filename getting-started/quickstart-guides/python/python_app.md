@@ -538,13 +538,13 @@ result = imagekit.upload_file(
             is_private_file=True,
             custom_coordinates="10,10,20,20",
             response_fields=["is_private_file", "tags"],
-            extensions=(
+            extensions=[
                 {"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "pink"}},
                 {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10}
-            ),
+            ],
             webhook_url="url",
             overwrite_file=True,
-            overwrite_a_i_tags=False,
+            overwrite_ai_tags=False,
             overwrite_tags=False,
             overwrite_custom_metadata=True,
             custom_metadata={"test": 11}
@@ -598,7 +598,7 @@ Refer to the [Get File Details API](https://docs.imagekit.io/api-reference/media
 
 #### Example
 ```python
-details = imagekit.get_file_details(file_identifier="file_id")
+details = imagekit.get_file_details(file_id="file_id")
 # Final Result
 print(details)
 
@@ -617,7 +617,7 @@ Refer to the [Get File Versions API](https://docs.imagekit.io/api-reference/medi
 
 #### Example
 ```python
-file_versions = imagekit.get_file_versions(file_identifier='file_id')
+file_versions = imagekit.get_file_versions(file_id='file_id')
 # Final Result
 print(file_versions)
 # Raw Response
@@ -638,7 +638,7 @@ Refer to the [Get File Version Details API](https://docs.imagekit.io/api-referen
 
 #### Example
 ```python
-file_versions_details = imagekit.get_file_version_details(file_identifier='file_id', version_identifier='version_id')
+file_versions_details = imagekit.get_file_version_details(file_id='file_id', version_id='version_id')
 # Final Result
 print(file_versions_details)
 
@@ -1189,14 +1189,14 @@ Refer to the [Update Custom Metadata Fields API](https://docs.imagekit.io/api-re
 #### Example
 ```python
 update_custom_metadata_fields = imagekit.update_custom_metadata_fields(
-    custom_metadata_field_identifier="id_of_custom_metadata_field",
-    options=UpdateCustomMetadataFieldsRequestOptions(
-                                                        label="test-update",
-                                                        schema=CustomMetadataFieldsSchema(
-                                                            min_value=100,
-                                                            max_value=200
-                                                        )
-                                                    )
+    field_id = "field_id",
+    options = UpdateCustomMetadataFieldsRequestOptions(
+        label = "test-update",
+        schema = CustomMetadataFieldsSchema(
+            min_value = 100,
+            max_value = 200
+        )
+    )
 )
 # Final Result
 print(update_custom_metadata_fields)
@@ -1223,7 +1223,7 @@ Refer to the [Delete Custom Metadata Fields API](https://docs.imagekit.io/api-re
 #### Example
 ```python
 delete_custom_metadata_field = imagekit.delete_custom_metadata_field(
-    custom_metadata_field_identifier="id_of_custom_metadata_field")
+    field_id="field_id")
 # Final Result
 print(delete_custom_metadata_field)
 
