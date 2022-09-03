@@ -544,7 +544,7 @@ result = imagekit.upload_file(
             ],
             webhook_url="url",
             overwrite_file=True,
-            overwrite_ai_tags=False,
+            overwrite_a_i_tags=False,
             overwrite_tags=False,
             overwrite_custom_metadata=True,
             custom_metadata={"test": 11}
