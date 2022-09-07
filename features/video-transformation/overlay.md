@@ -53,9 +53,9 @@ The position of subtitles cannot be controlled at this point.
 | lx          | `x` of the top-left corner in the base asset where layer's top-left corner would be placed.    |
 | ly          | `y` of the top-left corner in the base asset where layer's top-left corner would be placed.    |
 | lfo         | Position of layer in relative terms e.g. `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. Default value is `center`.      |
-| lso         | Start time of the base video in seconds when the layer should appear. Positive numbers up to 2 decimal places |
-| ldu         | Duration in seconds during which layer should appear on the base video. Positive numbers up to 2 decimal places |
-| leo         | End time of the base video when this layer should disappear. In case both `leo` and `ldu` are present, `ldu` is ignored. Positive numbers up to 2 decimal places |
+| lso         | Start time of the base video in seconds when the layer should appear. It accepts a positive number upto two decimal e.g. 20 or 20.50 |
+| ldu         | Duration in seconds during which layer should appear on the base video. It accepts a positive number upto two decimal e.g. 20 or 20.50 |
+| leo         | End time of the base video when this layer should disappear. In case both `leo` and `ldu` are present, `ldu` is ignored. It accepts a positive number upto two decimal e.g. 20 or 20.50 |
 
 ## Transformation of layer
 
