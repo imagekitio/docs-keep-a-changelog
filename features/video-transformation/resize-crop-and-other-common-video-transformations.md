@@ -376,7 +376,7 @@ Specify start offset in seconds. The video before the start offset is removed fr
 
 Usage - `so-<value>`
 
-**Possible Values** - Specify the time in seconds as a positive number up to 2 decimal places e.g. `10.55`. It must be less than the duration of the input video.
+**Possible Values** - Specify the time in seconds as a positive number up to 2 decimal places e.g. 20 or 10.55. It must be less than the duration of the input video.
 
 ### End offset - (eo)
 
@@ -384,7 +384,7 @@ Specify end offset in seconds. The video after end offset is removed from the ou
 
 Usage - `eo-<value>`
 
-**Possible Values** - Specify the time in seconds as a positive number up to 2 decimal places e.g. `50.77`. It must be less than the duration of the input video.
+**Possible Values** - Specify the time in seconds as a positive number up to 2 decimal places e.g. 20 or 10.55. It must be less than the duration of the input video.
 
 ### Duration - (du)
 
@@ -392,7 +392,7 @@ Specify duration in seconds. It is often used with `so` to control duration of t
 
 Usage - `du-<value>`
 
-**Possible Values** - Specify the duration in seconds as a positive number up to 2 decimal places e.g. `50.77`. It must be less than or equal to the duration of the input video.
+**Possible Values** - Specify the duration in seconds as a positive number up to 2 decimal places e.g. 20 or 10.55. It must be less than or equal to the duration of the input video.
 
 ## Get thumbnail from a video
 
