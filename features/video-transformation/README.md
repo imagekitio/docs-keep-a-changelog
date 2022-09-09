@@ -33,6 +33,22 @@ These transformation parameters `w-300,h-300` can be added in the URL as path pa
 * Input video upto `300MB` in size is supported for transformations. This limit can be adjusted based on your pricing plan.
 * When you request a new transformation or have turned on video optimization features, if the video is not cached on CDN or our internal caches, ImageKit will transform the video in real-time. However if the video file is being downloaded from your origin takes more than 15 seconds, ImageKit will give a 302 and serve the original content. Within a few seconds, optimized transformations are generated and stored in our caches. From that point onwards, we will serve the actual transformed video.
 
+## Pricing
+Every new video transformation that has never been done before will contribute toward video processing units using the below definition. Subsequent views of the same video transformation only count towards bandwidth. 
+
+Video processing units used depends on output video duration and resolution:
+
+* 1 second of SD video output = 1 unit
+* 1 second of HD video output = 2 units
+* 1 second of 4K video output = 4 units
+* 1 second of 8K video output = 8 units
+
+Special operations:
+
+* **Audio extraction** - Using [`vc-none`](./resize-crop-and-other-common-video-transformations.md#video-codec---vc) transformation results in audio output. This operation is equal to processing the input video in SD output resolution for the duration of the output audio.
+* **Adaptive bitrate streaming** - This operation is equal to processing a 30 seconds SD resolution video. In addition, all generated representations are charged based on requested resolutions.
+* **Get thumbnail** - This operation is equal to processing a 30 seconds SD resolution video.
+
 ## Recommendations
 
 Here are a few recommendations you should follow while using video API in a live environment.
