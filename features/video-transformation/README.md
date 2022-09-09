@@ -45,7 +45,7 @@ Video processing units used depends on output video duration and resolution:
 
 Special operations:
 
-* **Audio extraction** - Using [`vc-none`](./resize-crop-and-other-common-video-transformations.md#video-codec---vc) transformation results in audio output. This operation is equal to processing the input video in SD output resolution for the duration of the output audio.
+* **Audio extraction** - Using [`vc-none`](./resize-crop-and-other-common-video-transformations.md#video-codec-vc) transformation results in audio output. This operation is equal to processing the input video in SD output resolution for the duration of the output audio.
 * **Adaptive bitrate streaming** - This operation is equal to processing a 30 seconds SD resolution video. In addition, all generated representations are charged based on requested resolutions.
 * **Get thumbnail** - This operation is equal to processing a 30 seconds SD resolution video.
 
