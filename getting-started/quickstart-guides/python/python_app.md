@@ -544,7 +544,7 @@ result = imagekit.upload_file(
             ],
             webhook_url="url",
             overwrite_file=True,
-            overwrite_a_i_tags=False,
+            overwrite_ai_tags=False,
             overwrite_tags=False,
             overwrite_custom_metadata=True,
             custom_metadata={"test": 11}
@@ -662,7 +662,7 @@ Refer to the [Update File Details API](https://docs.imagekit.io/api-reference/me
 ```python
 updated_detail = imagekit.update_file_details(
         file_id="file_id",
-        options=UpdateFileRequestOptions(remove_a_i_tags=['remove-ai-tag-1', 'remove-ai-tag-2'],
+        options=UpdateFileRequestOptions(remove_ai_tags=['remove-ai-tag-1', 'remove-ai-tag-2'],
                                          webhook_url="url",
                                          extensions=[
                                              {"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "red"}},
@@ -732,7 +732,7 @@ Refer to the [Remove AI Tags (Bulk) API](https://docs.imagekit.io/api-reference/
 
 #### Example
 ```python
-remove_ai_tags = imagekit.remove_ai_tags(file_ids=['file_id_1', 'file_id_2'], a_i_tags=['ai-tag-to-remove-1', 'ai-tag-to-remove-2'])
+remove_ai_tags = imagekit.remove_ai_tags(file_ids=['file_id_1', 'file_id_2'], ai_tags=['ai-tag-to-remove-1', 'ai-tag-to-remove-2'])
 # Final Result
 print(remove_ai_tags)
 

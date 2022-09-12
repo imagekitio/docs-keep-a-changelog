@@ -127,7 +127,7 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-remove_ai_tags = imagekit.remove_ai_tags(file_ids=['file-id-1', 'file-id-2'], a_i_tags=['remove-ai-tag-1', 'remove-ai-tag-2'])
+remove_ai_tags = imagekit.remove_ai_tags(file_ids=['file-id-1', 'file-id-2'], ai_tags=['remove-ai-tag-1', 'remove-ai-tag-2'])
 
 print("Remove AI tags-", remove_ai_tags, end="\n\n")
 
