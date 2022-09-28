@@ -45,7 +45,7 @@ For example, in the screenshot below, we have two URL-endpoints:
 1. One is default URL-endpoint - `https://ik.imagekit.io/your_imagekit_id`. This is associated with a custom domain `https://images.example.com`. So your image URL would become `https://images.example.com/rest-of-the-path.jpg`.
 2. And the second one is  - `https://ik.imagekit.io/your_imagekit_id/product-images`. This is associated with a custom domain `https://products.example.com`. So your image URL would become `https://products.example.com/rest-of-the-path.jpg`. Note that with products.example.com, which is mapped to a particular URL endpoint, you do not have to add the endpoint identifier (product-images) in the image URL.
 
-![Custom domain mapping with URL-endpoints](../.gitbook/assets/kmnj8dvxjtf8azd6tq7p.png)
+![Custom domain mapping with URL-endpoints](../.gitbook/assets/custom-domain-mapping.png)
 
 {% hint style="info" %}
 **How to add new custom domain names or map a custom domain to a URL endpoint?**\
