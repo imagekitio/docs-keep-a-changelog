@@ -24,7 +24,7 @@ Automatic format optimization is off by default. You can enable or disable autom
 
 Select settings from the left main menu. Inside Videos, under optimization, toggle "Use best format for video delivery" option to enable or disable this feature.
 
-![Video settings](<../../.gitbook/assets/Screenshot 2021-07-13 at 5.00.50 PM.png>)
+![Video settings](<../../.gitbook/assets/video-best-format.png>)
 
 ### Can I selectively choose the best format for a particular request?
 

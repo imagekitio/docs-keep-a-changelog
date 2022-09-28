@@ -14,8 +14,6 @@ Create a new folder
 
 Searching for a folder follows the same steps as a [file search](search-update-and-delete.md#file-search). You can enter the name of the folder you wish to search within the 'Search Bar' on top of the Media Library.
 
-![](<../../.gitbook/assets/search-media-library (1).png>)
-
 ### Add Files to Folders <a href="add-files-to-folders" id="add-files-to-folders"></a>
 
 To add files to a particular folder, you need to open the folder first.

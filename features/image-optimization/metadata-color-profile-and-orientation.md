@@ -22,7 +22,7 @@ Image URL:[http://ik.imagekit.io/demo/img/tr:md-true/mediumcafe](http://ik.image
 
 Instead of appending `md-true` to every image URL, you can enable 'Preserve Complete Metadata' within the Advanced Section under [Image Settings](https://imagekit.io/dashboard?redirectTo=settings#settings) on the dashboard.
 
-![Image Metadata setting in ImageKit.io dashboard](<../../.gitbook/assets/metadata-setting (1).png>)
+![Image Metadata setting in ImageKit.io dashboard](<../../.gitbook/assets/preserve-complete-metadata-setting.png>)
 
 {% hint style="warning" %}
 Preserving all the metadata would increase the size of your images, and correspondingly, reflect in the page load time and bandwidth consumption.
@@ -58,6 +58,6 @@ Since the image orientation is a part of the image metadata, and ImageKit.io rem
 
 ImageKit.io provides auto orientation, which corrects the image orientation before removing all the metadata. This reduces the file size considerably and retains the correct orientation. The proper orientation can also be achieved by preserving all the metadata, but this would result in larger image sizes.
 
-The correct rotation can be preserved by using the transformation parameter `rt-auto` in the URL or through the dashboard within the Advanced section of [Image Settings](https://imagekit.io/dashboard?redirectTo=settings#settings):
+The correct rotation can be preserved by using the transformation parameter `rt-auto` in the URL or through the dashboard within the Advanced section of [Image Settings](https://imagekit.io/dashboard/settings/images):
 
 ![Auto image orientation setting in ImageKit.io dashboard](../../.gitbook/assets/auto-image-orientation-setting.png)

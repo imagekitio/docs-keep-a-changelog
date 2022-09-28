@@ -11,7 +11,7 @@ User access management allows you to manage how your team members access the [Im
 
 Go to the [Users section](https://imagekit.io/dashboard?redirectTo=users) in the ImageKit.io dashboard and click on the Add user button. Fill out the form and choose the [user role](user-access-management.md#user-roles).
 
-![Add user form in ImageKit.io dashboard](<../.gitbook/assets/Screenshot 2020-09-30 at 9.20.23 PM.png>)
+![Add user form in ImageKit.io dashboard](<../.gitbook/assets/add-user-modal.png>)
 
 {% hint style="info" %}
 **Maximum number of users **:raised\_hands: \

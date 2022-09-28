@@ -13,9 +13,9 @@ ImageKit.io provides users with the ability to copy and move folders across diff
 ****When you move folders, the old folders are deleted in the process. If you don't want the old folders to be deleted, copy them instead of moving.
 {% endhint %}
 
-![Copy and move controls](../../.gitbook/assets/copy-move-folder.png)
+![Copy and move controls](../../.gitbook/assets/copy-move-folder-dropdown.png)
 
-![New destination for copying/moving the selected folders](<../../.gitbook/assets/folder-new-destination (1).png>)
+![New destination for copying/moving the selected folders](<../../.gitbook/assets/copy-move-folder-drawer.png>)
 
 {% embed url="https://youtu.be/qUtuJ7pQpcw" %}
 Copy folder
