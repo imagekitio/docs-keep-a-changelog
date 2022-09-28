@@ -69,10 +69,47 @@ imagekit.deleteFolder("folder/to/delete/", function(error, result) {
 ```
 {% endtab %}
 
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$folderPath = 'folder/to/delete/';
+$deleteFolder = $imageKit->deleteFolder($folderPath);
+
+echo("Delete Folder : " . json_encode($deleteFolder));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+DeleteFolderRequest deleteFolderRequest = new DeleteFolderRequest();
+deleteFolderRequest.setFolderPath("folder/to/delete/");
+ResultNoContent resultNoContent = ImageKit.getInstance().deleteFolder(deleteFolderRequest);
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.delete_folder(folder_path: 'folder/to/delete/')
+```
+{% endtab %}
+
+[% tab title="Go" %}
+```go
+resp, err := ik.Media.DeleteFolder(ctx, media.DeleteFolderParam{
+    FolderPath: "folder/to/delete/",
+})
 ```
 {% endtab %}
 {% endtabs %}

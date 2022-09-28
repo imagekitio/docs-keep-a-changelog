@@ -39,7 +39,7 @@ Once the extension is downloaded and installed, follow these steps:
 1. In the Magento Admin Panel, select Stores** **:arrow\_right:** **Configuration**.**
 2. On the Configuration page, open the ImageKit section in the left-hand sidebar and select Settings.
 3. In the ImageKit Setup section of this page:
-   1. Set your ImageKit URL endpoint (or CNAME). Copy the endpoint as found in the [ImageKit URL Endpoint Section](https://imagekit.io/dashboard#url-endpoints).
+   1. Set your ImageKit URL endpoint (or CNAME). Copy the endpoint as found in the [ImageKit URL Endpoint Section](https://imagekit.io/dashboard/url-endpoints).
    2. Set Enable** **ImageKit to Yes.
    3. Further instructions to configure origin would be given in the ImageKit origin section
    4. Once you have configured the origin in ImageKit Dashboard, set Configuration** **Complete to Yes.

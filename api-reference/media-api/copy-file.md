@@ -85,6 +85,42 @@ imagekit.copyFile({
 ```
 {% endtab %}
 
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$destinationPath = '/destination-folder';
+$copyFile = $imageKit->copy([
+    'sourceFilePath' => '/pah/to/file.jpg',
+    'destinationPath' => '/folder/to/copy/into/',
+    'includeFileVersions' => false
+]);
+
+echo("Copy File : " . json_encode($copyFile));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+
+CopyFileRequest copyFileRequest = new CopyFileRequest();
+copyFileRequest.setSourceFilePath("/path/to/file.jpg");
+copyFileRequest.setDestinationPath("/folder/to/copy/into/");
+copyFileRequest.setIncludeFileVersions(true);
+ResultNoContent resultNoContent = ImageKit.getInstance().copyFile(copyFileRequest);
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
@@ -95,4 +131,15 @@ imagekitio.copy_file(
 )
 ```
 {% endtab %}
+
+{% tab title='Go' %}
+```go
+resp, err := ik.Media.CopyFile(ctx, media.CopyFileParam{
+    SourcePath: "/path/to/file.jpg",
+    DestinationPath: "/folder/to/copy/into/",
+    IncludeVersions: false, //optional
+})
+```
+{% endtab %}
+
 {% endtabs %}

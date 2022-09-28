@@ -133,9 +133,8 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$purgeCache = $imageKit->purgeCacheApi(array(
-    "url" => "https://ik.imagekit.io/your_imagekit_id/default-image.jpg"
-));
+$image_url = 'https://ik.imagekit.io/your_imagekit_id/default-image.jpg';
+$purgeCache = $imageKit->purgeCache($image_url);
 
 echo("File details : " . json_encode($purgeCache));
 ```
@@ -151,6 +150,14 @@ ResultCache result=ImageKit.getInstance().purgeCache("https://ik.imagekit.io/you
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 purge_cache = imagekitio.purge_file_cache(file_url: "https://ik.imagekit.io/your_imagekit_id/default-image.jpg")
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.PurgeCache(ctx, media.PurgeCacheParam{
+    Url: "https://ik.imagekit.io/your_imagekit_id/default-image.jpg",
+})
 ```
 {% endtab %}
 {% endtabs %}

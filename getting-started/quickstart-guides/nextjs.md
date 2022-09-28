@@ -9,7 +9,7 @@ Image resizing can be used automatically with Next.js' [next/image component](ht
 
 Here is an implementation using a [custom loader](https://nextjs.org/docs/api-reference/next/image#loader) which applies ImageKit image resizing, next/image will set an optimal width and quality for a given client.
 
-Inside the `imageKitLoader` function, you will have to replace `urlEndpoint` with your ImageKit account's URL-endpoint. You can get URL-endpoint from your ImageKit dashboard - https://imagekit.io/dashboard#url-endpoints.
+Inside the `imageKitLoader` function, you will have to replace `urlEndpoint` with your ImageKit account's URL-endpoint. You can get URL-endpoint from your ImageKit dashboard - https://imagekit.io/dashboard/url-endpoints.
 
 ```javascript
 import Image from "next/image";

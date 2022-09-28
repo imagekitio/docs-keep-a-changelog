@@ -84,12 +84,47 @@ imagekit.deleteFileVersion({
 ```
 {% endtab %}
 
+{% tab title="PHP" %}
+```php
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileId = 'file_id';
+$versionId = 'version_id';
+
+$deleteFileVersion = $imageKit->deleteFileVersion($fileId, $versionId);
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+
+DeleteFileVersionRequest deleteFileVersionRequest = new DeleteFileVersionRequest();
+deleteFileVersionRequest.setFileId("file_id");
+deleteFileVersionRequest.setVersionId("version_id");
+ResultNoContent resultNoContent = ImageKit.getInstance().deleteFileVersion(deleteFileVersionRequest);
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
 ```ruby
 imagekitio.delete_file_version(
     file_id: 'file_id',
     version_id: 'version_id'
 )
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.DeleteFileVersion(ctx, "file_id", "version_id")
 ```
 {% endtab %}
 {% endtabs %}

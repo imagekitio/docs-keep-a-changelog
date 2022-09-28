@@ -23,7 +23,7 @@ There are certain limits, like those on image transformation dimensions, which a
 
 ## Video limits
 
-Video real-time manipulation and optimization service is in Beta release. Refer to [limits](../features/video-transformation/#limitations-of-the-beta-release) before using in production.
+Refer to [limits](../features/video-transformation/#limitations) before using in production.
 
 
 

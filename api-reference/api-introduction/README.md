@@ -16,7 +16,7 @@ Except for [upload API](../upload-file-api/), all our APIs accept JSON-encoded r
 
 We’ve created a Postman collection to make testing and working with our API simpler.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/384637cdb2d49095b113)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e8afe4815e95f8b14660)
 
 ## Error codes
 

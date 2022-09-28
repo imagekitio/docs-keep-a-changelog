@@ -153,6 +153,26 @@ curl -X POST "https://upload.imagekit.io/api/v1/files/upload" \
 ]"'
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+import (
+    "github.com/imagekit-developer/imagekit-go/extension"
+	"github.com/imagekit-developer/imagekit-go/api/uploader"
+)
+
+const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+
+resp, err := ik.Uploader.Upload(ctx, base64Image, uploader.UploadParam{
+    Extensions: []extension.IExtension{
+        extension.NewAutoTag(extension.GoogleAutoTag, 50, 5),
+        extension.NewAutoTag(extension.AwsAutoTag, 50, 5),
+    },
+})
+
+
+```
+{% endtab %}
 {% endtabs %}
 
 #### Response
@@ -329,7 +349,26 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$updateFileDetails = $imageKit->updateFileDetails("file_id", array("extensions" => [array("name" => "google-auto-tagging", "maxTags" => 5, "minConfidence" => 50), array("name" => "aws-auto-tagging", "maxTags" => 5, "minConfidence" => 50)]));
+// Update File Details
+$updateData = [
+    "extensions" => [
+        [
+            "name" => "google-auto-tagging",
+            "maxTags" => 5,
+            "minConfidence" => 50
+        ],
+        [
+            "name" => "aws-auto-tagging",
+            "maxTags" => 5,
+            "minConfidence" => 50
+        ]
+    ],
+];
+
+$updateFileDetails = $imageKit->updateFileDetails(
+    $fileId,
+    $updateData
+);
 
 echo("Updated detail : " . json_encode($updateFileDetails));
 ```
@@ -353,6 +392,23 @@ updated_detail = imagekitio.update_file_details(
        }
     ]
 )
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+import (
+    "github.com/imagekit-developer/imagekit-go/extension"
+	"github.com/imagekit-developer/imagekit-go/api/media"
+)
+
+resp, err := ik.Media.UpdateFile(ctx, "file_id", media.UpdateFileParam{
+    Extensions: []extension.IExtension{
+        extension.NewAutoTag(extension.GoogleAutoTag, 50, 5),
+        extension.NewAutoTag(extension.AwsAutoTag, 50, 5),
+    },
+})
+
 ```
 {% endtab %}
 {% endtabs %}

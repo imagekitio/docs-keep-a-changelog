@@ -16,6 +16,8 @@ ImageKit supports the following streaming protocols. Both leverage existing HTTP
 * HTTP Live Streaming (HLS)
 * Dynamic Adaptive Streaming over HTTP (MPEG-DASH) protocol
 
+# Live demo
+See the live demo along with code examples here - https://imagekit.io/use-cases/adaptive-bitrate-streaming-videos/
 
 ## HTTP Live Streaming (HLS)
 The following URL will generate HLS manifest and five variants at differernt resolutions i.e. 240p, 360p, 480p, 720p and 1080p.

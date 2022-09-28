@@ -13,6 +13,8 @@
     * [Plain Ruby](getting-started/quickstart-guides/ruby-guides/ruby_app.md)
     * [Ruby on Rails with active_storage](getting-started/quickstart-guides/ruby-guides/ruby_on_rails_with_activestorage.md)
     * [Ruby on Rails with carrierwave](getting-started/quickstart-guides/ruby-guides/ruby_on_rails_with_carrierwave.md)
+  * [Java](getting-started/quickstart-guides/java/README.md)
+    * [Plain Java](getting-started/quickstart-guides/java/java_app.md)
   * [Vue.js](getting-started/quickstart-guides/vuejs.md)
   * [Next.js](getting-started/quickstart-guides/nextjs.md)
 * [How to use ImageKit.io?](getting-started/how-to-use-imagekit.io.md)
@@ -22,6 +24,7 @@
 * [Integration overview](integration/integration-overview.md)
 * [How it works?](integration/how-it-works.md)
 * [Configure origin](integration/configure-origin/README.md)
+  * [Akeneo PIM](integration/configure-origin/akeneo.md)
   * [Alibaba Object Storage Service](integration/configure-origin/alibaba-object-storage-service.md)
   * [Amazon S3 bucket](integration/configure-origin/amazon-s3-bucket-origin.md)
   * [Azure Blob storage](integration/configure-origin/azure-blob-storage.md)
@@ -80,16 +83,16 @@
   * [Data Saver Mode](features/image-optimization/data-saver-mode.md)
   * [Metadata, Color Profile and Orientation](features/image-optimization/metadata-color-profile-and-orientation.md)
   * [PNG Compression](features/image-optimization/png-compression.md)
-* [Video Transformation (Beta release)](features/video-transformation/README.md)
+* [Video Transformation](features/video-transformation/README.md)
   * [Resize, crop, and other common video transformations](features/video-transformation/resize-crop-and-other-common-video-transformations.md)
   * [Overlays in video](features/video-transformation/overlay.md)
   * [Adaptive bitrate streaming](features/video-transformation/adaptive-bitrate-streaming.md)
   * [Video webhooks events](features/video-transformation/video-webhook-events.md)
-* [Video Optimization (Beta release)](features/video-optimization/README.md)
+* [Video Optimization](features/video-optimization/README.md)
   * [Automatic video format conversion](features/video-optimization/automatic-video-format-conversion.md)
   * [Quality Optimization](features/video-optimization/quality-optimization.md)
 * [Named Transformations](features/named-transformations.md)
-* [Network-based image optimization](features/network-based-image-optimization.md)
+* [Network-based Media Optimization](features/network-based-media-optimization.md)
 * [Client hints](features/client-hints.md)
 * [Caches](features/caches.md)
 * [Cache purging](features/cache-purging.md)
@@ -112,6 +115,10 @@
 * [Central audit logs](features/central-audit-logs.md)
 * [URL-rewriters](features/url-rewriters/README.md)
   * [Cloudinary](features/url-rewriters/cloudinary.md)
+* [Session management](features/session-management.md)
+
+## Best Practices
+* [Mobile Apps](imagekit-best-practices/mobile-apps.md)
 
 ## Platform guides
 

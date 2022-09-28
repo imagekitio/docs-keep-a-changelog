@@ -131,10 +131,17 @@ echo("File details : " . json_encode($getFileDetails));
 Result result=ImageKit.getInstance().getFileDetail("file_id");
 ```
 {% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.get_file_deltails(file_id: 'file_id')
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.FileById(ctx, "file_id")
 ```
 {% endtab %}
 {% endtabs %}

@@ -109,12 +109,25 @@ imagekit.bulk_file_delete(["file_id_1", "file_id_2"])
 
 {% tab title="PHP" %}
 ```php
-$imageKit->bulkFileDeleteByIds(array(
-    "fileIds" => array("file_id_1", "file_id_2")
-));
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileIds = ["file_id_1", "file_id_2"];
+
+$deleteBulkFiles = $imageKit->bulkDeleteFiles($fileIds);
+
+echo("Delete Bulk files : " . json_encode($deleteBulkFiles));
 ```
 {% endtab %}
-
 {% tab title="Java" %}
 ```java
 List<String> fileIds=new ArrayList<>();
@@ -129,6 +142,14 @@ ResultFileDelete result=ImageKit.getInstance().bulkDeleteFiles(fileIds);
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 bulk_ids = Array["file_id_1","file_id_2"]
 imagekitio.delete_bulk_files(file_ids: bulk_ids)
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.DeleteBulkFiles(ctx, media.FileIdsParam{
+    FileIds: []string{"file_id_1", "file_id_2"},
+)
 ```
 {% endtab %}
 {% endtabs %}

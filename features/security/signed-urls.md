@@ -7,7 +7,7 @@ A signed URL is a secure URL that can be generated only by you using your [accou
 * You want certain image URLs in your application to be accessible only for a specific time period in the future.
 * You are trying to access a [private image](private-images.md).
 
-When generating signed URLs, use the private key available within the [Developer section](https://imagekit.io/dashboard#developers) on the dashboard. Signing the URLs adds additional query parameters to ensure that image transformations cannot be altered from the URL. If someone tries to modify the image transformation or the image URL or use it beyond its intended expiry time, a `401 Unauthorised` response status code is returned.
+When generating signed URLs, use the private key available within the [Developer section](https://imagekit.io/dashboard/developer/api-keys) on the dashboard. Signing the URLs adds additional query parameters to ensure that image transformations cannot be altered from the URL. If someone tries to modify the image transformation or the image URL or use it beyond its intended expiry time, a `401 Unauthorised` response status code is returned.
 
 A signed URL would be similar to :
 

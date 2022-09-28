@@ -18,7 +18,7 @@ base64 encoding of `your_private_api_key:`
 {% swagger-response status="200" description="On success, you will receive a JSON-encoded response like below." %}
 ```javascript
 {
-  "jobId": "598821f949c0a938d57563bd",
+  "jobId": "job_id",
   "type": "COPY_FOLDER",
   "status": "Completed" // or "Pending"
 }
@@ -66,10 +66,46 @@ imagekit.getBulkJobStatus(jobId, function(error, result) {
 ```
 {% endtab %}
 
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$jobId = 'job_id';
+// The jobId you get in the response of bulk job API e.g. copy folder or move folder API.
+
+$bulkJobStatus = $imageKit->getBulkJobStatus($jobId);
+
+echo("Bulk Job Status : " . json_encode($bulkJobStatus));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+String jobId = "job_id";
+ResultBulkJobStatus resultBulkJobStatus = ImageKit.getInstance().getBulkJobStatus(jobId);
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
  ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.bulk_job_status(job_id: 'job_id')
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.BulkJobStatus(ctx, "job_id")
 ```
 {% endtab %}
 {% endtabs %}

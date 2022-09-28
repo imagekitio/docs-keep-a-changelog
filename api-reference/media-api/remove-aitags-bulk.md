@@ -117,16 +117,76 @@ imagekit.bulkRemoveAITags(fileIds, tags, function(error, result) {
 ```
 {% endtab %}
 
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileIds = [
+	"file_id_1",
+	"file_id_2"
+];
+
+$AITags = [
+	"ai_tag_to_remove_1", 
+	"ai_tag_to_remove_2"
+];
+
+$bulkRemoveAITags = $imageKit->bulkRemoveAITags($fileIds, $AITags);
+
+echo("Remove AI Tags (Bulk) : " . json_encode($bulkRemoveAITags));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+List<String> fileIds = new ArrayList<>();
+fileIds.add("file_id_1");
+fileIds.add("file_id_2");
+List<String> aiTags = new ArrayList<>();
+aiTags.add("ai_tag_to_remove_1");
+aiTags.add("ai_tag_to_remove_2");
+AITagsRequest aiTagsRequest = new AITagsRequest();
+aiTagsRequest.setFileIds(fileIds);
+aiTagsRequest.setAITags(aiTags);
+ResultTags resultTags = ImageKit.getInstance().removeAITags(aiTagsRequest);
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.delete_bulk_ai_tags(
   file_ids:  [
-    "file_id_1",
-    "file_id_2"
+        "file_id_1",
+        "file_id_2"
     ],
-    ai_tags: ['ai_tag_to_remove_1', 'ai_tag_to_remove_2']
+    ai_tags: [
+        "ai_tag_to_remove_1", 
+        "ai_tag_to_remove_2"
+    ]
 )
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.RemoveAITags(ctx, media.AITagsParam{
+    FileIds: []string{
+        "file_id_1",
+        "file_id_2",
+    },
+    AITags: []string{"ai_tag_to-remove_1", "ai_tag_to-remove_2"},
+})
 ```
 {% endtab %}
 {% endtabs %}

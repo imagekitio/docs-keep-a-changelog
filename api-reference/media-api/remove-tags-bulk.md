@@ -117,16 +117,79 @@ imagekit.bulkRemoveTags(fileIds, tags, function(error, result) {
 ```
 {% endtab %}
 
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileIds = [
+	"file_id_1",
+	"file_id_2"
+];
+
+$tags = [
+	"tag_to_remove_1", 
+	"tag_to_remove_2"
+];
+
+$bulkRemoveTags = $imageKit->bulkRemoveTags($fileIds, $tags);
+
+echo("Remove Tags (Bulk) : " . json_encode($bulkRemoveTags));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+List<String> fileIds = new ArrayList<>();
+fileIds.add("file_id_1");
+fileIds.add("file_id_2");
+List<String> tags = new ArrayList<>();
+tags.add("tag_to_remove_1");
+tags.add("tag_to_remove_2");
+TagsRequest tagsRequest =new TagsRequest();
+tagsRequest.setFileIds(fileIds);
+tagsRequest.setTags(tags);
+ResultTags resultTags = ImageKit.getInstance().removeTags(tagsRequest);
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.delete_bulk_tags(
   file_ids: [
-    "file_id_1",
-    "file_id_2"
+        "file_id_1",
+        "file_id_2"
     ],
-    tags: ['tag_to_remove_1', 'tag_to_remove_2']
+    tags: [
+        "tag_to_remove_1",
+        "tag_to_remove_2"
+    ]
 )
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.RemoveTags(ctx, media.TagsParam{
+    FileIds: []string{
+        "file_id_1",
+        "file_id_2",
+    },
+	Tags: []string{
+        "tag_to_remove_1",
+        "tag_to_remove_2",
+	},
+})
 ```
 {% endtab %}
 {% endtabs %}

@@ -91,7 +91,9 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$deleteFile = $imageKit->deleteFile("file_id");
+$fileId = 'file_id';
+
+$deleteFile = $imageKit->deleteFile($fileId);
 
 echo("Delete file : " . json_encode($deleteFile));
 ```
@@ -107,6 +109,15 @@ Result result=ImageKit.getInstance().deleteFile("file_id");
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 delete = imagekitio.delete_file(file_id: "file_id")
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+ik, err := imagekit.New()
+
+resp, err := ik.Media.DeleteFile(ctx, "file_id")
+
 ```
 {% endtab %}
 {% endtabs %}

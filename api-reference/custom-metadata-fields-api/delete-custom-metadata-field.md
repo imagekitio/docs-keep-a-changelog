@@ -25,7 +25,7 @@ base64 encoding of `your_private_api_key:`
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
-curl -X DELETE "https://api.imagekit.io/v1/customMetadataFields/6152fc9a2fd12044cb4cefe2" \
+curl -X DELETE "https://api.imagekit.io/v1/customMetadataFields/field_id" \
 -H 'Content-Type: application/json' \
 -u your_private_key:
 ```
@@ -41,7 +41,7 @@ var imagekit = new ImageKit({
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
-var fieldId = "6152fc9a2fd12044cb4cefe2";
+var fieldId = "field_id";
 imagekit.deleteCustomMetadataField(
     fieldId,
     function(error, result) {
@@ -52,11 +52,44 @@ imagekit.deleteCustomMetadataField(
 ```
 {% endtab %}
 
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$customMetadataFieldId = 'field_id';
+$deleteCustomMetadataField = $imageKit->deleteCustomMetadataField($customMetadataFieldId);
+
+echo("Delete Custom Metadata Field : " . json_encode($deleteCustomMetadataField));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+ResultNoContent resultNoContent=ImageKit.getInstance().deleteCustomMetaDataField("field_id");
+```
+{% endtab %}
 
 {% tab title='Ruby' %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-imagekitio.delete_custom_metadata_field(id: '6152fc9a2fd12044cb4cefe2')
+imagekitio.delete_custom_metadata_field(id: 'field_id')
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Metadata.DeleteCustomField(ctx, "field_id")
+
 ```
 {% endtab %}
 {% endtabs %}

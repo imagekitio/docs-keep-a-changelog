@@ -117,6 +117,54 @@ imagekit.createCustomMetadataField(
 ```
 {% endtab %}
 
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$body = [
+    "name" => "price",
+    "label" => "Price",
+    "schema" => [
+        "type" => 'Number',
+        "minValue" => 1000,
+        "maxValue" => 3000,
+    ],
+];
+
+$createCustomMetadataField = $imageKit->createCustomMetadataField($body);
+
+echo("Create Custom Metadata Field : " . json_encode($createCustomMetadataField));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+
+CustomMetaDataFieldSchemaObject customMetaDataFieldSchemaObject = new CustomMetaDataFieldSchemaObject();
+customMetaDataFieldSchemaObject.setType("Number");
+customMetaDataFieldSchemaObject.setMinValue(1000);
+customMetaDataFieldSchemaObject.setMaxValue(3000);
+
+CustomMetaDataFieldCreateRequest customMetaDataFieldCreateRequest = new CustomMetaDataFieldCreateRequest();
+customMetaDataFieldCreateRequest.setName("price");
+customMetaDataFieldCreateRequest.setLabel("price");
+customMetaDataFieldCreateRequest.setSchema(customMetaDataFieldSchemaObject);
+
+ResultCustomMetaDataField resultCustomMetaDataField = ImageKit.getInstance().createCustomMetaDataFields(customMetaDataFieldCreateRequest);
+
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
@@ -131,4 +179,21 @@ imagekitio.create_custom_metadata_field(
 )
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Metadata.CreateCustomField(ctx, metadata.CreateFieldParam{
+    Name:  "price",
+    Label: "price",
+    Schema: metadata.Schema{
+        Type: "Number",
+        MinValue: 1000,
+        MaxValue: 3000,
+    },
+})
+
+```
+{% endtab %}
+
+
 {% endtabs %}
