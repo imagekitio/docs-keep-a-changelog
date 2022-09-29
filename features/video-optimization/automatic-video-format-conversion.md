@@ -20,7 +20,7 @@ The video URL remains the same, but the file is modified. This behavior is trans
 
 ### How to enable or disable automatic format conversion for my account?
 
-Automatic format optimization is off by default. You can enable or disable automatic format conversion for your account under [video settings](https://imagekit.io/dashboard?redirectTo=settings-videos-optimization) in your dashboard.
+Automatic format optimization is off by default. You can enable or disable automatic format conversion for your account under [video settings](https://imagekit.io/dashboard/settings/videos) in your dashboard.
 
 Select settings from the left main menu. Inside Videos, under optimization, toggle "Use best format for video delivery" option to enable or disable this feature.
 
