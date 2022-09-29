@@ -29,7 +29,7 @@ Select file and upload
 
 You can drag multiple files anywhere on the media library screen to upload.
 
-{% embed url="hhttps://www.youtube.com/watch?v=h8SZnU0pk1w" %}
+{% embed url="https://www.youtube.com/watch?v=h8SZnU0pk1w" %}
 Drag and drop file upload
 {% endembed %}
 
