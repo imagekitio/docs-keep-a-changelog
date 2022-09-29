@@ -21,7 +21,7 @@ To upload files, either drag and drop files anywhere on the screen or
 
 Select the file from the local device to start uploading.
 
-{% embed url="https://youtu.be/IO-PJKU5X7E" %}
+{% embed url="https://www.youtube.com/watch?v=wQheStsBZfY" %}
 Select file and upload
 {% endembed %}
 
@@ -29,7 +29,7 @@ Select file and upload
 
 You can drag multiple files anywhere on the media library screen to upload.
 
-{% embed url="https://youtu.be/W5RcugTXPks" %}
+{% embed url="hhttps://www.youtube.com/watch?v=h8SZnU0pk1w" %}
 Drag and drop file upload
 {% endembed %}
 

@@ -25,7 +25,7 @@ Once you add the URL, ImageKit.io starts collecting performance data and generat
 
 Click on 'Fix It' under 'Actions' within the [Performance Center](https://imagekit.io/dashboard?redirectTo=settings#performance). It directs you to a detailed image performance report which shows all information related to the health of images on that particular URL/web page.
 
-![](../.gitbook/assets/performance-center-fix-it.jpg)
+![](../.gitbook/assets/performance-center-fix-it.png)
 
 Some of the common issues highlighted by the performance center:
 

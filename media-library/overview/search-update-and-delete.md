@@ -12,11 +12,11 @@ Basic searching allows you to search a file or folder by name. Enter the full na
 
 All files or folders whose name either matches exactly or begins with the provided input will be returned.
 
-![Media library basic search](<../../.gitbook/assets/Screenshot 2021-05-31 at 10.33.09 AM.png>)
+![Media library basic search](<../../.gitbook/assets/media-library-searchbar.png>)
 
-You can limit the search to a certain type of file using the dropdown before the input field.
+By clicking on the options given under the 'Search within' section, you can limit the search to a certain type of file.
 
-![](<../../.gitbook/assets/Screenshot 2021-05-31 at 10.35.59 AM.png>)
+![](<../../.gitbook/assets/media-library-searchbar-filetype.png>)
 
 By default, all files are searched, but if you are only looking for an image file then select images in this dropdown.
 
@@ -42,13 +42,13 @@ For example, let's say you want to find a file -
 
 You can set these filters in the media library UI to get all files that match the above search criteria.
 
-![Advanced file seaching - example 1](../../.gitbook/assets/829-d4705fe3129da30c46fe2200296d2b6b3e886eac.png)
+![Advanced file seaching - example 1](../../.gitbook/assets/advanced-search-example.png)
 
 #### Grouping of multiple searches queries
 
 You can also create more complex queries by combining multiple search parameters and changing how they are grouped.
 
-![Grouping multiple queries using AND/OR operator](../../.gitbook/assets/830-df30a49487f0481a2aa92ad8cd4fc4c3da0c2b03.png)
+![Grouping multiple queries using AND/OR operator](../../.gitbook/assets/advanced-search-and-or.png)
 
 There are two places where you can add a new search query -
 
@@ -59,7 +59,7 @@ There are two places where you can add a new search query -
 
 Right-click the file to open menu options. Select the "Delete" item. This will open a confirmation popup. Click on "Submit" to permanently delete your file. Upon confirmation, the file is deleted permanently from the Media Library.
 
-{% embed url="https://youtu.be/3UMB-TpaUWA" %}
+{% embed url="https://www.youtube.com/watch?v=yiLwkleMLlQ" %}
 Delete file
 {% endembed %}
 
@@ -69,15 +69,17 @@ You can select multiple files together by pressing and holding the Command key i
 
 ## File Update
 
-ImageKit.io currently supports [image tags](image-tags.md) and custom crop area coordinate update within the media library.
+ImageKit.io currently supports adding and editing [tags](image-tags.md), updating custom coordinates, and applying [extensions](../../extensions/overview/README.md) from the media library.
 
-To open file details, right-click the file and click the "Details" option.
+To view file details, right-click the file and click the "Details" option.
 
-![](../../.gitbook/assets/detail-menu-option.png)
+![Media library dropdown menu](../../.gitbook/assets/ml-right-click-dropdown.png)
 
-This will open a sidebar that has all image details, including File Name, File Size, and more. Here, you can add or change image tags as well as the crop area coordinates. Click on the "Save" button to save all the new information associated with the file.
+This will open a detailed section that has all the file details, including file name, file size, and more. Here, you can add new or edit existing tags, apply extensions, etc.
 
-![](../../.gitbook/assets/custom-coordinates-edit.png)
+![Editing custom focus area](../../.gitbook/assets/edit-custom-coordinates.png)
+
+By clicking on the 'Custom focus area' option in the dropdown menu, you can update the custom coordinates of the image.
 
 ## Using API
 

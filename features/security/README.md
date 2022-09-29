@@ -26,4 +26,4 @@ Navigate to the Security Section within [Image Settings](https://imagekit.io/das
 
 Enable 'Restrict Unsigned Image URLs' and click on 'Save'.
 
-![Restrict unsigned image setting in ImageKit.io dashboard](../../.gitbook/assets/restric-unsigned-image.png)
+![Restrict unsigned image setting in ImageKit.io dashboard](../../.gitbook/assets/restrict-unsigned-image.png)

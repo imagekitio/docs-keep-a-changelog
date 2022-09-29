@@ -6,7 +6,7 @@ ImageKit's real-time image manipulation allows you to resize and crop images. Wh
 
 Right-click any image file in the media library and select the "Custom Focus Area" option. Now you can resize and drag the rectangle on the image to define the focus area.
 
-{% embed url="https://www.youtube.com/watch?v=MdQLhiJxO1I" %}
+{% embed url="https://www.youtube.com/watch?v=5bD-vRyK-UI" %}
 
 
 

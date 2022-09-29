@@ -4,7 +4,7 @@ ImageKit.io offers multiple features including automatic best format selection, 
 
 Many of these features, like automatic format conversion and metadata removal, are turned ON by default, in line with the standard practices on the web.
 
-The following features related to image optimization can be found in your dashboard under the [Image Settings](https://imagekit.io/dashboard?redirectTo=settings#settings) section.
+The following features related to image optimization can be found in your dashboard under the [Image Settings](https://imagekit.io/dashboard/settings/images) section.
 
 1. [Automatic Image Format Conversion](automatic-image-format-conversion.md)
 2. [Image Quality Optimization](quality-optimization.md) and [Data Saver Mode](data-saver-mode.md)

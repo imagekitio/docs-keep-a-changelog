@@ -12,15 +12,15 @@ You can add multiple URL endpoints and control which origins are accessible over
 
 Here are the steps to add a new URL endpoint:
 
-1. Go to the [URL Patterns section](https://imagekit.io/dashboard#url-patterns) in your ImageKit.io dashboard, and click on the "Add New URL Pattern" button.
+1. Go to the [URL Endpoints section](https://imagekit.io/dashboard/url-endpoint) in your ImageKit.io dashboard, and click on the "Add New" button.
 2. Fill the identifier field. It will become part of the URL endpoint. So, suppose you want to create a URL-endpoint just to access product images bucket, and you want it to be like `https://ik.imagekit.io/your_imagekit_id/product-images/`  , then enter **product-images** in this field.
 3. Enter a description. This is just for you to add a note for the URL endpoint and will appear in the list of endpoints.
 4. Now define the [sequence of origins](url-endpoints.md#image-origin-preference) for this URL endpoint.
 5. The first origin is always ImageKit.io Media Library (or internal cache) and cannot be changed.
 6. Choose the second origin, which would be our **Product images bucket**.
-7. Click "Submit".
+7. Click "Save".
 
-![Add a URL pattern exclusive for one category (eg. product images)](<../.gitbook/assets/image (8).png>)
+![Add a URL pattern exclusive for one category (eg. product images)](<../.gitbook/assets/add-url-endpoint.png>)
 
 ## Image origin preference
 
@@ -32,7 +32,7 @@ Let's understand this with an example. When an image is requested at `https://ik
 2. Second image origin is accessed, i.e., **S3 Bucket Product Images.** If the image is found, a response is returned. If not, we move to the third origin.
 3. Third image origin is accessed, i.e., **Backup S3 Images Bucket.** If the image is found, a response is returned. If not, a default image, or `404` response is returned as there are no more image origins configured with this URL-endpoint.
 
-![Image Origin Preference](<../.gitbook/assets/image (12).png>)
+![Image Origin Preference](<../.gitbook/assets/image-origin-preference.png>)
 
 ## Mapping custom domain for a URL endpoint
 
@@ -45,7 +45,7 @@ For example, in the screenshot below, we have two URL-endpoints:
 1. One is default URL-endpoint - `https://ik.imagekit.io/your_imagekit_id`. This is associated with a custom domain `https://images.example.com`. So your image URL would become `https://images.example.com/rest-of-the-path.jpg`.
 2. And the second one is  - `https://ik.imagekit.io/your_imagekit_id/product-images`. This is associated with a custom domain `https://products.example.com`. So your image URL would become `https://products.example.com/rest-of-the-path.jpg`. Note that with products.example.com, which is mapped to a particular URL endpoint, you do not have to add the endpoint identifier (product-images) in the image URL.
 
-![Custom domain mapping with URL-endpoints](../.gitbook/assets/kmnj8dvxjtf8azd6tq7p.png)
+![Custom domain mapping with URL-endpoints](../.gitbook/assets/custom-domain-mapping.png)
 
 {% hint style="info" %}
 **How to add new custom domain names or map a custom domain to a URL endpoint?**\
