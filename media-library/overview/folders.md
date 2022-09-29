@@ -6,7 +6,7 @@ ImageKit.io's Media Library helps you efficiently upload and search files in fol
 
 Click on the New button on the top right corner and select New folder option. This will open a popup. Enter the folder name and click the submit. The new folder will be created in your current directory.
 
-{% embed url="https://youtu.be/MLs6T4TZE94" %}
+{% embed url="https://www.youtube.com/watch?v=cS2Hxld1jqk" %}
 Create a new folder
 {% endembed %}
 

@@ -19,6 +19,6 @@ ImageKit.io provides users with the ability to copy and move files across differ
 
 In a copy operation, the 'Include file version' option lets you copy all versions of the source files to the destination.
 
-{% embed url="https://youtu.be/XNWs5mPvnz4" %}
+{% embed url="https://www.youtube.com/watch?v=z-WnwqWNQtg" %}
 Copy multiple files
 {% endembed %}

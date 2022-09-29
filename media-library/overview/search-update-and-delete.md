@@ -59,7 +59,7 @@ There are two places where you can add a new search query -
 
 Right-click the file to open menu options. Select the "Delete" item. This will open a confirmation popup. Click on "Submit" to permanently delete your file. Upon confirmation, the file is deleted permanently from the Media Library.
 
-{% embed url="https://youtu.be/3UMB-TpaUWA" %}
+{% embed url="https://www.youtube.com/watch?v=yiLwkleMLlQ" %}
 Delete file
 {% endembed %}
 

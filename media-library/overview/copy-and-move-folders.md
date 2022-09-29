@@ -17,6 +17,6 @@ ImageKit.io provides users with the ability to copy and move folders across diff
 
 ![New destination for copying/moving the selected folders](<../../.gitbook/assets/copy-move-folder-drawer.png>)
 
-{% embed url="https://youtu.be/qUtuJ7pQpcw" %}
+{% embed url="https://www.youtube.com/watch?v=C2SNNk_o6Qo" %}
 Copy folder
 {% endembed %}
