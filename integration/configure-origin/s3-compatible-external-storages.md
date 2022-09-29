@@ -97,7 +97,7 @@ While adding the origin in your ImageKit.io account, you are now provided with a
 
 When enabled, the image response contains a Link header with the appropriate URL and rel=canonical. You will have to specify the base URL for the canonical header.
 
-![](../../.gitbook/assets/wp71hwsnlvmmdthvbsj8.png)
+![](../../.gitbook/assets/s3-compatible-canonical-header.png)
 
 For example, if you set `https://www.example.com` as the base URL for canonical header, then the image response for URL `https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg` will have a Link header like this:
 

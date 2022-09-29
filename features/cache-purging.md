@@ -7,11 +7,11 @@ ImageKit.io provides two methods to clear the cache for a particular image URL.
 
 ### Through the Dashboard
 
-Navigate to [Purge Cache](https://imagekit.io/dashboard#cache) within the dashboard
+Navigate to [Purge Cache](https://imagekit.io/dashboard/purge-cache) within the dashboard
 
 Click on 'New Request' at the top right corner of the page to open a popup.
 
-![](<../.gitbook/assets/Screenshot 2020-06-15 at 1.11.33 PM.png>)
+![Purge cache from ImageKit dashboard](<../.gitbook/assets/purge-cache.png>)
 
 Enter the full image URL for which you want to clear the cache. If the URL contains [path transformation parameters](image-transformations/#transformations-as-a-path-parameter) or [query transformation parameters](image-transformations/#transformations-as-a-query-parameter), add those parameters as well to clear the cache. You can enter multiple URLs separated by a new line, and a maximum of 100 URLs can be submitted in a single request.
 

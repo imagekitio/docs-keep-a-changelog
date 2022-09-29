@@ -10,6 +10,6 @@ If a user is using data saver mode within their browser, ImageKit.io compresses 
 
 This additional compression for data-saver mode is completely opt-in. This setting is turned OFF by default.
 
-You can turn on this setting within the Optimization section of the [Image Settings](https://imagekit.io/dashboard?redirectTo=settings#settings).
+You can turn on this setting within the Optimization section of the [Image Settings](https://imagekit.io/dashboard/settings/images).
 
-![Data Saver Mode setting in ImageKit.io dashboard](../../.gitbook/assets/data-saver-setting.jpg)
+![Data Saver Mode setting in ImageKit.io dashboard](../../.gitbook/assets/data-saver-setting.png)
