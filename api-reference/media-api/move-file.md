@@ -77,6 +77,26 @@ imagekit.moveFile({
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+move_file = imagekit.move_file(options=MoveFileRequestOptions(source_file_path="/file.jpg",
+                                                              destination_path="/test"))
+
+print("Move file-", move_file, end="\n\n")
+
+# Raw Response
+print(move_file.response_metadata.raw)
+```
+{% endtab %}
+
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

@@ -107,6 +107,31 @@ imagekit.getFileVersionDetails({
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+file_versions_details = imagekit.get_file_version_details(file_id='file_id', version_id='version_id')
+
+print("Get File version details-", "\n", file_versions_details)
+
+# Raw Response
+print(file_versions_details.response_metadata.raw)
+
+# print that file's id
+print(file_versions_details.file_id)
+
+# print that file's version id
+print(file_versions_details.version_info.id)
+```
+{% endtab %}
+
 {% tab title="PHP" %}
 ```php
 $public_key = "your_public_api_key";

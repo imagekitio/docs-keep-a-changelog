@@ -152,9 +152,23 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-metadata = imagekit.get_metadata("file_id")
+metadata = imagekit.get_metadata(file_id="file_id")
 
 print("File detail-", metadata, end="\n\n")
+
+# Raw Response
+print(metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(metadata.width)
+print(metadata.exif.image.x_resolution)
+
+# Raw Response
+print(metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(metadata.width)
+print(metadata.exif.image.x_resolution)
 ```
 {% endtab %}
 
