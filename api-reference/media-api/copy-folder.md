@@ -88,6 +88,30 @@ imagekit.copyFolder({
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+copy_folder = imagekit.copy_folder(options=CopyFolderRequestOptions(source_folder_path='/source_folder_path',
+                                                                    destination_path='/destination/path',
+                                                                    include_file_versions=True))
+
+print("Copy folder-", copy_folder, end="\n\n")
+
+# Raw Response
+print(copy_folder.response_metadata.raw)
+
+# print the job's id
+print(copy_folder.job_id)
+```
+{% endtab %}
+
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

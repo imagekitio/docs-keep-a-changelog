@@ -116,6 +116,12 @@ imagekit = ImageKit(
 purge_cache = imagekit.purge_cache(file_url="https://ik.imagekit.io/your_imagekit_id/default-image.jpg")
 
 print("Purge cache-", purge_cache)
+
+# Raw Response
+print(purge_cache.response_metadata.raw)
+
+# print the purge file cache request id
+print(purge_cache.request_id)
 ```
 {% endtab %}
 

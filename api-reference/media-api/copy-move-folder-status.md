@@ -66,6 +66,31 @@ imagekit.getBulkJobStatus(jobId, function(error, result) {
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+job_status = imagekit.get_bulk_job_status(job_id="job_id")
+
+print("Bulk job status-", job_status, end="\n\n")
+
+# Raw Response
+print(job_status.response_metadata.raw)
+
+# print the job's id
+print(job_status.job_id)
+
+# print the status
+print(job_status.status)
+```
+{% endtab %}
+
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

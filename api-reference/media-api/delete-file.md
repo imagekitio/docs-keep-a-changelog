@@ -71,9 +71,12 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-delete = imagekit.delete_file("file_id")
+delete = imagekit.delete_file(file_id="file_id")
 
 print("Delete File-", delete)
+
+# Raw Response
+print(delete.response_metadata.raw)
 ```
 {% endtab %}
 
