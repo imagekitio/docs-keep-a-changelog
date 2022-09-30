@@ -4,7 +4,7 @@ Currently, you can upload images and static files to the media library in two wa
 
 {% hint style="info" %}
 **File size limit**\
-The maximum upload file size is limited to 25MB on the free plan. On paid plan, this limit is 300MB.
+The maximum upload file size is limited to 25MB on the free plan. On paid plan, this limit is 300MB for video files.
 {% endhint %}
 
 ## Using Dashboard
