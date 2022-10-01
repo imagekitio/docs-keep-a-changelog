@@ -117,31 +117,6 @@ imagekit.bulkRemoveAITags(fileIds, tags, function(error, result) {
 ```
 {% endtab %}
 
-{% tab title="Python" %}
-```python
-from imagekitio import ImageKit
-
-imagekit = ImageKit(
-    public_key='your_public_api_key',
-    private_key='your_private_api_key',
-    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
-)
-
-remove_ai_tags = imagekit.remove_ai_tags(file_ids=['file-id-1', 'file-id-2'], ai_tags=['remove-ai-tag-1', 'remove-ai-tag-2'])
-
-print("Remove AI tags-", remove_ai_tags, end="\n\n")
-
-# Raw Response
-print(remove_ai_tags.response_metadata.raw)
-
-# list successfully updated file ids
-print(remove_ai_tags.successfully_updated_file_ids)
-
-# print the first file's id
-print(remove_ai_tags.successfully_updated_file_ids[0])
-```
-{% endtab %}
-
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -212,6 +187,29 @@ resp, err := ik.Media.RemoveAITags(ctx, media.AITagsParam{
     },
     AITags: []string{"ai_tag_to-remove_1", "ai_tag_to-remove_2"},
 })
+```
+{% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+ AITagsRequest removeAITagsRequest = new AITagsRequest
+    {
+    AITags = new List<string>
+    {
+    "tag_1",
+    "tag_2"
+    },
+    fileIds = new List<string>
+    {
+    "fileId_1",
+    },
+};
+ResultTags removeAITags = imagekit.RemoveAITags(removeAITagsRequest);
 ```
 {% endtab %}
 {% endtabs %}

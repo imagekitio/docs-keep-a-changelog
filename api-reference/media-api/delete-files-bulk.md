@@ -103,17 +103,7 @@ imagekit.bulkDeleteFiles(["file_id_1","file_id_2"])
 
 {% tab title="Python" %}
 ```python
-bulk_file_delete = imagekit.bulk_file_delete(file_ids=["file_id_1", "file_id_2"])
-print("Bulk file delete-", bulk_file_delete, end="\n\n")
-
-# Raw Response
-print(bulk_file_delete.response_metadata.raw)
-
-# list successfully deleted file ids
-print(bulk_file_delete.successfully_deleted_file_ids)
-
-# print the first file's id
-print(bulk_file_delete.successfully_deleted_file_ids[0])
+imagekit.bulk_file_delete(["file_id_1", "file_id_2"])
 ```
 {% endtab %}
 
@@ -160,6 +150,24 @@ imagekitio.delete_bulk_files(file_ids: bulk_ids)
 resp, err := ik.Media.DeleteBulkFiles(ctx, media.FileIdsParam{
     FileIds: []string{"file_id_1", "file_id_2"},
 )
+```
+{% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+DeleteFileVersionRequest delRequest = new DeleteFileVersionRequest
+    {
+    fileId = "file_Id",
+    versionId = "version_Id"
+    };
+    List<string> ob3 = new List<string>();
+    ob3.Add("fileId_1");
+    ob3.Add("fileId_2");
+ResultFileDelete resultFileDelete = imagekit.BulkDeleteFiles(ob3);
 ```
 {% endtab %}
 {% endtabs %}

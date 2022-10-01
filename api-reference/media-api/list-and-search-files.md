@@ -337,15 +337,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(skip=0, limit = 10))
+list_files = imagekit.list_files({"skip": 0, "limit": 10})
 
 print("List files-", "\n", list_files)
-
-# Raw Response
-print(list_files.response_metadata.raw)
-
-# print the first file's ID
-print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -396,6 +390,22 @@ resp, err := ik.Media.Files(ctx, media.FilesParam{
 })
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+publicKey : "your_public_api_key",
+privateKey : "your_private_api_key",
+urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+GetFileListRequest model = new GetFileListRequest
+{ 
+Limit = 10,
+Skip = 0
+};
+ResultList res = imagekit.GetFileListRequest(model);
+```
+{% endtab %}
 {% endtabs %}
 
 ### Advance search using searchQuery
@@ -442,15 +452,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='createdAt >= "7d" AND size > "2mb"'))
+list_files = imagekit.list_files({'searchQuery': 'createdAt >= "7d" AND size > "2mb"'})
 
 print("List files-", "\n", list_files)
-
-# Raw Response
-print(list_files.response_metadata.raw)
-
-# print the first file's ID
-print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -496,6 +500,21 @@ list_files = imagekitio.list_files({search_query: 'createdAt >= "7d" AND size > 
 resp, err := ik.Media.Files(ctx, media.FilesParam{
     SearchQuery: "createdAt >= \"7d\" AND size > \"2mb\"",
 })
+```
+{% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+publicKey : "your_public_api_key",
+privateKey : "your_private_api_key",
+urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+GetFileListRequest model = new GetFileListRequest
+{ 
+SearchQuery = "createdAt >= \"7d\""
+};
+ResultList res = imagekit.GetFileListRequest(model);
 ```
 {% endtab %}
 {% endtabs %}
@@ -544,15 +563,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='"customMetadata.category" IN ["clothing", "accessories"]"'))
+list_files = imagekit.list_files({'searchQuery': '"customMetadata.category" IN ["clothing", "accessories"]"'})
 
 print("List files-", "\n", list_files)
-
-# Raw Response
-print(list_files.response_metadata.raw)
-
-# print the first file's ID
-print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -601,6 +614,21 @@ resp, err := ik.Media.Files(ctx, media.FilesParam{
 
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+publicKey : "your_public_api_key",
+privateKey : "your_private_api_key",
+urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+GetFileListRequest model = new GetFileListRequest
+{ 
+SearchQuery = '"customMetadata.category" IN ["clothing", "accessories"]"'
+};
+ResultList res = imagekit.GetFileListRequest(model);
+```
+{% endtab %}
 {% endtabs %}
 
 ### Embedded metadata based search
@@ -647,15 +675,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='"embeddedMetadata.DateTimeOriginal" > "1y"'))
+list_files = imagekit.list_files({'searchQuery': '"embeddedMetadata.DateTimeOriginal" > "1y"'})
 
 print("List files-", "\n", list_files)
-
-# Raw Response
-print(list_files.response_metadata.raw)
-
-# print the first file's ID
-print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -704,6 +726,21 @@ resp, err := ik.Media.Files(ctx, media.FilesParam{
 
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+publicKey : "your_public_api_key",
+privateKey : "your_private_api_key",
+urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+GetFileListRequest model = new GetFileListRequest
+{ 
+SearchQuery = '"embeddedMetadata.DateTimeOriginal" > "1y"'
+};
+ResultList res = imagekit.GetFileListRequest(model);
+```
+{% endtab %}
 {% endtabs %}
  
 ### Search media library files by name
@@ -750,15 +787,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='name="file-name.jpg"'))
+list_files = imagekit.list_files({'searchQuery': 'name="file-name.jpg"'})
 
 print("List files-", "\n", list_files)
-
-# Raw Response
-print(list_files.response_metadata.raw)
-
-# print the first file's ID
-print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -804,6 +835,21 @@ list_files = imagekitio.list_files({search_query: 'name="file-name.jpg"'})
 resp, err := ik.Media.Files(ctx, media.FilesParam{
     SearchQuery: `name="file-name.jpg"`,
 })
+```
+{% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+publicKey : "your_public_api_key",
+privateKey : "your_private_api_key",
+urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+GetFileListRequest model = new GetFileListRequest
+{ 
+Name = "file_name.jpg"
+};
+ResultList res = imagekit.GetFileListRequest(model);
 ```
 {% endtab %}
 {% endtabs %}
@@ -853,15 +899,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(path="products"))
+list_files = imagekit.list_files({"path": "products"})
 
 print("List files-", "\n", list_files)
-
-# Raw Response
-print(list_files.response_metadata.raw)
-
-# print the first file's ID
-print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -909,6 +949,21 @@ resp, err := ik.Media.Files(ctx, media.FilesParam{
 })
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+publicKey : "your_public_api_key",
+privateKey : "your_private_api_key",
+urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+GetFileListRequest model = new GetFileListRequest
+{ 
+Path = "products"
+};
+ResultList res = imagekit.GetFileListRequest(model);
+```
+{% endtab %}
 {% endtabs %}
 
 ### Simple search files by tags without using searchQuery
@@ -952,15 +1007,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(tags=["sale","summer"]))
+list_files = imagekit.list_files({"tags": ["sale","summer"]})
 
 print("List files-", "\n", list_files)
-
-# Raw Response
-print(list_files.response_metadata.raw)
-
-# print the first file's ID
-print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -1012,6 +1061,21 @@ resp, err := ik.Media.Files(ctx, media.FilesParam{
 })
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+publicKey : "your_public_api_key",
+privateKey : "your_private_api_key",
+urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+GetFileListRequest model = new GetFileListRequest
+{ 
+Tags = new string[] { "tag1", "tag2" }
+};
+ResultList res = imagekit.GetFileListRequest(model);
+```
+{% endtab %}
 {% endtabs %}
 
 ### Search all PNG files
@@ -1058,15 +1122,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='format="png"'))
+list_files = imagekit.list_files({"searchQuery": 'format="png"'})
 
 print("List files-", "\n", list_files)
-
-# Raw Response
-print(list_files.response_metadata.raw)
-
-# print the first file's ID
-print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -1112,6 +1170,21 @@ list_files = imagekitio.list_files({search_query: 'format="png"'})
 resp, err := ik.Media.Files(ctx, media.FilesParam{
     SearchQuery: `format="png"`,
 })
+```
+{% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+GetFileListRequest model = new GetFileListRequest
+    { 
+    SearchQuery = 'format="png"'
+    };
+ResultList res = imagekit.GetFileListRequest(model);
 ```
 {% endtab %}
 {% endtabs %}

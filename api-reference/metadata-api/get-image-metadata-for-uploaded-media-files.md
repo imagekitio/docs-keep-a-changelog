@@ -152,23 +152,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-metadata = imagekit.get_metadata(file_id="file_id")
+metadata = imagekit.get_metadata("file_id")
 
 print("File detail-", metadata, end="\n\n")
-
-# Raw Response
-print(metadata.response_metadata.raw)
-
-# print the file metadata fields
-print(metadata.width)
-print(metadata.exif.image.x_resolution)
-
-# Raw Response
-print(metadata.response_metadata.raw)
-
-# print the file metadata fields
-print(metadata.width)
-print(metadata.exif.image.x_resolution)
 ```
 {% endtab %}
 
@@ -210,6 +196,16 @@ file_metadata = imagekitio.get_file_metadata(file_id: "file_id")
 {% tab title="Go" %}
 ```go
 resp, err := ik.Metadata.FromFile(ctx, "file_id")
+```
+{% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultMetaData resultMetaData = imagekit.GetFileMetadata("file_id");
 ```
 {% endtab %}
 {% endtabs %}

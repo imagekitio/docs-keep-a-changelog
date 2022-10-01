@@ -84,25 +84,6 @@ imagekit.deleteFileVersion({
 ```
 {% endtab %}
 
-{% tab title="Python" %}
-```python
-from imagekitio import ImageKit
-
-imagekit = ImageKit(
-    public_key='your_public_api_key',
-    private_key='your_private_api_key',
-    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
-)
-
-delete_file_version = imagekit.delete_file_version(file_id="file_id", version_id="version_id")
-
-print("Delete file version-", delete_file_version, end="\n\n")
-
-# Raw Response
-print(delete_file_version.response_metadata.raw)
-```
-{% endtab %}
-
 {% tab title="PHP" %}
 ```php
 $public_key = "your_public_api_key";
@@ -140,7 +121,21 @@ imagekitio.delete_file_version(
 )
 ```
 {% endtab %}
-
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+DeleteFileVersionRequest delRequest = new DeleteFileVersionRequest
+    {
+    fileId = "file_Id",
+    versionId = "version_Id"
+    };
+ResultNoContent resultNoContent1 = imagekit.DeleteFileVersion(delRequest);
+```
+{% endtab %}
 {% tab title="Go" %}
 ```go
 resp, err := ik.Media.DeleteFileVersion(ctx, "file_id", "version_id")

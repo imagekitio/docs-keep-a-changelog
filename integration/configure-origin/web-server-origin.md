@@ -75,7 +75,7 @@ Now start using ImageKit.io URL endpoint in your application to accelerate image
 
 When enabled, the image response contains a Link header with the appropriate URL and rel=canonical. You will have to specify the base URL for the canonical header.
 
-![](../../.gitbook/assets/web-server-canonical-header.png)
+![](../../.gitbook/assets/ygs27bhhfmmxdy6mieub.png)
 
 For example, if you set `https://www.example.com` as the base URL for canonical header, then the image response for URL `https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg` will have a Link header like this:
 

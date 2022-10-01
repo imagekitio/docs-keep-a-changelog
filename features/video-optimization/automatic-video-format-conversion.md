@@ -20,11 +20,11 @@ The video URL remains the same, but the file is modified. This behavior is trans
 
 ### How to enable or disable automatic format conversion for my account?
 
-Automatic format optimization is off by default. You can enable or disable automatic format conversion for your account under [video settings](https://imagekit.io/dashboard/settings/videos) in your dashboard.
+Automatic format optimization is off by default. You can enable or disable automatic format conversion for your account under [video settings](https://imagekit.io/dashboard?redirectTo=settings-videos-optimization) in your dashboard.
 
 Select settings from the left main menu. Inside Videos, under optimization, toggle "Use best format for video delivery" option to enable or disable this feature.
 
-![Video settings](<../../.gitbook/assets/video-best-format.png>)
+![Video settings](<../../.gitbook/assets/Screenshot 2021-07-13 at 5.00.50 PM.png>)
 
 ### Can I selectively choose the best format for a particular request?
 

@@ -4,7 +4,7 @@ You can upload files to the ImageKit.io media library from your server-side usin
 
 {% hint style="info" %}
 **File size limit**\
-The maximum upload file size is limited to 25MB on the free plan. On paid plan, this limit is 300MB for video files.
+The maximum upload file size is limited to 25MB.
 
 **Version limit**\
 A file can have a maximum of 100 versions.
@@ -169,18 +169,12 @@ imagekit = ImageKit(
 upload = imagekit.upload(
     file=open("image.jpg", "rb"),
     file_name="my_file_name.jpg",
-    options=UploadFileRequestOptions(
-        tags = ["tag1", "tag2"]
-    )
+    options={
+        "tags": ["tag1", "tag2"]
+    },
 )
 
 print("Upload binary", upload)
-
-# Raw Response
-print(upload.response_metadata.raw)
-
-# print that uploaded file's ID
-print(upload.file_id)
 ```
 {% endtab %}
 
@@ -235,6 +229,23 @@ ik, err := ImageKit.New()
 
 const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 resp, err := ik.Upload.Upload(ctx, base64Image, uploader.UploadParam{})
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+byte[] bytes = File.ReadAllBytes("/path/to/file.jpg");
+FileCreateRequest ob = new FileCreateRequest
+    {
+    file = bytes,
+    fileName = "file_name1.jpg"
+    };
+Result resp2 = imagekit.Upload(ob);
 ```
 {% endtab %}
 {% endtabs %}
@@ -295,29 +306,12 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file=imgstr,
     file_name="my_file_name.jpg",
-    options=UploadFileRequestOptions(
-            response_fields = ["is_private_file", "custom_metadata", "tags"],
-            is_private_file = False,
-            tags = ["tag1", "tag2"],
-            webhook_url = "url",
-            overwrite_file = False,
-            overwrite_ai_tags = False,
-            overwrite_tags = False,
-            overwrite_custom_metadata = True,
-            custom_metadata = {"test": 11})
-    ),
+    options={
+        "tags": ["tag1", "tag2"]
+    },
 )
 
 print("Upload base64", upload)
-
-# Raw Response
-print(upload.response_metadata.raw)
-
-# print that uploaded file's ID
-print(upload.file_id)
-
-# print that uploaded file's version ID
-print(upload.version_info.id)
 ```
 {% endtab %}
 
@@ -386,6 +380,29 @@ resp, err := ik.Upload.Upload(ctx, base64Image, uploader.UploadParam{
 
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+var base64ImageRepresentation = "iVBORw0KGgoAAAAN";
+FileCreateRequest ob2 = new FileCreateRequest
+    {
+    file = base64ImageRepresentation,
+    fileName = Guid.NewGuid().ToString(),
+    };
+List<string> tags = new List<string>
+    {
+    "tags1",
+    "tags2"               
+    };
+ob.tags = tags;
+Result resp = imagekit.Upload(ob2);
+```
+{% endtab %}
 {% endtabs %}
 
 ### Uploading file via URL
@@ -440,16 +457,10 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file="https://imagekit.io/image.jpg",
     file_name="my_file_name.jpg",
-    options=UploadFileRequestOptions(),
+    options={},
 )
 
 print("Upload url", upload)
-
-# Raw Response
-print(upload.response_metadata.raw)
-
-# print that uploaded file's ID
-print(upload.file_id)
 ```
 {% endtab %}
 
@@ -502,6 +513,22 @@ url := "https://imagekit.io/image.jpg"
 resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
     FileName: "my_file_name.jpg",
 })
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+FileCreateRequest request = new FileCreateRequest
+            {
+                file = "image_url",
+                fileName = "file_name.jpg"
+            };
+Result resp1 = imagekit.Upload(request);
 ```
 {% endtab %}
 {% endtabs %}
@@ -563,18 +590,12 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file="https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
     file_name="women_in_red.jpg",
-    options=UploadFileRequestOptions(
-        custom_metadata = {"brand":"Nike", "color":"red"}
-    ),
+    options={
+        "customMetadata" : '{"brand":"Nike", "color":"red"}'
+    },
 )
 
 print("Upload url", upload)
-
-# Raw Response
-print(upload.response_metadata.raw)
-
-# print that uploaded file's ID
-print(upload.file_id)
 ```
 {% endtab %}
 
@@ -643,6 +664,29 @@ resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
 })
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+var base64ImageRepresentation = "iVBORw0KGgoAAAAN";
+FileCreateRequest ob2 = new FileCreateRequest
+    {
+    file = base64ImageRepresentation,
+    fileName = Guid.NewGuid().ToString()
+    };
+ Hashtable model = new Hashtable
+    {
+    { "brand", "Nike" },
+    { "color", "red" }
+    };
+ob2.customMetadata = model;
+Result resp = imagekit.Upload(ob2);
+```
+{% endtab %}
 {% endtabs %}
 
 ### Applying extensions while uploading
@@ -693,41 +737,6 @@ fs.readFile('image.jpg', function(err, data) {
     else console.log(result);
   });
 });
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-import base64
-import os
-import sys
-from imagekitio import ImageKit
-
-imagekit = ImageKit(
-    public_key='your public_key',
-    private_key='your private_key',
-    url_endpoint = 'your url_endpoint'
-)
-
-with open("image.jpg", mode="rb") as img:
-    imgstr = base64.b64encode(img.read())
-
-upload = imagekit.upload(
-    file="https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
-    file_name="women_in_red.jpg",
-    options=UploadFileRequestOptions(
-        extensions = [{"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "pink"}},
-                {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10}]
-    ),
-)
-
-print("Upload url", upload)
-
-# Raw Response
-print(upload.response_metadata.raw)
-
-# print that uploaded file's ID
-print(upload.file_id)
 ```
 {% endtab %}
 
@@ -812,6 +821,40 @@ resp, err := ik.Uploader.Upload(ctx, base64Image, uploader.UploadParam{
 })
 
 
+```
+{% endtab %}
+
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+var base64ImageRepresentation = "iVBORw0KGgoAAAAN";
+FileCreateRequest ob2 = new FileCreateRequest
+    {
+    file = base64ImageRepresentation,
+    fileName = Guid.NewGuid().ToString()
+    };
+List<Extension> ext = new List<Extension>();
+BackGroundImage bck1 = new BackGroundImage
+    {
+    name = "remove-bg",
+    options = new options()
+    { add_shadow = true, semitransparency = false, bg_image_url = "http://www.google.com/images/logos/ps_logo2.png" }
+    };
+AutoTags autoTags = new AutoTags
+    {
+    name = "google-auto-tagging",
+    maxTags = 5,
+    minConfidence = 95
+    };
+ext.Add(bck1);
+ext.Add(autoTags);
+ob2.extensions = ext;
+Result resp = imagekit.Upload(ob2);
 ```
 {% endtab %}
 {% endtabs %}

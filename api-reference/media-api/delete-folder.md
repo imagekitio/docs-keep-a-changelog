@@ -69,25 +69,6 @@ imagekit.deleteFolder("folder/to/delete/", function(error, result) {
 ```
 {% endtab %}
 
-{% tab title="Python" %}
-```python
-from imagekitio import ImageKit
-
-imagekit = ImageKit(
-    public_key='your_public_api_key',
-    private_key='your_private_api_key',
-    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
-)
-
-delete_folder = imagekit.delete_folder(options=DeleteFolderRequestOptions(folder_path="/test/demo"))
-
-print("Delete folder-", delete_folder, end="\n\n")
-
-# Raw Response
-print(delete_folder.response_metadata.raw)
-```
-{% endtab %}
-
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -129,6 +110,20 @@ imagekitio.delete_folder(folder_path: 'folder/to/delete/')
 resp, err := ik.Media.DeleteFolder(ctx, media.DeleteFolderParam{
     FolderPath: "folder/to/delete/",
 })
+```
+{% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+DeleteFolderRequest deleteFolderRequest = new DeleteFolderRequest
+    {
+    folderPath = "folder/to/delete/",
+    };
+ResultNoContent resultNoContent2 = imagekit.DeleteFolder(deleteFolderRequest);
 ```
 {% endtab %}
 {% endtabs %}
