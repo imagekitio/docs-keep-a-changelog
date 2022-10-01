@@ -162,4 +162,22 @@ resp, err := ik.Media.DeleteBulkFiles(ctx, media.FileIdsParam{
 )
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+DeleteFileVersionRequest delRequest = new DeleteFileVersionRequest
+    {
+    fileId = "file_Id",
+    versionId = "version_Id"
+    };
+    List<string> ob3 = new List<string>();
+    ob3.Add("fileId_1");
+    ob3.Add("fileId_2");
+ResultFileDelete resultFileDelete = imagekit.BulkDeleteFiles(ob3);
+```
+{% endtab %}
 {% endtabs %}

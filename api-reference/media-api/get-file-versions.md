@@ -123,7 +123,6 @@ print(file_versions.response_metadata.raw)
 print(file_versions.list[0].version_info.id)
 ```
 {% endtab %}
-
 {% tab title="PHP" %}
 ```php
 $public_key = "your_public_api_key";
@@ -167,6 +166,17 @@ imagekitio.file_versions(
 resp, err := ik.Media.FileVersions(ctx, media.FileVersionsParam{
     FileId: "file_id",
 })
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultFileVersions resultFileVersions = imagekit.GetFileVersions("file_Id");
 ```
 {% endtab %}
 {% endtabs %}

@@ -111,7 +111,6 @@ print(copy_folder.response_metadata.raw)
 print(copy_folder.job_id)
 ```
 {% endtab %}
-
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -172,5 +171,21 @@ resp, err := ik.Media.CopyFolder(ctx, media.CopyFolderParam{
 })
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+    var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+CopyFolderRequest cpyFolderRequest = new CopyFolderRequest
+{
+    sourceFolderPath = "/folder/to/copy",
+    destinationPath = "/folder/to/copy/into/",
+    includeFileVersions = false // optional
+};
 
+ResultOfFolderActions resultOfFolderActions = imagekit.CopyFolder(cpyFolderRequest);
+```
+{% endtab %}
 {% endtabs %}

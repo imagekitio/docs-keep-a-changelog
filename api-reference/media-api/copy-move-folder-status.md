@@ -90,7 +90,6 @@ print(job_status.job_id)
 print(job_status.status)
 ```
 {% endtab %}
-
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -132,5 +131,17 @@ imagekitio.bulk_job_status(job_id: 'job_id')
 ```go
 resp, err := ik.BulkJobStatus(ctx, "job_id")
 ```
+{% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+var jobId = "job_id";
+ResultBulkJobStatus resultBulkJobStatus = imagekit.GetBulkJobStatus(jobId);
+```
+
 {% endtab %}
 {% endtabs %}

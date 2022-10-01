@@ -223,6 +223,28 @@ resp, err := ik.Metadata.CreateCustomField(ctx, metadata.CreateFieldParam{
     },
 })
 
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+publicKey : "your_public_api_key",
+privateKey : "your_private_api_key",
+urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+CustomMetaDataFieldCreateRequest requestModelDate = new CustomMetaDataFieldCreateRequest
+{
+name = "price",
+label = "price"
+};
+CustomMetaDataFieldSchemaObject schemaDate = new CustomMetaDataFieldSchemaObject
+{
+type = "Number",
+minValue = "1000",
+maxValue = "3000"
+};
+requestModelDate.schema = schemaDate;
+ResultCustomMetaDataField resultCustomMetaDataFieldDate = imagekit.CreateCustomMetaDataFields(requestModelDate);
+```
+{% endtab %}
 ```
 {% endtab %}
 

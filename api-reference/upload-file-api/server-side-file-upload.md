@@ -237,6 +237,23 @@ const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAAL
 resp, err := ik.Upload.Upload(ctx, base64Image, uploader.UploadParam{})
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+byte[] bytes = File.ReadAllBytes("/path/to/file.jpg");
+FileCreateRequest ob = new FileCreateRequest
+    {
+    file = bytes,
+    fileName = "file_name1.jpg"
+    };
+Result resp2 = imagekit.Upload(ob);
+```
+{% endtab %}
 {% endtabs %}
 
 ### Uploading base64 encoded file with some tags
@@ -386,6 +403,29 @@ resp, err := ik.Upload.Upload(ctx, base64Image, uploader.UploadParam{
 
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+var base64ImageRepresentation = "iVBORw0KGgoAAAAN";
+FileCreateRequest ob2 = new FileCreateRequest
+    {
+    file = base64ImageRepresentation,
+    fileName = Guid.NewGuid().ToString(),
+    };
+List<string> tags = new List<string>
+    {
+    "tags1",
+    "tags2"               
+    };
+ob.tags = tags;
+Result resp = imagekit.Upload(ob2);
+```
+{% endtab %}
 {% endtabs %}
 
 ### Uploading file via URL
@@ -502,6 +542,22 @@ url := "https://imagekit.io/image.jpg"
 resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
     FileName: "my_file_name.jpg",
 })
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+FileCreateRequest request = new FileCreateRequest
+            {
+                file = "image_url",
+                fileName = "file_name.jpg"
+            };
+Result resp1 = imagekit.Upload(request);
 ```
 {% endtab %}
 {% endtabs %}
@@ -641,6 +697,29 @@ resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
     FileName: "women_in_red.jpg",
     CustomMetadata: `{"brand":"Nike", "color":"red"}`,
 })
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+var base64ImageRepresentation = "iVBORw0KGgoAAAAN";
+FileCreateRequest ob2 = new FileCreateRequest
+    {
+    file = base64ImageRepresentation,
+    fileName = Guid.NewGuid().ToString()
+    };
+ Hashtable model = new Hashtable
+    {
+    { "brand", "Nike" },
+    { "color", "red" }
+    };
+ob2.customMetadata = model;
+Result resp = imagekit.Upload(ob2);
 ```
 {% endtab %}
 {% endtabs %}
@@ -812,6 +891,40 @@ resp, err := ik.Uploader.Upload(ctx, base64Image, uploader.UploadParam{
 })
 
 
+```
+{% endtab %}
+
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+var base64ImageRepresentation = "iVBORw0KGgoAAAAN";
+FileCreateRequest ob2 = new FileCreateRequest
+    {
+    file = base64ImageRepresentation,
+    fileName = Guid.NewGuid().ToString()
+    };
+List<Extension> ext = new List<Extension>();
+BackGroundImage bck1 = new BackGroundImage
+    {
+    name = "remove-bg",
+    options = new options()
+    { add_shadow = true, semitransparency = false, bg_image_url = "http://www.google.com/images/logos/ps_logo2.png" }
+    };
+AutoTags autoTags = new AutoTags
+    {
+    name = "google-auto-tagging",
+    maxTags = 5,
+    minConfidence = 95
+    };
+ext.Add(bck1);
+ext.Add(autoTags);
+ob2.extensions = ext;
+Result resp = imagekit.Upload(ob2);
 ```
 {% endtab %}
 {% endtabs %}

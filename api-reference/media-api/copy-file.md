@@ -105,7 +105,6 @@ print("Copy file-", copy_file, end="\n\n")
 print(copy_file.response_metadata.raw)
 ```
 {% endtab %}
-
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -162,5 +161,19 @@ resp, err := ik.Media.CopyFile(ctx, media.CopyFileParam{
 })
 ```
 {% endtab %}
-
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+CopyFileRequest cpyRequest = new CopyFileRequest
+    {
+    sourceFilePath = "/path/to/file.jpg",
+    destinationPath = "/folder/to/copy/into/"
+    };
+ResultNoContent resultNoContent = imagekit.CopyFile(cpyRequest);
+```
+{% endtab %}
 {% endtabs %}

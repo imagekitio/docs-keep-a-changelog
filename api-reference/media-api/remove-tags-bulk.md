@@ -218,4 +218,27 @@ resp, err := ik.Media.RemoveTags(ctx, media.TagsParam{
 })
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+TagsRequest removeTagsRequest = new TagsRequest
+    {
+    tags = new List<string>
+        {
+        "tag_1",
+        "tag_2"
+        },
+    fileIds = new List<string>
+        {
+        "fileId_1",
+        },
+};
+ResultTags removeTags = imagekit.RemoveTags(removeTagsRequest);
+```
+{% endtab %}
 {% endtabs %}

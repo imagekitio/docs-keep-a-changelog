@@ -200,4 +200,24 @@ resp, err := ik.Metadata.UpdateCustomField(ctx, "field_id", UpdateCustomFieldPar
 ```
 {% endtab %}
 
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+publicKey : "your_public_api_key",
+privateKey : "your_private_api_key",
+urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+CustomMetaDataFieldUpdateRequest requestUpdateModel = new CustomMetaDataFieldUpdateRequest
+{
+Id = "field_Id",
+};
+CustomMetaDataFieldSchemaObject updateschema = new CustomMetaDataFieldSchemaObject
+{
+minValue = 500,
+maxValue = 2500
+};
+requestUpdateModel.schema = updateschema;
+ResultCustomMetaDataField resultCustomMetaDataFieldUpdate = imagekit.UpdateCustomMetaDataFields(requestUpdateModel);
+```
+{% endtab %}
 {% endtabs %}

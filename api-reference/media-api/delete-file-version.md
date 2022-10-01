@@ -140,7 +140,21 @@ imagekitio.delete_file_version(
 )
 ```
 {% endtab %}
-
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+DeleteFileVersionRequest delRequest = new DeleteFileVersionRequest
+    {
+    fileId = "file_Id",
+    versionId = "version_Id"
+    };
+ResultNoContent resultNoContent1 = imagekit.DeleteFileVersion(delRequest);
+```
+{% endtab %}
 {% tab title="Go" %}
 ```go
 resp, err := ik.Media.DeleteFileVersion(ctx, "file_id", "version_id")

@@ -106,7 +106,6 @@ imagekit.getFileVersionDetails({
 });
 ```
 {% endtab %}
-
 {% tab title="Python" %}
 ```python
 from imagekitio import ImageKit
@@ -178,6 +177,16 @@ versionsResp, err = ik.Media.FileVersions(ctx, media.FileVersionsParam{
     FileId:    "file_id",
     VersionId: "version_id",
 })
+```
+{% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultFileVersionDetails resultFileVersionDetails = imagekit.GetFileVersionDetails("file_Id", "version_Id");
 ```
 {% endtab %}
 {% endtabs %}

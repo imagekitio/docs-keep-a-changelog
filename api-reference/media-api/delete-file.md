@@ -123,4 +123,14 @@ resp, err := ik.Media.DeleteFile(ctx, "file_id")
 
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultDelete res2 = imagekit.DeleteFile("file_Id");
+```
+{% endtab %}
 {% endtabs %}
