@@ -139,30 +139,6 @@ imagekit.renameFile({
 ```
 {% endtab %}
 
-{% tab title="Python" %}
-```python
-from imagekitio import ImageKit
-
-imagekit = ImageKit(
-    public_key='your_public_api_key',
-    private_key='your_private_api_key',
-    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
-)
-
-rename_file = imagekit.rename_file(options=RenameFileRequestOptions(file_path="/file_path.jpg",
-                                                                    new_file_name="new_file_name.jpg",
-                                                                    purge_cache=True))
-
-print("Rename file-", rename_file, end="\n\n")
-
-# Raw Response
-print(rename_file.response_metadata.raw)
-
-# print the purge request id
-print(rename_file.purge_request_id)
-```
-{% endtab %}
-
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

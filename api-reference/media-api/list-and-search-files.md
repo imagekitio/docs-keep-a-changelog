@@ -337,15 +337,9 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(skip=0, limit = 10))
+list_files = imagekit.list_files({"skip": 0, "limit": 10})
 
 print("List files-", "\n", list_files)
-
-# Raw Response
-print(list_files.response_metadata.raw)
-
-# print the first file's ID
-print(list_files.list[0].file_id)
 ```
 ```
 {% endtab %}

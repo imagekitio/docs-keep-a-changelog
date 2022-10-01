@@ -4,7 +4,7 @@ You can upload files to the ImageKit.io media library from your server-side usin
 
 {% hint style="info" %}
 **File size limit**\
-The maximum upload file size is limited to 25MB on the free plan. On paid plan, this limit is 300MB for video files.
+The maximum upload file size is limited to 25MB.
 
 **Version limit**\
 A file can have a maximum of 100 versions.
@@ -169,18 +169,12 @@ imagekit = ImageKit(
 upload = imagekit.upload(
     file=open("image.jpg", "rb"),
     file_name="my_file_name.jpg",
-    options=UploadFileRequestOptions(
-        tags = ["tag1", "tag2"]
-    )
+    options={
+        "tags": ["tag1", "tag2"]
+    },
 )
 
 print("Upload binary", upload)
-
-# Raw Response
-print(upload.response_metadata.raw)
-
-# print that uploaded file's ID
-print(upload.file_id)
 ```
 {% endtab %}
 
@@ -312,29 +306,12 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file=imgstr,
     file_name="my_file_name.jpg",
-    options=UploadFileRequestOptions(
-            response_fields = ["is_private_file", "custom_metadata", "tags"],
-            is_private_file = False,
-            tags = ["tag1", "tag2"],
-            webhook_url = "url",
-            overwrite_file = False,
-            overwrite_ai_tags = False,
-            overwrite_tags = False,
-            overwrite_custom_metadata = True,
-            custom_metadata = {"test": 11})
-    ),
+    options={
+        "tags": ["tag1", "tag2"]
+    },
 )
 
 print("Upload base64", upload)
-
-# Raw Response
-print(upload.response_metadata.raw)
-
-# print that uploaded file's ID
-print(upload.file_id)
-
-# print that uploaded file's version ID
-print(upload.version_info.id)
 ```
 {% endtab %}
 
@@ -480,16 +457,10 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file="https://imagekit.io/image.jpg",
     file_name="my_file_name.jpg",
-    options=UploadFileRequestOptions(),
+    options={},
 )
 
 print("Upload url", upload)
-
-# Raw Response
-print(upload.response_metadata.raw)
-
-# print that uploaded file's ID
-print(upload.file_id)
 ```
 {% endtab %}
 
@@ -619,18 +590,12 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file="https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
     file_name="women_in_red.jpg",
-    options=UploadFileRequestOptions(
-        custom_metadata = {"brand":"Nike", "color":"red"}
-    ),
+    options={
+        "customMetadata" : '{"brand":"Nike", "color":"red"}'
+    },
 )
 
 print("Upload url", upload)
-
-# Raw Response
-print(upload.response_metadata.raw)
-
-# print that uploaded file's ID
-print(upload.file_id)
 ```
 {% endtab %}
 
@@ -772,41 +737,6 @@ fs.readFile('image.jpg', function(err, data) {
     else console.log(result);
   });
 });
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-import base64
-import os
-import sys
-from imagekitio import ImageKit
-
-imagekit = ImageKit(
-    public_key='your public_key',
-    private_key='your private_key',
-    url_endpoint = 'your url_endpoint'
-)
-
-with open("image.jpg", mode="rb") as img:
-    imgstr = base64.b64encode(img.read())
-
-upload = imagekit.upload(
-    file="https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
-    file_name="women_in_red.jpg",
-    options=UploadFileRequestOptions(
-        extensions = [{"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "pink"}},
-                {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10}]
-    ),
-)
-
-print("Upload url", upload)
-
-# Raw Response
-print(upload.response_metadata.raw)
-
-# print that uploaded file's ID
-print(upload.file_id)
 ```
 {% endtab %}
 

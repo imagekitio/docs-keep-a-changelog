@@ -52,25 +52,6 @@ imagekit.deleteCustomMetadataField(
 ```
 {% endtab %}
 
-{% tab title="Python" %}
-```python
-from imagekitio import ImageKit
-
-imagekit = ImageKit(
-    public_key='your_public_api_key',
-    private_key='your_private_api_key',
-    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
-)
-
-delete_custom_metadata_field = imagekit.delete_custom_metadata_field(field_id="field_id")
-
-print("Delete custom metadata field-", delete_custom_metadata_field, end="\n\n")
-
-# Raw Response
-print(delete_custom_metadata_field.response_metadata.raw)
-```
-{% endtab %}
-
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;

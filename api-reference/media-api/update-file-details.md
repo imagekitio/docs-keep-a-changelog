@@ -143,20 +143,14 @@ imagekit = ImageKit(
 )
 
 updated_detail = imagekit.update_file_details(
-    file_id="file_id",
-    options=UpdateFileRequestOptions(remove_ai_tags=['remove-ai-tag-1', 'remove-ai-tag-2'],
-                                         webhook_url="url",
-                                         tags=["tag1", "tag2"], custom_coordinates="10,10,100,100",
-                                         custom_metadata={"test": 11})
+    "file_id",
+    {
+        "tags": ["tag1", "tag2"], 
+        "custom_coordinates": "10,10,100,100"
+    },
 )
 
 print("Updated detail-", updated_detail, end="\n\n")
-
-# Raw Response
-print(updated_detail.response_metadata.raw)
-
-# print that file's id
-print(updated_detail.file_id)
 ```
 {% endtab %}
 
@@ -311,23 +305,17 @@ imagekit = ImageKit(
 )
 
 updated_detail = imagekit.update_file_details(
-    file_id="file_id",
-    options=UpdateFileRequestOptions(extensions = [
+    "file_id",
+    "extensions": [
         {
             "name": "google-auto-tagging",
             "maxTags": 5,
             "minConfidence": 95
         }
-    ])
+    ]
 )
 
 print("Updated detail-", updated_detail, end="\n\n")
-
-# Raw Response
-print(updated_detail.response_metadata.raw)
-
-# print that file's id
-print(updated_detail.file_id)
 ```
 {% endtab %}
 
