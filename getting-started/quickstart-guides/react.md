@@ -793,7 +793,7 @@ The app should display your uploaded image correctly!
 
 ## **Advanced file upload**
 
-A more detailed example for how to use the file upload component is presented below:
+A more detailed example for how to use the file upload component (and explanation of each advanced feature) is presented below:
 
 {% tabs %}
 {% tab title="React JSX" %}
@@ -824,7 +824,8 @@ const onUploadStart = evt => {
 };
 
 function App() {
-  const reftest = useRef(null);
+  const inputRefTest = useRef(null);
+  const ikUploadRefTest = useRef(null);
   return (
     <div className="App">
       <h1>ImageKit React quick start</h1>
@@ -841,6 +842,7 @@ function App() {
           isPrivateFile={false}
           useUniqueFileName={true}
           responseFields={["tags"]}
+          validateFile={file => file.size < 2000000}
           folder={"/sample-folder"}
           extensions={[{
             "name": "remove-bg",
@@ -853,20 +855,22 @@ function App() {
           overwriteAITags={true}
           overwriteTags={true}
           overwriteCustomMetadata={true}
-          customMetadata={{
-            "brand": "Nike",
-            "color": "red",
-          }}
+          // customMetadata={{
+          //   "brand": "Nike",
+          //   "color": "red",
+          // }}
           onError={onError}
           onSuccess={onSuccess}
           onUploadProgress={onUploadProgress}
           onUploadStart={onUploadStart}
-          inputRef={reftest}
+          // style={{display: 'none'}} // hide the default input and use the custom upload button
+          inputRef={inputRefTest}
+          ref={ikUploadRefTest}
         />
         <p>Custom Upload Button</p>
-        {reftest && <button onClick={() => reftest.current.click()}>Upload</button>}
+        {inputRefTest && <button onClick={() => inputRefTest.current.click()}>Upload</button>}
         <p>Abort upload request</p>
-        {reftest && <button onClick={() => reftest.current.abort()}>Abort request</button>}
+        {ikUploadRefTest && <button onClick={() => ikUploadRefTest.current.abort()}>Abort request</button>}
       </IKContext>
       {/* ...other SDK components added previously */}
     </div>
@@ -878,6 +882,24 @@ export default App;
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+### **Custom Upload Button**
+We have created a `ref` to the `input` used inside the `IKUpload` component called `inputRefTest`. The `IKUpload` component can be given styling via `className` or `style` (`style={{display: 'none'}}`) to hide the default file selector. Then we can use the custom upload button as described above.
+
+### **Abort uploads**
+We have created a `ref` to the `IKUpload` component called `ikUploadRefTest`. This `ref` can be used to call the `abort` method in the `IKUpload` component and can be used to abort the ongoing upload.
+
+### **Upload start**
+The `onUploadStart` prop is called when the file upload starts. This can be used for common usecases like showing a spinner, progress bar etc.
+
+### **Show progress bar**
+The `onUploadProgress` prop can be passed like above which will have a [ProgressEvent](https://developer.mozilla.org/en-US/docs/Web/API/ProgressEvent). This can be used to show percentage of upload progress to the end user.
+
+### **Validate file before upload**
+Arbitrary validation (file type, file size, file name) etc can be added using the `validateFile` prop. Above an example has been added that shows how to prevent uploads bigger than 2 MB.
+
+### **Additional options to the upload function**
+All the parameters supported by the [ImageKit Upload API](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload) can be passed as shown above (e.g. `extensions`, `webhookUrl`, `customMetadata` etc.)
 
 ## **Rendering videos**
 
