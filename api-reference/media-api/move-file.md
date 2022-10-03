@@ -138,8 +138,8 @@ var imagekit = new ImageKit({
 });
 MoveFileRequest moveFile = new MoveFileRequest
     {
-    sourceFilePath = "/path/to/file.jpg",
-    destinationPath = "/folder/to/copy/into/"
+        sourceFilePath = "/path/to/file.jpg",
+        destinationPath = "/folder/to/copy/into/"
     };
 ResultNoContent resultNoContentMoveFile = imagekit.MoveFile(moveFile);
 ```

@@ -127,8 +127,8 @@ var imagekit = new ImageKit({
 });
 CreateFolderRequest createFolderRequest = new CreateFolderRequest
     {
-    folderName = "new_folder",
-    parentFolderPath = "source/folder/path"
+        folderName = "new_folder",
+        parentFolderPath = "source/folder/path"
     };
 ResultEmptyBlock resultEmptyBlock = imagekit.CreateFolder(createFolderRequest);
 ```

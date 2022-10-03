@@ -242,8 +242,8 @@ var imagekit = new ImageKit({
 byte[] bytes = File.ReadAllBytes("/path/to/file.jpg");
 FileCreateRequest ob = new FileCreateRequest
     {
-    file = bytes,
-    fileName = "file_name1.jpg"
+        file = bytes,
+        fileName = "file_name1.jpg" 
     };
 Result resp2 = imagekit.Upload(ob);
 ```
@@ -391,13 +391,13 @@ var imagekit = new ImageKit({
 var base64ImageRepresentation = "iVBORw0KGgoAAAAN";
 FileCreateRequest ob2 = new FileCreateRequest
     {
-    file = base64ImageRepresentation,
-    fileName = Guid.NewGuid().ToString(),
+        file = base64ImageRepresentation,
+        fileName = Guid.NewGuid().ToString(),
     };
 List<string> tags = new List<string>
     {
-    "tags1",
-    "tags2"               
+        "tags1",
+        "tags2"               
     };
 ob.tags = tags;
 Result resp = imagekit.Upload(ob2);
@@ -675,13 +675,13 @@ var imagekit = new ImageKit({
 var base64ImageRepresentation = "iVBORw0KGgoAAAAN";
 FileCreateRequest ob2 = new FileCreateRequest
     {
-    file = base64ImageRepresentation,
-    fileName = Guid.NewGuid().ToString()
+        file = base64ImageRepresentation,
+        fileName = Guid.NewGuid().ToString()
     };
  Hashtable model = new Hashtable
     {
-    { "brand", "Nike" },
-    { "color", "red" }
+        { "brand", "Nike" },
+        { "color", "red" }
     };
 ob2.customMetadata = model;
 Result resp = imagekit.Upload(ob2);
@@ -835,21 +835,23 @@ var imagekit = new ImageKit({
 var base64ImageRepresentation = "iVBORw0KGgoAAAAN";
 FileCreateRequest ob2 = new FileCreateRequest
     {
-    file = base64ImageRepresentation,
-    fileName = Guid.NewGuid().ToString()
+        file = base64ImageRepresentation,
+        fileName = Guid.NewGuid().ToString()
     };
 List<Extension> ext = new List<Extension>();
 BackGroundImage bck1 = new BackGroundImage
     {
-    name = "remove-bg",
-    options = new options()
-    { add_shadow = true, semitransparency = false, bg_image_url = "http://www.google.com/images/logos/ps_logo2.png" }
+        name = "remove-bg",
+        options = new options()
+        { 
+            add_shadow = true, semitransparency = false, bg_image_url = "http://www.google.com/images/logos/ps_logo2.png" 
+        }
     };
 AutoTags autoTags = new AutoTags
     {
-    name = "google-auto-tagging",
-    maxTags = 5,
-    minConfidence = 95
+        name = "google-auto-tagging",
+        maxTags = 5,
+        minConfidence = 95  
     };
 ext.Add(bck1);
 ext.Add(autoTags);

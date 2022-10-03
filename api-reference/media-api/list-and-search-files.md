@@ -401,8 +401,8 @@ urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 
 GetFileListRequest model = new GetFileListRequest
 { 
-Limit = 10,
-Skip = 0
+    Limit = 10,
+    Skip = 0
 };
 ResultList res = imagekit.GetFileListRequest(model);
 ```
@@ -513,7 +513,7 @@ urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 
 GetFileListRequest model = new GetFileListRequest
 { 
-SearchQuery = "createdAt >= \"7d\""
+    SearchQuery = "createdAt >= \"7d\""
 };
 ResultList res = imagekit.GetFileListRequest(model);
 ```
@@ -625,7 +625,7 @@ urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 
 GetFileListRequest model = new GetFileListRequest
 { 
-SearchQuery = '"customMetadata.category" IN ["clothing", "accessories"]"'
+    SearchQuery = '"customMetadata.category" IN ["clothing", "accessories"]"'
 };
 ResultList res = imagekit.GetFileListRequest(model);
 ```
@@ -737,7 +737,7 @@ urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 
 GetFileListRequest model = new GetFileListRequest
 { 
-SearchQuery = '"embeddedMetadata.DateTimeOriginal" > "1y"'
+    SearchQuery = '"embeddedMetadata.DateTimeOriginal" > "1y"'
 };
 ResultList res = imagekit.GetFileListRequest(model);
 ```
@@ -848,7 +848,7 @@ urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 
 GetFileListRequest model = new GetFileListRequest
 { 
-Name = "file_name.jpg"
+    Name = "file_name.jpg"
 };
 ResultList res = imagekit.GetFileListRequest(model);
 ```
@@ -960,7 +960,7 @@ urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 
 GetFileListRequest model = new GetFileListRequest
 { 
-Path = "products"
+    Path = "products"
 };
 ResultList res = imagekit.GetFileListRequest(model);
 ```
@@ -1072,7 +1072,7 @@ urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 
 GetFileListRequest model = new GetFileListRequest
 { 
-Tags = new string[] { "tag1", "tag2" }
+    Tags = new string[] { "tag1", "tag2" }
 };
 ResultList res = imagekit.GetFileListRequest(model);
 ```
@@ -1183,7 +1183,7 @@ var imagekit = new ImageKit({
 
 GetFileListRequest model = new GetFileListRequest
     { 
-    SearchQuery = 'format="png"'
+        SearchQuery = 'format="png"'
     };
 ResultList res = imagekit.GetFileListRequest(model);
 ```

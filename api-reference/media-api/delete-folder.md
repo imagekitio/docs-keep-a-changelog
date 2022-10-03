@@ -121,7 +121,7 @@ var imagekit = new ImageKit({
 });
 DeleteFolderRequest deleteFolderRequest = new DeleteFolderRequest
     {
-    folderPath = "folder/to/delete/",
+        folderPath = "folder/to/delete/",
     };
 ResultNoContent resultNoContent2 = imagekit.DeleteFolder(deleteFolderRequest);
 ```
