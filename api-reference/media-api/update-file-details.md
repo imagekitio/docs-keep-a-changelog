@@ -410,13 +410,13 @@ var imagekit = new ImageKit({
 
 FileUpdateRequest updateob = new FileUpdateRequest
     {
-    fileId = "fileId",
+     fileId = "fileId",
     };
 List<Extension> extModel = new List<Extension>();
 BackGroundImage bck = new BackGroundImage
     {
-    name = "remove-bg",
-    options = new options() { add_shadow = true, semitransparency = false, bg_color = "green" }
+        name = "remove-bg",
+        options = new options() { add_shadow = true, semitransparency = false, bg_color = "green" }
     };
 extModel.Add(bck);
 updateob.extensions = extModel;

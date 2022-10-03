@@ -199,12 +199,12 @@ TagsRequest tagsRequest = new TagsRequest
 {
     tags = new List<string>
     {
-    "tag1",
-    "tag2"
+        "tag1",
+        "tag2"
     },
 fileIds = new List<string>
     {
-    "file_id_1","file_id_2"
+        "file_id_1","file_id_2"
     },
 };
 ResultTags resultTags = imagekit.AddTags(tagsRequest);

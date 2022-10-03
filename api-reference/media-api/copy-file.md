@@ -170,8 +170,8 @@ var imagekit = new ImageKit({
 });
 CopyFileRequest cpyRequest = new CopyFileRequest
     {
-    sourceFilePath = "/path/to/file.jpg",
-    destinationPath = "/folder/to/copy/into/"
+        sourceFilePath = "/path/to/file.jpg",
+        destinationPath = "/folder/to/copy/into/"
     };
 ResultNoContent resultNoContent = imagekit.CopyFile(cpyRequest);
 ```

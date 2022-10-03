@@ -223,15 +223,15 @@ var imagekit = new ImageKit({
 
  AITagsRequest removeAITagsRequest = new AITagsRequest
     {
-    AITags = new List<string>
-    {
-    "tag_1",
-    "tag_2"
-    },
-    fileIds = new List<string>
-    {
-    "fileId_1",
-    },
+        AITags = new List<string>
+        {
+            "tag_1",
+            "tag_2"
+        },
+        fileIds = new List<string>
+        {
+            "fileId_1",
+        },
 };
 ResultTags removeAITags = imagekit.RemoveAITags(removeAITagsRequest);
 ```

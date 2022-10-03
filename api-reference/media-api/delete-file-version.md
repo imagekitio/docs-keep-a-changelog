@@ -130,8 +130,8 @@ var imagekit = new ImageKit({
 });
 DeleteFileVersionRequest delRequest = new DeleteFileVersionRequest
     {
-    fileId = "file_Id",
-    versionId = "version_Id"
+        fileId = "file_Id",
+        versionId = "version_Id"
     };
 ResultNoContent resultNoContent1 = imagekit.DeleteFileVersion(delRequest);
 ```

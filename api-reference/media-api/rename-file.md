@@ -204,9 +204,9 @@ var imagekit = new ImageKit({
 });
 RenameFileRequest renameFileRequest = new RenameFileRequest
     {
-    filePath = "path_1",
-    newFileName = "file_name",
-    purgeCache = false
+        filePath = "path_1",
+        newFileName = "file_name",
+        purgeCache = false
     };
 ResultRenameFile resultRenameFile = imagekit.RenameFile(renameFileRequest);
 ```

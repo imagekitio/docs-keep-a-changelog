@@ -161,8 +161,8 @@ var imagekit = new ImageKit({
 });
 DeleteFileVersionRequest delRequest = new DeleteFileVersionRequest
     {
-    fileId = "file_Id",
-    versionId = "version_Id"
+        fileId = "file_Id",
+        versionId = "version_Id"
     };
     List<string> ob3 = new List<string>();
     ob3.Add("fileId_1");

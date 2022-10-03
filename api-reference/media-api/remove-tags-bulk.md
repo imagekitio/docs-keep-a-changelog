@@ -204,12 +204,12 @@ TagsRequest removeTagsRequest = new TagsRequest
     {
     tags = new List<string>
         {
-        "tag_1",
-        "tag_2"
+            "tag_1",
+            "tag_2"
         },
     fileIds = new List<string>
         {
-        "fileId_1",
+            "fileId_1",
         },
 };
 ResultTags removeTags = imagekit.RemoveTags(removeTagsRequest);

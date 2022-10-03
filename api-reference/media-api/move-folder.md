@@ -139,8 +139,8 @@ var imagekit = new ImageKit({
 });
 MoveFolderRequest moveFolderRequest = new MoveFolderRequest
     {
-    sourceFolderPath = "/folder/to/move",
-    destinationPath = "/folder/to/move/into/"
+        sourceFolderPath = "/folder/to/move",
+        destinationPath = "/folder/to/move/into/"
     };
 ResultOfFolderActions resultOfFolderActions1 = imagekit.MoveFolder(moveFolderRequest);
 ```
