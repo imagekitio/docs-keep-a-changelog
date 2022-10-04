@@ -15,4 +15,4 @@ The following features related to video optimization can be found in your dashbo
 1. Automatic video format conversion
 2. Video quality optimization
 
-[Imagekit video API supports the following combinations of input containers and video codecs](../video-transformation/README.md#inputs-for-video-optimization)
+Here is the [list of codecs](../video-transformation#supported-codecs-for-inputs) that is supported by ImageKit for automatic optimization.
