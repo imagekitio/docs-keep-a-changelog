@@ -841,15 +841,15 @@ resp, err := ik.Media.Files(ctx, media.FilesParam{
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({
-publicKey : "your_public_api_key",
-privateKey : "your_private_api_key",
-urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
 GetFileListRequest model = new GetFileListRequest
-{ 
-    Name = "file_name.jpg"
-};
+    { 
+        SearchQuery = "name = \"file_name.jpg\"",
+    };
 ResultList res = imagekit.GetFileListRequest(model);
 ```
 {% endtab %}
@@ -1065,15 +1065,15 @@ resp, err := ik.Media.Files(ctx, media.FilesParam{
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({
-publicKey : "your_public_api_key",
-privateKey : "your_private_api_key",
-urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
 GetFileListRequest model = new GetFileListRequest
-{ 
-    Tags = new string[] { "tag1", "tag2" }
-};
+    { 
+        SearchQuery = "tags = \"tag1,tag2\"",
+    };
 ResultList res = imagekit.GetFileListRequest(model);
 ```
 {% endtab %}
