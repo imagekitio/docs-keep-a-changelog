@@ -166,6 +166,7 @@ resp, err := ik.Media.PurgeCache(ctx, media.PurgeCacheParam{
 })
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

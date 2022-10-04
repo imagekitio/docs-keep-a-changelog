@@ -150,6 +150,7 @@ imagekitio.get_file_deltails(file_id: 'file_id')
 resp, err := ik.Media.FileById(ctx, "file_id")
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

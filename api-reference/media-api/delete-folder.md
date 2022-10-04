@@ -131,6 +131,7 @@ resp, err := ik.Media.DeleteFolder(ctx, media.DeleteFolderParam{
 })
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

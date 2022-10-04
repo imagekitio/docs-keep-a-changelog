@@ -407,6 +407,7 @@ resp, err := ik.Uploader.Upload(ctx, base64Image, uploader.UploadParam{
 
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

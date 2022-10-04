@@ -162,6 +162,7 @@ resp, err := ik.Media.CopyFile(ctx, media.CopyFileParam{
 })
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

@@ -218,6 +218,7 @@ resp, err := ik.Media.RemoveTags(ctx, media.TagsParam{
 })
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

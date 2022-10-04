@@ -219,6 +219,7 @@ resp, err := ik.Media.RenameFile(ctx, media.RenameFileParam{
 })
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

@@ -212,6 +212,7 @@ file_metadata = imagekitio.get_file_metadata(file_id: "file_id")
 resp, err := ik.Metadata.FromFile(ctx, "file_id")
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

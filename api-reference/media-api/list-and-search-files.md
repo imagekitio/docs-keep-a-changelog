@@ -1172,6 +1172,7 @@ resp, err := ik.Media.Files(ctx, media.FilesParam{
 })
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

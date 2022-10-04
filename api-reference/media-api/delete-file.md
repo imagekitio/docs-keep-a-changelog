@@ -123,6 +123,7 @@ resp, err := ik.Media.DeleteFile(ctx, "file_id")
 
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

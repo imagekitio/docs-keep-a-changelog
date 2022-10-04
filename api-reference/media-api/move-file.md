@@ -149,6 +149,7 @@ resp, err := ik.Media.MoveFile(ctx, media.MoveFileParam{
 })
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

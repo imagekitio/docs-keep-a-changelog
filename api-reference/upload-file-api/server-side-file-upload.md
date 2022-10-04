@@ -237,6 +237,7 @@ const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAAL
 resp, err := ik.Upload.Upload(ctx, base64Image, uploader.UploadParam{})
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({
@@ -401,6 +402,7 @@ resp, err := ik.Upload.Upload(ctx, base64Image, uploader.UploadParam{
 
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({
@@ -540,6 +542,7 @@ resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
 })
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({
@@ -693,6 +696,7 @@ resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
 })
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({
@@ -885,6 +889,7 @@ resp, err := ik.Uploader.Upload(ctx, base64Image, uploader.UploadParam{
 
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

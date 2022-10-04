@@ -146,6 +146,7 @@ imagekitio.delete_file_version(
 resp, err := ik.Media.DeleteFileVersion(ctx, "file_id", "version_id")
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

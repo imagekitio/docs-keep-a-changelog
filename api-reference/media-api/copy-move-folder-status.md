@@ -133,6 +133,7 @@ imagekitio.bulk_job_status(job_id: 'job_id')
 resp, err := ik.BulkJobStatus(ctx, "job_id")
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

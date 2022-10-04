@@ -162,6 +162,7 @@ resp, err := ik.Media.DeleteBulkFiles(ctx, media.FileIdsParam{
 )
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({

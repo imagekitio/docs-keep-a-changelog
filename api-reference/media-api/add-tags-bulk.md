@@ -212,6 +212,7 @@ resp, err := ik.Media.AddTags(ctx, media.TagsParam{
 })
 ```
 {% endtab %}
+
 {% tab title=".Net" %}
 ```.net
 var imagekit = new ImageKit({
