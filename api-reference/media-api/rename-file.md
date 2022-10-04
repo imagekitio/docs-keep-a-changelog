@@ -219,4 +219,19 @@ resp, err := ik.Media.RenameFile(ctx, media.RenameFileParam{
 })
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+RenameFileRequest renameFileRequest = new RenameFileRequest
+    {
+        filePath = "path_1",
+        newFileName = "file_name",
+        purgeCache = false
+    };
+ResultRenameFile resultRenameFile = imagekit.RenameFile(renameFileRequest);
+```
 {% endtabs %}

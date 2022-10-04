@@ -149,4 +149,18 @@ resp, err := ik.Media.MoveFile(ctx, media.MoveFileParam{
 })
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+MoveFileRequest moveFile = new MoveFileRequest
+    {
+        sourceFilePath = "/path/to/file.jpg",
+        destinationPath = "/folder/to/copy/into/"
+    };
+ResultNoContent resultNoContentMoveFile = imagekit.MoveFile(moveFile);
+```
 {% endtabs %}

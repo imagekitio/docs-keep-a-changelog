@@ -137,4 +137,18 @@ resp, err := ik.Media.CreateFolder(ctx, media.CreateFolderParam{
 }
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+CreateFolderRequest createFolderRequest = new CreateFolderRequest
+    {
+        folderName = "new_folder",
+        parentFolderPath = "source/folder/path"
+    };
+ResultEmptyBlock resultEmptyBlock = imagekit.CreateFolder(createFolderRequest);
+```
 {% endtabs %}

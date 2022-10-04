@@ -139,4 +139,13 @@ imagekitio.get_custom_metadata_fields(include_deleted: false)
 resp, err := ik.Metadata.CustomFields(ctx, false)
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultCustomMetaDataFieldList resultCustomMetaDataFieldList = imagekit.GetCustomMetaDataFields(false);
+```
 {% endtabs %}

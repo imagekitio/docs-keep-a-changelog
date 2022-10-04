@@ -123,5 +123,14 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 purge_cache_status = imagekitio.purge_file_cache_status(request_id: "request_id")
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultCacheStatus resultCacheStatus = imagekit.PurgeStatus("request_Id");
+```
 
 {% endtabs %}
