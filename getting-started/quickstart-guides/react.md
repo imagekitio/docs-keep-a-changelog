@@ -6,18 +6,18 @@ description: >-
 
 # React
 
-This is a quick start guide to show you how to integrate ImageKit in a React application. The code samples covered here are hosted on Github: [https://github.com/imagekit-samples/quickstart/tree/master/react](https://github.com/imagekit-samples/quickstart/tree/master/react).
+This is a quick start guide to show you how to integrate ImageKit in a React application. The code samples covered here are hosted on GitHub: [https://github.com/imagekit-samples/quickstart/tree/master/react](https://github.com/imagekit-samples/quickstart/tree/master/react).
 
 This guide walks you through the following topics: ‌
 
-* [Setting up ImageKit React SDK ](react.md#setup-imagekit-react-sdk)
-* [Rendering images](react.md#rendering-images) 
+* [Setting up ImageKit React SDK](react.md#setup-imagekit-react-sdk)
+* [Rendering images](react.md#rendering-images)
 * [Setting the ImageKit context for the SDK](react.md#setting-authentication-context-for-the-sdk)
-* [Applying common image manipulations](react.md#basic-image-manipulation) 
-* [Adding overlays to images ](react.md#adding-overlays-to-images)
-* [Lazy loading images ](react.md#lazy-loading-images-in-react)
-* [Blurred image placeholder ](react.md#blurred-image-placeholder)
-* [Client-side file uploading](react.md#uploading-files-in-react) 
+* [Applying common image manipulations](react.md#basic-image-manipulation)
+* [Adding overlays to images](react.md#adding-overlays-to-images)
+* [Lazy loading images](react.md#lazy-loading-images-in-react)
+* [Blurred image placeholder](react.md#blurred-image-placeholder)
+* [Client-side file uploading](react.md#uploading-files-in-react)
 * [Advanced file uploading](react.md#advanced-file-upload)
 * [Rendering videos](react.md#rendering-videos)
 
@@ -755,7 +755,7 @@ This is how it looks in the UI:
 
 Let’s now upload an image by selecting a file from the file input.&#x20;
 
-When you choose a file, the file is immediately uploaded.  You can pass optional `onSuccess` and `onError` callback functions as props like we have.
+When you choose a file, the file is immediately uploaded. You can pass optional `onSuccess` and `onError` callback functions as props like we have.
 
 You can verify that file was successfully uploaded by checking the browser console. In case of success, it should print a success message, like this:
 
@@ -793,7 +793,7 @@ The app should display your uploaded image correctly!
 
 ## **Advanced file upload**
 
-A more detailed example for how to use the file upload component (and explanation of each advanced feature) is presented below:
+A more detailed example of how to use the file upload component (and an explanation of each advanced feature) is presented below:
 
 {% tabs %}
 {% tab title="React JSX" %}
@@ -890,13 +890,13 @@ We have created a `ref` to the `input` used inside the `IKUpload` component call
 We have created a `ref` to the `IKUpload` component called `ikUploadRefTest`. This `ref` can be used to call the `abort` method in the `IKUpload` component and can be used to abort the ongoing upload.
 
 ### **Upload start**
-The `onUploadStart` prop is called when the file upload starts. This can be used for common usecases like showing a spinner, progress bar etc.
+The `onUploadStart` prop is called when the file upload starts. This can be used for common use cases like showing a spinner, progress bar, etc.
 
 ### **Show progress bar**
-The `onUploadProgress` prop can be passed like above which will have a [ProgressEvent](https://developer.mozilla.org/en-US/docs/Web/API/ProgressEvent). This can be used to show percentage of upload progress to the end user.
+The `onUploadProgress` prop can be passed like above, which will have a [ProgressEvent](https://developer.mozilla.org/en-US/docs/Web/API/ProgressEvent). This can be used to show the percentage of upload progress to the end user.
 
 ### **Validate file before upload**
-Arbitrary validation (file type, file size, file name) etc can be added using the `validateFile` prop. Above an example has been added that shows how to prevent uploads bigger than 2 MB.
+Arbitrary validation (file type, file size, file name) etc can be added using the `validateFile` prop. An example has been added above that shows how to prevent upload if the file size is bigger than 2 MB.
 
 ### **Additional options to the upload function**
 All the parameters supported by the [ImageKit Upload API](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload) can be passed as shown above (e.g. `extensions`, `webhookUrl`, `customMetadata` etc.)
