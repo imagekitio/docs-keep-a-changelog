@@ -2,7 +2,7 @@
 
 You can configure ImageKit.io to fetch images from your Firebase storage. This allows you to start using ImageKit.io real-time image resizing, optimization, and fast CDN delivery for thousands or millions of existing images within minutes. Also, you get to leverage Firebase's authentication and authorization in your application.
 
-**Note: **We do not start copying images from your storage as soon as you add the origin. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
+**Note:** We do not start copying images from your storage as soon as you add the origin. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
 
 ## Step 1: Configure origin
 
@@ -20,11 +20,11 @@ When you add your first origin in the dashboard, the origin is by default made a
 Let's look at a few examples to fetch the images:
 
 * **Original image through Firebase storage (old URL)**\
-  ****[https://firebasestorage.googleapis.com/rest-of-the-path.jpg?alt=media\&token={TOKEN}](https://firebasestorage.googleapis.com/rest-of-the-path.jpg?alt=media\&token={TOKEN})
+  [https://firebasestorage.googleapis.com/rest-of-the-path.jpg?alt=media\&token={TOKEN}](https://firebasestorage.googleapis.com/rest-of-the-path.jpg?alt=media\&token={TOKEN})
 * **The same master image using ImageKit.io URL-endpoint**\
-  ****[https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg?alt=media\&token={TOKEN}](https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg?alt=media\&token={TOKEN})
+  [https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg?alt=media\&token={TOKEN}](https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg?alt=media\&token={TOKEN})
 * **Resized 300x300 image**\
-  ****[https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-300`/rest-of-the-path.jpg?alt=media\&token={TOKEN}](https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg?alt=media\&token={TOKEN})
+  [https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-300`/rest-of-the-path.jpg?alt=media\&token={TOKEN}](https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg?alt=media\&token={TOKEN})
 
 So when you request `https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg?alt=media&token={TOKEN}`, ImageKit.io internally fetches the file from `https://firebasestorage.googleapis.com/rest-of-the-path.jpg?alt=media&token={TOKEN}`
 
@@ -41,7 +41,7 @@ https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg
 If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](../../limits-and-troubleshooting/404-not-found-error-troubleshooting.md).
 
 {% hint style="info" %}
-:man_mage:**Tips: **You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
+:man_mage:**Tips:** You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
 {% endhint %}
 
 ## Step 3: Integrate and Go live

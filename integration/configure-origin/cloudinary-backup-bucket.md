@@ -2,7 +2,7 @@
 
 You can add your existing Cloudinary backup bucket as an origin in ImageKit.io. This allows you to use ImageKit.io real-time image optimization and resizing features on all existing images stored in the bucket.
 
-**Note: **We do not start copying images from your bucket as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
+**Note:** We do not start copying images from your bucket as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
 
 ## Step 1: Configure origin
 
@@ -17,7 +17,7 @@ You can add your existing Cloudinary backup bucket as an origin in ImageKit.io. 
 
 {% hint style="warning" %}
 **Read-only permission required**\
-****ImageKit.io needs read-only access to your storage bucket. You can refer to your Cloudinary's documentation to figure out how to provide read-only access to a bucket.
+ImageKit.io needs read-only access to your storage bucket. You can refer to your Cloudinary's documentation to figure out how to provide read-only access to a bucket.
 {% endhint %}
 
 ## Step 2: Access the image through ImageKit.io URL-endpoint
@@ -46,7 +46,7 @@ https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg
 {% endtabs %}
 
 {% hint style="info" %}
-:man_mage:**Tips: **You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
+:man_mage:**Tips:** You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
 {% endhint %}
 
 ## Step 3: Integrate and Go live
@@ -86,7 +86,7 @@ While adding the origin in your ImageKit.io account, you are now provided with a
 
 When enabled, the image response contains a Link header with the appropriate URL and rel=canonical. You will have to specify the base URL for the canonical header.
 
-![](../../.gitbook/assets/wp71hwsnlvmmdthvbsj8.png)
+![](../../.gitbook/assets/cloudinary-origin-canonical-header.png)
 
 For example, if you set `https://www.example.com` as the base URL for canonical header, then the image response for URL `https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg` will have a Link header like this:
 

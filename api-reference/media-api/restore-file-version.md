@@ -87,11 +87,96 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 Here is the example request to understand the API usage.
 
 {% tabs %}
+
 {% tab title="cURL" %}
 ```bash
 # The unique fileId and versionId of the uploaded file. fileId and versionId (versionInfo.id) is returned in response of list files API and upload API.
-curl -X PUT "https://api.imagekit.io/v1/files/fileId/versions/versionId/restore" \
+curl -X PUT "https://api.imagekit.io/v1/files/file_id/versions/version_id/restore" \
 -u your_private_api_key:
 ```
 {% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.restoreFileVersion({
+     fileId: "file_id",
+     versionId: "version_id"
+}, function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+restore_file_version = imagekit.restore_file_version(file_id="file_id", version_id="version_id")
+
+print("Restore file version-", restore_file_version, end="\n\n")
+
+# Raw Response
+print(restore_file_version.response_metadata.raw)
+
+# print that file's id
+print(restore_file_version.file_id)
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileId = 'file_id';
+$versionId = 'version_id';
+
+$restoreFileVersion = $imageKit->restoreFileVersion([
+    'fileId' => $fileId,
+    'versionId' => $versionId,
+]);
+
+echo("Restore File  Version : " . json_encode($restoreFileVersion));
+```
+{% endtab %}
+
+{% tab title="java" %}
+```java
+Result result = ImageKit.getInstance().restoreFileVersion("file_id", "version_id");
+```
+{% endtab %}
+
+{% tab title='Ruby' %}
+```ruby
+imagekitio.restore_file_version(
+    file_id: 'file_id',
+    version_id: 'version_id'
+)
+```
+{% endtab %}
+
 {% endtabs %}

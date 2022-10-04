@@ -1,8 +1,8 @@
 # Get all versions of a file
 
-{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/versions" method="get" summary="Get file version details API" %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/versions" method="get" summary="Get all versions of an asset" %}
 {% swagger-description %}
-Get all the file version details and attributes of a file.
+Get all versions of an asset using this API.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="fileId" type="string" required="true" %}
@@ -70,7 +70,7 @@ base64 encoding of `your_private_api_key:`
 
 ### Response structure and status code (application/JSON)
 
-In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the [file object](./#file-object-structure) in JSON-encoded response body.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the list of [file object](./#file-object-structure) in the JSON-encoded response body on success.
 
 ## Examples
 
@@ -80,8 +80,93 @@ Here is the example request to understand the API usage.
 {% tab title="cURL" %}
 ```bash
 # The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
-curl -X GET "https://api.imagekit.io/v1/files/fileId/versions" \
+curl -X GET "https://api.imagekit.io/v1/files/file_id/versions" \
 -u your_private_api_key:
+```
+{% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.getFileVersions("file_id", function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+file_versions = imagekit.get_file_versions(file_id='file_id')
+
+print("Get File versions-", "\n", file_versions)
+
+# Raw Response
+print(file_versions.response_metadata.raw)
+
+# print that file's version id
+print(file_versions.list[0].version_info.id)
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileId = 'file_id';
+
+$getFileVersions = $imageKit->getFileVersions($fileId);
+
+echo("File Versions : " . json_encode($getFileVersions));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+
+String fileId = "file_id";
+ResultFileVersions resultFileVersions = ImageKit.getInstance().getFileVersions(fileId);
+
+```
+{% endtab %}
+
+{% tab title='Ruby' %}
+```ruby
+imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
+imagekitio.file_versions(
+    file_id: 'file_id'
+)
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.FileVersions(ctx, media.FileVersionsParam{
+    FileId: "file_id",
+})
 ```
 {% endtab %}
 {% endtabs %}

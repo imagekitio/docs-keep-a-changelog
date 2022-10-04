@@ -2,7 +2,7 @@
 
 Any web server which is accessible over HTTP or HTTPS can be configured as an origin in ImageKit.io. This allows you to use ImageKit.io's real-time image optimization and transformation features on all existing images.
 
-**Note: **We do not start copying images from your server as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
+**Note:** We do not start copying images from your server as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
 
 ## Step 1: Configure origin
 
@@ -46,7 +46,7 @@ https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg
 If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](../../limits-and-troubleshooting/404-not-found-error-troubleshooting.md).
 
 {% hint style="info" %}
-:man_mage:**Tips: **You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
+:man_mage:**Tips:** You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
 {% endhint %}
 
 ## Step 3: Integrate and Go live
@@ -75,7 +75,7 @@ Now start using ImageKit.io URL endpoint in your application to accelerate image
 
 When enabled, the image response contains a Link header with the appropriate URL and rel=canonical. You will have to specify the base URL for the canonical header.
 
-![](../../.gitbook/assets/ygs27bhhfmmxdy6mieub.png)
+![](../../.gitbook/assets/web-server-canonical-header.png)
 
 For example, if you set `https://www.example.com` as the base URL for canonical header, then the image response for URL `https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg` will have a Link header like this:
 

@@ -4,7 +4,7 @@ Currently, you can upload images and static files to the media library in two wa
 
 {% hint style="info" %}
 **File size limit**\
-The maximum upload file size is limited to 25MB.
+The maximum upload file size is limited to 25MB on the free plan. On paid plan, this limit is 300MB for video files.
 {% endhint %}
 
 ## Using Dashboard
@@ -21,7 +21,7 @@ To upload files, either drag and drop files anywhere on the screen or
 
 Select the file from the local device to start uploading.
 
-{% embed url="https://youtu.be/IO-PJKU5X7E" %}
+{% embed url="https://www.youtube.com/watch?v=wQheStsBZfY" %}
 Select file and upload
 {% endembed %}
 
@@ -29,7 +29,7 @@ Select file and upload
 
 You can drag multiple files anywhere on the media library screen to upload.
 
-{% embed url="https://youtu.be/W5RcugTXPks" %}
+{% embed url="https://www.youtube.com/watch?v=h8SZnU0pk1w" %}
 Drag and drop file upload
 {% endembed %}
 

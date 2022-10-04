@@ -631,7 +631,7 @@ It is used to specify whether the output image should contain all the metadata t
 
 It is used to specify the degree by which the output image must be rotated or specifies the use of EXIF Orientation Tag for the rotation of image using the `auto` parameter.
 
-**Possible Values**- `0` , `90` , `180` , `270` , `360` , and `auto`
+**Possible Values**- Any number for a clockwise rotation, or any number preceded with `N` for counter-clockwise rotation , and `auto`
 
 {% hint style="info" %}
 Use `auto` if you want ImageKit.io to automatically rotate image based on EXIF orientation tag in image metadata.
@@ -644,10 +644,10 @@ URL - [https://ik.imagekit.io/demo/tr:rt-90/medium\_cafe\_B1iTdD0C.jpg](https://
 ![](https://ik.imagekit.io/demo/tr:rt-90/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 
-{% tab title="rt=180" %}
-URL - [https://ik.imagekit.io/demo/tr:rt-180/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:rt-180/medium\_cafe\_B1iTdD0C.jpg)
+{% tab title="rt=N40" %}
+URL - [https://ik.imagekit.io/demo/tr:rt-N40/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:rt-N40/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:rt-180/medium\_cafe\_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/demo/tr:rt-N40/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 

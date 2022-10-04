@@ -6,7 +6,7 @@ You can use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-s
 
 {% hint style="info" %}
 **File size limit**\
-The maximum upload file size is limited to 25MB.
+The maximum upload file size is limited to 25MB on the free plan. On paid plan, this limit is 300MB for video files.
 
 **Version limit**\
 A file can have a maximum of 100 versions.

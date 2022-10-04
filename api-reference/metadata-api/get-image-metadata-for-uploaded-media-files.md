@@ -120,7 +120,7 @@ Here are some example requests to understand the API usage.
 {% tab title="cURL" %}
 ```bash
 # The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
-curl -X GET "https://api.imagekit.io/v1/files/fileId/metadata" \
+curl -X GET "https://api.imagekit.io/v1/files/file_id/metadata" \
 -u your_private_api_key:
 ```
 {% endtab %}
@@ -135,7 +135,7 @@ var imagekit = new ImageKit({
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
-imagekit.getFileMetadata("fileId", function(error, result) {
+imagekit.getFileMetadata("file_id", function(error, result) {
     if(error) console.log(error);
     else console.log(result);
 });
@@ -152,9 +152,23 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-metadata = imagekit.get_metadata("file_id")
+metadata = imagekit.get_metadata(file_id="file_id")
 
 print("File detail-", metadata, end="\n\n")
+
+# Raw Response
+print(metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(metadata.width)
+print(metadata.exif.image.x_resolution)
+
+# Raw Response
+print(metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(metadata.width)
+print(metadata.exif.image.x_resolution)
 ```
 {% endtab %}
 
@@ -172,9 +186,11 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$getFileDetails = $imageKit->getMetaData("file_id");
+$fileId = 'file_id';
 
-echo("File metadata : " . json_encode($getFileDetails));
+$fileMetadata = $imageKit->getFileMetaData($fileId);
+
+echo("File metadata : " . json_encode($fileMetadata));
 ```
 {% endtab %}
 
@@ -188,6 +204,12 @@ ResultMetaData result=ImageKit.getInstance().getFileMetadata("file_id");
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 file_metadata = imagekitio.get_file_metadata(file_id: "file_id")
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Metadata.FromFile(ctx, "file_id")
 ```
 {% endtab %}
 {% endtabs %}

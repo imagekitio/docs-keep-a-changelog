@@ -39,7 +39,7 @@ Here is the example request to understand the API usage.
 {% tab title="cURL" %}
 ```bash
 # The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
-curl -X DELETE "https://api.imagekit.io/v1/files/fileId" \
+curl -X DELETE "https://api.imagekit.io/v1/files/file_id" \
 -u your_private_key:
 ```
 {% endtab %}
@@ -71,9 +71,12 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-delete = imagekit.delete_file("file_id")
+delete = imagekit.delete_file(file_id="file_id")
 
 print("Delete File-", delete)
+
+# Raw Response
+print(delete.response_metadata.raw)
 ```
 {% endtab %}
 
@@ -91,7 +94,9 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$deleteFile = $imageKit->deleteFile("file_id");
+$fileId = 'file_id';
+
+$deleteFile = $imageKit->deleteFile($fileId);
 
 echo("Delete file : " . json_encode($deleteFile));
 ```
@@ -106,7 +111,16 @@ Result result=ImageKit.getInstance().deleteFile("file_id");
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-delete = imagekitio.delete_file(file_id: "file_id_xyz")
+delete = imagekitio.delete_file(file_id: "file_id")
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+ik, err := imagekit.New()
+
+resp, err := ik.Media.DeleteFile(ctx, "file_id")
+
 ```
 {% endtab %}
 {% endtabs %}

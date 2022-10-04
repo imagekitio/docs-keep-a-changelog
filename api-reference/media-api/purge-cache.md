@@ -15,7 +15,7 @@ base64 encoding of `your_private_api_key:`
 The exact URL of the file to be purged. For example - `https://ik.imageki.io/your_imagekit_id/rest-of-the-file-path.jpg`.
 {% endswagger-parameter %}
 
-{% swagger-response status="200" description="On success, you will receive a requestId which can be used to get the purge request status." %}
+{% swagger-response status="201" description="On success, you will receive a requestId which can be used to get the purge request status." %}
 ```javascript
 {
     requestId : "598821f949c0a938d57563bd"
@@ -26,7 +26,7 @@ The exact URL of the file to be purged. For example - `https://ik.imageki.io/you
 
 ### Response structure and status code
 
-In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with the request ID returned in the JSON-encoded response body.
+In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `201` status code with the request ID returned in the JSON-encoded response body.
 
 `requestId` can be used to fetch the status of the submitted purge request.
 
@@ -116,6 +116,12 @@ imagekit = ImageKit(
 purge_cache = imagekit.purge_cache(file_url="https://ik.imagekit.io/your_imagekit_id/default-image.jpg")
 
 print("Purge cache-", purge_cache)
+
+# Raw Response
+print(purge_cache.response_metadata.raw)
+
+# print the purge file cache request id
+print(purge_cache.request_id)
 ```
 {% endtab %}
 
@@ -133,9 +139,8 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$purgeCache = $imageKit->purgeCacheApi(array(
-    "url" => "https://ik.imagekit.io/your_imagekit_id/default-image.jpg"
-));
+$image_url = 'https://ik.imagekit.io/your_imagekit_id/default-image.jpg';
+$purgeCache = $imageKit->purgeCache($image_url);
 
 echo("File details : " . json_encode($purgeCache));
 ```
@@ -151,6 +156,14 @@ ResultCache result=ImageKit.getInstance().purgeCache("https://ik.imagekit.io/you
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 purge_cache = imagekitio.purge_file_cache(file_url: "https://ik.imagekit.io/your_imagekit_id/default-image.jpg")
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.PurgeCache(ctx, media.PurgeCacheParam{
+    Url: "https://ik.imagekit.io/your_imagekit_id/default-image.jpg",
+})
 ```
 {% endtab %}
 {% endtabs %}

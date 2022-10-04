@@ -52,11 +52,98 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 Here is the example request to understand the API usage.
 
 {% tabs %}
+
 {% tab title="cURL" %}
 ```bash
 # The unique fileId and versionId of the uploaded file. fileId and versionId (versionInfo.id) is returned in response of list files API and upload API.
-curl -X DELETE "https://api.imagekit.io/v1/files/fileId/versions/versionId" \
+curl -X DELETE "https://api.imagekit.io/v1/files/file_id/versions/version_id" \
 -u your_private_api_key:
+```
+{% endtab %}
+
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+var fileId = "file_id";
+var versionId = "version_id"
+
+imagekit.deleteFileVersion({
+     fileId,
+     versionId
+}, function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+delete_file_version = imagekit.delete_file_version(file_id="file_id", version_id="version_id")
+
+print("Delete file version-", delete_file_version, end="\n\n")
+
+# Raw Response
+print(delete_file_version.response_metadata.raw)
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileId = 'file_id';
+$versionId = 'version_id';
+
+$deleteFileVersion = $imageKit->deleteFileVersion($fileId, $versionId);
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+
+DeleteFileVersionRequest deleteFileVersionRequest = new DeleteFileVersionRequest();
+deleteFileVersionRequest.setFileId("file_id");
+deleteFileVersionRequest.setVersionId("version_id");
+ResultNoContent resultNoContent = ImageKit.getInstance().deleteFileVersion(deleteFileVersionRequest);
+```
+{% endtab %}
+
+{% tab title='Ruby' %}
+```ruby
+imagekitio.delete_file_version(
+    file_id: 'file_id',
+    version_id: 'version_id'
+)
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.DeleteFileVersion(ctx, "file_id", "version_id")
 ```
 {% endtab %}
 {% endtabs %}

@@ -337,9 +337,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({"skip": 0, "limit": 10})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(skip=0, limit = 10))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -368,17 +374,26 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("skip","0");
-options.put("limit", "10");
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setSkip("0");
+getFileListRequest.setLimit("10");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
-list_files = imagekitio.list_files({skip: 0, limit: 5})
+list_files = imagekitio.list_files({skip: 0, limit: 10})
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    Skip: 0,
+    Limit: 10,
+})
 ```
 {% endtab %}
 {% endtabs %}
@@ -427,9 +442,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({'searchQuery': 'createdAt >= "7d" AND size > "2mb"'})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='createdAt >= "7d" AND size > "2mb"'))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -457,9 +478,9 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("searchQquery",'createdAt >= "7d" AND size > "2mb"');
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setSearchQuery("createdAt >= '7d' AND size > '2mb'");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -467,6 +488,14 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({search_query: 'createdAt >= "7d" AND size > "2mb"'})
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    SearchQuery: "createdAt >= \"7d\" AND size > \"2mb\"",
+})
 ```
 {% endtab %}
 {% endtabs %}
@@ -515,9 +544,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({'searchQuery': '"customMetadata.category" IN ["clothing", "accessories"]"'})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='"customMetadata.category" IN ["clothing", "accessories"]"'))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -545,9 +580,9 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("searchQquery",'"customMetadata.category" IN ["clothing", "accessories"]"');
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setSearchQuery("'customMetadata.category' IN ['clothing', 'accessories']'");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -555,6 +590,15 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({search_query: '"customMetadata.category" IN ["clothing", "accessories"]"'})
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    SearchQuery: `"customMetadata.category" IN ["clothing", "accessories"]"`,
+})
+
 ```
 {% endtab %}
 {% endtabs %}
@@ -603,9 +647,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({'searchQuery': '"embeddedMetadata.DateTimeOriginal" > "1y"'})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='"embeddedMetadata.DateTimeOriginal" > "1y"'))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -633,9 +683,9 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("searchQquery",'"embeddedMetadata.DateTimeOriginal" > "1y"');
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setSearchQuery("'embeddedMetadata.DateTimeOriginal' > '1y'");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -643,6 +693,15 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({search_query: '"embeddedMetadata.DateTimeOriginal" > "1y"'})
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    SearchQuery: `"embeddedMetadata.DateTimeOriginal" > "1y"`,
+})
+
 ```
 {% endtab %}
 {% endtabs %}
@@ -691,9 +750,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({'searchQuery': 'name="file-name.jpg"'})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='name="file-name.jpg"'))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -721,9 +786,9 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("searchQquery",'name="file-name.jpg"');
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setSearchQuery("name='file-name.jpg'");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -731,6 +796,14 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({search_query: 'name="file-name.jpg"'})
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    SearchQuery: `name="file-name.jpg"`,
+})
 ```
 {% endtab %}
 {% endtabs %}
@@ -780,9 +853,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({"path": "products"})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(path="products"))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -810,9 +889,9 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("path","products");
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setPath("products");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -820,6 +899,14 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({path: "products"})
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    Path: "products",
+})
 ```
 {% endtab %}
 {% endtabs %}
@@ -865,9 +952,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({"tags": ["sale","summer"]})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(tags=["sale","summer"]))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -886,7 +979,7 @@ $imageKit = new ImageKit(
 );
 
 $listFiles = $imageKit->listFiles(array(
-    "tags" => implode(",", array("sale", "summer")),
+    "tags" => ["sale", "summer"],
 ));
 
 echo ("List files : " . json_encode($listFiles));
@@ -895,9 +988,13 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("tags","sale,summer");
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+String[] tags = new String[3];
+tags[0] = "tag-1";
+tags[1] = "tag-2";
+tags[2] = "tag-3";
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setTags(tags);
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -905,6 +1002,14 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({tags : "sale,summer"})
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    Tags: "sale,summer",
+})
 ```
 {% endtab %}
 {% endtabs %}
@@ -953,9 +1058,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({"searchQuery": 'format="png"'})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='format="png"'))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -983,9 +1094,9 @@ echo ("List files : " . json_encode($listFiles));
 
 {% tab title="Java" %}
 ```java
-Map<String , String> options=new HashMap<>();
-options.put("searchQuery",'format="png"');
-ResultList resultList=ImageKit.getInstance().getFileList(options);
+GetFileListRequest getFileListRequest = new GetFileListRequest();
+getFileListRequest.setSearchQuery("format='png'");
+ResultList resultList = ImageKit.getInstance().getFileList(getFileListRequest);
 ```
 {% endtab %}
 
@@ -993,6 +1104,14 @@ ResultList resultList=ImageKit.getInstance().getFileList(options);
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 list_files = imagekitio.list_files({search_query: 'format="png"'})
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.Files(ctx, media.FilesParam{
+    SearchQuery: `format="png"`,
+})
 ```
 {% endtab %}
 {% endtabs %}

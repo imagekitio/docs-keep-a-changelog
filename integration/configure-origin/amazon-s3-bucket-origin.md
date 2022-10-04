@@ -2,7 +2,7 @@
 
 You can add your existing Amazon S3 bucket as an origin in ImageKit.io. This allows you to use ImageKit.io real-time image optimization and resizing features on all existing images stored in the bucket.
 
-**Note: **We do not start copying images from your bucket as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
+**Note:** We do not start copying images from your bucket as soon as you add it. Instead, we will fetch the particular image when you request it through ImageKit.io URL-endpoint. [Learn more](../how-it-works.md) to understand how this works. The images accessed from this origin will not appear in your [Media library](../../media-library/overview/).
 
 {% hint style="info" %}
 Amazon S3 buckets in regions launched after 2019-03-20, such as South Africa (Cape Town), Middle East (Bahrain) and Asia Pacific (Hong Kong), must be added to ImageKit as S3 compatible external storages with the endpoint of that region, (e.g. `https://af-south-1.s3.amazonaws.com`). Read more about [how to add S3 compatible external storages to ImageKit](../../integration/configure-origin/s3-compatible-external-storages.md).
@@ -22,7 +22,7 @@ Amazon S3 buckets in regions launched after 2019-03-20, such as South Africa (Ca
 
 {% hint style="warning" %}
 **Read-only permission required**\
-****ImageKit.io needs read-only access to your S3 bucket. You can provide this by using the AWS Identity and Access Management (AIM) policy for your S3 bucket. Ideally, you should create a separate user for this purpose and assign the AIM policy for that particular user and the required buckets only.
+ImageKit.io needs read-only access to your S3 bucket. You can provide this by using the AWS Identity and Access Management (AIM) policy for your S3 bucket. Ideally, you should create a separate user for this purpose and assign the AIM policy for that particular user and the required buckets only.
 {% endhint %}
 
 Note that you need to provide permission for the operation s3::GetObject on the objects in your bucket. The minimal permission policy should look like below:
@@ -57,11 +57,11 @@ When you add your first origin in the dashboard, the origin is by default made a
 Let's look at a few examples to fetch the images:
 
 * **Original image through S3 bucket (old URL)**\
-  ****[https://example.com/rest-of-the-path.jpg](https://example.com/rest-of-the-path.jpg)
+  [https://example.com/rest-of-the-path.jpg](https://example.com/rest-of-the-path.jpg)
 * **The same master image using ImageKit.io URL-endpoint**\
-  ****[https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg)
+  [https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg)
 * **Resized 300x300 image**\
-  ****[https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-300`/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg)
+  [https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-300`/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg)
 
 So when you request `https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg`, ImageKit.io internally access object at path `rest-of-the-path.jpg` in your bucket.
 
@@ -78,7 +78,7 @@ https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg
 If you get a "Not found" error while accessing the image, check out this [troubleshooting guide](../../limits-and-troubleshooting/404-not-found-error-troubleshooting.md).
 
 {% hint style="info" %}
-:man_mage:**Tips: **You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
+:man_mage:**Tips:** You can also use a [custom domain](../../testing-and-infrastructure-setup/using-custom-domain-name.md) like images.example.com.
 {% endhint %}
 
 ## Step 3: Integrate and Go live
@@ -109,13 +109,13 @@ To overcome this, add your S3 bucket as a Web Server origin with the Base URL as
 
 After doing this, your endpoint mapping should contain the S3 bucket (with native integration to S3) followed by the S3 bucket added as a Web Server.
 
-![Native S3 bucket followed by S3 as Web Server origin for special characters in filename](<../../.gitbook/assets/image (26).png>)
+![Native S3 bucket followed by S3 as Web Server origin for special characters in filename](<../../.gitbook/assets/s3-as-web-folder.png>)
 
 ### Include canonical response header
 
 When enabled, the image response contains a Link header with the appropriate URL and rel=canonical. You will have to specify the base URL for the canonical header.
 
-![](../../.gitbook/assets/wp71hwsnlvmmdthvbsj8.png)
+![](../../.gitbook/assets/s3-origin-canonical-header.png)
 
 For example, if you set `https://www.example.com` as the base URL for canonical header, then the image response for URL `https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg` will have a Link header like this:
 

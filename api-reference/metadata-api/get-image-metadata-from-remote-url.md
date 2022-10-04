@@ -131,13 +131,36 @@ curl -X GET "https://api.imagekit.io/v1/metadata?url=https://ik.imagekit.io/demo
 
 {% tab title="Python" %}
 ```python
-imagekit.get_remote_file_url_metadata("remote_file_url")
+get_metadata = imagekit.get_remote_file_url_metadata(remote_file_url="remote_file_url")
+
+print(get_metadata, end="\n\n")
+
+# Raw Response
+print(get_metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(get_metadata.width)
+print(get_metadata.exif.image.x_resolution)
 ```
 {% endtab %}
 
 {% tab title="PHP" %}
 ```php
-$imageKit->getFileMetadataFromRemoteURL("remote_file_url")
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileMetadata = $imageKit->getFileMetadataFromRemoteURL("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
+
+echo("File metadata : " . json_encode($fileMetadata));
 ```
 {% endtab %}
 
@@ -153,6 +176,12 @@ imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key",
 imagekitio.get_remote_file_url_metadata("remote_file_url")
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Metadata.FromUrl(ctx, "remote_file_url")
+```
+{% endtab %}
 {% endtabs %}
 
 ### Get metadata of a transformed image
@@ -166,14 +195,40 @@ curl -X GET "https://api.imagekit.io/v1/metadata?url=https://ik.imagekit.io/demo
 ```
 {% endtab %}
 
+{% tab title="Node.js" %}
+```javascript
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+
+imagekit.getFileMetadata("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg", function(error, result) {
+    if(error) console.log(error);
+    else console.log(result);
+});
+```
+{% endtab %}
+
 {% tab title="Python" %}
 ```python
-imagekit.get_remote_file_url_metadata("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
+get_metadata = imagekit.get_remote_file_url_metadata(remote_file_url="https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
+
+print(get_metadata, end="\n\n")
+
+# Raw Response
+print(get_metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(get_metadata.width)
+print(get_metadata.exif.image.x_resolution)
 ```
 {% endtab %}
 
 {% tab title="PHP" %}
-```python
+```php
 $imageKit->getFileMetadataFromRemoteURL("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
 ```
 {% endtab %}
@@ -188,6 +243,13 @@ ResultMetaData result=ImageKit.getInstance().getRemoteFileMetadata("https://ik.i
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.get_remote_file_url_metadata(remote_file_url: "https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Metadata.FromUrl(ctx, "https://ik.imagekit.io/demo/tr:w-100/default-image.jpg")
+
 ```
 {% endtab %}
 {% endtabs %}
