@@ -36,7 +36,7 @@ https://ik.iamgekit.io/<your_imagekit_id>/tr:h-300,w-300,cm-extract,fo-top/folde
 ImageKit.io currently supports rewriting URLs for the following services:
 
 - [Cloudinary](cloudinary)
-
+- [Imgix](imgix)
 
 ## How to use a URL-rewriter
 
