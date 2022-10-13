@@ -4,7 +4,7 @@ ImageKit can translate transformations written in Imgix's syntax to ImageKit's s
 
 {% hint style="info" %}
 **Beta feature**\
-This feature is currently in beta. Some transformations may not work as expected.
+This feature is currently in beta. As a result, some transformations may work differently than expected.
 {% endhint %}
 
 ## Supported Transformations
@@ -34,4 +34,4 @@ The following Imgix transformations are supported for translation:
 
 
 
-**Note:** The rewriter will silently ignore any transformation that has a valid key, but with an invalid value. For example, `h=100&w=<invalid>&blur=100`  will be translated to `h-100,blur-5.00`. Refer to the table to see what constitutes a valid value for different transforms.
+**Note:** The rewriter will silently ignore any transformation with a valid key but an invalid value. For example, `h=100&w=<invalid>&blur=100`  will be translated to `h-100,blur-5.00`. Refer to the table to see what constitutes a valid value for different transforms.
