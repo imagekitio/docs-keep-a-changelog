@@ -40,7 +40,7 @@ ImageKit.io currently supports rewriting URLs for the following services:
 
 ## How to use a URL-rewriter
 
-A URL-rewriter can be attached to a [URL-endpoint](/integration/url-endpoints) in your account. For instance, If you attach the Cloudinary URL-rewriter to the endpoint with the `cl_rewrite` identifier, ImageKit will accept transformations written in Cloudinary's syntax for all URLs on this endpoint. 
+A URL-rewriter can be attached to a [URL-endpoint](/integration/url-endpoints.md) in your account. For instance, If you attach the Cloudinary URL-rewriter to the endpoint with the `cl_rewrite` identifier, ImageKit will accept transformations written in Cloudinary's syntax for all URLs on this endpoint. 
 
 An example URL that performs two chained transformations might look like this: 
 
