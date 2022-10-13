@@ -117,6 +117,7 @@
 * [Central audit logs](features/central-audit-logs.md)
 * [URL-rewriters](features/url-rewriters/README.md)
   * [Cloudinary](features/url-rewriters/cloudinary.md)
+  * [Imgix](features/url-rewriters/imgix.md)
 * [Session management](features/session-management.md)
 
 ## Best Practices
