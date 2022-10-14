@@ -170,11 +170,6 @@ var imagekit = new ImageKit({
     privateKey : "your_private_api_key",
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
-DeleteFileVersionRequest delRequest = new DeleteFileVersionRequest
-    {
-        fileId = "file_Id",
-        versionId = "version_Id"
-    };
 List<string> ob3 = newList<string>();
 ob3.Add("fileId_1");
 ob3.Add("fileId_2");

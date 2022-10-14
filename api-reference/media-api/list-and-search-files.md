@@ -1071,7 +1071,7 @@ var imagekit = new ImageKit({
 
 GetFileListRequest model = new GetFileListRequest
     { 
-        SearchQuery = "tags = \"tag1,tag2\"",
+       Tags = new string[] { "sale", "summer" }
     };
 ResultList res = imagekit.GetFileListRequest(model);
 ```
