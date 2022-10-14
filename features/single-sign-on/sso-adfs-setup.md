@@ -171,11 +171,11 @@ After logging in to ImageKit for the first time, registered users may use the Im
 
 ![ImageKit SSO login screen](<../../.gitbook/assets/sso-login-screen.png>)
 
-#### Option 2 – Create users directly on ImageKit
+### Option 2 – Create users directly on ImageKit
 
 Alternatively, if you have administrator privileges on your ImageKit account, you may add users directly to ImageKit with their respective AD FS email IDs through the [User management page](https://imagekit.io/dashboard/user-management). After email verification, these users may log in using the SSO login page shown above.
 
-### Disable SSO login on ImageKit
+## Disable SSO login on ImageKit
 
 You can disable SSO login for the users on your ImageKit account by deleting the Metadata XML. 
 
