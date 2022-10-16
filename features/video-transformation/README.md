@@ -33,6 +33,22 @@ These transformation parameters `w-300,h-300` can be added in the URL as path pa
 * Input video upto `300MB` in size is supported for transformations. This limit can be adjusted based on your pricing plan.
 * When you request a new transformation or have turned on video optimization features, if the video is not cached on CDN or our internal caches, ImageKit will transform the video in real-time. However if the video file is being downloaded from your origin takes more than 15 seconds, ImageKit will give a 302 and serve the original content. Within a few seconds, optimized transformations are generated and stored in our caches. From that point onwards, we will serve the actual transformed video.
 
+## Supported codecs for inputs
+
+The following table lists the codecs that ImageKit supports in input for resizing and optimization.
+
+| Container format | Video codec            | Audio codec |
+| ---------------- | ---------------------- | ----------- |
+| mp4              | h264, mpeg4, hevc, av1 | aac, opus   |
+| mov              | mpeg4, h264            | aac         |
+| webm             | vp8, vp9, av1          | opus        |
+| mpeg             | mpeg1video, mpeg2video | mp2         |
+| 3gp              | h263                   | aac         |
+| ogg              | theora                 | vorbis      |
+| ogv              | theora                 | vorbis      |
+| hevc             | hevc                   |             |
+| mts              | mpeg2video             |             |
+
 ## Pricing
 Every new video transformation that has never been done before will contribute toward video processing units using the below definition. Subsequent views of the same video transformation only count towards bandwidth. 
 

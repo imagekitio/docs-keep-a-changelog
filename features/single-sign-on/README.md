@@ -19,6 +19,7 @@ If you have administrator privileges on your ImageKit account, you can set up SS
 - [Set up SSO for ImageKit on Azure](sso-azure-setup.md)
 - [Set up SSO for ImageKit on Okta](sso-okta-setup.md)
 - [Set up SSO for ImageKit on OneLogin](sso-onelogin-setup.md)
+- [Set up SSO for ImageKit on AD FS](sso-adfs-setup.md)
 
 
 ## How does ImageKit use SSO?

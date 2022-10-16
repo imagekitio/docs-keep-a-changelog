@@ -113,10 +113,12 @@
   * [Setup SSO for ImageKit on Azure](features/single-sign-on/sso-azure-setup.md)
   * [Setup SSO for ImageKit on Okta](features/single-sign-on/sso-okta-setup.md)
   * [Setup SSO for ImageKit on OneLogin](features/single-sign-on/sso-onelogin-setup.md)
+  * [Setup SSO for ImageKit on AD FS](features/single-sign-on/sso-adfs-setup.md)
 * [Advanced security settings](features/advanced-security-settings.md)
 * [Central audit logs](features/central-audit-logs.md)
 * [URL-rewriters](features/url-rewriters/README.md)
   * [Cloudinary](features/url-rewriters/cloudinary.md)
+  * [Imgix](features/url-rewriters/imgix.md)
 * [Session management](features/session-management.md)
 
 ## Best Practices
