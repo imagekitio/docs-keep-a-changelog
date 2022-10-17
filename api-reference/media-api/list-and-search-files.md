@@ -337,9 +337,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({"skip": 0, "limit": 10})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(skip=0, limit = 10))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -452,9 +458,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({'searchQuery': 'createdAt >= "7d" AND size > "2mb"'})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='createdAt >= "7d" AND size > "2mb"'))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -563,9 +575,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({'searchQuery': '"customMetadata.category" IN ["clothing", "accessories"]"'})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='"customMetadata.category" IN ["clothing", "accessories"]"'))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -675,9 +693,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({'searchQuery': '"embeddedMetadata.DateTimeOriginal" > "1y"'})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='"embeddedMetadata.DateTimeOriginal" > "1y"'))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -787,9 +811,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({'searchQuery': 'name="file-name.jpg"'})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='name="file-name.jpg"'))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -899,9 +929,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({"path": "products"})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(path="products"))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -1007,9 +1043,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({"tags": ["sale","summer"]})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(tags=["sale","summer"]))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
@@ -1122,9 +1164,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-list_files = imagekit.list_files({"searchQuery": 'format="png"'})
+list_files = imagekit.list_files(options=ListAndSearchFileRequestOptions(search_query='format="png"'))
 
 print("List files-", "\n", list_files)
+
+# Raw Response
+print(list_files.response_metadata.raw)
+
+# print the first file's ID
+print(list_files.list[0].file_id)
 ```
 {% endtab %}
 
