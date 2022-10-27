@@ -222,6 +222,27 @@ resp, err := ik.Media.UpdateFile(ctx, "file_id", media.UpdateFileParam{
 })
 ```
 {% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+FileUpdateRequest updateob = new FileUpdateRequest
+{
+    fileId = "fileId",
+};
+List<string> updatetags = new List<string>
+{
+    "tag1",
+    "tag2"
+};
+updateob.tags = updatetags;
+string updatecustomCoordinates = "10,10,100,100";
+updateob.customCoordinates = updatecustomCoordinates;
+Result updateresp = imagekit.UpdateFileDetail(updateob);
+```
 {% endtabs %}
 
 ### Applying extensions
@@ -386,6 +407,28 @@ resp, err := ik.Uploader.Upload(ctx, base64Image, uploader.UploadParam{
 
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+FileUpdateRequest updateob = new FileUpdateRequest
+    {
+     fileId = "fileId",
+    };
+List<Extension> extModel = new List<Extension>();
+BackGroundImage bck = new BackGroundImage
+    {
+        name = "remove-bg",
+        options = new options() { add_shadow = true, semitransparency = false, bg_color = "green" }
+    };
+extModel.Add(bck);
+updateob.extensions = extModel;
+Result updateresp = imagekit.UpdateFileDetail(updateob);
+```
 {% endtabs %}
 
 #### Response

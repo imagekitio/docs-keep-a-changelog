@@ -131,4 +131,18 @@ resp, err := ik.Media.DeleteFolder(ctx, media.DeleteFolderParam{
 })
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+DeleteFolderRequest deleteFolderRequest = new DeleteFolderRequest
+    {
+        folderPath = "folder/to/delete/",
+    };
+ResultNoContent resultNoContent2 = imagekit.DeleteFolder(deleteFolderRequest);
+```
 {% endtabs %}
