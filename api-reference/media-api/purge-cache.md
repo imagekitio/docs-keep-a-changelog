@@ -166,4 +166,16 @@ resp, err := ik.Media.PurgeCache(ctx, media.PurgeCacheParam{
 })
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultCache resultCache = imagekit.PurgeCache("https://ik.imagekit.io/your_imagekit_id/default-image.jpg");
+```
+{% endtab %}
+
 {% endtabs %}

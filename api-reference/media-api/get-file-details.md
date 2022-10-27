@@ -150,4 +150,16 @@ imagekitio.get_file_deltails(file_id: 'file_id')
 resp, err := ik.Media.FileById(ctx, "file_id")
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+Result res1 = imagekit.GetFileDetail("file_Id");
+```
+{% endtab %}
+
 {% endtabs %}

@@ -214,4 +214,28 @@ resp, err := ik.Media.RemoveAITags(ctx, media.AITagsParam{
 })
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ AITagsRequest removeAITagsRequest = new AITagsRequest
+    {
+        AITags = new List<string>
+        {
+            "tag_1",
+            "tag_2"
+        },
+        fileIds = new List<string>
+        {
+            "fileId_1",
+        },
+};
+ResultTags removeAITags = imagekit.RemoveAITags(removeAITagsRequest);
+```
+{% endtab %}
+
 {% endtabs %}

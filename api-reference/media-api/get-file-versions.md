@@ -169,4 +169,16 @@ resp, err := ik.Media.FileVersions(ctx, media.FileVersionsParam{
 })
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultFileVersions resultFileVersions = imagekit.GetFileVersions("file_Id");
+```
+{% endtab %}
+
 {% endtabs %}

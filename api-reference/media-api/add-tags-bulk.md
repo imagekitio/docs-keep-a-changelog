@@ -212,4 +212,28 @@ resp, err := ik.Media.AddTags(ctx, media.TagsParam{
 })
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+TagsRequest tagsRequest = new TagsRequest
+{
+    tags = new List<string>
+    {
+        "tag1",
+        "tag2"
+    },
+fileIds = new List<string>
+    {
+        "file_id_1","file_id_2"
+    },
+};
+ResultTags resultTags = imagekit.AddTags(tagsRequest);
+```
+{% endtab %}
+
 {% endtabs %}

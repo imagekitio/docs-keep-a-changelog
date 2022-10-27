@@ -153,4 +153,21 @@ resp, err := ik.Media.MoveFolder(ctx, media.MoveFolderParam{
 
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+MoveFolderRequest moveFolderRequest = new MoveFolderRequest
+    {
+        sourceFolderPath = "/folder/to/move",
+        destinationPath = "/folder/to/move/into/"
+    };
+ResultOfFolderActions resultOfFolderActions1 = imagekit.MoveFolder(moveFolderRequest);
+```
+{% endtab %}
+
 {% endtabs %}

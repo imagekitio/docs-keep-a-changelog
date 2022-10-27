@@ -252,6 +252,18 @@ resp, err := ik.Metadata.FromUrl(ctx, "https://ik.imagekit.io/demo/tr:w-100/defa
 
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultMetaData resultMetaData1 = imagekit.GetRemoteFileMetadata("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg");
+```
+{% endtab %}
+
 {% endtabs %}
 
 ### Calculate pHash distance between two images
