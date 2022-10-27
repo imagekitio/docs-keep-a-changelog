@@ -145,4 +145,6 @@ DeleteFolderRequest deleteFolderRequest = new DeleteFolderRequest
     };
 ResultNoContent resultNoContent2 = imagekit.DeleteFolder(deleteFolderRequest);
 ```
+{% endtab %}
+
 {% endtabs %}

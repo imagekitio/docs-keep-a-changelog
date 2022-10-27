@@ -168,4 +168,6 @@ MoveFolderRequest moveFolderRequest = new MoveFolderRequest
     };
 ResultOfFolderActions resultOfFolderActions1 = imagekit.MoveFolder(moveFolderRequest);
 ```
+{% endtab %}
+
 {% endtabs %}

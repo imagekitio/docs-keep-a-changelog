@@ -160,4 +160,6 @@ var imagekit = new ImageKit({
 });
 Result res1 = imagekit.GetFileDetail("file_Id");
 ```
+{% endtab %}
+
 {% endtabs %}

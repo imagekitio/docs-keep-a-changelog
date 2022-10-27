@@ -235,4 +235,6 @@ RenameFileRequest renameFileRequest = new RenameFileRequest
     };
 ResultRenameFile resultRenameFile = imagekit.RenameFile(renameFileRequest);
 ```
+{% endtab %}
+
 {% endtabs %}

@@ -133,4 +133,6 @@ var imagekit = new ImageKit({
 });
 ResultDelete res2 = imagekit.DeleteFile("file_Id");
 ```
+{% endtab %}
+
 {% endtabs %}

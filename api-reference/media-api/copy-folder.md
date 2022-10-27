@@ -188,4 +188,6 @@ CopyFolderRequest cpyFolderRequest = new CopyFolderRequest
 };
 ResultOfFolderActions resultOfFolderActions = imagekit.CopyFolder(cpyFolderRequest);
 ```
+{% endtab %}
+
 {% endtabs %}

@@ -188,4 +188,6 @@ var imagekit = new ImageKit({
 });
 Result result = imagekit.RestoreFileVersion("file_Id", "version_Id");
 ```
+{% endtab %}
+
 {% endtabs %}

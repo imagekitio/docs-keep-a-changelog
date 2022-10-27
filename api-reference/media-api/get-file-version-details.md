@@ -190,4 +190,6 @@ var imagekit = new ImageKit({
 });
 ResultFileVersionDetails resultFileVersionDetails = imagekit.GetFileVersionDetails("file_Id", "version_Id");
 ```
+{% endtab %}
+
 {% endtabs %}

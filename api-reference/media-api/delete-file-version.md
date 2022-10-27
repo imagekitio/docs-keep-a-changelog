@@ -161,4 +161,6 @@ DeleteFileVersionRequest delRequest = new DeleteFileVersionRequest
     };
 ResultNoContent resultNoContent1 = imagekit.DeleteFileVersion(delRequest);
 ```
+{% endtab %}
+
 {% endtabs %}

@@ -262,6 +262,8 @@ var imagekit = new ImageKit({
 });
 ResultMetaData resultMetaData1 = imagekit.GetRemoteFileMetadata("https://ik.imagekit.io/demo/tr:w-100/default-image.jpg");
 ```
+{% endtab %}
+
 {% endtabs %}
 
 ### Calculate pHash distance between two images

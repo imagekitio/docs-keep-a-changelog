@@ -241,11 +241,12 @@ CustomMetaDataFieldCreateRequest requestModelDate = new CustomMetaDataFieldCreat
 CustomMetaDataFieldSchemaObject schemaDate = new CustomMetaDataFieldSchemaObject
 {
     type = "Number",
-    minValue = "1000",
-    maxValue = "3000"
+    minValue = 1000,
+    maxValue = 3000
 };
 requestModelDate.schema = schemaDate;
 ResultCustomMetaDataField resultCustomMetaDataFieldDate = imagekit.CreateCustomMetaDataFields(requestModelDate);
 ```
+{% endtab %}
 
 {% endtabs %}

@@ -144,4 +144,6 @@ var imagekit = new ImageKit({
 var jobId = "job_id";
 ResultBulkJobStatus resultBulkJobStatus = imagekit.GetBulkJobStatus(jobId);
 ```
+{% endtab %}
+
 {% endtabs %}

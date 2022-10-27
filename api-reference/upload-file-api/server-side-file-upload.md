@@ -253,6 +253,8 @@ FileCreateRequest ob = new FileCreateRequest
     };
 Result resp2 = imagekit.Upload(ob);
 ```
+{% endtab %}
+
 {% endtabs %}
 
 ### Uploading base64 encoded file with some tags
@@ -424,6 +426,8 @@ List<string> tags = new List<string>
 ob.tags = tags;
 Result resp = imagekit.Upload(ob2);
 ```
+{% endtab %}
+
 {% endtabs %}
 
 ### Uploading file via URL
@@ -557,6 +561,8 @@ FileCreateRequest request = new FileCreateRequest
     };
 Result resp1 = imagekit.Upload(request);
 ```
+{% endtab %}
+
 {% endtabs %}
 
 ### Setting custom metadata during upload
@@ -718,6 +724,8 @@ FileCreateRequest ob2 = new FileCreateRequest
 ob2.customMetadata = model;
 Result resp = imagekit.Upload(ob2);
 ```
+{% endtab %}
+
 {% endtabs %}
 
 ### Applying extensions while uploading
@@ -923,4 +931,6 @@ ext.Add(autoTags);
 ob2.extensions = ext;
 Result resp = imagekit.Upload(ob2);
 ```
+{% endtab %}
+
 {% endtabs %}

@@ -240,4 +240,6 @@ TagsRequest removeTagsRequest = new TagsRequest
 };
 ResultTags removeTags = imagekit.RemoveTags(removeTagsRequest);
 ```
+{% endtab %}
+
 {% endtabs %}

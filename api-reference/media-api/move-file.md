@@ -164,4 +164,6 @@ MoveFileRequest moveFile = new MoveFileRequest
     };
 ResultNoContent resultNoContentMoveFile = imagekit.MoveFile(moveFile);
 ```
+{% endtab %}
+
 {% endtabs %}

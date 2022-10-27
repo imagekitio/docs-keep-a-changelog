@@ -236,4 +236,6 @@ var imagekit = new ImageKit({
 };
 ResultTags removeAITags = imagekit.RemoveAITags(removeAITagsRequest);
 ```
+{% endtab %}
+
 {% endtabs %}

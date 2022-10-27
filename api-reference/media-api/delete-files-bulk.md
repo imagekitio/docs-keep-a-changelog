@@ -175,4 +175,6 @@ ob3.Add("fileId_1");
 ob3.Add("fileId_2");
 ResultFileDelete resultFileDelete = imagekit.BulkDeleteFiles(ob3);
 ```
+{% endtab %}
+
 {% endtabs %}

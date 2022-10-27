@@ -234,4 +234,6 @@ fileIds = new List<string>
 };
 ResultTags resultTags = imagekit.AddTags(tagsRequest);
 ```
+{% endtab %}
+
 {% endtabs %}

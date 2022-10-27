@@ -176,4 +176,6 @@ var imagekit = new ImageKit({
 });
 ResultCache resultCache = imagekit.PurgeCache("https://ik.imagekit.io/your_imagekit_id/default-image.jpg");
 ```
+{% endtab %}
+
 {% endtabs %}

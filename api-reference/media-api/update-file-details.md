@@ -243,6 +243,8 @@ string updatecustomCoordinates = "10,10,100,100";
 updateob.customCoordinates = updatecustomCoordinates;
 Result updateresp = imagekit.UpdateFileDetail(updateob);
 ```
+{% endtab %}
+
 {% endtabs %}
 
 ### Applying extensions
@@ -429,6 +431,8 @@ extModel.Add(bck);
 updateob.extensions = extModel;
 Result updateresp = imagekit.UpdateFileDetail(updateob);
 ```
+{% endtab %}
+
 {% endtabs %}
 
 #### Response

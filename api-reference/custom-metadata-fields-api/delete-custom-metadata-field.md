@@ -121,4 +121,6 @@ var imagekit = new ImageKit({
 });
 ResultNoContent resultNoContentDel = imagekit.DeleteCustomMetaDataField("field_id");
 ```
+{% endtab %}
+
 {% endtabs %}

@@ -222,6 +222,8 @@ var imagekit = new ImageKit({
 });
 ResultMetaData resultMetaData = imagekit.GetFileMetadata("file_id");
 ```
+{% endtab %}
+
 {% endtabs %}
 
 ### Calculate pHash distance between two images

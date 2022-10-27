@@ -177,4 +177,6 @@ CopyFileRequest cpyRequest = new CopyFileRequest
     };
 ResultNoContent resultNoContent = imagekit.CopyFile(cpyRequest);
 ```
+{% endtab %}
+
 {% endtabs %}
