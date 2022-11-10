@@ -123,6 +123,7 @@
 
 ## Best Practices
 * [Mobile Apps](imagekit-best-practices/mobile-apps.md)
+* [Delivery and Management Checklist](imagekit-best-practices/media-delivery-management-checklist.md)
 
 ## Platform guides
 
