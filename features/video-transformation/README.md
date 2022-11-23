@@ -70,9 +70,9 @@ We define resolutions in terms of total pixel count as the following.
 | Resolution | Description                                                     |
 | ---------- | --------------------------------------------------------------- |
 | SD         | Less than 921,600 total pixels, i.e., less than 1280 x 720.     |
-| HD         | Greater than or equal to 1280 x 720 but less than 3840 x 2160   |
-| 4K         | Greater than or equal to 3840 x 2160 but less than 7680 x 4320  |
-| 8K         | Greater than or equal to 7680 x 4320 but less than 15360 x 8640 |
+| HD         | Greater than or equal to 1280 x 720 but less than 3840 x 2160.  |
+| 4K         | Greater than or equal to 3840 x 2160 but less than 7680 x 4320. |
+| 8K         | Greater than or equal to 7680 x 4320 but less than 15360 x 8640.|
 | 16K        | Greater than or equal to 15360 x 8640.                          |
 
 ## Recommendations
