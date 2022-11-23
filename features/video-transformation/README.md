@@ -65,6 +65,16 @@ Special operations:
 * **Adaptive bitrate streaming** - This operation is equal to processing a 30 seconds SD resolution video. In addition, all generated representations are charged based on requested resolutions.
 * **Get thumbnail** - This operation is equal to processing a 30 seconds SD resolution video.
 
+We define resolutions in terms of total pixel count as the following.
+
+| Resolution | Description                                                     |
+| ---------- | --------------------------------------------------------------- |
+| SD         | Less than 921,600 total pixels, i.e., less than 1280 x 720.     |
+| HD         | Greater than or equal to 1280 x 720 but less than 3840 x 2160   |
+| 4K         | Greater than or equal to 3840 x 2160 but less than 7680 x 4320  |
+| 8K         | Greater than or equal to 7680 x 4320 but less than 15360 x 8640 |
+| 16K        | Greater than or equal to 15360 x 8640.                          |
+
 ## Recommendations
 
 Here are a few recommendations you should follow while using video API in a live environment.

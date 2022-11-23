@@ -432,7 +432,7 @@ You can tranform the output image using following parameters.
 To covert a gif to mp4 video, add `ik-gif-video.mp4` after the gif resource URL.
 
 ```markup
-https://ik.imagekit.io/demo/sample-video.mp4/ik-thumbnail.jpg
+https://ik.imagekit.io/demo/gif-test.gif/ik-gif-video.mp4
 ```
 
 You can transform the final video using any video transformation supported by ImageKit.
