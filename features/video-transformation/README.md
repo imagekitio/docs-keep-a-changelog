@@ -58,6 +58,7 @@ Video processing units used depends on output video duration and resolution:
 * 1 second of HD video output = 2 units
 * 1 second of 4K video output = 4 units
 * 1 second of 8K video output = 8 units
+* 1 second of 16K video output = 16 units
 
 Special operations:
 
