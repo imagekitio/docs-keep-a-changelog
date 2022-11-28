@@ -331,7 +331,7 @@ Usage - `r-<value>`
 **Possible Values** - Any positive integer or `max`.
 
 {% hint style="info" %}
-You can also change the background color of the video from the default white color using the [background parameter](resize-crop-and-other-common-video-transformations.md#background-color-bg).
+You can also change the background color of the video from the default black color using the [background parameter](resize-crop-and-other-common-video-transformations.md#background-color-bg).
 {% endhint %}
 
 {% tabs %}
