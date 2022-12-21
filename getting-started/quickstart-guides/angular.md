@@ -12,7 +12,6 @@ This guide walks you through the following topics: ‌
 
 * [Setting up ImageKit Angular SDK](angular.md#setup-imagekit-angular-sdk)
 * [Rendering images](angular.md#rendering-images)
-* [Setting the ImageKit context for the SDK](angular.md#setting-authentication-context-for-the-sdk)
 * [Applying common image manipulations](angular.md#basic-image-manipulation)
 * [Adding overlays to images](angular.md#adding-overlays-to-images)
 * [Lazy loading images](angular.md#lazy-loading-images-in-angular)
@@ -45,7 +44,6 @@ cd imagekit-angular-app/
 
 Open up the project in your text editor of choice, and navigate to `src/app/`. This is where we will do most of our work.
 
-{% endcode %}
 
 &#x20;Install libraries (if not already):
 
@@ -259,10 +257,8 @@ Let’s now learn how to manipulate images using transformations.
 
 The Angular SDK gives a name to each transformation parameter, e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. If the property does not match any of the available options, it is added as it is. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-angular#list-of-supported-transformations) in Angular SDK on Github.
 
-{% hint style="info" %}
 You can also use `h` and `w` parameter instead of `height` and `width`.\
 See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
-{% endhint %}
 
 ### **Height and width manipulation**
 
