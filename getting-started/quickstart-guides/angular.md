@@ -262,7 +262,7 @@ See the complete list of transformations supported in ImageKit [here](../../feat
 
 ### **Height and width manipulation**
 
-‌To resize an image along with its [height](../../features/image-transformations/resize-crop-and-other-transformations.md#height-h) or [width](../../features/image-transformations/resize-crop-and-other-transformations.md#width-w), we need to pass the `transformation` object as a prop to `IKImage`.
+‌To resize an image along with its [height](../../features/image-transformations/resize-crop-and-other-transformations.md#height-h) or [width](../../features/image-transformations/resize-crop-and-other-transformations.md#width-w), we need to pass the `transformation` object as a prop to `ik-image`.
 
 Let’s resize the default image to 200px height and width:
 
