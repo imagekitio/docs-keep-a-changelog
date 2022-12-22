@@ -568,61 +568,76 @@ To implement this functionality, a backend server is needed to authenticate the 
 
 ### **Setup the backend app**
 
-For this quickstart guide, we will create a sample Node.js server which will provide an authentication endpoint at `http://localhost:3001/auth`.&#x20;
+For this quickstart guide, we will create a sample Node.js server which will provide an authentication endpoint at `http://localhost:3000/auth`.&#x20;
 
-Let's create a file `index.js` inside `server` folder in the project root.
+Let's a new folder `server` and create files `app.js` and `package.json` inside the new folder in the project root.
 
 ```bash
 mkdir server
-touch server/index.js
+touch server/app.js
 ```
 
-Install the basic packages needed to create a dummy server for ImageKit backend authentication:
-
-```jsx
-npm install --save express imagekit
+Package.json should look like:
+```js
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Sample server for file upload using Imagekit SDK",
+  "main": "app.js",
+  "scripts": {
+    "server": "nodemon app"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2",
+    "router": "^1.3.3",
+    "uuid": "^3.3.3"
+  }
+}
 ```
 
-We will use the[ ImageKit Node.js SDK](https://github.com/imagekit-developer/imagekit-nodejs) to implement `http://localhost:3001/auth`.
+Now do `npm install`.
 
-The backend SDK requires your API [public key](../../api-reference/api-introduction/api-keys.md#public-key), [private key](../../api-reference/api-introduction/api-keys.md#private-key), and [URL endpoint](../../integration/url-endpoints.md). You can obtain them from [Developer Options](https://imagekit.io/dashboard/developer/api-keys) and [URL-endpoint](https://imagekit.io/dashboard/url-endpoints) pages respectively.
-
-This is how `server/index.js` file should look now. Replace `<YOUR_IMAGEKIT_URL_ENDPOINT>`, `<YOUR_IMAGEKIT_PUBLIC_KEY>` and `<YOUR_IMAGEKIT_PRIVATE_KEY>` with actual values:
+Next we setup the content for `app.js`.
 
 {% tabs %}
-{% tab title="Node.js" %}
-{% code title="server/index.js" %}
+{% tab title="app.js" %}
+{% code title="server/app.js" %}
 ```javascript
-/* 
-  This is our backend server.
-  Replace YOUR_IMAGEKIT_URL_ENDPOINT, YOUR_IMAGEKIT_PUBLIC_KEY, 
-  and YOUR_IMAGEKIT_PRIVATE_KEY with actual values
-*/
+const dotenv = require('dotenv');
 const express = require('express');
+const router = express.Router();
+var cors = require('cors');
 const app = express();
-const ImageKit = require('imagekit');
+app.use(cors());
 
-const imagekit = new ImageKit({
-  urlEndpoint: '<YOUR_IMAGEKIT_URL_ENDPOINT>',
-  publicKey: '<YOUR_IMAGEKIT_PUBLIC_KEY>',
-  privateKey: '<YOUR_IMAGEKIT_PRIVATE_KEY>'
+dotenv.config();
+
+const uuid = require('uuid');
+const crypto = require("crypto");
+
+const privateKey = process.env.PRIVATE_KEY;
+
+router.get("/auth", function(req, res) {
+    var token = req.query.token || uuid.v4();
+    var expire = req.query.expire || parseInt(Date.now()/1000)+2400;
+    var privateAPIKey = `${privateKey}`;
+    var signature = crypto.createHmac('sha1', privateAPIKey).update(token+expire).digest('hex');
+    res.status(200);
+    res.send({
+        token : token,
+        expire : expire,
+        signature : signature
+    });
 });
 
-// allow cross-origin requests
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", 
-    "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+app.use("/",router);
 
-app.get('/auth', function (req, res) {
-  var result = imagekit.getAuthenticationParameters();
-  res.send(result);
-});
-
-app.listen(3001, function () {
-  console.log('Live at Port 3001');
+app.listen(3000,function(){
+  console.log("Live at Port 3000");
 });
 ```
 {% endcode %}
@@ -637,12 +652,12 @@ Let's run the backend server.
 
 ```
 cd server
-node index.js
+npm run server
 ```
 
-You should see a log saying that the app is _**“Live on port 3001”**_.
+You should see a log saying that the app is _**“Live on port 3000”**_.
 
-If you GET `http://localhost:3001/auth`, you should see a JSON response like this. Actual values will vary.
+If you GET `http://localhost:3000/auth`, you should see a JSON response like this. Actual values will vary.
 
 ```javascript
 {
