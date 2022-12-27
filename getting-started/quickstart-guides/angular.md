@@ -27,8 +27,11 @@ For this tutorial, it is recommended to create a dummy Angular app, as shown bel
 **Create a Angular app:**
 
 We will be using the following:
-- Angular CLI - `@angular/cli: 1.4.10`
-- `node: 12.11.1`
+- Angular 15
+npm uninstall -g @angular/cli
+npm install -g @angular/cli@15
+- `node: 16.13.2`
+
 
 Let's use the `ng new <project name>` CLI utility provided by Angular to build a new project:
 
