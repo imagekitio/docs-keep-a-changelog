@@ -30,6 +30,7 @@ We will be using the following:
 - Angular 15
 npm uninstall -g @angular/cli
 npm install -g @angular/cli@15
+
 - `node: 16.13.2`
 
 
