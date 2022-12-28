@@ -31,7 +31,7 @@ We will be using the following:
 npm uninstall -g @angular/cli
 npm install -g @angular/cli@15
 
-- `node: 16.13.2`
+- `node: v14.21.1`
 
 
 Let's use the `ng new <project name>` CLI utility provided by Angular to build a new project:
