@@ -39,6 +39,8 @@ ImageKit.io allows you to upload a file with the following mime types:
 | swf                | SWF files              |
 | ts                 | Video files            |
 | m3u8               | Video files            |
+| json               | JSON files             |
+| xml                | XML files              |
 
 
 ## Bulk file upload
