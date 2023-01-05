@@ -119,7 +119,7 @@ The video is exactly 400x200 and there is no cropping. Extra padding with [backg
 {% tab title="cm-pad_resize (left)" %}
 You can also control the focus point using [fo parameter](resize-crop-and-other-common-video-transformations.md#focus-fo) to move the actual content to one side using relative positioning.
 
-We added the `fo-left`. Now, all the padding is on the bottom of the video.
+We added the `fo-left`. Now, all the padding is on the right of the video.
 
 ![](<../../.gitbook/assets/image (34).png>)
 {% endtab %}
