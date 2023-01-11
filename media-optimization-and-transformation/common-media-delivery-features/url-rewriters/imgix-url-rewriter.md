@@ -1,0 +1,2 @@
+# Imgix URL Rewriter
+

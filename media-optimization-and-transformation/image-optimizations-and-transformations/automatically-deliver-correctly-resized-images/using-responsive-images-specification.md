@@ -1,0 +1,2 @@
+# Using responsive images specification
+

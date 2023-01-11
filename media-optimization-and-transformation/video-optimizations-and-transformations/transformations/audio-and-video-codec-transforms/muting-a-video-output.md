@@ -1,0 +1,2 @@
+# Muting a video output
+

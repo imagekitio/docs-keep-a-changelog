@@ -1,0 +1,2 @@
+# PNG optimization levels
+
