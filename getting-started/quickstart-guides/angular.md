@@ -112,6 +112,8 @@ These details have to be input in the following file.
 ```
 {% endcode %}
 
+> Note: Do not include your [private key](https://docs.imagekit.io/api-reference/api-introduction/api-keys#private-key) in any client-side code.
+
 **ImageKit Components:**
 
 The SDK includes 3 Components and the ability to access the core component:
@@ -476,6 +478,10 @@ You should always set the height and width of the image element to avoid[ layout
 ```
 {% endcode %}
 
+{% hint style="info" %}
+You should always set the height and width of the image element to avoid[ layout shift](https://www.youtube.com/watch?v=4-d\_SoCHeWE) when lazy-loading images.
+{% endhint %}
+
 {% code title="src/app/app.component.html" %}
 ```js
 <ik-image
@@ -483,6 +489,8 @@ You should always set the height and width of the image element to avoid[ layout
     urlEndpoint="https://ik.imagekit.io/demo/"
     [transformation]="transformation"
     loading="lazy"
+    height="300"
+    width="400"
     >
   </ik-image>
 ```
@@ -761,11 +769,11 @@ import { Transformation } from 'imagekit-javascript/dist/src/interfaces/Transfor
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    validateFileFunction(res: any) {
-    console.log('validating')
-    if(res.size < 1000000){ // Less than 1mb
-      return true;
-    }
+  validateFileFunction(res: any) {
+  console.log('validating')
+  if(res.size < 1000000){ // Less than 1mb
+    return true;
+  }
     return false;
   }
 
@@ -796,7 +804,7 @@ export class AppComponent {
 {% endcode %}
 
 ### **Custom Upload Button**
-We have created a `buttonRef` attribute for `ik-upload`. Using this, the file selector component inside ik-upload will be invisible and you can creaete your own `button`, with your own stylings, and reference it using `#<buttonRefValue>`. 
+The `buttonRef` property for `ik-upload` can be used so that the file selector component inside `ik-upload` will be invisible. This allows you to create your own `button`, with your own stylings, and reference it using `#<buttonRefValue>`. 
 
 Here's an example:
 
