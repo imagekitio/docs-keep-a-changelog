@@ -26,16 +26,9 @@ For this tutorial, it is recommended to create a dummy Angular app, as shown bel
 
 **Create a Angular app:**
 
-We will be using the following:
-- Angular 15
-To install Angular 15, use the following commands.
-```bash
-npm uninstall -g @angular/cli
-npm install -g @angular/cli@15
-```
-
-- Node version `v14.21.1`
-
+We will be using the following in this guide:
+- Node version 14.21.1
+- Angular version 15
 
 Let's use the `ng new <project name>` CLI utility provided by Angular to build a new project:
 
