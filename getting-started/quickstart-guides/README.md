@@ -77,6 +77,10 @@ Follow one of the platform-specific quick start guides to integrate ImageKit in 
 [nextjs.md](nextjs.md)
 {% endcontent-ref %}
 
+{% content-ref url="angular.md" %}
+[angular.md](angular.md)
+{% endcontent-ref %}
+
 {% content-ref url="ios.md" %}
 [ios.md](ios.md)
 {% endcontent-ref %}
