@@ -28,10 +28,13 @@ For this tutorial, it is recommended to create a dummy Angular app, as shown bel
 
 We will be using the following:
 - Angular 15
+To install Angular 15, use the following commands.
+```bash
 npm uninstall -g @angular/cli
 npm install -g @angular/cli@15
+```
 
-- `node: v14.21.1`
+- Node version `v14.21.1`
 
 
 Let's use the `ng new <project name>` CLI utility provided by Angular to build a new project:
@@ -89,28 +92,6 @@ Before the SDK can be used, let's learn about and obtain the requisite initializ
 
 * `urlEndpoint` is a required parameter. This can be obtained from the [URL-endpoint section](https://imagekit.io/dashboard/url-endpoints) or the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
 * `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. These can be obtained from the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
-
-These details have to be input in the following file.
-
-{% code title="src/app/app.module.ts" %}
-```js
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    ImagekitioAngularModule.forRoot({
-      publicKey: environment.publicKey,
-      urlEndpoint: environment.urlEndpoint,
-      authenticationEndpoint: environment.authenticationEndpoint
-    })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-```
-{% endcode %}
 
 > Note: Do not include your [private key](https://docs.imagekit.io/api-reference/api-introduction/api-keys#private-key) in any client-side code.
 
@@ -187,7 +168,7 @@ Your Angular app should now display the default image in its full size:
 
 ![Full sized image (1000px x 1000 px)](<../../.gitbook/assets/angular/angular-sdk-render-image (1).png>)
 
-You can pass styles and other attributes as props. For e.g. lets add 400px width_ _by adding the `transformation.width` prop:
+You can pass styles and other attributes as props. For e.g. lets add 400px width by adding the `transformation.width` prop:
 
 Let's try creating a transformation object in `app.component.ts`.
 
@@ -304,7 +285,7 @@ Refresh your browser to get the resized image.
 
 ### **Quality manipulation**
 
-You can use the [quality parameter](../../features/image-transformations/resize-crop-and-other-transformations.md#quality-q) to change image quality like this**:**
+You can use the [quality parameter](../../features/image-transformations/resize-crop-and-other-transformations.md#quality-q) to change image quality like this:
 
 {% code title="src/app/app.component.ts" %}
 ```jsx
@@ -798,9 +779,6 @@ export class AppComponent {
   }
 }
 ```
-{% endcode %}
-
-{% code title="src/app/app.component.html" %}
 {% endcode %}
 
 ### **Custom Upload Button**
