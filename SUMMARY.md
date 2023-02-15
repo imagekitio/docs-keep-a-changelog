@@ -9,6 +9,7 @@
   * [PHP](getting-started/quickstart-guides/php.md)
   * [React](getting-started/quickstart-guides/react.md)
   * [React Native](getting-started/quickstart-guides/react-native.md)
+  * [Angular](getting-started/quickstart-guides/angular.md)
   * [Ruby](getting-started/quickstart-guides/ruby-guides/README.md)
     * [Plain Ruby](getting-started/quickstart-guides/ruby-guides/ruby_app.md)
     * [Ruby on Rails with active_storage](getting-started/quickstart-guides/ruby-guides/ruby_on_rails_with_activestorage.md)
