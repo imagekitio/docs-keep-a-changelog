@@ -6,7 +6,7 @@ description: >-
 
 # Angular
 
-This is a quick start guide to show you how to integrate ImageKit in a Angular application. The code samples covered here are hosted on GitHub: [https://github.com/imagekit-samples/quickstart/tree/master/angular](https://github.com/imagekit-samples/quickstart/tree/master/angular).
+This is a quick start guide to show you how to integrate ImageKit in an Angular application. The code samples covered here are hosted on GitHub: [https://github.com/imagekit-samples/quickstart/tree/master/angular](https://github.com/imagekit-samples/quickstart/tree/master/angular).
 
 This guide walks you through the following topics: ‌
 
@@ -88,7 +88,7 @@ npm install --save imagekitio-angular
 Before the SDK can be used, let's learn about and obtain the requisite initialization parameters:
 
 * `urlEndpoint` is a required parameter. This can be obtained from the [URL-endpoint section](https://imagekit.io/dashboard/url-endpoints) or the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. These can be obtained from the [Developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
+* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. These can be obtained from the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
 
 These details have to be input in the following file.
 
@@ -125,7 +125,7 @@ The SDK includes 3 Components and the ability to access the core component:
 * [ik-upload](https://github.com/imagekit-developer/imagekit-angular#ik-upload) for client-side file uploading. This renders a `<input type="file">` tag.
 
 Accessing the underlying [ImageKit javascript SDK](https://github.com/imagekit-developer/imagekit-javascript). See 
-[here](https://github.com/imagekit-developer/imagekit-angular#accessing-imagekit-core-component) for more details.
+[here](https://github.com/imagekit-developer/imagekit-angular#accessing-imagekit-core-js-sdk) for more details.
 
 Note: URL endpoints of each component can be overridden explicitly. [See here for more details](https://github.com/imagekit-developer/imagekit-angular#overriding-urlendpoint)
 
