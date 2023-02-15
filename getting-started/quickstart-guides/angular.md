@@ -6,7 +6,7 @@ description: >-
 
 # Angular
 
-This is a quick start guide to show you how to integrate ImageKit in an Angular application. The code samples covered here are hosted on GitHub: [https://github.com/imagekit-samples/quickstart/tree/master/angular](https://github.com/imagekit-samples/quickstart/tree/master/angular).
+This quick start guide shows you how to integrate ImageKit into an Angular application. The code samples covered here are hosted on GitHub: [https://github.com/imagekit-samples/quickstart/tree/master/angular](https://github.com/imagekit-samples/quickstart/tree/master/angular).
 
 This guide walks you through the following topics: ‌
 
@@ -22,9 +22,9 @@ This guide walks you through the following topics: ‌
 
 ## **Setup ImageKit Angular SDK**
 
-For this tutorial, it is recommended to create a dummy Angular app, as shown below.
+For this tutorial, it is recommended to create an Angular dummy app, as shown below.
 
-**Create a Angular app:**
+**Create an Angular app:**
 
 We will be using the following in this guide:
 - Node version 14.21.1
@@ -61,11 +61,11 @@ In your web browser, navigate to `http://localhost:4200/`
 
 You should see the dummy app created by Angular CLI. 
 
-For simplicity, let's remove everything from `src/app/app.component.html` so we can begin work with a clean slate.
+For simplicity, let's remove everything from `src/app/app.component.html` so we can begin with a clean slate.
 
 Let's add one line in `src/app/app.component.html` to title our page :
 
-```js
+```jsx
 <h1>Imagekit Angular Demo</h1>
 ```
 
@@ -108,7 +108,7 @@ Note: URL endpoints of each component can be overridden explicitly. [See here fo
 Let's import the SDK.
 
 {% code title="src/app/app.module.ts" %}
-```js
+```jsx
 import { ImagekitioAngularModule } from 'imagekitio-angular';
 ...
 @NgModule({
@@ -131,7 +131,7 @@ import { ImagekitioAngularModule } from 'imagekitio-angular';
 
 **Loading image from relative path:**
 
-Let's try using the default image that we have. It should be available at the following URL:
+Let's use the default image that we have. It should be available at the following URL:
 
 ```
 https://ik.imagekit.io/demo/default-image.jpg
@@ -139,11 +139,11 @@ https://ik.imagekit.io/demo/default-image.jpg
 
 Let's fetch and display it! For this, we will use the `ik-image` component.
 
-We use the tag `<ik-image>` for rendering images. For now, we will do a simple image rendering with `path` field. For a full list of options, check [here](https://github.com/imagekit-developer/imagekit-angular#ik-image)
+We use the tag `<ik-image>` for rendering images. For now, we will do a simple image rendering with a `path` prop. For a full list of options, check [here](https://github.com/imagekit-developer/imagekit-angular#ik-image)
 
 Let's insert the following into `app.component.html`.
 {% code title="src/app/app.component.html" %}
-```js
+```jsx
 <ik-image 
   urlEndpoint="https://ik.imagekit.io/demo/"
   path="default-image.jpg">
@@ -161,7 +161,7 @@ Your Angular app should now display the default image in its full size:
 
 ![Full sized image (1000px x 1000 px)](<../../.gitbook/assets/angular/angular-sdk-render-image (1).png>)
 
-You can pass styles and other attributes as props. For e.g. lets add 400px width by adding the `transformation.width` prop:
+You can pass styles and other attributes as props. For e.g. let's add 400px width by adding the `transformation.width` prop:
 
 Let's try creating a transformation object in `app.component.ts`.
 
@@ -179,10 +179,10 @@ export class AppComponent {
 ```
 {% endcode %}
 
-And now we can use it in in `app.component.html` as such:
+And now, we can use it in `app.component.html` as such:
 
 {% code title="src/app/app.component.html" %}
-```js
+```jsx
 <ik-image 
   urlEndpoint="https://ik.imagekit.io/demo/"
   path="default-image.jpg"
@@ -205,11 +205,11 @@ There are other transformations available - see the list of [different tranforma
 
 **Loading image from an absolute path:**
 
-If you have an absolute image path coming from the backend API e.g. `https://www.custom-domain.com/default-image.jpg` then you can use `src` prop to load the image.
+If you have an absolute image path coming from the backend API e.g. `https://www.custom-domain.com/default-image.jpg`, then you can use the `src` prop to load the image.
 
 **For example:**
 
-```js
+```jsx
 <ik-image
   src="https://ik.imagekit.io/demo/default-image.jpg"
   >
@@ -231,9 +231,9 @@ Let’s now learn how to manipulate images using transformations.
 * [Crop mode](angular.md#crop-mode)
 * [Chained transformation](angular.md#chained-transformation)
 
-The Angular SDK gives a name to each transformation parameter, e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. If the property does not match any of the available options, it is added as it is. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-angular#list-of-supported-transformations) in Angular SDK on Github.
+The Angular SDK gives a name to each transformation parameter, e.g., `height` for `h` and `width` for the `w` parameter. It makes your code more readable. If the property does not match any of the available options, it is added as it is. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-angular#list-of-supported-transformations) in Angular SDK on GitHub.
 
-You can also use `h` and `w` parameter instead of `height` and `width`.\
+You can also use `h` and `w` parameters instead of `height` and `width`.\
 See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
 
 ### **Height and width manipulation**
@@ -255,7 +255,7 @@ Let’s resize the default image to 200px height and width:
 {% endcode %}
 
 {% code title="src/app/app.component.html" %}
-```js
+```jsx
 <ik-image 
   urlEndpoint="https://ik.imagekit.io/demo/"
   path="default-image.jpg"
@@ -302,7 +302,7 @@ You can use the [quality parameter](../../features/image-transformations/resize-
 
 ### **Crop mode**‌
 
-Let’s now see how [cropping](../../features/image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus) works. We will try the [`extract`](../../features/image-transformations/resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) crop strategy.  In this strategy, instead of resizing the whole image, we extract out a region of the requested dimension from the original image. You can read more about this [here](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#extract-crop-strategy-cm-extract).
+Let’s now see how [cropping](../../features/image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus) works. We will try the [`extract`](../../features/image-transformations/resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) crop strategy.  In this strategy, instead of resizing the whole image, we extract a region of the requested dimension from the original image. You can read more about this [here](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#extract-crop-strategy-cm-extract).
 
 {% code title="src/app/app.component.ts" %}
 ```jsx
@@ -331,6 +331,8 @@ Let’s now see how [cropping](../../features/image-transformations/resize-crop-
 
 Let’s try it out by [resizing](../../features/image-transformations/resize-crop-and-other-transformations.md#basic-image-resizing) an image, then [rotating](../../features/image-transformations/resize-crop-and-other-transformations.md#rotate-rt) it:
 
+First, we will apply resizing transformations:
+
 {% code title="src/app/app.component.ts" %}
 ```jsx
     ...
@@ -354,7 +356,7 @@ Let’s try it out by [resizing](../../features/image-transformations/resize-cro
 Now, rotate the image by 90 degrees.
 
 {% code title="src/app/app.component.ts" %}
-```js
+```jsx
     ...
     transformation: Array<Transformation> = [{
         height: "300", 
@@ -379,7 +381,7 @@ Now, rotate the image by 90 degrees.
 Let’s flip the order of transformation and see what happens.
 
 {% code title="src/app/app.component.ts" %}
-```js
+```jsx
     ...
     transformation: Array<Transformation> = [{
         rt: "90"
@@ -408,7 +410,7 @@ ImageKit.io allows you to add [text](../../features/image-transformations/overla
 For example, a text overlay can be used to superimpose text on an image. Try it like so:
 
 {% code title="src/app/app.component.ts" %}
-```js
+```jsx
     ...
     transformation: Array<Transformation> = [{
         height: "300", 
@@ -432,7 +434,7 @@ For example, a text overlay can be used to superimpose text on an image. Try it 
 
 ## **Lazy-loading images in Angular**
 
-You can lazy load images using the `loading` prop in `ik-image` component. When you use `loading="lazy"`, all images that are immediately viewable without scrolling load normally. Those that are far below the device viewport are only fetched when the user scrolls near them.
+You can lazy load images using the `loading` prop in the `ik-image` component. When you use `loading="lazy"`, all images that are immediately viewable without scrolling load normally. Those that are far below the device viewport are only fetched when the user scrolls near them.
 
 The SDK uses a fixed threshold based on the effective connection type to ensure that images are loaded early enough so that they have finished loading once the user scrolls near to them.
 
@@ -457,7 +459,7 @@ You should always set the height and width of the image element to avoid[ layout
 {% endhint %}
 
 {% code title="src/app/app.component.html" %}
-```js
+```jsx
 <ik-image
     path={{path}}
     urlEndpoint="https://ik.imagekit.io/demo/"
@@ -495,7 +497,7 @@ To improve user experience, you can use a low-quality [blurred](../../features/i
 {% endcode %}
 
 {% code title="src/app/app.component.html" %}
-```js
+```jsx
 <ik-image
     path={{path}}
     urlEndpoint="https://ik.imagekit.io/demo/"
@@ -526,9 +528,9 @@ You have the option to lazy-load the original image only when the user scrolls n
 {% endcode %}
 
 {% code title="src/app/app.component.html" %}
-```js
+```jsx
 // Loading a blurred low quality image placeholder 
-// and lazy-loading original when user scrolls near them
+// and lazy-loading original when the user scrolls near them
 <ik-image
     path={{path}}
     urlEndpoint="https://ik.imagekit.io/demo/"
@@ -544,15 +546,15 @@ You have the option to lazy-load the original image only when the user scrolls n
 
 Let's now learn how to upload an image to our media library.
 
-Angular SDK provides `ik-upload` component which renders an `input type="file"` tag that you can use to upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side.
+Angular SDK provides `ik-upload` component, which renders an `input type="file"` tag that you can use to upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side.
 
 To implement this functionality, a backend server is needed to authenticate the request using your [API private key](../../api-reference/api-introduction/api-keys.md#private-key).
 
 ### **Setup the backend app**
 
-For this quickstart guide, we will create a sample Node.js server which will provide an authentication endpoint at `http://localhost:3000/auth`.
+For this quickstart guide, we will create a sample Node.js server that will provide an authentication endpoint at `http://localhost:3000/auth`.
 
-Let's a new folder `server` and create files `app.js` and `package.json` inside the new folder in the project root.
+Let's a new folder, `server`, and create files `app.js` and `package.json` inside the new folder in the project root.
 
 ```bash
 mkdir server
@@ -560,7 +562,7 @@ touch server/app.js
 ```
 
 Package.json should look like:
-```js
+```jsx
 {
   "name": "server",
   "version": "1.0.0",
@@ -671,7 +673,7 @@ authenticationEndpoint: "<YOUR_AUTH_ENDPOINT e.g http:/localhost:3000/auth>"
 
 For this, we will use the `ik-upload` component as well as a couple of event handlers for upload error and success, `onError` and `onSuccess` respectively. Let's use it in our `app.component.html` file:
 
-```js
+```jsx
 <ik-upload 
     fileName="test.jpg" 
     (onError)="handleUploadError($event)"
@@ -695,7 +697,7 @@ You can verify that file was successfully uploaded by checking the browser conso
 
 The response object would look similar to this (values may vary):
 
-```js
+```jsx
 {
     "fileId": "63a2e985e809dd54b027a563",
     "name": "test_RiCBw0ouh.jpg",
@@ -720,7 +722,7 @@ If you don't see the image, check if there are any errors in the browser console
 
 **Fetching uploaded file**
 
-Fetch uploaded image and show in UI using `ik-image` with the `filePath` returned in the upload response.
+Fetch the uploaded image and show in UI using `ik-image` with the `filePath` returned in the upload response.
 
 ```jsx
 <ik-image path="/test_RiCBw0ouh.png" ></ik-image>
@@ -733,7 +735,7 @@ The app should display your uploaded image correctly!
 A more detailed example of how to use the file upload component (and an explanation of each advanced feature) is presented below:
 
 {% code title="src/app/app.component.ts" %}
-```js
+```jsx
 import { Component } from '@angular/core';
 import { Transformation } from 'imagekit-javascript/dist/src/interfaces/Transformation';
 
@@ -779,7 +781,7 @@ The `buttonRef` property for `ik-upload` can be used so that the file selector c
 
 Here's an example:
 
-```js
+```jsx
 <div>
     <!-- This will be invisible -->
     <ik-upload
@@ -812,7 +814,7 @@ Rendering videos works similarly to rendering images in terms of usage of `urlEn
 
 **Loading video from relative path:**
 {% code title="src/app/app.component.html" %}
-```js
+```jsx
 <ik-video
     urlEndpoint="https://ik.imagekit.io/demo/"
     path="sample-video.mp4"
