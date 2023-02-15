@@ -22,7 +22,7 @@ This guide walks you through the following topics: ‌
 
 ## **Setup ImageKit Angular SDK**
 
-For this tutorial, it is recommended to create a dummy Angular app, as shown below.&#x20;
+For this tutorial, it is recommended to create a dummy Angular app, as shown below.
 
 **Create a Angular app:**
 
@@ -49,13 +49,13 @@ cd imagekit-angular-app/
 Open up the project in your text editor of choice, and navigate to `src/app/`. This is where we will do most of our work.
 
 
-&#x20;Install libraries (if not already):
+Install libraries (if not already):
 
 ```
 npm install
 ```
 
-&#x20;Now run the app:
+Now run the app:
 
 ```
 npm start
@@ -112,10 +112,6 @@ These details have to be input in the following file.
 ```
 {% endcode %}
 
-{% hint style="info" %}
-_**Note:**_ _Do not include your _[_API private key_](../../api-reference/api-introduction/api-keys.md#private-key)_ in any client-side code, including this SDK or its initialization. If you pass the `privateKey` parameter while initializing this SDK, it will throw an error._
-{% endhint %}
-
 **ImageKit Components:**
 
 The SDK includes 3 Components and the ability to access the core component:
@@ -165,7 +161,7 @@ Let's try using the default image that we have. It should be available at the fo
 https://ik.imagekit.io/demo/default-image.jpg
 ```
 
-Let's fetch and display it! For this, we will use the `ik-image` component.&#x20;
+Let's fetch and display it! For this, we will use the `ik-image` component.
 
 We use the tag `<ik-image>` for rendering images. For now, we will do a simple image rendering with `path` field. For a full list of options, check [here](https://github.com/imagekit-developer/imagekit-angular#ik-image)
 
@@ -254,7 +250,7 @@ If you have an absolute image path coming from the backend API e.g. `https://www
 
 Let’s now learn how to manipulate images using transformations.
 
-* [Resizing images](angular.md#height-and-width-manipulation)&#x20;
+* [Resizing images](angular.md#height-and-width-manipulation)
 * [Quality manipulation](angular.md#quality-manipulation)
 * [Crop mode](angular.md#crop-mode)
 * [Chained transformation](angular.md#chained-transformation)
@@ -330,7 +326,7 @@ You can use the [quality parameter](../../features/image-transformations/resize-
 
 ### **Crop mode**‌
 
-Let’s now see how [cropping](../../features/image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus) works. We will try the [`extract`](../../features/image-transformations/resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) crop strategy.  In this strategy, instead of resizing the whole image, we extract out a region of the requested dimension from the original image. You can read more about this [here](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#extract-crop-strategy-cm-extract).&#x20;
+Let’s now see how [cropping](../../features/image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus) works. We will try the [`extract`](../../features/image-transformations/resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) crop strategy.  In this strategy, instead of resizing the whole image, we extract out a region of the requested dimension from the original image. You can read more about this [here](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#extract-crop-strategy-cm-extract).
 
 {% code title="src/app/app.component.ts" %}
 ```jsx
@@ -572,7 +568,7 @@ To implement this functionality, a backend server is needed to authenticate the 
 
 ### **Setup the backend app**
 
-For this quickstart guide, we will create a sample Node.js server which will provide an authentication endpoint at `http://localhost:3000/auth`.&#x20;
+For this quickstart guide, we will create a sample Node.js server which will provide an authentication endpoint at `http://localhost:3000/auth`.
 
 Let's a new folder `server` and create files `app.js` and `package.json` inside the new folder in the project root.
 
@@ -648,6 +644,13 @@ app.listen(3000,function(){
 {% endtab %}
 {% endtabs %}
 
+We would also need a .env file to indicate value for PRIVATE_KEY.
+This can be taken from your imagekit account's setting page where PUBLIC_KEY can also be found.
+Sample .env file should look like this.
+```javascript
+PRIVATE_KEY=<your-private-key>
+```
+
 {% hint style="info" %}
 `authenticationEndpoint` should be implemented in your backend. The SDK makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token`, and `expire`. [Learn how to implement authenticationEndpoint](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload#how-to-implement-authenticationendpoint-endpoint) on your server.
 {% endhint %}
@@ -700,7 +703,7 @@ This is how it looks in the UI:
 
 **Direct file uploading from the browser**
 
-Let’s now upload an image by selecting a file from the file input.&#x20;
+Let’s now upload an image by selecting a file from the file input.
 
 When you choose a file, the file is immediately uploaded. You can pass optional `onSuccess` and `onError` callback functions as props like we have.
 
@@ -793,7 +796,24 @@ export class AppComponent {
 {% endcode %}
 
 ### **Custom Upload Button**
-We have created a `ref` to the `input` used inside the `ik-upload` component called `inputRefTest`. The `ik-upload` component can be given styling via `className` or `style` (`style={{display: 'none'}}`) to hide the default file selector. Then we can use the custom upload button as described above.
+We have created a `buttonRef` attribute for `ik-upload`. Using this, the file selector component inside ik-upload will be invisible and you can creaete your own `button`, with your own stylings, and reference it using `#<buttonRefValue>`. 
+
+Here's an example:
+
+```js
+<div>
+    <!-- This will be invisible -->
+    <ik-upload
+      [buttonRef]="myBtn"
+      >
+    </ik-upload>
+
+    <!-- Your own button! -->
+    <button #myBtn type="Button" class="myOwnClass" style="color:blue">
+      Upload
+    </button>
+</div>
+```
 
 ### **Upload start**
 The `onUploadStart` prop is called when the file upload starts. This can be used for common use cases like showing a spinner, progress bar, etc.
@@ -825,7 +845,7 @@ Rendering videos works similarly to rendering images in terms of usage of `urlEn
 
 ## **What's next**
 
-The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here:&#x20;
+The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here:
 
 * [Image Transformations](https://docs.imagekit.io/features/image-transformations)
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)
