@@ -770,10 +770,10 @@ import { Transformation } from 'imagekit-javascript/dist/src/interfaces/Transfor
 })
 export class AppComponent {
   validateFileFunction(res: any) {
-  console.log('validating')
-  if(res.size < 1000000){ // Less than 1mb
-    return true;
-  }
+    console.log('validating')
+    if(res.size < 1000000){ // Less than 1mb
+      return true;
+    }
     return false;
   }
 
