@@ -800,6 +800,8 @@ Here's an example:
 The `onUploadStart` prop is called when the file upload starts. This can be used for common use cases like showing a spinner, progress bar, etc.
 
 ### **Abort uploads**
+Supported from imagekitio-angular v2.0.1 onwards.
+
 Aborting of uploads can be done by invoking the `abort` method for the component. 
 
 Here's an example written in the `app.component.ts`.
