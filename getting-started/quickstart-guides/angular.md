@@ -799,6 +799,27 @@ Here's an example:
 ### **Upload start**
 The `onUploadStart` prop is called when the file upload starts. This can be used for common use cases like showing a spinner, progress bar, etc.
 
+### **Abort uploads**
+Aborting of uploads can be done by invoking the `abort` method for the component. 
+
+Here's an example written in the `app.component.ts`.
+```js
+onUploadStartFunction(res: any) {
+  console.log('onUploadStart');
+  // Start the upload timer
+  this.startUploadTimer();
+  if(this instanceof IkUploadComponent){
+    // Here we register the upload component's instance
+    this.uploadComponent = this;
+  }
+}
+
+// Suppose we wanna abort the upload when it exceeds certain timeout
+onTimeOut(){
+  this.uploadComponent.abort();
+}
+```
+
 ### **Show progress bar**
 The `onUploadProgress` prop can be passed like above, which will have a [ProgressEvent](https://developer.mozilla.org/en-US/docs/Web/API/ProgressEvent). This can be used to show the percentage of upload progress to the end user.
 
