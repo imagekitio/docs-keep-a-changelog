@@ -38,7 +38,7 @@
   * [Web server](integration/configure-origin/web-server-origin.md)
 * [URL-endpoints](integration/url-endpoints.md)
 
-## ImageKit.io storage <a href="media-library" id="media-library"></a>
+## Digital asset management <a href="media-library" id="media-library"></a>
 
 * [Media Library](media-library/overview/README.md)
   * [Upload files](media-library/overview/upload-files.md)
@@ -54,6 +54,12 @@
   * [Backup media library assets](media-library/overview/backup-media-library-assets.md)
   * [Download media library assets as zip](media-library/overview/download-media-library-assets-as-zip.md)
   * [Asset versioning](media-library/overview/asset-versioning.md)
+  * [Share files and folders](./media-library/overview/share-files-and-folders.md)
+* [Media Collections](./media-collections/README.md)
+  * [Create, rename, delete, search & download media collections as zip](./media-collections/create-rename-delete-search-and-download-as-zip.md)
+  * [Add & remove assets from media collections](./media-collections/add-and-remove-assets-from-media-collections.md)
+  * [Share media collection](./media-collections/share-media-collection.md)
+* [Access control and permissions](./access-control-and-permissions/README.md)
 
 ## Limits and troubleshooting
 
@@ -104,7 +110,8 @@
 * [Progressive JPEGs](features/progressive-jpegs.md)
 * [Non-image file compression](features/non-image-file-compression.md)
 * [Performance monitoring](features/performance-monitoring.md)
-* [User access management](features/user-access-management.md)
+* [User access management](features/user-access-management/README.md)
+  * [User groups](./features/user-access-management/user-groups.md)
 * [Multi factor authentication](features/multi-factor-authentication.md)
 * [Billing alerts](features/billing-alerts.md)
 * [Single sign-on](features/single-sign-on/README.md)

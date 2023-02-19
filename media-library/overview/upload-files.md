@@ -37,6 +37,16 @@ Drag and drop file upload
 **Info:** When uploading images, ImageKit.io appends a random string to the image file name to avoid replacing images with the same file name. You can turn off this setting within the Upload Section of [Image Settings](https://imagekit.io/dashboard#settings) within the dashboard.
 {% endhint %}
 
+## Asset ownership
+
+If a new file is uploaded through the ImageKit's media library, the uploader of the file will be its "owner". Asset ownership governs the access and permission level of the user on an asset. They would have "manage" access to the file. Learn how asset ownership controls access and permission levels [here](../../access-control-and-permissions/README.md#access-and-permission-management).
+
+## Access control and permissions
+
+A restricted media library user cannot upload files at the root of the media library unless they are creating a new version of a file that exists at the root and is shared with at least "contribute" permission with them. Such a user needs at least "contribute" permission on the parent folder of any location to be able to create new folders.
+
+The file would not have any owner if it was not uploaded via the dashboard. Note that when creating new file versions, the owner of the file does not change.
+
 ## Using the Upload API
 
 You can also upload images to ImageKit.io's media library programmatically. Read the Upload API documentation [here](../../api-reference/upload-file-api/).

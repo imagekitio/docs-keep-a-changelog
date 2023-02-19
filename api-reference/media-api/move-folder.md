@@ -42,6 +42,10 @@ Full path to the destination folder where you want to move the source folder int
 
 In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with JSON encoded response containing information about `jobId`. You can use `jobId` to get the status of this job using [bulk job status API](copy-move-folder-status.md). 
 
+### Access control and permissions
+
+Read how access and permissions are affected by this operation [here](../../media-library/overview/copy-and-move-folders.md#move-folder).
+
 ### Examples
 
 Here is the example request to understand the API usage.
