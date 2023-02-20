@@ -88,7 +88,6 @@ The table below summarises the operations that can be performed on media library
 | Create new folder                |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Upload file & new file version   |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Restore file version             |                    | :heavy_check_mark: | :heavy_check_mark: |
-| Rename file                      |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Update custom metadata           |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Edit tags                        |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Add auto tags (extension)        |                    | :heavy_check_mark: | :heavy_check_mark: |
@@ -98,6 +97,7 @@ The table below summarises the operations that can be performed on media library
 | Edit custom focus area           |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Copy asset                       |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Add asset to media collections   |                    | :heavy_check_mark: | :heavy_check_mark: |
+| Rename file                      |                    |                    | :heavy_check_mark: |
 | Move asset                       |                    |                    | :heavy_check_mark: |
 | Delete file version              |                    |                    | :heavy_check_mark: |
 | Delete asset                     |                    |                    | :heavy_check_mark: |
@@ -121,7 +121,7 @@ The table below summarises the operations that can be performed on media collect
 | View file & file version details    |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Download media collections as zip   |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Add assets to media collection      |                    |                    | :heavy_check_mark: | :heavy_check_mark: |
-| Rename media collection             |                    |                    | :heavy_check_mark: | :heavy_check_mark: |
+| Rename media collection             |                    |                    |                    | :heavy_check_mark: |
 | Remove assets from media collection |                    |                    |                    | :heavy_check_mark: |
 | Delete media collection             |                    |                    |                    | :heavy_check_mark: |
 | Share media collection              |                    |                    |                    | :heavy_check_mark: |
