@@ -32,3 +32,5 @@ The folder will not have any ownership info if it is not created via the dashboa
 ### Access control and permissions
 
 A restricted media library user cannot create folders at the root of the media library. Furthermore, such a user needs at least "contribute" permission on the parent folder of any location to be able to create new folders.
+
+You can share a folder with a restricted user by providing "Can contribute" or "Can manage" access to it; this will allow them to start uploading their own assets and creating folders inside it.
