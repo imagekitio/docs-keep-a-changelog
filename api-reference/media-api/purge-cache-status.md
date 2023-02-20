@@ -76,9 +76,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-purge_cache_status = imagekit.get_purge_cache_status("request_id")
+purge_cache_status = imagekit.get_purge_cache_status(purge_cache_id="request_id")
 
 print("Cache status-", purge_cache_status)
+
+# Raw Response
+print(purge_cache_status.response_metadata.raw)
+
+# print the purge file cache status
+print(purge_cache_status.status)
 ```
 {% endtab %}
 
@@ -117,5 +123,15 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 purge_cache_status = imagekitio.purge_file_cache_status(request_id: "request_id")
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultCacheStatus resultCacheStatus = imagekit.PurgeStatus("request_Id");
+```
 
 {% endtabs %}

@@ -9,7 +9,7 @@ Both methods use the same endpoint, but there is a slight change in the request 
 
 {% hint style="info" %}
 **File size limit**\
-The maximum upload file size is limited to 25MB.
+The maximum upload file size is limited to 25MB on the free plan. On paid plan, this limit is 300MB for video files.
 {% endhint %}
 
 ## Allowed file types for uploading
@@ -39,6 +39,8 @@ ImageKit.io allows you to upload a file with the following mime types:
 | swf                | SWF files              |
 | ts                 | Video files            |
 | m3u8               | Video files            |
+| json               | JSON files             |
+| xml                | XML files              |
 
 
 ## Bulk file upload

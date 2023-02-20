@@ -119,7 +119,7 @@ The video is exactly 400x200 and there is no cropping. Extra padding with [backg
 {% tab title="cm-pad_resize (left)" %}
 You can also control the focus point using [fo parameter](resize-crop-and-other-common-video-transformations.md#focus-fo) to move the actual content to one side using relative positioning.
 
-We added the `fo-left`. Now, all the padding is on the bottom of the video.
+We added the `fo-left`. Now, all the padding is on the right of the video.
 
 ![](<../../.gitbook/assets/image (34).png>)
 {% endtab %}
@@ -331,7 +331,7 @@ Usage - `r-<value>`
 **Possible Values** - Any positive integer or `max`.
 
 {% hint style="info" %}
-You can also change the background color of the video from the default white color using the [background parameter](resize-crop-and-other-common-video-transformations.md#background-color-bg).
+You can also change the background color of the video from the default black color using the [background parameter](resize-crop-and-other-common-video-transformations.md#background-color-bg).
 {% endhint %}
 
 {% tabs %}
@@ -432,7 +432,7 @@ You can tranform the output image using following parameters.
 To covert a gif to mp4 video, add `ik-gif-video.mp4` after the gif resource URL.
 
 ```markup
-https://ik.imagekit.io/demo/sample-video.mp4/ik-thumbnail.jpg
+https://ik.imagekit.io/demo/gif-test.gif/ik-gif-video.mp4
 ```
 
 You can transform the final video using any video transformation supported by ImageKit.

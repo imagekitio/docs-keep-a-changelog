@@ -94,7 +94,7 @@ When choosing among different strategies for cropping, think in terms of your we
 {% endhint %}
 
 * If you want to preserve the whole image content (no cropping) and need the exact same dimensions (height and width) in the output image as requested, choose either of the [pad resize crop](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad\_resize) or [forced crop strategy](resize-crop-and-other-transformations.md#forced-crop-strategy-c-force).
-* If you want to preserve the whole image content (no cropping), but it is okay if one or both the dimensions (height or width) in the output image are adjusted to preserve the aspect ratio. Then choose either of the [max-size cropping](resize-crop-and-other-transformations.md#max-size-cropping-strategy-c-at\_max) or [min-size cropping strategy](resize-crop-and-other-transformations.md#min-size-cropping-strategy-c-at\_least).
+* If you want to preserve the whole image content (no cropping), but it is okay if one or both the dimensions (height or width) in the output image are adjusted to preserve the aspect ratio. Then choose either of the [max-size cropping](resize-crop-and-other-transformations.md#max-size-cropping-strategy-c-at\_max) or [min-size cropping strategy](resize-crop-and-other-transformations.md#min-size-cropping-strategy-c-at\_least). You can also use [max-size-enlarge cropping strategy](resize-crop-and-other-transformations.md#max-size-enlarge-cropping-strategy-c-at\_max\_enlarge) if you want to allow enlarging of image in case requested dimensions are more than original image dimension.
 * If you need the exact same dimensions (height and width) in the output image as requested but it's okay to crop the image to preserve the aspect ratio (or extract a region from the original image). Then choose either of the [maintain ratio crop](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain\_ratio) or [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) or [pad extract crop strategy](resize-crop-and-other-transformations.md#pad-extract-crop-strategy-cm-pad\_extract). You can combine the extract crop strategy with different [focus values](resize-crop-and-other-transformations.md#focus-fo) to get the desired result.
 
 ### Pad resize crop strategy - (cm-pad\_resize)
@@ -167,6 +167,8 @@ In the max-size crop strategy, whole image content is preserved (no cropping), t
 
 The output image is less than or equal to the dimensions specified in the URL,i.e., at least one dimension will exactly match the output dimension requested, and the other dimension will be equal to or smaller than the corresponding output dimension requested.
 
+If the requested dimension is more than the original dimension of the image, then the original image is returned without cropping. For enlarging image more than original dimensions check [max-size-enlarge cropping strategy](resize-crop-and-other-transformations.md#max-size-enlarge-cropping-strategy-c-at\_max_enlarge).
+
 {% tabs %}
 {% tab title="Original" %}
 URL - [https://ik.imagekit.io/demo/img/plant.jpeg](https://ik.imagekit.io/demo/img/plant.jpeg)
@@ -182,6 +184,29 @@ URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at\_max](http
 The entire image content and the aspect ratio is preserved. The output image dimensions are 148x200. So the height is exactly what is requested, but the width is smaller than what was requested.&#x20;
 
 This mode is particularly useful if you have a container and you want to ensure that the image will never be larger than that container.
+{% endtab %}
+{% endtabs %}
+
+### Max-size-enlarge cropping strategy - (c-at\_max_enlarge)
+
+This strategy is similar to the [max-size cropping strategy](resize-crop-and-other-transformations.md#max-size-cropping-strategy-c-at\_max) with the addition that it also allows image to enlarge more than its original dimensions.
+
+The output image is less than or equal to the dimensions specified in the URL,i.e., at least one dimension will exactly match the output dimension requested, and the other dimension will be equal to or smaller than the corresponding output dimension requested.
+
+{% tabs %}
+{% tab title="Original" %}
+URL - [https://ik.imagekit.io/demo/img/plant.jpeg](https://ik.imagekit.io/demo/img/plant.jpeg)
+
+![Original 640x865 image](https://ik.imagekit.io/demo/img/plant.jpeg)
+{% endtab %}
+
+{% tab title="c-at_max_enlarge" %}
+URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-850,h-1000,c-at\_max\_enlarge](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-850,h-1000,c-at\_max\_enlarge)
+
+![740x1000 image](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-850,h-1000,c-at\_max\_enlarge)
+
+The entire image content and the aspect ratio is preserved. The output image dimensions are 740x1000. So the height is exactly what is requested, but the width is smaller than what was requested.&#x20;
+
 {% endtab %}
 {% endtabs %}
 

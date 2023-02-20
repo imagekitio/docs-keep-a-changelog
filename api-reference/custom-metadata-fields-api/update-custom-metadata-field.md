@@ -100,6 +100,36 @@ imagekit.updateCustomMetadataField(
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+update_custom_metadata_fields = imagekit.update_custom_metadata_fields(field_id="id", 
+                                                 options=UpdateCustomMetadataFieldsRequestOptions(label="test-update",
+                                                  schema=CustomMetadataFieldsSchema(
+                                                      min_value=100,
+                                                      max_value=200))
+)
+
+print("Update custom metadata field-", update_custom_metadata_fields, end="\n\n")
+
+# Raw Response
+print(update_custom_metadata_fields.response_metadata.raw)
+
+# print the label of updated custom metadata fields
+print(update_custom_metadata_fields.label)
+
+# print the schema's min value of updated custom metadata fields
+print(update_custom_metadata_fields.schema.min_value)
+```
+{% endtab %}
+
 {% tab title="PHP" %}
 ```php
 use ImageKit\ImageKit;
@@ -167,6 +197,27 @@ resp, err := ik.Metadata.UpdateCustomField(ctx, "field_id", UpdateCustomFieldPar
         MaxValue: 2500,
     },
 })
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+CustomMetaDataFieldUpdateRequest requestUpdateModel = new CustomMetaDataFieldUpdateRequest
+{
+    Id = "field_Id",
+};
+CustomMetaDataFieldSchemaObject updateschema = new CustomMetaDataFieldSchemaObject
+{
+    minValue = 500,
+    maxValue = 2500
+};
+requestUpdateModel.schema = updateschema;
+ResultCustomMetaDataField resultCustomMetaDataFieldUpdate = imagekit.UpdateCustomMetaDataFields(requestUpdateModel);
 ```
 {% endtab %}
 

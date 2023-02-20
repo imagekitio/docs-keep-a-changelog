@@ -31,7 +31,27 @@ These transformation parameters `w-300,h-300` can be added in the URL as path pa
 ## Limitations
 
 * Input video upto `300MB` in size is supported for transformations. This limit can be adjusted based on your pricing plan.
-* When you request a new transformation or have turned on video optimization features, if the video is not cached on CDN or our internal caches, ImageKit will transform the video in real-time. However if the video file is being downloaded from your origin takes more than 15 seconds, ImageKit will give a 302 and serve the original content. Within a few seconds, optimized transformations are generated and stored in our caches. From that point onwards, we will serve the actual transformed video.
+* Video transformation happens asynchronously. ImageKit internally polls at a fixed interval of 5 seconds up to 3 times by default, i.e., 15 seconds. If the asset is not prepared by this time, ImageKit gives a 302 and serves the original video. You can change the polling attempt count setting from the dashboard to change this behavior.
+
+![Video polling attemts](../../.gitbook/assets/video-polling-settings.png)
+
+Within a few seconds, optimized transformations are generated and stored in our caches. From that point onwards, we will serve the actual transformed video.
+
+## Supported codecs for inputs
+
+The following table lists the codecs that ImageKit supports in input for resizing and optimization.
+
+| Container format | Video codec            | Audio codec |
+| ---------------- | ---------------------- | ----------- |
+| mp4              | h264, mpeg4, hevc, av1 | aac, opus   |
+| mov              | mpeg4, h264            | aac         |
+| webm             | vp8, vp9, av1          | opus        |
+| mpeg             | mpeg1video, mpeg2video | mp2         |
+| 3gp              | h263                   | aac         |
+| ogg              | theora                 | vorbis      |
+| ogv              | theora                 | vorbis      |
+| hevc             | hevc                   |             |
+| mts              | mpeg2video             |             |
 
 ## Pricing
 Every new video transformation that has never been done before will contribute toward video processing units using the below definition. Subsequent views of the same video transformation only count towards bandwidth. 
@@ -42,12 +62,23 @@ Video processing units used depends on output video duration and resolution:
 * 1 second of HD video output = 2 units
 * 1 second of 4K video output = 4 units
 * 1 second of 8K video output = 8 units
+* 1 second of 16K video output = 16 units
 
 Special operations:
 
 * **Audio extraction** - Using [`vc-none`](./resize-crop-and-other-common-video-transformations.md#video-codec-vc) transformation results in audio output. This operation is equal to processing the input video in SD output resolution for the duration of the output audio.
 * **Adaptive bitrate streaming** - This operation is equal to processing a 30 seconds SD resolution video. In addition, all generated representations are charged based on requested resolutions.
 * **Get thumbnail** - This operation is equal to processing a 30 seconds SD resolution video.
+
+We define resolutions in terms of total pixel count as the following.
+
+| Resolution | Description                                                     |
+| ---------- | --------------------------------------------------------------- |
+| SD         | Less than 921,600 total pixels, i.e., less than 1280 x 720.     |
+| HD         | Greater than or equal to 1280 x 720 but less than 3840 x 2160.  |
+| 4K         | Greater than or equal to 3840 x 2160 but less than 7680 x 4320. |
+| 8K         | Greater than or equal to 7680 x 4320 but less than 15360 x 8640.|
+| 16K        | Greater than or equal to 15360 x 8640.                          |
 
 ## Recommendations
 

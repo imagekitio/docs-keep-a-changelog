@@ -4,7 +4,7 @@ You can upload files to the ImageKit.io media library from your server-side usin
 
 {% hint style="info" %}
 **File size limit**\
-The maximum upload file size is limited to 25MB.
+The maximum upload file size is limited to 25MB on the free plan. On paid plan, this limit is 300MB for video files.
 
 **Version limit**\
 A file can have a maximum of 100 versions.
@@ -21,7 +21,7 @@ A file can have a maximum of 100 versions.
 | Parameter                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <p><strong>file</strong><br>required<br></p>                   | <p>This field accepts three kinds of values:<br><br>- <code>binary</code> - You can send the content of the file as binary. This is used when a file is being uploaded from the browser.<br>- <code>base64</code> - Base64 encoded string of file content.<br>- <code>url</code> - URL of the file from where to download the content before uploading. For example - <code>https://www.example.com/rest-of-the-image-path.jpg</code>.</p><p><br><strong>Note:</strong> When passing a URL in the file parameter, please ensure that our servers can access the URL. In case ImageKit is unable to download the file from the specified URL, a <code>400</code> error response is returned. In addition to this, the file download request is aborted if response headers are not received in 8 seconds. This will also result in a <code>400</code> error.</p> |
-| <p><strong>fileName</strong><br>required</p>                   | <p>The name with which the file has to be uploaded.</p><p><br>The file name can contain:<br><br>- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code> (including unicode letters, marks, and numerals in other languages)</p><p>- Special Characters: <code>.</code> <em>and <code>-</code></em></p><p><em>Any other character including space will be replaced by </em>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| <p><strong>fileName</strong><br>required</p>                   | <p>The name with which the file has to be uploaded.</p><p><br>The file name can contain:<br><br>- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code> (including unicode letters, marks, and numerals in other languages)</p><p>- Special Characters: <code>.</code> <em>and <code>-</code></em></p><p>Any other character including space will be replaced by <code>_</code></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | <p><strong>useUniqueFileName</strong><br>optional</p>          | <p>Whether to use a unique filename for this file or not.<br><br>- Accepts <code>true</code> or <code>false</code>.<br>- If set <code>true</code>, ImageKit.io will add a unique suffix to the filename parameter to get a unique filename.<br>- If set <code>false</code>, then the image is uploaded with the provided filename parameter, and any existing file with the same name is replaced.<br><br><strong>Default value</strong> - <code>true</code></p>                                                                                                                                                                                                                                                                                                                                                                                                |
 | <p><strong>tags</strong><br>optional<br></p>                   | <p>Set the tags while uploading the file.<br><br>- Comma-separated value of tags in the format <code>tag1,tag2,tag3</code>. For example - <code>t-shirt,round-neck,men</code><br>- The maximum length of all characters should not exceed 500.<br>- <code>%</code> is not allowed.<br>- If this field is not specified and the file is overwritten then the tags will be removed.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | <p><strong>folder</strong><br>optional<br></p>                 | <p>The folder path (e.g. <code>/images/folder/</code>) in which the image has to be uploaded. If the folder(s) didn't exist before, a new folder(s) is created.<br><br>The folder name can contain:<br><br>- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code> (including unicode letters, marks, and numerals in other languages)</p><p>- Special Characters: <code>/</code> <code>_</code> and <code>-</code><br>- Using multiple <code>/</code> creates a nested folder.<br><br><strong>Default value</strong> - /</p>                                                                                                                                                                                                                                                                                                         |
@@ -169,12 +169,18 @@ imagekit = ImageKit(
 upload = imagekit.upload(
     file=open("image.jpg", "rb"),
     file_name="my_file_name.jpg",
-    options={
-        "tags": ["tag1", "tag2"]
-    },
+    options=UploadFileRequestOptions(
+        tags = ["tag1", "tag2"]
+    )
 )
 
 print("Upload binary", upload)
+
+# Raw Response
+print(upload.response_metadata.raw)
+
+# print that uploaded file's ID
+print(upload.file_id)
 ```
 {% endtab %}
 
@@ -231,6 +237,24 @@ const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAAL
 resp, err := ik.Upload.Upload(ctx, base64Image, uploader.UploadParam{})
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+byte[] bytes = File.ReadAllBytes("/path/to/file.jpg");
+FileCreateRequest ob = new FileCreateRequest
+    {
+        file = bytes,
+        fileName = "file_name1.jpg" 
+    };
+Result resp2 = imagekit.Upload(ob);
+```
+{% endtab %}
+
 {% endtabs %}
 
 ### Uploading base64 encoded file with some tags
@@ -289,12 +313,29 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file=imgstr,
     file_name="my_file_name.jpg",
-    options={
-        "tags": ["tag1", "tag2"]
-    },
+    options=UploadFileRequestOptions(
+            response_fields = ["is_private_file", "custom_metadata", "tags"],
+            is_private_file = False,
+            tags = ["tag1", "tag2"],
+            webhook_url = "url",
+            overwrite_file = False,
+            overwrite_ai_tags = False,
+            overwrite_tags = False,
+            overwrite_custom_metadata = True,
+            custom_metadata = {"test": 11})
+    ),
 )
 
 print("Upload base64", upload)
+
+# Raw Response
+print(upload.response_metadata.raw)
+
+# print that uploaded file's ID
+print(upload.file_id)
+
+# print that uploaded file's version ID
+print(upload.version_info.id)
 ```
 {% endtab %}
 
@@ -363,6 +404,30 @@ resp, err := ik.Upload.Upload(ctx, base64Image, uploader.UploadParam{
 
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+var base64ImageRepresentation = "iVBORw0KGgoAAAAN";
+FileCreateRequest ob2 = new FileCreateRequest
+    {
+        file = base64ImageRepresentation,
+        fileName = Guid.NewGuid().ToString(),
+    };
+List<string> tags = new List<string>
+    {
+        "tags1",
+        "tags2"               
+    };
+ob.tags = tags;
+Result resp = imagekit.Upload(ob2);
+```
+{% endtab %}
+
 {% endtabs %}
 
 ### Uploading file via URL
@@ -417,10 +482,16 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file="https://imagekit.io/image.jpg",
     file_name="my_file_name.jpg",
-    options={},
+    options=UploadFileRequestOptions(),
 )
 
 print("Upload url", upload)
+
+# Raw Response
+print(upload.response_metadata.raw)
+
+# print that uploaded file's ID
+print(upload.file_id)
 ```
 {% endtab %}
 
@@ -475,6 +546,23 @@ resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
 })
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+FileCreateRequest request = new FileCreateRequest
+    {
+       file = "image_url",
+       fileName = "file_name.jpg"
+    };
+Result resp1 = imagekit.Upload(request);
+```
+{% endtab %}
+
 {% endtabs %}
 
 ### Setting custom metadata during upload
@@ -534,12 +622,18 @@ with open("image.jpg", mode="rb") as img:
 upload = imagekit.upload(
     file="https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
     file_name="women_in_red.jpg",
-    options={
-        "customMetadata" : '{"brand":"Nike", "color":"red"}'
-    },
+    options=UploadFileRequestOptions(
+        custom_metadata = {"brand":"Nike", "color":"red"}
+    ),
 )
 
 print("Upload url", upload)
+
+# Raw Response
+print(upload.response_metadata.raw)
+
+# print that uploaded file's ID
+print(upload.file_id)
 ```
 {% endtab %}
 
@@ -608,6 +702,30 @@ resp, err := ik.Upload.Upload(ctx, url, uploader.UploadParam{
 })
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+var base64ImageRepresentation = "iVBORw0KGgoAAAAN";
+FileCreateRequest ob2 = new FileCreateRequest
+    {
+        file = base64ImageRepresentation,
+        fileName = Guid.NewGuid().ToString()
+    };
+ Hashtable model = new Hashtable
+    {
+        { "brand", "Nike" },
+        { "color", "red" }
+    };
+ob2.customMetadata = model;
+Result resp = imagekit.Upload(ob2);
+```
+{% endtab %}
+
 {% endtabs %}
 
 ### Applying extensions while uploading
@@ -658,6 +776,41 @@ fs.readFile('image.jpg', function(err, data) {
     else console.log(result);
   });
 });
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import base64
+import os
+import sys
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your public_key',
+    private_key='your private_key',
+    url_endpoint = 'your url_endpoint'
+)
+
+with open("image.jpg", mode="rb") as img:
+    imgstr = base64.b64encode(img.read())
+
+upload = imagekit.upload(
+    file="https://ik.imagekit.io/ikmedia/red_dress_woman.jpeg",
+    file_name="women_in_red.jpg",
+    options=UploadFileRequestOptions(
+        extensions = [{"name": "remove-bg", "options": {"add_shadow": True, "bg_color": "pink"}},
+                {"name": "google-auto-tagging", "minConfidence": 80, "maxTags": 10}]
+    ),
+)
+
+print("Upload url", upload)
+
+# Raw Response
+print(upload.response_metadata.raw)
+
+# print that uploaded file's ID
+print(upload.file_id)
 ```
 {% endtab %}
 
@@ -744,4 +897,40 @@ resp, err := ik.Uploader.Upload(ctx, base64Image, uploader.UploadParam{
 
 ```
 {% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+var base64ImageRepresentation = "iVBORw0KGgoAAAAN";
+FileCreateRequest ob2 = new FileCreateRequest
+    {
+        file = base64ImageRepresentation,
+        fileName = Guid.NewGuid().ToString()
+    };
+List<Extension> ext = new List<Extension>();
+BackGroundImage bck1 = new BackGroundImage
+    {
+        name = "remove-bg",
+        options = new options()
+        { 
+            add_shadow = true, semitransparency = false, bg_image_url = "http://www.google.com/images/logos/ps_logo2.png" 
+        }
+    };
+AutoTags autoTags = new AutoTags
+    {
+        name = "google-auto-tagging",
+        maxTags = 5,
+        minConfidence = 95  
+    };
+ext.Add(bck1);
+ext.Add(autoTags);
+ob2.extensions = ext;
+Result resp = imagekit.Upload(ob2);
+```
+{% endtab %}
+
 {% endtabs %}
