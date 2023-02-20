@@ -4,7 +4,7 @@ You can create, rename, delete, search, and download media collections as zip fi
 
 ## Create new media collection
 
-Navigate into the media collections page by clicking on "Media collections" in the menu bar. Once you are here, click on the "New" button in the top right corner. This would open a popup in which you can enter the name of the media collection and click on "Submit." A new media collection will be created. A media collection's name should be unique and can consist of alphanumeric characters, underscores, and hyphens.
+Navigate into the media collections page by clicking on "Media collections" in the menu bar. Once you are here, click on the "New" button in the top right corner. This would open a popup in which you can enter the name of the media collection and click on "Submit." A new media collection will be created. A media collection's name should be unique across the organization account and can consist of alphanumeric characters, underscores, and hyphens.
 
 Any restricted media library user can create a new media collection.
 

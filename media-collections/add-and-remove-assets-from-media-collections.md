@@ -6,7 +6,7 @@ Learn more about permissions for these operations for restricted users [here](..
 
 ## Add assets to media collections
 
-In the ImageKit media library, select and right-click the files and folders you want to add to media collections and click on the "Add to media collections" option. You can only add assets if you have at least "contribute" permission to a media collection. A popup window would appear, allowing you to search for and select the media collections to which you wanted to add the assets. Only the media collections you can "manage" will appear in the list. After selecting the media collections, click on "Submit." 
+In the ImageKit media library, select and right-click the files and folders you want to add to media collections and click on the "Add to media collections" option. You can only add assets if you have at least "contribute" permission to a media collection. A popup window would appear, allowing you to search for and select the media collections to which you wanted to add the assets. Only the media collections you can "contribute" to will appear in the list. After selecting the media collections, click on "Submit." 
 
 You can also create a new media collection through the option given in this popup.
 
@@ -16,7 +16,7 @@ Note that you can't upload files or folders to a media collection. You have to u
 
 {% hint style="info" %}
 **Limit**
-You can only add 100 assets to 100 media collections at once.
+You can only add 100 assets to 100 media collections at a time.
 {% endhint %}
 
 ## Remove asset from media collections
@@ -33,6 +33,6 @@ The access and permission levels of a folder cascade to its subfolders and files
 
 {% hint style="info" %}
 **Limit**
-* You can only remove 100 assets from a media collection at once.
-* You can only remove an asset from 100 media collections at once.
+* You can only remove 100 assets from a media collection at a time.
+* You can only remove an asset from 100 media collections at a time.
 {% endhint %}
