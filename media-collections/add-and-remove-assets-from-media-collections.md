@@ -2,7 +2,7 @@
 
 You can simply add or remove files and folders from media collections. Adding an asset to a media collection places it in a virtual group without redundancy while keeping the actual asset unaffected by any change in location or URL. Removing the asset simply removes the above association with the asset. Using this workflow makes it easy for an administrator to manage and share resources with users.
 
-Learn more about permissions for these operations for restricted users [here](../access-control-and-permissions/README.md#permissions).
+Learn more about permissions for these operations for restricted users [here](../collaboration-and-sharing/README.md#permissions).
 
 ## Add assets to media collections
 
@@ -19,7 +19,7 @@ Note that you can't upload files or folders to a media collection. You have to u
 You can only add 100 assets to 100 media collections at a time.
 {% endhint %}
 
-## Remove asset from media collections
+## Remove assets from media collections
 
 A restricted user only needs to have "manage" permission on a media collection to be able to remove assets from it. There are two ways to remove an asset from media collections-
 

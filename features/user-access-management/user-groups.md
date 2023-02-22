@@ -23,10 +23,6 @@ Go to the User management section in ImageKit's dashboard. Under the User groups
 - A user group's name is unique and case-insensitive. They can only contain alphabets, numbers, and spaces.
 {% endhint %}
 
-## Access control and sharing
+## Access control and permissions
 
-Read about access sharing and permission levels [here](../../access-control-and-permissions/README.md). You can define the permission level for restricted media library users through user groups on your assets and media collections as per your organizations requirements and DAM workflow.
-
-When a user group is deleted, users lose access to any files, folders, or media collections that they had access to through the group.
-
-When a user's role is changed from "Restricted media library access" to some other role or when any such user is deleted, they are removed from the user group.
+Read about access sharing and permission levels [here](../../collaboration-and-sharing/README.md). You can define the permission level for restricted media library users through user groups on your assets and media collections as per your organizations requirements and DAM workflow.

@@ -1,4 +1,4 @@
-# Access control and permissions guide
+# Collaboration and sharing
 
 ImageKit's Digital Asset Management solution allows you to organize, manage and share your assets in files and folders. Using media collections, you can create virtual groupings of assets regardless of their folder structure, providing a simple way for your users to collaborate on those assets.
 
@@ -7,6 +7,10 @@ ImageKit allows you to set access and permission levels for each user on your as
 Based on your needs, you can create your DAM workflow and organize, share, and control access for users and user groups with various permission levels.
 
 ## Access and permission management
+
+{% hint style="info" %}
+A new restricted media library user will see an empty media library until any files, folders, or media collections are shared with them.
+{% endhint %}
 
 ImageKit allows you to control access to assets by sharing media collections, files, and folders (and therefore their subfolders and files) with selected restricted media library users or user groups at varied permission levels ranging from view-only to full administrative or manage access. Implicitly, by not sharing an asset or media collection with users or user groups, you prevent access to those resources and their contents by such users.
 
@@ -22,6 +26,9 @@ Users with the following roles or permissions can share assets and media collect
 ## How to share assets and media collections?
 
 You can share files, folders and media colletions with other restricted media library users and user groups.
+
+- [Share files and folders](./share-files-and-folders.md)
+- [Share media collection](./share-media-collection.md)
 
 To share an asset or media collection, click the "Share" button in the dropdown menu after selecting it. A popup would appear, allowing you to pick the users and user groups, as well as specify their access level on the entity under the "User & user groups" tab. You may also view, change or remove the permissions of existing users and user groups that have access to the entity.
 
@@ -47,6 +54,39 @@ An asset or media collection can be shared with users in the following ways:
    A user who creates a file, folder, or media collection is the owner of that resource, and they have "Can manage" permission on it.
 
    For example, if a user creates a folder, they can perform all operations that "Can manage" permission level allows on the folder and all the assets inside that folder. Even if you revoke the access through which they were able to create the folder in that directory, they would still have access with that permission level to that particular asset and any subfolders and files inside it.
+
+### Understanding how user's role change affects access
+
+When a user's role is changed from "Restricted media library access" to some other role or when any such user is deleted, they are removed from the user group. If their role is changed back to "Restricted media library access", they would still have access to all the assets and media collections that were previously individually shared with them. However, they won't be added back to any of the user groups they were previously added to.
+
+### Understanding how deleting user groups affects access
+
+When a user group is deleted, users lose access to any files, folders, or media collections that they had access to through the group.
+
+## Recommended workflow
+
+It is important to plan out your DAM workflow carefully. Your media collections, folders, and files should be organised such that your team members have appropriate access and permissions to the right resources.
+
+To help you establish your workflow, we recommend the following steps:
+
+1. Invite users and define your teams.
+   Firstly, invite users with "Restricted media library access" into your account. Consider the various teams in your organization. Do you, for example, have a design, marketing, sales, and technology team? This lets you think in terms of different teams and what sort of permission and access they will need in the next step. Once you have determined that, you can add them to their respective user groups.
+
+2. Organize your assets and media collections.
+   A very important aspect of setting up your workflow is creating your folder structure. Keep in mind that permissions would cascade down to its subfolders, meaning that if you grant a certain level of access to a folder, you can't restrict that level of access from any of its sub-folders or files.
+
+   Create separate folders for each team (or user) in the root media library and grant appropriate permissions. Avoid deep nesting of folders, as this will increase the chances of permission escalation by mistakenly giving higher permission to some parent folder.
+
+   You can also add your assets to media collections for users to view, and if required permissions are set for restricted users, contribute to or manage assets across different locations centrally and share them with relevant stakeholders.
+
+3. Share assets and media collections with your team members.
+   For each user group that you want to share it with, grant the appropriate level of access.
+
+   For example, the marketing team will need sufficient permission to add, remove, and modify assets in certain folders. Technology or the sales team might only need read/view permission for specific folders containing brand assets. As a content manager, you may want to ensure all communications use the latest brand assets that are managed and kept up-to-date centrally by a marketing team.
+
+   If you create a new restricted media library user before sharing any assets or media collections with them, the media library will appear completely empty. You can share a folder with at least "Can contribute" permission on it so that they can start uploading files.
+
+   Grant folder permissions to individual restricted users if you have users who need permissions to assets and media collections that their groups don't have.
 
 ## Permissions
 

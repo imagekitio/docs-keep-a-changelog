@@ -1,6 +1,6 @@
 # Create, rename, delete, search & download media collections as zip
 
-You can create, rename, delete, search, and download media collections as zip files using ImageKit's dashboard. Learn more about permissions for these operations for restricted users [here](../access-control-and-permissions/README.md#media-collection-permission-levels).
+You can create, rename, delete, search, and download media collections as zip files using ImageKit's dashboard. Learn more about permissions for these operations for restricted users [here](../collaboration-and-sharing/README.md#media-collection-permission-levels).
 
 ## Create new media collection
 

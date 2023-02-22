@@ -25,7 +25,7 @@ In case you have any questions regarding adding files to the folder, please get 
 
 ### Asset ownership
 
-If a new folder is created through the ImageKit media library, the creator of the folder will be the "owner" of the folder. Asset ownership governs the access and permission level of the user on an asset. They would have "manage" access to the folder and all its subfolders and files. Learn how asset ownership controls access and permission levels [here](../../access-control-and-permissions/README.md#access-and-permission-management).
+If a new folder is created through the ImageKit media library, the creator of the folder will be the "owner" of the folder. Asset ownership governs the access and permission level of the user on an asset. They would have "manage" access to the folder and all its subfolders and files. Learn how asset ownership controls access and permission levels [here](../../collaboration-and-sharing/README.md#access-and-permission-management).
 
 The folder will not have any ownership info if it is not created via the dashboard, e.g. via the API or an SDK. Note that when creating a new folder at a location where a folder with the same name already exists, the owner of the folder does not change.
 
