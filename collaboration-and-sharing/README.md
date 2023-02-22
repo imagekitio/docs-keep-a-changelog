@@ -69,15 +69,15 @@ It is important to plan out your DAM workflow carefully. Your media collections,
 
 To help you establish your workflow, we recommend the following steps:
 
-1. Organize your assets and media collections.
+1. Define your teams.
+   Consider the various teams in your organization. Do you, for example, have a design, marketing, sales, and technology team? This lets you think in terms of different teams and what sort of permission and access they will need in the next step. Once you have determined that, you can add them to their respective user groups.
+
+2. Organize your assets and media collections.
    A very important aspect of setting up your workflow is creating your folder structure. Keep in mind that permissions would cascade down to its subfolders, meaning that if you grant a certain level of access to a folder, you can't restrict that level of access from any of its sub-folders or files.
 
    Create separate folders for each team (or user) in the root media library and grant appropriate permissions. Avoid deep nesting of folders, as this will increase the chances of permission escalation by mistakenly giving higher permission to some parent folder.
 
    You can also add your assets to media collections for users to view, and if required permissions are set for restricted users, contribute to or manage assets across different locations centrally and share them with relevant stakeholders.
-
-2. Invite users and define your teams.
-   Firstly, invite users with "Restricted media library access" into your account. Consider the various teams in your organization. Do you, for example, have a design, marketing, sales, and technology team? This lets you think in terms of different teams and what sort of permission and access they will need in the next step. Once you have determined that, you can add them to their respective user groups.
 
 3. Share assets and media collections with your team members.
    For each user group that you want to share it with, grant the appropriate level of access.
@@ -86,7 +86,10 @@ To help you establish your workflow, we recommend the following steps:
 
    If you create a new restricted media library user before sharing any assets or media collections with them, the media library will appear completely empty. You can share a folder with at least "Can contribute" permission on it so that they can start uploading files.
 
-   Grant folder permissions to individual restricted users if you have users who need permissions to assets and media collections that their groups don't have.
+4. Invite users and add them to user groups
+   Invite users with "Restricted media library access" into your account. Add them to the respective user groups based on your requirements and their roles in your organization.
+
+   Grant permissions to individual restricted users if you have users who need permissions to assets and media collections that their groups don't have.
 
 ## Permissions
 
