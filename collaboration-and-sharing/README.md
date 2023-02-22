@@ -61,7 +61,7 @@ When a user's role is changed from "Restricted media library access" to some oth
 
 ### Understanding how deleting user groups affects access
 
-When a user group is deleted, users lose access to any files, folders, or media collections that they had access to through the group.
+When a user group is deleted, users lose access to any files, folders, or media collections that they had access to through the group unless it was shared with them directly.
 
 ## Recommended workflow
 
@@ -69,15 +69,15 @@ It is important to plan out your DAM workflow carefully. Your media collections,
 
 To help you establish your workflow, we recommend the following steps:
 
-1. Invite users and define your teams.
-   Firstly, invite users with "Restricted media library access" into your account. Consider the various teams in your organization. Do you, for example, have a design, marketing, sales, and technology team? This lets you think in terms of different teams and what sort of permission and access they will need in the next step. Once you have determined that, you can add them to their respective user groups.
-
-2. Organize your assets and media collections.
+1. Organize your assets and media collections.
    A very important aspect of setting up your workflow is creating your folder structure. Keep in mind that permissions would cascade down to its subfolders, meaning that if you grant a certain level of access to a folder, you can't restrict that level of access from any of its sub-folders or files.
 
    Create separate folders for each team (or user) in the root media library and grant appropriate permissions. Avoid deep nesting of folders, as this will increase the chances of permission escalation by mistakenly giving higher permission to some parent folder.
 
    You can also add your assets to media collections for users to view, and if required permissions are set for restricted users, contribute to or manage assets across different locations centrally and share them with relevant stakeholders.
+
+2. Invite users and define your teams.
+   Firstly, invite users with "Restricted media library access" into your account. Consider the various teams in your organization. Do you, for example, have a design, marketing, sales, and technology team? This lets you think in terms of different teams and what sort of permission and access they will need in the next step. Once you have determined that, you can add them to their respective user groups.
 
 3. Share assets and media collections with your team members.
    For each user group that you want to share it with, grant the appropriate level of access.

@@ -2,7 +2,7 @@
 
 You can set the permission levels for restricted media library users and user groups and share a media collection with them. Moreover, you can view and manage access and permission levels for those media collections. A user with "Can view" or higher permissions to a media collection can view (but not necessarily modify) all assets in that media collection, even if they don't have "Can view" permission on those assets. 
 
-Learn more about permissions and access sharing on media collection for restricted users [here](../collaboration-and-sharing/README.md#understanding-apermissions-on-assets-and-media-collections).
+Learn more about permissions and access sharing on media collection for restricted users [here](../collaboration-and-sharing/README.md#understanding-permissions-on-assets-and-media-collections).
 
 Select the media collection you want to share and click "Share" from the drop-down menu. You can take the following actions from the popup:
 

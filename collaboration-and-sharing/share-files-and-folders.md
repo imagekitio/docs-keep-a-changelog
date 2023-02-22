@@ -5,7 +5,7 @@
 This feature is only available in custom enterprise pricing plans.
 {% endhint %}
 
-You can set the permission levels for restricted media library users and user groups and share an asset with them. Moreover, you can view and manage access and permission levels for those assets. Read about permissions and access sharing on assets [here](./README.md#understanding-apermissions-on-assets-and-media-collections).
+You can set the permission levels for restricted media library users and user groups and share an asset with them. Moreover, you can view and manage access and permission levels for those assets. Read about permissions and access sharing on assets [here](./README.md#understanding-permissions-on-assets-and-media-collections).
 
 Select the media collection you want to share and click "Share" from the drop-down menu. You can take the following actions from the popup:
 
