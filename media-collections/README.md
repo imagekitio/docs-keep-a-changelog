@@ -9,7 +9,9 @@ Media collections provide a simple and dynamic way to create logical groupings o
 
 You can easily add or remove assets from media collections and set their permission level for users as per your organization's needs. By doing this, you can manage your asset's workflow and access without having to delete or move it, which might break the asset's URL.
 
-Media collections also provide a convenient way for users to collaborate with each other, irrespective of the assets' actual location. It makes it easier for the administrator to manage assets, share them with different users or user groups, and manage their permissions. For example, you can create a media collection of the latest brand assets that may be used by different teams across the organisation to ensure all communications use the latest brand assets that are managed and kept up-to-date centrally by a marketing team.
+Media collections also provide a convenient way for users to collaborate with each other, irrespective of the assets' actual location. It makes it easier for the administrator to manage assets, share them with different users or user groups, and manage their permissions. 
+
+For example, you can create a media collection of the latest brand assets that may be used by different teams across the organisation to ensure all communications use the latest brand assets that are managed and kept up-to-date centrally by a marketing team.
 
 ImageKit provides the following actions on media collections:
 
