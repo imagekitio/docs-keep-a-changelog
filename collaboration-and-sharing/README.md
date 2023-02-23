@@ -55,7 +55,7 @@ An asset or media collection can be shared with users in the following ways:
 
    For example, if a user creates a folder, they can perform all operations that "Can manage" permission level allows on the folder and all the assets inside that folder. Even if you revoke the access through which they were able to create the folder in that directory, they would still have access with that permission level to that particular asset and any subfolders and files inside it.
 
-### Understanding how user's role change affects access
+### Understanding how a user's role change affects access
 
 When a user's role is changed from "Restricted media library access" to some other role or when any such user is deleted, they are removed from the user group. If their role is changed back to "Restricted media library access", they would still have access to all the assets and media collections that were previously individually shared with them. However, they won't be added back to any of the user groups they were previously added to.
 
