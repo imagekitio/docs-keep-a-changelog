@@ -57,12 +57,12 @@
   * [Backup media library assets](media-library/overview/backup-media-library-assets.md)
   * [Download media library assets as zip](media-library/overview/download-media-library-assets-as-zip.md)
   * [Asset versioning](media-library/overview/asset-versioning.md)
-  * [Share files and folders](./media-library/overview/share-files-and-folders.md)
 * [Media Collections](./media-collections/README.md)
   * [Create, rename, delete, search & download media collections as zip](./media-collections/create-rename-delete-search-and-download-as-zip.md)
   * [Add & remove assets from media collections](./media-collections/add-and-remove-assets-from-media-collections.md)
-  * [Share media collection](./media-collections/share-media-collection.md)
-* [Access control and permissions](./access-control-and-permissions/README.md)
+* [Collaboration and sharing](./collaboration-and-sharing/README.md)
+  * [Share files and folders](./collaboration-and-sharing/share-files-and-folders.md)
+  * [Share media collection](./collaboration-and-sharing/share-media-collection.md)
 
 ## Limits and troubleshooting
 
