@@ -39,11 +39,6 @@ Full path to the folder you want to move the above file into. For example - `/fo
 
 In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `204` status code with an empty body.
 
-
-### Access control and permissions
-
-Read how access and permissions are affected by this operation [here](../../media-library/overview/copy-and-move-files.md#move-file).
-
 ### Examples
 
 Here is the example request to understand the API usage.
