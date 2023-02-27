@@ -26,7 +26,7 @@ All media collections whose names either match exactly or begin with the provide
 
 ## Download media collections as zip
 
-ImageKit allows you to download multiple media collections and all of their contents, including files, folders, and sub-folders, as a single zip file. The downloaded zip file preserves the folder hierarchy structure of the media collections.
+ImageKit allows you to download multiple media collections and all of their contents, including files, folders, and sub-folders, as a single zip file. The downloaded zip file preserves the folder structure of the media collections.
 
 {% hint style="info" %}
 **Download limits**
