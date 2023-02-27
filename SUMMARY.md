@@ -58,7 +58,7 @@
   * [Download media library assets as zip](media-library/overview/download-media-library-assets-as-zip.md)
   * [Asset versioning](media-library/overview/asset-versioning.md)
 * [Media Collections](./media-collections/README.md)
-  * [Create, rename, delete, search & download media collections as zip](./media-collections/create-rename-delete-search-and-download-as-zip.md)
+  * [Introduction](./media-collections/create-rename-delete-search-and-download-as-zip.md)
   * [Add & remove assets from media collections](./media-collections/add-and-remove-assets-from-media-collections.md)
 * [Collaboration and sharing](./collaboration-and-sharing/README.md)
   * [Share files and folders](./collaboration-and-sharing/share-files-and-folders.md)
