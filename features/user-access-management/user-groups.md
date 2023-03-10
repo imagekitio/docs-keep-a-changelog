@@ -19,7 +19,7 @@ Go to the User management section in ImageKit's dashboard. Under the User groups
 {% hint style="info" %}
 **User group limits**
 - There are no limits to the number of users that can be added to a user group.
-- There are no limits to the number of user groups that can be created.
+- You can create at most five user groups. Please reach out to support at support@imagekit.io if you want to create more user groups.
 - A user group's name is unique and case-insensitive. They can only contain alphabets, numbers, and spaces.
 {% endhint %}
 
