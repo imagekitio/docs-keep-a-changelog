@@ -17,7 +17,7 @@ Go to your [media library](https://imagekit.io/dashboard/media-library) on the I
 Click on the "Download (as zip)" option. In the pop-up dialog box, you may apply an optional transformation to all the images in the selected files and folders. Static and video files are not modified.
 
 {% hint style="info" %}
-**Download transformed images**\
+**Download transformed images**
 Marketing teams may find this feature useful, as it allows the creation of a single type of variant for all images inside a folder with particular height and width dimensions. 
 {% endhint %}
 
@@ -34,8 +34,10 @@ You can navigate out of the media library screen and carry on with other tasks w
 
 Here you can view the basic details about your zip file downloads, like name, creation time, file count, and folder count of zip files created up to the past seven days. You can search or sort the list based on name, time, etc. You can also download your zip file again using the link provided in the table.
 
+A restricted media library user can only view the downloads they have requested on this page.
+
 {% hint style="info" %}
-**Download link validity**\
+**Download link validity**
 The download link generated is valid up to seven days from the time of zip generation.
 {% endhint %}
 
