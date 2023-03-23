@@ -64,7 +64,7 @@ ImageKit uses H.264 codec for encoding video and AAC for encoding audio for both
 
 {% hint style="info" %}
 **Important note for existing users**
-All ABS representations created after 25th April, 2023 will use [at_max cropping strategy](../features/video-transformation/resize-crop-and-other-common-video-transformations.md#max-size-cropping-strategy---c-at_max) to resize the representations instead of current [pad_resize crop mode](../features/video-transformation/resize-crop-and-other-common-video-transformations.md#pad-resize-crop-strategy---cm-pad_resize). Output will match the aspect ratio of the original video after this change. [Learn more](../../limits-and-troubleshooting/modification-in-resizing-method-for-ABS-representations.md)
+All ABS representations created after 25th April, 2023 will use [at_max cropping strategy](https://docs.imagekit.io/features/video-transformation/resize-crop-and-other-common-video-transformations#max-size-cropping-strategy-c-at_max) to resize the representations instead of current [pad_resize crop mode](https://docs.imagekit.io/features/video-transformation/resize-crop-and-other-common-video-transformations#pad-resize-crop-strategy-cm-pad_resize). Output will match the aspect ratio of the original video after this change. [Learn more](../../limits-and-troubleshooting/modification-in-resizing-method-for-ABS-representations.md)
 {% endhint %}
 
 ## Transformation

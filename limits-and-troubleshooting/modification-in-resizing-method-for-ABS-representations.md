@@ -6,16 +6,16 @@ description: >-
 # Modifications in the resizing method for ABS representations
 
 {% hint style="info" %}
-All ABS representations created after 25th April, 2023 will use [at_max cropping strategy](../features/video-transformation/resize-crop-and-other-common-video-transformations.md#max-size-cropping-strategy---c-at_max) to resize the representations instead of current [pad_resize crop mode](../features/video-transformation/resize-crop-and-other-common-video-transformations.md#pad-resize-crop-strategy---cm-pad_resize).
+All ABS representations created after 25th April, 2023 will use [at_max cropping strategy](https://docs.imagekit.io/features/video-transformation/resize-crop-and-other-common-video-transformations#max-size-cropping-strategy-c-at_max) to resize the representations instead of current [pad_resize crop mode](https://docs.imagekit.io/features/video-transformation/resize-crop-and-other-common-video-transformations#pad-resize-crop-strategy-cm-pad_resize).
 {% endhint %}
 
-As of 23 March 2023, Imagekit resizes the ABS representations using [pad_resize crop mode](../features/video-transformation/resize-crop-and-other-common-video-transformations.md#pad-resize-crop-strategy---cm-pad_resize), to a strict aspect ratio of 16:9 for all the resolutions. This adds black color padding for inputs that don't have aspect ratio of 16:9.
+As of 23 March 2023, Imagekit resizes the ABS representations using [pad_resize crop mode](https://docs.imagekit.io/features/video-transformation/resize-crop-and-other-common-video-transformations#pad-resize-crop-strategy-cm-pad_resize), to a strict aspect ratio of 16:9 for all the resolutions. This adds black color padding for inputs that don't have aspect ratio of 16:9.
 
 For playlist URL <https://ik.imagekit.io/demo/sample-portrait.mp4/ik-master.m3u8?tr=sr-240_360_480_720> as of 23 March 2023:
 
 ![ABS with black padding](../.gitbook/assets/screenshot-3-march-2023-abs-with-black-padding.png)
 
-After the planned modifications on 25th April 2023, Imagekit will use [at_max cropping strategy](../features/video-transformation/resize-crop-and-other-common-video-transformations.md#max-size-cropping-strategy---c-at_max) to resize the representations. This will preserve the original aspect ratio of input and not add padding to the output.
+After the planned modifications on 25th April 2023, Imagekit will use [at_max cropping strategy](https://docs.imagekit.io/features/video-transformation/resize-crop-and-other-common-video-transformations#max-size-cropping-strategy-c-at_max) to resize the representations. This will preserve the original aspect ratio of input and not add padding to the output.
 
 For playlist URL <https://ik.imagekit.io/demo/sample-portrait.mp4/ik-master.m3u8?tr=sr-240_360_480_720> after modifications:
 
