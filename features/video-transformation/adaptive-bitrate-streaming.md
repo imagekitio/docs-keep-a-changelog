@@ -62,6 +62,11 @@ Use `sr-<representations>` transformation to generate the master manifest file f
 ImageKit uses H.264 codec for encoding video and AAC for encoding audio for both HLS and DASH.
 {% endhint %}
 
+{% hint style="info" %}
+**Important note for existing users**
+All ABS representations created after 25th April, 2023 will use [at_max cropping strategy](../features/video-transformation/resize-crop-and-other-common-video-transformations.md#max-size-cropping-strategy---c-at_max) to resize the representations instead of current [pad_resize crop mode](../features/video-transformation/resize-crop-and-other-common-video-transformations.md#pad-resize-crop-strategy---cm-pad_resize). Output will match the aspect ratio of the original video after this change. [Learn more](../../limits-and-troubleshooting/modification-in-resizing-method-for-ABS-representations.md)
+{% endhint %}
+
 ## Transformation
 
 You can transform the final video using any [supported video transformation parameter](../video-transformation/resize-crop-and-other-common-video-transformations.md) in ImageKit except `w`, `h`, `ar`, `f`, `vc`, `ac`, and `q`.
