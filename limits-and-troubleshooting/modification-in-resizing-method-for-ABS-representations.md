@@ -1,3 +1,8 @@
+---
+description: >-
+  ABS resizing parameter changelog
+---
+
 # Modifications in the resizing method for ABS representations
 
 {% hint style="info" %}
