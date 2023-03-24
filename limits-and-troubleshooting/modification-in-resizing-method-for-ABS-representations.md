@@ -6,13 +6,13 @@ All ABS representations created after 25th April, 2023 will use [at_max cropping
 
 As of 23 March 2023, Imagekit resizes the ABS representations using [pad_resize crop mode](../features/video-transformation/resize-crop-and-other-common-video-transformations.md#pad-resize-crop-strategy---cm-pad_resize), to a strict aspect ratio of 16:9 for all the resolutions. This adds black color padding for inputs that don't have aspect ratio of 16:9.
 
-For playlist URL <https://ik.imagekit.io/demo/sample-portrait.mp4/ik-master.m3u8?tr=sr-240_360_480_720> as of 23 March 2023:
+For playlist URL <https://ik.imagekit.io/demo/sample-portrait.mp4/ik-master.mpd?tr=sr-240_360_480_720> as of 23 March 2023:
 
 ![ABS with black padding](../.gitbook/assets/screenshot-3-march-2023-abs-with-black-padding.png)
 
 After the planned modifications on 25th April 2023, Imagekit will use [at_max cropping strategy](../features/video-transformation/resize-crop-and-other-common-video-transformations.md#max-size-cropping-strategy---c-at_max) to resize the representations. This will preserve the original aspect ratio of input and not add padding to the output.
 
-For playlist URL <https://ik.imagekit.io/demo/sample-portrait.mp4/ik-master.m3u8?tr=sr-240_360_480_720> after modifications:
+For playlist URL <https://ik.imagekit.io/demo/sample-portrait.mp4/ik-master.mpd?tr=sr-240_360_480_720> after modifications:
 
 ![ABS retains aspect ratio of original input](../.gitbook/assets/screenshot-3-march-2023-abs-retains-aspect-ratio-of-original-input.png)
 
@@ -22,7 +22,7 @@ Adding black padding to the output restricted the experience of portrait videos 
 
 Mobile devices in portrait mode would not utilize their entire screen area efficiently, as the 16:9 ratio will restrict the player to a small portion of the screen & the black padding further reduces the size of the actual video content being rendered.
 
-![ABS retains aspect ratio of original input](../.gitbook/assets/screenshot-3-march-2023-potrait-screen-playing-potrait-video.png)
+![Comparison of ABS playlists for a portrait video played on a portrait screen](../.gitbook/assets/screenshot-3-march-2023-potrait-screen-playing-potrait-video.png)
 
 ## Handling this change
 
