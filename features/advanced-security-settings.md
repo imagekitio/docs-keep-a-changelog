@@ -9,10 +9,10 @@ ImageKit provides advanced security and optimization features that you can use t
 
 It includes the following features:
 1. IP and IP range blocking
-2. WebP image delivery based on user agents
+2. Optimized asset delivery based on user agents
 3. Geographic restriction
 4. HTTP Referrer-based restriction
-5. Improved caching of images
+5. Improved caching of assets
 
 ![Advanced security settings in ImageKit's dashboard](<../.gitbook/assets/advanced-security-settings.png>)
 
@@ -36,21 +36,23 @@ Examples of valid input-
 - Absolute IPv4 - `163.120.4.15`
 - IPv4 range using CIDR notation - `10.0.0.0/24`. This blocks all IPs in range `10.0.0.0` to `10.0.0.255`.
 
-## WebP image delivery based on user agents
+## Optimized asset delivery based on user agents
 
 {% hint style="info" %}
 **Limits**
 - You can configure at most 10 user agents for WebP image delivery.
 {% endhint %}
 
-You can set the user agents for which you want to deliver WebP images using this feature. Using this, you can serve optimized images on your application.
+You can set the user agents for which you want to deliver optimized assets using this feature. Using this, you can serve optimized images on your application.
 
-Use the advanced security settings on the dashboard to input a list of user agents, each separated by a new line, to configure this setting for your requests.
+To configure this setting for your requests, go to the advanced security settings on the dashboard to provide a list of user agents, each separated by a new line.
 
-These specified user agents need not be an exact match to the request's user agent. ImageKit will deliver the WebP image if the user agent in your request contains any of the defined user agents as a substring.
+You can specify the accept header from the given options in the dropdown for requests with the configured user agents.
+
+These user agents do not have to be an exact match to the user agent header sent in the request. If the user agent in your request has any of the defined user agents as a substring, ImageKit will send the optimized asset.
 
 For example:
-- If you configure the user agent `Android 11`, a request having the user agent `Linux; U; Android 11` would deliver a WebP image.
+- If you configure the user agent `Android 11` and accept headers for the configured user agents `text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8`, for a request having the user agent header `Linux; U; Android 11`, ImageKit would deliver a WebP image.
 
 ## Geographic restriction
 
