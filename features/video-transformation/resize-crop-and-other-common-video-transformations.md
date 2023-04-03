@@ -245,7 +245,7 @@ Video size is 406KB which is less than half of the original 1.1MB video. File si
 
 Used to specify the format of the output video. If no output format is specified then based on your settings in the dashboard, ImageKit.io automatically picks the best format for that video request.
 
-Possible values include `auto` ,`mp4` , `webm` , `orig`.
+Possible values include `auto` ,`mp4` , `webm`.
 
 **Default Value** - `auto`. You can disable [automatic video format conversion](../video-optimization/automatic-video-format-conversion.md) from the dashboard settings.&#x20;
 
@@ -253,7 +253,7 @@ Possible values include `auto` ,`mp4` , `webm` , `orig`.
 
 Used to specify the audio codec for encoding the output.
 
-Possible values include `aac`, `opus`, `orig`, and `none`.
+Possible values include `aac`, `opus`, and `none`.
 
 Use `none` for removing audio from the source video. So the output will have no audio.
 
@@ -261,11 +261,11 @@ Use `none` for removing audio from the source video. So the output will have no 
 
 Used to specify the video codec for encoding the output.
 
-Possible values include `h264`, `vp9`, `orig`, and `none`
+Possible values include `h264`, `vp9`, and `none`
 
 Use `none` for extracting audio from the source video. So the output will be an audio file.
 
-#### Valid combinations for format (f), audio codec (ac) & video codec
+#### Valid combinations for format (f), audio codec (ac) & video codec (vc)
 
 | f    | ac   | vc   |
 | ---- | ---- | ---- |
