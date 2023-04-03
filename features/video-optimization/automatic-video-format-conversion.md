@@ -30,10 +30,6 @@ Select settings from the left main menu. Inside Videos, under optimization, togg
 
 If you disabled automatic format conversion in the global settings, you can still choose to use this feature for a particular request using `f-auto` parameter.
 
-### How to deliver video in the original format?
-
-Use `f-orig` parameter to deliver video in the original input format.
-
 ### How to override the format?
 
 You can use the `f` parameter to override the format for a particular video request. The format that you specify in the `f` parameter will take precedence over any global settings.
