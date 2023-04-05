@@ -47,12 +47,12 @@ You can set the user agents for which you want to deliver optimized assets using
 
 To configure this setting for your requests, go to the advanced security settings on the dashboard to provide a list of user agents, each separated by a new line.
 
-These user agents do not have to be an exact match to the user agent header sent in the request. If the user agent in your request has any of the defined user agents as a substring, ImageKit will send the optimized asset.
+These user agents do not have to be an exact match to the user agent header sent in the request. If the user agent in your request has any of the defined user agents as a substring, ImageKit will send the optimized asset. User agent match is case-insensitive.
 
 For requests that have one of the configured user agents, you can select the accept header from the options given in the drop-down menu. This helps in the detection of the format of the asset to be delivered as well as in caching.
 
 For example:
-- If you configure the user agent `Android 11` and accept headers for the configured user agents `text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8`, for a request having the user agent header `Linux; U; Android 11`, ImageKit would deliver a WebP image.
+- If you configure the user agent `Android 11` and accept headers for the configured user agents `image/webp,image/apng,*/*;q=0.8`, for a request having the user agent header `Linux; U; Android 11`, ImageKit would deliver a WebP image.
 
 ## Geographic restriction
 
