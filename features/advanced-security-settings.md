@@ -8,11 +8,11 @@ This feature is only available in custom enterprise pricing plans.
 ImageKit provides advanced security and optimization features that you can use to optimize your asset delivery flow and save costs.
 
 It includes the following features:
-1. IP and IP range blocking
-2. Optimized asset delivery based on user agents
-3. Geographic restriction
-4. HTTP Referrer-based restriction
-5. Improved caching of assets
+1. IP and IP range blocking.
+2. Optimized asset delivery based on user agents.
+3. Geographic restriction.
+4. HTTP Referrer-based restriction.
+5. Improved caching of assets.
 
 ![Advanced security settings in ImageKit's dashboard](<../.gitbook/assets/advanced-security-settings.png>)
 
@@ -33,7 +33,7 @@ This feature blocks absolute IPs or IP ranges from accessing content. Any reques
 To block IPs, you need to provide a list of valid absolute IPv4 addresses or IPv4 ranges in CIDR notation separated by a new line in the input - using the advanced security settings in the dashboard.
 
 Examples of valid input- 
-- Absolute IPv4 - `163.120.4.15`
+- Absolute IPv4 - `163.120.4.15`.
 - IPv4 range using CIDR notation - `10.0.0.0/24`. This blocks all IPs in range `10.0.0.0` to `10.0.0.255`.
 
 ## Optimized asset delivery based on user agents
