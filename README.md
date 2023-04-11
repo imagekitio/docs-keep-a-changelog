@@ -13,4 +13,3 @@ Here are a few benefits of using ImageKit.io:
 * **Faster image loading** - ImageKit.io comes with a global CDN (Amazon CloudFront) with 200+ points of presence (PoPs). This, combined with reduced file size, translates to a faster-loading website.
 * **Increase your conversion rates** - Faster pages help you reduce bounce rates and increase both - the number of pages viewed per session as well as conversion rates.
 * **Achieve better SEO results** - Faster page load times will improve search engine rankings. It means your pages are more likely to appear higher in search results on Google and other search engines.
-

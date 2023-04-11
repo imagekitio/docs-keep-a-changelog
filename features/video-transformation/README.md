@@ -53,6 +53,9 @@ The following table lists the codecs that ImageKit supports in input for resizin
 | hevc             | hevc                   |             |
 | mts              | mpeg2video             |             |
 
+### Supporting files without mp4 extension
+For video transformation and optimization to work, the file extension should be `mp4`. If your resource doesn't have an `mp4` extension, you can add `/ik-video.mp4` suffix at the end. ImageKit will ignore that suffix while fetching the original asset from your media library or origin, and video transformation/optimization will work as expected. You can further append `/ik-thumbnai.jpg`, `/ik-master.mpd`, `/ik-master.m3u8` to generate thumbnail, DASH, and HLS playlist, respectively.
+
 ## Pricing
 Every new video transformation that has never been done before will contribute toward video processing units using the below definition. Subsequent views of the same video transformation only count towards bandwidth. 
 
