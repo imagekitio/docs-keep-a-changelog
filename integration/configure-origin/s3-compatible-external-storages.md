@@ -82,14 +82,7 @@ Now start using ImageKit.io URL endpoint in your application to accelerate image
 
 ## Handling special characters in the filename
 
-While fetching images from your S3 bucket with special characters in the name, you will get a `404 NOT FOUND` response. For example, let’s assume that there is a key `image%2Bexample.jpg` in your S3 bucket, and the request is made using `image+example.jpg` in the URL. In this case, ImageKit.io tries to fetch `image+example.jpg` object from the S3 bucket resulting in a 404 error as this object does not exist.
-
-While adding the origin in your ImageKit.io account, you are now provided with an option to encode the keys while fetching the object from your S3 bucket. By default, this option is disabled. When enabled, the requests made while fetching images will be made using encoded keys.
-
-{% hint style="info" %}
-**Note:**\
-****At present, this feature can only be enabled upon request, please email support at support@imagekit.io.
-{% endhint %}
+Please refer to the documentation [here](../amazon-s3-bucket-origin/).
 
 ## Advanced options for S3 type origin
 
