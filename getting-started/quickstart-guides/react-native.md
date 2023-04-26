@@ -70,7 +70,7 @@ npm install --save imagekit-javascript
 {% hint style="warning" %}
 `imagekit-javascript` SDK uses URL [API](https://developer.mozilla.org/en-US/docs/Web/API/URL) to parse the URL internally. In React 16 and above, this API was [removed](https://github.com/facebook/react-native/issues/16434), so if you are using React 16 or above, you will have to implement a small [patch](https://github.com/facebook/react-native/issues/16434#issuecomment-557956079) with these steps.
 
-1. Install the package with `npm install eact-native-url-polyfill`
+1. Install the package with `npm install react-native-url-polyfill`
 2. Import the package in your app's entry point i.e. App.js like this `import 'react-native-url-polyfill/auto'`
 {% endhint %}
 
