@@ -189,6 +189,8 @@
   * [Get custom metadata field](api-reference/custom-metadata-fields-api/get-custom-metadata-field.md)
   * [Update custom metadata field](api-reference/custom-metadata-fields-api/update-custom-metadata-field.md)
   * [Delete custom metadata field](api-reference/custom-metadata-fields-api/delete-custom-metadata-field.md)
+* [Account management API](api-reference/account-management-api/README.md)
+  * [Get usage](api-reference/account-management-api/get-usage.md)
 
 ## EXTENSIONS
 
