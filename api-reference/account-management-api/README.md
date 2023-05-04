@@ -2,4 +2,4 @@
 
 At the moment, the following account management APIs are available:
 
-* [Get usage](./get-usage.md)
+* [Get usage](./get-usage.md) (beta)
