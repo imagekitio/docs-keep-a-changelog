@@ -213,4 +213,11 @@ Note that these IP addresses are subject to change in the future. Any changes wi
 15.206.97.20
 13.233.234.115
 13.234.159.248
+52.52.35.45
+52.53.66.106
+52.8.243.221
+52.8.34.3
+52.9.239.52
+54.176.154.89
+54.176.68.12
 ```
