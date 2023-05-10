@@ -20,7 +20,7 @@ The following Cloudinary transformations are supported for translation:
 | <p>x</p> | <ul> <li>`x_100` => `x-100`</li> </ul> |  |
 | <p>y</p> | <ul> <li>`y_100` => `y-100`</li> </ul> |  |
 | <p>format</p> | <ul> <li>`f_jpg` => `f-jpg`</li> </ul> | Supported values: <ul><li>auto</li><li>jpg</li><li>jpeg</li><li>png</li><li>webp</li><li>gif</li><li>avif</li></ul> |
-| <p>quality</p> | <ul> <li>`q_60` => `q-60`</li><li>`q_auto` => `q-70`</li><li>`q_auto:low` => `q-50`</li><li>`q_auto:eco` => `q-60`</li><li>`q_auto:good` => `q-70`</li><li>`q_auto:best` => `q-86`</li> </ul> |  |
+| <p>quality</p> | <ul> <li>`q_60` => `q-60`</li><li>`q_auto` => `q-70`</li><li>`q_auto:low` => `q-50`</li> </ul> | Auto quality mapping (images): <ul><li>low: 50</li><li>eco: 60</li><li>good: 70</li><li>best: 86</li></ul> Auto quality mapping (videos): <ul><li>low: 40</li><li>eco: 45</li><li>good: 50</li><li>best: 60</li></ul> |
 | <p>angle</p> | <ul> <li>`a_90` => `rt-90`</li><li>`a_-67` => `rt-N67`</li> </ul> |  |
 | <p>radius</p> | <ul> <li>`r_20` => `r-20`</li><li>`r_20:30:40:50` => `r-20`</li><li>`r_max` => `r-max`</li> </ul> |  |
 | <p>effects</p> | <ul> <li>`e_blur` => `bl-1`</li><li>`e_blur:500` => `bl-5`</li><li>`e_grayscale` => `e-grayscale`</li><li>`e_contrast:100` => `e-contrast`</li><li>`e_sharpen:500` => `e-sharpen-5`</li><li>`e_unsharp_mask:500` => `e-usm-0-5-1-0.05`</li><li>`e_unsharp_mask:250` => `e-usm-0-2.5-1-0.05`</li><li>`e_trim` => `t-true`</li><li>`e_trim:20` => `t-20`</li><li>`e_trim:20:red` => `t-20`</li>  </ul> | Supported values: <ul><li>blur</li><li>grayscale</li><li>contrast</li><li>sharpen</li><li>unsharp_mask</li><li>trim</li></ul>Final output from ImageKit may vary from output from Cloudinary |
