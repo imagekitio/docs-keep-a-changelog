@@ -1,11 +1,19 @@
 # Upload file API
 
-ImageKit.io allows you to upload a file (image and non-image) via API. Based on your requirement, you can either:
+ImageKit.io allows you to upload a file (image and non-image) via API.
+
+<b>API v1</b>
+
+Based on your requirement, you can either:
 
 1. [Upload file from a server](server-side-file-upload.md) using private API key-based authentication, or
 2. [Upload file from client-side](client-side-file-upload.md) (in Javascript, or Android or iPhone app) using signature-based authentication.
 
 Both methods use the same endpoint, but there is a slight change in the request bodies.
+
+<b>API v2</b>
+
+[File upload from client-side (secure)](secure-client-side-file-upload.md) (in Javascript or any client side application) using JSON Web Token authentication.
 
 {% hint style="info" %}
 **File size limit**\
