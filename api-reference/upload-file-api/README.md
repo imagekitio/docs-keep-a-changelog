@@ -13,7 +13,12 @@ Both methods use the same endpoint, but there is a slight change in the request 
 
 <b>API v2</b>
 
-[File upload from client-side (secure)](secure-client-side-file-upload.md) (in Javascript or any client side application) using JSON Web Token authentication.
+Based on your requirement, you can either:
+
+1. [Upload file from a server](server-side-file-upload-v2.md) using private API key-based authentication, or
+2. [File upload from client-side (secure)](secure-client-side-file-upload.md) (in Javascript or any client side application) using JSON Web Token authentication.
+
+Both methods use the same endpoint, but there is a slight change in the request bodies.
 
 {% hint style="info" %}
 **File size limit**\
