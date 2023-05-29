@@ -37,6 +37,6 @@ The following Cloudinary transformations are supported for translation:
 | <p>start offset</p> | <ul> <li>`so_10.5599` => `so-10.56`</li> </ul> |  |
 | <p>end offset</p> | <ul> <li>`eo_10.5522` => `eo-10.55`</li> </ul> |  |
 | <p>duration</p> | <ul> <li>`du_10.5500` => `du-10.55`</li> </ul> |  |
-| <p>zoom</p> | <ul> <li>`z_2.0` => `z-2.0`</li><li>`z_0.5` => `z-0.5`</li></ul> | Final output from ImageKit may vary from output from Cloudinary. |
+| <p>zoom</p> | <ul> <li>`z_2.0` => `z-2.0`</li><li>`z_0.5` => `z-0.5`</li></ul> |  |
 
 **Note:** The rewriter will silently ignore any transformation that has a valid key, but with an invalid value. For example, `h_100,w_<invalid>/a_90`  will be translated to `h-100:rt-90`. Refer to the table to see what constitutes a valid value for different transforms.
