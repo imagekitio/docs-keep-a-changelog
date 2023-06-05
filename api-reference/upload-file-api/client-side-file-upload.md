@@ -1,8 +1,8 @@
-# Client side file upload
+# Secure client-side file upload
 
-You can upload files to the ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload). You will need to implement `authenticationEndpoint` endpoint on your backend server as shown [here](client-side-file-upload.md#how-to-implement-authenticationendpoint-endpoint).
+You can upload files to the ImageKit.io media library directly from the client-side in Javascript or any client-side application using [JSON Web Token (JWT) authentication](secure-client-side-file-upload.md#json-web-token-jwt-generation-for-client-side-file-upload). You will need to implement `authenticationEndpoint` endpoint on your backend server as shown [here](secure-client-side-file-upload.md#how-to-implement-authenticationendpoint-endpoint).
 
-You can use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [example usage](client-side-file-upload.md#examples).
+You can use ImageKit's [JavaScript SDK](https://github.com/imagekit-developer/imagekit-javascript) to get started quickly. See [example usage](secure-client-side-file-upload.md#examples).
 
 {% hint style="info" %}
 **File size limit**\
@@ -16,19 +16,16 @@ A file can have a maximum of 100 versions.
 
 | Method | Endpoint                                                                                         |
 | ------ | ------------------------------------------------------------------------------------------------ |
-| POST   | [https://upload.imagekit.io/api/v1/files/upload](https://upload.imagekit.io/api/v1/files/upload) |
+| POST   | [https://upload.imagekit.io/api/v2/files/upload](https://upload.imagekit.io/api/v2/files/upload) |
 
 ## Request structure (multipart/form-data)
 
 | Parameter                                                                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <p><strong>file</strong><br><strong></strong>required<br><strong></strong></p>              | <p>This field accepts three kinds of values:</p><p></p><ul><li><code>binary</code> - You can send the content of the file as binary. This is used when a file is being uploaded from the browser.</li><li><code>base64</code> - Base64 encoded string of file content.</li><li><code>url</code> - URL of the file from where to download the content before uploading. For example - <code>https://www.example.com/rest-of-the-image-path.jpg</code>.</li></ul><p><strong>Note:</strong> When passing a URL in the file parameter, please ensure that our servers can access the URL. In case ImageKit is unable to download the file from the specified URL, a <code>400</code> error response is returned. In addition to this, the file download request is aborted if response headers are not received in 8 seconds. This will also result in a <code>400</code> error. </p> |
-| <p><strong>publicKey</strong><br>required<br></p>                                           | <p>Your public API key. <br><br><strong>Note:</strong> This field is only required when uploading the file from the client-side. The only purpose of this is to identify your account.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| <p><strong>signature</strong><br>required<br></p>                                           | <p>HMAC-SHA1 digest of the <code>token+expire</code> using your ImageKit.io <a href="../api-introduction/api-keys.md#private-key">private API key</a> as a key. Learn how to create a signature below on the page. This should be in lowercase.<br></p><p><span data-gb-custom-inline data-tag="emoji" data-code="26a0">⚠</span> <strong>Warning:</strong> Signature must be calculated on the server-side. This field is required for authentication when uploading a file from the client-side.</p>                                                                                                                                                                                                                                                                                                                                                                             |
-| <p><strong>expire</strong><br>required</p>                                                  | The time until your signature is valid. It must be a [Unix time](https://en.wikipedia.org/wiki/Unix\_time) in less than 1 hour into the future. It should be in seconds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| <p><strong>token</strong><br>required</p>                                                   | <p>A unique value generated by the client, which will be used by the ImageKit.io server to recognize and prevent subsequent retries for the same request. We suggest using V4 UUIDs, or another random string with enough entropy to avoid collisions.<br><br><strong>Note:</strong> Sending a value that has been used in the past will result in a validation error. Even if your previous request resulted in an error, you should always send a new value for this field.</p>                                                                                                                                                                                                                                                                                                                                                                                                 |
+| <p><strong>file</strong><br><strong></strong>required<br><strong></strong></p>              | <p>This field accepts three kinds of values:</p><p></p><ul><li><code>binary</code> - You can send the content of the file as binary. This is used when a file is being uploaded from the browser.</li><li><code>base64</code> - Base64 encoded string of file content.</li><li><code>url</code> - URL of the file from where to download the content before uploading. For example - <code>https://www.example.com/rest-of-the-image-path.jpg</code>.</li></ul><p><strong>Note:</strong> When passing a URL in the file parameter, please ensure that our servers can access the URL. In case ImageKit is unable to download the file from the specified URL, a <code>400</code> error response is returned. In addition to this, the file download request is aborted if response headers are not received in 8 seconds. This will also result in a <code>400</code> error. </p> |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+| <p><strong>token</strong><br>required</p>                                                   | <p>This is the client-generated JSON Web Token (JWT). The ImageKit.io server uses it to authenticate and check that the upload request parameters have not been tampered with after the generation of the token. Learn how to create the token below on the page.<br><br><strong>Note:</strong> Sending a JWT that has been used in the past will result in a validation error. Even if your previous request resulted in an error, you should always send a new token.</p><span data-gb-custom-inline data-tag="emoji" data-code="26a0">⚠</span><strong>Warning:</strong> JWT must be generated on the server-side because it is generated using your account's private API key. This field is required for authentication when uploading a file from the client-side.</p>                                                                                                                                                                                                                                                                                                                                                                                                |
 | <p><strong>fileName</strong><br><strong></strong>required</p>                               | <p>The name with which the file has to be uploaded. </p><p><br>The file name can contain:<br><br>- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code> (including unicode letters, marks, and numerals in other languages)<br>- Special Characters: <code>.</code> <code>_</code> and <code>-</code></p><p></p><p>Any other character including space will be replaced by <code>_</code></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| <p><strong>useUniqueFileName</strong><br><strong></strong>optional</p>                      | <p>Whether to use a unique filename for this file or not.</p><p></p><ul><li>Accepts <code>true</code> or <code>false</code>.</li><li>If set <code>true</code>, ImageKit.io will add a unique suffix to the filename parameter to get a unique filename.</li><li>If set <code>false</code>, then the image is uploaded with the provided filename parameter, and any existing file with the same name is replaced.</li></ul><p><strong>Default value</strong> - <code>true</code></p>                                                                                                                                                                                                                                                                                                                                                                                              |
+| <p><strong>useUniqueFileName</strong><br><strong></strong>optional</p>                      | <p>Whether to use a unique filename for this file or not.</p><p></p><ul><li>Accepts <code>true</code> or <code>false</code>.</li><li>If set <code>true</code>, ImageKit.io will add a unique suffix to the filename parameter to get a unique filename.</li><li>If set <code>false</code>, then the image is uploaded with the provided filename parameter and any existing file with the same name is replaced.</li></ul><p><strong>Default value</strong> - <code>true</code></p>                                                                                                                                                                                                                                                                                                                                                                                              |
 | <p><strong>tags</strong><br><strong></strong>optional<br><strong></strong></p>              | <p>Set the tags while uploading the file.</p><p></p><ul><li>A comma-separated value of tags in the format <code>tag1,tag2,tag3</code>. For example - <code>t-shirt,round-neck,men</code></li><li>The maximum length of all characters should not exceed 500.</li><li><code>%</code> is not allowed.</li><li>If this field is not specified and the file is overwritten, then the tags will be removed.</li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | <p><strong>folder</strong><br><strong></strong>optional<br><strong></strong></p>            | <p>The folder path (e.g. <code>/images/folder/</code>) in which the image has to be uploaded. If the folder(s) didn't exist before, a new folder(s) is created. The nesting of folders can be at most 50 levels deep.<br><strong></strong></p><p>The folder name can contain:<br><br>- Alphanumeric Characters: <code>a-z</code> , <code>A-Z</code> , <code>0-9</code> (including unicode letters, marks, and numerals in other languages)<br>- Special Characters: <code>/</code> <code>_</code> and <code>-</code><br>- Using multiple <code>/</code> creates a nested folder.<br></p><p><strong>Default value</strong> - /</p>                                                                                                                                                                                                                                                                                                       |
 | <p><strong>isPrivateFile</strong><br><strong></strong>optional<br><strong></strong></p>     | <p>Whether to mark the file as private or not. This is only relevant for image type files</p><p></p><ul><li>Accepts <code>true</code> or <code>false</code>.</li><li>If set <code>true</code>, the file is marked as private which restricts access to the original image URL and unnamed image transformations without signed URLs. Without the signed URL, only named transformations work on private images</li></ul><p><strong>Default value</strong> - <code>false</code></p>                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -38,9 +35,9 @@ A file can have a maximum of 100 versions.
 | <p><strong>webhookUrl</strong></p><p>optional</p>                                           | Final status of pending extensions will be sent to this URL. To learn more about how ImageKit uses webhooks, [refer here](../../extensions/overview/#webhooks).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | <p><strong>overwriteFile</strong></p><p>optional</p>                                        | Default is `true`. If `overwriteFile` is set to `false` and `useUniqueFileName` is also `false`, and a file already exists at the exact location, upload API will return an error immediately.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | <p><strong>overwriteAITags</strong></p><p>optional</p>                                      | Default is `true`. If set to `true` and a file already exists at the exact location, its `AITags` will be removed. Set `overwriteAITags` to `false` to preserve `AITags`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| <p><strong>overwriteTags</strong></p><p>optional</p>                                        | Default is `true`. If the request does not have `tags` ,  `overwriteTags` is set to `true` and a file already exists at the exact location, exiting `tags` will be removed. In case the request body has `tags`, setting `overwriteTags` to `false` has no effect and request's `tags` are set on the asset.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| <p><strong>overwriteCustomMetadata</strong></p><p>optional</p>                              | Default is `true`. If the request does not have `customMetadata` ,  `overwriteCustomMetadata` is set to `true` and a file already exists at the exact location, exiting `customMetadata` will be removed. In case the request body has `customMetadata`, setting `overwriteCustomMetadata` to `false` has no effect and request's `customMetadata` is set on the asset.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| <p><strong>customMetadata</strong></p><p>optional</p>                                         |  Stringified JSON key-value data to be associated with the asset. Checkout `overwriteCustomMetadata` parameter to understand default behaviour. Before setting any custom metadata on an asset you have to create the field using [custom metadata fields API](../custom-metadata-fields-api/).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| <p><strong>overwriteTags</strong></p><p>optional</p>                                        | Default is `true`. If the request does not have `tags` ,  `overwriteTags` is set to `true` and a file already exists at the exact location, exiting `tags` will be removed. In case the request body has `tags`, setting `overwriteTags` to `false` has no effect, and the request's `tags` are set on the asset.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| <p><strong>overwriteCustomMetadata</strong></p><p>optional</p>                              | Default is `true`. If the request does not have `customMetadata` ,  `overwriteCustomMetadata` is set to `true`, and a file already exists at the exact location, exiting `customMetadata` will be removed. If the request body has `customMetadata`, setting `overwriteCustomMetadata` to `false` has no effect, and the request's `customMetadata` is set on the asset.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| <p><strong>customMetadata</strong></p><p>optional</p>                                         |  Stringified JSON key-value data to be associated with the asset. Check out the `overwriteCustomMetadata` parameter to understand default behavior. Before setting any custom metadata on an asset, you must create the field using [custom metadata fields API](../custom-metadata-fields-api/).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ## Response code and structure (JSON)
 
@@ -107,140 +104,136 @@ The JSON-encoded response contains details of the file which can have the follow
 | url               | A publicly accessible URL of the file.                                                                                                                                                                                                  |
 | thumbnail         | In the case of an image, a small thumbnail URL.                                                                                                                                                                                         |
 | fileType          | The type of file could be either `image` or `non-image`.                                                                                                                                                                                |
-| mime              | MIME Type of the file. For example - `image/jpeg`                                                                                                                                                                                       |
 | height            | Height of the image in pixels (Only for images)                                                                                                                                                                                         |
 | width             | Width of the image in pixels (Only for Images)                                                                                                                                                                                          |
 | size              | Size of the image file in Bytes                                                                                                                                                                                                         |
-| hasAlpha          | A boolean indicating if the image has an alpha layer or not.                                                                                                                                                                            |
 | customMetadata    | A key-value data associated with the asset. Use `responseField` in API request to get `customMetadata` in the upload API response. Before setting any custom metadata on an asset, you have to create the field using [custom metadata fields API](../custom-metadata-fields-api/).                                                                                                                                                                                                                         |
 | embeddedMetadata  | Consolidated embedded metadata associated with the file. It includes `exif`, `iptc`, and `xmp` data. Use `responseField` in API request to get `embeddedMetadata` in the upload API response.                                           |
 | createdAt         | The date and time when the file was first uploaded. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                                                                            |
 | updatedAt         | The date and time when the file was last updated. The format is `YYYY-MM-DDTHH:mm:ss.sssZ`                                                                                                                                              |
 | extensionStatus   | <p>Extension names with their processing status at the time of completion of the request. It could have one of the following status values:</p><ul><li><code>success</code>: The extension has been successfully applied.</li><li><code>failed</code>: The extension has failed and will not be retried.</li><li><code>pending</code>: The extension will finish processing in some time. On completion, the final status (success / failed) will be sent to the <code>webhookUrl</code> provided.</li></ul><p>If no extension was requested, then this parameter is not returned.</p>                                                                                                                                                                 |
 
-## Signature generation for client-side file upload
+## JSON Web Token (JWT) generation for client-side file upload
 
-`signature` is a string sent along with your upload request for authentication when using upload API from the client-side. Generating it requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), and hence this should be generated on your backend. Your backend should ideally implement an API that should provide `signature`.
+JSON Web Token (JWT) is an open standard [(RFC 7519)](https://datatracker.ietf.org/doc/html/rfc7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. Your backend should ideally implement an API that should provide `token`. This is sent along with your upload request for authentication as well as validation of the integrity of upload parameters when using the upload API from the client side. Generating it requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), and hence this should be generated on your backend. Learn more about JSON Web Token [here](https://jwt.io/introduction).
 
-The `signature` is HMAC-SHA1 digest of the string `token+expire` using your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key) as a key. The `signature` should be in lowercase.
+JSON Web Token consist of three parts separated by dots:
+- Header
+- Payload
+- Signature
 
-{% hint style="danger" %}
-**Never publish your private key on client-side**\
-The Private API key should be kept confidential and only stored on your own servers.
-{% endhint %}
+<b>Header</b>
 
-If you are using ImageKit.io [client-end SDK](../api-introduction/sdk.md#client-side-sdks) for file upload, it requires an `authenticationEndpoint` endpoint for getting authentication parameters required in the upload API.
-
-### How to implement authenticationEndpoint endpoint?
-
-This endpoint is specified by `authenticationEndpoint` parameter during initialization. The SDK makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token` and `expire`. &#x20;
-
-Example response:
+The header of the JSON Web Tokens consists of three parts: the `typ` of the token, which should be `JWT`, the signing algorithm, `alg`, being used, which is HMAC SHA256, and the `kid`, which is your ImageKit account's public key.
 
 ```javascript
 {
-    token: "1bab386f-45ea-49e1-9f0d-6afe49a5b250",
-    expire: 1580372696,
-    signature: "0f9d5a45e97c24fa9200a9d5543c9af1e2c45a54"
+  "alg": "HS256",
+  "typ": "JWT"
+  "kid": "your_public_key"
 }
 ```
 
-Since calculating these parameters requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), hence this endpoint has to be implemented on your server-side. You can use utility functions provided in all [server-side SDKs](../api-introduction/sdk.md#server-side-sdks) to implement this endpoint as shown below.
+<b>Payload</b>
+
+The payload is the token's second component. This should include all of the upload parameters that you intend to provide in your upload file request. All arguments except `file` and `token` can be included in this payload. In your upload API request, you must include the same set of parameters and their associated values along with the 'file' and 'token'. If there is a mismatch between upload request parameter and their values and the ones in the payload used to generate JWT, the upload request will fail.
+
+The key in the payload should be the parameter name, and the value should be in stringified form. If you want to send the 'fileName' and 'useUniqueFileName' parameters, for example, the payload will be:
+
+```javascript
+{
+  "fileName": "dress.jpg",
+  "useUniqueFileName": "false" 
+}
+```
+
+<b>Signature</b>
+
+To create the signature you have to take the encoded header, the encoded payload, your ImageKit.io account's private key and sign that using the HMAC SHA256 algorithm.
+
+```
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  YOUR_PRIVATE_KEY)
+```
+
+This is used to ensure that the payload was not altered along the route, as well as that the sender of the JWT is who they claim to be.
+
+To create the JWT, the three outputs are transformed to Base64url strings and concatenated with periods (.). This JWT can then be used as a `token` in the upload API request.
+
+{% hint style="danger" %}
+**Never publish your private key on client-side**
+The Private API key should be kept confidential and only stored on your own servers.
+{% endhint %}
+
+If you are using ImageKit.io [JavaScript SDK](https://github.com/imagekit-developer/imagekit-javascript) for file upload, it requires an `authenticationEndpoint` endpoint for getting authentication parameters required in the upload API.
+
+### How to implement authenticationEndpoint endpoint?
+
+This endpoint is specified by `authenticationEndpoint` parameter during initialization. The SDK sends an HTTP POST request to this endpoint and expects a JSON response having status code 200 containing the JWT in the `token` field.
+
+The request body structure looks like this:
+
+```javascript
+{
+    // The uploadPayload is the payload that you have to sign using your private key. It must contain all the parameters except the 'file' and 'token' that you intend to send in the upload API request.
+    "uploadPayload": {
+        "fileName": "dress.jpg"
+        "useUniqueFileName": "false",
+        "tags": "summer,dress",
+    },
+    "expire": 400, // In seconds, must be less than one hour (3600 seconds)
+    "publicKey": "your_public_key",
+}
+```
+
+Response structure:
+
+```javascript
+{
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+}
+```
+
+Since calculating these parameters requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), hence this endpoint has to be implemented on your server side. You can implement this endpoint in any language of your choice. Below is an example of implementing this endpoint in Node.js using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken).
 
 {% tabs %}
-{% tab title="Pseudo code" %}
+{% tab title="Node.js" %}
 ```javascript
-var token = req.query.token || uuid.v4();
-var expire = req.query.expire || parseInt(Date.now()/1000)+2400;
-var privateAPIKey = "your_private_key";
-var signature = crypto.createHmac('sha1', privateAPIKey).update(token+expire).digest('hex');
+const jwt = require('jsonwebtoken');
+
+const payload = req.body;
+const token = jwt.sign(payload.uploadPayload, "your_private_key", {
+    expiresIn: payload.expire,
+    header: {
+      alg: "HS256",
+      typ: "JWT",
+      kid: payload.publicKey,
+    },
+});
 res.set({
     "Access-Control-Allow-Origin" : "*"
 })
 res.status(200);
-res.send({
-    token : token,
-    expire : expire,
-    signature : signature
-})
-```
-{% endtab %}
-
-{% tab title="Node.js" %}
-```javascript
-var ImageKit = require("imagekit");
-var fs = require('fs');
-
-var imagekit = new ImageKit({
-    publicKey : "your_public_api_key",
-    privateKey : "your_private_api_key",
-    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
-});
-
-var authenticationParameters = imagekit.getAuthenticationParameters();
-console.log(authenticationParameters);
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-import base64
-import os
-import sys
-from imagekitio import ImageKit
-
-imagekit = ImageKit(
-    public_key='your public_key',
-    private_key='your private_key',
-    url_endpoint = 'your url_endpoint'
-)
-
-auth_params = imagekit.get_authentication_parameters()
-
-print("Auth params-", auth_params)
-```
-{% endtab %}
-
-{% tab title="PHP" %}
-```php
-use ImageKit\ImageKit;
-
-$public_key = "your_public_key";
-$your_private_key = "your_private_key";
-$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
-$sample_file_path = "/sample.jpg";
-
-$imageKit = new ImageKit(
-    $public_key,
-    $your_private_key,
-    $url_end_point
-);
-
-$authenticationParameters = $imageKit->getAuthenticationParameters();
-
-echo("Auth params : " . json_encode($authenticationParameters));
+res.send({ token });
 ```
 {% endtab %}
 {% endtabs %}
 
-{% hint style="danger" %}
-**Never publish your private key on client-side**\
-The Private API key should be kept confidential and only stored on your own servers.
-{% endhint %}
-
 ## Examples
 
-The example below demonstrates only basic usage. Refer to [these examples](server-side-file-upload.md#examples) in the server-side upload section to learn about different use-cases. The only difference between client-side and server-side upload is how API authentication works.
+The example below demonstrates only basic usage. Refer to [these examples](server-side-file-upload.md#examples) in the server-side upload section to learn about different use cases. The only difference between client-side and server-side upload is how API authentication works.
 
-Make sure you have implemented `authenticationEndpoint` endpoint on your server as shown [here](client-side-file-upload.md#how-to-implement-authenticationendpoint-endpoint) before using the below examples.
+Make sure you have implemented `authenticationEndpoint` endpoint on your server as shown [here](secure-client-side-file-upload.md#how-to-implement-authenticationendpoint-endpoint) before using the below examples.
 
 {% tabs %}
 {% tab title="JavaScipt SDK" %}
 {% code title="index.html" %}
 ```markup
 <form action="#" onsubmit="upload()">
-	<input type="file" id="file1" />
-	<input type="submit" />
+    <input type="file" id="file1" />
+    <input type="submit" />
 </form>
 <script type="text/javascript" src="../dist/imagekit.js"></script>
 
@@ -254,7 +247,8 @@ Make sure you have implemented `authenticationEndpoint` endpoint on your server 
     var imagekit = new ImageKit({
         publicKey : "your_public_api_key",
         urlEndpoint : "https://ik.imagekit.io/your_imagekit_id",
-        authenticationEndpoint : "https://www.yourserver.com/auth"
+        authenticationEndpoint : "https://www.yourserver.com/auth",
+        apiVersion: "v2"
     });
     
     // Upload function internally uses the ImageKit.io javascript SDK
@@ -265,7 +259,6 @@ Make sure you have implemented `authenticationEndpoint` endpoint on your server 
             fileName : "abc.jpg",
             tags : ["tag1"]
         }, function(err, result) {
-            console.log(arguments);
             console.log(imagekit.url({
                 src: result.url,
                 transformation : [{ height: 300, width: 400}]
@@ -280,119 +273,59 @@ Make sure you have implemented `authenticationEndpoint` endpoint on your server 
 {% tab title="jQuery (without SDK)" %}
 ```markup
 <form action="#" onsubmit="upload()">
-	<input type="file" id="file1" />
-	<input type="submit" />
+    <input type="file" id="file1" />
+    <input type="submit" />
 </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <script>
-	// This endpoint should be implemented on your server as shown above 
-	var authenticationEndpoint = "https://www.yourserver.com/auth";
-	
-	function upload() {
-	  var file = document.getElementById("file1");
-		var formData = new FormData();
-		formData.append("file", file.files[0]);
-		formData.append("fileName", "abc.jpg");
-		formData.append("publicKey", "your_public_api_key");
-	
-		// Let's get the signature, token and expire from server side
-		$.ajax({
-		    url : authenticationEndpoint,
-		    method : "GET",
-		    dataType : "json",
-		    success : function(body) {
-		        formData.append("signature", body.signature || "");
-		        formData.append("expire", body.expire || 0);
-		        formData.append("token", body.token);
-	
-						// Now call ImageKit.io upload API
-		        $.ajax({
-		            url : "https://upload.imagekit.io/api/v1/files/upload",
-		            method : "POST",
-		            mimeType : "multipart/form-data",
-		            dataType : "json",
-		            data : formData,
-		            processData : false,
-		            contentType : false,
-		            error : function(jqxhr, text, error) {
-		                console.log(error)
-		            },
-		            success : function(body) {
-		                console.log(body)
-		            }
-		        });
-	
-		    },
-	
-		    error : function(jqxhr, text, error) {
-		        console.log(arguments);
-		    }
-		});
-	}
-</script>
-```
-{% endtab %}
-
-{% tab title="React SDK" %}
-```javascript
-import React from 'react';
-import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
-
-function App() {
-  const publicKey = "your_public_api_key";
-  let urlEndpoint = "https://ik.imagekit.io/your_imagekit_id";
-  const authenticationEndpoint = "https://www.yourserver.com/auth";
-
-  return (
-    <div className="App">
-      <p>To use this funtionality please remember to setup the server</p>
-      <IKContext publicKey={publicKey} urlEndpoint={urlEndpoint} authenticationEndpoint={authenticationEndpoint} >
-        <IKUpload fileName="abc.jpg" tags={["tag1"]} useUniqueFileName={true} isPrivateFile= {false} />
-      </IKContext>   
-    </div>
-  );
-}
-
-export default App;
-```
-{% endtab %}
-
-{% tab title="Vue.js SDK" %}
-```javascript
-<template>
-  <div class="sample-app">
-    <p>Upload</p>
-    <IKContext
-      :publicKey="publicKey"
-      :urlEndpoint="urlEndpoint"
-      :authenticationEndpoint="authenticationEndpoint"
-    >
-      <IKUpload fileName="abc.jpg" v-bind:tags="['tag1']" v-bind:responseFields="['tags']"/>
-    </IKContext>
-    <p>To use this funtionality please remember to setup the server</p>
-  </div>
-</template>
-
-<script>
-import { IKImage, IKContext, IKUpload } from "imagekitio-vue";
-let urlEndpoint= "https://ik.imagekit.io/your_imagekit_id";
-
-export default {
-  name: "app",
-  components: {
-    IKImage,
-    IKContext,
-    IKUpload
-  },
-  data() {
-    return {
-      urlEndpoint: "https://ik.imagekit.io/your_imagekit_id",
-      publicKey: "your_public_api_key",
-      authenticationEndpoint: "https://www.yourserver.com/auth"
-    };
-  }
-};
+    // This endpoint should be implemented on your server as shown above 
+    var authenticationEndpoint = "https://www.yourserver.com/auth";
+    
+    function upload() {
+        var file = document.getElementById("file1");
+        var formData = new FormData();
+        formData.append("file", file.files[0]);
+        formData.append("fileName", "abc.jpg");
+    
+        // Let's get the token from server side
+        $.ajax({
+            url : authenticationEndpoint,
+            method : "POST",
+            contentType: "application/json",
+            data: JSON.stringify({
+                uploadPayload: {
+                    fileName: "abc.jpg"
+                },
+                expire: 3600,
+                publicKey: "your_public_api_key"
+            }),
+            success : function(body) {
+                formData.append("token", body.token);
+    
+                // Now call ImageKit.io upload API v2
+                $.ajax({
+                    url : "https://upload.imagekit.io/api/v2/files/upload",
+                    method : "POST",
+                    mimeType : "multipart/form-data",
+                    dataType : "json",
+                    data : formData,
+                    processData : false,
+                    contentType : false,
+                    error : function(jqxhr, text, error) {
+                        console.log(error)
+                    },
+                    success : function(body) {
+                        console.log(body)
+                    }
+                });
+    
+            },
+            error : function(jqxhr, text, error) {
+                console.log(arguments);
+            }
+        });
+    }
 </script>
 ```
 {% endtab %}
