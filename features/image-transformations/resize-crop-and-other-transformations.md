@@ -448,6 +448,45 @@ Quite distinctly from the [auto smart crop](resize-crop-and-other-transformation
 **Note: **Smart crop may not give accurate results for some images. This is partially a trade off between speed (needed for real-time transformations) and accuracy.
 {% endhint %}
 
+### Zoom - (z)
+
+This parameter accepts a number that determines how much to zoom in or out of the cropped area. It must be used along with [fo-face](resize-crop-and-other-transformations.md#face-cropping-fo-face). A value less than 1.0 zooms out to include more background surrounding the face, whereas a value larger than 1.0 zooms in to exclude more background surrounding the face.
+
+**Default Value** - `z = 1.0`
+
+**Possible Values** -  `0 < z < 1` (zoom out); `z > 1` (zoom in)
+
+
+{% tabs %}
+{% tab title="Original" %}
+URL - [https://ik.imagekit.io/demo/img/girl.jpeg](https://ik.imagekit.io/demo/img/girl.jpeg)
+
+![](https://ik.imagekit.io/demo/img/girl.jpeg)
+{% endtab %}
+
+{% tab title="Smart crop (fo-face)" %}
+URL - [https://ik.imagekit.io/demo/img/tr:w-150,h-150,fo-face/girl.jpeg](https://ik.imagekit.io/demo/img/tr:w-150,h-150,fo-face/girl.jpeg)
+
+![](https://ik.imagekit.io/demo/img/tr:w-150,h-150,fo-face/girl.jpeg)
+{% endtab %}
+
+{% tab title="zoom=2.0" %}
+URL - [https://ik.imagekit.io/demo/img/tr:w-150,h-150,fo-face,z-2.0/girl.jpeg](https://ik.imagekit.io/demo/img/tr:w-150,h-150,fo-face,z-2.0/girl.jpeg)\
+\
+For `z=2.0`, a thumbnail is generated zoomed in on the face with a zoom amount of 200%, excluding more background surrounding the face.
+
+![](https://ik.imagekit.io/demo/img/tr:w-150,h-150,fo-face,z-2.0/girl.jpeg)
+{% endtab %}
+
+{% tab title="zoom=0.5" %}
+URL - [https://ik.imagekit.io/demo/img/tr:w-150,h-150,fo-face,z-0.5/girl.jpeg](https://ik.imagekit.io/demo/img/tr:w-150,h-150,fo-face,z-0.5/girl.jpeg)\
+\
+For `z=0.5`, a thumbnail is generated zoomed out to 50% before cropping, including more of the background surrounding the face.
+
+![](https://ik.imagekit.io/demo/img/tr:w-150,h-150,fo-face,z-0.5/girl.jpeg)
+{% endtab %}
+{% endtabs %}
+
 ## Commonly used transformations
 
 ### Quality - (q)
