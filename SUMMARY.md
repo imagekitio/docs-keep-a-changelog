@@ -158,6 +158,7 @@
 * [Upload file API](api-reference/upload-file-api/README.md)
   * [Server side file upload](api-reference/upload-file-api/server-side-file-upload.md)
   * [Client side file upload](api-reference/upload-file-api/client-side-file-upload.md)
+  * [Secure client side upload (API v2)](api-reference/upload-file-api/secure-client-side-file-upload.md)
 * [Media API](api-reference/media-api/README.md)
   * [List and search files](api-reference/media-api/list-and-search-files.md)
   * [Get file details](api-reference/media-api/get-file-details.md)
