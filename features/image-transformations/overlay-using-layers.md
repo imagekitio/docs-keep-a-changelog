@@ -18,7 +18,7 @@ With ImageKit, you can add images and text over a base image using [layers](#lay
 * [Add solid color blocks over image](overlay-using-layers#add-images-over-image)
 
 # Layers
-A layer is a special kind of transformation that allows you to modify the overlay itself and express its position in relation to the parent.
+A layer is a special kind of transformation in which you can specify an asset to be used as an overlay, along with its positioning and transformations. It supports nesting, allows you to modify the overlay itself, and express its position in relation to the parent.
 
 ## Syntax of layers
 
@@ -42,7 +42,7 @@ https://ik.imagekit.io/demo/sample-image.jpg?tr=w-300,h-300,l-image,i-logo.png,w
 ```
 
 ## Input of layer
-The input of the layer can be specified using `i` or `ie` (base64 encoded) parameter. In case both `i` and `ie` is present, `i` is ignored. The base64 string should be made URL safe to ensure that all padding characters (=) are included correctly. In Javascript, a function like `encodeURIComponent()` can be used for this.
+The input of the layer can be specified using `i` or `ie` (base64 encoded) parameter. In case both `i` and `ie` are present, `i` is ignored. The base64 string should be made URL safe to ensure that all padding characters (=) are included correctly. In Javascript, a function like `encodeURIComponent()` can be used for this.
 
 ## Position of layer
 
@@ -50,18 +50,21 @@ The position of the layer can be controlled using the following parameters. The 
 
 | Parameter   | Description |
 | ----------- | ----------- |
-| lx          | `x` of the top-left corner in the base asset where layer's top-left corner would be placed.    |
-| ly          | `y` of the top-left corner in the base asset where layer's top-left corner would be placed.    |
-| lfo         | Position of layer in relative terms e.g. `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. Default value is `center`.     |
+| lx          | `x` of the top-left corner in the base asset where the layer's top-left corner would be placed.    |
+| ly          | `y` of the top-left corner in the base asset where the layer's top-left corner would be placed.    |
+| lfo         | Position of the layer in relative terms e.g. `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left`, and `bottom_right`. Default value is `center`.     |
+
+**Note:** If one or both of `lx` and `ly` parameters are specified along with `lfo`, then `lfo` parameter is ignored.
 
 ## Transformation of layer
 
-You can apply transformations to the layer as you would otherwise. However, any transformation parameter inside the layer is only applicable to that layer and not the parent.
+You can apply transformations to the layer as you would on the base asset. However, any transformation parameter inside the layer is only applicable to that layer and not the parent.
 
-However, different types of layers support different types of transformations which are covered in respective sections.
+However, different types of layers support different types of transformations, which are covered in respective sections.
 
 * [Transformation of images overlay](overlay-using-layers#transformation-of-image-overlay)
 * [Transformation of text overlay](overlay-using-layers#transformation-of-text-overlay)
+* [Transformation of solid color overlay](overlay-using-layers#transformation-of-solid-color-overlay)
 
 Transformations inside a layer can be chained together to achieve the desired outcome.
 
@@ -99,14 +102,14 @@ ImageKit supports many [image transformation parameters](../image-transformation
 |-------------------------------------------------------------------------------------------------------------|------------------------------|
 | [w](../image-transformations/resize-crop-and-other-transformations#width-w)                                 | Width of overlay image.  |
 | [h](../image-transformations/resize-crop-and-other-transformations#height-h)                                | Height of overlay image. |
-| [ar](../image-transformations/resize-crop-and-other-transformations#aspect-ratio-ar)                        | Apect ratio of overlay image. |
+| [ar](../image-transformations/resize-crop-and-other-transformations#aspect-ratio-ar)                        | Aspect ratio of overlay image. |
 | [c](../image-transformations/resize-crop-and-other-transformations#crop-crop-modes-and-focus)               | Cropping method. Accepts `force`, `at_max`, and `at_least`. |
 | [cm](../image-transformations/resize-crop-and-other-transformations#crop-crop-modes-and-focus)              | Crop mode. Supports `extract` and `pad_resize`. |
 | [fo](../image-transformations/resize-crop-and-other-transformations#focus-fo)                               | Relative focus area used during cropping. Accpets `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. |
 | [b](../image-transformations/resize-crop-and-other-transformations#border-b)                                | This adds a border to the overlay image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>` |
 | [bg](../image-transformations/resize-crop-and-other-transformations#background-color-bg)                    | It is used to specify the background color in RGB Hex Code (e.g. FF0000) or an RGBA Code (e.g. FFAABB50) that must be used for the image. If you specify an 8 character background, the last two characters must be a number between 00 and 99 , which is used to indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01`  represents opacity level `0.01`, and so on. |
 | [r](../image-transformations/resize-crop-and-other-transformations#radius-r)                                | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
-| [rt](../image-transformations/resize-crop-and-other-transformations#rotate-rt)                              | It is used to specify the degree by which the overlay image must be rotated. To get a circle or oval shape, set the value to `max`. |
+| [rt](../image-transformations/resize-crop-and-other-transformations#rotate-rt)                              | It is used to specify the degree by which the overlay image must be rotated. |
 | [t](../image-transformations/resize-crop-and-other-transformations#trim-edges-t)                            | By default, ImageKit.io trims the overlay image before overlaying it on the base image. Trimming removes the similar colored pixels from the edges. To prevent the default trimming from happening, use `t-false`. This removes the transparency of the overlaid image. **Possible values** include `true`, `false` and integer values between `1` and `99` that specify the threshold level for considering a particular pixel as "background". |
 | [dpr](../image-transformations/resize-crop-and-other-transformations#dpr-dpr)                               | It is used to specify the device pixel ratio that is used to calculate the dimensions of the overlay image. It can only be used when either the height or width of the desired output image is specified. The possible values are `0.1` to `5`, or `auto`. |
 | [q](../image-transformations/resize-crop-and-other-transformations#quality-q)                               | It is used to specify the quality of the output image for lossy formats like JPEG, WebP and AVIF. A large quality number indicates a larger output image size with high quality. A small quality number indicates a smaller output image size with lower quality. It can be a whole number between `1` and `100`. Default value is `80`. |
@@ -161,6 +164,22 @@ Following transformation parameters are supported on the text inside a layer.
 | [bg](../image-transformations/resize-crop-and-other-transformations#background-color-bg) | [otbg](./overlay#overlay-text-background---otbg) | It is used to specify the background color in RGB Hex Code (e.g. `FF0000`) or an RGBA Code (e.g. `FFAABB50`) or a color name (e.g. `red`). If you specify an 8 character background, the last two characters must be a number between `00` and `99`, which indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents opacity level `0.01`, and so on. |
 | [r](../image-transformations/resize-crop-and-other-transformations#radius-r)             | [or](./overlay#overlay-radius---or)              | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
 
+### Using custom fonts in text overlays
+
+To use a custom font in text overlays, upload the font file in your media library and pass its path in `ff` parameter in a text layer.
+
+```markup
+https://ik.imagekit.io/demo/tr:l-text,i-Hello%20World,ff-Lacquer-Regular_nGqtVsBJT.ttf,fs-72,co-FFF000/default-image.jpg
+```
+
+Here the font-file is available at path `/Lacquer-Regular_nGqtVsBJT.ttf` in the media library. You will need to pass the whole path of the custom font including its extension.
+
+If your custom font file is in a nested folder, then replace the slashes `/`in the path with `@@`. For example, a font file available at path `/font-folder/font-subfolder/my-custom-font.ttf` will be used as follows:
+
+```markup
+https://ik.imagekit.io/demo/tr:l-text,i-Hello%20World,ff-font-folder@@font-subfolder@@my-custom-font.ttf,fs-72,co-FFF000/default-image.jpg
+```
+
 ## Differences between overlay text output in layer and non-layer syntax
 
 In overlay text, the output generated using the layers syntax may be slightly different from its non-layer syntax equivalent. If you are moving from non-layer overlay syntax to layer syntax, you may need to adjust some transformation parameter values to get a similar output as before.
@@ -192,7 +211,7 @@ Following transformation parameters are supported on the solid color background 
 |------------------------------------------------------------------------------------------|------------------------------------|
 | w                                                                                        | Width of solid color background.   |
 | h                                                                                        | Height of solid color background.  |
-| [bg](../image-transformations/resize-crop-and-other-transformations#background-color-bg) | It is used to specify the solid color background color in RGB Hex Code (e.g. `FF0000`) or an RGBA Code (e.g. `FFAABB50`) or a color name (e.g. `red`). If you specify an 8 character background, the last two characters must be a number between `00` and `99`, which indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents opacity level `0.01`, and so on. |
+| [bg](../image-transformations/resize-crop-and-other-transformations#background-color-bg) | It is used to specify the solid color in RGB Hex Code (e.g. `FF0000`) or an RGBA Code (e.g. `FFAABB50`) or a color name (e.g. `red`). If you specify an 8 character background, the last two characters must be a number between `00` and `99`, which indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents opacity level `0.01`, and so on. |
 | al                                                                                       | It is used to specify the transparency level of the overlaid solid color layer. Supports integers from `1` to `9`. |
 | [r](../image-transformations/resize-crop-and-other-transformations#radius-r)             | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
 
