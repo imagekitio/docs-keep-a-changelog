@@ -4,7 +4,7 @@ description: >-
   a base image.
 ---
 
-# Overlay using layers
+# Overlay using layers (beta)
 
 {% hint style="info" %}
 Overlay on images using layers is currently in beta.
