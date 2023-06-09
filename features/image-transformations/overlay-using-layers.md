@@ -1,7 +1,8 @@
 ---
 description: >-
   A comprehensive guide that covers how you can add images and text over
-  a base image.
+  a base image, using the new layer syntax that supports overlay nesting
+  and provides better positional control.
 ---
 
 # Overlay using layers (beta)
@@ -10,7 +11,7 @@ description: >-
 Overlay on images using layers is currently in beta.
 {% endhint %}
 
-In ImageKit, you can add images and text over a base image using [layers](#layers). Skip to the relevant section to understand with a quick example:
+With ImageKit, you can add images and text over a base image using [layers](#layers). Skip to the relevant section to understand with a quick example:
 
 * [Add images over image](overlay-using-layers#add-images-over-image)
 * [Add text over image](overlay-using-layers#add-text-over-image)
