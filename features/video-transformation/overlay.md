@@ -50,9 +50,9 @@ The position of subtitles cannot be controlled at this point.
 
 | Parameter   | Description |
 | ----------- | ----------- |
-| lx          | `x` of the top-left corner in the base asset where layer's top-left corner would be placed.    |
-| ly          | `y` of the top-left corner in the base asset where layer's top-left corner would be placed.    |
-| lfo         | Position of layer in relative terms e.g. `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. Default value is `center`.      |
+| lx          | `x` of the top-left corner in the base asset where the layer's top-left corner would be placed.    |
+| ly          | `y` of the top-left corner in the base asset where the layer's top-left corner would be placed.    |
+| lfo         | Position of the layer in relative terms e.g. `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. Default value is `center`.      |
 | lso         | Start time of the base video in seconds when the layer should appear. It accepts a positive number upto two decimal e.g. 20 or 20.50 |
 | ldu         | Duration in seconds during which layer should appear on the base video. It accepts a positive number upto two decimal e.g. 20 or 20.50 |
 | leo         | End time of the base video when this layer should disappear. In case both `leo` and `ldu` are present, `ldu` is ignored. It accepts a positive number upto two decimal e.g. 20 or 20.50 |
@@ -104,14 +104,14 @@ ImageKit supports many [image transformation parameters](../image-transformation
 |----------------------------------------------------------------------------------------------------------------|------------------------------|
 | [w](../image-transformations/resize-crop-and-other-transformations.md#width-w)                                 | Width of overlay image.  |
 | [h](../image-transformations/resize-crop-and-other-transformations.md#height-h)                                | Height of overlay image. |
-| [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)                        | Apect ratio of overlay image. |
+| [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)                        | Aspect ratio of overlay image. |
 | [c](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)               | Cropping method. Accepts `force`, `at_max`, and `at_least`. |
-| [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)              | Crom mode. Supports `extract` and `pad_resize`. |
+| [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)              | Crop mode. Supports `extract` and `pad_resize`. |
 | [fo](../image-transformations/resize-crop-and-other-transformations.md#focus-fo)                               | Relative focus area used during cropping. Accpets `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. |
 | [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                                | This adds a border to the overlay image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>` |
 | [bg](../image-transformations/resize-crop-and-other-transformations.md#background-color-bg)                    | It is used to specify the background color in RGB Hex Code (e.g. FF0000) or an RGBA Code (e.g. FFAABB50) that must be used for the image. If you specify an 8 character background, the last two characters must be a number between 00 and 99 , which is used to indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01`  represents opacity level `0.01`, and so on. |
 | [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)                                | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
-| [rt](../video-transformations/resize-crop-and-other-common-video-transformations.md#rotate-rt)                                | It is used to specify the degree by which the overlay image must be rotated. To get a circle or oval shape, set the value to `max`. |
+| [rt](../video-transformations/resize-crop-and-other-common-video-transformations.md#rotate-rt)                                | It is used to specify the degree by which the overlay image must be rotated. |
 
 # Add text over video
 

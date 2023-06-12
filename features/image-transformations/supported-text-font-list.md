@@ -11,7 +11,7 @@ ImageKit.io currently supports the following fonts out of the box.
 | Font         | Support for Bold |  Support for Italics |
 | ------------ | ---------------- | -------------------- |
 | AbrilFatFace | No               | No                   |
-| Amarnath     | Yes              | Yes                  |
+| Amaranth     | Yes              | Yes                  |
 | Arvo         | Yes              | Yes                  |
 | Audiowide    | No               | No                   |
 | Chivo        | Yes              | Yes                  |
