@@ -15,7 +15,7 @@ With ImageKit, you can add images and text over a base image using [layers](#lay
 
 * [Add images over image](overlay-using-layers#add-images-over-image)
 * [Add text over image](overlay-using-layers#add-text-over-image)
-* [Add solid color blocks over image](overlay-using-layers#add-images-over-image)
+* [Add solid color blocks over image](overlay-using-layers#add-solid-color-blocks-over-image)
 
 # Layers
 A layer is a special kind of transformation in which you can specify an asset to be used as an overlay, along with its positioning and transformations. It supports nesting, allows you to modify the overlay itself, and express its position in relation to the parent.
@@ -205,13 +205,13 @@ You can also control the position of the solid color overlay using these [positi
 
 ## Transformation of solid color overlay
 
-Following transformation parameters are supported on the solid color background inside a layer.
+Following transformation parameters are supported on the solid color block overlay inside a layer.
 
 | Parameter                                                                                | Description                        |
 |------------------------------------------------------------------------------------------|------------------------------------|
-| w                                                                                        | Width of solid color background.   |
-| h                                                                                        | Height of solid color background.  |
-| [bg](../image-transformations/resize-crop-and-other-transformations#background-color-bg) | It is used to specify the solid color in RGB Hex Code (e.g. `FF0000`), or an RGBA Code (e.g. `FFAABB50`), or a color name (e.g. `red`). If you specify an 8 character background, the last two characters must be a number between `00` and `99`, which indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents an opacity level of `0.01`, and so on. |
+| w                                                                                        | Width of solid color block.   |
+| h                                                                                        | Height of solid color block.  |
+| [bg](../image-transformations/resize-crop-and-other-transformations#background-color-bg) | It is used to specify the color of the block in RGB Hex Code (e.g. `FF0000`), or an RGBA Code (e.g. `FFAABB50`), or a color name (e.g. `red`). If you specify an 8 character background, the last two characters must be a number between `00` and `99`, which indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents an opacity level of `0.01`, and so on. |
 | al                                                                                       | It is used to specify the transparency level of the overlaid solid color layer. Supports integers from `1` to `9`. |
 | [r](../image-transformations/resize-crop-and-other-transformations#radius-r)             | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
 
