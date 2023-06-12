@@ -13,9 +13,9 @@ Overlay on images using layers is currently in beta.
 
 With ImageKit, you can add images and text over a base image using [layers](#layers). Skip to the relevant section to understand with a quick example:
 
-* [Add images over image](overlay-using-layers#add-images-over-image)
-* [Add text over image](overlay-using-layers#add-text-over-image)
-* [Add solid color blocks over image](overlay-using-layers#add-solid-color-blocks-over-image)
+* [Add images over image](overlay-using-layers.md#add-images-over-image)
+* [Add text over image](overlay-using-layers.md#add-text-over-image)
+* [Add solid color blocks over image](overlay-using-layers.md#add-solid-color-blocks-over-image)
 
 # Layers
 A layer is a special kind of transformation in which you can specify an asset to be used as an overlay, along with its positioning and transformations. It supports nesting, allows you to modify the overlay itself, and express its position in relation to the parent.
@@ -62,9 +62,9 @@ You can apply transformations to the layer as you would on the base asset. Howev
 
 However, different types of layers support different types of transformations, which are covered in respective sections.
 
-* [Transformation of images overlay](overlay-using-layers#transformation-of-image-overlay)
-* [Transformation of text overlay](overlay-using-layers#transformation-of-text-overlay)
-* [Transformation of solid color overlay](overlay-using-layers#transformation-of-solid-color-overlay)
+* [Transformation of images overlay](overlay-using-layers.md#transformation-of-image-overlay)
+* [Transformation of text overlay](overlay-using-layers.md#transformation-of-text-overlay)
+* [Transformation of solid color overlay](overlay-using-layers.md#transformation-of-solid-color-overlay)
 
 Transformations inside a layer can be chained together to achieve the desired outcome.
 
@@ -92,7 +92,7 @@ You can add an image over a base image using the following example.
 https://ik.imagekit.io/demo/base-image.jpg?tr=l-image,i-logo.png,l-end
 ```
 
-You can also control the position of the image overlay using these [positional parameters](overlay-using-layers#position-of-layer).
+You can also control the position of the image overlay using these [positional parameters](overlay-using-layers.md#position-of-layer).
 
 ## Transformation of image overlay
 
@@ -100,32 +100,32 @@ ImageKit supports many [image transformation parameters](../image-transformation
 
 | Parameter                                                                                                   | Description                  |
 |-------------------------------------------------------------------------------------------------------------|------------------------------|
-| [w](../image-transformations/resize-crop-and-other-transformations#width-w)                                 | Width of the overlay image.  |
-| [h](../image-transformations/resize-crop-and-other-transformations#height-h)                                | Height of the overlay image. |
-| [ar](../image-transformations/resize-crop-and-other-transformations#aspect-ratio-ar)                        | Aspect ratio of the overlay image. |
-| [c](../image-transformations/resize-crop-and-other-transformations#crop-crop-modes-and-focus)               | Cropping method. Accepts `force`, `at_max`, and `at_least`. |
-| [cm](../image-transformations/resize-crop-and-other-transformations#crop-crop-modes-and-focus)              | Crop mode. Supports `extract` and `pad_resize`. |
-| [fo](../image-transformations/resize-crop-and-other-transformations#focus-fo)                               | Relative focus area used during cropping. Accepts `face`, `custom`, `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left`, and `bottom_right`. |
-| [z](../image-transformations/resize-crop-and-other-transformations#zoom---z)                                | It determines how much to zoom in or out of the cropped area. It must be used along with `fo-face`. A value less than `1.0` zooms out to include more background surrounding the face, whereas a value larger than `1.0` zooms in to exclude more background surrounding the face. Possible values include any number between `0` to `1` for zoom out, and greater than `1` for zoom in. Its default value is `1.0`. |
-| [b](../image-transformations/resize-crop-and-other-transformations#border-b)                                | This adds a border to the overlay image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>` |
-| [bg](../image-transformations/resize-crop-and-other-transformations#background-color-bg)                    | It is used to specify the background color in RGB Hex Code (e.g. `FF0000`), or an RGBA Code (e.g. `FFAABB50`), or a color name (e.g. `red`) that must be used for the image. If you specify an 8 character background, the last two characters must be a number between 00 and 99, which is used to indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents an opacity level of `0.01`, and so on. |
-| [r](../image-transformations/resize-crop-and-other-transformations#radius-r)                                | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
-| [rt](../image-transformations/resize-crop-and-other-transformations#rotate-rt)                              | It is used to specify the degree by which the overlay image must be rotated. |
-| [t](../image-transformations/resize-crop-and-other-transformations#trim-edges-t)                            | By default, ImageKit.io trims the overlay image before overlaying it on the base image. Trimming removes similar colored pixels from the edges. To prevent the default trimming from happening, use `t-false`. **Possible values** include `true`, `false`, and integer values between `1` and `99` that specifies the threshold level for considering a particular pixel as "background". |
-| [dpr](../image-transformations/resize-crop-and-other-transformations#dpr-dpr)                               | It is used to specify the device pixel ratio that is used to calculate the dimensions of the overlay image. It can only be used when either the height or width of the desired output image is specified. The possible values are `0.1` to `5`, or `auto`. |
-| [q](../image-transformations/resize-crop-and-other-transformations#quality-q)                               | It is used to specify the quality of the output image for lossy formats like JPEG, WebP, and AVIF. A large quality number indicates a larger output image size with high quality. A small quality number indicates a smaller output image size with lower quality. It can be a whole number between `1` and `100`. The default value is `80`. |
-| [bl](../image-transformations/resize-crop-and-other-transformations#blur---bl)                               | It is used to specify the gaussian blur that must be applied to an image. The value of `bl` specifies the radius of the Gaussian Blur that is to be applied. The higher the value, the larger the radius of Gaussian Blur. Accepts integers between `1` and `100`. |
-| [e-grayscale](../image-transformations/resize-crop-and-other-transformations#grayscale---e-grayscale)       | It is used to turn an image to a grayscale version. |
-| [e-contrast](../image-transformations/image-enhancement-and-color-manipulation#contrast-stretch---e-contrast) | It is used to automatically enhance the contrast of the image by using the full intensity values that particular image format allows. This means that the lighter sections of an image become even lighter and the darker sections becomes even brighter, thereby enhancing the contrast. |
-| [e-sharpen](../image-transformations/image-enhancement-and-color-manipulation#sharpen---e-sharpen)          | It is used to sharpen the input image, useful when highlighting the edges and finer details within an image. If just the `e-sharpen` parameter is used, then a default sharpening is performed on the input image. This can be controlled by specifying a number that restricts the extent of sharpening performed, like `e-sharpen-<number>`. |
-| [e-usm](../image-transformations/image-enhancement-and-color-manipulation#unsharp-mask---e-usm)             | It is used to apply and control unsharp masks on your images. The amount of sharpening can be varied using 4 parameters - `radius`, `sigma`, `amount`, and `threshold`. This results in perceptually better images compared to using `e-sharpen`. Only positive floating points are allowed for these 4 parameters. e.g. `e-usm-<radius>-<sigma>-<amount>-<threshold>` |
+| [w](../image-transformations/resize-crop-and-other-transformations.md#width-w)                                 | Width of the overlay image.  |
+| [h](../image-transformations/resize-crop-and-other-transformations.md#height-h)                                | Height of the overlay image. |
+| [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)                        | Aspect ratio of the overlay image. |
+| [c](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)               | Cropping method. Accepts `force`, `at_max`, and `at_least`. |
+| [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)              | Crop mode. Supports `extract` and `pad_resize`. |
+| [fo](../image-transformations/resize-crop-and-other-transformations.md#focus-fo)                               | Relative focus area used during cropping. Accepts `face`, `custom`, `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left`, and `bottom_right`. |
+| [z](../image-transformations/resize-crop-and-other-transformations.md#zoom---z)                                | It determines how much to zoom in or out of the cropped area. It must be used along with `fo-face`. A value less than `1.0` zooms out to include more background surrounding the face, whereas a value larger than `1.0` zooms in to exclude more background surrounding the face. Possible values include any number between `0` to `1` for zoom out, and greater than `1` for zoom in. Its default value is `1.0`. |
+| [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                                | This adds a border to the overlay image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>` |
+| [bg](../image-transformations/resize-crop-and-other-transformations.md#background-color-bg)                    | It is used to specify the background color in RGB Hex Code (e.g. `FF0000`), or an RGBA Code (e.g. `FFAABB50`), or a color name (e.g. `red`) that must be used for the image. If you specify an 8 character background, the last two characters must be a number between 00 and 99, which is used to indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents an opacity level of `0.01`, and so on. |
+| [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)                                | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
+| [rt](../image-transformations/resize-crop-and-other-transformations.md#rotate-rt)                              | It is used to specify the degree by which the overlay image must be rotated. |
+| [t](../image-transformations/resize-crop-and-other-transformations.md#trim-edges-t)                            | By default, ImageKit.io trims the overlay image before overlaying it on the base image. Trimming removes similar colored pixels from the edges. To prevent the default trimming from happening, use `t-false`. **Possible values** include `true`, `false`, and integer values between `1` and `99` that specifies the threshold level for considering a particular pixel as "background". |
+| [dpr](../image-transformations/resize-crop-and-other-transformations.md#dpr-dpr)                               | It is used to specify the device pixel ratio that is used to calculate the dimensions of the overlay image. It can only be used when either the height or width of the desired output image is specified. The possible values are `0.1` to `5`, or `auto`. |
+| [q](../image-transformations/resize-crop-and-other-transformations.md#quality-q)                               | It is used to specify the quality of the output image for lossy formats like JPEG, WebP, and AVIF. A large quality number indicates a larger output image size with high quality. A small quality number indicates a smaller output image size with lower quality. It can be a whole number between `1` and `100`. The default value is `80`. |
+| [bl](../image-transformations/resize-crop-and-other-transformations.md#blur---bl)                               | It is used to specify the gaussian blur that must be applied to an image. The value of `bl` specifies the radius of the Gaussian Blur that is to be applied. The higher the value, the larger the radius of Gaussian Blur. Accepts integers between `1` and `100`. |
+| [e-grayscale](../image-transformations/resize-crop-and-other-transformations.md#grayscale---e-grayscale)       | It is used to turn an image to a grayscale version. |
+| [e-contrast](../image-transformations/image-enhancement-and-color-manipulation.md#contrast-stretch---e-contrast) | It is used to automatically enhance the contrast of the image by using the full intensity values that particular image format allows. This means that the lighter sections of an image become even lighter and the darker sections becomes even brighter, thereby enhancing the contrast. |
+| [e-sharpen](../image-transformations/image-enhancement-and-color-manipulation.md#sharpen---e-sharpen)          | It is used to sharpen the input image, useful when highlighting the edges and finer details within an image. If just the `e-sharpen` parameter is used, then a default sharpening is performed on the input image. This can be controlled by specifying a number that restricts the extent of sharpening performed, like `e-sharpen-<number>`. |
+| [e-usm](../image-transformations/image-enhancement-and-color-manipulation.md#unsharp-mask---e-usm)             | It is used to apply and control unsharp masks on your images. The amount of sharpening can be varied using 4 parameters - `radius`, `sigma`, `amount`, and `threshold`. This results in perceptually better images compared to using `e-sharpen`. Only positive floating points are allowed for these 4 parameters. e.g. `e-usm-<radius>-<sigma>-<amount>-<threshold>` |
 
 
 # Add text over image
 
 You can add any text string over a base image using the following examples. 
 
-You can also control the position of the text overlay using these [positional parameters](overlay-using-layers#position-of-layer).
+You can also control the position of the text overlay using these [positional parameters](overlay-using-layers.md#position-of-layer).
 
 ## Usage syntax
 
@@ -160,16 +160,16 @@ Following transformation parameters are supported on the text inside a layer.
 
 | Parameter                          | Non-layer syntax equivalent                           | Description                           | 
 |------------------------------------|-------------------------------------------------------|---------------------------------------|
-| w                                  | [otw](./overlay#overlay-text-width---otw)             | The maximum width (in pixels) of the overlaid text on the image. The text is wrapped so that any words in a line that go beyond the given width are sent to the next line. The height of the text box is calculated automatically based on the total number of lines. |
-| fs                                 | [ots](./overlay#overlay-text-size---ots)              | It is used to specify the font size.  |
-| ff                                 | [otf](./overlay#overlay-text-font---otf)              | It is used to specify the font of the overlaid text on the image. You can choose [any font from this list](supported-text-font-list#in-built-fonts) or use a [custom font](overlay-using-layers#using-custom-fonts-in-text-overlays).                        |
-| co                                 | [otc](./overlay#overlay-text-color---otc)             | It is used to specify the color and transparency of the overlaid text on the image. It accepts RGB Hex Codes (e.g. `FF0000`), or RGBA Codes (e.g. `FFAABB50`), or color names (e.g. `red`). If you specify an 8 character background, the last two characters must be a number between `00` and `99`, which indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents an opacity level of `0.01`, and so on. |
-| ia                                 | [otia](./overlay#overlay-text-inner-alignment---otia) | Inner alignment. Accepts `left`, `right`, and `center`. The default value is `center`. |
-| pa                                 | [otp](./overlay#overlay-text-padding---otp)           | It is used to specify the padding around the overlaid text on the image. Supports any positive integer or a set of positive integers separated by underscores. The set of integers follow CSS shorthand order for determining the padding along each side of the overlay. e.g. `10`, `10_20`, `10_20_30` or `10_20_30_40`.         |
-| al                                 | [oa](./overlay#overlay-transparency---oa)             | It is used to specify the transparency level of the overlaid text layer. Supports integers from `1` to `9`.                          |
-| tg                                 | [ott](./overlay#overlay-text-typography---ott)        | Typography. Supports bold `b`, italics `i`, and bold with italics `b_i` |
-| [bg](../image-transformations/resize-crop-and-other-transformations#background-color-bg) | [otbg](./overlay#overlay-text-background---otbg) | It is used to specify the background color in RGB Hex Code (e.g. `FF0000`) or an RGBA Code (e.g. `FFAABB50`), or a color name (e.g. `red`). If you specify an 8 character background, the last two characters must be a number between `00` and `99`, which indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents an opacity level of `0.01`, and so on. |
-| [r](../image-transformations/resize-crop-and-other-transformations#radius-r)             | [or](./overlay#overlay-radius---or)              | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
+| w                                  | [otw](./overlay.md#overlay-text-width---otw)             | The maximum width (in pixels) of the overlaid text on the image. The text is wrapped so that any words in a line that go beyond the given width are sent to the next line. The height of the text box is calculated automatically based on the total number of lines. |
+| fs                                 | [ots](./overlay.md#overlay-text-size---ots)              | It is used to specify the font size.  |
+| ff                                 | [otf](./overlay.md#overlay-text-font---otf)              | It is used to specify the font of the overlaid text on the image. You can choose [any font from this list](supported-text-font-list.md#in-built-fonts) or use a [custom font](overlay-using-layers.md#using-custom-fonts-in-text-overlays).                        |
+| co                                 | [otc](./overlay.md#overlay-text-color---otc)             | It is used to specify the color and transparency of the overlaid text on the image. It accepts RGB Hex Codes (e.g. `FF0000`), or RGBA Codes (e.g. `FFAABB50`), or color names (e.g. `red`). If you specify an 8 character background, the last two characters must be a number between `00` and `99`, which indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents an opacity level of `0.01`, and so on. |
+| ia                                 | [otia](./overlay.md#overlay-text-inner-alignment---otia) | Inner alignment. Accepts `left`, `right`, and `center`. The default value is `center`. |
+| pa                                 | [otp](./overlay.md#overlay-text-padding---otp)           | It is used to specify the padding around the overlaid text on the image. Supports any positive integer or a set of positive integers separated by underscores. The set of integers follow CSS shorthand order for determining the padding along each side of the overlay. e.g. `10`, `10_20`, `10_20_30` or `10_20_30_40`.         |
+| al                                 | [oa](./overlay.md#overlay-transparency---oa)             | It is used to specify the transparency level of the overlaid text layer. Supports integers from `1` to `9`.                          |
+| tg                                 | [ott](./overlay.md#overlay-text-typography---ott)        | Typography. Supports bold `b`, italics `i`, and bold with italics `b_i` |
+| [bg](../image-transformations/resize-crop-and-other-transformations.md#background-color-bg) | [otbg](./overlay.md#overlay-text-background---otbg) | It is used to specify the background color in RGB Hex Code (e.g. `FF0000`) or an RGBA Code (e.g. `FFAABB50`), or a color name (e.g. `red`). If you specify an 8 character background, the last two characters must be a number between `00` and `99`, which indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents an opacity level of `0.01`, and so on. |
+| [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)             | [or](./overlay.md#overlay-radius---or)              | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
 
 ### Using custom fonts in text overlays
 
@@ -208,7 +208,7 @@ You can add a solid color block over a base image using the following example.
 https://ik.imagekit.io/demo/base-image.jpg?tr=l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end
 ```
 
-You can also control the position of the solid color overlay using these [positional parameters](overlay-using-layers#position-of-layer).
+You can also control the position of the solid color overlay using these [positional parameters](overlay-using-layers.md#position-of-layer).
 
 ## Transformation of solid color overlay
 
@@ -218,10 +218,10 @@ Following transformation parameters are supported on the solid color block overl
 |------------------------------------------------------------------------------------------|------------------------------------|
 | w                                                                                        | Width of solid color block.   |
 | h                                                                                        | Height of solid color block.  |
-| [bg](../image-transformations/resize-crop-and-other-transformations#background-color-bg) | It is used to specify the color of the block in RGB Hex Code (e.g. `FF0000`), or an RGBA Code (e.g. `FFAABB50`), or a color name (e.g. `red`). If you specify an 8 character background, the last two characters must be a number between `00` and `99`, which indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents an opacity level of `0.01`, and so on. |
+| [bg](../image-transformations/resize-crop-and-other-transformations.md#background-color-bg) | It is used to specify the color of the block in RGB Hex Code (e.g. `FF0000`), or an RGBA Code (e.g. `FFAABB50`), or a color name (e.g. `red`). If you specify an 8 character background, the last two characters must be a number between `00` and `99`, which indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents an opacity level of `0.01`, and so on. |
 | al                                                                                       | It is used to specify the transparency level of the overlaid solid color layer. Supports integers from `1` to `9`. |
-| [r](../image-transformations/resize-crop-and-other-transformations#radius-r)             | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
+| [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)             | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
 
 {% hint style="info" %}
-If both `bg` and `al` are set in a single transformation and `bg` has an alpha component, then that value is used to set solid color background transparency. Otherwise, `al` value is used. If `bg` is set to a standard color name (e.g. `blue`), then the `al` value is ignored. Read more [here](../image-transformations/overlay#overlay-background-transparency)
+If both `bg` and `al` are set in a single transformation and `bg` has an alpha component, then that value is used to set solid color background transparency. Otherwise, `al` value is used. If `bg` is set to a standard color name (e.g. `blue`), then the `al` value is ignored. Read more [here](../image-transformations/overlay.md#overlay-background-transparency)
 {% endhint %}
