@@ -24,6 +24,10 @@ Save the transformation. You can now replace the string `tr:w-300,h-200,bl-10` w
 **Note: **ImageKit.io transformation strings start with **tr:** and named transformations begin with **tr:n-{the name of transformation}**
 {% endhint %}
 
+{% hint style="warning" %}
+URLs containing non-existent named transformation keys will return an error response with 400 status code
+{% endhint %}
+
 ## Editing Named Transformations
 
 Navigate to the Named Transforms section within [Image Settings](https://imagekit.io/dashboard?redirectTo=settings#settings) on your dashboard.
