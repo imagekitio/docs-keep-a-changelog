@@ -20,6 +20,10 @@ base64 encoding of `your_private_api_key:`
 {% endswagger-response %}
 {% endswagger %}
 
+{% hint style="info" %}
+Even after deleting a custom metadata field, you cannot create any new custom metadata field with the same `name`.
+{% endhint %}
+
 ## Examples
 
 {% tabs %}
