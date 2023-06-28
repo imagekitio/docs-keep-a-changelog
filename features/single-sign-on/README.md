@@ -5,6 +5,10 @@
 At the moment, this feature is available in all paid plans. But soon, it will be only available on custom enterprise pricing plans.
 {% endhint %}
 
+{% hint style="info" %}
+[Enforce multi-factor authentication (MFA)](../multi-factor-authentication.md) setting is not applicable for users logging in via single sign-on (SSO) authentication and enabling/disabling it will have no effect on the authentication flow of the user to Imagekit's dashboard. If you wish to enable MFA, you may do so in your Identity Provider (IdP) platform.
+{% endhint %}
+
 Single sign-on (SSO) is an authentication method that allows users to log in to ImageKit with a single unique ID provided through a trusted Identity Provider (IdP).
 
 SSO adds a layer of centralized control to user management. You can manage all the users in your organization and assign their ImageKit role from a central Identity Provider (IdP) platform. ImageKit will use that IdP to register, authenticate and authorize your users.
