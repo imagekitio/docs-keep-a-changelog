@@ -34,9 +34,9 @@ Similar to a single file, you can publish or unpublish multiple files at once. S
 
 ![Publish or unpublish a files](<../../.gitbook/assets/publish-unpublish-file-modal.png>)
 
-## Search for file in draft state
+## Search for files in draft state
 
-You can search for file in draft state in the media library. Go to the media library and click on the search bar. In the advanced search filters, select 'File published' and select the option to show only unpublished files.
+You can search for files and file versions in draft state in the media library. Go to the media library and click on the search bar. In the advanced search filters, select 'File published' and select the option to show only unpublished files.
 
 ![Search for unpublished files in the media library](<../../.gitbook/assets/search-unpublished-files.png>)
 
