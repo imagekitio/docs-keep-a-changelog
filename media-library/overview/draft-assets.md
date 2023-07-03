@@ -34,16 +34,16 @@ Similar to a single file, you can publish or unpublish multiple files at once. S
 
 ![Publish or unpublish a files](<../../.gitbook/assets/publish-unpublish-file-modal.png>)
 
-## Search for unpublished files
+## Search for file in draft state
 
-You can search for unpublished files in the media library. Go to the media library and click on the search bar. In the advanced search filters, select 'File published' and select the option to show only unpublished files.
+You can search for file in draft state in the media library. Go to the media library and click on the search bar. In the advanced search filters, select 'File published' and select the option to show only unpublished files.
 
 ![Search for unpublished files in the media library](<../../.gitbook/assets/search-unpublished-files.png>)
 
 ### Understanding behaviour of URLs on unpublishing a file
 
-When you unpublish a file, the public URL of the file and its versions, if they were also unpublished, are no longer accessible. Moreover, a purge cache request is issued for the URL of each file to be unpublished, and it is counted against your account's purge cache quota.
+When you unpublish a file, it means that the file's public URL will no longer be accessible. In addition, a purge cache request is triggered for each file that is being unpublished. It's important to note that these purge cache requests count towards the quota allocated to your account.
 
-Even if you unpublish only the current version of the file, the cache for all its other versions will also be purged. However, the cache of files transformations made using path parameters would persist, and all transformations having query parameters would be purged.
+Even if you decide to unpublish only the current version of the file, the cache for all other versions of the file will also be cleared. However, the cache for file transformations made using path parameters will persist, while any transformations that include query parameters will be purged.
 
-Note that a file version's URL would change once its state changed from draft to published or vice versa.
+Please keep in mind that when a file version transitions between the draft and published states, its URL will also change accordingly. This is because the `ik-obj-version` query parameter changes after the operation and the old one is no longer valid. A file version's URL looks like this: `https://ik.imagekit.io/your_imagekit_id/file.jpg?ik-obj-version=iAg8gxkqo_QUBwqNeQrJzuyce2XB7Gc4`
