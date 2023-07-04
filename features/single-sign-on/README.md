@@ -50,9 +50,9 @@ Upon successful authentication response from the IdP, ImageKit will check if the
 
 ### SSO and Multi-factor authentication (MFA)
 
-For users signing in via SSO, the sole responsibility of providing any additional security mechanism such as MFA etc. resides with associated IdP. 
+Since the primary authentication of SSO users is provided by the Identity Provider (IdP), multi-factor authentication for these users is also best configured through the IdP. You can follow the documentation of your configured IdP to set it up on its platform. 
 
-Even if the user enables MFA on their own profile through the User profile page or an administrator enforces MFA for all users through the User Management Page, no unique code will be sent to the email associated with the user's account and user will be redirected to imagekit dashboard following successful authentication by IdP.
+Even if an SSO user enables MFA on their own profile through the User profile page or an administrator enforces MFA for all users through the User Management Page, no unique code will be sent to the email associated with the SSO user's account and user will be redirected to Imagekit dashboard following successful authentication by IdP.
 
 ### Delete an existing user
 
