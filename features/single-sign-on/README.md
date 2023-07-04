@@ -48,6 +48,12 @@ Alternatively, they may use the SSO application on your IdP portal to initiate a
 
 Upon successful authentication response from the IdP, ImageKit will check if there have been any changes to the user's information (such as full name and ImageKit role) since their last login on ImageKit. If so, the information will be updated on ImageKit automatically. 
 
+### SSO and MFA
+
+For users signing in via SSO, the sole responsibility of providing any additional security mechanism such as MFA etc. reside with associated IdP. 
+
+Even if user enables MFA on his/her own profile through the User profile page or an administrator enforces MFA for all users through the User Management Page, no unique code will be sent to the email associated with user's account and user will be redirected to imagekit dashboard following successful authentication by IdP.
+
 ### Delete an existing user
 
 When a user is deleted from your IdP, they would be unable to log in to ImageKit using SSO. However, their account would still exist on ImageKit and count towards your subscription plan. To avoid this, you should delete them immediately from the User Management page on ImageKit as well.
