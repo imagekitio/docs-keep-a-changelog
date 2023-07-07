@@ -12,11 +12,11 @@ base64 encoding of `your_private_api_key:`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="startDate" %}
-Specify a `startDate` in `YYYY-DD-MM` format. It should be before the `endDate`. The difference between `startDate` and `endDate` should be less than 90 days.
+Specify a `startDate` in `YYYY-MM-DD` format. It should be before the `endDate`. The difference between `startDate` and `endDate` should be less than 90 days.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="endDate" %}
-Specify a `endDate` in `YYYY-DD-MM` format. It should be after the `startDate`. The difference between `startDate` and `endDate` should be less than 90 days.
+Specify a `endDate` in `YYYY-MM-DD` format. It should be after the `startDate`. The difference between `startDate` and `endDate` should be less than 90 days.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="In the response, you will get different usage metrics" %}
