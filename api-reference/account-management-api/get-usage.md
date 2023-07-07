@@ -1,8 +1,8 @@
-# Get account usage API (beta)
+# Get account usage API
 
-{% swagger baseUrl="https://api.imagekit.io" path="/v1/accounts/usage" method="get" summary="Get account usage information (beta)" %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/accounts/usage" method="get" summary="Get account usage information" %}
 {% swagger-description %}
-Get the account usage information between two dates.
+Get the account usage information between two dates. However, it is worthwhile to note that this data is cached internally, and refreshes every 6 hours.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" required="true" %}
@@ -22,11 +22,11 @@ Specify a `endDate` in `YYYY-MM-DD` format. It should be after the `startDate`. 
 {% swagger-response status="200" description="In the response, you will get different usage metrics" %}
 ```javascript
 {
-    "bandwidth_bytes": 21991583578,
-    "media_library_storage_bytes": 1878758298,
-    "video_processing_units_count": 0,
-    "extension_units_count": 0,
-    "original_cache_storage_bytes": 0
+    "bandwidthBytes": 21991583578,
+    "mediaLibraryStorageBytes": 1878758298,
+    "videoProcessingUnitsCount": 0,
+    "extensionUnitsCount": 0,
+    "originalCacheStorageBytes": 0
 }
 ```
 {% endswagger-response %}
