@@ -64,14 +64,14 @@ ImageKit.io allows you to upload a file with the following mime types:
 | mov                | Movie files            |
 | swf                | SWF files              |
 | ts                 | Video files            |
-| m3u8               | Video files            |
+| m3u8               | Video playlist files   |
 | json               | JSON files             |
 | xml                | XML files              |
 | rss                | RSS files              |
 | html               | HTML files             |
 | mp3                | MP3 audio files        |
 | m4a                | M4A audio files        |
-| wav                | Audio files            |
+| wav                | WAV Audio files        |
 | doc                | Microsoft doc files    |
 | ppt                | Microsoft ppt files    |
 | xls                | Microsoft xls files    |
