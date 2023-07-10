@@ -99,18 +99,6 @@ ImageKit.io allows you to upload a file with the following mime types:
 | appimage           | APPIMAGE files         |
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ## Bulk file upload
 
 The upload API can upload one file at a time. To upload files in bulk, write a program to loop through files and call upload API repeatedly. Leverage [ImageKit.io server-side SDKs](../api-introduction/sdk.md#server-side-sdks) to implement bulk upload program.
