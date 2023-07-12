@@ -7,10 +7,6 @@ description: >-
 
 # Overlay using layers
 
-{% hint style="info" %}
-Overlay on images using layers is currently in beta.
-{% endhint %}
-
 With ImageKit, you can add images and text over a base image using [layers](#layers). Skip to the relevant section to understand with a quick example:
 
 * [Add images over image](overlay-using-layers.md#add-images-over-image)
