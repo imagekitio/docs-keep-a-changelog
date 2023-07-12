@@ -8,6 +8,7 @@ description: >-
 
 
 {% hint style="danger" %}
+**Deprecation notice**\
 This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
 {% endhint %}
 
@@ -40,6 +41,7 @@ You can control the dimension of overlay image using [overlay height (oh)](overl
 ## Common overlay options
 
 {% hint style="danger" %}
+**Deprecation notice**\
 This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
 {% endhint %}
 
@@ -142,6 +144,7 @@ URL - [https://ik.imagekit.io/demo/tr:oi-logo-white_SJwqB4Nfe.png,ow-100/medium_
 ### Overlay Background - (obg)
 
 {% hint style="danger" %}
+**Deprecation notice**\
 This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
 {% endhint %}
 
@@ -176,6 +179,7 @@ URL - [https://ik.imagekit.io/demo/tr:obg-00FFFF55,oh-50,ow-600,ofo-bottom/mediu
 ### Overlay focus - (ofo)
 
 {% hint style="danger" %}
+**Deprecation notice**\
 This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
 {% endhint %}
 
@@ -220,6 +224,7 @@ URL - [https://ik.imagekit.io/demo/tr:oi-logo-white_SJwqB4Nfe.png,ow-100/medium_
 ## Image overlay
 
 {% hint style="danger" %}
+**Deprecation notice**\
 This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
 {% endhint %}
 
@@ -376,6 +381,7 @@ URL - [https://ik.imagekit.io/ikmedia/tr:w-730,h-620:oi-women-dress-2.jpg,ox-0,o
 ### Overlay image DPR (oidpr)
 
 {% hint style="danger" %}
+**Deprecation notice**\
 This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
 {% endhint %}
 
@@ -410,6 +416,7 @@ URL - [https://ik.imagekit.io/ikmedia/tr:w-715,h-610:oi-women-dress-2.jpg,ox-0,o
 ### Overlay image cropping
 
 {% hint style="danger" %}
+**Deprecation notice**\
 This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
 {% endhint %}
 
@@ -506,6 +513,7 @@ Learn more from [example here](overlay.md#trimming-of-the-overlay-image).
 ## Text overlay
 
 {% hint style="danger" %}
+**Deprecation notice**\
 This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
 {% endhint %}
 
@@ -601,6 +609,7 @@ URL - [https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,otc-00000
 ### Overlay text padding - (otp)
 
 {% hint style="danger" %}
+**Deprecation notice**\
 This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
 {% endhint %}
 
@@ -677,6 +686,7 @@ URL - [https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,otc-00000
 ### Overlay text color - (otc)
 
 {% hint style="danger" %}
+**Deprecation notice**\
 This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
 {% endhint %}
 
