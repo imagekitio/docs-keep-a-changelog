@@ -4,7 +4,7 @@ description: >-
   another image.
 ---
 
-# Overlay
+# Overlay (deprecated)
 
 
 {% hint style="danger" %}

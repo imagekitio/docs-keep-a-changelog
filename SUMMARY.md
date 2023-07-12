@@ -81,8 +81,8 @@
 
 * [Image Transformations](features/image-transformations/README.md)
   * [Resize, crop and other common transformations](features/image-transformations/resize-crop-and-other-transformations.md)
-  * [Overlay](features/image-transformations/overlay.md)
   * [Overlay using layers](features/image-transformations/overlay-using-layers.md)
+  * [Overlay (deprecated)](features/image-transformations/overlay.md)
   * [Image enhancement & color manipulation](features/image-transformations/image-enhancement-and-color-manipulation.md)
   * [Chained transformations](features/image-transformations/chained-transformations.md)
   * [Conditional transformations](features/image-transformations/conditional-transformations.md)
