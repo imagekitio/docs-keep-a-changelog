@@ -5,7 +5,7 @@ description: >-
   and provides better positional control.
 ---
 
-# Overlay using layers (beta)
+# Overlay using layers
 
 {% hint style="info" %}
 Overlay on images using layers is currently in beta.
@@ -16,6 +16,8 @@ With ImageKit, you can add images and text over a base image using [layers](#lay
 * [Add images over image](overlay-using-layers.md#add-images-over-image)
 * [Add text over image](overlay-using-layers.md#add-text-over-image)
 * [Add solid color blocks over image](overlay-using-layers.md#add-solid-color-blocks-over-image)
+
+You can also learn from more [advanced examples](#examples).
 
 # Layers
 A layer is a special kind of transformation in which you can specify an asset to be used as an overlay, along with its positioning and transformations. It supports nesting, allows you to modify the overlay itself, and express its position in relation to the parent.
@@ -225,3 +227,154 @@ Following transformation parameters are supported on the solid color block overl
 {% hint style="info" %}
 If both `bg` and `al` are set in a single transformation and `bg` has an alpha component, then that value is used to set solid color background transparency. Otherwise, `al` value is used. If `bg` is set to a standard color name (e.g. `blue`), then the `al` value is ignored. Read more [here](../image-transformations/overlay.md#overlay-background-transparency)
 {% endhint %}
+
+# Examples
+
+## Image overlay
+
+### Basic position control
+
+You can overlay an image using the `l-image` parameter and control its position using the `lx` and `ly` parameters. If the `lx` or `ly` value exceeds the dimensions of the input image, the values are adjusted to fit within the image. To change the direction, negative values are also supported by prefixing the value with 'N'.
+
+{% tabs %}
+{% tab title="Default center overlay" %}
+URL - [https://ik.imagekit.io/demo/tr:l-image,i-logo-white_SJwqB4Nfe.png,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-image,i-logo-white_SJwqB4Nfe.png,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-image,i-logo-white_SJwqB4Nfe.png,l-end/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="LX=35" %}
+URL - [https://ik.imagekit.io/demo/tr:l-image,i-logo-white_SJwqB4Nfe.png,lx-35,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-image,i-logo-white_SJwqB4Nfe.png,lx-35,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-image,i-logo-white_SJwqB4Nfe.png,lx-35,l-end/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="LX=N35 (Negative value)" %}
+URL - [https://ik.imagekit.io/demo/tr:l-image,i-logo-white_SJwqB4Nfe.png,lx-N35,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-image,i-logo-white_SJwqB4Nfe.png,lx-N35,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-image,i-logo-white_SJwqB4Nfe.png,lx-N35,l-end/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% endtabs %}
+
+### Nesting of image layers
+
+You can overlay multiple images by nesting them using the `l-image` parameter. In this example, we overlay the resized `women-dress.jpeg` with a red border on the bottom left corner of the base image and then add the `imagekit.io` logo on the top right corner of the `women-dress.jpeg` image. `lfo` parameter is used to control the position of layer in relative terms.
+
+URL - [https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,h-400,b-10_red,lfo-bottom_left,l-image,i-logo-white_SJwqB4Nfe.png,w-150,lfo-top_right,l-end,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,h-400,b-10_red,lfo-bottom_left,l-image,i-logo-white_SJwqB4Nfe.png,w-150,lfo-top_right,l-end,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,h-400,b-10_red,lfo-bottom_left,l-image,i-logo-white_SJwqB4Nfe.png,w-150,lfo-top_right,l-end,l-end/medium_cafe_B1iTdD0C.jpg)
+
+### Transformation on image layer
+You can apply various transformations to the image layer using the supported transformation parameters. For example, you can use the `cm-pad_resize` cropping with a yellow background to fill the image layer's background.
+
+URL - [https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,h-400,w-400,cm-pad_resize,bg-yellow,lfo-bottom_left,l-image,i-logo-white_SJwqB4Nfe.png,w-150,lfo-top_right,l-end,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,h-400,w-400,cm-pad_resize,bg-yellow,lfo-bottom_left,l-image,i-logo-white_SJwqB4Nfe.png,w-150,lfo-top_right,l-end,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,h-400,w-400,cm-pad_resize,bg-yellow,lfo-bottom_left,l-image,i-logo-white_SJwqB4Nfe.png,w-150,lfo-top_right,l-end,l-end/medium_cafe_B1iTdD0C.jpg)
+
+You can also apply additional transformations, such as `e-grayscale`, to modify the overlay image. Here's an example of turning the overlay image into a grayscale version.
+
+URL - [https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,h-400,w-400,e-grayscale,cm-pad_resize,bg-yellow,lfo-bottom_left,l-image,i-logo-white_SJwqB4Nfe.png,w-150,lfo-top_right,l-end,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,h-400,w-400,e-grayscale,cm-pad_resize,bg-yellow,lfo-bottom_left,l-image,i-logo-white_SJwqB4Nfe.png,w-150,lfo-top_right,l-end,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,h-400,w-400,e-grayscale,cm-pad_resize,bg-yellow,lfo-bottom_left,l-image,i-logo-white_SJwqB4Nfe.png,w-150,lfo-top_right,l-end,l-end/medium_cafe_B1iTdD0C.jpg)
+
+## Text overlay
+
+### Basic text overlay
+
+You can add text overlays using the `l-text` parameter. By default, the text is displayed with the default font and a font size of 45. You can control the font size using the `fs` parameter.
+
+URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,l-end/medium_cafe_B1iTdD0C.jpg)
+
+You can change the color of the text using the `co` parameter.
+
+URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,co-red,fs-45,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,co-red,fs-45,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,co-red,fs-45,l-end/medium_cafe_B1iTdD0C.jpg)
+
+You can also change the font using the `fo` parameter. Refer to the [list of supported fonts](/features/image-transformations/supported-text-font-list.md#in-built-fonts) for the available options. Apart from this, you can also use [custom fonts](#custom-fonts-example)
+
+URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,ff-AbrilFatFace,co-yellow,fs-45,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,ff-AbrilFatFace,co-yellow,fs-45,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,ff-AbrilFatFace,co-yellow,fs-45,l-end/medium_cafe_B1iTdD0C.jpg)
+
+### Adding colored background 
+
+You can add a colored background to the text overlay using the `bg` parameter. For example, you can add a white background.
+
+URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,l-end/medium_cafe_B1iTdD0C.jpg)
+
+You can also control the transparency of the background by specifying an 8-digit RGBA hex code. The last two characters determine the opacity level (e.g., AAFF0040, 0f0fac75).
+
+URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-FFFFFF50,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-FFFFFF50,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-FFFFFF50,l-end/medium_cafe_B1iTdD0C.jpg)
+
+### Adding padding
+
+You can add padding to the text overlay using the `pa` parameter. The padding can be controlled individually for each side using the CSS shorthand notation.
+
+{% tabs %}
+{% tab title="pa=10" %}
+URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-10,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-10,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-10,l-end/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="pa=40 and w=300" %}
+URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-10,w-300,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-10,w-300,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-10,w-300,l-end/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="pa=25_50_75_100" %}
+URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-25_50_75_100,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-25_50_75_100,l-end/medium_cafe_B1iTdD0C.jpg)
+
+* Top padding is 25
+* Right padding is 50
+* Bottom padding is 75
+* Left padding is 100
+
+![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-25_50_75_100,l-end/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="pa=25_75_60" %}
+URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-25_75_60,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-25_75_60,l-end/medium_cafe_B1iTdD0C.jpg)
+
+* Top padding is 25
+* Right and left paddings are 75
+* Bottom padding is 60
+
+![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-25_75_60,l-end/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="otp=25_75" %}
+URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-25_75,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-25_75,l-end/medium_cafe_B1iTdD0C.jpg)
+
+* Top and bottom paddings are 25
+* Right and left paddings are 75
+
+![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,bg-white,pa-25_75,l-end/medium_cafe_B1iTdD0C.jpg)
+{% endtab %}
+{% endtabs %}
+
+
+### Custom fonts example
+
+If you have custom font files, you can use them in text overlays. In this example, `Lacquer-Regular_nGqtVsBJT.ttf` is a custom font file uploaded to the root of the media library and accessible at the URL `https://ik.imagekit.io/demo/Lacquer-Regular_nGqtVsBJT.ttf`.
+
+URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,ff-Lacquer-Regular_nGqtVsBJT.ttf,co-yellow,fs-45,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,ff-Lacquer-Regular_nGqtVsBJT.ttf,co-yellow,fs-45,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,ff-Lacquer-Regular_nGqtVsBJT.ttf,co-yellow,fs-45,l-end/medium_cafe_B1iTdD0C.jpg)
+
+### Non-English character support
+
+You can overlay text in any language with custom fonts, for example.
+
+URL - [https://ik.imagekit.io/ikmedia/tr:w-600,h-600:l-text,i-इमेजकिट के साथ,ff-fonts@@Poppins-Regular_Q15GrYWmL.ttf,fs-42,ia-left,pa-10,ly-N100,bg-FFFFFF75,co-145FDD,l-end:l-text,i-दुनिया के कोने-कोने में लोगों तक पहुंचें,pa-5,ly-N35,lx-300,fs-28,ia-right,ff-fonts@@Poppins-Regular_Q15GrYWmL.ttf,bg-FFFFFF75,l-end/girl_in_white.jpg]([https://ik.imagekit.io/ikmedia/tr:w-600,h-600:l-text,i-इमेजकिट के साथ,ff-fonts@@Poppins-Regular_Q15GrYWmL.ttf,fs-42,ia-left,pa-10,ly-N100,bg-FFFFFF75,co-145FDD,l-end:l-text,i-दुनिया के कोने-कोने में लोगों तक पहुंचें,pa-5,ly-N35,lx-300,fs-28,ia-right,ff-fonts@@Poppins-Regular_Q15GrYWmL.ttf,bg-FFFFFF75,l-end/girl_in_white.jpg](https://ik.imagekit.io/ikmedia/tr:w-600,h-600:l-text,i-%E0%A4%87%E0%A4%AE%E0%A5%87%E0%A4%9C%E0%A4%95%E0%A4%BF%E0%A4%9F%20%E0%A4%95%E0%A5%87%20%E0%A4%B8%E0%A4%BE%E0%A4%A5,ff-fonts@@Poppins-Regular_Q15GrYWmL.ttf,fs-42,ia-left,pa-10,ly-N100,bg-FFFFFF75,co-145FDD,l-end:l-text,i-%E0%A4%A6%E0%A5%81%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%BE%20%E0%A4%95%E0%A5%87%20%E0%A4%95%E0%A5%8B%E0%A4%A8%E0%A5%87-%E0%A4%95%E0%A5%8B%E0%A4%A8%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%B2%E0%A5%8B%E0%A4%97%E0%A5%8B%E0%A4%82%20%E0%A4%A4%E0%A4%95%20%E0%A4%AA%E0%A4%B9%E0%A5%81%E0%A4%82%E0%A4%9A%E0%A5%87%E0%A4%82,pa-5,ly-N35,lx-300,fs-28,ia-right,ff-fonts@@Poppins-Regular_Q15GrYWmL.ttf,bg-FFFFFF75,l-end/girl_in_white.jpg))
+
+![]([https://ik.imagekit.io/ikmedia/tr:w-600,h-600:l-text,i-इमेजकिट के साथ,ff-fonts@@Poppins-Regular_Q15GrYWmL.ttf,fs-42,ia-left,pa-10,ly-N100,bg-FFFFFF75,co-145FDD,l-end:l-text,i-दुनिया के कोने-कोने में लोगों तक पहुंचें,pa-5,ly-N35,lx-300,fs-28,ia-right,ff-fonts@@Poppins-Regular_Q15GrYWmL.ttf,bg-FFFFFF75,l-end/girl_in_white.jpg](https://ik.imagekit.io/ikmedia/tr:w-600,h-600:l-text,i-%E0%A4%87%E0%A4%AE%E0%A5%87%E0%A4%9C%E0%A4%95%E0%A4%BF%E0%A4%9F%20%E0%A4%95%E0%A5%87%20%E0%A4%B8%E0%A4%BE%E0%A4%A5,ff-fonts@@Poppins-Regular_Q15GrYWmL.ttf,fs-42,ia-left,pa-10,ly-N100,bg-FFFFFF75,co-145FDD,l-end:l-text,i-%E0%A4%A6%E0%A5%81%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%BE%20%E0%A4%95%E0%A5%87%20%E0%A4%95%E0%A5%8B%E0%A4%A8%E0%A5%87-%E0%A4%95%E0%A5%8B%E0%A4%A8%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%B2%E0%A5%8B%E0%A4%97%E0%A5%8B%E0%A4%82%20%E0%A4%A4%E0%A4%95%20%E0%A4%AA%E0%A4%B9%E0%A5%81%E0%A4%82%E0%A4%9A%E0%A5%87%E0%A4%82,pa-5,ly-N35,lx-300,fs-28,ia-right,ff-fonts@@Poppins-Regular_Q15GrYWmL.ttf,bg-FFFFFF75,l-end/girl_in_white.jpg))
