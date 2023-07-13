@@ -1,4 +1,8 @@
-# Server side file upload
+# Server side file upload (beta)
+
+{% hint style="danger" %}
+This API is in beta and subject to change.
+{% endhint %}
 
 You can upload files to the ImageKit.io media library from your server-side using [private API key authentication](../api-introduction/api-keys.md#private-key).
 
