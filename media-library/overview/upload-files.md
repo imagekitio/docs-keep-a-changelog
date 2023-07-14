@@ -52,3 +52,29 @@ You can share a folder with a restricted user by providing "Can contribute" or "
 ## Using the Upload API
 
 You can also upload images to ImageKit.io's media library programmatically. Read the Upload API documentation [here](../../api-reference/upload-file-api/).
+
+## Upload settings
+
+* Generate unique filenames with random suffixes
+
+When this setting is activated, ImageKit automatically appends a random suffix to the file name. This prevents overwriting of existing files by ensuring each file name is unique.
+
+* Overwrite files during upload
+
+If a file with an identical name already exists at the destination, activating this setting will create a new version of the file. Conversely, if this setting is off and a file with the same name exists, an error will be generated.
+
+* Set files as private during upload
+
+This setting allows you to mark files as private. When this setting is enabled, the file is set as private, which limits access to the original file URL and unnamed transformations without signed URLs. Without the signed URL, only named transformations can be applied to private assets.
+
+* Overwrite AI tags during upload
+
+If this feature is enabled and a file with the same name already exists at the target destination, the existing AI tags of the file will be replaced with new ones or removed if no tagging extension is applied. Conversely, if this setting is off, the existing AI tags of the file will be preserved in the new version.
+
+* Overwrite user-set tags during upload
+
+If this feature is enabled and a file with the same name already exists at the target destination, the user-set tags of the file will be replaced with new ones or removed if no tags are provided. Conversely, if this setting is off, the existing user-set tags of the file will be preserved in the new version.
+
+* Overwrite custom metadata during upload
+
+If this feature is enabled and a file with the same name already exists at the target destination, the custom metadata of the file will be replaced with new one or removed if no custom metadata is provided. Conversely, if this setting is off, the existing custom metadata of the file will be preserved in the new version.
