@@ -2,7 +2,7 @@
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/accounts/usage" method="get" summary="Get account usage information" %}
 {% swagger-description %}
-Get the account usage information between two dates. However, it is worthwhile to note that this data is cached internally, and refreshes every 6 hours.
+Get the account usage information between two dates. However, it is worth noting that this data is cached internally and refreshes every 6 hours.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" required="true" %}
