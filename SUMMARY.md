@@ -21,6 +21,7 @@
   * [Vue.js](getting-started/quickstart-guides/vuejs.md)
   * [Next.js](getting-started/quickstart-guides/nextjs.md)
 * [How to use ImageKit.io?](getting-started/how-to-use-imagekit.io.md)
+* [Login for multi-account users](getting-started/login-for-multi-account-users.md)
 
 ## 🔧External storage <a href="integration" id="integration"></a>
 
