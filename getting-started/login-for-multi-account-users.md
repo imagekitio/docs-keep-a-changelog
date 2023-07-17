@@ -23,7 +23,7 @@ Upon successful validation of the OTP provided, you will select the imagekit ID 
 ### Multi-factor authentication (MFA) for multi-account users
 
 
-[Enforce multi-factor authentication (MFA)](../multi-factor-authentication.md) setting is not applicable for multi-account users, and enabling or disabling it will have no effect on the authentication flow of the multi-account user to Imagekit's dashboard. Since the multi-account user will always be asked to provide the one-time password (OTP) sent to the associated email ID before accessing the account selection form, sending another unique code for MFA to the same associated email ID and validating it on the next screen seems redundant and is therefore skipped.
+[Enforce multi-factor authentication (MFA)](../features/multi-factor-authentication.md) setting is not applicable for multi-account users, and enabling or disabling it will have no effect on the authentication flow of the multi-account user to Imagekit's dashboard. Since the multi-account user will always be asked to provide the one-time password (OTP) sent to the associated email ID before accessing the account selection form, sending another unique code for MFA to the same associated email ID and validating it on the next screen seems redundant and is therefore skipped.
 
 
 If you face any issues while using these features or have a question or suggestion, please reach out to us at support@imagekit.io.
