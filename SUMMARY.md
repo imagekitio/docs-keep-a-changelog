@@ -21,7 +21,6 @@
   * [Vue.js](getting-started/quickstart-guides/vuejs.md)
   * [Next.js](getting-started/quickstart-guides/nextjs.md)
 * [How to use ImageKit.io?](getting-started/how-to-use-imagekit.io.md)
-* [Login for multi-account users](getting-started/login-for-multi-account-users.md)
 
 ## 🔧External storage <a href="integration" id="integration"></a>
 
@@ -130,6 +129,7 @@
   * [Cloudinary](features/url-rewriters/cloudinary.md)
   * [Imgix](features/url-rewriters/imgix.md)
 * [Session management](features/session-management.md)
+* [User associated with multiple accounts](features/user_associated_with_multiple_accounts.md)
 
 ## Best Practices
 * [Mobile Apps](imagekit-best-practices/mobile-apps.md)
