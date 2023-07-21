@@ -4,15 +4,14 @@ A user can be associated with multiple ImageKit accounts using the same email ad
 
 The login flow for a multi-account user is as follows:
 
-You will be asked to put in your email and password (any valid password for one of the accounts) at the login screen.
-
+At the login screen, you will be asked to enter your email address and password (any valid password for one of the accounts).
 ![Login screen](../.gitbook/assets/login_screen.png)
 
-Then you will be redirected to the following page and asked to put in a one-time password (OTP) sent to the associated email ID.
+Then you'll be sent to the next page and prompted to enter a one-time password (OTP) that was sent to the associated email address.
 
 ![OTP input screen](../.gitbook/assets/OTP_input_screen.png)
 
-Upon successful validation of the OTP provided, you will select the imagekit ID of the account you want to access on the next screen.
+Upon successful validation of the OTP provided, you will select the Imagekit ID of the account you want to access on the next screen.
 
 ![Account selection screen](../.gitbook/assets/account_selection_screen.png)
 
