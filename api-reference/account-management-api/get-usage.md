@@ -3,7 +3,7 @@
 You can programmatically get your account usage information using this API.
 
 {% hint style="info" %}
-However, it is worth noting that this data is cached internally and refreshes every 6 hours.
+Please note that the response of this API is cached internally and refreshes every 6 hours.
 {% endhint %}
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/accounts/usage" method="get" summary="Get account usage information" %}
