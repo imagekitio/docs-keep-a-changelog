@@ -11,7 +11,7 @@ Then you'll be sent to the next page and prompted to enter a one-time password (
 
 ![OTP input screen](../.gitbook/assets/OTP_input_screen.png)
 
-Upon successful validation of the OTP provided, you will select the Imagekit ID of the account you want to access on the next screen.
+Upon successful validation of the OTP provided, you will select the ImageKit ID of the account you want to access on the next screen.
 
 ![Account selection screen](../.gitbook/assets/account_selection_screen.png)
 
