@@ -1,4 +1,4 @@
-# User associated with multiple accounts
+# Multi-account user association
 
 A user can be associated with multiple ImageKit accounts using the same email address. A previously registered user can be added to a different account. Read how to add a user to an account [here](./user-access-management/README.md).
 
@@ -7,11 +7,11 @@ The login flow for a multi-account user is as follows:
 At the login screen, you will be asked to enter your email address and password (any valid password for one of the accounts).
 ![Login screen](../.gitbook/assets/login_screen.png)
 
-Then you'll be sent to the next page and prompted to enter a one-time password (OTP) that was sent to the associated email address.
+On clicking "Submit", a one-time password (OTP) will be sent to your registered email address. You will be asked to enter this OTP on the next screen.
 
 ![OTP input screen](../.gitbook/assets/OTP_input_screen.png)
 
-Upon successful validation of the OTP provided, you will select the ImageKit ID of the account you want to access on the next screen.
+Upon successful validation of the OTP provided, you may select the ImageKit ID of the account you want to access on the next screen.
 
 ![Account selection screen](../.gitbook/assets/account_selection_screen.png)
 
@@ -19,7 +19,7 @@ Upon successful validation of the OTP provided, you will select the ImageKit ID 
 
 For users that are added to multiple ImageKit accounts, login always requires a one-time password (OTP) that is sent to the registered email.
 
-[Enforce MFA](./multi-factor-authentication.md) setting does not apply to such users. They will always be required to enter the OTP to login to the dashboard.
+Enabling or disabling [multi-factor authentication](./multi-factor-authentication.md) has no effect on the login process of such users. They will always be required to enter the OTP to login to the dashboard.
 
 ## Support
 
