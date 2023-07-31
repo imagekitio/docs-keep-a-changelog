@@ -174,7 +174,7 @@ Following transformation parameters are supported on the text inside a layer.
 To use a custom font in text overlays, upload the font file in your media library and pass its path in the `ff` parameter in a text layer.
 
 ```markup
-https://ik.imagekit.io/demo/tr:l-text,i-Hello%20World,ff-Lacquer-Regular_nGqtVsBJT.ttf,fs-72,co-FFF000/default-image.jpg
+https://ik.imagekit.io/demo/tr:l-text,i-Hello%20World,ff-Lacquer-Regular_nGqtVsBJT.ttf,fs-72,co-FFF000,l-end/default-image.jpg
 ```
 
 Here the font file is available at path `/Lacquer-Regular_nGqtVsBJT.ttf` in the media library. You will need to pass the whole path of the custom font, including its extension.
@@ -182,7 +182,7 @@ Here the font file is available at path `/Lacquer-Regular_nGqtVsBJT.ttf` in the 
 If your custom font file is in a nested folder, then replace the slashes `/`in the path with `@@`. For example, a font file available at path `/font-folder/font-subfolder/my-custom-font.ttf` will be used as follows:
 
 ```markup
-https://ik.imagekit.io/demo/tr:l-text,i-Hello%20World,ff-font-folder@@font-subfolder@@my-custom-font.ttf,fs-72,co-FFF000/default-image.jpg
+https://ik.imagekit.io/demo/tr:l-text,i-Hello%20World,ff-font-folder@@font-subfolder@@my-custom-font.ttf,fs-72,co-FFF000,l-end/default-image.jpg
 ```
 
 ## Differences between overlay text output in layer and non-layer syntax
