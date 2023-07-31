@@ -55,6 +55,14 @@ You can also upload images to ImageKit.io's media library programmatically. Read
 
 ## Upload settings
 
+* Extensions
+
+Extensions let you perform certain advanced operations on your assets during upload. For reference about extensions [read here](../../extensions/overview)..
+
+* Custom focus area
+
+Define an important area in the image during upload. This is an optional field and is only relevant for image type files.
+
 * Generate unique filenames with random suffixes
 
 When this setting is activated, ImageKit automatically appends a random suffix to the file name. This prevents overwriting of existing files by ensuring each file name is unique.
@@ -78,3 +86,7 @@ If this feature is enabled and a file with the same name already exists at the t
 * Overwrite custom metadata during upload
 
 If this feature is enabled and a file with the same name already exists at the target destination, the custom metadata of the file will be replaced with new one or removed if no custom metadata is provided. Conversely, if this setting is off, the existing custom metadata of the file will be preserved in the new version.
+
+* Custom metadata
+
+Custom metadata fields can be used to store any type of data about your images in key-value pairs during upload. Before setting any custom metadata on an asset you have to create the field from media library settings or using custom metadata fields API.
