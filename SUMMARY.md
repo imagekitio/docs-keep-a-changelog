@@ -130,7 +130,7 @@
   * [Cloudinary](features/url-rewriters/cloudinary.md)
   * [Imgix](features/url-rewriters/imgix.md)
 * [Session management](features/session-management.md)
-* [Multi-account user association](features/multi_account_user_association.md)
+* [Multi-account user association](features/multi-account-user-association.md)
 
 ## Best Practices
 * [Mobile Apps](imagekit-best-practices/mobile-apps.md)
