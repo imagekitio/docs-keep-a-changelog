@@ -57,11 +57,11 @@ You can also upload images to ImageKit.io's media library programmatically. Read
 
 * Extensions
 
-Extensions let you perform certain advanced operations on your assets during upload. For reference about extensions [read here](../../extensions/overview)..
+Extensions let you perform certain advanced operations on your assets during upload. For reference about extensions, [read here](../../extensions/overview).
 
 * Custom focus area
 
-Define an important area in the image during upload. This is an optional field and is only relevant for image type files.
+Define an important area in the image during upload. This is an optional field and is only relevant for image type files, [read here](./custom-focus-area.md).
 
 * Generate unique filenames with random suffixes
 
@@ -77,7 +77,7 @@ This setting allows you to mark files as private. When this setting is enabled, 
 
 * Overwrite AI tags during upload
 
-If this feature is enabled and a file with the same name already exists at the target destination, the existing AI tags of the file will be replaced with new ones or removed if no tagging extension is applied. Conversely, if this setting is off, the existing AI tags of the file will be preserved in the new version.
+If this feature is enabled and a file with the same name already exists at the target destination, the existing AI tags of the file will be replaced with new ones or removed if no tagging extension is applied. Conversely, if this setting is off, the existing AI tags of the file will be preserved in the new version, [read here](../../extensions/overview/ai-based-auto-tagging.md).
 
 * Overwrite user-set tags during upload
 
