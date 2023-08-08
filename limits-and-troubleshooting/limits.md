@@ -25,5 +25,7 @@ There are certain limits, like those on image transformation dimensions, which a
 
 Refer to [limits](../features/video-transformation/#limitations) before using in production.
 
+## Expensive transformation limits
+By default, we do not charge for transformations when you use ImageKit. However, if an account extensively uses expensive transformations such as AVIF conversion, complex text or image overlays, smart crop, or other AI-related transformations, in that case, our sales team may reach out to explore alternative options. Those options include upgrading to a custom plan that fits the usage pattern, helping you bring down the unique transformation count, or even migrating off our platform if ImageKit is not the right fit for your requirements. Please note that over 99% of the customers do not face these limitations.
 
 
