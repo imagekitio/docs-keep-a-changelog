@@ -7,7 +7,7 @@ This feature is only available in custom enterprise pricing plans.
 
 Draft or unpublished assets are files and file versions that can only be accessed via the media library, and their public URLs are not accessible outside of the media library. This feature is useful when you want to upload files to ImageKit but do not want to make them publicly accessible. For example, you can upload files in a draft state and then use them in your application only when you are ready to publish them.
 
-ImageKit allows you to upload files in draft or unpublished states. You can also change the state of any file and its versions that are already present in the media library to draft. You can check the published or draft status of a file on the file detail page.
+ImageKit allows you to upload files in draft or unpublished states. You can also change the state of any file and its versions that are already present in the media library to draft. You can check the published or draft status of a file on its detail page.
 
 ![Published or draft status of a file (detail page)](<../../.gitbook/assets/published-draft-status.png>)
 
@@ -48,7 +48,7 @@ Even if you decide to unpublish only the current version of the file, the cache 
 
 {% hint style="info" %}
 **File version URL**
-When a file version is published or unpublished, its URL will change.
+Publishing or unpublishing a file version changes its URL.
 {% endhint %}
 
 When a file version transitions between the draft and published states, its URL will change accordingly. The URL changes because the `ik-obj-version` query parameter changes after the operation, and the old one is no longer valid. A file version's URL looks like this: `https://ik.imagekit.io/your_imagekit_id/file.jpg?ik-obj-version=iAg8gxkqo_QUBwqNeQrJzuyce2XB7Gc4`
