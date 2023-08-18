@@ -13,7 +13,7 @@ With ImageKit, you can add images and text over a base image using [layers](#lay
 * [Add text over image](overlay-using-layers.md#add-text-over-image)
 * [Add solid color blocks over image](overlay-using-layers.md#add-solid-color-blocks-over-image)
 
-You can also learn from more [advanced examples](#examples).
+You can also learn from more [advanced examples](#examples). Please check [expensive transformation limits](/limits-and-troubleshooting/limits.md#expensive-transformation-limits) before using this in production.
 
 # Layers
 A layer is a special kind of transformation in which you can specify an asset to be used as an overlay, along with its positioning and transformations. It supports nesting, allows you to modify the overlay itself, and express its position in relation to the parent.
