@@ -18,6 +18,9 @@ We’ve created a Postman collection to make testing and working with our API si
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e8afe4815e95f8b14660)
 
+## OpenAPI specification
+Here is the OpenAPI sepecification for [v1 version](https://github.com/imagekitio/openapi/blob/master/v1.0.0.yaml) of ImageKit's API.
+
 ## Error codes
 
 ImageKit.io API uses standard HTTP error codes.
