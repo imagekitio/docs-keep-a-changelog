@@ -12,10 +12,10 @@ You can programmatically get image exif, pHash, and other metadata using either 
 {
     "height": 720,
     "width": 1280,
-    "bit_rate": 546524,
+    "bitRate ": 546524,
     "duration": "00:01:10",
-    "audio_codec": "aac",
-    "video_codec": "h264"
+    "audioCodec ": "aac",
+    "videoCodec ": "h264"
 }
 ```
 
