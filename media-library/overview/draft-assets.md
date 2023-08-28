@@ -19,18 +19,14 @@ By default, files are uploaded as published. If you want to ensure that all file
 
 ![Upload files in draft state by default](<../../.gitbook/assets/publish-file-on-upload-setting.png>)
 
-## Publish or unpublish a file
-
-You can change the state of a file from draft to published from the media library. Select a file and open the 'Publish or unpublish file' popup. You can check the option to publish or unpublish a file here. If you want this change to apply to all versions of the file, check the 'Include file versions' option.
-
-## Publish or unpublish multiple files
+## Publish or unpublish files
 
 {% hint style="info" %}
 **Limits**
 You can only publish or unpublish at most 100 files at once.
 {% endhint %}
 
-Like a single file, you can publish or unpublish multiple files simultaneously. Select multiple files and open the 'Publish or unpublish file' popup. You can check the option to publish or unpublish a file here. If you want this change to apply to all versions of the files, check the 'Include file versions' option. Unlike a single file, this operation happens asynchronously.
+You can publish or unpublish a single or multiple files at once. Select the files and open the 'Publish or unpublish file' popup. You can check the option to publish or unpublish a file here. If you want this change to apply to all versions of the files, check the 'Include file versions' option. This operation happens asynchronously.
 
 ![Publish or unpublish a files](<../../.gitbook/assets/publish-unpublish-file-modal.png>)
 
