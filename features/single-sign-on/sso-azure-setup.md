@@ -124,7 +124,7 @@ The SAML configuration of each such app then becomes similar to the following, w
 
 To ensure that the login flow initiated from ImageKit works smoothly, save the new unique Identifier URL in the Entity ID field on the ImageKit dashboard SSO settings page of the child account.
 
-If the Entity ID field value is removed, then the account will start following the default values of Identifier and Reply URL when SSO login is initiated from ImageKit.
+If the Entity ID field value is removed, then the account will revert to following the default value of Identifier and Reply URL when SSO login is initiated from ImageKit, i.e. `https://imagekit.io/saml/consume`.
 
 ![Configure Entity ID](<../../.gitbook/assets/sso-setup-azure-7.png>)
 
