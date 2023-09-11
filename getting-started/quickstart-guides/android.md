@@ -8,6 +8,20 @@ description: >-
 
 This is a quick start guide to show you how to integrate ImageKit in an Android application.
 
+## **Clone and run the tutorial app**
+
+For this tutorial, it is recommended to use the sample Android app, as shown below. If you already have an existing Android app, it is also possible to use that, which will be explained in the continuation of the sample app.
+
+```bash
+git clone https://github.com/imagekit-samples/quickstart.git
+```
+
+Open the cloned repository in Android Studio, and run Gradle sync to install the dependencies that are needed to run the Android app. Then run the app by selecting your target device/emulator and clicking on the Run button in Studio.
+
+You should see the following screen. This means the sample app has been set up correctly.
+
+![](<../../.gitbook/assets/Screenshot 2023-09-11 at 2.05.12 PM.png>)
+
 #### Installing the SDK
 
 To Install the SDK, add the following to the root-level `build.gradle`:
@@ -107,7 +121,7 @@ val urlConstructor = ImageKit.getInstance()
         path = "default-image.jpg",
         transformationPosition = TransformationPosition.QUERY
     )
-    .height(400f)
+    .height(400)
     .aspectRatio(3, 2)
 ```
 
@@ -135,7 +149,7 @@ The complete list of transformations supported and their usage in ImageKit can b
 
 ### Basic image resizing <a href="basic-image-resizing" id="basic-image-resizing"></a>
 
-Let's resize the image to a height of 150 and a width of 150.
+Let's resize the image to a height of 150px and a width of 150px.
 
 ```kotlin
 val url = ImageKit.getInstance()
@@ -143,12 +157,14 @@ val url = ImageKit.getInstance()
         path = "default-image.jpg",
         transformationPosition = TransformationPosition.QUERY
     )
-    .height(150f)
-    .width(150f)
+    .height(150)
+    .width(150)
     .create()
 ```
 
 Output:
+
+![](<../../.gitbook/assets/Screenshot 2023-09-11 at 2.32.43 PM.png>)
 
 
 ### Crop mode
@@ -161,14 +177,16 @@ val url = ImageKit.getInstance()
         path = "default-image.jpg",
         transformationPosition = TransformationPosition.QUERY
     )
-    .height(300f)
-    .width(200f)
-    .cropMode(cropMode: CropMode.PAD_RESIZE)
+    .height(300)
+    .width(200)
+    .cropMode(CropMode.PAD_RESIZE)
+    .background("F1F1F1")
     .create()
 ```
 
 Output:
 
+![](<../../.gitbook/assets/Screenshot 2023-09-11 at 2.39.52 PM.png>)
 
 ### Aspect ratio
 
@@ -180,14 +198,14 @@ val url = ImageKit.getInstance()
         path = "default-image.jpg",
         transformationPosition = TransformationPosition.QUERY
     )
-    .height(300f)
-    .width(200f)
+    .height(600)
     .aspectRatio(3, 2)
     .create()
 ```
 
 Output:
 
+![](<../../.gitbook/assets/Screenshot 2023-09-11 at 2.42.21 PM.png>)
 
 ### Chained transformation
 
@@ -201,16 +219,17 @@ val url = ImageKit.getInstance()
         path = "default-image.jpg",
         transformationPosition = TransformationPosition.QUERY
     )
-    .height(400f)
-    .width(300f)
+    .height(400)
+    .width(300)
     .chainTransformation()
     .aspectRatio(3, 2)
-    .rotation(rotation: Rotation.VALUE_90)
+    .rotation(Rotation.VALUE_90)
     .create()
 ```
 
 Output:
 
+![](<../../.gitbook/assets/Screenshot 2023-09-11 at 2.44.30 PM.png>)
 
 ## **Client-side file uploading**
 
