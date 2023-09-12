@@ -16,7 +16,7 @@ For this tutorial, it is recommended to use the sample Android app, as shown bel
 git clone https://github.com/imagekit-samples/quickstart.git
 ```
 
-Open the cloned repository in Android Studio, and run Gradle sync to install the dependencies that are needed to run the Android app. Then run the app by selecting your target device/emulator and clicking on the Run button in Studio.
+Open the `android` folder within the cloned repository in Android Studio, and run Gradle sync to install the dependencies that are needed to run the Android app. Then run the app by selecting your target device/emulator and clicking on the Run button in Studio.
 
 You should see the following screen. This means the sample app has been set up correctly.
 
