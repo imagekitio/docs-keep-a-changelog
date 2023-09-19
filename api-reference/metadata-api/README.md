@@ -2,12 +2,25 @@
 
 You can programmatically get image exif, pHash, and other metadata using either of the API below:
 
-1. [Get image metadata from remote URL](get-image-metadata-from-remote-url.md) if you don't want to upload image files to ImageKit.io media library or,
-2. [Get image metadata for uploaded media files](get-image-metadata-for-uploaded-media-files.md) if you want to fetch metadata for already uploaded image files in your ImageitKit.io media library.
+1. [Get file metadata from remote URL](get-image-metadata-from-remote-url.md) if you don't want to upload image files to ImageKit.io media library or,
+2. [Get file metadata for uploaded media files](get-image-metadata-for-uploaded-media-files.md) if you want to fetch metadata for already uploaded files in your ImageitKit.io media library.
 
 ## Metadata Object Structure
 
-```javascript
+**For Videos**
+```json
+{
+    "height": 720,
+    "width": 1280,
+    "bitRate ": 546524,
+    "duration": 70,
+    "audioCodec ": "aac",
+    "videoCodec ": "h264"
+}
+```
+
+**For Images**
+```json
 {
     "height": 68,
     "width": 100,

@@ -1,6 +1,6 @@
-# Get image metadata from remote URL
+# Get file metadata from remote URL
 
-{% swagger baseUrl="https://api.imagekit.io" path="/v1/metadata" method="get" summary="Get image metadata from remote URL API" %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/metadata" method="get" summary="Get file metadata from remote URL API" %}
 {% swagger-description %}
 Get image EXIF, pHash, and other metadata from ImageKit.io powered remote URL using this API.
 {% endswagger-description %}
@@ -17,7 +17,7 @@ The encoded URL of the image.
 **Note:** This URL should be accessible using your ImageKit.io account.
 {% endswagger-parameter %}
 
-{% swagger-response status="200" description="On success, you will receive the image metadata in JSON-encoded response body." %}
+{% swagger-response status="200" description="On success, you will receive the file metadata in JSON-encoded response body." %}
 ```javascript
 {
     "height": 68,
