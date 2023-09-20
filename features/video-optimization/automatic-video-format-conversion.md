@@ -12,7 +12,9 @@ VP9 is an open and royalty-free video coding format developed by Google. It prov
 
 ![VP9 support - https://caniuse.com/](<../../.gitbook/assets/image (29).png>)
 
-ImageKit chooses between H.264 and VP9 codec and delivers the video in the appropriate format automatically based on browser support.
+ImageKit chooses between H.264, VP9 and AV1 codec and delivers the video in the appropriate format automatically based on browser support.
+
+Note that the automatic usage of the AV1 codec for output videos is disabled by default. However, you can force the output video to use the AV1 codec by adding `vc-av1` in the transformation string. You can reach out to support@imagekit.io to get this enabled.
 
 The video URL remains the same, but the file is modified. This behavior is transparent for your users. The end result is a small video file and a faster playback time.
 
