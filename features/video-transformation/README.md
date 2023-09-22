@@ -71,13 +71,23 @@ Simple optimization - https://ik.imagekit.io/demo/img/video-no-extension_X9my06B
 ## Pricing
 Every new video transformation that has never been done before will contribute toward video processing units using the below definition. Subsequent views of the same video transformation only count towards bandwidth. 
 
-Video processing units used depends on output video duration and resolution:
+### Video processing units used depends on output video codec, duration and resolution:
+
+Calculation of units for resolution:
 
 * 1 second of SD video output = 1 unit
 * 1 second of HD video output = 2 units
 * 1 second of 4K video output = 4 units
 * 1 second of 8K video output = 8 units
 * 1 second of 16K video output = 16 units
+
+Calculation of units for video codec:
+
+* 1 second of video output in H.264 codec = 1 unit
+* 1 second of video output in VP9 codec = 1 unit
+* 1 second of video output in AV1 codec = 10 units
+
+VPU (Video Processing Unit) usage = Duration (in seconds) x Resolution (in units) x Video Codec (in units)
 
 Special operations:
 

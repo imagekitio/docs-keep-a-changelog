@@ -261,7 +261,7 @@ Use `none` for removing audio from the source video. So the output will have no 
 
 Used to specify the video codec for encoding the output.
 
-Possible values include `h264`, `vp9`, and `none`
+Possible values include `h264`, `vp9`, `av1` and `none`
 
 Use `none` for extracting audio from the source video. So the output will be an audio file.
 
@@ -275,6 +275,8 @@ Use `none` for extracting audio from the source video. So the output will be an 
 | webm | opus | vp9  |
 | webm | opus | none |
 | webm | none | vp9  |
+| webm | opus | av1  |
+| webm | none | av1  |
 
 ### Named transformation - (n)
 
