@@ -10,7 +10,7 @@ This is a quick start guide to show you how to integrate ImageKit in an Android 
 
 ## **Clone and run the tutorial app**
 
-For this tutorial, it is recommended to use the sample Android app, as shown below. If you already have an existing Android app, it is also possible to use that, which will be explained in the continuation of the sample app.
+For this tutorial, we have used our sample Android app as shown below. If you have your own existing Android app, you can integrate the ImageKit Android SDK to it, the instructions for which are provided in the subsequent sections.
 
 ```bash
 git clone https://github.com/imagekit-samples/quickstart.git
@@ -24,7 +24,7 @@ You should see the following screen. This means the sample app has been set up c
 
 #### Installing the SDK
 
-To Install the SDK, add the following to the root-level `build.gradle`:
+To install the SDK, add the following to the root-level `build.gradle`:
 ```gradle
 allprojects {
     repositories {
@@ -91,7 +91,7 @@ To render an image using an absolute URL (full image URL), we can instantiate th
 // https://ik.imagekit.io/your_imagekit_id/medium_cafe_B1iTdD0C.jpg?tr=oi-logo-white_SJwqB4Nfe.png,ox-10,oy-20
 ImageKit.getInstance()
     .url(
-        src = https://ik.imagekit.io/your_imagekit_id/medium_cafe_B1iTdD0C.jpg",
+        src = "https://ik.imagekit.io/your_imagekit_id/medium_cafe_B1iTdD0C.jpg",
         transformationPosition = TransformationPosition.PATH
     )
     .create()
@@ -241,8 +241,8 @@ For using upload functionality, we need to pass `publicKey` while [initializing 
 
 ```kotlin
 ImageKit.init(
-    publicKey: "your_public_api_key", 
-    urlEndpoint: "your_url_endpoint", 
+    publicKey: "your_public_api_key", //Replace this with the public API key from your ImageKit account
+    urlEndpoint: "your_url_endpoint", //Replace this with the URL endpoint for your ImageKit account
     transformationPosition: TransformationPosition.PATH, 
 )
 ```
@@ -260,7 +260,7 @@ The `ImageKit.getInstance().uploader().upload` function can ingest files through
 ```kotlin
 ImageKit.getInstance().uploader().upload(
     file = image,
-    token = "UPLOAD_JWT"
+    token = "UPLOAD_JWT" //Replace this with the JWT returned by your custom auth server
     fileName = "sample-image.jpg",
     useUniqueFilename = true,
     tags = ["demo"],
