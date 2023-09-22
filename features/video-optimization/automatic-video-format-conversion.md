@@ -18,6 +18,11 @@ Note that the automatic usage of the AV1 codec for output videos is disabled by 
 
 The video URL remains the same, but the file is modified. This behavior is transparent for your users. The end result is a small video file and a faster playback time.
 
+{% hint style="info" %}
+**Beta feature**
+The AV1 codec for output videos is currently in beta.
+{% endhint %}
+
 ## Frequently asked questions
 
 ### How to enable or disable automatic format conversion for my account?
