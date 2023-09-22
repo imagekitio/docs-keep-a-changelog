@@ -12,6 +12,8 @@ VP9 is an open and royalty-free video coding format developed by Google. It prov
 
 ![VP9 support - https://caniuse.com/](<../../.gitbook/assets/image (29).png>)
 
+AV1 (AOMedia Video 1) is a royalty-free video format by the Alliance for Open Media, meant to succeed its predecessor VP9 and compete with the HEVC/H.265 format. Read more about AV1 support across different browsers [here](https://caniuse.com/av1).
+
 ImageKit chooses between H.264, VP9 and AV1 codec and delivers the video in the appropriate format automatically based on browser support.
 
 Note that the automatic usage of the AV1 codec for output videos is disabled by default. However, you can force the output video to use the AV1 codec by adding `vc-av1` in the transformation string. You can reach out to support@imagekit.io to get this enabled.
