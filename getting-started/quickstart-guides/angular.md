@@ -84,7 +84,8 @@ npm install --save imagekitio-angular
 Before the SDK can be used, let's learn about and obtain the requisite initialization parameters:
 
 * `urlEndpoint` is a required parameter. This can be obtained from the [URL-endpoint section](https://imagekit.io/dashboard/url-endpoints) or the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. These can be obtained from the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
+* `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. These can be obtained from the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
+* `authenticator` expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire.
 
 > Note: Do not include your [private key](https://docs.imagekit.io/api-reference/api-introduction/api-keys#private-key) in any client-side code.
 
@@ -118,7 +119,6 @@ import { ImagekitioAngularModule } from 'imagekitio-angular';
     ImagekitioAngularModule.forRoot({
       publicKey: environment.publicKey,
       urlEndpoint: environment.urlEndpoint,
-      authenticationEndpoint: environment.authenticationEndpoint
     })
   ],
   ...
@@ -635,10 +635,6 @@ Sample .env file should look like this.
 PRIVATE_KEY=<your-private-key>
 ```
 
-{% hint style="info" %}
-`authenticationEndpoint` should be implemented in your backend. The SDK makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token`, and `expire`. [Learn how to implement authenticationEndpoint](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload#how-to-implement-authenticationendpoint-endpoint) on your server.
-{% endhint %}
-
 Let's run the backend server.
 
 ```
@@ -660,13 +656,12 @@ If you GET `http://localhost:3000/auth`, you should see a JSON response like thi
 
 ### **Configure authentication in the frontend app**
 
-Now that we have our authentication server up and running, let's configure the `publicKey` and `authenticationEndpoint` in the frontend Angular app:
+Now that we have our authentication server up and running, let's configure the `publicKey` and `authenticator` in the frontend Angular app:
 
 Add the following to `src/app/app.module.js` file to [initialize the SDK](angular.md#initialize-the-angular-sdk) with auth params:
 
 ```jsx
 publicKey: "<YOUR_PUBLIC_KEY>",
-authenticationEndpoint: "<YOUR_AUTH_ENDPOINT e.g http:/localhost:3000/auth>"
 ```
 
 ### **Upload an image**
@@ -678,9 +673,33 @@ For this, we will use the `ik-upload` component as well as a couple of event han
     fileName="test.jpg" 
     (onError)="handleUploadError($event)"
     (onSuccess)="handleUploadSuccess($event)" 
+    [authenticator]="authenticator"
     >
   </ik-upload>
 ```
+
+In `app.component.js` file:
+
+```jsx
+authenticator =  async () => {
+    try {
+        const response = await fetch('http://localhost:3001/auth');
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        const { signature, expire, token } = data;
+        return { signature, expire, token };
+    } catch (error) {
+        throw new Error(`Authentication request failed: ${error.message}`);
+    }
+};
+```
+
+
 This is how it looks in the UI:
 
 ![Upload Image](<../../.gitbook/assets/angular/angular-sdk-file-upload-1.png>)
@@ -794,6 +813,32 @@ Here's an example:
       Upload
     </button>
 </div>
+```
+
+### **Abort Upload**
+
+```js
+// Added to app.component.ts
+@ViewChild('upload') uploadComponent:IkUploadComponent;// @ViewChild can be used to get instance of IKUpload component.
+
+onAbortFunction(){
+    this.uploadComponent && this.uploadComponent.abort();
+}
+
+// Added to app.component.html
+<ik-upload 
+  #upload
+  fileName= "test.jpg" 
+  (onError)="handleUploadError($event)"
+  (onSuccess)="handleUploadSuccess($event)"
+  [validateFile]="validateFileFunction"
+  [onUploadStart]="onUploadStartFunction"
+  [onUploadProgress]="onUploadProgressFunction"
+  [authenticator]="authenticator"
+></ik-upload>
+<button 
+  (click)="onAbortFunction()"
+>Abort</button>
 ```
 
 ### **Upload start**
