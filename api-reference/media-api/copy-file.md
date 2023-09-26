@@ -45,6 +45,10 @@ Option to copy all versions of a file. By default, only the current version of t
 
 In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `204` status code with an empty body.
 
+### Access control and permissions
+
+Read how access and permissions are affected by this operation [here](../../media-library/overview/copy-and-move-files.md#copy-file).
+
 ### Examples
 
 Here is the example request to understand the API usage.
@@ -85,6 +89,63 @@ imagekit.copyFile({
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+copy_file = imagekit.copy_file(options=CopyFileRequestOptions(source_file_path="/file.jpg",
+                                       destination_path="/test",
+                                       include_file_versions=True))
+
+print("Copy file-", copy_file, end="\n\n")
+
+# Raw Response
+print(copy_file.response_metadata.raw)
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$destinationPath = '/destination-folder';
+$copyFile = $imageKit->copy([
+    'sourceFilePath' => '/pah/to/file.jpg',
+    'destinationPath' => '/folder/to/copy/into/',
+    'includeFileVersions' => false
+]);
+
+echo("Copy File : " . json_encode($copyFile));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+
+CopyFileRequest copyFileRequest = new CopyFileRequest();
+copyFileRequest.setSourceFilePath("/path/to/file.jpg");
+copyFileRequest.setDestinationPath("/folder/to/copy/into/");
+copyFileRequest.setIncludeFileVersions(true);
+ResultNoContent resultNoContent = ImageKit.getInstance().copyFile(copyFileRequest);
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
@@ -95,4 +156,31 @@ imagekitio.copy_file(
 )
 ```
 {% endtab %}
+
+{% tab title='Go' %}
+```go
+resp, err := ik.Media.CopyFile(ctx, media.CopyFileParam{
+    SourcePath: "/path/to/file.jpg",
+    DestinationPath: "/folder/to/copy/into/",
+    IncludeVersions: false, //optional
+})
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+CopyFileRequest cpyRequest = new CopyFileRequest
+    {
+        sourceFilePath = "/path/to/file.jpg",
+        destinationPath = "/folder/to/copy/into/"
+    };
+ResultNoContent resultNoContent = imagekit.CopyFile(cpyRequest);
+```
+{% endtab %}
+
 {% endtabs %}

@@ -6,7 +6,7 @@ ImageKit.io provides users with the ability to delete single or multiple folders
 
 Right-click the folder to open menu options. Select the "Delete" option. This will open a confirmation popup. Click the submit button to permanently delete the folder and all nested files & folders from the media library.
 
-{% embed url="https://youtu.be/m-CyI0mE2WY" %}
+{% embed url="https://www.youtube.com/watch?v=zvbipqFr1OE" %}
 Delete a folder
 {% endembed %}
 

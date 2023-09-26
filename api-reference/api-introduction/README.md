@@ -16,7 +16,10 @@ Except for [upload API](../upload-file-api/), all our APIs accept JSON-encoded r
 
 We’ve created a Postman collection to make testing and working with our API simpler.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/384637cdb2d49095b113)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e8afe4815e95f8b14660)
+
+## OpenAPI specification
+Here is the OpenAPI specification for [v1 version](https://github.com/imagekitio/openapi/blob/master/v1.0.0.yaml) of ImageKit's API. See a [working demo](https://elements-demo.stoplight.io/?spec=https://raw.githubusercontent.com/imagekitio/openapi/master/v1.0.0.yaml) here in Stoplight.
 
 ## Error codes
 

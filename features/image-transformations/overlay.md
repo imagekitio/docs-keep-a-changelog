@@ -4,7 +4,13 @@ description: >-
   another image.
 ---
 
-# Overlay
+# Overlay (deprecated)
+
+
+{% hint style="danger" %}
+**Deprecation notice**\
+This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
+{% endhint %}
 
 ## Introduction about overlays
 
@@ -33,6 +39,11 @@ You can control the dimension of overlay image using [overlay height (oh)](overl
 
 
 ## Common overlay options
+
+{% hint style="danger" %}
+**Deprecation notice**\
+This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
+{% endhint %}
 
 The following options are available for both [image](overlay.md#image-overlay) and [text](overlay.md#text-overlay) overlay.
 
@@ -132,6 +143,11 @@ URL - [https://ik.imagekit.io/demo/tr:oi-logo-white_SJwqB4Nfe.png,ow-100/medium_
 
 ### Overlay Background - (obg)
 
+{% hint style="danger" %}
+**Deprecation notice**\
+This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
+{% endhint %}
+
 If you want to overlay a solid color block over a base image, use `obg` parameter.\
 \
 **Possible Values**
@@ -161,6 +177,11 @@ URL - [https://ik.imagekit.io/demo/tr:obg-00FFFF55,oh-50,ow-600,ofo-bottom/mediu
 {% endtabs %}
 
 ### Overlay focus - (ofo)
+
+{% hint style="danger" %}
+**Deprecation notice**\
+This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
+{% endhint %}
 
 You can control the relative position of overlay image using `ofo` parameter. This position is relative to base image.
 
@@ -201,6 +222,11 @@ URL - [https://ik.imagekit.io/demo/tr:oi-logo-white_SJwqB4Nfe.png,ow-100/medium_
 {% endtabs %}
 
 ## Image overlay
+
+{% hint style="danger" %}
+**Deprecation notice**\
+This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
+{% endhint %}
 
 ### Overlay image - (oi)
 
@@ -354,6 +380,11 @@ URL - [https://ik.imagekit.io/ikmedia/tr:w-730,h-620:oi-women-dress-2.jpg,ox-0,o
 
 ### Overlay image DPR (oidpr)
 
+{% hint style="danger" %}
+**Deprecation notice**\
+This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
+{% endhint %}
+
 It is used to specify the device pixel ratio that is used to calculate the dimensions of the overlay image. Extremely helpful when creating image transformations for devices with high device pixel ratio (DPR > 1), like the iPhone or high-end Android devices. 
 
 The `oidpr` parameter can only be used when either the height or width of the desired output overlay image is specified. If the output image's height or width after considering the specified DPR  is less than 1px or greater than 5000px, the value of `oidpr` is not considered and the overlay height or width used in the URL is used. 
@@ -383,6 +414,11 @@ URL - [https://ik.imagekit.io/ikmedia/tr:w-715,h-610:oi-women-dress-2.jpg,ox-0,o
 {% endtabs %}
 
 ### Overlay image cropping
+
+{% hint style="danger" %}
+**Deprecation notice**\
+This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
+{% endhint %}
 
 Cropping in overlay behave the same way as [cropping works in ImageKit.io](resize-crop-and-other-transformations.md#crop-crop-modes-and-focus) in general. The only difference is that all cropping and focus related parameters are prefixed with `oi`.
 
@@ -476,6 +512,11 @@ Learn more from [example here](overlay.md#trimming-of-the-overlay-image).
 
 ## Text overlay
 
+{% hint style="danger" %}
+**Deprecation notice**\
+This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
+{% endhint %}
+
 ### Overlay text - (ot)
 
 To overlay text on an image. Supported characters include all alphabets, numbers, spaces, \_, -, %, !, @, and &.
@@ -567,6 +608,11 @@ URL - [https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,otc-00000
 
 ### Overlay text padding - (otp)
 
+{% hint style="danger" %}
+**Deprecation notice**\
+This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
+{% endhint %}
+
 To specify the padding around the overlaid text on the image.
 
 **Possible values** include any positive integer or a set of positive integers separated by underscores. 
@@ -638,6 +684,11 @@ URL - [https://ik.imagekit.io/demo/tr:ot-overlays%20made%20easy,ots-45,otc-00000
 {% endtabs %}
 
 ### Overlay text color - (otc)
+
+{% hint style="danger" %}
+**Deprecation notice**\
+This is old overlay syntax and will be deprecated on 31st Oct 2023. Starting 1st November 2023, this old syntax URL will start giving `400` bad request error. Please migrate to [new layer syntax](/features/image-transformations/overlay-using-layers.md) that supports overlay nesting, provides better positional control, and allows transformation at the layer level. You can start with [examples](/features/image-transformations/overlay-using-layers.md#examples) to learn quickly.
+{% endhint %}
 
 To specify the color and transparency of the overlaid text on the image. \
 \

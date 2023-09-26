@@ -42,7 +42,7 @@ Media library allows you to:
 
 All media library operations can be executed using APIs:
 
-1. Upload files from the [server](../api-reference/upload-file-api/server-side-file-upload.md) or [client-side](../api-reference/upload-file-api/client-side-file-upload.md).
+1. Upload files from the [server](../api-reference/upload-file-api/server-side-file-upload.md), [client-side](../api-reference/upload-file-api/client-side-file-upload.md), or [secure client-side](../api-reference/upload-file-api/secure-client-side-file-upload.md).
 2. [Updating files details](../api-reference/media-api/update-file-details.md), e.g., tags and custom coordinates for cropping.
 3. [Listing and searching files](../api-reference/media-api/list-and-search-files.md) in the Media library by file/folder name, tags.
 4. [Getting individual file details](../api-reference/media-api/get-file-details.md).

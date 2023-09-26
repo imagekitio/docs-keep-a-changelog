@@ -100,9 +100,15 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-details = imagekit.get_file_details("file_id")
+details = imagekit.get_file_details(file_id="file_id")
 
 print("File detail-", details, end="\n\n")
+
+# Raw Response
+print(details.response_metadata.raw)
+
+# print that file's id
+print(details.file_id)
 ```
 {% endtab %}
 
@@ -131,10 +137,29 @@ echo("File details : " . json_encode($getFileDetails));
 Result result=ImageKit.getInstance().getFileDetail("file_id");
 ```
 {% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.get_file_deltails(file_id: 'file_id')
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.FileById(ctx, "file_id")
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+Result res1 = imagekit.GetFileDetail("file_Id");
+```
+{% endtab %}
+
 {% endtabs %}

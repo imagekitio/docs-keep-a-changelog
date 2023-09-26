@@ -48,6 +48,10 @@ Option to copy all versions of files that are nested inside the selected folder.
 
 In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with JSON encoded response containing information about `jobId`. You can use `jobId` to get the status of this job using [bulk job status API](copy-move-folder-status.md). 
 
+### Access control and permissions
+
+Read how access and permissions are affected by this operation [here](../../media-library/overview/copy-and-move-folders.md#copy-folder).
+
 ### Examples
 
 Here is the example request to understand the API usage.
@@ -88,6 +92,70 @@ imagekit.copyFolder({
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+copy_folder = imagekit.copy_folder(options=CopyFolderRequestOptions(source_folder_path='/source_folder_path',
+                                                                    destination_path='/destination/path',
+                                                                    include_file_versions=True))
+
+print("Copy folder-", copy_folder, end="\n\n")
+
+# Raw Response
+print(copy_folder.response_metadata.raw)
+
+# print the job's id
+print(copy_folder.job_id)
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$sourceFolderPath = "/folder/to/copy";
+$destinationPath = "/folder/to/copy/into/";
+$includeFileVersions = false;
+
+$copyFolder = $imageKit->copyFolder([
+    'sourceFolderPath' => $sourceFolderPath,
+    'destinationPath' => $destinationPath,
+    'includeFileVersions' => $includeFileVersions
+]);
+
+echo("Copy Folder : " . json_encode($copyFolder));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+
+CopyFolderRequest copyFolderRequest = new CopyFolderRequest();
+copyFolderRequest.setSourceFolderPath("/folder/to/copy");
+copyFolderRequest.setDestinationPath("/folder/to/copy/into/");
+copyFolderRequest.setIncludeFileVersions(true);
+ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().copyFolder(copyFolderRequest);
+
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
@@ -98,7 +166,32 @@ imagekitio.copy_folder(
 )
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.CopyFolder(ctx, media.CopyFolderParam{
+    SourceFolderPath: "/folder/to/copy",
+    DestinationPath: "/folder/to/copy/into/",
+    IncludeVersions: false, // optional
+})
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+CopyFolderRequest cpyFolderRequest = new CopyFolderRequest
+{
+    sourceFolderPath = "/folder/to/copy",
+    destinationPath = "/folder/to/copy/into/",
+    includeFileVersions = false // optional
+};
+ResultOfFolderActions resultOfFolderActions = imagekit.CopyFolder(cpyFolderRequest);
+```
+{% endtab %}
+
 {% endtabs %}
-
-
-

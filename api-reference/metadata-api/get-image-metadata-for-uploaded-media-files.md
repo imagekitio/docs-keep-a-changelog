@@ -1,12 +1,12 @@
-# Get image metadata for uploaded media files
+# Get file metadata for uploaded media files
 
 You can programmatically get image EXIF, pHash, and other metadata for uploaded files in the ImageKit.io media library using this API.
 
 {% hint style="info" %}
-:bulb: You can also get the image metadata while uploading the image by passing metadata in `responseFields` parameter.
+:bulb: You can also get the file metadata while uploading the file by passing metadata in `responseFields` parameter.
 {% endhint %}
 
-{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/metadata" method="get" summary="Get image metadata for uploaded media files API" %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/metadata" method="get" summary="Get file metadata for uploaded media files API" %}
 {% swagger-description %}
 Get image EXIF, pHash, and other metadata for uploaded files in ImageKit.io media library using this API.
 {% endswagger-description %}
@@ -21,7 +21,7 @@ base64 encoding of `your_private_api_key:`
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
-{% swagger-response status="200" description="On success, you will receive the image metadata in JSON-encoded response body." %}
+{% swagger-response status="200" description="On success, you will receive the file metadata in JSON-encoded response body." %}
 ```javascript
 {
     "height": 68,
@@ -114,13 +114,13 @@ A metadata object example can be found [here](./#metadata-object-structure).
 
 Here are some example requests to understand the API usage.
 
-### Get metadata of an uploaded image
+### Get metadata of an uploaded file
 
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
 # The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
-curl -X GET "https://api.imagekit.io/v1/files/fileId/metadata" \
+curl -X GET "https://api.imagekit.io/v1/files/file_id/metadata" \
 -u your_private_api_key:
 ```
 {% endtab %}
@@ -135,7 +135,7 @@ var imagekit = new ImageKit({
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
-imagekit.getFileMetadata("fileId", function(error, result) {
+imagekit.getFileMetadata("file_id", function(error, result) {
     if(error) console.log(error);
     else console.log(result);
 });
@@ -152,9 +152,23 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-metadata = imagekit.get_metadata("file_id")
+metadata = imagekit.get_metadata(file_id="file_id")
 
 print("File detail-", metadata, end="\n\n")
+
+# Raw Response
+print(metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(metadata.width)
+print(metadata.exif.image.x_resolution)
+
+# Raw Response
+print(metadata.response_metadata.raw)
+
+# print the file metadata fields
+print(metadata.width)
+print(metadata.exif.image.x_resolution)
 ```
 {% endtab %}
 
@@ -172,9 +186,11 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$getFileDetails = $imageKit->getMetaData("file_id");
+$fileId = 'file_id';
 
-echo("File metadata : " . json_encode($getFileDetails));
+$fileMetadata = $imageKit->getFileMetaData($fileId);
+
+echo("File metadata : " . json_encode($fileMetadata));
 ```
 {% endtab %}
 
@@ -190,6 +206,24 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 file_metadata = imagekitio.get_file_metadata(file_id: "file_id")
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Metadata.FromFile(ctx, "file_id")
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultMetaData resultMetaData = imagekit.GetFileMetadata("file_id");
+```
+{% endtab %}
+
 {% endtabs %}
 
 ### Calculate pHash distance between two images

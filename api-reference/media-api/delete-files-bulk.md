@@ -103,18 +103,41 @@ imagekit.bulkDeleteFiles(["file_id_1","file_id_2"])
 
 {% tab title="Python" %}
 ```python
-imagekit.bulk_file_delete(["file_id_1", "file_id_2"])
+bulk_file_delete = imagekit.bulk_file_delete(file_ids=["file_id_1", "file_id_2"])
+print("Bulk file delete-", bulk_file_delete, end="\n\n")
+
+# Raw Response
+print(bulk_file_delete.response_metadata.raw)
+
+# list successfully deleted file ids
+print(bulk_file_delete.successfully_deleted_file_ids)
+
+# print the first file's id
+print(bulk_file_delete.successfully_deleted_file_ids[0])
 ```
 {% endtab %}
 
 {% tab title="PHP" %}
 ```php
-$imageKit->bulkFileDeleteByIds(array(
-    "fileIds" => array("file_id_1", "file_id_2")
-));
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileIds = ["file_id_1", "file_id_2"];
+
+$deleteBulkFiles = $imageKit->bulkDeleteFiles($fileIds);
+
+echo("Delete Bulk files : " . json_encode($deleteBulkFiles));
 ```
 {% endtab %}
-
 {% tab title="Java" %}
 ```java
 List<String> fileIds=new ArrayList<>();
@@ -131,4 +154,27 @@ bulk_ids = Array["file_id_1","file_id_2"]
 imagekitio.delete_bulk_files(file_ids: bulk_ids)
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.DeleteBulkFiles(ctx, media.FileIdsParam{
+    FileIds: []string{"file_id_1", "file_id_2"},
+)
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+List<string> ob3 = newList<string>();
+ob3.Add("fileId_1");
+ob3.Add("fileId_2");
+ResultFileDelete resultFileDelete = imagekit.BulkDeleteFiles(ob3);
+```
+{% endtab %}
+
 {% endtabs %}

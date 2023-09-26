@@ -8,7 +8,7 @@ Whether you are serving a few hundred, or a few billion images, you can easily i
 
 ImageKit.io offers a forever free plan with generous limits. If you are just getting started with your website, our free plan has got you covered.
 
-![Sign-up for ImageKit.io](<../../.gitbook/assets/Screenshot 2020-09-25 at 3.30.23 PM.png>)
+![Sign-up for ImageKit.io](<../../.gitbook/assets/registration-page.png>)
 
 #### Choosing Imagekit Id
 
@@ -61,10 +61,6 @@ https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=q-50
 
 Follow one of the platform-specific quick start guides to integrate ImageKit in your application:
 
-{% content-ref url="php.md" %}
-[php.md](php.md)
-{% endcontent-ref %}
-
 {% content-ref url="react.md" %}
 [react.md](react.md)
 {% endcontent-ref %}
@@ -73,13 +69,34 @@ Follow one of the platform-specific quick start guides to integrate ImageKit in 
 [react-native.md](react-native.md)
 {% endcontent-ref %}
 
-{% content-ref url="ruby.md" %}
-[ruby.md](ruby-guides/README.md)
-{% endcontent-ref %}
-
 {% content-ref url="vuejs.md" %}
 [vuejs.md](vuejs.md)
 {% endcontent-ref %}
+
+{% content-ref url="nextjs.md" %}
+[nextjs.md](nextjs.md)
+{% endcontent-ref %}
+
+{% content-ref url="angular.md" %}
+[angular.md](angular.md)
+{% endcontent-ref %}
+
+{% content-ref url="ios.md" %}
+[ios.md](ios.md)
+{% endcontent-ref %}
+
+{% content-ref url="php.md" %}
+[php.md](php.md)
+{% endcontent-ref %}
+
+{% content-ref url="java/README.md" %}
+[java/README.md](java/README.md)
+{% endcontent-ref %}
+
+{% content-ref url="ruby-guides/README.md" %}
+[ruby-guides/README.md](ruby-guides/README.md)
+{% endcontent-ref %}
+
 
 ## SDK and libraries
 
@@ -102,3 +119,4 @@ We have published libraries in popular programming languages so that you can eas
 * [x] [JAVA](https://github.com/imagekit-developer/imagekit-java)
 * [x] [Ruby](https://github.com/imagekit-developer/imagekit-ruby)
 * [x] [.Net](https://github.com/imagekit-developer/imagekit-dotnet)
+* [x] [Go](https://github.com/imagekit-developer/imagekit-go)

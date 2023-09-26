@@ -16,6 +16,8 @@ ImageKit supports the following streaming protocols. Both leverage existing HTTP
 * HTTP Live Streaming (HLS)
 * Dynamic Adaptive Streaming over HTTP (MPEG-DASH) protocol
 
+# Live demo
+See the live demo along with code examples here - https://imagekit.io/use-cases/adaptive-bitrate-streaming-videos/
 
 ## HTTP Live Streaming (HLS)
 The following URL will generate HLS manifest and five variants at differernt resolutions i.e. 240p, 360p, 480p, 720p and 1080p.
@@ -58,6 +60,11 @@ Use `sr-<representations>` transformation to generate the master manifest file f
 
 {% hint style="info" %}
 ImageKit uses H.264 codec for encoding video and AAC for encoding audio for both HLS and DASH.
+{% endhint %}
+
+{% hint style="info" %}
+**Important note for existing users**
+All ABS representations created after 25th April, 2023 will use [at_max cropping strategy](https://docs.imagekit.io/features/video-transformation/resize-crop-and-other-common-video-transformations#max-size-cropping-strategy-c-at_max) to resize the representations instead of current [pad_resize crop mode](https://docs.imagekit.io/features/video-transformation/resize-crop-and-other-common-video-transformations#pad-resize-crop-strategy-cm-pad_resize). Output will match the aspect ratio of the original video after this change. [Learn more](../../limits-and-troubleshooting/modification-in-resizing-method-for-ABS-representations.md)
 {% endhint %}
 
 ## Transformation

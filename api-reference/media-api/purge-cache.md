@@ -116,6 +116,12 @@ imagekit = ImageKit(
 purge_cache = imagekit.purge_cache(file_url="https://ik.imagekit.io/your_imagekit_id/default-image.jpg")
 
 print("Purge cache-", purge_cache)
+
+# Raw Response
+print(purge_cache.response_metadata.raw)
+
+# print the purge file cache request id
+print(purge_cache.request_id)
 ```
 {% endtab %}
 
@@ -133,9 +139,8 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$purgeCache = $imageKit->purgeCacheApi(array(
-    "url" => "https://ik.imagekit.io/your_imagekit_id/default-image.jpg"
-));
+$image_url = 'https://ik.imagekit.io/your_imagekit_id/default-image.jpg';
+$purgeCache = $imageKit->purgeCache($image_url);
 
 echo("File details : " . json_encode($purgeCache));
 ```
@@ -153,4 +158,24 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 purge_cache = imagekitio.purge_file_cache(file_url: "https://ik.imagekit.io/your_imagekit_id/default-image.jpg")
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.PurgeCache(ctx, media.PurgeCacheParam{
+    Url: "https://ik.imagekit.io/your_imagekit_id/default-image.jpg",
+})
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultCache resultCache = imagekit.PurgeCache("https://ik.imagekit.io/your_imagekit_id/default-image.jpg");
+```
+{% endtab %}
+
 {% endtabs %}

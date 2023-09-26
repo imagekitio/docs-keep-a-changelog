@@ -12,27 +12,32 @@ VP9 is an open and royalty-free video coding format developed by Google. It prov
 
 ![VP9 support - https://caniuse.com/](<../../.gitbook/assets/image (29).png>)
 
-ImageKit chooses between H.264 and VP9 codec and delivers the video in the appropriate format automatically based on browser support.
+AV1 (AOMedia Video 1) is a royalty-free video format by the Alliance for Open Media, meant to succeed its predecessor VP9 and compete with the HEVC/H.265 format. Read more about AV1 support across different browsers [here](https://caniuse.com/av1).
+
+ImageKit chooses between H.264, VP9, and AV1 codecs and automatically delivers the video in the appropriate format based on browser support.
+
+Note that the automatic usage of the AV1 codec for output videos is disabled by default. However, you can force the output video to use the AV1 codec by adding `vc-av1` in the transformation string. You can reach out to support@imagekit.io to get this enabled.
 
 The video URL remains the same, but the file is modified. This behavior is transparent for your users. The end result is a small video file and a faster playback time.
+
+{% hint style="info" %}
+**Beta feature**
+The AV1 codec for output videos is currently in beta.
+{% endhint %}
 
 ## Frequently asked questions
 
 ### How to enable or disable automatic format conversion for my account?
 
-Automatic format optimization is off by default. You can enable or disable automatic format conversion for your account under [video settings](https://imagekit.io/dashboard?redirectTo=settings-videos-optimization) in your dashboard.
+Automatic format optimization is off by default. You can enable or disable automatic format conversion for your account under [video settings](https://imagekit.io/dashboard/settings/videos) in your dashboard.
 
 Select settings from the left main menu. Inside Videos, under optimization, toggle "Use best format for video delivery" option to enable or disable this feature.
 
-![Video settings](<../../.gitbook/assets/Screenshot 2021-07-13 at 5.00.50 PM.png>)
+![Video settings](<../../.gitbook/assets/video-best-format.png>)
 
 ### Can I selectively choose the best format for a particular request?
 
 If you disabled automatic format conversion in the global settings, you can still choose to use this feature for a particular request using `f-auto` parameter.
-
-### How to deliver video in the original format?
-
-Use `f-orig` parameter to deliver video in the original input format.
 
 ### How to override the format?
 

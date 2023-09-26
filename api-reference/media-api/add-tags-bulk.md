@@ -117,6 +117,77 @@ imagekit.bulkAddTags(fileIds, tags, function(error, result) {
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+tags = imagekit.add_tags(file_ids=['file-id-1', 'file-id-2'], tags=['tag1', 'tag2'])
+
+print("Add tags-", tags, end="\n\n")
+
+# Raw Response
+print(tags.response_metadata.raw)
+
+# list successfully updated file ids
+print(tags.successfully_updated_file_ids)
+
+# print the first file's id
+print(tags.successfully_updated_file_ids[0])
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$fileIds = [
+    "file_id_1",
+    "file_id_2"
+];
+
+$tags = [
+    "tag1",
+    "tag2"
+];
+
+$bulkAddTags = $imageKit->bulkAddTags($fileIds, $tags);
+
+echo("Add Tags (Bulk) : " . json_encode($bulkAddTags));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+List<String> fileIds = new ArrayList<>();
+fileIds.add("file_id_1");
+fileIds.add("file_id_2");
+List<String> tags = new ArrayList<>();
+tags.add("tag1");
+tags.add("tag2");
+TagsRequest tagsRequest =new TagsRequest();
+tagsRequest.setFileIds(fileIds);
+tagsRequest.setTags(tags);
+ResultTags resultTags = ImageKit.getInstance().addTags(tagsRequest);
+
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
  ```ruby
     imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
@@ -125,8 +196,44 @@ imagekit.bulkAddTags(fileIds, tags, function(error, result) {
           "file_id_1",
           "file_id_2"
         ],
-      tags: ["tag1", "tag2"]
+      tags: [
+        "tag1", 
+        "tag2"
+        ]
 )
  ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.AddTags(ctx, media.TagsParam{
+    FileIds: []string{"file_id_1", "file_id_2"},
+    Tags: []string{"tag1", "tag2"},
+})
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+TagsRequest tagsRequest = new TagsRequest
+{
+    tags = new List<string>
+    {
+        "tag1",
+        "tag2"
+    },
+fileIds = new List<string>
+    {
+        "file_id_1","file_id_2"
+    },
+};
+ResultTags resultTags = imagekit.AddTags(tagsRequest);
+```
+{% endtab %}
+
 {% endtabs %}

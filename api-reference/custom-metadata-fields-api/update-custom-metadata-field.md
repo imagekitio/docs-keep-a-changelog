@@ -25,7 +25,7 @@ An object that describes the rules for the custom metadata key. This parameter i
 {% swagger-response status="200" description="Custom metadata definition successfully updated. In the response, you will get the field id, field name and, field schema." %}
 ```javascript
 {
-    "id": "598821f949c0a938d57563dd",
+    "id": "field_id",
     "name": "price",
     "label": "price",
     "schema": {
@@ -60,7 +60,7 @@ An object that describes the rules for the custom metadata key. This parameter i
 {% tabs %}
 {% tab title="cURL" %}
 ```bash
-curl -X PATCH "https://api.imagekit.io/v1/customMetadataFields/6152fc9a2fd12044cb4cefe2" \
+curl -X PATCH "https://api.imagekit.io/v1/customMetadataFields/field_id" \
 -H 'Content-Type: application/json' \
 -u your_private_key: -d'
 {
@@ -83,7 +83,7 @@ var imagekit = new ImageKit({
     urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
 });
 
-var fieldId = "6152fc9a2fd12044cb4cefe2";
+var fieldId = "field_id";
 imagekit.updateCustomMetadataField(
     fieldId,
     {
@@ -100,16 +100,124 @@ imagekit.updateCustomMetadataField(
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+update_custom_metadata_fields = imagekit.update_custom_metadata_fields(field_id="id", 
+                                                 options=UpdateCustomMetadataFieldsRequestOptions(label="test-update",
+                                                  schema=CustomMetadataFieldsSchema(
+                                                      min_value=100,
+                                                      max_value=200))
+)
+
+print("Update custom metadata field-", update_custom_metadata_fields, end="\n\n")
+
+# Raw Response
+print(update_custom_metadata_fields.response_metadata.raw)
+
+# print the label of updated custom metadata fields
+print(update_custom_metadata_fields.label)
+
+# print the schema's min value of updated custom metadata fields
+print(update_custom_metadata_fields.schema.min_value)
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$body = [
+    "schema" => [
+        "minValue" => 500
+        "maxValue" => 2500
+    ]
+];
+
+$customMetadataFieldId = 'field_id';
+$updateCustomMetadataField = $imageKit->updateCustomMetadataField($customMetadataFieldId, $body);
+
+echo("Update Custom Metadata Field : " . json_encode($updateCustomMetadataField));
+```
+{% endtab %}
+{% tab title="Java" %}
+```java
+
+CustomMetaDataFieldSchemaObject schemaObject = new CustomMetaDataFieldSchemaObject();
+schemaObject.setMinValue(500);
+schemaObject.setMaxValue(2500);
+
+CustomMetaDataFieldUpdateRequest customMetaDataFieldUpdateRequest = new CustomMetaDataFieldUpdateRequest();
+customMetaDataFieldUpdateRequest.setId("field_id");
+customMetaDataFieldUpdateRequest.setLabel("");
+customMetaDataFieldUpdateRequest.setSchema(schemaObject);
+
+ResultCustomMetaDataField resultCustomMetaDataField = ImageKit.getInstance().updateCustomMetaDataFields(customMetaDataFieldUpdateRequest);
+
+```
+{% endtab %}
+
 {% tab title='Ruby'%}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.update_custom_metadata_field(
-  id: '6152fc9a2fd12044cb4cefe2', #required
+  id: 'field_id', #required
   schema: {   #required if label not available
     minValue: 500,
     maxValue: 2500
   }
 )
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+// Atleast Label or Schema is required
+resp, err := ik.Metadata.UpdateCustomField(ctx, "field_id", UpdateCustomFieldParam{
+    Label: "Cost",
+    Schema: {
+        MinValue: 100,
+        MaxValue: 2500,
+    },
+})
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+CustomMetaDataFieldUpdateRequest requestUpdateModel = new CustomMetaDataFieldUpdateRequest
+{
+    Id = "field_Id",
+};
+CustomMetaDataFieldSchemaObject updateschema = new CustomMetaDataFieldSchemaObject
+{
+    minValue = 500,
+    maxValue = 2500
+};
+requestUpdateModel.schema = updateschema;
+ResultCustomMetaDataField resultCustomMetaDataFieldUpdate = imagekit.UpdateCustomMetaDataFields(requestUpdateModel);
 ```
 {% endtab %}
 

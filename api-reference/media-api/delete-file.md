@@ -71,9 +71,12 @@ imagekit = ImageKit(
     url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
 )
 
-delete = imagekit.delete_file("file_id")
+delete = imagekit.delete_file(file_id="file_id")
 
 print("Delete File-", delete)
+
+# Raw Response
+print(delete.response_metadata.raw)
 ```
 {% endtab %}
 
@@ -91,7 +94,9 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$deleteFile = $imageKit->deleteFile("file_id");
+$fileId = 'file_id';
+
+$deleteFile = $imageKit->deleteFile($fileId);
 
 echo("Delete file : " . json_encode($deleteFile));
 ```
@@ -109,4 +114,25 @@ imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your
 delete = imagekitio.delete_file(file_id: "file_id")
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+ik, err := imagekit.New()
+
+resp, err := ik.Media.DeleteFile(ctx, "file_id")
+
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+ResultDelete res2 = imagekit.DeleteFile("file_Id");
+```
+{% endtab %}
+
 {% endtabs %}

@@ -39,6 +39,11 @@ Full path to the folder you want to move the above file into. For example - `/fo
 
 In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `204` status code with an empty body.
 
+
+### Access control and permissions
+
+Read how access and permissions are affected by this operation [here](../../media-library/overview/copy-and-move-files.md#move-file).
+
 ### Examples
 
 Here is the example request to understand the API usage.
@@ -77,6 +82,60 @@ imagekit.moveFile({
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+move_file = imagekit.move_file(options=MoveFileRequestOptions(source_file_path="/file.jpg",
+                                                              destination_path="/test"))
+
+print("Move file-", move_file, end="\n\n")
+
+# Raw Response
+print(move_file.response_metadata.raw)
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$sourceFilePath = '/path/to/file.jpg';
+$destinationPath = '/folder/to/move/into/';
+$moveFile = $imageKit->move([
+    'sourceFilePath' => $sourceFilePath,
+    'destinationPath' => $destinationPath
+]);
+
+echo("Move File : " . json_encode($moveFile));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+MoveFileRequest moveFileRequest = new MoveFileRequest();
+moveFileRequest.setSourceFilePath("/path/to/file.jpg");
+moveFileRequest.setDestinationPath("/folder/to/move/into/");
+ResultNoContent resultNoContent = ImageKit.getInstance().moveFile(moveFileRequest);
+```
+{% endtab %}
+
 {% tab title="Ruby" %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
@@ -86,4 +145,30 @@ imagekitio.move_file(
 )
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.MoveFile(ctx, media.MoveFileParam{
+    SourcePath: "/path/to/file.jpg",
+    DestinationPath: "/folder/to/move/into/",
+})
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+MoveFileRequest moveFile = new MoveFileRequest
+    {
+        sourceFilePath = "/path/to/file.jpg",
+        destinationPath = "/folder/to/copy/into/"
+    };
+ResultNoContent resultNoContentMoveFile = imagekit.MoveFile(moveFile);
+```
+{% endtab %}
+
 {% endtabs %}

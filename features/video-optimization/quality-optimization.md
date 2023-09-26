@@ -14,7 +14,7 @@ Choosing 100 quality will not improve an already low-quality video. However, it 
 
 ### How to enable/disable video quality optimization
 
-Video quality optimization is off by default. You can enable or disable it for your account under [video settings](https://imagekit.io/dashboard?redirectTo=settings-videos-optimization) in your dashboard.
+Video quality optimization is off by default. You can enable or disable it for your account under [video settings](https://imagekit.io/dashboard/settings/images) in your dashboard.
 
 Select settings from the left main menu. Inside Videos, under optimization, toggle "optimize video quality" control.
 
@@ -24,7 +24,7 @@ By default, ImageKit sets the video quality to 50. You can change this.
 
 Select settings from the left main menu. Inside Videos, under optimization, select the default quality level.
 
-![Video default quality settings](<../../.gitbook/assets/Screenshot 2021-07-13 at 5.08.08 PM.png>)
+![Video default quality settings](<../../.gitbook/assets/video-quality-optimisation.png>)
 
 ### How to override quality?
 

@@ -26,7 +26,7 @@ The final status of pending extensions will be sent to this URL. To learn more a
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="extensions" type="array" required="false" %}
-Stringified JSON object with array of extensions to be processed on the image. For reference about extensions refer [this](../../extensions/overview/). Note: [Remove.bg](../../extensions/overview/background-removal.md) extension creates a new file version which will also have the updated file details.
+Array of extensions to be processed on the asset. For reference about extensions refer [this](../../extensions/overview/). Note: [Remove.bg](../../extensions/overview/background-removal.md) extension creates a new file version which will also have the updated file details.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="tags" type="array" required="false" %}
@@ -93,108 +93,7 @@ In case of an error, you will get an [error code](../api-introduction/#error-cod
 
 ## Examples
 
-{% tabs %}
-{% tab title="cURL" %}
-```bash
-# The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
-curl -X PATCH "https://api.imagekit.io/v1/files/fileId/details" \
--H 'Content-Type: application/json' \
--u your_private_key: -d'
-{
-    "tags": [
-        "image_tag"
-    ],
-    "customCoordinates": "10,10,100,100"
-}
-'
-```
-{% endtab %}
-
-{% tab title="Node.js" %}
-```javascript
-var ImageKit = require("imagekit");
-
-var imagekit = new ImageKit({
-    publicKey : "your_public_api_key",
-    privateKey : "your_private_api_key",
-    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
-});
-
-imagekit.updateFileDetails("file_id", { 
-    tags : ['image_tag'],
-    customCoordinates : "10,10,100,100"
-}, function(error, result) { 
-    if(error) console.log(error);
-    else console.log(result);
-});
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-from imagekitio import ImageKit
-
-imagekit = ImageKit(
-    public_key='your_public_api_key',
-    private_key='your_private_api_key',
-    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
-)
-
-updated_detail = imagekit.update_file_details(
-    "file_id",
-    {"tags": ["image_tag"], "custom_coordinates": "10,10,100,100"},
-)
-
-print("Updated detail-", updated_detail, end="\n\n")
-```
-{% endtab %}
-
-{% tab title="PHP" %}
-```php
-use ImageKit\ImageKit;
-
-$public_key = "your_public_api_key";
-$your_private_key = "your_private_api_key";
-$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
-
-$imageKit = new ImageKit(
-    $public_key,
-    $your_private_key,
-    $url_end_point
-);
-
-$updateFileDetails = $imageKit->updateFileDetails("file_id", array("tags" => ['image_tag'], "customCoordinates" => "10,10,100,100"));
-
-echo("Updated detail : " . json_encode($updateFileDetails));
-```
-{% endtab %}
-
-{% tab title="Java" %}
-```java
- FileUpdateRequest fileUpdateRequest =new FileUpdateRequest("file_id");
- List<String> tags=new ArrayList<>();
- tags.add("image_tag");
- fileUpdateRequest.setTags(tags);
- fileUpdateRequest.setCustomCoordinates("10,10,100,100");
- Result result=ImageKit.getInstance().updateFileDetail(fileUpdateRequest);
-```
-{% endtab %}
-
-{% tab title="Ruby" %}
-```ruby
-imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key", "your_url_endpoint")
-updated_detail = imagekitio.update_file_details(
-    "file_id",
-    {
-        "tags": ['image_tag'],
-        "custom_coordinates": "10,10,100,100"
-    }
-)
-```
-{% endtab %}
-{% endtabs %}
-
-### Understanding API usage
+### Tags and custom coordinate update
 
 {% tabs %}
 {% tab title="cURL" %}
@@ -205,7 +104,7 @@ curl -X PATCH "https://api.imagekit.io/v1/files/:fileId/details" \
 -u your_private_key: -d'
 {
     "tags": [
-        "image_tag"
+        "tag1", "tag2"
     ],
     "customCoordinates": "10,10,100,100"
 }
@@ -244,11 +143,20 @@ imagekit = ImageKit(
 )
 
 updated_detail = imagekit.update_file_details(
-    "file_id",
-    {"tags": ["image_tag"], "custom_coordinates": "10,10,100,100"},
+    file_id="file_id",
+    options=UpdateFileRequestOptions(remove_ai_tags=['remove-ai-tag-1', 'remove-ai-tag-2'],
+                                         webhook_url="url",
+                                         tags=["tag1", "tag2"], custom_coordinates="10,10,100,100",
+                                         custom_metadata={"test": 11})
 )
 
 print("Updated detail-", updated_detail, end="\n\n")
+
+# Raw Response
+print(updated_detail.response_metadata.raw)
+
+# print that file's id
+print(updated_detail.file_id)
 ```
 {% endtab %}
 
@@ -266,9 +174,18 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$updateFileDetails = $imageKit->updateFileDetails("file_id", array("tags" => ['image_tag'], "customCoordinates" => "10,10,100,100"));
+// Update File Details
+$updateData = [
+    "tags" => ["tag1", "tag2"],
+    "customCoordinates" => "10,10,100,100"
+];
 
-echo("Updated detail : " . json_encode($updateFileDetails));
+$updateFileDetails = $imageKit->updateFileDetails(
+    $fileId,
+    $updateData
+);
+
+echo("Updated File Details : " . json_encode($updateFileDetails));
 ```
 {% endtab %}
 
@@ -276,7 +193,8 @@ echo("Updated detail : " . json_encode($updateFileDetails));
 ```java
  FileUpdateRequest fileUpdateRequest =new FileUpdateRequest("file_id");
  List<String> tags=new ArrayList<>();
- tags.add("image_tag");
+ tags.add("tag1");
+ tags.add("tag2");
  fileUpdateRequest.setTags(tags);
  fileUpdateRequest.setCustomCoordinates("10,10,100,100");
  Result result=ImageKit.getInstance().updateFileDetail(fileUpdateRequest);
@@ -289,12 +207,44 @@ imagekitio = ImageKit::ImageKitClient.new("your_private_key", "your_public_key",
 updated_detail = imagekitio.update_file_details(
     "file_id",
     {
-        "tags": ['image_tag'],
+        "tags": ["tag1", "tag2"],
         "custom_coordinates": "10,10,100,100"
     }
 )
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+resp, err := ik.Media.UpdateFile(ctx, "file_id", media.UpdateFileParam{
+    Tags: []string{"tag1", "tag2"},
+    CustomCoordinates: "10,10,100,100",
+})
+```
+{% endtab %}
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+FileUpdateRequest updateob = new FileUpdateRequest
+{
+    fileId = "fileId",
+};
+List<string> updatetags = new List<string>
+{
+    "tag1",
+    "tag2"
+};
+updateob.tags = updatetags;
+string updatecustomCoordinates = "10,10,100,100";
+updateob.customCoordinates = updatecustomCoordinates;
+Result updateresp = imagekit.UpdateFileDetail(updateob);
+```
+{% endtab %}
+
 {% endtabs %}
 
 ### Applying extensions
@@ -306,7 +256,7 @@ updated_detail = imagekitio.update_file_details(
 ```bash
 # The unique fileId of the uploaded file. fileId is returned in response of list files API and upload API.
 # Example of using the google-auto-tagging extension
-curl -X PATCH "https://api.imagekit.io/v1/files/fileId/details" \
+curl -X PATCH "https://api.imagekit.io/v1/files/file_id/details" \
 -H 'Content-Type: application/json' \
 -u your_private_key: -d'
 {
@@ -358,17 +308,23 @@ imagekit = ImageKit(
 )
 
 updated_detail = imagekit.update_file_details(
-    "file_id",
-    "extensions": [
+    file_id="file_id",
+    options=UpdateFileRequestOptions(extensions = [
         {
             "name": "google-auto-tagging",
             "maxTags": 5,
             "minConfidence": 95
         }
-    ]
+    ])
 )
 
 print("Updated detail-", updated_detail, end="\n\n")
+
+# Raw Response
+print(updated_detail.response_metadata.raw)
+
+# print that file's id
+print(updated_detail.file_id)
 ```
 {% endtab %}
 
@@ -386,9 +342,36 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-$updateFileDetails = $imageKit->updateFileDetails("file_id", array("extensions" => [array("name" => "google-auto-tagging", "maxTags" => 5, "minConfidence" => 95)]));
+// Update File Details
+$updateData = [
+    "extensions" => [
+        [
+            "name" => "google-auto-tagging",
+            "maxTags" => 5, 
+            "minConfidence" => 95
+        ]
+    ]
+];
 
-echo("Updated detail : " . json_encode($updateFileDetails));
+$updateFileDetails = $imageKit->updateFileDetails(
+    $fileId,
+    $updateData
+);
+
+echo("Updated File Details : " . json_encode($updateFileDetails));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+JsonObject extension = new JsonObject();
+extension.addProperty("name", "google-auto-tagging");
+extension.addProperty("maxTags", 5);
+extension.addProperty("minConfidence", 95);
+JsonArray extensionArray = new JsonArray();
+extensionArray.add(extension);
+fileUpdateRequest.setExtensions(extensionArray);
+Result result = ImageKit.getInstance().updateFileDetail(fileUpdateRequest);
 ```
 {% endtab %}
 
@@ -396,18 +379,60 @@ echo("Updated detail : " . json_encode($updateFileDetails));
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 updated_detail = imagekitio.update_file_details(
-    file_id: "598821f949c0a938d57563bd", #required
+    file_id: "file_id", #required
     extension: [
       {
         name: 'google-auto-tagging',
         maxTags: 5,
         minConfidence: 95
       }
-    ],
-    custom_coordinates: '10,10,100,200'
+    ]
 )
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+import (
+    "github.com/imagekit-developer/imagekit-go/extension"
+	"github.com/imagekit-developer/imagekit-go/api/uploader"
+)
+
+const base64Image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+
+resp, err := ik.Uploader.Upload(ctx, base64Image, uploader.UploadParam{
+    Extensions: []extension.IExtension{
+        extension.NewAutoTag(extension.GoogleAutoTag, 95, 5),
+        extension.NewRemoveBg(extension.RemoveBgOption{}),
+    },
+})
+
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+FileUpdateRequest updateob = new FileUpdateRequest
+    {
+     fileId = "fileId",
+    };
+List<Extension> extModel = new List<Extension>();
+BackGroundImage bck = new BackGroundImage
+    {
+        name = "remove-bg",
+        options = new options() { add_shadow = true, semitransparency = false, bg_color = "green" }
+    };
+extModel.Add(bck);
+updateob.extensions = extModel;
+Result updateresp = imagekit.UpdateFileDetail(updateob);
+```
+{% endtab %}
+
 {% endtabs %}
 
 #### Response

@@ -5,8 +5,8 @@ By default, ImageKit.io offers a global CDN (Amazon CloudFront). It means that n
 However, you can integrate ImageKit.io with your CDN as well. This could be useful if you are in a long-term contract with any existing CDN vendor.
 
 {% hint style="info" %}
-**Paid plan feature**\
-****This setup is only supported for paid accounts and requires a minimum billing and traffic commitment per month. Please get in touch with the support team if you want to use ImageKit.io with your CDN.
+**Custom Enterprise Paid plan feature**\
+****This setup is only supported for paid accounts which requires a minimum billing and traffic commitment per month. Please get in touch with the support team if you want to use ImageKit.io with your CDN.
 {% endhint %}
 
 ## Supported CDNs
@@ -29,7 +29,7 @@ We have integrated and tested ImageKit.io with the following CDNs so far:
 | Image transformation             | Yes            |
 | Automatic image optimization     | <p>Yes<br></p> |
 | Automatic format conversion      | Yes            |
-| Network-based image optimization | Yes            |
+| Network-based media optimization | Yes            |
 | Data Saver                       | No             |
 | Security                         | Yes            |
 

@@ -6,18 +6,20 @@ description: >-
 
 # React
 
-This is a quick start guide to show you how to integrate ImageKit in a React application. The code samples covered here are hosted on Github: [https://github.com/imagekit-samples/quickstart/tree/master/react](https://github.com/imagekit-samples/quickstart/tree/master/react).
+This is a quick start guide to show you how to integrate ImageKit in a React application. The code samples covered here are hosted on GitHub: [https://github.com/imagekit-samples/quickstart/tree/master/react](https://github.com/imagekit-samples/quickstart/tree/master/react).
 
 This guide walks you through the following topics: ‌
 
-* [Setting up ImageKit React SDK ](react.md#setup-imagekit-react-sdk)
-* [Rendering images](react.md#rendering-images) 
+* [Setting up ImageKit React SDK](react.md#setup-imagekit-react-sdk)
+* [Rendering images](react.md#rendering-images)
 * [Setting the ImageKit context for the SDK](react.md#setting-authentication-context-for-the-sdk)
-* [Applying common image manipulations](react.md#basic-image-manipulation) 
-* [Adding overlays to images ](react.md#adding-overlays-to-images)
-* [Lazy loading images ](react.md#lazy-loading-images-in-react)
-* [Blurred image placeholder ](react.md#blurred-image-placeholder)
-* [Client-side file uploading](react.md#uploading-files-in-react) 
+* [Applying common image manipulations](react.md#basic-image-manipulation)
+* [Adding overlays to images](react.md#adding-overlays-to-images)
+* [Lazy loading images](react.md#lazy-loading-images-in-react)
+* [Blurred image placeholder](react.md#blurred-image-placeholder)
+* [Client-side file uploading](react.md#uploading-files-in-react)
+* [Advanced file uploading](react.md#advanced-file-upload)
+* [Rendering videos](react.md#rendering-videos)
 
 ## **Setup ImageKit React SDK**
 
@@ -576,7 +578,7 @@ npm install --save express imagekit
 
 We will use the[ ImageKit Node.js SDK](https://github.com/imagekit-developer/imagekit-nodejs) to implement `http://localhost:3001/auth`.
 
-The backend SDK requires your API [public key](../../api-reference/api-introduction/api-keys.md#public-key), [private key](../../api-reference/api-introduction/api-keys.md#private-key), and [URL endpoint](../../integration/url-endpoints.md). You can obtain them from [Developer Options](https://imagekit.io/dashboard#developers) and [URL-endpoint](https://imagekit.io/dashboard#url-endpoints) pages respectively.
+The backend SDK requires your API [public key](../../api-reference/api-introduction/api-keys.md#public-key), [private key](../../api-reference/api-introduction/api-keys.md#private-key), and [URL endpoint](../../integration/url-endpoints.md). You can obtain them from [Developer Options](https://imagekit.io/dashboard/developer/api-keys) and [URL-endpoint](https://imagekit.io/dashboard/url-endpoints) pages respectively.
 
 This is how `server/index.js` file should look now. Replace `<YOUR_IMAGEKIT_URL_ENDPOINT>`, `<YOUR_IMAGEKIT_PUBLIC_KEY>` and `<YOUR_IMAGEKIT_PRIVATE_KEY>` with actual values:
 
@@ -799,7 +801,7 @@ This is how it looks in the UI:
 
 Let’s now upload an image by selecting a file from the file input.&#x20;
 
-When you choose a file, the file is immediately uploaded.  You can pass optional `onSuccess` and `onError` callback functions as props like we have.
+When you choose a file, the file is immediately uploaded. You can pass optional `onSuccess` and `onError` callback functions as props like we have.
 
 You can verify that file was successfully uploaded by checking the browser console. In case of success, it should print a success message, like this:
 
@@ -834,6 +836,151 @@ Fetch uploaded image and show in UI using `IKImage` with the `filePath` returned
 ```
 
 The app should display your uploaded image correctly!
+
+## **Advanced file upload**
+
+A more detailed example of how to use the file upload component (and an explanation of each advanced feature) is presented below:
+
+{% tabs %}
+{% tab title="React JSX" %}
+{% code title="src/App.js" %}
+```jsx
+import React, { useRef } from 'react';
+import './App.css';
+import { IKContext, IKImage, IKUpload } from 'imagekitio-react';
+
+const publicKey = '<YOUR_IMAGEKIT_PUBLIC_KEY>';
+const urlEndpoint = '<YOUR_IMAGEKIT_URL_ENDPOINT>';
+const authenticationEndpoint = 'http://localhost:3001/auth';
+
+const onError = err => {
+  console.log("Error", err);
+};
+
+const onSuccess = res => {
+  console.log("Success", res);
+};
+
+const onUploadProgress = progress => {
+  console.log("Progress", progress);
+};
+
+const onUploadStart = evt => {
+  console.log("Start", evt);
+};
+
+function App() {
+  const inputRefTest = useRef(null);
+  const ikUploadRefTest = useRef(null);
+  return (
+    <div className="App">
+      <h1>ImageKit React quick start</h1>
+      <IKContext 
+        publicKey={publicKey} 
+        urlEndpoint={urlEndpoint} 
+        authenticationEndpoint={authenticationEndpoint} 
+      >
+        <p>Upload an image with advanced options</p>
+        <IKUpload
+          fileName="test-upload.jpg"
+          tags={["sample-tag1", "sample-tag2"]}
+          customCoordinates={"10,10,10,10"}
+          isPrivateFile={false}
+          useUniqueFileName={true}
+          responseFields={["tags"]}
+          validateFile={file => file.size < 2000000}
+          folder={"/sample-folder"}
+          extensions={[{
+            "name": "remove-bg",
+            "options": {
+              "add_shadow": true,
+            },
+          }]}
+          webhookUrl="https://www.example.com/imagekit-webhook" // replace with your webhookUrl
+          overwriteFile={true}
+          overwriteAITags={true}
+          overwriteTags={true}
+          overwriteCustomMetadata={true}
+          // customMetadata={{
+          //   "brand": "Nike",
+          //   "color": "red",
+          // }}
+          onError={onError}
+          onSuccess={onSuccess}
+          onUploadProgress={onUploadProgress}
+          onUploadStart={onUploadStart}
+          // style={{display: 'none'}} // hide the default input and use the custom upload button
+          inputRef={inputRefTest}
+          ref={ikUploadRefTest}
+        />
+        <p>Custom Upload Button</p>
+        {inputRefTest && <button onClick={() => inputRefTest.current.click()}>Upload</button>}
+        <p>Abort upload request</p>
+        {ikUploadRefTest && <button onClick={() => ikUploadRefTest.current.abort()}>Abort request</button>}
+      </IKContext>
+      {/* ...other SDK components added previously */}
+    </div>
+  );
+}
+
+export default App;
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+### **Custom Upload Button**
+We have created a `ref` to the `input` used inside the `IKUpload` component called `inputRefTest`. The `IKUpload` component can be given styling via `className` or `style` (`style={{display: 'none'}}`) to hide the default file selector. Then we can use the custom upload button as described above.
+
+### **Abort uploads**
+We have created a `ref` to the `IKUpload` component called `ikUploadRefTest`. This `ref` can be used to call the `abort` method in the `IKUpload` component and can be used to abort the ongoing upload.
+
+### **Upload start**
+The `onUploadStart` prop is called when the file upload starts. This can be used for common use cases like showing a spinner, progress bar, etc.
+
+### **Show progress bar**
+The `onUploadProgress` prop can be passed like above, which will have a [ProgressEvent](https://developer.mozilla.org/en-US/docs/Web/API/ProgressEvent). This can be used to show the percentage of upload progress to the end user.
+
+### **Validate file before upload**
+Arbitrary validation (file type, file size, file name) etc can be added using the `validateFile` prop. An example has been added above that shows how to prevent upload if the file size is bigger than 2 MB.
+
+### **Additional options to the upload function**
+All the parameters supported by the [ImageKit Upload API](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload) can be passed as shown above (e.g. `extensions`, `webhookUrl`, `customMetadata` etc.)
+
+## **Rendering videos**
+
+Rendering videos works similarly to rendering images in terms of usage of `urlEndpoint` param (either directly or via `IKContext`).
+
+**Loading video from relative path:**
+Import `IKVideo` from the SDK:
+
+```jsx
+import { IKVideo } from 'imagekitio-react';
+```
+
+Now let's add it to our App. Along with the video path prop, it also needs the relevant `urlEndpoint` (either directly or via `IKContext`):
+```jsx
+<IKContext urlEndpoint={<YOUR_IMAGEKIT_URL_ENDPOINT>}>
+  <IKVideo
+    className='ikvideo-default'
+    path={videoPath}
+    transformation={[{ height: 200, width: 200 }]}
+    controls={true}
+  />
+</IKContext>
+```
+
+A more complex example:
+```jsx
+<IKContext urlEndpoint={<YOUR_IMAGEKIT_URL_ENDPOINT>}>
+  <IKVideo
+    className='ikvideo-with-tr'
+    path={videoPath}
+    transformation={[{ height: 200, width: 600, b: '5_red', q: 95 }]}
+    controls={true}
+  />
+</IKContext>
+```
 
 ## **Error boundaries**
 

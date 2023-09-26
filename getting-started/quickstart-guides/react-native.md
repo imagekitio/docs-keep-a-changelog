@@ -70,7 +70,7 @@ npm install --save imagekit-javascript
 {% hint style="warning" %}
 `imagekit-javascript` SDK uses URL [API](https://developer.mozilla.org/en-US/docs/Web/API/URL) to parse the URL internally. In React 16 and above, this API was [removed](https://github.com/facebook/react-native/issues/16434), so if you are using React 16 or above, you will have to implement a small [patch](https://github.com/facebook/react-native/issues/16434#issuecomment-557956079) with these steps.
 
-1. Install the package with `npm install eact-native-url-polyfill`
+1. Install the package with `npm install react-native-url-polyfill`
 2. Import the package in your app's entry point i.e. App.js like this `import 'react-native-url-polyfill/auto'`
 {% endhint %}
 
@@ -80,8 +80,8 @@ Open `app/lib/imagekit.js` file, this is where we will initialize our SDK and cr
 
 Initialize the SDK with parameters set in the config file `app/config/imagekit.js` 
 
-* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard#url-endpoints](https://imagekit.io/dashboard#url-endpoints).
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard#developers](https://imagekit.io/dashboard#developers).
+* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).
+* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
 
 {% code title="app/lib/imagekit.js" %}
 ```javascript

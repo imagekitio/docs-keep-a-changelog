@@ -9,10 +9,15 @@
   * [PHP](getting-started/quickstart-guides/php.md)
   * [React](getting-started/quickstart-guides/react.md)
   * [React Native](getting-started/quickstart-guides/react-native.md)
+  * [Angular](getting-started/quickstart-guides/angular.md)
   * [Ruby](getting-started/quickstart-guides/ruby-guides/README.md)
     * [Plain Ruby](getting-started/quickstart-guides/ruby-guides/ruby_app.md)
     * [Ruby on Rails with active_storage](getting-started/quickstart-guides/ruby-guides/ruby_on_rails_with_activestorage.md)
     * [Ruby on Rails with carrierwave](getting-started/quickstart-guides/ruby-guides/ruby_on_rails_with_carrierwave.md)
+  * [Java](getting-started/quickstart-guides/java/README.md)
+    * [Plain Java](getting-started/quickstart-guides/java/java_app.md)  
+  * [Python](getting-started/quickstart-guides/python/README.md)
+    * [Pure Python](getting-started/quickstart-guides/python/python_app.md)
   * [Vue.js](getting-started/quickstart-guides/vuejs.md)
   * [Next.js](getting-started/quickstart-guides/nextjs.md)
 * [How to use ImageKit.io?](getting-started/how-to-use-imagekit.io.md)
@@ -22,6 +27,7 @@
 * [Integration overview](integration/integration-overview.md)
 * [How it works?](integration/how-it-works.md)
 * [Configure origin](integration/configure-origin/README.md)
+  * [Akeneo PIM](integration/configure-origin/akeneo.md)
   * [Alibaba Object Storage Service](integration/configure-origin/alibaba-object-storage-service.md)
   * [Amazon S3 bucket](integration/configure-origin/amazon-s3-bucket-origin.md)
   * [Azure Blob storage](integration/configure-origin/azure-blob-storage.md)
@@ -35,7 +41,7 @@
   * [Web server](integration/configure-origin/web-server-origin.md)
 * [URL-endpoints](integration/url-endpoints.md)
 
-## ImageKit.io storage <a href="media-library" id="media-library"></a>
+## Digital asset management <a href="media-library" id="media-library"></a>
 
 * [Media Library](media-library/overview/README.md)
   * [Upload files](media-library/overview/upload-files.md)
@@ -51,11 +57,19 @@
   * [Backup media library assets](media-library/overview/backup-media-library-assets.md)
   * [Download media library assets as zip](media-library/overview/download-media-library-assets-as-zip.md)
   * [Asset versioning](media-library/overview/asset-versioning.md)
+  * [Draft assets](media-library/overview/draft-assets.md)
+* [Media Collections](./media-collections/README.md)
+  * [Introduction](./media-collections/create-rename-delete-search-and-download-as-zip.md)
+  * [Add & remove assets from media collections](./media-collections/add-and-remove-assets-from-media-collections.md)
+* [Collaboration and sharing](./collaboration-and-sharing/README.md)
+  * [Share files and folders](./collaboration-and-sharing/share-files-and-folders.md)
+  * [Share media collection](./collaboration-and-sharing/share-media-collection.md)
 
 ## Limits and troubleshooting
 
 * [Limits](limits-and-troubleshooting/limits.md)
 * [Error troubleshooting](limits-and-troubleshooting/404-not-found-error-troubleshooting.md)
+* [ABS resizing changes](limits-and-troubleshooting/modification-in-resizing-method-for-ABS-representations.md)
 
 ## Testing and Infrastructure Setup
 
@@ -68,7 +82,8 @@
 
 * [Image Transformations](features/image-transformations/README.md)
   * [Resize, crop and other common transformations](features/image-transformations/resize-crop-and-other-transformations.md)
-  * [Overlay](features/image-transformations/overlay.md)
+  * [Overlay using layers](features/image-transformations/overlay-using-layers.md)
+  * [Overlay (deprecated)](features/image-transformations/overlay.md)
   * [Image enhancement & color manipulation](features/image-transformations/image-enhancement-and-color-manipulation.md)
   * [Chained transformations](features/image-transformations/chained-transformations.md)
   * [Conditional transformations](features/image-transformations/conditional-transformations.md)
@@ -80,16 +95,16 @@
   * [Data Saver Mode](features/image-optimization/data-saver-mode.md)
   * [Metadata, Color Profile and Orientation](features/image-optimization/metadata-color-profile-and-orientation.md)
   * [PNG Compression](features/image-optimization/png-compression.md)
-* [Video Transformation (Beta release)](features/video-transformation/README.md)
+* [Video Transformation](features/video-transformation/README.md)
   * [Resize, crop, and other common video transformations](features/video-transformation/resize-crop-and-other-common-video-transformations.md)
   * [Overlays in video](features/video-transformation/overlay.md)
   * [Adaptive bitrate streaming](features/video-transformation/adaptive-bitrate-streaming.md)
   * [Video webhooks events](features/video-transformation/video-webhook-events.md)
-* [Video Optimization (Beta release)](features/video-optimization/README.md)
+* [Video Optimization](features/video-optimization/README.md)
   * [Automatic video format conversion](features/video-optimization/automatic-video-format-conversion.md)
   * [Quality Optimization](features/video-optimization/quality-optimization.md)
 * [Named Transformations](features/named-transformations.md)
-* [Network-based image optimization](features/network-based-image-optimization.md)
+* [Network-based Media Optimization](features/network-based-media-optimization.md)
 * [Client hints](features/client-hints.md)
 * [Caches](features/caches.md)
 * [Cache purging](features/cache-purging.md)
@@ -101,17 +116,26 @@
 * [Progressive JPEGs](features/progressive-jpegs.md)
 * [Non-image file compression](features/non-image-file-compression.md)
 * [Performance monitoring](features/performance-monitoring.md)
-* [User access management](features/user-access-management.md)
+* [User access management](features/user-access-management/README.md)
+  * [User groups](./features/user-access-management/user-groups.md)
 * [Multi factor authentication](features/multi-factor-authentication.md)
 * [Billing alerts](features/billing-alerts.md)
 * [Single sign-on](features/single-sign-on/README.md)
   * [Setup SSO for ImageKit on Azure](features/single-sign-on/sso-azure-setup.md)
   * [Setup SSO for ImageKit on Okta](features/single-sign-on/sso-okta-setup.md)
   * [Setup SSO for ImageKit on OneLogin](features/single-sign-on/sso-onelogin-setup.md)
+  * [Setup SSO for ImageKit on AD FS](features/single-sign-on/sso-adfs-setup.md)
 * [Advanced security settings](features/advanced-security-settings.md)
 * [Central audit logs](features/central-audit-logs.md)
 * [URL-rewriters](features/url-rewriters/README.md)
   * [Cloudinary](features/url-rewriters/cloudinary.md)
+  * [Imgix](features/url-rewriters/imgix.md)
+* [Session management](features/session-management.md)
+* [Multi-account user association](features/multi-account-user-association.md)
+
+## Best Practices
+* [Mobile Apps](imagekit-best-practices/mobile-apps.md)
+* [Delivery and Management Checklist](imagekit-best-practices/media-delivery-management-checklist.md)
 
 ## Platform guides
 
@@ -137,6 +161,8 @@
 * [Upload file API](api-reference/upload-file-api/README.md)
   * [Server side file upload](api-reference/upload-file-api/server-side-file-upload.md)
   * [Client side file upload](api-reference/upload-file-api/client-side-file-upload.md)
+  * [Server side file upload - V2 (beta)](api-reference/upload-file-api/server-side-file-upload-v2.md)
+  * [Secure client side upload - V2 (beta)](api-reference/upload-file-api/secure-client-side-file-upload.md)
 * [Media API](api-reference/media-api/README.md)
   * [List and search files](api-reference/media-api/list-and-search-files.md)
   * [Get file details](api-reference/media-api/get-file-details.md)
@@ -168,6 +194,8 @@
   * [Get custom metadata field](api-reference/custom-metadata-fields-api/get-custom-metadata-field.md)
   * [Update custom metadata field](api-reference/custom-metadata-fields-api/update-custom-metadata-field.md)
   * [Delete custom metadata field](api-reference/custom-metadata-fields-api/delete-custom-metadata-field.md)
+* [Account management API](api-reference/account-management-api/README.md)
+  * [Get usage](api-reference/account-management-api/get-usage.md)
 
 ## EXTENSIONS
 

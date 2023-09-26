@@ -16,14 +16,16 @@ There are certain limits, like those on image transformation dimensions, which a
 
 | Name                                                                                                             | Default  | Adjustable |
 | ---------------------------------------------------------------------------------------------------------------- | -------- | ---------- |
-| <p>Image input size</p><p>(accessed from your origin or media library)</p>                                       | 40MB     | Yes        |
-| <p>Input image resolution <br>(width x height; for example 1000 x 1000 = 1MP)</p>                               | 100 MP   | Yes        |
+| <p>Input image size</p><p>(accessed from your origin or media library)</p>                                       | 40MB     | Yes        |
+| <p>Image resolution<br>(input or transformed)</p>                               | 100 MP   | Yes        |
 | Max image transformation dimensions (dimensions greater than this in the transformation string will get ignored) | 65535 px | No         |
 | Max WebP image transformation dimensions (dimensions greater than this will not work for transformation)         | 16383 px | No         |
 
 ## Video limits
 
-Video real-time manipulation and optimization service is in Beta release. Refer to [limits](../features/video-transformation/#limitations-of-the-beta-release) before using in production.
+Refer to [limits](../features/video-transformation/#limitations) before using in production.
 
+## Expensive transformation limits
+By default, we do not charge for transformations when you use ImageKit. However, if an account extensively uses expensive transformations such as AVIF conversion, complex text or image overlays, smart crop, or other AI-related transformations, in that case, our sales team may reach out to explore alternative options. Those options include upgrading to a custom plan that fits the usage pattern, helping you bring down the unique transformation count, or even migrating off our platform if ImageKit is not the right fit for your requirements. Please note that over 99% of the customers do not face these limitations.
 
 

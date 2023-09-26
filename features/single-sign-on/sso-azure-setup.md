@@ -10,6 +10,7 @@ There are two main steps required to set up SSO using Azure on ImageKit:
 Although you may use a free account on Azure to set up and test the SSO application, having a premium Azure subscription is recommended for seamless role provisioning for your users. Read more [here](#attributes-and-claims).
 {% endhint %}
 
+If you want to configure multiple unique instances of ImageKit SSO apps within a single instance of Azure Active Directory, [click here](#creating-multiple-unique-instances-of-imagekit-sso-application-within-azure).
 
 ## Create an Azure AD application
 
@@ -37,7 +38,7 @@ On the application page, navigate to the 'Single sign-on' screen. Select "SAML" 
 
 On the next screen, we will configure various authentication URLs as shown:
 
-| **Field**                  | **Value**                                          |
+| **Field**             | **Value**                                      |
 | --------------------- | ---------------------------------------------- |
 | Identifier            | `https://imagekit.io/saml/consume`             |
 | Reply URL             | `https://imagekit.io/saml/consume`             |
@@ -103,6 +104,29 @@ After their first login, they may use the [ImageKit SSO login page](https://imag
 You can disable SSO login for the users on your ImageKit account by deleting the Metadata XML. 
 
 To do so, navigate to the [Settings page](https://imagekit.io/dashboard/settings/single-sign-on) and click on the 'Delete' button.
+
+## Creating multiple unique instances of ImageKit SSO application within Azure
+
+Azure Active Directory requires the Identifier or EntityID to be unique across the organization's applications.
+
+However, you may want to create multiple unique instances of SSO application for use with ImageKit within a single Azure Active Directory instance – for example, if you have an agency account that manages SSO for multiple child accounts within your own company organization.
+
+To do this, you can attach a hash suffix with the unique `imagekit_id` to the Identifier (EntityID) and Reply URL of each such child account.
+
+The SAML configuration of each such app then becomes similar to the following, where `child_imagekit_id` is the unique `imagekit_id` of that child account:
+
+| **Field**             | **Value**                                                  |
+| --------------------- | ---------------------------------------------------------- |
+| Identifier            | `https://imagekit.io/saml/consume#child_imagekit_id`       |
+| Reply URL             | `https://imagekit.io/saml/consume#child_imagekit_id`       |
+| Relay State           | `https://imagekit.io/dashboard`                            |
+| Logout Url            | `https://imagekit.io/logout`                               |
+
+To ensure that the login flow initiated from ImageKit works smoothly, save the new unique Identifier URL in the Entity ID field on the ImageKit dashboard SSO settings page of the child account.
+
+If the Entity ID field value is removed, then the account will revert to following the default value of Identifier and Reply URL when SSO login is initiated from ImageKit, i.e. `https://imagekit.io/saml/consume`.
+
+![Configure Entity ID](<../../.gitbook/assets/sso-setup-azure-7.png>)
 
 
 ## Support

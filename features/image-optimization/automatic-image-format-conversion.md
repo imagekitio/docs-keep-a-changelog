@@ -6,7 +6,7 @@ With multiple image formats to choose from, it often becomes a difficult task to
 
 Format Optimization is the process of delivering the best image format to the end-user, while taking into account various factors such as requesting device capabilities, browser support for certain image formats, image content, [image quality](quality-optimization.md), and more. Ensuring the right format helps you reduce the image size and subsequently the load time.
 
-For Example, the below image gets delivered as WebP for Chrome browser and as JPEG for Safari. If you have the automatic conversion to [AVIF enabled for your account](automatic-image-format-conversion.md#avif-image-format-support), then the image will be delivered in AVIF format on supported devices.
+For Example, the below image gets delivered as WebP for Chrome browser and as JPEG for Safari (if it doesn't support WebP). If you have the automatic conversion to [AVIF enabled for your account](automatic-image-format-conversion.md#avif-image-format-support), then the image will be delivered in AVIF format on supported devices.
 
 Image URL: [https://ik.imagekit.io/demo/tr:w-200/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-200/medium_cafe_B1iTdD0C.jpg)
 
@@ -16,8 +16,8 @@ This behaviour works automatically when the 'Use Best Format For Image Delivery'
 
 ## Factors Ensuring Right Format Delivery
 
-1. Based on Browser Support: ImageKit.io automatically selects the best format to deliver an image. To perform this, browser support for formats like WebP and AVIF is checked on every incoming request. If the browser supports either of these image formats, and the image can be converted to them, the ImageKit automatically selects the format with the smallest size for delivery. If the browser doesn't support these formats (like Safari), the next best format is selected and then delivered.
-2. Based on Image Content: Certain file formats like JPEG can be easily [delivered as AVIF](automatic-image-format-conversion.md#avif-image-format-support) (on Chrome 85+) or WebP (on Chrome). For other image file formats like PNG which have transparency, only those formats that support transparency, like PNG or WebP or AVIF are considered for delivery. If a PNG image does not contain any transparency, then it becomes a candidate even for the JPEG format.
+1. Based on Browser Support: ImageKit.io automatically selects the best format to deliver an image. To perform this, browser support for formats like WebP and AVIF is checked on every incoming request. If the browser supports either of these image formats, and the image can be converted to them, the ImageKit automatically selects the format with the smallest size for delivery. If the browser doesn't support these formats, the next best format is selected and then delivered.
+2. Based on Image Content: Certain file formats like JPEG can be easily [delivered as AVIF](automatic-image-format-conversion.md#avif-image-format-support) (on Chrome 85+, for example) or WebP. For other image file formats like PNG which have transparency, only those formats that support transparency, like PNG or WebP or AVIF are considered for delivery. If a PNG image does not contain any transparency, then it becomes a candidate even for the JPEG format.
 
 ## URL Based Format Control
 
@@ -47,17 +47,17 @@ A few WebP images may not render correctly in Safari v14+ on MacOS v11+ and IOS 
 
 ## AVIF Image Format Support
 
-AVIF (AV1 Image File) is a new image format that offers superior compression and visual quality compared to other image formats like JPEG and WebP. It has been launched in Chrome 85, and support is likely to be added in Android and Firefox soon. More details on the current browser support for AVIF can be found here - [https://caniuse.com/avif](https://caniuse.com/avif).
+AVIF (AV1 Image File) is a new image format that offers superior compression and visual quality compared to other image formats like JPEG and WebP. It has been launched in Chrome 85, and support is likely to be added in other browsers. More details on the current browser support for AVIF can be found here - [https://caniuse.com/avif](https://caniuse.com/avif).
 
 {% hint style="info" %}
-Before you start using AVIF images on your website, we would recommend reading this detailed[ blog that highlights the features, compression, visual quality, and current drawbacks of the AVIF image format](https://imagekit.io/blog/automatic-avif-image-optimization-imagekit/).
+Before you start using AVIF images on your website, we would recommend reading this detailed [blog that highlights the features, compression, visual quality, and current drawbacks of the AVIF image format](https://imagekit.io/blog/automatic-avif-image-optimization-imagekit/).
 {% endhint %}
 
-Starting 15 December 2020, ImageKit has started rolling out support for automatic conversion of images to the AVIF format on devices that support AVIF format; they send `image/avif` in the `Accept` request header. Here is how the rollout is planned -
+ImageKit supports automatic conversion of images to the AVIF format on devices that support AVIF format; they send `image/avif` in the `Accept` request header. This is, however, disabled by default.
 
-1. All users can force their images to AVIF format by adding the format transformation parameter `f-avif` in the transformation string
-2. Automatic format conversion to AVIF, without making any change to the URL, will be enabled gradually for our current users. You will see if this feature is enabled for your account or not under the Image Settings > Optimization section in your ImageKit dashboard. If this feature is not enabled for your account and you want early access to it, please reach out to support@imagekit.io or initiate a live chat from your dashboard.
-3. As of 15 December 2020, users on custom CDNs won't have this access to this feature working. Our team will be reaching out to such users, helping them with the required configuration changes on their CDN, if any, before enabling the feature on their account.
+1. All users can force their images to AVIF format by adding the format transformation parameter `f-avif` in the transformation string. Please check [expensive transformation limits](/limits-and-troubleshooting/limits.md#expensive-transformation-limits) before using this in production.
+2. Automatic format conversion to AVIF, without changing the URL, is disabled by default. If you want early access to this feature, please reach out to support@imagekit.io or initiate a live chat from your dashboard. Our team will suggest if and how this feature can be enabled on your account based on your current use of ImageKit.
+3. Users on custom CDNs won't have this access to this feature. Our team will be reaching out to such users, helping them with the required configuration changes on their CDN, if any, before enabling the feature on their account.
 4. All transformations will be supported on AVIF images, except for the Preserve color profile (through the dashboard setting or the URL parameter `cp-true`) and Unsharp Mask (`e-usm`) transformations. If your transformation string or the dashboard settings use either of these two features, the final output image will not be delivered in AVIF. WebP and other format optimizations will continue to work in such cases.
 5. AVIF images as input images are also supported.
 
@@ -69,7 +69,7 @@ If you have any questions regarding the AVIF format optimization feature for you
 
 While HEIF or HEIC files work well on iOS devices, browsers cannot load them. They have to be converted to formats that browsers support like JPEG, WebP, etc.
 
-As of 2 Aug 2021, ImageKit now supports decoding HEIF and HEIC images to web-safe image formats - JPG, PNG, and WebP. ImageKit will automatically determine the formats supported on the requesting device and convert the image to the appropriate format. You can carry out all ImageKit transformations on these images.
+ImageKit now supports decoding HEIF and HEIC images to web-safe image formats - JPG, PNG, and WebP. ImageKit will automatically determine the formats supported on the requesting device and convert the image to the appropriate format. You can carry out all ImageKit transformations on these images.
 
 Currently, HEIF images are not automatically converted to AVIF format, even if auto-conversion to AVIF is enabled for your account or the browser supports it. However, you can convert them to AVIF using the format transformation parameter `f-avif`.
 

@@ -42,6 +42,10 @@ Full path to the destination folder where you want to move the source folder int
 
 In case of an error, you will get an [error code](../api-introduction/#error-codes) along with the error message. On success, you will receive a `200` status code with JSON encoded response containing information about `jobId`. You can use `jobId` to get the status of this job using [bulk job status API](copy-move-folder-status.md). 
 
+### Access control and permissions
+
+Read how access and permissions are affected by this operation [here](../../media-library/overview/copy-and-move-folders.md#move-folder).
+
 ### Examples
 
 Here is the example request to understand the API usage.
@@ -80,10 +84,94 @@ imagekit.moveFolder({
 ```
 {% endtab %}
 
+{% tab title="Python" %}
+```python
+from imagekitio import ImageKit
+
+imagekit = ImageKit(
+    public_key='your_public_api_key',
+    private_key='your_private_api_key',
+    url_endpoint = 'https://ik.imagekit.io/your_imagekit_id/'
+)
+
+move_folder = imagekit.move_folder(options=MoveFolderRequestOptions(source_folder_path="/demo1/testing",
+                                                                    destination_path="/"))
+
+print("Move folder-", move_folder, end="\n\n")
+
+# Raw Response
+print(move_folder.response_metadata.raw)
+
+# print the job's id
+print(move_folder.job_id)
+```
+{% endtab %}
+
+{% tab title="PHP" %}
+```php
+use ImageKit\ImageKit;
+
+$public_key = "your_public_api_key";
+$your_private_key = "your_private_api_key";
+$url_end_point = "https://ik.imagekit.io/your_imagekit_id";
+
+$imageKit = new ImageKit(
+    $public_key,
+    $your_private_key,
+    $url_end_point
+);
+
+$sourceFolderPath = '/folder/to/move';
+$destinationPath = '/folder/to/move/into/';
+$moveFolder = $imageKit->moveFolder([
+    'sourceFolderPath' => $sourceFolderPath,
+    'destinationPath' => $destinationPath
+]);
+
+echo("Move Folder : " . json_encode($moveFolder));
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+MoveFolderRequest moveFolderRequest = new MoveFolderRequest();
+moveFolderRequest.setSourceFolderPath("/folder/to/move");
+moveFolderRequest.setDestinationPath("/folder/to/move/into/");
+ResultOfFolderActions resultOfFolderActions = ImageKit.getInstance().moveFolder(moveFolderRequest);
+```
+{% endtab %}
+
 {% tab title='Ruby' %}
 ```ruby
 imagekitio = ImageKitIo::Client.new("your_private_key", "your_public_key", "your_url_endpoint")
 imagekitio.move_folder(source_folder_path: '/folder/to/move', destination_path: '/folder/to/move/into/')
 ```
 {% endtab %%}
+
+{% tab title='Go' %}
+```go
+resp, err := ik.Media.MoveFolder(ctx, media.MoveFolderParam{
+    SourceFolderPath: "/folder/to/move",
+    DestinationPath: "/folder/to/move/into/",
+})
+
+```
+{% endtab %}
+
+{% tab title=".Net" %}
+```.net
+var imagekit = new ImageKit({
+    publicKey : "your_public_api_key",
+    privateKey : "your_private_api_key",
+    urlEndpoint : "https://ik.imagekit.io/your_imagekit_id/"
+});
+MoveFolderRequest moveFolderRequest = new MoveFolderRequest
+    {
+        sourceFolderPath = "/folder/to/move",
+        destinationPath = "/folder/to/move/into/"
+    };
+ResultOfFolderActions resultOfFolderActions1 = imagekit.MoveFolder(moveFolderRequest);
+```
+{% endtab %}
+
 {% endtabs %}

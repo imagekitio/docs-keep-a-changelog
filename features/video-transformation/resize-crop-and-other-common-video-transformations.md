@@ -119,7 +119,7 @@ The video is exactly 400x200 and there is no cropping. Extra padding with [backg
 {% tab title="cm-pad_resize (left)" %}
 You can also control the focus point using [fo parameter](resize-crop-and-other-common-video-transformations.md#focus-fo) to move the actual content to one side using relative positioning.
 
-We added the `fo-left`. Now, all the padding is on the bottom of the video.
+We added the `fo-left`. Now, all the padding is on the right of the video.
 
 ![](<../../.gitbook/assets/image (34).png>)
 {% endtab %}
@@ -245,9 +245,38 @@ Video size is 406KB which is less than half of the original 1.1MB video. File si
 
 Used to specify the format of the output video. If no output format is specified then based on your settings in the dashboard, ImageKit.io automatically picks the best format for that video request.
 
-Possible values include `auto` ,`mp4` , `webm` , `orig`.
+Possible values include `auto` ,`mp4` , `webm`.
 
 **Default Value** - `auto`. You can disable [automatic video format conversion](../video-optimization/automatic-video-format-conversion.md) from the dashboard settings.&#x20;
+
+### Audio codec - (ac)
+
+Used to specify the audio codec for encoding the output.
+
+Possible values include `aac`, `opus`, and `none`.
+
+Use `none` for removing audio from the source video. So the output will have no audio.
+
+### Video codec - (vc)
+
+Used to specify the video codec for encoding the output.
+
+Possible values include `h264`, `vp9`, `av1` and `none`
+
+Use `none` for extracting audio from the source video. So the output will be an audio file.
+
+#### Valid combinations for format (f), audio codec (ac) & video codec (vc)
+
+| f    | ac   | vc   |
+| ---- | ---- | ---- |
+| mp4  | aac  | h264 |
+| mp4  | aac  | none |
+| mp4  | none | h264 |
+| webm | opus | vp9  |
+| webm | opus | none |
+| webm | none | vp9  |
+| webm | opus | av1  |
+| webm | none | av1  |
 
 ### Named transformation - (n)
 
@@ -304,7 +333,7 @@ Usage - `r-<value>`
 **Possible Values** - Any positive integer or `max`.
 
 {% hint style="info" %}
-You can also change the background color of the video from the default white color using the [background parameter](resize-crop-and-other-common-video-transformations.md#background-color-bg).
+You can also change the background color of the video from the default black color using the [background parameter](resize-crop-and-other-common-video-transformations.md#background-color-bg).
 {% endhint %}
 
 {% tabs %}
@@ -349,7 +378,7 @@ Specify start offset in seconds. The video before the start offset is removed fr
 
 Usage - `so-<value>`
 
-**Possible Values** - Positive integer to specify the time in seconds e.g. `10`. It must be less than the duration of the input video.
+**Possible Values** - Specify the time in seconds as a positive number up to 2 decimal places e.g. 20 or 10.55. It must be less than the duration of the input video.
 
 ### End offset - (eo)
 
@@ -357,7 +386,7 @@ Specify end offset in seconds. The video after end offset is removed from the ou
 
 Usage - `eo-<value>`
 
-**Possible Values** - Positive integer to specify the time in seconds e.g. `10`. It must be less than the duration of the input video.
+**Possible Values** - Specify the time in seconds as a positive number up to 2 decimal places e.g. 20 or 10.55. It must be less than the duration of the input video.
 
 ### Duration - (du)
 
@@ -365,7 +394,7 @@ Specify duration in seconds. It is often used with `so` to control duration of t
 
 Usage - `du-<value>`
 
-**Possible Values** - Positive integer to specify the duration time in seconds e.g. `10`. It must be less than or equal to the duration of the input video.
+**Possible Values** - Specify the duration in seconds as a positive number up to 2 decimal places e.g. 20 or 10.55. It must be less than or equal to the duration of the input video.
 
 ## Get thumbnail from a video
 
@@ -384,9 +413,9 @@ You can tranform the output image using following parameters.
 | `l` and other [layer positional parameters](../video-transformation/overlay.md#position-of-layer).           | [Layers](../video-transformation/overlay.md#layers) to overlay images and text.   |
 | [w](../image-transformations/resize-crop-and-other-transformations.md#width-w)                                 | Width of overlay image.  |
 | [h](../image-transformations/resize-crop-and-other-transformations.md#height-h)                                | Height of overlay image. |
-| [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)                        | Apect ratio of overlay image. |
+| [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)                        | Aspect ratio of overlay image. |
 | [c](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)               | Cropping method. Accepts `force`, `at_max`, and `at_least`. |
-| [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)              | Crom mode. Supports `extract` and `pad_resize`. |
+| [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)              | Crop mode. Supports `extract` and `pad_resize`. |
 | [fo](../image-transformations/resize-crop-and-other-transformations.md#focus-fo)                               | Relative focus area used during cropping. Accpets `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. |
 | [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                                | This adds a border to the overlay image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>` |
 | [bg](../image-transformations/resize-crop-and-other-transformations.md#background-color-bg)                    | It is used to specify the background color in RGB Hex Code (e.g. FF0000) or an RGBA Code (e.g. FFAABB50) that must be used for the image. If you specify an 8 character background, the last two characters must be a number between 00 and 99 , which is used to indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01`  represents opacity level `0.01`, and so on. |
@@ -405,7 +434,7 @@ You can tranform the output image using following parameters.
 To covert a gif to mp4 video, add `ik-gif-video.mp4` after the gif resource URL.
 
 ```markup
-https://ik.imagekit.io/demo/sample.gif/ik-gif-video.mp4
+https://ik.imagekit.io/demo/gif-test.gif/ik-gif-video.mp4
 ```
 
 You can transform the final video using any video transformation supported by ImageKit.

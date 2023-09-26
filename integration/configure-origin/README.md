@@ -17,3 +17,4 @@ ImageKit.io supports the following types of origin:
 6. [Google Storage](google-cloud-storage.md)
 7. [Firebase Storage](firebase-storage.md)
 8. [Cloudinary backup bucket](cloudinary-backup-bucket.md)
+9. [Akeneo](akeneo.md)

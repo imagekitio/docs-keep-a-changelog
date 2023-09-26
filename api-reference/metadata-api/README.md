@@ -2,12 +2,13 @@
 
 You can programmatically get image exif, pHash, and other metadata using either of the API below:
 
-1. [Get image metadata from remote URL](get-image-metadata-from-remote-url.md) if you don't want to upload image files to ImageKit.io media library or,
-2. [Get image metadata for uploaded media files](get-image-metadata-for-uploaded-media-files.md) if you want to fetch metadata for already uploaded image files in your ImageitKit.io media library.
+1. [Get file metadata from remote URL](get-image-metadata-from-remote-url.md) if you don't want to upload image files to ImageKit.io media library or,
+2. [Get file metadata for uploaded media files](get-image-metadata-for-uploaded-media-files.md) if you want to fetch metadata for already uploaded files in your ImageitKit.io media library.
 
 ## Metadata Object Structure
 
-```javascript
+### For images
+```json
 {
     "height": 68,
     "width": 100,
@@ -17,7 +18,85 @@ You can programmatically get image exif, pHash, and other metadata using either 
     "quality": 0,
     "density": 72,
     "hasTransparency": false,
-	  "pHash": "f06830ca9f1e3e90",
+	"pHash": "f06830ca9f1e3e90",
+    "exif": {
+        "image": {
+            "Make": "Canon",
+            "Model": "Canon EOS 40D",
+            "Orientation": 1,
+            "XResolution": 72,
+            "YResolution": 72,
+            "ResolutionUnit": 2,
+            "Software": "GIMP 2.4.5",
+            "ModifyDate": "2008:07:31 10:38:11",
+            "YCbCrPositioning": 2,
+            "ExifOffset": 214,
+            "GPSInfo": 978
+        },
+        "thumbnail": {
+            "Compression": 6,
+            "XResolution": 72,
+            "YResolution": 72,
+            "ResolutionUnit": 2,
+            "ThumbnailOffset": 1090,
+            "ThumbnailLength": 1378
+        },
+        "exif": {
+            "ExposureTime": 0.00625,
+            "FNumber": 7.1,
+            "ExposureProgram": 1,
+            "ISO": 100,
+            "ExifVersion": "0221",
+            "DateTimeOriginal": "2008:05:30 15:56:01",
+            "CreateDate": "2008:05:30 15:56:01",
+            "ShutterSpeedValue": 7.375,
+            "ApertureValue": 5.625,
+            "ExposureCompensation": 0,
+            "MeteringMode": 5,
+            "Flash": 9,
+            "FocalLength": 135,
+            "SubSecTime": "00",
+            "SubSecTimeOriginal": "00",
+            "SubSecTimeDigitized": "00",
+            "FlashpixVersion": "0100",
+            "ColorSpace": 1,
+            "ExifImageWidth": 100,
+            "ExifImageHeight": 68,
+            "InteropOffset": 948,
+            "FocalPlaneXResolution": 4438.356164383562,
+            "FocalPlaneYResolution": 4445.969125214408,
+            "FocalPlaneResolutionUnit": 2,
+            "CustomRendered": 0,
+            "ExposureMode": 1,
+            "WhiteBalance": 0,
+            "SceneCaptureType": 0
+        },
+        "gps": {
+            "GPSVersionID": [
+                2,
+                2,
+                0,
+                0
+            ]
+        },
+        "interoperability": {
+            "InteropIndex": "R98",
+            "InteropVersion": "0100"
+        },
+        "makernote": {}
+    }
+}
+```
+
+### For videos
+```json
+{
+    "height": 720,
+    "width": 1280,
+    "bitRate ": 546524,
+    "duration": 70,
+    "audioCodec ": "aac",
+    "videoCodec ": "h264",
     "exif": {
         "image": {
             "Make": "Canon",
@@ -164,8 +243,10 @@ $imageKit = new ImageKit(
     $url_end_point
 );
 
-// 27
+
 $distance = $imageKit->pHashDistance("63433b3ccf8e1ebe", "f5d2226cd9d32b16");
+echo $distance;
+// 27
 ```
 {% endtab %}
 {% endtabs %}
