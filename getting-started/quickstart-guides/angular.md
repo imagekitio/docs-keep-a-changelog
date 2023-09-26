@@ -146,8 +146,8 @@ Let's insert the following into `app.component.html`.
 ```jsx
 <ik-image 
   urlEndpoint="https://ik.imagekit.io/demo/"
-  path="default-image.jpg">
-</ik-image>
+  path="default-image.jpg"
+></ik-image>
 
 ```
 {% endcode %}
@@ -187,8 +187,7 @@ And now, we can use it in `app.component.html` as such:
   urlEndpoint="https://ik.imagekit.io/demo/"
   path="default-image.jpg"
   [transformation]="transformation"
-  >
-</ik-image>
+></ik-image>
 
 ```
 {% endcode %}
@@ -212,9 +211,7 @@ If you have an absolute image path coming from the backend API e.g. `https://www
 ```jsx
 <ik-image
   src="https://ik.imagekit.io/demo/default-image.jpg"
-  >
-</ik-image>
-
+></ik-image>
 ```
 
 **The output looks like this:**
@@ -260,8 +257,7 @@ Let’s resize the default image to 200px height and width:
   urlEndpoint="https://ik.imagekit.io/demo/"
   path="default-image.jpg"
   [transformation]="transformation"
-  >
-</ik-image>
+></ik-image>
 
 ```
 {% endcode %}
@@ -674,8 +670,7 @@ For this, we will use the `ik-upload` component as well as a couple of event han
     (onError)="handleUploadError($event)"
     (onSuccess)="handleUploadSuccess($event)" 
     [authenticator]="authenticator"
-    >
-  </ik-upload>
+></ik-upload>
 ```
 
 In `app.component.js` file:
@@ -763,6 +758,7 @@ import { Transformation } from 'imagekit-javascript/dist/src/interfaces/Transfor
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   validateFileFunction(res: any) {
     console.log('validating')
@@ -805,8 +801,7 @@ Here's an example:
     <!-- This will be invisible -->
     <ik-upload
       [buttonRef]="myBtn"
-      >
-    </ik-upload>
+    ></ik-upload>
 
     <!-- Your own button! -->
     <button #myBtn type="Button" class="myOwnClass" style="color:blue">
@@ -864,8 +859,7 @@ Rendering videos works similarly to rendering images in terms of usage of `urlEn
     urlEndpoint="https://ik.imagekit.io/demo/"
     path="sample-video.mp4"
     controls=true
-    >
-  </ik-video>
+></ik-video>
 ```
 {% endcode %}
 
