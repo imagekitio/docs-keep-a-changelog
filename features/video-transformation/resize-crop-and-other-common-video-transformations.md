@@ -111,9 +111,17 @@ The video is 400x200 but it is cropped from all sides to preserve the aspect rat
 {% tab title="cm-pad_resize (center focus)" %}
 [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200,cm-pad\_resize,bg-F3F3F3](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200,cm-pad\_resize,bg-F3F3F3)\
 \
-The video is exactly 400x200 and there is no cropping. Extra padding with [background color](resize-crop-and-other-common-video-transformations.md#background-color-bg) F3F3F3 has been added to get 400x200 output dimensions.
+The video is exactly 400x200 and there is no cropping. Extra padding with [background color](resize-crop-and-other-common-video-transformations.md#background---bg) F3F3F3 has been added to get 400x200 output dimensions.
 
 ![](<../../.gitbook/assets/image (35).png>)
+{% endtab %}
+
+{% tab title="cm-pad_resize with blurred background" %}
+[https://ik.imagekit.io/demo/sample2.mp4?tr=w-400,h-200,cm-pad\_resize,bg-blurred](https://ik.imagekit.io/demo/sample2.mp4?tr=w-400,h-200,cm-pad\_resize,bg-blurred)\
+\
+The video is exactly 700x700 and there is no cropping. The extra padding added consists of a [blurred background](resize-crop-and-other-common-video-transformations.md#background---bg) made using the source video to get 400x200 dimensions.
+
+![](../../.gitbook/assets/screenshot-cm-pad_resize,bg-blurred.png)
 {% endtab %}
 
 {% tab title="cm-pad_resize (left)" %}
@@ -288,18 +296,68 @@ URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=n-video\_thumbnail](https
 
 ![](<../../.gitbook/assets/image (50).png>)
 
-### Background color - (bg)
+### Background - (bg)
 
-It is used to specify the background color in RGB Hex Code (e.g. FF0000). This is usually used with [pad\_resize](resize-crop-and-other-common-video-transformations.md#pad-resize-crop-strategy-cm-pad\_resize) cropping to control the color of extra background padding.
+It is used to specify the background when using [crop-mode pad\_resize](resize-crop-and-other-common-video-transformations.md#pad-resize-crop-strategy-cm-pad\_resize) or border-radius (r). The background can be any solid colour or blurred frame of the video.
 
-URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200,cm-pad\_resize,bg-862C2C](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200,cm-pad\_resize,bg-862C2C)
-
-![](<../../.gitbook/assets/image (52).png>)
-
-\
 **Default Value** -  By default the background is black.
 
-**Possible Values** - Valid RGB Hex Code
+**Solid color**
+
+* RGB Hex code: A 6-digit hex code (eg. AAFF00, 0f0fac)
+* RGBA Hex code: An 8-digit hex code. Last two characters must be a number between `00` and `99`, specifying the opacity level (eg. AAFF0040, 0f0fac75)
+* Color name: A standard color name in lowercase (eg. lightgreen, beige)
+
+{% tabs %}
+{% tab title="bg=red" %}
+URL - [https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_resize,bg-red/sample2.mp4](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_resize,bg-red/sample2.mp4)
+
+![cm-pad\_resize-bg-red](../../.gitbook/assets/screenshot-cm_pad\_resize-bg-red.png)
+{% endtab %}
+
+{% tab title="bg=A94D34" %}
+URL - [https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_resize,bg-A94D34/sample2.mp4](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_resize,bg-A94D34/sample2.mp4)
+
+![cm-pad\_resize-bg-A94D34](../../.gitbook/assets/screenshot-cm-pad\_resize-bg-A94D34.png)
+{% endtab %}
+{% endtabs %}
+
+**Blurred background**
+
+Syntax: `blurred[_<BlurIntensity>][_<Brightness>]`
+
+|      Parameter |                              Value |                                                                                Description | Default |
+| -------------: | ---------------------------------: | -----------------------------------------------------------------------------------------: | ------: |
+| Blur intensity | `auto` or an integer from 0 to 100 |                                                                  Set the intensity of blur |  'auto' |
+|     Brightness |           Integer from N255 to 255 | Negative value to make background darker and positive value to make the background lighter |       0 |
+
+Limitation: Blurred background can only be used with `cm-pad_resize`
+
+Blur intensity `auto`: The intensity of blur is automatically adjusted based on the provided height (h) & width (w) in the transformation.
+
+{% tabs %}
+{% tab title="bg=blurred" %}
+URL - [https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_resize,bg-blurred/sample2.mp4](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_resize,bg-blurred/sample2.mp4)
+
+![cm-pad\_resize-bg-blurred](../../.gitbook/assets/screenshot-cm-pad\_resize,bg-blurred.png)
+{% endtab %}
+
+{% tab title="bg=blurred_25_N55" %}
+URL - [https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_resize,bg-blurred\_25\_N55/sample2.mp4](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_resize,bg-blurred\_25\_N55/sample2.mp4)
+
+Customize blur-intensity to '25' & brightness to 'N55' (Make background darker)
+
+![cm-pad\_resize-bg-blurred\_25\_N55](../../.gitbook/assets/screenshot-cm-pad\_resize,bg-blurred\_25\_N55.png)
+{% endtab %}
+
+{% tab title="bg=blurred_auto_30" %}
+URL - [https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_resize,bg-blurred\_auto\_30/sample2.mp4](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_resize,bg-blurred\_auto\_30/sample2.mp4)
+
+Automatic blur-intensity & customize brightness to '30' (Make background lighter)
+
+![cm-pad\_resize-bg-blurred\_auto\_30](../../.gitbook/assets/screenshot-cm-pad\_resize,bg-blurred\_auto\_30.png)
+{% endtab %}
+{% endtabs %}
 
 ### Border - (b)
 
