@@ -119,7 +119,7 @@ The video is exactly 400x200 and there is no cropping. Extra padding with [backg
 {% tab title="cm-pad_resize with blurred background" %}
 [https://ik.imagekit.io/demo/sample2.mp4?tr=w-400,h-200,cm-pad\_resize,bg-blurred](https://ik.imagekit.io/demo/sample2.mp4?tr=w-400,h-200,cm-pad\_resize,bg-blurred)\
 \
-The video is exactly 700x700 and there is no cropping. The extra padding added consists of a [blurred background](resize-crop-and-other-common-video-transformations.md#background---bg) made using the source video to get 400x200 dimensions.
+The video is exactly 700x700 and there is no cropping. The extra padding added consists of a [blurred background](resize-crop-and-other-common-video-transformations.md#background---bg) made using the source video to get 400x200 output dimensions.
 
 ![](../../.gitbook/assets/screenshot-cm-pad_resize,bg-blurred.png)
 {% endtab %}
