@@ -105,9 +105,9 @@ Shadows can only be applied to images with a resolution of maximum 2MP. Images w
 
 To enable shadows on images larger than 2MP, you can resize the images either in the same chain or a chained transformation. 
 
-For example, for a 3MP image, `e-shadow` would not work. But `w-200,e-shadow` or `w-200:e-shadow` would work. See examples below:
+e.g. For a 3MP image, `e-shadow` would not work. But `w-500,e-shadow` or `w-500:e-shadow` would work.
 
-For an input image with dimensions 2216x1500 (3MP), the following shadow transformation will return an error with status code 400: `https://ik.imagekit.io/demo/tr:e-shadow/lipstick_2M.png`. 
+We have an input image with dimensions 2216x1500 (3MP). Applying only the shadow transformation will return an error with status code 400: `https://ik.imagekit.io/demo/tr:e-shadow/lipstick_2M.png`. 
 
 Resize the image as follows to apply a shadow successfully:
 
@@ -118,10 +118,16 @@ URL - [https://ik.imagekit.io/demo/tr:w-500,e-shadow/lipstick_2M.png](https://ik
 ![](https://ik.imagekit.io/demo/tr:w-500,e-shadow/lipstick_2M.png)
 {% endtab %}
 
-{% tab title=Chained resize then shadow: w-500:e-shadow" %}
+{% tab title="Chained resize then shadow: w-500:e-shadow" %}
 URL - [https://ik.imagekit.io/demo/tr:w-500:e-shadow/lipstick_2M.png](https://ik.imagekit.io/demo/tr:w-500:e-shadow/lipstick_2M.png)
 
 ![](https://ik.imagekit.io/demo/tr:w-500:e-shadow/lipstick_2M.png)
+{% endtab %}
+
+{% tab title="Original 3MP image (2216x1500)" %}
+URL - [https://ik.imagekit.io/demo/lipstick_2M.png](https://ik.imagekit.io/demo/lipstick_2M.png)
+
+![](https://ik.imagekit.io/demo/lipstick_2M.png)
 {% endtab %}
 
 {% endtabs %}
