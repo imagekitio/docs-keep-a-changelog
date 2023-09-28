@@ -72,7 +72,9 @@ URL - [https://ik.imagekit.io/demo/tr:h-300,e-usm-2-2-0.8-0.024/sample_image.jpg
 
 ### Shadow - (e-shadow)
 
-This feature adds a shadow under solid objects in an input image with a transparent background. The shadow is added under the areas constituted by the non-transparent pixels, according to the following parameters.
+This feature adds a shadow under solid objects in an input image with a transparent background. 
+
+The shadow is applied under the areas constituted by the non-transparent pixels in the input image. You can adjust the shadow's saturation, blur level, and positional offsets with the following parameters.
 
 | Parameter             | Description                       | Range                            | Default value      |
 |-----------------------|-----------------------------------|----------------------------------|--------------------|
