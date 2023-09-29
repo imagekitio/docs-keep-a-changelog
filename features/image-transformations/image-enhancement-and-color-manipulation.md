@@ -88,7 +88,7 @@ Multiple parameters can be configured by appending them with an underscore (`_`)
 Example usage - `e-shadow-<blur>_<saturation>_<x-offset>_<y-offset>`, which would look like, `e-shadow-bl-15_st-40_x-10_y-N5`.
 
 {% tabs %}
-{% tab title="Original image" %}
+{% tab title="Default e-shadow" %}
 URL - [https://ik.imagekit.io/demo/tr:e-shadow/lipstick_1M.png](https://ik.imagekit.io/demo/tr:e-shadow/lipstick_1M.png)
 
 ![](https://ik.imagekit.io/demo/tr:e-shadow/lipstick_1M.png)
