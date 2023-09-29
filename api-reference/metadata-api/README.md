@@ -97,6 +97,7 @@ You can programmatically get image exif, pHash, and other metadata using either 
     "duration": 70,
     "audioCodec ": "aac",
     "videoCodec ": "h264",
+    "size": 23490,
     "exif": {
         "image": {
             "Make": "Canon",
