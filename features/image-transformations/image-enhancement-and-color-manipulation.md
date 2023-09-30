@@ -81,7 +81,7 @@ The shadow is applied under the areas constituted by the non-transparent pixels 
 | Blur (`bl`)           | Adjusts the blur level of the shadow. e.g. `e-shadow-bl-15`          | `0` to `15`  | `10` |
 | Saturation (`st`)     | Specifies the saturation level of the shadow. e.g. `e-shadow-st-40`  | `0` to `100` | `30` |
 | X Offset (`x`)        | Sets the horizontal offset of the shadow by x% of the image width. e.g. `e-shadow-x-10`. Supports negative values by prefixing `N`: e.g. `e-shadow-x-N10` | `0` to `100` or `N100` | `2` |
-| Y Offset (`y`)        | Sets the vertical offset of the shadow by y% of the image width. e.g. `e-shadow-y-10`. Supports negative values by prefixing `N`: e.g. `e-shadow-y-N10` | `0` to `100` or `N100` | `2` |
+| Y Offset (`y`)        | Sets the vertical offset of the shadow by y% of the image height. e.g. `e-shadow-y-10`. Supports negative values by prefixing `N`: e.g. `e-shadow-y-N10` | `0` to `100` or `N100` | `2` |
 
 Multiple parameters can be configured by appending them with an underscore (`_`). They will be applied independent of the order in which they are specified.
 
