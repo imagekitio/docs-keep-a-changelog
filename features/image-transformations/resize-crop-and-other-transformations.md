@@ -786,7 +786,7 @@ Limitation: Blurred background can only be used with `cm-pad_resize`
 Blur intensity `auto`: The intensity of blur is automatically adjusted based on the provided height (h) & width (w) in the transformation.
 
 {% tabs %}
-{% tab title="bg=blurred_12_N25" %}
+{% tab title="bg=blurred" %}
 URL - [https://ik.imagekit.io/demo/tr:h-600,w-800,cm-pad\_resize,bg-blurred/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-600,w-800,cm-pad\_resize,bg-blurred/medium\_cafe\_B1iTdD0C.jpg)
 
 ![cm-pad\_resize,bg-blurred](../../.gitbook/assets/medium_cafe-cm-pad\_resize,bg-blurred.png)
