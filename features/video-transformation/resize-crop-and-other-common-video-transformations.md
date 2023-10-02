@@ -479,13 +479,8 @@ You can transform the output image using following parameters.
 | [bg](../image-transformations/resize-crop-and-other-transformations.md#background---bg)                    | It is used to specify the background that can be used along with some cropping strategies while resizing or applying border-radius (`r`). You can choose either a solid color (using standard-browser-colors, RGB hex code, or RGBA hex code to specify color) or a blurred version of the image (using the syntax `blurred[_<BlurIntensity>][_<Brightness>]`). Example: `bg-red`, `bg-AAFF00`, `bg-AAFF0010`, `bg-blurred`, `bg-blurred_25_N15`. |
 | [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)                                | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. (Background color can be specified with `bg` parameter) |
 | [so](../video-transformation/resize-crop-and-other-common-video-transformations.md#start-offset-so)         | Start offset of the video in unit of seconds to pick thumbnail from a specific time point. |
-| fs                                 | Font size  |
-| ff                                 | Font family |
-| co                                 | Color  |
-| ia                                 | Inner alignment. Accepts `left`, `right` and `center`. The default value is `center`. |
-| pa                                 | Padding |
-| al                                 | Alpha |
-| tg                                 | Typography |
+
+You can use [image-layer (`l-image`)](../video-transformation/overlay#transformation-of-image-overlay) to add overlay image and [text-layer (`l-text`)](../video-transformation/overlay#add-text-over-video) to add overlay text on the thumbnail. The use of layers in video-thumbnail & video-transformation is identical, therefore you can use time/duration based parameter (lso, leo & ldu) in the layer.
 
 ## Gif to MP4
 
