@@ -462,30 +462,25 @@ To get the first frame from the video `ik-thumbnail.jpg` after the video resourc
 https://ik.imagekit.io/demo/sample-video.mp4/ik-thumbnail.jpg
 ```
 
-To get the snapshot from a specific time point, use the `so` parameter. 
+To get the snapshot from a specific time point, use the `so` parameter.
 
-You can tranform the output image using following parameters.
+You can transform the output image using following parameters.
 
 | Parameter   | Description |
 | ----------- | ----------- |
 | `l` and other [layer positional parameters](../video-transformation/overlay.md#position-of-layer).           | [Layers](../video-transformation/overlay.md#layers) to overlay images and text.   |
-| [w](../image-transformations/resize-crop-and-other-transformations.md#width-w)                                 | Width of overlay image.  |
-| [h](../image-transformations/resize-crop-and-other-transformations.md#height-h)                                | Height of overlay image. |
-| [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)                        | Aspect ratio of overlay image. |
+| [w](../image-transformations/resize-crop-and-other-transformations.md#width-w)                                 | Specify the width. |
+| [h](../image-transformations/resize-crop-and-other-transformations.md#height-h)                                | Specify the height. |
+| [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)                        | Aspect ratio of output, when either width or height is specified. |
 | [c](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)               | Cropping method. Accepts `force`, `at_max`, and `at_least`. |
 | [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)              | Crop mode. Supports `extract` and `pad_resize`. |
 | [fo](../image-transformations/resize-crop-and-other-transformations.md#focus-fo)                               | Relative focus area used during cropping. Accpets `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. |
-| [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                                | This adds a border to the overlay image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>` |
-| [bg](../image-transformations/resize-crop-and-other-transformations.md#background---bg)                    | It is used to specify the background color in RGB Hex Code (e.g. FF0000) or an RGBA Code (e.g. FFAABB50) that must be used for the image. If you specify an 8 character background, the last two characters must be a number between 00 and 99 , which is used to indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01`  represents opacity level `0.01`, and so on. |
-| [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)                                | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
-| [so](../video-transformation/resize-crop-and-other-common-video-transformations.md#start-offset-so)         | Start offset in seconds in overlay video. Video before `so` time will be trimmed. |
-| fs                                 | Font size  |
-| ff                                 | Font family |
-| co                                 | Color  |
-| ia                                 | Inner alignment. Accepts `left`, `right` and `center`. The default value is `center`. |
-| pa                                 | Padding |
-| al                                 | Alpha |
-| tg                                 | Typography |
+| [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                                | This adds a border to the image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>` |
+| [bg](../image-transformations/resize-crop-and-other-transformations.md#background---bg)                    | It is used to specify the background that can be used along with some cropping strategies while resizing or applying border-radius (`r`). You can choose either a solid color (using standard-browser-colors, RGB hex code, or RGBA hex code to specify color) or a blurred version of the image (using the syntax `blurred[_<BlurIntensity>][_<Brightness>]`). Example: `bg-red`, `bg-AAFF00`, `bg-AAFF0010`, `bg-blurred`, `bg-blurred_25_N15`. |
+| [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)                                | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. (Background color can be specified with `bg` parameter) |
+| [so](../video-transformation/resize-crop-and-other-common-video-transformations.md#start-offset-so)         | Start offset of the video in unit of seconds to pick thumbnail from a specific time point. |
+
+You can use [image-layer (`l-image`)](../video-transformation/overlay#transformation-of-image-overlay) to add overlay image and [text-layer (`l-text`)](../video-transformation/overlay#add-text-over-video) to add overlay text on the thumbnail. The use of layers in video-thumbnail & video-transformation is identical, therefore you can use time/duration based parameter (lso, leo & ldu) in the layer.
 
 ## Gif to MP4
 
