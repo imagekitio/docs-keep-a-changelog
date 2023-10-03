@@ -111,7 +111,7 @@ The video is 400x200 but it is cropped from all sides to preserve the aspect rat
 {% tab title="cm-pad_resize (center focus)" %}
 [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200,cm-pad\_resize,bg-F3F3F3](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200,cm-pad\_resize,bg-F3F3F3)\
 \
-The video is exactly 400x200 and there is no cropping. Extra padding with [background color](resize-crop-and-other-common-video-transformations.md#background---bg) F3F3F3 has been added to get 400x200 output dimensions.
+The video is exactly 400x200 and there is no cropping. Extra padding with [background color](resize-crop-and-other-common-video-transformations.md#background-bg) F3F3F3 has been added to get 400x200 output dimensions.
 
 ![](<../../.gitbook/assets/image (35).png>)
 {% endtab %}
@@ -119,7 +119,7 @@ The video is exactly 400x200 and there is no cropping. Extra padding with [backg
 {% tab title="cm-pad_resize with blurred background" %}
 [https://ik.imagekit.io/demo/sample2.mp4?tr=w-400,h-200,cm-pad\_resize,bg-blurred](https://ik.imagekit.io/demo/sample2.mp4?tr=w-400,h-200,cm-pad\_resize,bg-blurred)\
 \
-The video is exactly 700x700 and there is no cropping. The extra padding added consists of a [blurred background](resize-crop-and-other-common-video-transformations.md#background---bg) made using the source video to get 400x200 output dimensions.
+The video is exactly 700x700 and there is no cropping. The extra padding added consists of a [blurred background](resize-crop-and-other-common-video-transformations.md#background-bg) made using the source video to get 400x200 output dimensions.
 
 ![](../../.gitbook/assets/screenshot-cm-pad_resize,bg-blurred.png)
 {% endtab %}
@@ -391,7 +391,7 @@ Usage - `r-<value>`
 **Possible Values** - Any positive integer or `max`.
 
 {% hint style="info" %}
-You can also change the background color of the video from the default black color using the [background parameter](resize-crop-and-other-common-video-transformations.md#background---bg).
+You can also change the background color of the video from the default black color using the [background parameter](resize-crop-and-other-common-video-transformations.md#background-bg).
 {% endhint %}
 
 {% tabs %}
@@ -476,11 +476,11 @@ You can transform the output image using following parameters.
 | [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)              | Crop mode. Supports `extract` and `pad_resize`. |
 | [fo](../image-transformations/resize-crop-and-other-transformations.md#focus-fo)                               | Relative focus area used during cropping. Accpets `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. |
 | [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                                | This adds a border to the image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>` |
-| [bg](../image-transformations/resize-crop-and-other-transformations.md#background---bg)                    | It is used to specify the background that can be used along with some cropping strategies while resizing or applying border-radius (`r`). You can choose either a solid color (using standard-browser-colors, RGB hex code, or RGBA hex code to specify color) or a blurred version of the image (using the syntax `blurred[_<BlurIntensity>][_<Brightness>]`). Example: `bg-red`, `bg-AAFF00`, `bg-AAFF0010`, `bg-blurred`, `bg-blurred_25_N15`. |
+| [bg](../image-transformations/resize-crop-and-other-transformations.md#background-bg)                    | It is used to specify the background that can be used along with some cropping strategies while resizing or applying border-radius (`r`). You can choose either a solid color (using standard-browser-colors, RGB hex code, or RGBA hex code to specify color) or a blurred version of the image (using the syntax `blurred[_<BlurIntensity>][_<Brightness>]`). Example: `bg-red`, `bg-AAFF00`, `bg-AAFF0010`, `bg-blurred`, `bg-blurred_25_N15`. |
 | [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)                                | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. (Background color can be specified with `bg` parameter) |
 | [so](../video-transformation/resize-crop-and-other-common-video-transformations.md#start-offset-so)         | Start offset of the video in unit of seconds to pick thumbnail from a specific time point. |
 
-You can use [image-layer (`l-image`)](../video-transformation/overlay#transformation-of-image-overlay) to add overlay image and [text-layer (`l-text`)](../video-transformation/overlay#add-text-over-video) to add overlay text on the thumbnail. The use of layers in video-thumbnail & video-transformation is identical, therefore you can use time/duration based parameter (lso, leo & ldu) in the layer.
+You can use [image-layer (`l-image`)](../video-transformation/overlay.md#transformation-of-image-overlay) to add overlay image and [text-layer (`l-text`)](../video-transformation/overlay.md#add-text-over-video) to add overlay text on the thumbnail. The use of layers in video-thumbnail & video-transformation is identical, therefore you can use time/duration based parameter (lso, leo & ldu) in the layer.
 
 ## Gif to MP4
 
