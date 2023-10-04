@@ -84,7 +84,7 @@ npm install --save imagekitio-angular
 Before the SDK can be used, let's learn about and obtain the requisite initialization parameters:
 
 * `urlEndpoint` is a required parameter. This can be obtained from the [URL-endpoint section](https://imagekit.io/dashboard/url-endpoints) or the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
-* `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. These can be obtained from the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
+* `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. `publicKey` can be obtained from the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
 * `authenticator` expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire.
 
 > Note: Do not include your [private key](https://docs.imagekit.io/api-reference/api-introduction/api-keys#private-key) in any client-side code.
@@ -676,9 +676,22 @@ For this, we will use the `ik-upload` component as well as a couple of event han
 In `app.component.js` file:
 
 ```jsx
-authenticator =  async () => {
+
+// You can call a secure endpoint on your backend and pass any custom request headers for authentication purposes.
+
+authenticator = async () => {
     try {
-        const response = await fetch('http://localhost:3001/auth');
+
+        // You can pass headers as well and later validate the request source in the backend, or you can use headers for any other use case.
+        
+        const headers = {
+          'Authorization': 'Bearer your-access-token',
+          'CustomHeader': 'CustomValue'
+        };
+
+        const response = await fetch('server_endpoint', {
+            headers
+        });
 
         if (!response.ok) {
             const errorText = await response.text();
@@ -693,7 +706,6 @@ authenticator =  async () => {
     }
 };
 ```
-
 
 This is how it looks in the UI:
 

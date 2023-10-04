@@ -59,7 +59,7 @@ Vue.use(ImageKit, {
 ```
 
 * `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).
-* `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
+* `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get `publicKey` parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
 * `authenticator` expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire.
 
 Let's modify src/components/HelloWorld.vue to import and initialize ImageKit as a plugin. Replace `your_url_endpoint` etc, with actual values.
@@ -362,6 +362,8 @@ export default {
 };
 </script>
 ```
+The SDK internally requires the security parameters as an object with three fields i.e. `signature`, `token`, and `expire`.
+It is advised to setup a backend server for the creation of these security parameters. In the frontend an HTTP GET request can be made to fetch them using the `authenticator` function.
 
 For this quickstart guide, we have provided a sample implementation of `http://localhost:3001/auth` in Node.js.
 
@@ -456,6 +458,8 @@ If you GET http://localhost:3001/auth, you should see a JSON response like this.
 ```
 
 Let's include `ik-upload` component in the `HelloWorld.vue`.
+
+The component utilises an asynchronous function named `authenticator`, which is intended to be used for retrieving security parameters from your backend. This function is expected to resolve an object containing three fields: `signature`, `token`, and `expire`.
 
 ```javascript
 <template>
