@@ -1,7 +1,11 @@
 # Embed video
 
-You must be using ImageKit on your live websites and apps. Multiple users might access the ImageKit dashboard, the central place for all your media uploads, external origin configurations, delivery settings, and more. Keeping the dashboard secure therefore is of utmost importance.
+An embedded video lets you use the video directly on your platform from Imagkit, without the need for any video player. An embed video code would look like this
 
-While having a strong password helps secure access to the dashboard, multi-factor authentication makes it safer.
+{% code overflow="wrap" %}
+```
+<iframe width="560" height="315" src="https://stage.imagekit.io/player/embed/se1fciwn2/test_1.5_Y9p3EI9nq.mp4?updatedAt=1693430496863&ik-s=7e68dc5e139ba18ce8de73da30d7fadc736efbae&thumbnail=https%3A%2F%2Fstage-ik.imagekit.io%2Fse1fciwn2%2Ftest_1.5_Y9p3EI9nq.mp4%2Fik-thumbnail.jpg" title="ImageKit video player" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"> </iframe>
+```
+{% endcode %}
 
-Multi-factor authentication (MFA) adds a layer of protection to the log-in process. A one-time password is generated and sent to the user's registered email address, which is required for additional identity verification.
+[Adaptive bitrate streaming](video-transformation/adaptive-bitrate-streaming.md) (ABS) can be enabled  for embedding video both using HTTP Live Streaming (HLS) and DASH
