@@ -11,18 +11,18 @@
   * [React Native](getting-started/quickstart-guides/react-native.md)
   * [Angular](getting-started/quickstart-guides/angular.md)
   * [Ruby](getting-started/quickstart-guides/ruby-guides/README.md)
-    * [Plain Ruby](getting-started/quickstart-guides/ruby-guides/ruby\_app.md)
-    * [Ruby on Rails with active\_storage](getting-started/quickstart-guides/ruby-guides/ruby\_on\_rails\_with\_activestorage.md)
-    * [Ruby on Rails with carrierwave](getting-started/quickstart-guides/ruby-guides/ruby\_on\_rails\_with\_carrierwave.md)
+    * [Plain Ruby](getting-started/quickstart-guides/ruby-guides/ruby_app.md)
+    * [Ruby on Rails with active_storage](getting-started/quickstart-guides/ruby-guides/ruby_on_rails_with_activestorage.md)
+    * [Ruby on Rails with carrierwave](getting-started/quickstart-guides/ruby-guides/ruby_on_rails_with_carrierwave.md)
   * [Java](getting-started/quickstart-guides/java/README.md)
-    * [Plain Java](getting-started/quickstart-guides/java/java\_app.md)
+    * [Plain Java](getting-started/quickstart-guides/java/java_app.md)  
   * [Python](getting-started/quickstart-guides/python/README.md)
-    * [Pure Python](getting-started/quickstart-guides/python/python\_app.md)
+    * [Pure Python](getting-started/quickstart-guides/python/python_app.md)
   * [Vue.js](getting-started/quickstart-guides/vuejs.md)
   * [Next.js](getting-started/quickstart-guides/nextjs.md)
 * [How to use ImageKit.io?](getting-started/how-to-use-imagekit.io.md)
 
-## 🔧External storage <a href="#integration" id="integration"></a>
+## 🔧External storage <a href="integration" id="integration"></a>
 
 * [Integration overview](integration/integration-overview.md)
 * [How it works?](integration/how-it-works.md)
@@ -41,7 +41,7 @@
   * [Web server](integration/configure-origin/web-server-origin.md)
 * [URL-endpoints](integration/url-endpoints.md)
 
-## Digital asset management <a href="#media-library" id="media-library"></a>
+## Digital asset management <a href="media-library" id="media-library"></a>
 
 * [Media Library](media-library/overview/README.md)
   * [Upload files](media-library/overview/upload-files.md)
@@ -58,12 +58,12 @@
   * [Download media library assets as zip](media-library/overview/download-media-library-assets-as-zip.md)
   * [Asset versioning](media-library/overview/asset-versioning.md)
   * [Draft assets](media-library/overview/draft-assets.md)
-* [Media Collections](media-collections/README.md)
-  * [Introduction](media-collections/create-rename-delete-search-and-download-as-zip.md)
-  * [Add & remove assets from media collections](media-collections/add-and-remove-assets-from-media-collections.md)
-* [Collaboration and sharing](collaboration-and-sharing/README.md)
-  * [Share files and folders](collaboration-and-sharing/share-files-and-folders.md)
-  * [Share media collection](collaboration-and-sharing/share-media-collection.md)
+* [Media Collections](./media-collections/README.md)
+  * [Introduction](./media-collections/create-rename-delete-search-and-download-as-zip.md)
+  * [Add & remove assets from media collections](./media-collections/add-and-remove-assets-from-media-collections.md)
+* [Collaboration and sharing](./collaboration-and-sharing/README.md)
+  * [Share files and folders](./collaboration-and-sharing/share-files-and-folders.md)
+  * [Share media collection](./collaboration-and-sharing/share-media-collection.md)
 
 ## Limits and troubleshooting
 
@@ -117,7 +117,7 @@
 * [Non-image file compression](features/non-image-file-compression.md)
 * [Performance monitoring](features/performance-monitoring.md)
 * [User access management](features/user-access-management/README.md)
-  * [User groups](features/user-access-management/user-groups.md)
+  * [User groups](./features/user-access-management/user-groups.md)
 * [Multi factor authentication](features/multi-factor-authentication.md)
 * [Billing alerts](features/billing-alerts.md)
 * [Single sign-on](features/single-sign-on/README.md)
@@ -135,7 +135,6 @@
 * [Embed video](features/embed-video.md)
 
 ## Best Practices
-
 * [Mobile Apps](imagekit-best-practices/mobile-apps.md)
 * [Delivery and Management Checklist](imagekit-best-practices/media-delivery-management-checklist.md)
 
