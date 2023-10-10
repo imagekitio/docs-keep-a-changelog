@@ -12,7 +12,7 @@ Embedding a video from ImageKit allows you to integrate the video directly onto 
 
 ### How do you generate embed video code?
 
-Embed video code can be generated for any video from the media library dashboard and from the files detail page.
+Embed video code can be generated for any video from the media library dashboard or from the files details page.
 
 {% hint style="info" %}
 The embed feature is exclusive for published video files
