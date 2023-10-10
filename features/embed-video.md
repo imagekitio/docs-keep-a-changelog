@@ -20,7 +20,7 @@ The embed feature is exclusive for published video files
 
 #### Media library dashboard
 
-To generate the embed video code from the media library dashboard, hover over the lower right section of the video or right-click on the video file and select the "Embed" option.\
+To generate the embed video code from the media library dashboard, hover over the lower right section of the video or right-click on the video file and select the "Embed" option.
 
 
 <div>
@@ -69,4 +69,4 @@ A custom option is also available which lets a user enter a transformation strin
 The transformation string must contain `sr-<representations>`transformation.
 {% endhint %}
 
-Additionally, **Named transformation** can be incorporated as part of custom transformation string by specifying `tr:n-<named_transform>`\
+Additionally, **Named transformation** can be incorporated as part of custom transformation string by specifying `tr:n-<named_transform>`
