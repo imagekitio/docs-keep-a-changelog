@@ -37,7 +37,7 @@ To generate the embed video code from the media library dashboard, hover over th
 
 Open the file detail page for any published video file and select the "Embed" option from the header section.
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-10-09 at 3.12.48 PM.png" alt=""><figcaption><p>FIle detail page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-10-09 at 3.12.48 PM.png" alt=""><figcaption><p>File detail page</p></figcaption></figure>
 
 ### Configure embed video code
 
@@ -61,7 +61,7 @@ By default, embedded video is set to never expire. To specify an expiration date
 
 Select the "Enable ABS" option to activate [Adaptive bitrate streaming](video-transformation/adaptive-bitrate-streaming.md) (ABS) for embedding video. Then, select the desired protocol and resolution option from the dropdown.
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-10-09 at 3.17.43 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-10-09 at 3.17.43 PM.png" alt=""><figcaption><p>ABS embed options</p></figcaption></figure>
 
 A custom option is also available which lets a user enter a transformation string. This can be used to add multiple [supported video transformation parameters](image-transformations/resize-crop-and-other-transformations.md) that are compatible with [Adaptive bitrate streaming-enabled](video-transformation/adaptive-bitrate-streaming.md) video.
 
