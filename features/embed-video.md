@@ -2,7 +2,7 @@
 
 Embedding a video from ImageKit allows you to integrate the video directly onto your platform without requiring an additional video player. With this capability, you can leverage:
 
-* [**Video transformations**](video-transformation/)**:** Apply unique video transformations when to videos embedded using Adaptive Bitrate Streaming (ABS) to suit your platform's design needs.
+* [**Video transformations**](video-transformation/)**:** Apply unique video transformations to videos embedded using Adaptive Bitrate Streaming (ABS) to suit your platform's design needs.
 * [**Adaptive bitrate streaming**](video-transformation/adaptive-bitrate-streaming.md): Benefit from comprehensive support for both HLS and MPEG-DASH. This feature ensures automatic generation of the necessary streaming representations and their related files.
 * **Plug-and-Play**: The embedded videos are ready for immediate playback, which means there's no need for additional integrations or players.
 * **Smooth Playback**: Viewers can expect a smooth start and consistent playback, ensuring a premium viewing experience.
