@@ -1,6 +1,6 @@
-# Create, rename, delete, search & download media collections as zip
+# Introduction
 
-You can create, rename, delete, search, and download media collections as zip files using ImageKit's dashboard. Learn more about permissions for these operations for restricted users [here](../collaboration-and-sharing/README.md#media-collection-permission-levels).
+You can create, rename, delete, search, and download media collections as zip files using ImageKit's dashboard. Learn more about permissions for these operations for restricted users [here](../collaboration-and-sharing/#media-collection-permission-levels).
 
 ## Create new media collection
 
@@ -12,7 +12,7 @@ Any restricted media library user can create a new media collection.
 
 After you have created a media collection, you can rename it. Select the media collection that you want to rename and right-click on it to open the drop-down menu. Click on the "Rename" option; it will open a popup where you can enter the new name for the selected media collection. On clicking "Submit", the media collection will be renamed. The new name should be unique and can consist of alphanumeric characters, underscores, and hyphens.
 
-The assets added to a media collection or the users or user groups with whom it is shared are unaffected by renaming it. 
+The assets added to a media collection or the users or user groups with whom it is shared are unaffected by renaming it.&#x20;
 
 ## Delete media collections
 
@@ -29,9 +29,7 @@ All media collections whose names either match exactly or begin with the provide
 ImageKit allows you to download multiple media collections and all of their contents, including files, folders, and sub-folders, as a single zip file. The downloaded zip file preserves the folder structure of the media collections.
 
 {% hint style="info" %}
-**Download limits**
-A maximum of 300 files and folders can be downloaded in a single zip file.
-The total size of the assets to be downloaded cannot exceed 1 GB.
+**Download limits** A maximum of 300 files and folders can be downloaded in a single zip file. The total size of the assets to be downloaded cannot exceed 1 GB.
 {% endhint %}
 
 Right-click on the selected media collections and click on the "Download (as zip)" option. In the pop-up dialogue box, you may apply an optional transformation to all the images in the selected media collections. Static and video files are not modified.
