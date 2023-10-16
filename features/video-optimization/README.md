@@ -4,10 +4,10 @@ Websites with video lead to higher engagement and sales. But videos files are bi
 
 ImageKit.io offers multiple video optimization features that work out of the box. For example, automatic best format selection and quality optimization reduce the final size of the output video.
 
-Automatic format conversion and quality compression are turned ON by default, in line with the standard practices for delivering videos on the web.
+Automatic format conversion is turned ON by default, in line with the standard practices for delivering videos on the web.
 
 {% hint style="info" %}
-This feature is off by default. You can turn on the automatic video format and quality optimization for your account under [video settings](https://imagekit.io/dashboard?redirectTo=settings-videos-optimization) in your dashboard. 
+Automatic video format selection and AV1 video codec output are on by default. You can change the automatic video format, allowed output video codecs and quality optimization settings for your account under [video settings](https://imagekit.io/dashboard?redirectTo=settings-videos-optimization) in your dashboard. 
 {% endhint %}
 
 The following features related to video optimization can be found in your dashboard under the [settings](https://imagekit.io/dashboard/settings/images) section.

@@ -29,7 +29,7 @@ The AV1 codec for output videos is currently in beta.
 
 ### How to enable or disable automatic format conversion for my account?
 
-Automatic format optimization is off by default. You can enable or disable automatic format conversion for your account under [video settings](https://imagekit.io/dashboard/settings/videos) in your dashboard.
+Automatic video format selection and AV1 video codec output are enabled by default. You can enable or disable automatic format conversion and select allowed output video codecs for your account under [video settings](https://imagekit.io/dashboard/settings/videos) in your dashboard.
 
 Select settings from the left main menu. Inside Videos, under optimization, toggle "Use best format for video delivery" option to enable or disable this feature.
 
