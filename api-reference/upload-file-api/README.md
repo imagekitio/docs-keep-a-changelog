@@ -60,6 +60,7 @@ ImageKit.io allows you to upload a file with the following mime types:
 | ps                 | PostScript files       |
 | txt                | Text files             |
 | mp4                | MP4 video files        |
+| m4v                | M4V video files        |
 | webm               | WebM video files       |
 | mov                | Movie files            |
 | swf                | SWF files              |
