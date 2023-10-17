@@ -8,7 +8,7 @@ Please note that the response of this API is cached internally and refreshes eve
 
 {% swagger baseUrl="https://api.imagekit.io" path="/v1/accounts/usage" method="get" summary="Get account usage information" %}
 {% swagger-description %}
-Get the account usage information between two dates.
+Get the account usage information between two dates. Note that the API response includes data from the start date while excluding data from the end date. In other words, the data covers the period starting from the specified start date up to, but not including, the end date.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" required="true" %}
