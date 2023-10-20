@@ -54,13 +54,13 @@ yarn add imagekitio-vue
 import ImageKit from "imagekitio-vue"
 Vue.use(ImageKit, {
   urlEndpoint: "your_url_endpoint",
-  // publicKey: "your_public_api_key",
-  // authenticationEndpoint: "https://www.your-server.com/auth"
+  publicKey: "your_public_api_key",
 })
 ```
 
 * `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
+* `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get `publicKey` parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
+* `authenticator` expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire.
 
 Let's modify src/components/HelloWorld.vue to import and initialize ImageKit as a plugin. Replace `your_url_endpoint` etc, with actual values.
 
@@ -78,7 +78,6 @@ import ImageKit from "imagekitio-vue"
 Vue.use(ImageKit, {
   urlEndpoint: "your_url_endpoint", // Required. Default URL-endpoint is https://ik.imagekit.io/your_imagekit_id
   publicKey: "your_public_api_key", // optional
-  authenticationEndpoint: "https://www.your-server.com/auth" // optional
 })
 
 export default {
@@ -95,7 +94,7 @@ This SDK provides 3 global components when registered as a plugin:
 
 * `ik-image` for [image resizing](https://github.com/imagekit-developer/imagekit-vuejs#image-resizing). The output is a `<img>` tag.
 * `ik-upload` for [file uploading](https://github.com/imagekit-developer/imagekit-vuejs#file-upload). The output is a `<input type="file">` tag.
-* [`ik-context`](https://github.com/imagekit-developer/imagekit-vuejs#ik-context) for defining `urlEndpoint`, `publicKey` and `authenticationEndpoint` to all children elements.
+* [`ik-context`](https://github.com/imagekit-developer/imagekit-vuejs#ik-context) for defining `urlEndpoint`, `publicKey` and `authenticator` to all children elements.
 
 You can also import components individually.
 
@@ -344,7 +343,7 @@ You have the option to lazy-load the original image only when the user scrolls n
 
 Vuejs SDK provides `ik-upload` component which can generate an `input type="file"` tag that you can use to upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side.&#x20;
 
-For using upload functionality, we need to pass `publicKey` and `authenticationEndpoint` while [initializing the SDK](vuejs.md#initialize-sdk).  Replace `your_url_endpoint` , `your_public_key`, `your_authentication_endpoint` with actual values.
+For using upload functionality, we need to pass `publicKey` while [initializing the SDK](vuejs.md#initialize-sdk).  Replace `your_url_endpoint` and `your_public_key` with actual values.
 
 ```javascript
 <script>
@@ -353,7 +352,6 @@ import ImageKit from "imagekitio-vue";
 Vue.use(ImageKit, {
   urlEndpoint: "your_url_endpoint",
   publicKey: "your_public_key",
-  authenticationEndpoint: "your_authentication_endpoint"
 });
 
 export default {
@@ -364,8 +362,8 @@ export default {
 };
 </script>
 ```
-
-> `authenticationEndpoint` should be implemented in your backend. The SDK makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token`, and `expire`. [Learn how to implement authenticationEndpoint](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload#how-to-implement-authenticationendpoint-endpoint) on your server.
+The SDK internally requires the security parameters as an object with three fields i.e. `signature`, `token`, and `expire`.
+It is advised to setup a backend server for the creation of these security parameters. In the frontend an HTTP GET request can be made to fetch them using the `authenticator` function.
 
 For this quickstart guide, we have provided a sample implementation of `http://localhost:3001/auth` in Node.js.
 
@@ -428,7 +426,6 @@ import ImageKit from "imagekitio-vue";
 Vue.use(ImageKit, {
   urlEndpoint: "your_url_endpoint",
   publicKey: "your_public_key",
-  authencticationEndpiont: "http://localhost:3001/auth"
 });
 
 export default {
@@ -462,6 +459,8 @@ If you GET http://localhost:3001/auth, you should see a JSON response like this.
 
 Let's include `ik-upload` component in the `HelloWorld.vue`.
 
+The component utilises an asynchronous function named `authenticator`, which is intended to be used for retrieving security parameters from your backend. This function is expected to resolve an object containing three fields: `signature`, `token`, and `expire`.
+
 ```javascript
 <template>
   <div>
@@ -470,7 +469,8 @@ Let's include `ik-upload` component in the `HelloWorld.vue`.
     <h2>File upload</h2>
     <ik-upload 
       :onError="onError"
-      :onSuccess="onSuccess" />
+      :onSuccess="onSuccess" 
+      :authenticator="authenticator"/>
   </div>
 </template>
 <script>
@@ -482,7 +482,6 @@ import ImageKit from "imagekitio-vue";
 Vue.use(ImageKit, {
   urlEndpoint: "your_url_endpoint",
   publicKey: "your_public_key",
-  authencticationEndpiont: "http://localhost:3001/auth"
 });
 
 export default {
@@ -491,6 +490,22 @@ export default {
     msg: String
   },
   methods: {
+    authenticator =  async () => {
+        try {
+
+            // You can pass headers as well and later validate the request source in the backend, or you can use headers for any other use case.
+            const response = await fetch('http://localhost:3001/auth');
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+            }
+            const data = await response.json();
+            const { signature, expire, token } = data;
+            return { signature, expire, token };
+        } catch (error) {
+            throw new Error(`Authentication request failed: ${error.message}`);
+        }
+    },
     onError(err) {
       console.log("Error");
       console.log(err);

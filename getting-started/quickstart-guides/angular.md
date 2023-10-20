@@ -84,7 +84,8 @@ npm install --save imagekitio-angular
 Before the SDK can be used, let's learn about and obtain the requisite initialization parameters:
 
 * `urlEndpoint` is a required parameter. This can be obtained from the [URL-endpoint section](https://imagekit.io/dashboard/url-endpoints) or the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. These can be obtained from the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
+* `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. `publicKey` can be obtained from the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
+* `authenticator` expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire.
 
 > Note: Do not include your [private key](https://docs.imagekit.io/api-reference/api-introduction/api-keys#private-key) in any client-side code.
 
@@ -118,7 +119,6 @@ import { ImagekitioAngularModule } from 'imagekitio-angular';
     ImagekitioAngularModule.forRoot({
       publicKey: environment.publicKey,
       urlEndpoint: environment.urlEndpoint,
-      authenticationEndpoint: environment.authenticationEndpoint
     })
   ],
   ...
@@ -146,8 +146,8 @@ Let's insert the following into `app.component.html`.
 ```jsx
 <ik-image 
   urlEndpoint="https://ik.imagekit.io/demo/"
-  path="default-image.jpg">
-</ik-image>
+  path="default-image.jpg"
+></ik-image>
 
 ```
 {% endcode %}
@@ -187,8 +187,7 @@ And now, we can use it in `app.component.html` as such:
   urlEndpoint="https://ik.imagekit.io/demo/"
   path="default-image.jpg"
   [transformation]="transformation"
-  >
-</ik-image>
+></ik-image>
 
 ```
 {% endcode %}
@@ -212,9 +211,7 @@ If you have an absolute image path coming from the backend API e.g. `https://www
 ```jsx
 <ik-image
   src="https://ik.imagekit.io/demo/default-image.jpg"
-  >
-</ik-image>
-
+></ik-image>
 ```
 
 **The output looks like this:**
@@ -260,8 +257,7 @@ Let’s resize the default image to 200px height and width:
   urlEndpoint="https://ik.imagekit.io/demo/"
   path="default-image.jpg"
   [transformation]="transformation"
-  >
-</ik-image>
+></ik-image>
 
 ```
 {% endcode %}
@@ -635,10 +631,6 @@ Sample .env file should look like this.
 PRIVATE_KEY=<your-private-key>
 ```
 
-{% hint style="info" %}
-`authenticationEndpoint` should be implemented in your backend. The SDK makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token`, and `expire`. [Learn how to implement authenticationEndpoint](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload#how-to-implement-authenticationendpoint-endpoint) on your server.
-{% endhint %}
-
 Let's run the backend server.
 
 ```
@@ -660,13 +652,12 @@ If you GET `http://localhost:3000/auth`, you should see a JSON response like thi
 
 ### **Configure authentication in the frontend app**
 
-Now that we have our authentication server up and running, let's configure the `publicKey` and `authenticationEndpoint` in the frontend Angular app:
+Now that we have our authentication server up and running, let's configure the `publicKey` and `authenticator` in the frontend Angular app:
 
 Add the following to `src/app/app.module.js` file to [initialize the SDK](angular.md#initialize-the-angular-sdk) with auth params:
 
 ```jsx
 publicKey: "<YOUR_PUBLIC_KEY>",
-authenticationEndpoint: "<YOUR_AUTH_ENDPOINT e.g http:/localhost:3000/auth>"
 ```
 
 ### **Upload an image**
@@ -678,9 +669,41 @@ For this, we will use the `ik-upload` component as well as a couple of event han
     fileName="test.jpg" 
     (onError)="handleUploadError($event)"
     (onSuccess)="handleUploadSuccess($event)" 
-    >
-  </ik-upload>
+    [authenticator]="authenticator"
+></ik-upload>
 ```
+
+In `app.component.js` file:
+
+```jsx
+authenticator = async () => {
+    try {
+
+        // You can pass headers as well and later validate the request source in the backend, or you can use headers for any other use case.
+        
+        const headers = {
+          'Authorization': 'Bearer your-access-token',
+          'CustomHeader': 'CustomValue'
+        };
+
+        const response = await fetch('server_endpoint', {
+            headers
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        const { signature, expire, token } = data;
+        return { signature, expire, token };
+    } catch (error) {
+        throw new Error(`Authentication request failed: ${error.message}`);
+    }
+};
+```
+
 This is how it looks in the UI:
 
 ![Upload Image](<../../.gitbook/assets/angular/angular-sdk-file-upload-1.png>)
@@ -744,6 +767,7 @@ import { Transformation } from 'imagekit-javascript/dist/src/interfaces/Transfor
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   validateFileFunction(res: any) {
     console.log('validating')
@@ -786,14 +810,39 @@ Here's an example:
     <!-- This will be invisible -->
     <ik-upload
       [buttonRef]="myBtn"
-      >
-    </ik-upload>
+    ></ik-upload>
 
     <!-- Your own button! -->
     <button #myBtn type="Button" class="myOwnClass" style="color:blue">
       Upload
     </button>
 </div>
+```
+
+### **Abort Upload**
+
+```js
+// Added to app.component.ts
+@ViewChild('upload') uploadComponent:IkUploadComponent;// @ViewChild can be used to get instance of IKUpload component.
+
+onAbortFunction(){
+    this.uploadComponent && this.uploadComponent.abort();
+}
+
+// Added to app.component.html
+<ik-upload 
+  #upload
+  fileName= "test.jpg" 
+  (onError)="handleUploadError($event)"
+  (onSuccess)="handleUploadSuccess($event)"
+  [validateFile]="validateFileFunction"
+  [onUploadStart]="onUploadStartFunction"
+  [onUploadProgress]="onUploadProgressFunction"
+  [authenticator]="authenticator"
+></ik-upload>
+<button 
+  (click)="onAbortFunction()"
+>Abort</button>
 ```
 
 ### **Upload start**
@@ -819,8 +868,7 @@ Rendering videos works similarly to rendering images in terms of usage of `urlEn
     urlEndpoint="https://ik.imagekit.io/demo/"
     path="sample-video.mp4"
     controls=true
-    >
-  </ik-video>
+></ik-video>
 ```
 {% endcode %}
 
@@ -832,4 +880,3 @@ The possibilities for image manipulation and optimization with ImageKit are endl
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)
 * [Media Library](https://docs.imagekit.io/media-library/overview)
 * [Performance monitoring](../../features/performance-monitoring.md)
-
