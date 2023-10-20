@@ -494,10 +494,18 @@ export default {
         try {
 
             // You can pass headers as well and later validate the request source in the backend, or you can use headers for any other use case.
-            const response = await fetch('http://localhost:3001/auth');
+            const headers = {
+              'Authorization': 'Bearer your-access-token',
+              'CustomHeader': 'CustomValue'
+            };
+
+            const response = await fetch('server_endpoint', {
+                headers
+            });
+
             if (!response.ok) {
                 const errorText = await response.text();
-                throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+                throw new Error(`Request failed with status ${response.status}:               ${errorText}`);
             }
             const data = await response.json();
             const { signature, expire, token } = data;
