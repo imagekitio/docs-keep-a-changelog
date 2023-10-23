@@ -89,4 +89,4 @@ ImageKit.io also provides APIs to upload, delete, and search for image files wit
 2. [Search API](../../api-reference/media-api/list-and-search-files.md).
 3. [Image Delete API](../../api-reference/media-api/delete-file.md).
 
-If you have any questions regarding Uploading, Deleting, or Updating a file, please get in touch with our team at [support@imagekit.io](mailto:customer-support@imagekit.io).
+If you have any questions regarding Uploading, Deleting, or Updating a file, please get in touch with our team at [support@imagekit.io](mailto:support@imagekit.io).

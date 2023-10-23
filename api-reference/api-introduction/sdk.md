@@ -25,7 +25,7 @@ The ImageKit.io team has developed these libraries. If you find a bug or have su
 
 ## Want to contribute? :raised_hands: 
 
-If you want to contribute, please check out the SDK-specification document below and send us the repository link to [support@imagekit.io](mailto:customer-support@imagekit.io). We are happy to add your library to this list.
+If you want to contribute, please check out the SDK-specification document below and send us the repository link to [support@imagekit.io](mailto:support@imagekit.io). We are happy to add your library to this list.
 
 {% file src="../../.gitbook/assets/sdk_specification (1).pdf" %}
 SDK specification document

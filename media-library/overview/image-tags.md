@@ -48,4 +48,4 @@ You can update the tags from the media library or using the [file update API](..
 
 To update a tag to a file in the media library, right-click on the file to open the menu. Click on the "Tags" menu item. This will open a popup, enter the tags you want, and press the "Save" button.
 
-If you have any questions regarding Image Tagging or any feedback regarding this feature, please get in touch with our team at [support@imagekit.io](mailto:customer-support@imagekit.io)
+If you have any questions regarding Image Tagging or any feedback regarding this feature, please get in touch with our team at [support@imagekit.io](mailto:support@imagekit.io)
