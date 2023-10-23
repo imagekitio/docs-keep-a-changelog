@@ -36,7 +36,7 @@ Click on `...` next to the named transformation you want to edit. A popup window
 
 Edit the named transformation name and/or string, and Enable/Disable the named transformation from the popup.
 
-Click "Submit". The changes apply to every new image URL request. For older images, please clear the cache or contact support through your dashboard, or email us at [support@imagekit.io](mailto:customer-support@imagekit.io)
+Click "Submit". The changes apply to every new image URL request. For older images, please clear the cache or contact support through your dashboard, or email us at [support@imagekit.io](mailto:support@imagekit.io)
 
 ## Secure Images with Named Transformations
 
