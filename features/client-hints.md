@@ -20,6 +20,8 @@ You can [learn more about client hints](https://imagekit.io/responsive-images/#c
 ```markup
 <meta http-equiv="Accept-CH" content="Sec-CH-DPR, Sec-CH-Width">
 ```
+
+These headers are enabled by default for all accounts. Please contact us at [support@imagekit.io](mailto:support@imagekit.io) to set it up for your account.
 {% endhint %}
 
 ## ImageKit supports Client hints
