@@ -14,6 +14,8 @@ Used to specify the width of the output image. Accepts integer value greater tha
 
 You can also specify the `auto`_ _value for this parameter (w-auto). Doing so will instruct ImageKit to read the width value from the [Width Client Hint](https://imagekit.io/responsive-images/#width) request header. Learn more about client hints [here](../client-hints.md).
 
+You can also provide an arithmetic expression such as `iw_div_2`, `cw_mul_0.8`, or `ih` as a value for this parameter. Doing so will first calculate the value of the expression and then apply transformations using that value. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
+
 {% tabs %}
 {% tab title="Original" %}
 URL - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
@@ -38,6 +40,8 @@ URL - [https://ik.imagekit.io/demo/tr:w-0.4/medium\_cafe\_B1iTdD0C.jpg](https://
 
 Used to specify the height of the output image. Accepts integer value greater than 1. If a value between 0 and 1 is specified, the value acts as a percentage height. Therefore, 0.1 means 10% of the original height, 0.4 means 40% of the original height, and so on.
 
+You can also provide an arithmetic expression such as `ih_div_2`, `ch_mul_0.5`, or `ih` as a value for this parameter. Doing so will first calculate the value of the expression and then apply transformations using that value. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
+
 {% tabs %}
 {% tab title="Original" %}
 URL - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
@@ -61,6 +65,8 @@ URL - [https://ik.imagekit.io/demo/tr:h-0.4/medium\_cafe\_B1iTdD0C.jpg](https://
 ### Aspect ratio - (ar)
 
 Used to specify the aspect ratio of the output image or the ratio of width to height of the output image. This parameter must be used along with either the [height(h)](resize-crop-and-other-transformations.md#height-h) or [width(w)](resize-crop-and-other-transformations.md#width-w) parameter. The format for specifying this transformation is `ar-<width>-<height>`
+
+You can also provide an arithmetic expression such as `iar_div_2`, or `car_mul_0.75` as a value for this parameter. Doing so will first calculate the value of the expression and then apply transformations using that value. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
 
 {% hint style="info" %}
 If you specify both [height(h)](resize-crop-and-other-transformations.md#height-h) and [width(w)](resize-crop-and-other-transformations.md#width-w) in the URL along with [aspect ratio(ar)](resize-crop-and-other-transformations.md#aspect-ration-ar), then the aspect ratio is ignored.
@@ -310,6 +316,10 @@ This is the extract done with focus on bottom right of the original image.
 {% tab title="Focus using X, Y coordinates" %}
 In the coordinate method of focus, we use the parameters `x` and `y` to determine the position of the top-left corner from where the extract would begin.
 
+You can also provide arithmetic expression such as `iw_mul_0.4` or `ih_mul_0.4` as values for these parameters. This will first calculate the value of the expression and then use those values for extraction. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
+
+
+
 Example URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,x-100,y-300](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,x-100,y-300)\
 \
 The extract is made starting from (100,300) point on the original image
@@ -319,6 +329,8 @@ The extract is made starting from (100,300) point on the original image
 
 {% tab title="Focus using center coordinates (XC, YC)" %}
 In the center coordinate method of focus, we use the parameters `xc` and `yc` to determine the position of the center of the image which would be extracted.
+
+You can also provide arithmetic expressions such as `iw_div_3` or `ih_div_2` as values for these parameters. This will first calculate the value of the expression and then use those values for extraction. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
 
 Example URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,xc-300,yc-500](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,xc-300,yc-500)
 
@@ -644,6 +656,8 @@ This adds a border to the image. It accepts two parameters - the width of the bo
 Usage - `b-<border-width>-<hex code>`
 
 The width is specified as a number which is equivalent to the border width in pixels. The color code is specified as a 6-character hex code RRGGBB.
+
+You can also provide an arithmetic expression such as `ih_div_20_red`, or `cw_mul_0.05_FF00FF` as a value for this parameter. Doing so will first calculate the value of the width and then apply transformations using that value. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
 
 {% tabs %}
 {% tab title="5px yellow border" %}

@@ -12,6 +12,8 @@ description: >-
 
 Used to specify the width of the output video. Accepts integer value greater than 1.
 
+You can also provide an arithmetic expression such as `iw_div_2`, `cw_mul_0.8`, or `ih` as a value for this parameter. Doing so will first calculate the value of the expression and then apply transformations using that value. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
+
 When you specify just width, the height is adjusted accordingly to maintain the aspect ratio.
 
 {% tabs %}
@@ -36,6 +38,8 @@ Notice that height is automatically adjusted to maintain the aspect ratio.
 
 Used to specify the height of the output video. Accepts integer value greater than 1.&#x20;
 
+You can also provide an arithmetic expression such as `ih_div_2`, `ch_mul_0.5`, or `ih` as a value for this parameter. Doing so will first calculate the value of the expression and then apply transformations using that value. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
+
 When you specify only height, the width is adjusted accordingly to maintain the aspect ratio.
 
 {% tabs %}
@@ -59,6 +63,8 @@ Notice that width is automatically adjusted to maintain the aspect ratio.
 ### Aspect ratio - (ar)
 
 Used to specify the aspect ratio of the output video. It is the ratio of width to height of the output video. This parameter must be used along with either the [height(h)](resize-crop-and-other-common-video-transformations.md#height-h) or [width(w)](resize-crop-and-other-common-video-transformations.md#width-w) parameter but not both.
+
+You can also provide an arithmetic expression such as `iar_div_2`, or `car_mul_0.75` as a value for this parameter. Doing so will first calculate the value of the expression and then apply transformations using that value. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
 
 Usage = `ar-<width>-<height>`
 
@@ -306,6 +312,8 @@ This adds a border to the video. It accepts two parameters - the width of the bo
 Usage - `b-<border-width>_<hex code>`
 
 The width is specified as a number which is equivalent to the border width in pixels. The color code is specified as a 6-character hex code RRGGBB.
+
+You can also provide an arithmetic expression such as `ih_div_20_red`, or `cw_mul_0.05_FF00FF` as a value for this parameter. Doing so will first calculate the value of the width and then apply transformations using that value. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
 
 {% tabs %}
 {% tab title="5px yellow border" %}
