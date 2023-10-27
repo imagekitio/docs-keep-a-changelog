@@ -73,7 +73,7 @@ URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-iw_div_4,h-ih_div_2:b-cw_
 
 ![](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-iw_div_4,h-ih_div_2:b-cw_mul_0.05_yellow)
 
-To crop the image with half height and width while extracting from a position that is 20% from top and left corners, you can use the following URL.
+To crop the image with half height and width while extracting from a position that is 20% from top and left edges, you can use the following URL.
 
 URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=w-iw_div_2,h-ih_div_2,cm-extract,x-iw_mul_0.2,y-ih_mul_0.2](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=w-iw_div_2,h-ih_div_2,cm-extract,x-iw_mul_0.2,y-ih_mul_0.2)
 
@@ -81,7 +81,7 @@ URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=w-iw_div_2,h-ih_d
 
 #### Image overlay
 
-You can also resize and position the image layer relative to the base asset. For example, to first resize the image being overlaid to half of the base image dimensions and then place it one-eight from the top and one-eight from the left, you can use the following URL.
+You can also resize and position the image layer relative to the base asset. For example, to first resize the image being overlaid to half of the base image dimensions and then place it one-eight from the top and left edges, you can use the following URL.
 
 URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-image,i-logo-white_SJwqB4Nfe.png,cm-pad_resize,bg-yellow,w-bw_div_2,h-bh_div_2,lx-bw_div_8,ly-bh_div_8,l-end](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-image,i-logo-white_SJwqB4Nfe.png,cm-pad_resize,bg-yellow,w-bw_div_2,h-bh_div_2,lx-bw_div_8,ly-bh_div_8,l-end)
 
