@@ -73,13 +73,25 @@ URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-iw_div_4,h-ih_div_2:b-cw_
 
 ![](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-iw_div_4,h-ih_div_2:b-cw_mul_0.05_yellow)
 
+To crop the image with half height and width while extracting from a position that is 20% from top and left corners, you can use the following URL.
+
+URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=w-iw_div_2,h-ih_div_2,cm-extract,x-iw_mul_0.2,y-ih_mul_0.2](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=w-iw_div_2,h-ih_div_2,cm-extract,x-iw_mul_0.2,y-ih_mul_0.2)
+
+![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=w-iw_div_2,h-ih_div_2,cm-extract,x-iw_mul_0.2,y-ih_mul_0.2)
+
 #### Image overlay
 
-You can also resize and position the image or video layer relative to the base asset. For example, to first resize the image being overlaid to half of the base image dimensions and then place it one-eight from the top and one-eight from the left, you can use the following URL.
+You can also resize and position the image layer relative to the base asset. For example, to first resize the image being overlaid to half of the base image dimensions and then place it one-eight from the top and one-eight from the left, you can use the following URL.
 
 URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-image,i-logo-white_SJwqB4Nfe.png,cm-pad_resize,bg-yellow,w-bw_div_2,h-bh_div_2,lx-bw_div_8,ly-bh_div_8,l-end](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-image,i-logo-white_SJwqB4Nfe.png,cm-pad_resize,bg-yellow,w-bw_div_2,h-bh_div_2,lx-bw_div_8,ly-bh_div_8,l-end)
 
 ![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-image,i-logo-white_SJwqB4Nfe.png,cm-pad_resize,bg-yellow,w-bw_div_2,h-bh_div_2,lx-bw_div_8,ly-bh_div_8,l-end)
+
+Expressions can also conveniently be used to resize and position nested layers in relation to their outer layers. In this example, we overlay the resized `women-dress.jpeg` with a red border, positioning it 10% from the top and left edges of `medium_cafe_B1iTdD0C.jpg`, and then add the `imagekit.io` logo, positioning it at 20% from the top and left edges of `women-dress.jpeg`.
+
+URL - [https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,w-bw_div_3,b-iw_mul_0.02_red,lx-bw_mul_0.1,ly-bh_mul_0.1:l-image,i-logo-white_SJwqB4Nfe.png,w-bw_div_2,lx-bw_mul_0.1,ly-bh_mul_0.1,l-end,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,w-bw_div_3,b-iw_mul_0.02_red,lx-bw_mul_0.1,ly-bh_mul_0.1:l-image,i-logo-white_SJwqB4Nfe.png,w-bw_div_2,lx-bw_mul_0.1,ly-bh_mul_0.1,l-end,l-end/medium_cafe_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,w-bw_div_3,b-iw_mul_0.02_red,lx-bw_mul_0.1,ly-bh_mul_0.1:l-image,i-logo-white_SJwqB4Nfe.png,w-bw_div_2,lx-bw_mul_0.1,ly-bh_mul_0.1,l-end,l-end/medium_cafe_B1iTdD0C.jpg)
 
 #### Text overlay
 
@@ -88,3 +100,13 @@ To control the text layer's width and font size with respect to the base layer, 
 URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-text,i-overlay%20made%20easy,fs-bh_div_20,w-bh_div_2,l-end](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-text,i-overlay%20made%20easy,fs-bh_div_20,w-bh_div_2,l-end)
 
 ![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-text,i-overlay%20made%20easy,fs-bh_div_20,w-bh_div_2,l-end)
+
+To add padding to a text layer with a background color, you can use the following URL.
+
+URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-text,i-overlay%20made%20easy,bg-yellow,pa-bw_mul_0.01,l-end](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-text,i-overlay%20made%20easy,bg-yellow,pa-bw_mul_0.01,l-end)
+
+![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-text,i-overlay%20made%20easy,bg-yellow,pa-bw_mul_0.01,l-end)
+
+#### Video overlay
+
+Expressions can also be used inside video layers for resizing and positioning in parameters that allow arithmetic expressions.
