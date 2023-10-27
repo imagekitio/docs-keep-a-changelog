@@ -1,8 +1,17 @@
 # Arithmetic expressions in transformations
 
-Arithmetic expressions within ImageKit.io allow you to assign values to numeric transformation parameters like `height`, `width` etc. These expressions are evaluated in real-time, providing an additional layer of sophistication and flexibility to your transformations.
+ImageKit allows use of arithmetic expressions in certain dimension and position-related parameters, making media transformations more flexible and dynamic. They allow for more flexible and complex transformations without the need to hard code specific values in scenarios where the exact dimensions or positions may not be known beforehand or when they need to be adjusted based on other parameters.
 
-For example, you could set the border width of an image to 5% of the current width of that image.
+Example use cases
+
+* Dynamic resizing:
+  You can use arithmetic expressions to set the dimensions of an image relative to its original dimensions or other parameters. For instance, making the width of an image half of its original size using `w-iw_div_2`.
+
+* Positioning overlays:
+  Arithmetic expressions can be used to calculate the position of overlays or watermarks based on the dimensions of the original image. For instance, placing a watermark at a position that is 10% from the top and right edges of the image using transformation `lx-bw_mul_0.9,ly-bh_mul_0.1`.
+
+* Adjusting border in image:
+  Arithmetic expressions can be used to calculate these values based on other parameters like the image's dimensions or aspect ratio using `b-ch_mod_5_yellow`.
 
 You can create arithmetic expressions by using arithmetic operators with expression variables or positive numbers. A simple expression follows the `{value}_{operator}_{value}` syntax, where the value can be expression variables, positive integers, or positive decimal numbers. You can also directly assign expression variables like `ih`, or `bw` to supported parameters. For example, you can use expressions like `bh_div_2` or `ch_mul_0.25`. Furthermore, you can combine multiple operators and values to create complex expressions, such as `ih_mul_0.8_add_iw_mul_0.4`.
 
@@ -29,7 +38,6 @@ You can create arithmetic expressions by using arithmetic operators with express
 | mod | mod (remainder)|
 | pow | pow |
 
-
 ### Parameter supporting arithmetic expressions
 | Parameter | Examples | Remarks |
 | - | - | - |
@@ -50,20 +58,22 @@ You can create arithmetic expressions by using arithmetic operators with express
 <li>Power: Power is evaluated last from left to right.</li></ol>
 
 {% hint style="info" %}
-If you're using expressions inside a layer, then the layer should be a separate chain transformation.
-{% endhint %}
+* If you're using expressions inside a layer, then the layer should be a separate chain transformation.
 
-{% hint style="info" %}
-Only the `bw`, `bh`, and `bar` expression variables are allowed inside text layers and solid image layers.
+* Only the `bw`, `bh`, and `bar` expression variables are allowed inside text layers and solid image layers.
 {% endhint %}
 
 ### Examples
+
+#### Resizing
+
 To resize the height to half of the original, the width to one-fourth of the original, and then add a yellow color border that's 5% of the current width, you can use the following URL.
 
 URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-iw_div_4,h-ih_div_2:b-cw_mul_0.05_yellow](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-iw_div_4,h-ih_div_2:b-cw_mul_0.05_yellow)
 
 ![](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-iw_div_4,h-ih_div_2:b-cw_mul_0.05_yellow)
 
+#### Image overlay
 
 You can also resize and position the image or video layer relative to the base asset. For example, to first resize the image being overlaid to half of the base image dimensions and then place it one-eight from the top and one-eight from the left, you can use the following URL.
 
@@ -71,7 +81,9 @@ URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-image,i-logo-wh
 
 ![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-image,i-logo-white_SJwqB4Nfe.png,cm-pad_resize,bg-yellow,w-bw_div_2,h-bh_div_2,lx-bw_div_8,ly-bh_div_8,l-end)
 
-Similarly, to control the text layer's width and font size with respect to the base layer, you can use the following URL.
+#### Text overlay
+
+To control the text layer's width and font size with respect to the base layer, you can use the following URL.
 
 URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-text,i-overlay%20made%20easy,fs-bh_div_20,w-bh_div_2,l-end](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-text,i-overlay%20made%20easy,fs-bh_div_20,w-bh_div_2,l-end)
 
