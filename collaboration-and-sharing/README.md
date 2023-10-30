@@ -25,14 +25,17 @@ Users with the following roles or permissions can share assets and media collect
 
 ## How to share assets and media collections?
 
-You can share files, folders and media colletions with other restricted media library users and user groups.
+You can share files, folders, and media collections with other restricted media library users and user groups, or with an external user from outside your ImageKit environment.
 
 - [Share files and folders](./share-files-and-folders.md)
 - [Share media collection](./share-media-collection.md)
+- [Public shareable links](./public-shareable-links.md)
 
-To share an asset or media collection, click the "Share" button in the dropdown menu after selecting it. A popup would appear, allowing you to pick the users and user groups, as well as specify their access level on the entity under the "User & user groups" tab. You may also view, change or remove the permissions of existing users and user groups that have access to the entity.
+To share an asset or media collection, click the "Share" button in the drop-down menu after selecting it. A popup would appear, allowing you to pick the users and user groups, as well as specify their access level on the entity under the "User & user groups" tab. You may also view, change or remove the permissions of existing users and user groups that have access to the entity.
 
 You can also see the media collections to which the selected asset has been added by clicking on the "Media collection associations" tab in this popup.
+
+To share an asset or media collection externally via a public link, click the 'Public links' button in the drop-down menu after selecting it.
 
 ## Understanding access to assets and media collections
 
@@ -85,6 +88,8 @@ To help you establish your workflow, we recommend the following steps:
    For example, the marketing team will need sufficient permission to add, remove, and modify assets in certain folders. Technology or the sales team might only need read/view permission for specific folders containing brand assets. As a content manager, you may want to ensure all communications use the latest brand assets that are managed and kept up-to-date centrally by a marketing team.
 
    If you create a new restricted media library user before sharing any assets or media collections with them, the media library will appear completely empty. You can share a folder with at least "Can contribute" permission on it so that they can start uploading files.
+
+  For sharing assets or media collections temporarily with external users, use public shareable links.
 
 4. Invite users and add them to user groups
    Invite users with "Restricted media library access" into your account. Add them to the respective user groups based on your requirements and their roles in your organization.
@@ -145,6 +150,7 @@ The table below summarises the operations that can be performed on media library
 | Delete file version              |                    |                    | :heavy_check_mark: |
 | Delete asset                     |                    |                    | :heavy_check_mark: |
 | Share asset                      |                    |                    | :heavy_check_mark: |
+| Create, edit, and view public links     |                    |                    | :heavy_check_mark: |
 
 ### Media collection permission levels
 
@@ -168,3 +174,4 @@ The table below summarises the operations that can be performed on media collect
 | Remove assets from media collection |                    |                    |                    | :heavy_check_mark: |
 | Delete media collection             |                    |                    |                    | :heavy_check_mark: |
 | Share media collection              |                    |                    |                    | :heavy_check_mark: |
+| Create, edit, and view public links        |                    |                    |                    | :heavy_check_mark: |
