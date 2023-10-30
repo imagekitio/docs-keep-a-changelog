@@ -64,6 +64,7 @@
 * [Collaboration and sharing](./collaboration-and-sharing/README.md)
   * [Share files and folders](./collaboration-and-sharing/share-files-and-folders.md)
   * [Share media collection](./collaboration-and-sharing/share-media-collection.md)
+  * [Public shareable links](./collaboration-and-sharing/public-shareable-links.md)
 
 ## Limits and troubleshooting
 

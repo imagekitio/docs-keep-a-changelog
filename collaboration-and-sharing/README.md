@@ -25,7 +25,7 @@ Users with the following roles or permissions can share assets and media collect
 
 ## How to share assets and media collections?
 
-You can share files, folders, and media collections with other restricted media library users and user groups, or with an external user from outside your ImageKit environment.
+You can share files, folders, and media collections with other restricted media library users and user groups, or with an external user from outside your ImageKit account.
 
 - [Share files and folders](./share-files-and-folders.md)
 - [Share media collection](./share-media-collection.md)
@@ -35,7 +35,7 @@ To share an asset or media collection, click the "Share" button in the drop-down
 
 You can also see the media collections to which the selected asset has been added by clicking on the "Media collection associations" tab in this popup.
 
-To share an asset or media collection externally via a public link, click the 'Public links' button in the drop-down menu after selecting it.
+To share an asset or media collection externally via a public link, click the "Public links" button in the drop-down menu after selecting it.
 
 ## Understanding access to assets and media collections
 
@@ -150,7 +150,11 @@ The table below summarises the operations that can be performed on media library
 | Delete file version              |                    |                    | :heavy_check_mark: |
 | Delete asset                     |                    |                    | :heavy_check_mark: |
 | Share asset                      |                    |                    | :heavy_check_mark: |
-| Create, edit, and view public links     |                    |                    | :heavy_check_mark: |
+| View public links                |                    |                    | :heavy_check_mark: |
+| Create public links              |                    |                    | :heavy_check_mark: |
+| Edit public links                |                    |                    | :heavy_check_mark: |
+| Delete public links              |                    |                    | :heavy_check_mark: |
+
 
 ### Media collection permission levels
 
@@ -174,4 +178,7 @@ The table below summarises the operations that can be performed on media collect
 | Remove assets from media collection |                    |                    |                    | :heavy_check_mark: |
 | Delete media collection             |                    |                    |                    | :heavy_check_mark: |
 | Share media collection              |                    |                    |                    | :heavy_check_mark: |
-| Create, edit, and view public links        |                    |                    |                    | :heavy_check_mark: |
+| View public links                   |                    |                    |                    | :heavy_check_mark: |
+| Create public links                 |                    |                    |                    | :heavy_check_mark: |
+| Edit public links                   |                    |                    |                    | :heavy_check_mark: |
+| Delete public links                 |                    |                    |                    | :heavy_check_mark: |
