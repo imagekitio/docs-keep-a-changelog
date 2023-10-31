@@ -21,7 +21,7 @@ To add files to a particular folder, you need to open the folder first.
 1. Find the folder to which you want to add the files. You can find the folder using the 'Search Bar', or by navigating to the folder.
 2. You can now drag and drop images, or use the popup-based file selection to upload files to the selected folder.
 
-In case you have any questions regarding adding files to the folder, please get in touch with our team at [support@imagekit.io](mailto:customer-support@imagekit.io).
+In case you have any questions regarding adding files to the folder, please get in touch with our team at [support@imagekit.io](mailto:support@imagekit.io).
 
 ### Asset ownership
 

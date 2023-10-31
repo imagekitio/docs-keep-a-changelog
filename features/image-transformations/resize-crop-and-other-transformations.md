@@ -761,16 +761,16 @@ This is good for creating profile pictures.
 {% endtab %}
 {% endtabs %}
 
-### Background color - (bg)
+### Background - (bg)
 
-It is used to specify the background color that can be used along with some cropping strategies while resizing an image.
+It is used to specify the background that can be used along with some cropping strategies while resizing an image. You can choose either a solid color or a blurred version of the same image as the background.
 
-**Possible Values**
+**Default Value** - black (00000)
+
+**Solid color**
 * RGB Hex code: A 6-digit hex code (eg. AAFF00, 0f0fac)
 * RGBA Hex code: An 8-digit hex code. Last two characters must be a number between `00` and `99`, specifying the opacity level (eg. AAFF0040, 0f0fac75) 
 * Color name: A standard color name in lowercase (eg. lightgreen, beige)
-
-**Default Value** - black (00000)
 
 {% tabs %}
 {% tab title="bg=272B38" %}
@@ -783,6 +783,43 @@ URL - [https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_extract,bg-272B38/medi
 URL - [https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_extract,bg-A94D34/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_extract,bg-A94D34/medium\_cafe\_B1iTdD0C.jpg)
 
 ![](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_extract,bg-A94D34/medium\_cafe\_B1iTdD0C.jpg)
+{% endtab %}
+{% endtabs %}
+
+**Blurred background**
+
+Syntax: `blurred[_<BlurIntensity>][_<Brightness>]`
+
+|      Parameter |                              Value |                                                                                Description | Default |
+| -------------: | ---------------------------------: | -----------------------------------------------------------------------------------------: | ------: |
+| Blur intensity | `auto` or an integer from 0 to 100 |                                                                  Set the intensity of blur |  'auto' |
+|     Brightness |           Integer from N255 to 255 | Negative value to make background darker and positive value to make the background lighter |       0 |
+
+Limitation: Blurred background can only be used with `cm-pad_resize`
+
+Blur intensity `auto`: The intensity of blur is automatically adjusted based on the provided height (h) & width (w) in the transformation.
+
+{% tabs %}
+{% tab title="bg=blurred" %}
+URL - [https://ik.imagekit.io/demo/tr:h-600,w-800,cm-pad\_resize,bg-blurred/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-600,w-800,cm-pad\_resize,bg-blurred/medium\_cafe\_B1iTdD0C.jpg)
+
+![cm-pad\_resize,bg-blurred](../../.gitbook/assets/medium_cafe-cm-pad\_resize,bg-blurred.png)
+{% endtab %}
+
+{% tab title="bg=blurred_25_N30" %}
+URL - [https://ik.imagekit.io/demo/tr:h-600,w-800,cm-pad\_resize,bg-blurred\_25\_N30/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-600,w-800,cm-pad\_resize,bg-blurred\_25\_N30/medium\_cafe\_B1iTdD0C.jpg)
+
+Customize blur-intensity to '25' & brightness to 'N30' (Make background darker)
+
+![cm-pad\_resize,bg-blurred\_25\_N30](../../.gitbook/assets/medium_cafe-cm-pad\_resize,bg-blurred\_25\_N30.png)
+{% endtab %}
+
+{% tab title="bg=blurred_auto_30" %}
+URL - [https://ik.imagekit.io/demo/tr:h-600,w-800,cm-pad\_resize,bg-blurred\_auto\_30/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-600,w-800,cm-pad\_resize,bg-blurred\_auto\_30/medium\_cafe\_B1iTdD0C.jpg)
+
+Automatic blur-intensity & customize brightness to '30' (Make background lighter)
+
+![cm-pad\_resize,bg-blurred\_auto\_30](../../.gitbook/assets/medium_cafe-cm-pad\_resize,bg-blurred\_auto\_30.png)
 {% endtab %}
 {% endtabs %}
 

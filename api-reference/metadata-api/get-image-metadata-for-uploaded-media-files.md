@@ -1,12 +1,12 @@
-# Get image metadata for uploaded media files
+# Get file metadata for uploaded media files
 
 You can programmatically get image EXIF, pHash, and other metadata for uploaded files in the ImageKit.io media library using this API.
 
 {% hint style="info" %}
-:bulb: You can also get the image metadata while uploading the image by passing metadata in `responseFields` parameter.
+:bulb: You can also get the file metadata while uploading the file by passing metadata in `responseFields` parameter.
 {% endhint %}
 
-{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/metadata" method="get" summary="Get image metadata for uploaded media files API" %}
+{% swagger baseUrl="https://api.imagekit.io" path="/v1/files/:fileId/metadata" method="get" summary="Get file metadata for uploaded media files API" %}
 {% swagger-description %}
 Get image EXIF, pHash, and other metadata for uploaded files in ImageKit.io media library using this API.
 {% endswagger-description %}
@@ -21,7 +21,7 @@ base64 encoding of `your_private_api_key:`
 **Note the colon in the end.**
 {% endswagger-parameter %}
 
-{% swagger-response status="200" description="On success, you will receive the image metadata in JSON-encoded response body." %}
+{% swagger-response status="200" description="On success, you will receive the file metadata in JSON-encoded response body." %}
 ```javascript
 {
     "height": 68,
@@ -114,7 +114,7 @@ A metadata object example can be found [here](./#metadata-object-structure).
 
 Here are some example requests to understand the API usage.
 
-### Get metadata of an uploaded image
+### Get metadata of an uploaded file
 
 {% tabs %}
 {% tab title="cURL" %}

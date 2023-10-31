@@ -27,7 +27,7 @@ Note:
 ## 2. Combining DPR with resizing on mobile apps
 Different image placeholders on your app will need images in different sizes. Mobile phones additionally have high-density or retina displays and therefore need to load an image larger in dimensions on such displays. You would have seen this with `@1x`, `@2x` or `xhdpi`, `xxhdpi`, etc., on apps where you provide the same image in different dimensions.
 
-Similarly, when loading images with ImageKit, you must add the appropriate DPR value along with the resize parameters. This can be done using the [`dpr` transformation parameter](../features/image-transformations/resize-crop-and-other-transformations.md#dpr---dpr).
+Similarly, when loading images with ImageKit, you must add the appropriate DPR value along with the resize parameters. This can be done using the [`dpr` transformation parameter](../features/image-transformations/resize-crop-and-other-transformations.md#dpr-dpr).
 
 For example, if you need a 300px wide image, you can use the following URLs with varying `dpr` transform values on each display density.
 

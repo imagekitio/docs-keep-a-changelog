@@ -55,8 +55,8 @@ Before you start using AVIF images on your website, we would recommend reading t
 
 ImageKit supports automatic conversion of images to the AVIF format on devices that support AVIF format; they send `image/avif` in the `Accept` request header. This is, however, disabled by default.
 
-1. All users can force their images to AVIF format by adding the format transformation parameter `f-avif` in the transformation string
-2. Automatic format conversion to AVIF, without changing the URL, is disabled by default. If you want early access to this feature, please reach out to support@imagekit.io or initiate a live chat from your dashboard. Our team will suggest if and how this feature can be enabled on your account based on your current use of ImageKit.
+1. All users can force their images to AVIF format by adding the format transformation parameter `f-avif` in the transformation string. Please check [expensive transformation limits](/limits-and-troubleshooting/limits.md#expensive-transformation-limits) before using this in production.
+2. Automatic format conversion to AVIF, without changing the URL, is disabled by default. Paid plan users can get access to this feature by reaching out to support@imagekit.io or initiate a live chat from your dashboard. The feature might be additionally chargeable based on your current use of ImageKit.
 3. Users on custom CDNs won't have this access to this feature. Our team will be reaching out to such users, helping them with the required configuration changes on their CDN, if any, before enabling the feature on their account.
 4. All transformations will be supported on AVIF images, except for the Preserve color profile (through the dashboard setting or the URL parameter `cp-true`) and Unsharp Mask (`e-usm`) transformations. If your transformation string or the dashboard settings use either of these two features, the final output image will not be delivered in AVIF. WebP and other format optimizations will continue to work in such cases.
 5. AVIF images as input images are also supported.

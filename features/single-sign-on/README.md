@@ -2,7 +2,7 @@
 
 {% hint style="info" %}
 **Paid plan only**\
-At the moment, this feature is available in all paid plans. But soon, it will be only available on custom enterprise pricing plans.
+This feature is available only on custom enterprise pricing plans.
 {% endhint %}
 
 {% hint style="info" %}

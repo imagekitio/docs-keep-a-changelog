@@ -57,6 +57,7 @@
   * [Backup media library assets](media-library/overview/backup-media-library-assets.md)
   * [Download media library assets as zip](media-library/overview/download-media-library-assets-as-zip.md)
   * [Asset versioning](media-library/overview/asset-versioning.md)
+  * [Draft assets](media-library/overview/draft-assets.md)
 * [Media Collections](./media-collections/README.md)
   * [Introduction](./media-collections/create-rename-delete-search-and-download-as-zip.md)
   * [Add & remove assets from media collections](./media-collections/add-and-remove-assets-from-media-collections.md)
@@ -81,8 +82,8 @@
 
 * [Image Transformations](features/image-transformations/README.md)
   * [Resize, crop and other common transformations](features/image-transformations/resize-crop-and-other-transformations.md)
-  * [Overlay](features/image-transformations/overlay.md)
-  * [Overlay using layers (beta)](features/image-transformations/overlay-using-layers.md)
+  * [Overlay using layers](features/image-transformations/overlay-using-layers.md)
+  * [Overlay (deprecated)](features/image-transformations/overlay.md)
   * [Image enhancement & color manipulation](features/image-transformations/image-enhancement-and-color-manipulation.md)
   * [Chained transformations](features/image-transformations/chained-transformations.md)
   * [Conditional transformations](features/image-transformations/conditional-transformations.md)
@@ -130,6 +131,7 @@
   * [Cloudinary](features/url-rewriters/cloudinary.md)
   * [Imgix](features/url-rewriters/imgix.md)
 * [Session management](features/session-management.md)
+* [Multi-account user association](features/multi-account-user-association.md)
 
 ## Best Practices
 * [Mobile Apps](imagekit-best-practices/mobile-apps.md)
@@ -159,8 +161,8 @@
 * [Upload file API](api-reference/upload-file-api/README.md)
   * [Server side file upload](api-reference/upload-file-api/server-side-file-upload.md)
   * [Client side file upload](api-reference/upload-file-api/client-side-file-upload.md)
-  * [Server side file upload - V2](api-reference/upload-file-api/server-side-file-upload-v2.md)
-  * [Secure client side upload - V2](api-reference/upload-file-api/secure-client-side-file-upload.md)
+  * [Server side file upload - V2 (beta)](api-reference/upload-file-api/server-side-file-upload-v2.md)
+  * [Secure client side upload - V2 (beta)](api-reference/upload-file-api/secure-client-side-file-upload.md)
 * [Media API](api-reference/media-api/README.md)
   * [List and search files](api-reference/media-api/list-and-search-files.md)
   * [Get file details](api-reference/media-api/get-file-details.md)
