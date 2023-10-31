@@ -87,7 +87,7 @@ URL - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-image,i-logo-wh
 
 ![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?tr=l-image,i-logo-white_SJwqB4Nfe.png,cm-pad_resize,bg-yellow,w-bw_div_2,h-bh_div_2,lx-bw_div_8,ly-bh_div_8,l-end)
 
-Expressions can also conveniently be used to resize and position nested layers in relation to their outer layers. In this example, we overlay the resized `women-dress.jpeg` with a red border, positioning it 10% from the top and left edges of `medium_cafe_B1iTdD0C.jpg`, and then add the `imagekit.io` logo, positioning it at 20% from the top and left edges of `women-dress.jpeg`.
+Expressions can also conveniently be used to resize and position nested layers in relation to their outer layers. In this example, we overlay the resized `women-dress.jpeg` with a red border, positioning it 10% from the top and left edges of `medium_cafe_B1iTdD0C.jpg`, and then add the `imagekit.io` logo, positioning it at 10% from the top and left edges of `women-dress.jpeg`.
 
 URL - [https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,w-bw_div_3,b-iw_mul_0.02_red,lx-bw_mul_0.1,ly-bh_mul_0.1:l-image,i-logo-white_SJwqB4Nfe.png,w-bw_div_2,lx-bw_mul_0.1,ly-bh_mul_0.1,l-end,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-image,i-women-dress.jpeg,w-bw_div_3,b-iw_mul_0.02_red,lx-bw_mul_0.1,ly-bh_mul_0.1:l-image,i-logo-white_SJwqB4Nfe.png,w-bw_div_2,lx-bw_mul_0.1,ly-bh_mul_0.1,l-end,l-end/medium_cafe_B1iTdD0C.jpg)
 
