@@ -25,17 +25,21 @@ Users with the following roles or permissions can share assets and media collect
 
 ## How to share assets and media collections?
 
-You can share files, folders, and media collections with other restricted media library users and user groups, or with an external user from outside your ImageKit account.
+You can share files, folders, and media collections with other restricted media library users and user groups. You can also share them with users who are not a part of your ImageKit account by generating a public link.
 
+- [Public shareable links](./public-shareable-links.md)
 - [Share files and folders](./share-files-and-folders.md)
 - [Share media collection](./share-media-collection.md)
-- [Public shareable links](./public-shareable-links.md)
+
+To share an asset or media collection via a public link, select it and then click the "Public links" button in the drop-down menu. A popup would appear, allowing you to select the expiry date and create the public link. You may also view, edit, or delete any public links that you have created.
 
 To share an asset or media collection, click the "Share" button in the drop-down menu after selecting it. A popup would appear, allowing you to pick the users and user groups, as well as specify their access level on the entity under the "User & user groups" tab. You may also view, change or remove the permissions of existing users and user groups that have access to the entity.
 
 You can also see the media collections to which the selected asset has been added by clicking on the "Media collection associations" tab in this popup.
 
-To share an asset or media collection externally via a public link, click the "Public links" button in the drop-down menu after selecting it.
+## Understanding asset and media collection sharing via public links
+
+You can share assets and media collections with users without having to add them to your ImageKit account as a user. This makes your DAM workflow simpler if you want to give access to your assets or media collections to multiple users at once. This could be with people outside your organisation or the agencies you are working with, or just to temporarily share access to a resource. Users accessing your assets and media collections via a public link will not be able to perform "Can manage" i.e., edit or delete operations on them. Moreover, you have the option to password-protect and expire the public links.
 
 ## Understanding access to assets and media collections
 
@@ -89,9 +93,7 @@ To help you establish your workflow, we recommend the following steps:
 
    If you create a new restricted media library user before sharing any assets or media collections with them, the media library will appear completely empty. You can share a folder with at least "Can contribute" permission on it so that they can start uploading files.
 
-  For sharing assets or media collections temporarily with external users, use public shareable links.
-
-4. Invite users and add them to user groups
+4. Invite users and add them to user groups.
    Invite users with "Restricted media library access" into your account. Add them to the respective user groups based on your requirements and their roles in your organization.
 
    Grant permissions to individual restricted users if you have users who need permissions to assets and media collections that their groups don't have.
