@@ -946,7 +946,7 @@ curl -X POST "https://upload.imagekit.io/api/v1/files/upload" \
 -u your_private_api_key: \
 -F 'file=@/Users/username/Desktop/my_file_name.jpg' \
 -F 'fileName=my_file_name.jpg' \
--F 'tramsformation={"pre":"rt-90", "post": [{"type": "transformation", "value": "bg-red"}]}
+-F 'transformation={"pre":"rt-90", "post": [{"type": "transformation", "value": "bg-red"}]}
 ```
 {% endtab %}
 
