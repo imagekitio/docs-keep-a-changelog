@@ -34,8 +34,86 @@ Supported types of post transformation:
 
   - `abs` : See [Adaptive bitrate streaming](../video-transformation/adaptive-bitrate-streaming.md).
   - `thumbnail` : See [Get thumbnail from a video](../video-transformation/resize-crop-and-other-common-video-transformations.md#get-thumbnail-from-a-video).
-  - `transformation` : For all transformations in [Video Transformations](../video-transformation/README.md) except the ones listed above.
+  - `transformation` : For all transformations in [Video Transformations](../video-transformation/README.md) except ABS & thumbnail.
 
 ## How to Use Pre and Post Transformations?
 
-// TODO:
+During an [Upload API](../../api-reference/upload-file-api/README.md) call, specify a pre or post transformation under the `transformation` request parameter.
+
+The `transformation` parameter for the Upload API is an object with the following properties:
+
+| Field Name    | Type             | Required                           | Description                                                                                                                                                               |
+| ------------- | ---------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| pre           | string           | -                                  | Request parameter for Pre Transformation                                                                                                                                  |
+| post          | array of objects | -                                  | Request parameter for Post Transformation                                                                                                                                 |
+| post.type     | string           | Yes                                | Type of required post-transformation.<br/>Allowed Values: `abs`, `thumbnail`, `transformation`, `gif-to-video`                                                            |
+| post.value    | string           | If `post.type` is `transformation` | Value of required post-transformation.                                                                                                                                    |
+| post.protocol | string           | If `post.type` is `abs`            | ABS Streaming Protocol. <br/> Allowed Values: `hls`, `dash`<br/>See [Adaptive bitrate streaming](../video-transformation/adaptive-bitrate-streaming.md) for more details. |
+
+Example of a pre transformation:
+
+```javascript
+// Request Body (multipart/form-data) for Upload API
+{
+  /*
+  ...rest of the Upload API request parameters
+  */
+  "transformation": {
+    "pre": "rt-90"
+  }
+}
+```
+
+Example of a request with multiple post transformations:
+
+```javascript
+// Request Body (multipart/form-data) for Upload API
+{
+  /*
+  ...rest of the Upload API request parameters
+  */
+  "transformation": {
+    "post": [
+        {
+          "type": "abs",
+          "value: "sr-240_360_480_720_1080",
+          "protocol": "dash"
+        },
+        {
+          "type": "transformation",
+          "value": "h-300"
+        }
+    ]
+  }
+}
+```
+
+You can also use pre & post transformations together in a single request. For an example, we have a request with a pre-transformation to change a video's [width](../video-transformation/resize-crop-and-other-common-video-transformations.md#width---w) to "500px" & then eagerly generate a thumbnail for it using a post-transformation.
+
+```javascript
+// Request Body (multipart/form-data) for Upload API
+{
+  /*
+  ...rest of the Upload API request parameters
+  */
+  "transformation": {
+    "pre": "w-500",
+    "post": [
+      {
+        "type": "thumbnail"
+      }
+    ]
+  }
+}
+```
+
+> Note: Don't forget to stringify the contents of the `post` property before making a request.
+
+## Asynchronous behaviour
+
+- Post transformations are always async.
+- Pre transformation is sync for image files but async for video files.
+
+## Webhooks
+
+See [Pre and Post Transformation Events](./pre-post-tr-webhook-events.md) for details.

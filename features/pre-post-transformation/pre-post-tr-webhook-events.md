@@ -3,6 +3,14 @@ description: >-
   Listen to webhooks events for pre & post transformations using ImageKit API.
 ---
 
+## Webhook Support for Pre & Post Transformations
+
+Use webhook to get updates about pre & post transformations. You can use these events to confirm the success of a pre or post transformation on assets.
+
+{% hint style="info" %}
+Before receiving pre & post transformation related events, you need to [configure webhooks](../../api-reference/api-introduction/webhooks.md#how-to-configure-a-webhook) in your ImageKit account.
+{% endhint %}
+
 # Pre Transformation Events
 
 - `upload.pre-transform.success`
