@@ -15,7 +15,7 @@ You can [learn more about client hints](https://imagekit.io/responsive-images/#c
 
 {% hint style="info" %}
 **Enable client hints before using them**\
-****Not every request has these HTTP headers. You will have to explicitly tell the browser to include these client hints using a meta tag:
+Not every request has these HTTP headers. You will have to explicitly tell the browser to include these client hints using a meta tag:
 
 ```markup
 <meta http-equiv="Accept-CH" content="Sec-CH-DPR, Sec-CH-Width">
@@ -38,9 +38,9 @@ ImageKit supports the following client hints:
 WebP conversion using `Accept` header is enabled by default and part of the [automatic format conversion](image-optimization/automatic-image-format-conversion.md) feature.
 {% endhint %}
 
-To allow ImageKit to read values from the client hint request headers (DPR and Width), you have to pass the [transformation parameters](https://docs.imagekit.io/features/image-transformations) `dpr` and `width` with their values set to `auto`.\
-__\
-__For example, when the browser requests:
+To allow ImageKit to read values from the client hint request headers (DPR and Width), you have to pass the [transformation parameters](https://docs.imagekit.io/features/image-transformations) `dpr` and `width` with their values set to `auto`.
+
+For example, when the browser requests:
 
 ```bash
 GET: https://ik.imagekit.io/your_imagekitid/tr:w-100,dpr-auto/image_name.jpg
