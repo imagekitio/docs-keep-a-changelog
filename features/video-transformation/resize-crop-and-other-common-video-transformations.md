@@ -174,19 +174,43 @@ Notice that the height is 200px as requested, but the width is more than 200px. 
 
 ![](<../../.gitbook/assets/image (39).png>)
 
-### Maintain ratio crop strategy
+### Maintain ratio crop strategy - (c-maintain_ratio)
 
-This is the default crop strategy. If nothing is specified in the URL, this strategy gets applied automatically. In this strategy, the output video's dimension (height and width) is the same as requested, and the aspect ratio is preserved. This is accomplished by resizing the video to the requested dimension and then cropping extra parts to get desired height & width.
+This is the default crop strategy. If no crop (`c`) or crop_mode (`cm`) is specified in the URL, `c-maintain_ratio` gets applied automatically.
+
+In this strategy, the output video's dimensions (height and width) are the same as requested, and the aspect ratio is preserved. This is accomplished by resizing the video to the requested dimension and then cropping extra parts to get desired height & width.
 
 {% hint style="info" %}
 By default, ImageKit.io crops the video from the center but you can change this using the [focus parameter](../image-transformations/resize-crop-and-other-transformations.md#focus-fo).
 {% endhint %}
 
-URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-200)\
-\
-Notice that the video's dimension matches 400x200 but the content is cropped from all edges i.e by default ImageKit will extract the video from the center. You can change this behaviour using the [focus parameter](resize-crop-and-other-common-video-transformations.md#focus-fo).
+{% tabs %}
+{% tab title="Original" %}
+URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=orig-true](https://ik.imagekit.io/demo/sample-video.mp4?tr=orig-true)
 
-![](<../../.gitbook/assets/image (45).png>)
+![Original video](../../.gitbook/assets/screenshot-sample-video-orig.png)
+{% endtab %}
+
+{% tab title="w-400,h-300,c-maintain_ratio" %}
+URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain_ratio](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain_ratio)
+
+[`w-400,h-300,c-maintain_ratio`](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain_ratio) is equivalent to [`w-400,h-300`](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300) because `maintain_ratio` is the default crop strategy.
+
+Notice that the video's dimension matches 400x300, but the content is cropped from all edges, i.e., by default, ImageKit will extract the video from the center.
+
+![w-400,h-300,c-maintain_ratio](../../.gitbook/assets/screenshot-c-maintain_ratio-fo-center.png)
+{% endtab %}
+
+{% tab title="w-400,h-300,c-maintain_ratio,fo-left" %}
+URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain_ratio,fo-left](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain_ratio,fo-left)
+
+Using the [focus (`fo`) parameter](resize-crop-and-other-common-video-transformations.md#focus-fo), you can specify the side to crop from.
+
+Here the video's dimension matches 400x300 and crops out the content on right side, because focus (`fo`) is set to `left`.
+
+![w-400,h-300,c-maintain_ratio,fo-left](../../.gitbook/assets/screenshot-c-maintain_ratio-fo-left.png)
+{% endtab %}
+{% endtabs %}
 
 ### Extract crop strategy - (cm-extract)
 
