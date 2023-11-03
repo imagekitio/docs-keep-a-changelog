@@ -7,7 +7,7 @@ ImageKit.io offers multiple video optimization features that work out of the box
 Automatic format conversion is turned ON by default, in line with the standard practices for delivering videos on the web.
 
 {% hint style="info" %}
-Automatic video format selection and AV1 video codec output are on by default. You can change the automatic video format, allowed output video codecs and quality optimization settings for your account under [video settings](https://imagekit.io/dashboard?redirectTo=settings-videos-optimization) in your dashboard. 
+Automatic video format selection and AV1 video codec output are enabled by default for new signups as of October 17, 2023. You can change the automatic video format, allowed output video codecs and quality optimization settings for your account under [video settings](https://imagekit.io/dashboard?redirectTo=settings-videos-optimization) in your dashboard. 
 {% endhint %}
 
 The following features related to video optimization can be found in your dashboard under the [settings](https://imagekit.io/dashboard/settings/images) section.
