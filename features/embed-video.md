@@ -32,19 +32,19 @@ In the Media Library, hover over the desired video or right-click on it, then se
 
 <div data-full-width="false">
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-10-09 at 3.15.42 PM.png" alt=""><figcaption><p>hover video file</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot-2023-10-09-at-3.15.42-PM.png" alt=""><figcaption><p>hover video file</p></figcaption></figure>
 
  
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-10-09 at 3.16.21 PM.png" alt=""><figcaption><p>right-click on video file</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot-2023-10-09-at-3.16.21-PM.png" alt=""><figcaption><p>right-click on video file</p></figcaption></figure>
 
 </div>
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-10-09 at 3.12.48 PM.png" alt=""><figcaption><p>File detail page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot-2023-10-09-at-3.12.48-PM.png" alt=""><figcaption><p>File detail page</p></figcaption></figure>
 
 Upon selecting "Embed", a modal will appear with various configuration options, including the embed iframe code.
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-10-09 at 3.16.41 PM.png" alt=""><figcaption><p>Embed video modal</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot-2023-10-09-at-3.16.41-PM.png" alt=""><figcaption><p>Embed video modal</p></figcaption></figure>
 
 The following embed options are available:
 
@@ -56,13 +56,13 @@ The expiration time option is only available for private video files.
 
 By default, embedded video is set to never expire. To specify an expiration date and time, deselect the checkbox.
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-10-09 at 3.17.07 PM.png" alt=""><figcaption><p>Expiration time</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot-2023-10-09-at-3.17.07-PM.png" alt=""><figcaption><p>Expiration time</p></figcaption></figure>
 
 #### Enable ABS
 
 You have the option to enable [adaptive bitrate streaming](embed-video.md#enable-abs) (ABS) and embed the videos using either HTTP Live Streaming (HLS) or Dynamic Adaptive Streaming over HTTP (MPEG-DASH) protocols. To do so, select the "Enable ABS" option and choose your preferred protocol and resolution from the dropdown menu.
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-10-11 at 1.19.11 PM.png" alt=""><figcaption><p>ABS embed options</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot-2023-10-11-at-1.19.11-PM.png" alt=""><figcaption><p>ABS embed options</p></figcaption></figure>
 
 A custom option is also available, which lets a user enter a transformation string. This can be used to add multiple [supported video transformation parameters](image-transformations/resize-crop-and-other-transformations.md) that are compatible with [adaptive bitrate streaming-enabled](video-transformation/adaptive-bitrate-streaming.md) video.
 
