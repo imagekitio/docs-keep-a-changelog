@@ -60,14 +60,14 @@ By default, embedded video is set to never expire. To specify an expiration date
 
 #### Enable ABS
 
-You have the option to enable [Adaptive bitrate streaming](embed-video.md#enable-abs) (ABS) and embed the videos using either HTTP Live Streaming (HLS) or Dynamic Adaptive Streaming over HTTP (MPEG-DASH) protocols. To do so, select the "Enable ABS" option and choose your preferred protocol and resolution from the dropdown menu.
+You have the option to enable [adaptive bitrate streaming](embed-video.md#enable-abs) (ABS) and embed the videos using either HTTP Live Streaming (HLS) or Dynamic Adaptive Streaming over HTTP (MPEG-DASH) protocols. To do so, select the "Enable ABS" option and choose your preferred protocol and resolution from the dropdown menu.
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-10-11 at 1.19.11 PM.png" alt=""><figcaption><p>ABS embed options</p></figcaption></figure>
 
-A custom option is also available, which lets a user enter a transformation string. This can be used to add multiple [supported video transformation parameters](image-transformations/resize-crop-and-other-transformations.md) that are compatible with [Adaptive bitrate streaming-enabled](video-transformation/adaptive-bitrate-streaming.md) video.
+A custom option is also available, which lets a user enter a transformation string. This can be used to add multiple [supported video transformation parameters](image-transformations/resize-crop-and-other-transformations.md) that are compatible with [adaptive bitrate streaming-enabled](video-transformation/adaptive-bitrate-streaming.md) video.
 
 {% hint style="info" %}
 The transformation string must contain `sr-<representations>`transformation.
 {% endhint %}
 
-Additionally, **Named transformation** can be incorporated as part of a custom transformation string by specifying `tr:n-<named_transform>`
+Additionally, [named transformation](./named-transformations.md) can be incorporated as part of a custom transformation string by specifying `tr:n-<named_transform>`.
