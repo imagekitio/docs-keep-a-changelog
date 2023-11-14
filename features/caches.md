@@ -2,6 +2,10 @@
 
 ImageKit.io provides two ways to deliver images for your website - from the [media library](../media-library/overview/), or your [server/storage](../integration/configure-origin/). Each of these image sources follow certain caching rules pre-determined by ImageKit.io. Additionally, you can define your [own caching rules](caches.md#user-defined-caching), if needed.
 
+## Internal Caching
+
+ImageKit.io caches a copy of every transformed and optimized image at the CDN. Additionally, ImageKit.io also maintains its internal caches, which are co-located with its processing engine across [6 global locations](../media-library/overview/#where-is-the-imagekit-io-media-library-available-geographically). In case any URL is missed by the CDN, internal caches deliver the resources without passing on the request to your server or storage. The same process is followed when you integrate ImageKit.io with a [custom CDN](../testing-and-infrastructure-setup/integrate-with-your-cdn.md).
+
 ## Default Caching Rules
 
 1. The original copies of the images and files are stored permanently within the [Media library](../media-library/overview/) when using the Media Library to store and deliver the images.
@@ -13,18 +17,44 @@ ImageKit.io provides two ways to deliver images for your website - from the [med
 Files that are explicitly uploaded to the media library are charged as per your pricing plan. You are not billed for the storage consumed by the transformed and optimized copies of the files. The "Save a copy of original images" feature is separately chargeable on Enterprise plans. You can discuss this with your Customer Success Manager or Account Executive.
 {% endhint %}
 
-## User-Defined Caching
+## Origin-Based Cache Control
 
-Cache-control time can be modified for the files that are being delivered from your storage or server attached to ImageKit.io, but not for the files stored within the [Media library](../media-library/overview/).
+`Cache-Control` header is a general header that specifies the caching policies of server responses. It provides instructions to both the browser and intermediate caches about how a particular resource should be cached. <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control" target="_blank">Learn more</a>
 
-### Origin-Based Cache Control
+Origin-Based Cache Control feature allows caching based on the cache control headers being passed from your [origin](../integration/configure-origin/) attached to ImageKit.io. For example, if your origin (server or storage) sends a cache-control header to cache a file for 1 hour, ImageKit.io applies the cache-control header across all its internal caches, generated transformations, and CDN. This ensures that the cache control set by you is obeyed at all times.
 
-This option allows caching based on the cache control headers being passed from your [origin](../integration/configure-origin/) attached to ImageKit.io. For example, if your origin (server or storage) sends a cache-control header to cache a file for 1 hour, ImageKit.io applies the cache-control header across all its internal caches, generated transformations, and CDN. This ensures that the cache control set by you is obeyed at all times.
+Using the ImageKit dashboard, you may enable 'Origin-Based Cache Control' for any URL endpoint in your ImageKit account.
 
-This feature can be applied for any URL endpoint in your ImageKit account.
+To enable this feature on an endpoint, follow these steps:
 
-*Note: Origin-Based Cache Control is disabled by default. Reach out to ImageKit's support team to enable it for your account.*
+1. Go to the Advanced Settings tab of the URL endpoint.
+2. Turn on 'Enable origin cache control' toggle.
+3. Click save.
 
-## Internal Caching
+![Enable origin cache control demo](<../.gitbook/assets/screen-shot-enable-orig-cache-control.png>)
 
-ImageKit.io caches a copy of every transformed and optimized image at the CDN. Additionally, ImageKit.io also maintains its internal caches, which are co-located with its processing engine across [6 global locations](../media-library/overview/#where-is-the-imagekit-io-media-library-available-geographically). In case any URL is missed by the CDN, internal caches deliver the resources without passing on the request to your server or storage. The same process is followed when you integrate ImageKit.io with a [custom CDN](../testing-and-infrastructure-setup/integrate-with-your-cdn.md).
+## FAQ
+
+### How to define cache control headers for Web server origin?
+
+For a 'Web Folder' or 'Web Proxy' origin, the `cache-control` header in response will be obeyed, if 'Origin-Based Cache Control' is enabled for the URL endpoint.
+
+### How to define cache control headers for S3 or S3 compatible storage?
+
+For S3 or S3 compatible storage, the `cache-control` header of the S3 object will be obeyed, if 'Origin-Based Cache Control' is enabled for the URL endpoint.
+
+### Can I use `Age` header along with 'cache-control' header?
+
+As of now, `Age` header from origin is not support.
+
+### Can I use `Expires` header?
+
+As of now, `Expires` header from origin is not support.
+
+### Can I use Cache control feature in videoAPI?
+
+Origin based cache control feature is not support by Imagekit's VideoAPI.
+
+### Can I define caching rules for MediaLibrary assets?
+
+Cache-control can be defined for the files that are being delivered from your storage or server attached to ImageKit.io, but not for the files stored within the [Media library](../media-library/overview/). However, you can use the cache purging feature to remove any file from the cache and force ImageKit.io to fetch the latest version of the file from the Media Library
