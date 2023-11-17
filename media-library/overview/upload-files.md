@@ -15,7 +15,7 @@ To upload files, either drag and drop files anywhere on the screen or
 
 ### Select the file and upload
 
- Click on the New button on the top right corner and select File Upload.
+Click on the New button on the top right corner and select File Upload.
 
 ![](../../.gitbook/assets/new-file-upload.png)
 
@@ -39,7 +39,7 @@ Drag and drop file upload
 
 ## Asset ownership
 
-If a new file is uploaded through the ImageKit media library, the uploader of the file will be its "owner". Asset ownership governs the access and permission level of the user on an asset. They would have "manage" access to the file. Learn how asset ownership controls access and permission levels [here](../../collaboration-and-sharing/README.md#access-and-permission-management).
+If a new file is uploaded through the ImageKit media library, the uploader of the file will be its "owner". Asset ownership governs the access and permission level of the user on an asset. They would have "manage" access to the file. Learn how asset ownership controls access and permission levels [here](../../collaboration-and-sharing/#access-and-permission-management).
 
 The file will not have any ownership info if it is not uploaded via the dashboard, e.g. via the API or an SDK. Note that when creating new file versions, the owner of the file does not change.
 
@@ -52,3 +52,53 @@ You can share a folder with a restricted user by providing "Can contribute" or "
 ## Using the Upload API
 
 You can also upload images to ImageKit.io's media library programmatically. Read the Upload API documentation [here](../../api-reference/upload-file-api/).
+
+## Upload settings
+
+You have the option to set up upload parameters for files that you plan to upload. These upload parameters can be customized in the media library dashboard from three locations:
+
+* Default upload parameters in media library settings
+* Common settings in the upload modal
+* File-specific settings in the upload modal
+
+#### Default upload parameters in media library settings
+
+Navigate to media library settings to set default upload parameters. These settings will serve as the default configuration for any new files being uploaded. It's important to note that this does not impact existing files and can be overridden for new uploads.
+
+<figure><img src="../../.gitbook/assets/default-upload-parameters.png" alt=""><figcaption><p>Default upload parameters</p></figcaption></figure>
+
+#### Common settings&#x20;
+
+You can locate common settings in the upload modal while uploading files. These settings are automatically applied to all currently selected files for upload. By default, the common settings are pre-filled with the upload parameters configured in the media library settings.
+
+<div>
+
+<figure><img src="../../.gitbook/assets/common-setting-button.png" alt=""><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../../.gitbook/assets/common-setting-popup.png" alt=""><figcaption></figcaption></figure>
+
+</div>
+
+{% hint style="info" %}
+If an upload parameter is set in both common settings and the default upload parameters within the media library settings, the common setting will take precedence.
+{% endhint %}
+
+#### File-specific settings
+
+You can also set upload parameters individually for a specific file during the upload process. To customize the upload parameters for a particular file, click on the edit icon located below the selected file in the file upload modal.
+
+<div>
+
+<figure><img src="../../.gitbook/assets/file-edit-button.png" alt=""><figcaption><p>File edit button</p></figcaption></figure>
+
+ 
+
+<figure><img src="../../.gitbook/assets/file-edit-modal.png" alt=""><figcaption><p>File edit modal</p></figcaption></figure>
+
+</div>
+
+{% hint style="info" %}
+File-specific settings hold the highest priority compared to both common settings and default upload parameters.
+{% endhint %}
