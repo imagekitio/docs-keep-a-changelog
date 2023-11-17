@@ -102,3 +102,6 @@ You can also set upload parameters individually for a specific file during the u
 {% hint style="info" %}
 File-specific settings hold the highest priority compared to both common settings and default upload parameters.
 {% endhint %}
+
+### Upload parameters
+
