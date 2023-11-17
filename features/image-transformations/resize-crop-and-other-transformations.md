@@ -10,9 +10,9 @@ description: >-
 
 ### Width - (w)
 
-Used to specify the width of the output image. Accepts integer value greater than 1. If a value between 0 and 1 is specified, it acts as a percentage width. Therefore, 0.1 means 10% of the original width, 0.4 means 40% of the original width, and so on.
+Used to specify the width of the output image. Accepts integer value greater than 1. If a value between 0 and 1 is specified, it acts as a percentage width. Therefore, 0.1 means 10% of the original width, 0.4 means 40% of the original width, and so on.
 
-You can also specify the `auto`\_ \_value for this parameter (w-auto). Doing so will instruct ImageKit to read the width value from the [Width Client Hint](https://imagekit.io/responsive-images/#width) request header. Learn more about client hints [here](../client-hints.md).
+You can also specify the `auto`_ _value for this parameter (w-auto). Doing so will instruct ImageKit to read the width value from the [Width Client Hint](https://imagekit.io/responsive-images/#width) request header. Learn more about client hints [here](../client-hints.md).
 
 You can also provide an arithmetic expression such as `iw_div_2`, `cw_mul_0.8`, or `ih` as a value for this parameter. Doing so will first calculate the value of the expression and then apply transformations using that value. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
 
@@ -77,6 +77,8 @@ If you specify both [height(h)](resize-crop-and-other-transformations.md#height-
 URL - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
 
 ![](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg)
+
+
 {% endtab %}
 
 {% tab title="width 400px and aspect ratio 4:3" %}
@@ -147,7 +149,7 @@ We added the `fo-top` transformation to our image. Now, all the padding is on th
 
 ### Forced crop strategy - (c-force)
 
-In a forced crop strategy, the output image's dimension (height and width) is exactly the same as requested, no cropping takes place, but the aspect ratio is not preserved. It forcefully squeezes the original image to get it to fit completely within the output dimensions.
+In a forced crop strategy, the output image's dimension (height and width) is exactly the same as requested, no cropping takes place, but the aspect ratio is not preserved. It forcefully squeezes the original image to get it to fit completely within the output dimensions.&#x20;
 
 {% tabs %}
 {% tab title="Original" %}
@@ -171,7 +173,7 @@ In the max-size crop strategy, whole image content is preserved (no cropping), t
 
 The output image is less than or equal to the dimensions specified in the URL,i.e., at least one dimension will exactly match the output dimension requested, and the other dimension will be equal to or smaller than the corresponding output dimension requested.
 
-If the requested dimension is more than the original dimension of the image, then the original image is returned without cropping. For enlarging image more than original dimensions check [max-size-enlarge cropping strategy](resize-crop-and-other-transformations.md#max-size-enlarge-cropping-strategy-c-at\_max\_enlarge).
+If the requested dimension is more than the original dimension of the image, then the original image is returned without cropping. For enlarging image more than original dimensions check [max-size-enlarge cropping strategy](resize-crop-and-other-transformations.md#max-size-enlarge-cropping-strategy-c-at\_max_enlarge).
 
 {% tabs %}
 {% tab title="Original" %}
@@ -185,13 +187,13 @@ URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at\_max](http
 
 ![148x200 image](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-200,c-at\_max)
 
-The entire image content and the aspect ratio is preserved. The output image dimensions are 148x200. So the height is exactly what is requested, but the width is smaller than what was requested.
+The entire image content and the aspect ratio is preserved. The output image dimensions are 148x200. So the height is exactly what is requested, but the width is smaller than what was requested.&#x20;
 
 This mode is particularly useful if you have a container and you want to ensure that the image will never be larger than that container.
 {% endtab %}
 {% endtabs %}
 
-### Max-size-enlarge cropping strategy - (c-at\_max\_enlarge)
+### Max-size-enlarge cropping strategy - (c-at\_max_enlarge)
 
 This strategy is similar to the [max-size cropping strategy](resize-crop-and-other-transformations.md#max-size-cropping-strategy-c-at\_max) with the addition that it also allows image to enlarge more than its original dimensions.
 
@@ -209,7 +211,8 @@ URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-850,h-1000,c-at\_max\_enl
 
 ![740x1000 image](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-850,h-1000,c-at\_max\_enlarge)
 
-The entire image content and the aspect ratio is preserved. The output image dimensions are 740x1000. So the height is exactly what is requested, but the width is smaller than what was requested.
+The entire image content and the aspect ratio is preserved. The output image dimensions are 740x1000. So the height is exactly what is requested, but the width is smaller than what was requested.&#x20;
+
 {% endtab %}
 {% endtabs %}
 
@@ -299,7 +302,7 @@ In the relative method, you can use the [focus (fo) parameter](resize-crop-and-o
 
 Valid relative values for `fo` parameters are - `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`.
 
-Example URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,fo-bottom\_right](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,fo-bottom\_right)\
+Example URL -  [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,fo-bottom\_right](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,fo-bottom\_right)\
 \
 This is the extract done with focus on bottom right of the original image.
 
@@ -314,6 +317,8 @@ This is the extract done with focus on bottom right of the original image.
 In the coordinate method of focus, we use the parameters `x` and `y` to determine the position of the top-left corner from where the extract would begin.
 
 You can also provide arithmetic expression such as `iw_mul_0.4` or `ih_mul_0.4` as values for these parameters. This will first calculate the value of the expression and then use those values for extraction. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
+
+
 
 Example URL - [https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,x-100,y-300](https://ik.imagekit.io/demo/img/plant.jpeg?tr=w-300,h-300,cm-extract,x-100,y-300)\
 \
@@ -365,7 +370,7 @@ A 500x100px thumbnail with cm-extract crop strategy and fo-custom.
 
 ImageKit can be configured to [auto-rotate images](../image-optimization/metadata-color-profile-and-orientation.md#image-orientation) based on the `Orientation` value in the image metadata. This could result in unexpected behavior when using, `cm-extract`. In that case, you will have to adjust the values of `x` and `y` to accommodate for the oriented image.
 
-### Pad extract crop strategy - (cm-pad\_extract)
+### Pad extract crop strategy - (cm-pad_extract)
 
 The pad extract crop strategy is an extension of the [extract crop strategy](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract). In the extract crop strategy, we were extracting out a smaller area from a larger image. Now, there can be a scenario where the original image is small and we want to extract out a larger area (which is practically not possible without padding). So the pad extract mode adds a solid colored padding around the image to make it match the exact size requested.
 
@@ -389,7 +394,7 @@ Original image was 600x600 but this image is 700x700 image.
 
 ### Focus - (fo)
 
-This parameter can be used along with [pad resize](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad\_resize), [maintain ratio](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain\_ratio) or [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) to change the behaviour of padding or cropping. Learn more from the different examples shown in respective sections.
+This parameter can be used along with [pad resize](resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad\_resize), [maintain ratio](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain\_ratio) or [extract crop](resize-crop-and-other-transformations.md#extract-crop-strategy-cm-extract) to change the behaviour of padding or cropping. Learn more from the different examples shown in respective sections.&#x20;
 
 This parameter can have following values depending upon where it is being used:
 
@@ -452,7 +457,7 @@ Quite distinctly from the [auto smart crop](resize-crop-and-other-transformation
 {% endtabs %}
 
 {% hint style="info" %}
-\*\*Note: \*\*Smart crop may not give accurate results for some images. This is partially a trade off between speed (needed for real-time transformations) and accuracy.
+**Note: **Smart crop may not give accurate results for some images. This is partially a trade off between speed (needed for real-time transformations) and accuracy.
 {% endhint %}
 
 ### Zoom - (z)
@@ -461,7 +466,8 @@ This parameter accepts a number that determines how much to zoom in or out of th
 
 **Default Value** - `z = 1.0`
 
-**Possible Values** -  `0 < z < 1` (zoom out); `z > 1` (zoom in)
+**Possible Values** -  `0 < z < 1` (zoom out); `z > 1` (zoom in)
+
 
 {% tabs %}
 {% tab title="Original" %}
@@ -497,9 +503,9 @@ For `z=0.5`, a thumbnail is generated zoomed out to 50% before cropping, includi
 
 ### Quality - (q)
 
-Used to specify the quality of the output image for lossy formats like JPEG, WebP and AVIF.  A large quality number indicates a larger output image size with high quality. A small quality number indicates a smaller output image size with lower quality.&#x20;
+Used to specify the quality of the output image for lossy formats like JPEG, WebP and AVIF.  A large quality number indicates a larger output image size with high quality. A small quality number indicates a smaller output image size with lower quality. 
 
-**Default Value** - `80` (can be managed from image settings in dashboard)
+**Default Value** - `80` (can be managed from image settings in dashboard)
 
 {% tabs %}
 {% tab title="quality=90" %}
@@ -519,9 +525,9 @@ URL - [https://ik.imagekit.io/demo/tr:q-10/medium\_cafe\_B1iTdD0C.jpg](https://i
 
 Used to specify the format of the output image. If no output image format is specified then based on your image settings in the dashboard, ImageKit.io [automatically picks the best format](../image-optimization/automatic-image-format-conversion.md) for that image request.
 
-Possible values include `auto` ,`jpg` , `jpeg` , `webp`, `avif` and `png`
+&#x20;Possible values include `auto` ,`jpg` , `jpeg` , `webp`, `avif` and `png`
 
-**Default Value** - `auto` (from dashboard settings)
+**Default Value** - `auto` (from dashboard settings)
 
 {% hint style="info" %}
 A few WebP images may not render correctly in Safari v14+ on MacOS v11+ and IOS 14 because of a [possible OS-level issue](https://bugs.webkit.org/show\_bug.cgi?id=219977).
@@ -529,7 +535,7 @@ A few WebP images may not render correctly in Safari v14+ on MacOS v11+ and IOS 
 
 ### Blur - (bl)
 
-Used to specify the gaussian blur that must be applied to an image. The value of `bl` specifies the radius of the Gaussian Blur that is to be applied. Higher the value, the larger the radius of Gaussian Blur. Possible values include integers between `1` and `100`.
+Used to specify the gaussian blur that must be applied to an image. The value of `bl` specifies the radius of the Gaussian Blur that is to be applied. Higher the value, the larger the radius of Gaussian Blur. Possible values include integers between `1` and `100`.
 
 {% tabs %}
 {% tab title="Original" %}
@@ -569,17 +575,17 @@ Used to specify the device pixel ratio that is used to calculate the dimensions 
 
 The `dpr` parameter can only be used when either the height or width of the desired output image is specified.
 
-If the output image's height or width after considering the specified DPR is less than 1px or greater than 5000px, the value of DPR is not considered and the height or width used in the URL is used.
+If the output image's height or width after considering the specified DPR is less than 1px or greater than 5000px, the value of DPR is not considered and the height or width used in the URL is used.
 
-**Possible Values**- `0.1`  to `5` .
+**Possible Values**- `0.1`  to `5` .
 
 Alternatively, you can specify the `auto` value for this parameter (`dpr-auto`). Doing so will instruct ImageKit to read the `dpr` value from the [DPR Client Hint](https://imagekit.io/responsive-images/#dpr) request header. Learn more about client hints [here](../client-hints.md).
 
 ### Named transformation - (n)
 
-[Named Transformations](../named-transformations.md) are an alias for the entire transformation string. \
+[Named Transformations](../named-transformations.md) are an alias for the entire transformation string. \
 \
-For example, we can create a named transformation - `thumbnail` for a transformation string - `tr:w-100,h-100,c-at_max,fo-auto` and is used like:\
+For example, we can create a named transformation - `thumbnail` for a transformation string - `tr:w-100,h-100,c-at_max,fo-auto` and is used like:\
 \
 [https://ik.imagekit.io/demo/img/tr:n-media\_library\_thumbnail/default-image.jpg](https://ik.imagekit.io/demo/img/tr:n-media\_library\_thumbnail/default-image.jpg)
 
@@ -593,11 +599,13 @@ Imagekit.io provides an alternative to achieve this without having to make chang
 
 > If the default image is nested inside multiple folders, then you need to specify the entire default image path in this parameter. Replace `/` with `@@` in the default image path. For example, if the default image is accessible on `https://ik.imagekit.io/demo/path/to/image.jpg`, then the `di` parameter should be `di-@@path@@to@@image.jpg`.
 
+
+
 ### Progressive image - (pr)
 
-Used to specify whether the output JPEG image must be rendered progressively. In progressive loading, the output image renders as a low quality pixelated full image which over time keeps on adding more pixels and information to the image.  This helps you maintain a fast perceived load time. \
+Used to specify whether the output JPEG image must be rendered progressively. In progressive loading, the output image renders as a low quality pixelated full image which over time keeps on adding more pixels and information to the image.  This helps you maintain a fast perceived load time. \
 \
-\*\*Possible values \*\*include `true`  and `false` .\
+**Possible values **include `true`  and `false` .\
 \
 [https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,pr-true/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,pr-true/medium\_cafe\_B1iTdD0C.jpg)
 
@@ -605,17 +613,17 @@ Used to specify whether the output JPEG image must be rendered progressively. In
 
 Used to specify whether the output image (if in JPEG or PNG) must be compressed losslessly. In lossless compression, the output file size is larger than the regular lossy compression. However, the perceived image quality can be higher in certain cases, especially for computer-generated graphics. Using lossless compression for photographs is not recommended.\
 \
-**Possible Values**- `true`  and `false` \
+**Possible Values**- `true`  and `false` \
 \
 [https://ik.imagekit.io/demo/tr:w-500,h-361,lo-true/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:w-500,h-361,lo-true/medium\_cafe\_B1iTdD0C.jpg)
 
 ### Trim edges - (t)
 
-Useful with images that have a solid or nearly solid background with the object in the center. This parameter trims the background from the image, leaving only the central object in the output image.&#x20;
+Useful with images that have a solid or nearly solid background with the object in the center. This parameter trims the background from the image, leaving only the central object in the output image. 
 
 Usage - `t-true|Number`\
 \
-**Possible Values** include `true`  and integer values between `1`  and `99` that specify the threshold level for considering a particular pixel as "background".
+**Possible Values** include `true`  and integer values between `1`  and `99` that specify the threshold level for considering a particular pixel as "background".
 
 {% tabs %}
 {% tab title="Trim true" %}
@@ -667,11 +675,11 @@ URL - [https://ik.imagekit.io/demo/tr:w-300,b-20\_FF0000/medium\_cafe\_B1iTdD0C.
 
 ### Color profile - (cp)
 
-It is used to specify whether the output image should contain the color profile that is initially available with the original image. It is recommended to remove the color profile before serving the images on web and apps.  However, if you feel that the output image looks faded or washed out after using ImageKit.io, and want to preserve the colors of your original image, you should set this parameter to `true`.
+It is used to specify whether the output image should contain the color profile that is initially available with the original image. It is recommended to remove the color profile before serving the images on web and apps.  However, if you feel that the output image looks faded or washed out after using ImageKit.io, and want to preserve the colors of your original image, you should set this parameter to `true`.
 
-**Default Value**- `false` (from the dashboard)
+**Default Value**- `false` (from the dashboard)
 
-**Possible Values**- `true` and `false`&#x20;
+**Possible Values**- `true`  and `false` 
 
 {% tabs %}
 {% tab title="cp=false (Default)" %}
@@ -691,17 +699,17 @@ You might not observe any change in this particular image. It depends on if the 
 
 ### Image metadata - (md)
 
-It is used to specify whether the output image should contain all the metadata that is initially available with the original image. Image metadata is not relevant for rendering on the web and apps. It is, thus, recommended to not use it while delivering images. The only situation to enable the metadata option is when you want additional data like camera information, lens information, and other image profiles attached to your original image.&#x20;
+It is used to specify whether the output image should contain all the metadata that is initially available with the original image. Image metadata is not relevant for rendering on the web and apps. It is, thus, recommended to not use it while delivering images. The only situation to enable the metadata option is when you want additional data like camera information, lens information, and other image profiles attached to your original image. 
 
-**Default Value**- `false`  (from the dashboard)
+**Default Value**- `false`  (from the dashboard)
 
-**Possible Values**- `true` and `false`&#x20;
+**Possible Values**- `true`  and `false` 
 
 ### Rotate - (rt)
 
-It is used to specify the degree by which the output image must be rotated or specifies the use of EXIF Orientation Tag for the rotation of image using the `auto` parameter.
+It is used to specify the degree by which the output image must be rotated or specifies the use of EXIF Orientation Tag for the rotation of image using the `auto` parameter.
 
-**Possible Values**- Any number for a clockwise rotation, or any number preceded with `N` for counter-clockwise rotation , and `auto`
+**Possible Values**- Any number for a clockwise rotation, or any number preceded with `N` for counter-clockwise rotation , and `auto`
 
 {% hint style="info" %}
 Use `auto` if you want ImageKit.io to automatically rotate image based on EXIF orientation tag in image metadata.
@@ -723,9 +731,9 @@ URL - [https://ik.imagekit.io/demo/tr:rt-N40/medium\_cafe\_B1iTdD0C.jpg](https:/
 
 ### Radius - (r)
 
-It is used to specify the radius that must be used to obtain a rounded output image. To obtain a perfectly rounded image, set the value to `max` . This parameter is applied after resizing the original image, if defined.
+It is used to specify the radius that must be used to obtain a rounded output image. To obtain a perfectly rounded image, set the value to `max` . This parameter is applied after resizing the original image, if defined.
 
-**Possible Values** - Positive Integer and `max`
+**Possible Values** - Positive Integer and `max`
 
 {% hint style="info" %}
 For simpler cases, you can use radius in the same transformation as the height and width parameters. However, if you are using advanced cropping parameters, like crop (c) and crop mode (cm), then you should [chain](chained-transformations.md) the radius transformation in a step after the resizing transformation.
@@ -760,9 +768,8 @@ It is used to specify the background that can be used along with some cropping s
 **Default Value** - black (00000)
 
 **Solid color**
-
 * RGB Hex code: A 6-digit hex code (eg. AAFF00, 0f0fac)
-* RGBA Hex code: An 8-digit hex code. Last two characters must be a number between `00` and `99`, specifying the opacity level (eg. AAFF0040, 0f0fac75)
+* RGBA Hex code: An 8-digit hex code. Last two characters must be a number between `00` and `99`, specifying the opacity level (eg. AAFF0040, 0f0fac75) 
 * Color name: A standard color name in lowercase (eg. lightgreen, beige)
 
 {% tabs %}
@@ -796,7 +803,7 @@ Blur intensity `auto`: The intensity of blur is automatically adjusted based on 
 {% tab title="bg=blurred" %}
 URL - [https://ik.imagekit.io/demo/tr:h-600,w-800,cm-pad\_resize,bg-blurred/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-600,w-800,cm-pad\_resize,bg-blurred/medium\_cafe\_B1iTdD0C.jpg)
 
-![cm-pad\_resize,bg-blurred](../../.gitbook/assets/medium\_cafe-cm-pad\_resize,bg-blurred.png)
+![cm-pad\_resize,bg-blurred](../../.gitbook/assets/medium_cafe-cm-pad\_resize,bg-blurred.png)
 {% endtab %}
 
 {% tab title="bg=blurred_25_N30" %}
@@ -804,7 +811,7 @@ URL - [https://ik.imagekit.io/demo/tr:h-600,w-800,cm-pad\_resize,bg-blurred\_25\
 
 Customize blur-intensity to '25' & brightness to 'N30' (Make background darker)
 
-![cm-pad\_resize,bg-blurred\_25\_N30](../../.gitbook/assets/medium\_cafe-cm-pad\_resize,bg-blurred\_25\_N30.png)
+![cm-pad\_resize,bg-blurred\_25\_N30](../../.gitbook/assets/medium_cafe-cm-pad\_resize,bg-blurred\_25\_N30.png)
 {% endtab %}
 
 {% tab title="bg=blurred_auto_30" %}
@@ -812,7 +819,7 @@ URL - [https://ik.imagekit.io/demo/tr:h-600,w-800,cm-pad\_resize,bg-blurred\_aut
 
 Automatic blur-intensity & customize brightness to '30' (Make background lighter)
 
-![cm-pad\_resize,bg-blurred\_auto\_30](../../.gitbook/assets/medium\_cafe-cm-pad\_resize,bg-blurred\_auto\_30.png)
+![cm-pad\_resize,bg-blurred\_auto\_30](../../.gitbook/assets/medium_cafe-cm-pad\_resize,bg-blurred\_auto\_30.png)
 {% endtab %}
 {% endtabs %}
 
@@ -824,7 +831,7 @@ URL - [https://ik.imagekit.io/demo/img/logo-white\_SJwqB4Nfe.png?tr=bg-F00000](h
 
 ### Original image - (orig)
 
-By default, any image that is delivered via ImageKit.io always gets optimized in some way or the other. While this automatic optimization is great for web and apps, there might be certain cases where you want to get the original image as is. You can do so by using the parameter `orig`  and set the value to `true` .  If there are any other transformation parameters specified along with `orig-true` , then those get ignored.
+By default, any image that is delivered via ImageKit.io always gets optimized in some way or the other. While this automatic optimization is great for web and apps, there might be certain cases where you want to get the original image as is. You can do so by using the parameter `orig`  and set the value to `true` .  If there are any other transformation parameters specified along with `orig-true` , then those get ignored.
 
 Example - [https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:orig-true/medium\_cafe\_B1iTdD0C.jpg)
 
@@ -836,6 +843,6 @@ Set `ik-attachment=true` query param in the URL to download the file as an attac
 
 By specifying this parameter in the file URL, ImageKit sets the `content-disposition` header in the response with the value `attachment` along with the file name.
 
-Example - [https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?ik-attachment=true](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?ik-attachment=true)
+Example - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true)
 
-![](https://ik.imagekit.io/demo/medium\_cafe\_B1iTdD0C.jpg?ik-attachment=true)
+![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true)
