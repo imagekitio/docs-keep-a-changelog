@@ -105,3 +105,38 @@ File-specific settings hold the highest priority compared to both common setting
 
 ### Upload parameters
 
+* Extensions
+
+Extensions let you perform certain advanced operations on your assets during upload. For reference about extensions, [read here](../../extensions/overview).
+
+* Custom focus area
+
+Define an important area in the image during upload. This is an optional field and is only relevant for image type files. To learn more about Custom focus area, [read here](./custom-focus-area.md).
+
+* Generate unique filenames with random suffixes
+
+When this setting is activated, ImageKit automatically appends a random suffix to the file name. This prevents overwriting of existing files by ensuring each file name is unique.
+
+* Overwrite files during upload
+
+If a file with an identical name already exists at the destination, activating this setting will create a new version of the file. Conversely, if this setting is off and a file with the same name exists, an error will be generated.
+
+* Set files as private during upload
+
+This setting allows you to mark files as private. When this setting is enabled, the file is set as private, which limits access to the original file URL and unnamed transformations without signed URLs. Without the signed URL, only named transformations can be applied to private assets.
+
+* Overwrite AI tags during upload
+
+If this feature is enabled and a file with the same name already exists at the target destination, the existing AI tags of the file will be replaced with new ones or removed if no tagging extension is applied. Conversely, if this setting is off, the existing AI tags of the file will be preserved in the new version. To learn more about AI based auto tagging, [read here](../../extensions/overview/ai-based-auto-tagging.md).
+
+* Overwrite user-set tags during upload
+
+If this feature is enabled and a file with the same name already exists at the target destination, the user-set tags of the file will be replaced with new ones or removed if no tags are provided. Conversely, if this setting is off, the existing user-set tags of the file will be preserved in the new version.
+
+* Overwrite custom metadata during upload
+
+If this feature is enabled and a file with the same name already exists at the target destination, the custom metadata of the file will be replaced with new one or removed if no custom metadata is provided. Conversely, if this setting is off, the existing custom metadata of the file will be preserved in the new version.
+
+* Custom metadata
+
+Custom metadata fields can be used to store any type of data about your images in key-value pairs during upload. Before setting any custom metadata on an asset you have to create the field from media library settings or using custom metadata fields API.
