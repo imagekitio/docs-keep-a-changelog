@@ -36,7 +36,7 @@ Notice that height is automatically adjusted to maintain the aspect ratio.
 
 ### Height - (h)
 
-Used to specify the height of the output video. Accepts integer value greater than 1.
+Used to specify the height of the output video. Accepts integer value greater than 1.&#x20;
 
 You can also provide an arithmetic expression such as `ih_div_2`, `ch_mul_0.5`, or `ih` as a value for this parameter. Doing so will first calculate the value of the expression and then apply transformations using that value. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
 
@@ -90,7 +90,7 @@ But when you specify both [height(h)](resize-crop-and-other-common-video-transfo
 
 {% hint style="info" %}
 **Tip for choosing the right cropping strategy**\
-\*\*\*\*When choosing among different strategies for cropping, think in terms of your website layout and desired output video dimension.
+****When choosing among different strategies for cropping, think in terms of your website layout and desired output video dimension.
 {% endhint %}
 
 * If you want to preserve the whole video content without any cropping and need the exact same dimensions (height and width) in the output as requested, choose either the [pad resize crop](resize-crop-and-other-common-video-transformations.md#pad-resize-crop-strategy-cm-pad\_resize) or [forced crop strategy](resize-crop-and-other-common-video-transformations.md#forced-crop-strategy-c-force).
@@ -127,7 +127,7 @@ The video is exactly 400x200 and there is no cropping. Extra padding with [backg
 \
 The video is exactly 700x700 and there is no cropping. The extra padding added consists of a [blurred background](resize-crop-and-other-common-video-transformations.md#background-bg) made using the source video to get 400x200 output dimensions.
 
-![](../../.gitbook/assets/screenshot-cm-pad\_resize,bg-blurred.png)
+![](../../.gitbook/assets/screenshot-cm-pad_resize,bg-blurred.png)
 {% endtab %}
 
 {% tab title="cm-pad_resize (left)" %}
@@ -141,7 +141,7 @@ We added the `fo-left`. Now, all the padding is on the right of the video.
 
 ### Forced crop strategy - (c-force)
 
-In a forced crop strategy, the output video's dimension (height and width) is exactly the same as requested, no cropping takes place, but the aspect ratio is not preserved. It forcefully squeezes the original video to get it to fit completely within the output dimensions.
+In a forced crop strategy, the output video's dimension (height and width) is exactly the same as requested, no cropping takes place, but the aspect ratio is not preserved. It forcefully squeezes the original video to get it to fit completely within the output dimensions.&#x20;
 
 URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-200,h-200,c-force](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-200,h-200,c-force)\
 \
@@ -149,7 +149,9 @@ Notice that the aspect ratio is changed and the video looks squeezed.
 
 ![](<../../.gitbook/assets/image (37).png>)
 
-### Max-size cropping strategy - (c-at\_max)
+
+
+### Max-size cropping strategy - (c-at_max)
 
 In the max-size crop strategy, whole video content is preserved without any cropping, the aspect ratio is preserved, but one of the dimensions (height or width) is adjusted.
 
@@ -161,19 +163,20 @@ Notice that the aspect ratio is maintained and there is no cropping. But the hei
 
 ![](<../../.gitbook/assets/image (38).png>)
 
-### Min-size cropping strategy - (c-at\_least)
+### Min-size cropping strategy - (c-at_least)
 
 This strategy is similar to the [max-size cropping](resize-crop-and-other-common-video-transformations.md#max-size-cropping-strategy-c-at\_max) strategy, with the only difference being that, unlike the max-size strategy, the output video dimension is equal to or larger than the requested dimensions. One of the dimensions will be exactly the same as what is requested, while the other dimension will be equal to or larger than what is requested.
 
 URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-200,h-200,c-at\_least](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-200,h-200,c-at\_least)
 
-Notice that the height is 200px as requested, but the width is more than 200px. The aspect ratio is maintained and there is no cropping.\\
+Notice that the height is 200px as requested, but the width is more than 200px. The aspect ratio is maintained and there is no cropping.\
+
 
 ![](<../../.gitbook/assets/image (39).png>)
 
-### Maintain ratio crop strategy - (c-maintain\_ratio)
+### Maintain ratio crop strategy - (c-maintain_ratio)
 
-This is the default crop strategy. If no crop (`c`) or crop\_mode (`cm`) is specified in the URL, `c-maintain_ratio` gets applied automatically.
+This is the default crop strategy. If no crop (`c`) or crop_mode (`cm`) is specified in the URL, `c-maintain_ratio` gets applied automatically.
 
 In this strategy, the output video's dimensions (height and width) are the same as requested, and the aspect ratio is preserved. This is accomplished by resizing the video to the requested dimension and then cropping extra parts to get desired height & width.
 
@@ -189,23 +192,23 @@ URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=orig-true](https://ik.ima
 {% endtab %}
 
 {% tab title="w-400,h-300,c-maintain_ratio" %}
-URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain\_ratio](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain\_ratio)
+URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain_ratio](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain_ratio)
 
-[`w-400,h-300,c-maintain_ratio`](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain\_ratio) is equivalent to [`w-400,h-300`](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300) because `maintain_ratio` is the default crop strategy.
+[`w-400,h-300,c-maintain_ratio`](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain_ratio) is equivalent to [`w-400,h-300`](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300) because `maintain_ratio` is the default crop strategy.
 
 Notice that the video's dimension matches 400x300, but the content is cropped from all edges, i.e., by default, ImageKit will extract the video from the center.
 
-![w-400,h-300,c-maintain\_ratio](../../.gitbook/assets/screenshot-c-maintain\_ratio-fo-center.png)
+![w-400,h-300,c-maintain_ratio](../../.gitbook/assets/screenshot-c-maintain_ratio-fo-center.png)
 {% endtab %}
 
 {% tab title="w-400,h-300,c-maintain_ratio,fo-left" %}
-URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain\_ratio,fo-left](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain\_ratio,fo-left)
+URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain_ratio,fo-left](https://ik.imagekit.io/demo/sample-video.mp4?tr=w-400,h-300,c-maintain_ratio,fo-left)
 
 Using the [focus (`fo`) parameter](resize-crop-and-other-common-video-transformations.md#focus-fo), you can specify the side to crop from.
 
 Here the video's dimension matches 400x300 and crops out the content on right side, because focus (`fo`) is set to `left`.
 
-![w-400,h-300,c-maintain\_ratio,fo-left](../../.gitbook/assets/screenshot-c-maintain\_ratio-fo-left.png)
+![w-400,h-300,c-maintain_ratio,fo-left](../../.gitbook/assets/screenshot-c-maintain_ratio-fo-left.png)
 {% endtab %}
 {% endtabs %}
 
@@ -234,12 +237,14 @@ In the relative method, you can use the [focus (fo) parameter](resize-crop-and-o
 Valid relative values for `fo` parameters are - `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`.
 
 ![](<../../.gitbook/assets/image (49).png>)
+
+
 {% endtab %}
 {% endtabs %}
 
 ### Focus - (fo)
 
-This parameter can be used along with [pad resize](resize-crop-and-other-common-video-transformations.md#pad-resize-crop-strategy-cm-pad\_resize), [maintain ratio](resize-crop-and-other-common-video-transformations.md#maintain-ratio-crop-strategy) or [extract crop](resize-crop-and-other-common-video-transformations.md#extract-crop-strategy-cm-extract) to change the behaviour of padding or cropping. Learn more from the different examples shown in respective sections.
+This parameter can be used along with [pad resize](resize-crop-and-other-common-video-transformations.md#pad-resize-crop-strategy-cm-pad\_resize), [maintain ratio](resize-crop-and-other-common-video-transformations.md#maintain-ratio-crop-strategy) or [extract crop](resize-crop-and-other-common-video-transformations.md#extract-crop-strategy-cm-extract) to change the behaviour of padding or cropping. Learn more from the different examples shown in respective sections.&#x20;
 
 This parameter can have the following values depending upon where it is being used:
 
@@ -278,9 +283,9 @@ Video size is 406KB which is less than half of the original 1.1MB video. File si
 
 Used to specify the format of the output video. If no output format is specified then based on your settings in the dashboard, ImageKit.io automatically picks the best format for that video request.
 
-Possible values include `auto` ,`mp4` , `webm`.
+Possible values include `auto` ,`mp4` , `webm`.
 
-**Default Value** - `auto`. You can disable [automatic video format conversion](../video-optimization/automatic-video-format-conversion.md) from the dashboard settings.
+**Default Value** - `auto`. You can disable [automatic video format conversion](../video-optimization/automatic-video-format-conversion.md) from the dashboard settings.&#x20;
 
 ### Audio codec - (ac)
 
@@ -313,9 +318,9 @@ Use `none` for extracting audio from the source video. So the output will be an 
 
 ### Named transformation - (n)
 
-[Named Transformations](../named-transformations.md) are an alias for the entire transformation string. \
+[Named Transformations](../named-transformations.md) are an alias for the entire transformation string. \
 \
-For example, we can create a named transformation - `video_thumbnail` for a transformation string - `tr:w-300,h-300` and is used like:
+For example, we can create a named transformation - `video_thumbnail` for a transformation string - `tr:w-300,h-300` and is used like:
 
 URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=n-video\_thumbnail](https://ik.imagekit.io/demo/sample-video.mp4?tr=n-video\_thumbnail)
 
@@ -325,7 +330,7 @@ URL - [https://ik.imagekit.io/demo/sample-video.mp4?tr=n-video\_thumbnail](https
 
 It is used to specify the background when using [crop-mode pad\_resize](resize-crop-and-other-common-video-transformations.md#pad-resize-crop-strategy-cm-pad\_resize) or border-radius (r). The background can be any solid colour or blurred frame of the video.
 
-**Default Value** - By default the background is black.
+**Default Value** -  By default the background is black.
 
 **Solid color**
 
@@ -337,7 +342,7 @@ It is used to specify the background when using [crop-mode pad\_resize](resize-c
 {% tab title="bg=red" %}
 URL - [https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_resize,bg-red/sample2.mp4](https://ik.imagekit.io/demo/tr:h-700,w-700,cm-pad\_resize,bg-red/sample2.mp4)
 
-![cm-pad\_resize-bg-red](../../.gitbook/assets/screenshot-cm\_pad\_resize-bg-red.png)
+![cm-pad\_resize-bg-red](../../.gitbook/assets/screenshot-cm_pad\_resize-bg-red.png)
 {% endtab %}
 
 {% tab title="bg=A94D34" %}
@@ -396,16 +401,17 @@ You can also provide an arithmetic expression such as `ih_div_20_red`, or `cw_mu
 
 {% tabs %}
 {% tab title="5px yellow border" %}
-URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-5\_yellow](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-5\_yellow)
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-5_yellow](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-5_yellow)
 {% endtab %}
 
 {% tab title="15px red border" %}
-URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-15\_red](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-15\_red)
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-15_red](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-15_red)
 {% endtab %}
 
 {% tab title="15px #5587d9" %}
-URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-15\_5587d9](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-15\_5587d9)
+URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-15_5587d9](https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=b-15_5587d9)
 {% endtab %}
+
 {% endtabs %}
 
 ### Radius - (r)
@@ -414,7 +420,7 @@ Get a video with a rounded corner. Control the radius of the corner using this p
 
 Usage - `r-<value>`
 
-**Possible Values** - Any positive integer or `max`.
+**Possible Values** - Any positive integer or `max`.
 
 {% hint style="info" %}
 You can also change the background color of the video from the default black color using the [background parameter](resize-crop-and-other-common-video-transformations.md#background-bg).
@@ -440,7 +446,7 @@ URL - [https://ik.imagekit.io/ikmedia/sample-video.mp4?tr=r-max](https://ik.imag
 
 It is used to specify the degree by which the output video must be rotated.
 
-**Possible Values** - `0` , `90` , `180` , `270` and `360`.
+**Possible Values** - `0` , `90` , `180` , `270` and `360`.
 
 {% tabs %}
 {% tab title="rt=90" %}
@@ -462,7 +468,7 @@ Specify start offset in seconds. The video before the start offset is removed fr
 
 Usage - `so-<value>`
 
-**Possible Values** - Specify the time in seconds as a positive number up to 2 decimal places e.g. 20 or 10.55. It must be less than the duration of the input video.
+**Possible Values** - Specify the time in seconds as a positive number up to 2 decimal places e.g. 20 or 10.55. It must be less than the duration of the input video.
 
 ### End offset - (eo)
 
@@ -470,7 +476,7 @@ Specify end offset in seconds. The video after end offset is removed from the ou
 
 Usage - `eo-<value>`
 
-**Possible Values** - Specify the time in seconds as a positive number up to 2 decimal places e.g. 20 or 10.55. It must be less than the duration of the input video.
+**Possible Values** - Specify the time in seconds as a positive number up to 2 decimal places e.g. 20 or 10.55. It must be less than the duration of the input video.
 
 ### Duration - (du)
 
@@ -492,21 +498,21 @@ To get the snapshot from a specific time point, use the `so` parameter.
 
 You can transform the output image using following parameters.
 
-| Parameter                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `l` and other [layer positional parameters](overlay.md#position-of-layer).                        | [Layers](overlay.md#layers) to overlay images and text.                                                                                                                                                                                                                                                                                                                                                                                           |
-| [w](../image-transformations/resize-crop-and-other-transformations.md#width-w)                    | Specify the width.                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| [h](../image-transformations/resize-crop-and-other-transformations.md#height-h)                   | Specify the height.                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)           | Aspect ratio of output, when either width or height is specified.                                                                                                                                                                                                                                                                                                                                                                                 |
-| [c](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)  | Cropping method. Accepts `force`, `at_max`, and `at_least`.                                                                                                                                                                                                                                                                                                                                                                                       |
-| [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus) | Crop mode. Supports `extract` and `pad_resize`.                                                                                                                                                                                                                                                                                                                                                                                                   |
-| [fo](../image-transformations/resize-crop-and-other-transformations.md#focus-fo)                  | Relative focus area used during cropping. Accpets `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`.                                                                                                                                                                                                                                                                                          |
-| [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                   | This adds a border to the image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>`                                                                                                                                                                                                                                                                                          |
-| [bg](../image-transformations/resize-crop-and-other-transformations.md#background-bg)             | It is used to specify the background that can be used along with some cropping strategies while resizing or applying border-radius (`r`). You can choose either a solid color (using standard-browser-colors, RGB hex code, or RGBA hex code to specify color) or a blurred version of the image (using the syntax `blurred[_<BlurIntensity>][_<Brightness>]`). Example: `bg-red`, `bg-AAFF00`, `bg-AAFF0010`, `bg-blurred`, `bg-blurred_25_N15`. |
-| [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)                   | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. (Background color can be specified with `bg` parameter)                                                                                                                                                                                                                                                                                    |
-| [so](resize-crop-and-other-common-video-transformations.md#start-offset-so)                       | Start offset of the video in unit of seconds to pick thumbnail from a specific time point.                                                                                                                                                                                                                                                                                                                                                        |
+| Parameter   | Description |
+| ----------- | ----------- |
+| `l` and other [layer positional parameters](../video-transformation/overlay.md#position-of-layer).           | [Layers](../video-transformation/overlay.md#layers) to overlay images and text.   |
+| [w](../image-transformations/resize-crop-and-other-transformations.md#width-w)                                 | Specify the width. |
+| [h](../image-transformations/resize-crop-and-other-transformations.md#height-h)                                | Specify the height. |
+| [ar](../image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar)                        | Aspect ratio of output, when either width or height is specified. |
+| [c](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)               | Cropping method. Accepts `force`, `at_max`, and `at_least`. |
+| [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)              | Crop mode. Supports `extract` and `pad_resize`. |
+| [fo](../image-transformations/resize-crop-and-other-transformations.md#focus-fo)                               | Relative focus area used during cropping. Accpets `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right`. |
+| [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                                | This adds a border to the image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>` |
+| [bg](../image-transformations/resize-crop-and-other-transformations.md#background-bg)                    | It is used to specify the background that can be used along with some cropping strategies while resizing or applying border-radius (`r`). You can choose either a solid color (using standard-browser-colors, RGB hex code, or RGBA hex code to specify color) or a blurred version of the image (using the syntax `blurred[_<BlurIntensity>][_<Brightness>]`). Example: `bg-red`, `bg-AAFF00`, `bg-AAFF0010`, `bg-blurred`, `bg-blurred_25_N15`. |
+| [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)                                | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. (Background color can be specified with `bg` parameter) |
+| [so](../video-transformation/resize-crop-and-other-common-video-transformations.md#start-offset-so)         | Start offset of the video in unit of seconds to pick thumbnail from a specific time point. |
 
-You can use [image-layer (`l-image`)](overlay.md#transformation-of-image-overlay) to add overlay image and [text-layer (`l-text`)](overlay.md#add-text-over-video) to add overlay text on the thumbnail. The use of layers in video-thumbnail & video-transformation is identical, therefore you can use time/duration based parameter (lso, leo & ldu) in the layer.
+You can use [image-layer (`l-image`)](../video-transformation/overlay.md#transformation-of-image-overlay) to add overlay image and [text-layer (`l-text`)](../video-transformation/overlay.md#add-text-over-video) to add overlay text on the thumbnail. The use of layers in video-thumbnail & video-transformation is identical, therefore you can use time/duration based parameter (lso, leo & ldu) in the layer.
 
 ## Gif to MP4
 
