@@ -27,76 +27,13 @@ The maximum upload file size is limited to 25MB on the free plan. On paid plan, 
 
 ## Allowed file types for uploading
 
-ImageKit.io allows you to upload a file with the following mime types:
+ImageKit.io supports the uploading of a wide range of file types, accommodating various formats from media files to documents.
 
-| Allowed file types | Description            |
-| ------------------ | ---------------------- |
-| jpg                | JPG image file format  |
-| jpeg               | JPEG image file format |
-| png                | PNG image files        |
-| webp               | WebP image files       |
-| gif                | GIF image files        |
-| svg                | SVG image files        |
-| heif               | HEIF image files       |
-| heic               | HEIC image files       |
-| bmp                | BMP image files        |
-| flif               | FLIF image files       |
-| arw                | ARW image files        |
-| tif                | TIF files              |
-| tiff               | TIFF files             |
-| pdf                | PDF documents          |
-| js                 | Javascript files       |
-| mjs                | MJS javascript files   |
-| css                | CSS files              |
-| php                | PHP files              |
-| py                 | PY files               |
-| yml                | YML files              |
-| yaml               | YAML files             |
-| woff2              | Font files             |
-| woff               | Font files             |
-| ttf                | Font files             |
-| otf                | Font files             |
-| eot                | Font files             |
-| ps                 | PostScript files       |
-| txt                | Text files             |
-| mp4                | MP4 video files        |
-| webm               | WebM video files       |
-| mov                | Movie files            |
-| swf                | SWF files              |
-| ts                 | Video files            |
-| m3u8               | Video playlist files   |
-| json               | JSON files             |
-| xml                | XML files              |
-| rss                | RSS files              |
-| html               | HTML files             |
-| mp3                | MP3 audio files        |
-| m4a                | M4A audio files        |
-| wav                | WAV audio files        |
-| doc                | Microsoft doc files    |
-| ppt                | Microsoft ppt files    |
-| xls                | Microsoft xls files    |
-| docx               | Microsoft docx files   |
-| pptx               | Microsoft pptx files   |
-| xlsx               | Microsoft xlsx files   |
-| eps                | EPS vector files       |
-| eps3               | EPS3 vector files      |
-| indd               | INDD files             |
-| ai                 | AI vector files        |
-| bw                 | BW graphic files       |  
-| psd                | PSD files              |
-| rtf                | RTF document files     |
-| EPT                | EPT files              |
-| glb                | GLB 3D files           |
-| dxf                | DXF 3D files           |
-| 3ds                | 3DS 3D files           |
-| obj                | OBJ 3D files           |
-| stl                | STL 3D files           |
-| fbx                | FBX 3D files           |
-| ply                | PLY 3D files           |
-| gltf               | GLTF 3D files          |
-| djvu               | DJVU files             |
-| dng                | DNG files              |
-| appimage           | APPIMAGE files         |
+#### How file types are identified
+
+1. **Binary Files**: Binary files, such as images, videos, and executables, are identified using the 'magic number'.
+2. **Text Files**: Text files, such as HTML, CSS, and JavaScript, are identified using the file extension.
+3. **Text Files without extension**: When a text file is uploaded without an extension, it is categorized under the content-type `application/octet-stream.’ 
 
 
 ## Bulk file upload
