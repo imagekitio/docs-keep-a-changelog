@@ -31,10 +31,9 @@ ImageKit.io supports the uploading of a wide range of file types, accommodating 
 
 #### How file types are identified
 
-1. **Binary Files**: Binary files, such as images, videos, and executables, are identified using the 'magic number'.
-2. **Text Files**: Text files, such as HTML, CSS, and JavaScript, are identified using the file extension.
-3. **Text Files without extension**: When a text file is uploaded without an extension, it is categorized under the content-type `application/octet-stream.’ 
-
+1. **Binary files**: Binary files, such as images, videos, and executables, are identified using the 'magic number'.
+2. **Text files**: Text files, such as HTML, CSS, and JavaScript, are identified using the file extension.
+3. **Text files without extension**: When a text file is uploaded without an extension, it is categorized under the content-type `application/octet-stream.’ 
 
 ## Bulk file upload
 
