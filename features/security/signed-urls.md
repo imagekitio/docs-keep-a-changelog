@@ -148,3 +148,32 @@ var signature = crypto.createHmac('sha1', "your_private_key").update(str).digest
 // Add ik-t and ik-s query parameters in the url
 var finalImageUrl = imageUrl + "?ik-t=" + expiryTimestamp + "&ik-s=" + signature;
 ```
+
+### Signed URLs with special characters and diacritics
+
+Most browser engines encode special characters, diacritics or characters from different charsets to [UTF-8](https://developer.mozilla.org/en-US/docs/Glossary/UTF-8). For example, `é` (diacritic) is encoded as `e%CC%81`, and so on.
+
+{% hint style="info" %}
+To ensure that your signed URLs that contain such characters work, you must encode the complete URL of the input image before signing it. For example, instead of using `/default-image-with-é.jpg` as input path for the signed URL, use `/default-image-with-e%CC%81.jpg`.
+{% endhint %}
+
+```javascript
+/**
+ * In this case, encodeURIComponent(...) will return the UTF-8 equivalent -
+ * "/default-image-with-e%CC%81.jpg", which is then used for signing.
+ * 
+ * Ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+ **/
+var imageURL = imagekit.url({
+    path : encodeURIComponent("/default-image-with-é.jpg"),
+    queryParameters : {
+        "v" : "123"
+    },
+    transformation : [{
+        "height" : "300",
+        "width" : "400"
+    }],
+    signed : true,
+    expireSeconds : 300
+});
+```
