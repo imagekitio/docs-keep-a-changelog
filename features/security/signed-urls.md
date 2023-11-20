@@ -149,26 +149,23 @@ var signature = crypto.createHmac('sha1', "your_private_key").update(str).digest
 var finalImageUrl = imageUrl + "?ik-t=" + expiryTimestamp + "&ik-s=" + signature;
 ```
 
-### Generating signatures for URLs with diacritics
+### Signed URLs with special characters and diacritics
 
-Most browser engines encode the diacritics when used within a URL. For example,
+Most browser engines encode special characters, diacritics or characters from different charsets to [UTF-8](https://developer.mozilla.org/en-US/docs/Glossary/UTF-8). For example, `é` (diacritic) is encoded as `e%CC%81`, and so on.
 
-```
-é -> e%CC%81
-
-and so on...
-```
-
-To ensure that your signed URLs that contain a diacritic character works, you would need to use an encoded string at the time of signature generation.
+{% hint style="info" %}
+To ensure that your signed URLs that contain such characters work, you must encode the complete URL of the input image before signing it. For example, instead of using `/default-image-with-é.jpg` as input path for the signed URL, use `/default-image-with-e%CC%81.jpg`.
+{% endhint %}
 
 ```javascript
 /**
- * To encode a URL like "https://ik.imagekit.io/<imagekit_id>/default-image-with-é.jpg",
- * make sure you use the UTF-8 encoded string corresponding to the diacritic character.
- * In this case, we need to use "https://ik.imagekit.io/<imagekit_id>/default-image-with-e%CC%81.jpg"
+ * In this case, encodeURIComponent(...) will return the UTF-8 equivalent -
+ * "/default-image-with-e%CC%81.jpg", which is then used for signing.
+ * 
+ * Ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
  **/
 var imageURL = imagekit.url({
-    path : "/default-image-with-e%CC%81.jpg",
+    path : encodeURIComponent("/default-image-with-é.jpg"),
     queryParameters : {
         "v" : "123"
     },
