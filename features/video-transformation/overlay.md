@@ -86,15 +86,24 @@ l-image,i-outer.png,l-image,i-inner.png,lfo-top_left,l-end,l-end
 ```
 
 # Add images over video
-You can add an image over a base video using the following example.
 
-## Usage syntax
+You can add an image over a base video using image layer (`l-image`).
+
+## Usage
 
 ```markup
 https://ik.imagekit.io/demo/base-video.mp4?tr=l-image,i-logo.png,l-end
 ```
 
 You can also control the position of image overlay using these [positional parameters](overlay.md#position-of-layer).
+
+Input (`i` or `ie`) for `l-image` can be JPG, PNG, WEBP, TIFF or GIF files.
+
+{% hint style="info" %}
+When GIF file is used in image layer, the 1st frame of the GIF is used as a static image. For animated GIF you can use [video layer (`l-video`)](#add-video-over-video).
+
+Animated-WebP and animated-PNG (`apng`) are not supported in Imagekit's video API.
+{% endhint %}
 
 ## Transformation of image overlay
 
@@ -144,15 +153,21 @@ Following transformation parameters are supported on the text inside a layer.
 
 # Add video over video
 
-You can add video over a base video using the following example.
+You can add video or GIF over a base video using video layer (`l-video`).
 
-## Usage syntax
+## Usage
 
 ```markup
 https://ik.imagekit.io/demo/base-video.mp4?tr=l-video,i-overlay.mp4,l-end
 ```
 
 You can also control the position of video overlay using these [positional parameters](overlay.md#position-of-layer).
+
+All supported [video formats](../video-transformation/README.md#supported-codecs-for-inputs) & GIF can be used a input (`i` or `ie`) for video layer.
+
+{% hint style="info" %}
+Animated-WebP and animated-PNG (`apng`) are not supported in Imagekit's video API.
+{% endhint %}
 
 ## Transformation of video overlay
 
