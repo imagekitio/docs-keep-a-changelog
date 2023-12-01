@@ -10,13 +10,13 @@ This is a quick start guide to show you how to integrate ImageKit in the Vue.js 
 
 This guide walks you through the following topics:
 
-* [Setting up ImageKit Vue.js SDK](vuejs.md#setup-imagekit-vue-js-sdk)
-* [Rendering images](vuejs.md#rendering-images-in-vue-js)
-* [Applying common image manipulations](vuejs.md#common-image-manipulation-in-vue-js)
-* [Adding overlays to images](vuejs.md#adding-overlays-to-images-in-vue-js)
-* [Lazy loading images](vuejs.md#lazy-loading-images-in-vue-js)
+* [Setting up ImageKit Vue.js SDK](vuejs.md#setup-imagekit-vue.js-sdk)
+* [Rendering images](vuejs.md#rendering-images-in-vue.js)
+* [Applying common image manipulations](vuejs.md#common-image-manipulation-in-vue.js)
+* [Adding overlays to images](vuejs.md#adding-overlays-to-images-in-vue.js)
+* [Lazy loading images](vuejs.md#lazy-loading-images-in-vue.js)
 * [Blurred image placeholder](vuejs.md#blurred-image-placeholder)
-* [Client-side file uploading](vuejs.md#uploading-files-in-vue-js)
+* [Client-side file uploading](vuejs.md#uploading-files-in-vue.js)
 
 ## Setup ImageKit Vue.js SDK
 
@@ -38,7 +38,7 @@ vue create vuejs
 
 It will prompt the vue version and a few other options, select default by pressing enter. It will create a dummy project like this:
 
-![](<../../.gitbook/assets/Screenshot 2020-09-25 at 1.34.44 PM.png>)
+![](<../../.gitbook/assets/vue-initial-setup.png>)
 
 #### Install imagekitio-vue&#x20;
 
@@ -50,17 +50,8 @@ yarn add imagekitio-vue
 
 #### Initialize SDK
 
-```javascript
-import ImageKit from "imagekitio-vue"
-Vue.use(ImageKit, {
-  urlEndpoint: "your_url_endpoint",
-  // publicKey: "your_public_api_key",
-  // authenticationEndpoint: "https://www.your-server.com/auth"
-})
-```
-
 * `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
+* `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
 
 Let's modify src/components/HelloWorld.vue to import and initialize ImageKit as a plugin. Replace `your_url_endpoint` etc, with actual values.
 
@@ -73,40 +64,42 @@ Let's modify src/components/HelloWorld.vue to import and initialize ImageKit as 
 </template>
 
 <script>
-import Vue from "vue"
-import ImageKit from "imagekitio-vue"
-Vue.use(ImageKit, {
-  urlEndpoint: "your_url_endpoint", // Required. Default URL-endpoint is https://ik.imagekit.io/your_imagekit_id
-  publicKey: "your_public_api_key", // optional
-  authenticationEndpoint: "https://www.your-server.com/auth" // optional
-})
+import { IKImage, IKContext, IKVideo, IKUpload } from "imagekitio-vue";
 
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
+  components: {
+    IKImage,
+    IKContext,
+    IKVideo,
+    IKUpload,
+  },
   props: {
-    msg: String
+    msg: String,
   }
 }
 </script>
 ```
 {% endcode %}
 
-This SDK provides 3 global components when registered as a plugin:
+This SDK provides 4 components:
 
-* `ik-image` for [image resizing](https://github.com/imagekit-developer/imagekit-vuejs#image-resizing). The output is a `<img>` tag.
-* `ik-upload` for [file uploading](https://github.com/imagekit-developer/imagekit-vuejs#file-upload). The output is a `<input type="file">` tag.
-* [`ik-context`](https://github.com/imagekit-developer/imagekit-vuejs#ik-context) for defining `urlEndpoint`, `publicKey` and `authenticationEndpoint` to all children elements.
+* `IKImage` for [image resizing](https://github.com/imagekit-developer/imagekit-vuejs#image-resizing). The output is a `<img>` tag.
+* `IKVideo` for [video resizing](#video-resizing). This renders a `<video>` tag.
+* `IKUpload` for [file uploading](https://github.com/imagekit-developer/imagekit-vuejs#file-upload). The output is a `<input type="file">` tag.
+* [`IKContext`](https://github.com/imagekit-developer/imagekit-vuejs#ik-context) for defining `urlEndpoint`, `publicKey` and `authenticationEndpoint` to all children elements.
 
-You can also import components individually.
+You can import components individually.
 
 ```javascript
-import { IKImage, IKContext, IKUpload } from "imagekitio-vue"
+import { IKImage, IKContext, IKVideo, IKUpload } from "imagekitio-vue";
 
 export default {
   components: {
     IKImage,
     IKContext,
-    IKUpload
+    IKVideo,
+    IKUpload,
   }
 }
 ```
@@ -122,30 +115,36 @@ Let's render an image at path `/default-image.jpg`.
 <template>
   <div>
     <h1>ImageKit Vuejs quick start</h1>
-    <ik-image width="400" path="/default-image.jpg">
-    </ik-image>
+    <IKImage :urlEndpoint="urlEndpoint" :path="path" width="400" />
   </div>
 </template>
 
 <script>
-import Vue from "vue"
-import ImageKit from "imagekitio-vue"
-Vue.use(ImageKit, {
-  urlEndpoint: "https://ik.imagekit.io/demo"
-})
+import { IKImage } from "imagekitio-vue";
+
+let path = "/default-image.jpg";
 
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
+  components: {
+    IKImage,
+  },
+  data() {
+    return {
+      urlEndpoint: "https://ik.imagekit.io/demo",
+      path,
+    };
+  },
   props: {
-    msg: String
+    msg: String,
   }
-}
+};
 </script>
 ```
 {% endcode %}
 
 ```javascript
-<ik-image width="400" path="/default-image.jpg">
+<IKImage urlEndpoint="https://ik.imagekit.io/demo" path="/default-image.jpg" width="400" />
 ```
 
 renders to:
@@ -158,7 +157,7 @@ renders to:
 
 The final result looks like this:
 
-![](<../../.gitbook/assets/Screenshot 2020-09-25 at 4.04.40 PM.png>)
+![](<../../.gitbook/assets/vue-image.png>)
 
 #### Loading image from an absolute path
 
@@ -167,9 +166,7 @@ If you have an absolute image path coming from the backend API e.g. `https://www
 For example:
 
 ```javascript
-<ik-image 
-    width="400" 
-    src="https://ik.imagekit.io/demo/default-image.jpg" />
+<IKImage urlEndpoint="https://ik.imagekit.io/demo" width="400" src="https://ik.imagekit.io/demo/default-image.jpg" />
 ```
 
 The output looks like this:
@@ -180,7 +177,7 @@ The output looks like this:
 
 This section covers the basics:
 
-* [Resizing images ](vuejs.md#resizing-images-in-vue-js)
+* [Resizing images ](vuejs.md#resizing-images-in-vue.js)
 * [Quality manipulation](vuejs.md#quality-manipulation)
 * [Chained transformation](vuejs.md#chained-transformation)
 
@@ -193,9 +190,10 @@ The Vuejs SDK gives a name to each transformation parameter e.g. `height` for `h
 Let's resize the image to width 300 and height 300.
 
 ```javascript
-<ik-image 
-      path="/default-image.jpg" 
-      :transformation="[{width: 300, height: 300}]" />
+<IKImage 
+  urlEndpoint="https://ik.imagekit.io/demo" 
+  path="/default-image.jpg" 
+  :transformation="[{ width: 300, height: 300 }]" />
 ```
 
 The output looks like:
@@ -207,7 +205,8 @@ The output looks like:
 You can use the [quality parameter](../../features/image-transformations/resize-crop-and-other-transformations.md#quality-q) to change quality like this:
 
 ```javascript
-<ik-image 
+<IKImage 
+  urlEndpoint="https://ik.imagekit.io/demo" 
   path="/default-image.jpg" 
   :transformation="[{quality: 40}]" />
 ```
@@ -238,7 +237,8 @@ transformation = [
 So the following:
 
 ```javascript
-<ik-image 
+<IKImage 
+      urlEndpoint="https://ik.imagekit.io/demo"
       path="/default-image.jpg" 
       :transformation="[{width: 300, height: 300}, {rotation: 90}]" />
 ```
@@ -254,7 +254,8 @@ ImageKit.io allows you to can add [text](../../features/image-transformations/ov
 For example:
 
 ```javascript
-<ik-image 
+<IKImage 
+  urlEndpoint="https://ik.imagekit.io/demo"
   path="/default-image.jpg" 
   :transformation="[{
     width: 300, 
@@ -280,7 +281,7 @@ The output looks like:
 
 ## Lazy-loading images in Vue.js
 
-You can lazy load images using the `loading` prop in `ik-image` component. When you use `loading="lazy"`, all images that are immediately viewable without scrolling load normally. Those that are far below the device viewport are only fetched when the user scrolls near them.
+You can lazy load images using the `loading` prop in `IKImage` component. When you use `loading="lazy"`, all images that are immediately viewable without scrolling load normally. Those that are far below the device viewport are only fetched when the user scrolls near them.
 
 The SDK uses a fixed threshold based on the effective connection type to ensure that images are loaded early enough so that they have finished loading once the user scrolls near to them.
 
@@ -294,7 +295,8 @@ Example usage:
 
 ```javascript
 // Lazy loading images
-<ik-image
+<IKImage 
+  urlEndpoint="https://ik.imagekit.io/demo"
   path="/default-image.jpg"
   :transformation="[{height:300,width:400}]"
   loading="lazy"
@@ -309,7 +311,8 @@ To improve user experience, you can use a low-quality blurred variant of the ori
 
 ```javascript
 // Loading a blurred low quality image placeholder while the original image is being loaded
-<ik-image
+<IKImage 
+  urlEndpoint="https://ik.imagekit.io/demo"
   path="/default-image.jpg"
   :lqip="{active:true}"
 />
@@ -318,7 +321,8 @@ To improve user experience, you can use a low-quality blurred variant of the ori
 By default, the SDK uses the `quality:20` and `blur:6`. You can change this. For example:
 
 ```javascript
-<ik-image
+<IKImage 
+  urlEndpoint="https://ik.imagekit.io/demo"
   path="/default-image.jpg"
   :lqip="{active:true, quality: 40, blur: 5}"
 />
@@ -330,7 +334,8 @@ You have the option to lazy-load the original image only when the user scrolls n
 
 ```javascript
 // Loading a blurred low quality image placeholder and lazy-loading original when user scrolls near them
-<ik-image
+<IKImage 
+  urlEndpoint="https://ik.imagekit.io/demo"
   path="/default-image.jpg"
   :transformation="[{height:300,width:400}]"
   :lqip="{active:true}"
@@ -342,30 +347,20 @@ You have the option to lazy-load the original image only when the user scrolls n
 
 ## Uploading files in Vue.js
 
-Vuejs SDK provides `ik-upload` component which can generate an `input type="file"` tag that you can use to upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side.&#x20;
+Vuejs SDK provides `IKUpload` component which can generate an `input type="file"` tag that you can use to upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side.&#x20;
 
-For using upload functionality, we need to pass `publicKey` and `authenticationEndpoint` while [initializing the SDK](vuejs.md#initialize-sdk).  Replace `your_url_endpoint` , `your_public_key`, `your_authentication_endpoint` with actual values.
+For using upload functionality, we need to pass `publicKey` and `authenticator` in [`IKContext`](https://github.com/imagekit-developer/imagekit-vuejs#ik-context).  Replace `your_url_endpoint` , `your_public_key`, `your_authentication_endpoint` with actual values.
 
 ```javascript
-<script>
-import Vue from "vue";
-import ImageKit from "imagekitio-vue";
-Vue.use(ImageKit, {
-  urlEndpoint: "your_url_endpoint",
-  publicKey: "your_public_key",
-  authenticationEndpoint: "your_authentication_endpoint"
-});
-
-export default {
-  name: "HelloWorld",
-  props: {
-    msg: String
-  }
-};
-</script>
+  <IKContext publicKey="your_public_key" urlEndpoint="your_url_endpoint" :authenticator="authenticator">
+    <IKUpload
+      :onError="onError"
+      :onSuccess="onSuccess"
+    />
+  </IKContext>
 ```
 
-> `authenticationEndpoint` should be implemented in your backend. The SDK makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token`, and `expire`. [Learn how to implement authenticationEndpoint](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload#how-to-implement-authenticationendpoint-endpoint) on your server.
+> Make sure that you have specified `authenticator` and `publicKey` in the parent IKContext component as a prop. The authenticator expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire. Endpoint for `authenticator` should be implemented in your backend. [Learn how to implement endpoint for authenticator](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload#how-to-implement-authenticationendpoint-endpoint) on your server.
 
 For this quickstart guide, we have provided a sample implementation of `http://localhost:3001/auth` in Node.js.
 
@@ -419,23 +414,51 @@ app.listen(3001, function () {
 {% code title="src/components/HelloWorld.vue" %}
 ```javascript
 <script>
-/* 
-    This is our frontend code
-    Replace your_url_endpoint, your_public_key with actual values
-*/
-import Vue from "vue";
-import ImageKit from "imagekitio-vue";
-Vue.use(ImageKit, {
-  urlEndpoint: "your_url_endpoint",
-  publicKey: "your_public_key",
-  authencticationEndpiont: "http://localhost:3001/auth"
-});
+
+import { IKContext, IKUpload } from "imagekitio-vue";
 
 export default {
   name: "HelloWorld",
+  components: {
+    IKContext,
+    IKUpload,
+  },
+  data() {
+    return {
+      urlEndpoint: "your_url_endpoint",
+      publicKey: "your_public_key",
+    };
+  },
   props: {
-    msg: String
-  }
+    msg: String,
+  },
+  methods: {
+    authenticator() {
+      return new Promise((resolve, reject) => {
+        var url = "http://localhost:3001/auth";
+
+        // Make the Fetch API request
+        fetch(url, { method: "GET", mode: "cors" }) // Enable CORS mode
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((body) => {
+            var obj = {
+              signature: body.signature,
+              expire: body.expire,
+              token: body.token,
+            };
+            resolve(obj);
+          })
+          .catch((error) => {
+            reject([error]);
+          });
+      });
+    },
+  },
 };
 </script>
 ```
@@ -460,7 +483,7 @@ If you GET http://localhost:3001/auth, you should see a JSON response like this.
 }
 ```
 
-Let's include `ik-upload` component in the `HelloWorld.vue`.
+Let's include `IKUpload` component in the `HelloWorld.vue`.
 
 ```javascript
 <template>
@@ -468,38 +491,96 @@ Let's include `ik-upload` component in the `HelloWorld.vue`.
     <h1>ImageKit Vuejs quick start</h1>
 
     <h2>File upload</h2>
-    <ik-upload 
-      :onError="onError"
-      :onSuccess="onSuccess" />
+    <IKContext :publicKey="publicKey" :urlEndpoint="urlEndpoint" :authenticator="authenticator">
+      <IKUpload
+        :onError="onError"
+        :onSuccess="onSuccess"
+        :onUploadProgress="onUploadProgress"
+        :onUploadStart="onUploadStart"
+        :validateFile="validateFile" 
+      />
+    </IKContext>
   </div>
 </template>
-<script>
 /* 
     Replace your_url_endpoint, your_public_key with actual values
 */
-import Vue from "vue";
-import ImageKit from "imagekitio-vue";
-Vue.use(ImageKit, {
-  urlEndpoint: "your_url_endpoint",
-  publicKey: "your_public_key",
-  authencticationEndpiont: "http://localhost:3001/auth"
-});
+<script>
+
+import { IKContext, IKUpload } from "imagekitio-vue";
 
 export default {
   name: "HelloWorld",
+  components: {
+    IKContext,
+    IKUpload,
+  },
+  data() {
+    return {
+      urlEndpoint: "your_url_endpoint",
+      publicKey: "your_public_key",
+    };
+  },
   props: {
-    msg: String
+    msg: String,
   },
   methods: {
     onError(err) {
-      console.log("Error");
-      console.log(err);
+      try {
+        console.log("Error");
+        console.log(err);
+      } catch (e) {
+        console.error(e);
+      }
     },
     onSuccess(res) {
-      console.log("Success");
-      console.log(res);
-    }
-  }
+      try {
+        console.log("Success");
+        console.log(res);
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    validateFile(res) {
+      if (res.size > 0) {
+        return true;
+      }
+      return false;
+    },
+    onUploadStart(event) {
+      console.log("Upload started");
+      console.log(event);
+    },
+    onUploadProgress(event) {
+      console.log(`Upload inprogress ... (${((event.loaded * 100) / event.total).toFixed(2)}% Done)`);
+      console.log(event);
+    },
+    authenticator() {
+      return new Promise((resolve, reject) => {
+        var url = "http://localhost:3001/auth";
+
+        // Make the Fetch API request
+        fetch(url, { method: "GET", mode: "cors" }) // Enable CORS mode
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((body) => {
+            var obj = {
+              signature: body.signature,
+              expire: body.expire,
+              token: body.token,
+            };
+            resolve(obj);
+          })
+          .catch((error) => {
+            reject([error]);
+          });
+      });
+    },
+  },
 };
 </script>
 ```
@@ -508,7 +589,7 @@ The output looks like:
 
 ![](<../../.gitbook/assets/Screenshot 2020-09-25 at 8.55.09 PM.png>)
 
-When you choose a file, the file is uploaded. You can pass optional `onSuccess` and `onError` callback functions as props like we have.
+When you choose a file, the file is uploaded. You can pass optional `onSuccess`, `onUploadStart`, `onUploadProgress`,  `validateFile` and `onError` callback functions as props like we have.
 
 After successful upload, you should see the upload API response in the console like this:
 
