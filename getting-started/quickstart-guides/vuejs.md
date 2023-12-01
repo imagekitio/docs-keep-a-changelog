@@ -17,6 +17,7 @@ This guide walks you through the following topics:
 * [Lazy loading images](vuejs.md#lazy-loading-images-in-vue.js)
 * [Blurred image placeholder](vuejs.md#blurred-image-placeholder)
 * [Client-side file uploading](vuejs.md#uploading-files-in-vue.js)
+* [Rendering videos](react.md#rendering-videos)
 
 ## Setup ImageKit Vue.js SDK
 
@@ -594,6 +595,46 @@ When you choose a file, the file is uploaded. You can pass optional `onSuccess`,
 After successful upload, you should see the upload API response in the console like this:
 
 ![](<../../.gitbook/assets/Screenshot 2020-09-25 at 8.57.39 PM.png>)
+
+## **Rendering videos**
+
+Rendering videos works similarly to rendering images in terms of usage of `urlEndpoint` param (either directly or via `IKContext`).
+
+**Loading video from relative path:**
+Import `IKVideo` from the SDK:
+
+```jsx
+import { IKVideo} from "imagekitio-vue";
+
+export default {
+  components: {
+    IKVideo
+  }
+}
+```
+
+Now let's add it to our App. Along with the video path prop, it also needs the relevant `urlEndpoint` (either directly or via `IKContext`):
+```jsx
+<IKContext urlEndpoint="https://ik.imagekit.io/demo">
+  <IKVideo
+    :path="videoPath"
+    :transformation="[{ height: 200, width: 200 }]"
+    :controls="true"
+  />
+</IKContext>
+```
+
+A more complex example:
+```jsx
+<IKContext urlEndpoint="https://ik.imagekit.io/demo">
+  <IKVideo
+    className='ikvideo-with-tr'
+    :path="videoPath"
+    :transformation="[{ height: 200, width: 600, b: '5_red', q: 95 }]"
+    :controls="true"
+  />
+</IKContext>
+```
 
 ## **What's next**
 
