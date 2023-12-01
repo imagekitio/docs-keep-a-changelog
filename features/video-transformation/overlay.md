@@ -11,6 +11,7 @@ In ImageKit, you can add images, text, subtitles, and videos over a base video u
 * [Add images over video](overlay.md#add-images-over-video)
 * [Add text over video](overlay.md#add-text-over-video)
 * [Add video over video](overlay.md#add-video-over-video)
+* [Add solid color blocks over video](overlay.md#add_solid_color_blocks_over_video)
 * [Add subtitles over video](overlay.md#add-subtitles-over-video)
 
 # Layers
@@ -67,6 +68,7 @@ However, different types of layers support different types of transformations wh
 * [Transformation of text overlay](overlay.md#transformation-of-text-overlay)
 * [Transformation of video overlay](overlay.md#transformation-of-video-overlay)
 * [Transformation of subtitles overlay](overlay.md#transformation-of-subtitles-overlay)
+* [Transformation of solid color blocks overlay](overlay.md#transformation-of-solid-color-blocks-overlay)
 
 Transformations inside a layer can be chained together to achieve the desired outcome.
 
@@ -172,6 +174,34 @@ Animated-WebP and animated-PNG (`apng`) are not supported in Imagekit's video AP
 ## Transformation of video overlay
 
 You can transform the layer video using any [supported video transformation parameter](../video-transformation/resize-crop-and-other-common-video-transformations.md) in ImageKit except `sr`.
+
+# Add solid color blocks over video
+
+You can add solid color blocks over a base video using the following example.
+
+## Usage syntax
+
+```markup
+https://ik.imagekit.io/demo/base-video.mp4?tr=l-image,i-ik_canvas,bg-red,l-end
+```
+
+You can also control the position of solid color blocks using these [positional parameters](overlay.md#position-of-layer).
+
+## Transformation of solid color blocks overlay
+
+Following transformation parameters are supported on the solid color block overlay inside a layer.
+
+| Parameter                                                                                | Description                        |
+|------------------------------------------------------------------------------------------|------------------------------------|
+| w                                                                                        | Width of solid color block. It can also accept arithmetic expressions such as `bw_div_2`, or `bw_mul_0.8`. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md). |
+| h                                                                                        | Height of solid color block. It can also accept arithmetic expressions such as `bh_div_2`, or `bh_mul_0.8`. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).  |
+| [bg](../image-transformations/resize-crop-and-other-transformations.md#background-bg) | It is used to specify the color of the block in RGB Hex Code (e.g. `FF0000`), or an RGBA Code (e.g. `FFAABB50`), or a color name (e.g. `red`). If you specify an 8 character background, the last two characters must be a number between `00` and `99`, which indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents an opacity level of `0.01`, and so on. |
+| al                                                                                       | It is used to specify the transparency level of the overlaid solid color layer. Supports integers from `1` to `9`. |
+| [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)             | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
+
+{% hint style="info" %}
+If both `bg` and `al` are set in a single transformation and `bg` has an alpha component, then that value is used to set solid color background transparency. Otherwise, `al` value is used. If `bg` is set to a standard color name (e.g. `blue`), then the `al` value is ignored. Read more [here](../image-transformations/overlay.md#overlay-background-transparency)
+{% endhint %}
 
 # Add subtitles over a video
 
