@@ -1,6 +1,6 @@
 ---
 description: >-
-  Real-time image resizing, automatic optimization, and file uploading in React
+  Real-time image & video resizing, automatic optimization, and file uploading in React
   using ImageKit.io.
 ---
 
