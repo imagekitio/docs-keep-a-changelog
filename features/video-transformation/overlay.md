@@ -11,8 +11,8 @@ In ImageKit, you can add images, text, subtitles, and videos over a base video u
 * [Add images over video](overlay.md#add-images-over-video)
 * [Add text over video](overlay.md#add-text-over-video)
 * [Add video over video](overlay.md#add-video-over-video)
-* [Add solid color blocks over video](overlay.md#add_solid_color_blocks_over_video)
-* [Add subtitles over video](overlay.md#add-subtitles-over-video)
+* [Add solid color blocks over video](overlay.md#add-solid-color-blocks-over-video)
+* [Add subtitles over a video](overlay.md#add-subtitles-over-a-video)
 
 # Layers
 A layer is a special kind of transformation that allows you to modify the overlay itself and express its position in relation to the parent.
@@ -67,8 +67,8 @@ However, different types of layers support different types of transformations wh
 * [Transformation of images overlay](overlay.md#transformation-of-image-overlay)
 * [Transformation of text overlay](overlay.md#transformation-of-text-overlay)
 * [Transformation of video overlay](overlay.md#transformation-of-video-overlay)
-* [Transformation of subtitles overlay](overlay.md#transformation-of-subtitles-overlay)
 * [Transformation of solid color blocks overlay](overlay.md#transformation-of-solid-color-blocks-overlay)
+* [Transformation of subtitles overlay](overlay.md#transformation-of-subtitles-overlay)
 
 Transformations inside a layer can be chained together to achieve the desired outcome.
 
