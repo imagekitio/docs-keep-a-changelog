@@ -17,7 +17,7 @@ This guide walks you through the following topics:
 * [Lazy loading images](vuejs.md#lazy-loading-images-in-vue.js)
 * [Blurred image placeholder](vuejs.md#blurred-image-placeholder)
 * [Client-side file uploading](vuejs.md#uploading-files-in-vue.js)
-* [Rendering videos](react.md#rendering-videos)
+* [Rendering videos](vuejs.md#rendering-videos)
 
 ## Setup ImageKit Vue.js SDK
 
