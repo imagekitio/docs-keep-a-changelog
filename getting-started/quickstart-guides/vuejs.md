@@ -1,12 +1,12 @@
 ---
 description: >-
-  Real-time image resizing, automatic optimization, and file uploading in Vue.js
+  Real-time image & video resizing, automatic optimization, and file uploading in Vue.js
   using ImageKit.io.
 ---
 
 # Vue.js
 
-This is a quick start guide to show you how to integrate ImageKit in the Vue.js application. The code samples covered here are hosted on Github -  [https://github.com/imagekit-samples/quickstart/tree/master/vuejs](https://github.com/imagekit-samples/quickstart/tree/master/vuejs).
+This quick start guide shows you how to integrate ImageKit in the Vue.js application. The code samples covered here are hosted on GitHub -  [https://github.com/imagekit-samples/quickstart/tree/master/vuejs](https://github.com/imagekit-samples/quickstart/tree/master/vuejs).
 
 This guide walks you through the following topics:
 
@@ -284,9 +284,9 @@ The output looks like:
 
 You can lazy load images using the `loading` prop in `IKImage` component. When you use `loading="lazy"`, all images that are immediately viewable without scrolling load normally. Those that are far below the device viewport are only fetched when the user scrolls near them.
 
-The SDK uses a fixed threshold based on the effective connection type to ensure that images are loaded early enough so that they have finished loading once the user scrolls near to them.
+The SDK uses a fixed threshold based on the effective connection type to ensure that images are loaded early enough to finish loading once the user scrolls near them.
 
-On fast connections (e.g 4G), the value of the threshold is `1250px` and on slower connections (e.g 3G), it is `2500px`.
+On fast connections (e.g. 4G), the value of the threshold is `1250px` and on slower connections (e.g. 3G), it is `2500px`.
 
 {% hint style="info" %}
 You should always set the `height` and `width` of image element to avoid [layout shift](https://www.youtube.com/watch?v=4-d\_SoCHeWE) when lazy-loading images.
@@ -348,7 +348,7 @@ You have the option to lazy-load the original image only when the user scrolls n
 
 ## Uploading files in Vue.js
 
-Vuejs SDK provides `IKUpload` component which can generate an `input type="file"` tag that you can use to upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side.&#x20;
+Vuejs SDK provides an `IKUpload` component, which can generate an `input type="file"` tag that you can use to upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side.&#x20;
 
 For using upload functionality, we need to pass `publicKey` and `authenticator` in [`IKContext`](https://github.com/imagekit-developer/imagekit-vuejs#ik-context).  Replace `your_url_endpoint` , `your_public_key`, `your_authentication_endpoint` with actual values.
 
