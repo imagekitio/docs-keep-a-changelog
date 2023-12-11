@@ -52,7 +52,8 @@ yarn add imagekitio-vue
 #### Initialize SDK
 
 * `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).
-* `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
+* `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. `publicKey` can be obtained from the [Developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
+* `authenticator` expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire.
 
 Let's modify src/components/HelloWorld.vue to import and initialize ImageKit as a plugin. Replace `your_url_endpoint` etc, with actual values.
 
@@ -261,22 +262,19 @@ For example:
   :transformation="[{
     width: 300, 
     height: 300, 
-    overlayImage: 'default-image.jpg', 
-    overlayWidth: 100,
-    overlayX: 0,
-    overlayImageBorder: '10_CDDC39' // 10px border of color CDDC39
+    raw: 'l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end'
   }]" />
 ```
 
 Renders to:
 
 ```javascript
-<img src="https://ik.imagekit.io/pshbwfiho/tr:w-300,h-300,oi-default-image.jpg,ow-100,ox-0,oib-10_CDDC39/default-image.jpg?ik-sdk-version=vuejs-1.0.8" class="ik-image">
+<img class="ik-image" src="https://ik.imagekit.io/<YOUR_IMAGEKIT_ID>/tr:w-300,h-300,l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end/default-image.jpg">
 ```
 
 The output looks like:
 
-![](<../../.gitbook/assets/Screenshot 2020-09-26 at 2.51.34 PM.png>)
+![](<../../.gitbook/assets/vuejs-sdk-overlay.png>)
 
 
 

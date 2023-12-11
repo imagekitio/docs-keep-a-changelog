@@ -485,9 +485,7 @@ For example, a text overlay can be used to superimpose text on an image. Try it 
 **Rendered HTML element:**
 
 ```markup
-<img src="https://ik.imagekit.io/<YOUR_IMAGEKIT_ID>/tr:h-300,w-300,ot-ImageKit,ots-50,otc-0651D5/default-image.jpg" 
-  path="default-image.jpg" 
-  alt="">
+<img alt="" src="https://ik.imagekit.io/<YOUR_IMAGEKIT_ID>/tr:h-300,w-300,l-text,i-Imagekit,rt-90,co-0651D5,fs-50,l-end/default-image.jpg">
 ```
 
 ![Text Overlay (300x300px)](<../../.gitbook/assets/react-sdk-overlay-text-image.png>)

@@ -427,7 +427,7 @@ For example, a text overlay can be used to superimpose text on an image. Try it 
 **Rendered HTML element:**
 
 ```markup
-<img src="https://ik.imagekit.io/demo/tr:h-300,w-300,ot-ImageKit,ots-50,otc-0651D5/default-image.jpg" _ngcontent-twl-c15="" urlendpoint="https://ik.imagekit.io/demo/" ng-reflect-url-endpoint="https://ik.imagekit.io/demo/" ng-reflect-path="default-image.jpg" ng-reflect-transformation="[object Object]">
+<img src="https://ik.imagekit.io/demo/tr:w-300,h-300:l-text,i-Imagekit,rt-90,co-0651D5,fs-50,l-end/default-image.jpg" _ngcontent-que-c21="" urlendpoint="https://ik.imagekit.io/demo/" class="lazyload-lqip" ng-reflect-url-endpoint="https://ik.imagekit.io/demo/" ng-reflect-path="default-image.jpg" ng-reflect-transformation="[object Object],[object Object]">
 ```
 
 ![Text Overlay (300x300px)](<../../.gitbook/assets/angular/angular-sdk-overlay-text-image.png>)
