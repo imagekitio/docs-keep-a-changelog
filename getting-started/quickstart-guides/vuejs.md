@@ -415,6 +415,8 @@ For using upload functionality, we need to pass `publicKey` and `authenticator` 
 
 > Make sure that you have specified `authenticator` and `publicKey` in the parent IKContext component as a prop. The authenticator expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire. Endpoint for `authenticator` should be implemented in your backend. [Learn how to implement endpoint for authenticator](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload#how-to-implement-authenticationendpoint-endpoint) on your server.
 
+It is advised to setup a backend server for the creation of these security parameters. In the frontend an HTTP GET request can be made to fetch them using the `authenticator` function.
+
 For this quickstart guide, we have provided a sample implementation of `http://localhost:3001/auth` in Node.js.
 
 Let's create a file `index.js` inside `server` folder in the project root. It should look like this:
