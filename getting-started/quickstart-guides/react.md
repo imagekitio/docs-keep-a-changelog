@@ -12,7 +12,7 @@ This guide walks you through the following topics: ‌
 
 * [Setting up ImageKit React SDK](react.md#setup-imagekit-react-sdk)
 * [Rendering images](react.md#rendering-images)
-* [Setting the ImageKit context for the SDK](react.md#setting-authentication-context-for-the-sdk)
+* [Setting the ImageKit context for the SDK](react.md#setting-imagekit-context-for-the-sdk)
 * [Applying common image manipulations](react.md#basic-image-manipulation)
 * [Adding overlays to images](react.md#adding-overlays-to-images)
 * [Lazy loading images](react.md#lazy-loading-images-in-react)
@@ -95,7 +95,8 @@ npm install --save imagekitio-react
 Before the SDK can be used, let's learn about and obtain the requisite initialization parameters:
 
 * `urlEndpoint` is a required parameter. This can be obtained from the [URL-endpoint section](https://imagekit.io/dashboard/url-endpoints) or the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. These can be obtained from the [Developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
+* `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. `publicKey` can be obtained from the [Developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
+* `authenticator` expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire.
 
 ```javascript
 // required parameter to fetch images
@@ -103,7 +104,11 @@ const urlEndpoint = '<YOUR_IMAGEKIT_URL_ENDPOINT>';
 
 // optional parameters (needed for client-side upload)
 const publicKey = '<YOUR_IMAGEKIT_PUBLIC_KEY>'; 
-const authenticationEndpoint = 'https://www.your-server.com/auth';
+const authenticator = ()=>{
+  return new Promise((resolve,reject)=>{
+    resolve({signature,token,expiry})
+  })
+};
 ```
 
 {% hint style="info" %}
@@ -115,13 +120,14 @@ _**Note:**_ _Do not include your _[_API private key_](../../api-reference/api-in
 This SDK provides 3 components:
 
 * `IKImage` for [image rendering](https://github.com/imagekit-developer/imagekit-react#ikimage---url-generation). The output is a `<img>` tag.
-* `IKUpload` for [file uploading](https://github.com/imagekit-developer/imagekit-react#ikupload---file-upload). The output is a `<input type="file">` tag.
-* `IKContext` for defining [authentication context](https://github.com/imagekit-developer/imagekit-react#ikcontext), i.e. `urlEndpoint`, `publicKey` and `authenticationEndpoint` to all child elements.
+* `IKVideo` for [video resizing](https://github.com/imagekit-developer/imagekit-react#video-resizing). This renders a `<video>` tag.
+* `IKUpload` for [file uploading](https://github.com/imagekit-developer/imagekit-react#file-upload). The output is a `<input type="file">` tag.
+* `IKContext` for defining [authentication context](https://github.com/imagekit-developer/imagekit-react#ikcontext), i.e. `urlEndpoint`, `publicKey` and `authenticator` to all child elements.
 
 You can import components individually:
 
 ```javascript
-import { IKImage, IKContext, IKUpload } from 'imagekitio-react';
+import { IKImage, IKVideo, IKContext, IKUpload } from 'imagekitio-react';
 ```
 
 #### Configure the app for ImageKit:
@@ -341,7 +347,7 @@ Refresh your browser to get the resized image.
 
 ### **Quality manipulation**
 
-You can use the [quality parameter](../../features/image-transformations/resize-crop-and-other-transformations.md#quality-q) to change image quality like this**:**
+You can use the [quality parameter](../../features/image-transformations/resize-crop-and-other-transformations.md#quality-q) to change image quality like this:
 
 ```jsx
 <IKImage
@@ -461,7 +467,7 @@ Let’s flip the order of transformation and see what happens.
 
 ## **Adding overlays to images**
 
-ImageKit.io allows you to add [text](../../features/image-transformations/overlay.md#text-overlay) and [image overlay](../../features/image-transformations/overlay.md) dynamically.
+ImageKit.io allows you to add [text](../../features/image-transformations/overlay-using-layers.md#add-text-over-image) and [image overlay](../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) dynamically.
 
 For example, a text overlay can be used to superimpose text on an image. Try it like so:
 
@@ -471,9 +477,7 @@ For example, a text overlay can be used to superimpose text on an image. Try it 
   transformation={[{
     height: 300,
     width: 300,
-    overlayText: 'ImageKit',
-    overlayTextFontSize: 50,
-    overlayTextColor: '0651D5',
+    raw: "l-text,i-Imagekit,rt-90,co-0651D5,fs-50,l-end"
   }]}
 />
 ```
@@ -481,12 +485,10 @@ For example, a text overlay can be used to superimpose text on an image. Try it 
 **Rendered HTML element:**
 
 ```markup
-<img src="https://ik.imagekit.io/<YOUR_IMAGEKIT_ID>/tr:h-300,w-300,ot-ImageKit,ots-50,otc-0651D5/default-image.jpg" 
-  path="default-image.jpg" 
-  alt="">
+<img alt="" src="https://ik.imagekit.io/<YOUR_IMAGEKIT_ID>/tr:h-300,w-300,l-text,i-Imagekit,rt-90,co-0651D5,fs-50,l-end/default-image.jpg">
 ```
 
-![Text Overlay (300x300px)](<../../.gitbook/assets/react-sdk-overlay-text (1).png>)
+![Text Overlay (300x300px)](<../../.gitbook/assets/react-sdk-overlay-text-image.png>)
 
 ## **Lazy-loading images in React**
 
@@ -617,10 +619,6 @@ app.listen(3001, function () {
 {% endtab %}
 {% endtabs %}
 
-{% hint style="info" %}
-`authenticationEndpoint` should be implemented in your backend. The SDK makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token`, and `expire`. [Learn how to implement authenticationEndpoint](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload#how-to-implement-authenticationendpoint-endpoint) on your server.
-{% endhint %}
-
 Let's run the backend server.
 
 ```
@@ -642,19 +640,34 @@ If you GET `http://localhost:3001/auth`, you should see a JSON response like thi
 
 ### **Configure authentication in the frontend app**
 
-Now that we have our authentication server up and running, let's configure the `publicKey` and `authenticationEndpoint` in the frontend React app:
+Now that we have our authentication server up and running, let's configure the `publicKey` and `authenticator` in the frontend React app:
 
 Add the following to `src/App.js` file to [initialize the SDK](react.md#initialize-the-react-sdk) with auth params:
 
 ```jsx
 const publicKey = '<YOUR_IMAGEKIT_PUBLIC_KEY>'; 
-const authenticationEndpoint = 'http://localhost:3001/auth';
+const authenticator =  async () => {
+    try {
+        const response = await fetch('http://localhost:3001/auth');
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        const { signature, expire, token } = data;
+        return { signature, expire, token };
+    } catch (error) {
+        throw new Error(`Authentication request failed: ${error.message}`);
+    }
+};
 ```
 
 Now, pass these values as props into a new `IKContext` instance which will hold our upload component:
 
 ```jsx
-<IKContext publicKey={publicKey} urlEndpoint={urlEndpoint} authenticationEndpoint={authenticationEndpoint} >
+<IKContext publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator} >
   {/* ...child components */}
 </IKContext>
 ```
@@ -669,7 +682,22 @@ import { IKContext, IKImage } from 'imagekitio-react';
 
 const urlEndpoint = '<YOUR_IMAGEKIT_URL_ENDPOINT>';
 const publicKey = '<YOUR_IMAGEKIT_PUBLIC_KEY>'; 
-const authenticationEndpoint = 'http://localhost:3001/auth';
+const authenticator =  async () => {
+    try {
+        const response = await fetch('http://localhost:3001/auth');
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        const { signature, expire, token } = data;
+        return { signature, expire, token };
+    } catch (error) {
+        throw new Error(`Authentication request failed: ${error.message}`);
+    }
+};
 
 function App() {
   return (
@@ -677,7 +705,7 @@ function App() {
       <IKContext
         urlEndpoint={urlEndpoint}
         publicKey={publicKey}
-        authenticationEndpoint={authenticationEndpoint}
+        authenticator={authenticator}
       >
         {/* ...client side upload component goes here */}
       </IKContext>
@@ -710,7 +738,22 @@ import { IKContext, IKImage, IKUpload } from 'imagekitio-react';
 
 const publicKey = '<YOUR_IMAGEKIT_PUBLIC_KEY>';
 const urlEndpoint = '<YOUR_IMAGEKIT_URL_ENDPOINT>';
-const authenticationEndpoint = 'http://localhost:3001/auth';
+const authenticator =  async () => {
+    try {
+        const response = await fetch('http://localhost:3001/auth');
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        const { signature, expire, token } = data;
+        return { signature, expire, token };
+    } catch (error) {
+        throw new Error(`Authentication request failed: ${error.message}`);
+    }
+};
 
 const onError = err => {
   console.log("Error", err);
@@ -727,7 +770,7 @@ function App() {
       <IKContext 
         publicKey={publicKey} 
         urlEndpoint={urlEndpoint} 
-        authenticationEndpoint={authenticationEndpoint} 
+        authenticator={authenticator} 
       >
         <p>Upload an image</p>
         <IKUpload
@@ -805,7 +848,22 @@ import { IKContext, IKImage, IKUpload } from 'imagekitio-react';
 
 const publicKey = '<YOUR_IMAGEKIT_PUBLIC_KEY>';
 const urlEndpoint = '<YOUR_IMAGEKIT_URL_ENDPOINT>';
-const authenticationEndpoint = 'http://localhost:3001/auth';
+const authenticator =  async () => {
+    try {
+        const response = await fetch('http://localhost:3001/auth');
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        const { signature, expire, token } = data;
+        return { signature, expire, token };
+    } catch (error) {
+        throw new Error(`Authentication request failed: ${error.message}`);
+    }
+};
 
 const onError = err => {
   console.log("Error", err);
@@ -832,7 +890,7 @@ function App() {
       <IKContext 
         publicKey={publicKey} 
         urlEndpoint={urlEndpoint} 
-        authenticationEndpoint={authenticationEndpoint} 
+        authenticator={authenticator}  
       >
         <p>Upload an image with advanced options</p>
         <IKUpload
