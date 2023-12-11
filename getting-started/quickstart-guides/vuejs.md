@@ -90,7 +90,7 @@ This SDK provides 4 components:
 * `IKImage` for [image resizing](https://github.com/imagekit-developer/imagekit-vuejs#image-resizing). The output is a `<img>` tag.
 * `IKVideo` for [video resizing](#video-resizing). This renders a `<video>` tag.
 * `IKUpload` for [file uploading](https://github.com/imagekit-developer/imagekit-vuejs#file-upload). The output is a `<input type="file">` tag.
-* [`IKContext`](https://github.com/imagekit-developer/imagekit-vuejs#ik-context) for defining `urlEndpoint`, `publicKey` and `authenticationEndpoint` to all children elements.
+* [`IKContext`](https://github.com/imagekit-developer/imagekit-vuejs#ik-context) for defining `urlEndpoint`, `publicKey` and `authenticator` to all children elements.
 
 You can import components individually.
 

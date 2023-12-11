@@ -1,6 +1,6 @@
 ---
 description: >-
-  Real-time image resizing, automatic optimization, and file uploading in Angular
+  Real-time image & video resizing, automatic optimization, and file uploading in Angular
   using ImageKit.io.
 ---
 
