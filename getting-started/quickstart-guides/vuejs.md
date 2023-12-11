@@ -12,6 +12,7 @@ This guide walks you through the following topics:
 
 * [Setting up ImageKit Vue.js SDK](vuejs.md#setup-imagekit-vue.js-sdk)
 * [Rendering images](vuejs.md#rendering-images-in-vue.js)
+* [Setting the ImageKit context for the SDK](vuejs.md#setting-imagekit-context-for-the-sdk)
 * [Applying common image manipulations](vuejs.md#common-image-manipulation-in-vue.js)
 * [Adding overlays to images](vuejs.md#adding-overlays-to-images-in-vue.js)
 * [Lazy loading images](vuejs.md#lazy-loading-images-in-vue.js)
@@ -174,6 +175,59 @@ For example:
 The output looks like this:
 
 ![](<../../.gitbook/assets/Screenshot 2020-09-25 at 5.52.41 PM.png>)
+
+# **Setting ImageKit context for the SDK**
+
+It is not necessary to specify the `urlEndpoint` in every instance of `IKImage`. This can be managed much more easily with the `IKContext` component.
+
+`IKContext` is a wrapper that can be configured with your [SDK initialization parameters](vuejs.md#initialize-sdk). Pass your `urlEndpoint` to it as a prop, and you're good to go!
+
+Let's go ahead and import it within the file:
+
+```jsx
+import { IKImage, IKContext } from "imagekitio-vue";
+```
+
+Now add the `IKContext` component to the render function:
+
+```jsx
+<IKContext urlEndpoint="your_url_endpoint"></IKContext>
+```
+
+Let's nest our `IKImage` components within it, so that those can access the `urlEndpoint` from the context wrapper.
+
+```javascript
+<template>
+  <div>
+    <IKContext :urlEndpoint="urlEndpoint">
+      <IKImage path="default-image.jpg" width="400" />
+    </IKContext>
+  </div>
+</template>
+/* 
+    Replace your_url_endpoint with actual values
+*/
+<script>
+
+import { IKContext, IKImage } from "imagekitio-vue";
+
+export default {
+  name: "HelloWorld",
+  components: {
+    IKContext,
+    IKImage,
+  },
+  data() {
+    return {
+      urlEndpoint: "your_url_endpoint",
+    };
+  },
+  props: {
+    msg: String,
+  },
+};
+</script>
+```
 
 ## Common image manipulation in Vue.js
 
