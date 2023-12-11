@@ -407,7 +407,7 @@ Let’s flip the order of transformation and see what happens.
 
 ## **Adding overlays to images**
 
-ImageKit.io allows you to add [text](../../features/image-transformations/overlay-using-layers#add-text-over-image) and [image overlay](../../features/image-transformations/overlay-using-layers#transformation-of-image-overlay) dynamically.
+ImageKit.io allows you to add [text](../../features/image-transformations/overlay-using-layers.md#add-text-over-image) and [image overlay](../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) dynamically.
 
 For example, a text overlay can be used to superimpose text on an image. Try it like so:
 
