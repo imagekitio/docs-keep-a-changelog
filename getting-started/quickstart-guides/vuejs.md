@@ -305,7 +305,7 @@ renders to:
 
 ## Adding overlays to images in Vue.js
 
-ImageKit.io allows you to can add [text](../../features/image-transformations/overlay.md#text-overlay) and [image overlay](../../features/image-transformations/overlay.md) dynamically.
+ImageKit.io allows you to add [text](../../features/image-transformations/overlay-using-layers#add-text-over-image) and [image overlay](../../features/image-transformations/overlay-using-layers#transformation-of-image-overlay) dynamically.
 
 For example:
 
