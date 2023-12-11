@@ -84,7 +84,8 @@ npm install --save imagekitio-angular
 Before the SDK can be used, let's learn about and obtain the requisite initialization parameters:
 
 * `urlEndpoint` is a required parameter. This can be obtained from the [URL-endpoint section](https://imagekit.io/dashboard/url-endpoints) or the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. These can be obtained from the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
+* `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. `publicKey` can be obtained from the [Developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
+* `authenticator` expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire.
 
 > Note: Do not include your [private key](https://docs.imagekit.io/api-reference/api-introduction/api-keys#private-key) in any client-side code.
 
@@ -118,7 +119,6 @@ import { ImagekitioAngularModule } from 'imagekitio-angular';
     ImagekitioAngularModule.forRoot({
       publicKey: environment.publicKey,
       urlEndpoint: environment.urlEndpoint,
-      authenticationEndpoint: environment.authenticationEndpoint
     })
   ],
   ...
@@ -233,8 +233,10 @@ Let’s now learn how to manipulate images using transformations.
 
 The Angular SDK gives a name to each transformation parameter, e.g., `height` for `h` and `width` for the `w` parameter. It makes your code more readable. If the property does not match any of the available options, it is added as it is. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-angular#list-of-supported-transformations) in Angular SDK on GitHub.
 
-You can also use `h` and `w` parameters instead of `height` and `width`.\
+{% hint style="info" %}
+You can also use `h` and `w` parameter instead of `height` and `width`.\
 See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
+{% endhint %}
 
 ### **Height and width manipulation**
 
@@ -415,9 +417,7 @@ For example, a text overlay can be used to superimpose text on an image. Try it 
     transformation: Array<Transformation> = [{
         height: "300", 
         width: "300",
-        overlayText: 'ImageKit',
-        overlayTextFontSize: "50",
-        overlayTextColor: '0651D5',
+        raw: "l-text,i-Imagekit,rt-90,co-0651D5,fs-50,l-end"
     }];
     ...
 }
@@ -430,7 +430,7 @@ For example, a text overlay can be used to superimpose text on an image. Try it 
 <img src="https://ik.imagekit.io/demo/tr:h-300,w-300,ot-ImageKit,ots-50,otc-0651D5/default-image.jpg" _ngcontent-twl-c15="" urlendpoint="https://ik.imagekit.io/demo/" ng-reflect-url-endpoint="https://ik.imagekit.io/demo/" ng-reflect-path="default-image.jpg" ng-reflect-transformation="[object Object]">
 ```
 
-![Text Overlay (300x300px)](<../../.gitbook/assets/angular/angular-sdk-overlay-text.png>)
+![Text Overlay (300x300px)](<../../.gitbook/assets/angular/angular-sdk-overlay-text-image.png>)
 
 ## **Lazy-loading images in Angular**
 
@@ -635,10 +635,6 @@ Sample .env file should look like this.
 PRIVATE_KEY=<your-private-key>
 ```
 
-{% hint style="info" %}
-`authenticationEndpoint` should be implemented in your backend. The SDK makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token`, and `expire`. [Learn how to implement authenticationEndpoint](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload#how-to-implement-authenticationendpoint-endpoint) on your server.
-{% endhint %}
-
 Let's run the backend server.
 
 ```
@@ -660,24 +656,46 @@ If you GET `http://localhost:3000/auth`, you should see a JSON response like thi
 
 ### **Configure authentication in the frontend app**
 
-Now that we have our authentication server up and running, let's configure the `publicKey` and `authenticationEndpoint` in the frontend Angular app:
+Now that we have our authentication server up and running, let's configure the `publicKey` and `authenticator` in the frontend Angular app:
 
 Add the following to `src/app/app.module.js` file to [initialize the SDK](angular.md#initialize-the-angular-sdk) with auth params:
 
 ```jsx
 publicKey: "<YOUR_PUBLIC_KEY>",
-authenticationEndpoint: "<YOUR_AUTH_ENDPOINT e.g http:/localhost:3000/auth>"
+urlEndpoint: "YOUR_ENDPOINT",
+```
+
+Add the following to `src/app/app.component.js`:
+
+```jsx
+authenticator =  async () => {
+    try {
+        const response = await fetch('http://localhost:3001/auth');
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        const { signature, expire, token } = data;
+        return { signature, expire, token };
+    } catch (error) {
+        throw new Error(`Authentication request failed: ${error.message}`);
+    }
+};
 ```
 
 ### **Upload an image**
 
-For this, we will use the `ik-upload` component as well as a couple of event handlers for upload error and success, `onError` and `onSuccess` respectively. Let's use it in our `app.component.html` file:
+For this, we will use the `ik-upload` component and `authenticator` function as well as a couple of event handlers for upload error and success, `onError` and `onSuccess` respectively. Let's use it in our `app.component.html` file:
 
 ```jsx
 <ik-upload 
     fileName="test.jpg" 
     (onError)="handleUploadError($event)"
-    (onSuccess)="handleUploadSuccess($event)" 
+    (onSuccess)="handleUploadSuccess($event)"
+    [authenticator]="authenticator" 
     >
   </ik-upload>
 ```
@@ -745,6 +763,24 @@ import { Transformation } from 'imagekit-javascript/dist/src/interfaces/Transfor
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  authenticator =  async () => {
+    try {
+        const response = await fetch('http://localhost:3001/auth');
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        const { signature, expire, token } = data;
+        return { signature, expire, token };
+    } catch (error) {
+        throw new Error(`Authentication request failed: ${error.message}`);
+    }
+  };
+
   validateFileFunction(res: any) {
     console.log('validating')
     if(res.size < 1000000){ // Less than 1mb
@@ -785,6 +821,7 @@ Here's an example:
 <div>
     <!-- This will be invisible -->
     <ik-upload
+      [authenticator]="authenticator"
       [buttonRef]="myBtn"
       >
     </ik-upload>
@@ -830,6 +867,32 @@ Arbitrary validation (file type, file size, file name) etc can be added using th
 
 ### **Additional options to the upload function**
 All the parameters supported by the [ImageKit Upload API](https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload) can be passed as shown above (e.g. `extensions`, `webhookUrl`, `customMetadata` etc.)
+
+### **Abort upload
+
+```js
+// Added to app.component.ts
+@ViewChild('upload') uploadComponent:IkUploadComponent;// @ViewChild can be used to get instance of IKUpload component.
+
+onAbortFunction(){
+    this.uploadComponent && this.uploadComponent.abort();
+}
+
+// Added to app.component.html
+<ik-upload 
+  #upload
+  fileName= "test.jpg" 
+  (onError)="handleUploadError($event)"
+  (onSuccess)="handleUploadSuccess($event)"
+  [validateFile]="validateFileFunction"
+  [onUploadStart]="onUploadStartFunction"
+  [onUploadProgress]="onUploadProgressFunction"
+  [authenticator]="authenticator"
+></ik-upload>
+<button 
+  (click)="onAbortFunction()"
+>Abort</button>
+```
 
 ## **Rendering videos**
 

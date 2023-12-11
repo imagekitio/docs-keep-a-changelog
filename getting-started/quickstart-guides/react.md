@@ -347,7 +347,7 @@ Refresh your browser to get the resized image.
 
 ### **Quality manipulation**
 
-You can use the [quality parameter](../../features/image-transformations/resize-crop-and-other-transformations.md#quality-q) to change image quality like this**:**
+You can use the [quality parameter](../../features/image-transformations/resize-crop-and-other-transformations.md#quality-q) to change image quality like this:
 
 ```jsx
 <IKImage
@@ -477,9 +477,7 @@ For example, a text overlay can be used to superimpose text on an image. Try it 
   transformation={[{
     height: 300,
     width: 300,
-    overlayText: 'ImageKit',
-    overlayTextFontSize: 50,
-    overlayTextColor: '0651D5',
+    raw: "l-text,i-Imagekit,rt-90,co-0651D5,fs-50,l-end"
   }]}
 />
 ```
@@ -492,7 +490,7 @@ For example, a text overlay can be used to superimpose text on an image. Try it 
   alt="">
 ```
 
-![Text Overlay (300x300px)](<../../.gitbook/assets/react-sdk-overlay-text (1).png>)
+![Text Overlay (300x300px)](<../../.gitbook/assets/react-sdk-overlay-text-image.png>)
 
 ## **Lazy-loading images in React**
 
