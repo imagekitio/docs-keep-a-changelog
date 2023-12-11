@@ -594,6 +594,55 @@ After successful upload, you should see the upload API response in the console l
 
 ![](<../../.gitbook/assets/Screenshot 2020-09-25 at 8.57.39 PM.png>)
 
+#### Abort upload
+
+ref can be passed to obtain access to the IKUpload component's instance. Calling the `triggerAbortUpload` method will abort the upload if any is in progress.
+
+Example Usage
+
+```js
+<template>
+  <IKUpload 
+    ref="childComponentRef" 
+    :publicKey="publicKey" 
+    :urlEndpoint="urlEndpoint"
+    :authenticator="authenticator"
+    :tags="['tag1','tag2']"
+    :responseFields="['tags']"
+    :onError="onError"
+    :onSuccess="onSuccess"
+    customCoordinates="10,10,100,100"
+  />
+  <button @click="abortChildUpload">Abort Child Upload</button>
+</template>
+
+<script>
+import { IKUpload } from "imagekitio-vue"
+
+export default {
+  name: "app",
+  components: {},
+  data() {
+    return {};
+  },
+  methods: {
+    onError(err) {
+      console.log("Error");
+      console.log(err);
+    },
+    onSuccess(res) {
+      console.log("Success");
+      console.log(res);
+    }
+    abortChildUpload() {
+      this.$refs.childComponentRef.triggerAbortUpload();
+      console.log("Upload aborted")
+    },
+  }
+};
+</script>
+```
+
 ## **Rendering videos**
 
 Rendering videos works similarly to rendering images in terms of usage of `urlEndpoint` param (either directly or via `IKContext`).
