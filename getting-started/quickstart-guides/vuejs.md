@@ -652,7 +652,7 @@ After successful upload, you should see the upload API response in the console l
 
 #### Abort upload
 
-ref can be passed to obtain access to the IKUpload component's instance. Calling the `triggerAbortUpload` method will abort the upload if any is in progress.
+`ref` can be passed to obtain access to the IKUpload component's instance. Calling the `triggerAbortUpload` method will abort the upload if any is in progress.
 
 Example Usage
 
