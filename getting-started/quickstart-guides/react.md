@@ -121,7 +121,7 @@ This SDK provides 3 components:
 
 * `IKImage` for [image rendering](https://github.com/imagekit-developer/imagekit-react#ikimage---url-generation). The output is a `<img>` tag.
 * `IKVideo` for [video resizing](https://github.com/imagekit-developer/imagekit-react#video-resizing). This renders a `<video>` tag.
-* `IKUpload` for [file uploading](https://github.com/imagekit-developer/imagekit-react#ikupload---file-upload). The output is a `<input type="file">` tag.
+* `IKUpload` for [file uploading](https://github.com/imagekit-developer/imagekit-react#file-upload). The output is a `<input type="file">` tag.
 * `IKContext` for defining [authentication context](https://github.com/imagekit-developer/imagekit-react#ikcontext), i.e. `urlEndpoint`, `publicKey` and `authenticator` to all child elements.
 
 You can import components individually:
