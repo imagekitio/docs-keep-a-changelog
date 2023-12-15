@@ -305,7 +305,7 @@ Output :
 
 ## **Adding an overlay to images**
 
-ImageKit.io allows you to add [text](../../features/image-transformations/overlay.md#text-overlay) and [image overlay](../../features/image-transformations/overlay.md) dynamically.
+ImageKit.io allows you to add [text](../../features/image-transformations/overlay-using-layers.md#add-text-over-image) and [image overlay](../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) dynamically.
 
 ### Text Overlay
 
@@ -315,11 +315,7 @@ Text overlay can be used to superimpose text on an image. Try it like so:
 ```javascript
 function showTransformedImage() {
 		var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-					"overlayText": 'ImageKit',
-					"overlayTextFontSize": 50,
-					"overlayTextColor": '0651D5',
-					"overlayX" : 50,
-					"overlayY" : 20
+			raw: "l-text,i-Imagekit,co-0651D5,fs-50,l-end"
 		}]);
 		setImageUrl(transformedImageUrl);
 }
@@ -328,7 +324,7 @@ function showTransformedImage() {
 
 Output : 
 
-![](../../.gitbook/assets/smartmockups_kfybxkve.png)
+![](../../.gitbook/assets/react-native-text-overlay.png)
 
 ### Image Overlay
 
@@ -338,10 +334,7 @@ Image overlay can be used like this:
 ```javascript
 function showTransformedImage() {
 		var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-					"overlayImage": "plant.jpeg",
-					"overlayX" : 50,
-					"overlayY" : 50,
-					"overlayHeight" : 100,
+			raw: 'l-image,i-plant.jpeg,h-100,b-10_CDDC39,l-end'
 		}]);
 		setImageUrl(transformedImageUrl);
 }
@@ -350,7 +343,7 @@ function showTransformedImage() {
 
 Output :** **
 
-![](../../.gitbook/assets/smartmockups_kfybx7dw.png)
+![](../../.gitbook/assets/react-native-image-overlay.png)
 
 ## **Client-side file uploading**
 

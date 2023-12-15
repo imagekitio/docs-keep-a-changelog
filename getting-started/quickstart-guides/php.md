@@ -331,7 +331,7 @@ https://ik.imagekit.io/demo/tr:q-40/default-image.jpg
 
 
 ### 5. Adding overlays to images
-ImageKit.io allows overlaying [images](https://docs.imagekit.io/features/image-transformations/overlay#image-overlay) or [text](https://docs.imagekit.io/features/image-transformations/overlay#text-overlay) over other images for watermarking or creating a dynamic banner using custom text.
+ImageKit.io allows overlaying [text](../../features/image-transformations/overlay-using-layers.md#add-text-over-image) or [image](../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) over other images for watermarking or creating a dynamic banner using custom text.
 
 #### Example
 ```php
@@ -344,19 +344,16 @@ $imageURL = $imageKit->url(array(
         [
             'height' => '300',
             'width' => '300',
-            'overlayImage' => 'default-image.jpg',
-            'overlaywidth' => '100',
-            'overlayX' => '0',
-            'overlayImageBorder' => '10_CDDC39' // 10px border of color CDDC39
+            'raw': 'l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end'
         ]
     ]
 ));
 ```
 #### Response
 ```
-https://ik.imagekit.io/demo/tr:w-300,h-300,oi-default-image.jpg,ow-100,ox-0,oib-10_CDDC39/default-image.jpg
+https://ik.imagekit.io/demo/tr:w-300,h-300,l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end/default-image.jpg
 ```
-![](<../../.gitbook/assets/image (70).png>)
+![](<../../.gitbook/assets/image-overlay.png>)
 
 ### 6. Signed URL
 
@@ -410,35 +407,6 @@ The complete list of transformations supported and their usage in ImageKit can b
 | rotation | rt |
 | blur | bl |
 | named | n |
-| overlayX | ox |
-| overlayY | oy |
-| overlayFocus | ofo |
-| overlayHeight | oh |
-| overlayWidth | ow |
-| overlayImage | oi |
-| overlayImageTrim | oit |
-| overlayImageAspectRatio | oiar |
-| overlayImageBackground | oibg |
-| overlayImageBorder | oib |
-| overlayImageDPR | oidpr |
-| overlayImageQuality | oiq |
-| overlayImageCropping | oic |
-| overlayImageFocus | oifo |
-| overlayImageTrim | oit |
-| overlayText | ot |
-| overlayTextFontSize | ots |
-| overlayTextFontFamily | otf |
-| overlayTextColor | otc |
-| overlayTextTransparency | oa |
-| overlayAlpha | oa |
-| overlayTextTypography | ott |
-| overlayBackground | obg |
-| overlayTextEncoded | ote |
-| overlayTextWidth | otw |
-| overlayTextBackground | otbg |
-| overlayTextPadding | otp |
-| overlayTextInnerAlignment | otia |
-| overlayRadius | or |
 | progressive | pr |
 | lossless | lo |
 | trim | t |

@@ -197,7 +197,7 @@ https://ik.imagekit.io/demo/tr:rt-90:h-300,w-200/default-image.jpg?ik-sdk-versio
 
 ## Adding overlays to images in Ruby App
 
-ImageKit.io allows you to add [text](../../../features/image-transformations/overlay.md#text-overlay) and [image overlay](../../../features/image-transformations/overlay.md) dynamically.
+ImageKit.io allows you to add [images](../../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) and [text overlay](../../../features/image-transformations/overlay-using-layers.md#add-text-over-image) dynamically.
 
 #### **Text overlay**
 
@@ -209,9 +209,7 @@ image_url = imagekitio.url({
   transformation: [{
     height: "300",
     width: "300",
-    overlay_text: 'ImageKit',
-    overlay_text_font_size: 50,
-    overlay_text_color: '0651D5',
+    raw: "l-text,i-ImageKit,co-0651D5,fs-50,l-end"
   }],
 })
 ```
@@ -219,7 +217,7 @@ image_url = imagekitio.url({
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/demo/tr:h-300,w-300,ot-ImageKit,ots-50,otc-0651D5/default-image.jpg?ik-sdk-version=ruby-1.0.5
+https://ik.imagekit.io/demo/tr:h-300,w-300,l-text,i-Imagekit,co-0651D5,fs-50,l-end/default-image.jpg?ik-sdk-version=ruby-1.0.5
 ```
 
 **Output Image:**
@@ -241,6 +239,7 @@ image_url = imagekitio.url({
     height: "300",
     width: "300",
     overlay_image: "logo-white_SJwqB4Nfe.png"
+    "raw": 'l-image,i-logo-white_SJwqB4Nfe.png,w-100,b-10_CDDC39,l-end'
   }],
 })
 ```
@@ -248,7 +247,7 @@ image_url = imagekitio.url({
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/demo/tr:h-300,w-300,oi-logo-white_SJwqB4Nfe.png/default-image.jpg?ik-sdk-version=ruby-1.0.6
+https://ik.imagekit.io/demo/tr:h-300,w-300,l-image,i-logo-white_SJwqB4Nfe.png,w-100,b-10_CDDC39,l-end/default-image.jpg?ik-sdk-version=ruby-1.0.6
 ```
 
 **Output Image:**

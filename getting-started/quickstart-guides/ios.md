@@ -212,7 +212,7 @@ Output:
 
 ## **Adding an overlay to images in iOS application**
 
-ImageKit.io allows you to add [text](https://docs.imagekit.io/features/image-transformations/overlay#text-overlay) and [image overlay](https://docs.imagekit.io/features/image-transformations/overlay) dynamically.
+ImageKit.io allows you to add [text](../../features/image-transformations/overlay-using-layers.md#add-text-over-image) and [image overlay](../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) dynamically.
 
 ### Text overlay <a href="text-overlay" id="text-overlay"></a>
 

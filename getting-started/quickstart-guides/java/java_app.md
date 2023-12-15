@@ -420,7 +420,7 @@ https://ik.imagekit.io/zv3rkhsym/tr:q-40/default-image.jpg?ik-sdk-version=java-1
 ![Overlay image over another image](<../../../.gitbook/assets/java-app-with-quality-image.png>)
 
 ### 5. Adding overlays to images
-ImageKit.io allows overlaying [images](https://docs.imagekit.io/features/image-transformations/overlay#image-overlay) or [text](https://docs.imagekit.io/features/image-transformations/overlay#text-overlay) over other images for watermarking or creating a dynamic banner using custom text.
+ImageKit.io allows overlaying [images](../../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) or [text](../../../features/image-transformations/overlay-using-layers.md#add-text-over-image) over other images for watermarking or creating a dynamic banner using custom text.
 
 #### **Text overlay**
 
@@ -533,34 +533,6 @@ If you want to generate transformations in your application and add them to the 
 | rotation | rt |
 | blur | bl |
 | named | n |
-| overlayX | ox |
-| overlayY | oy |
-| overlayFocus | ofo |
-| overlayHeight | oh |
-| overlayWidth | ow |
-| overlayImage | oi |
-| overlayImageTrim | oit |
-| overlayImageAspectRatio | oiar |
-| overlayImageBackground | oibg |
-| overlayImageBorder | oib |
-| overlayImageDPR | oidpr |
-| overlayImageQuality | oiq |
-| overlayImageCropping | oic |
-| overlayImageFocus | oifo |
-| overlayText | ot |
-| overlayTextFontSize | ots |
-| overlayTextFontFamily | otf |
-| overlayTextColor | otc |
-| overlayTextTransparency | oa |
-| overlayAlpha | oa |
-| overlayTextTypography | ott |
-| overlayBackground | obg |
-| overlayTextEncoded | ote |
-| overlayTextWidth | otw |
-| overlayTextBackground | otbg |
-| overlayTextPadding | otp |
-| overlayTextInnerAlignment | otia |
-| overlayRadius | or |
 | progressive | pr |
 | lossless | lo |
 | trim | t |

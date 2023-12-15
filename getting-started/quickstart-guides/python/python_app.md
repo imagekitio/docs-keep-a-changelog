@@ -344,7 +344,7 @@ https://ik.imagekit.io/fl0osl7rq9/tr:q-40/default-image.jpg
 ![Overlay image over another image](<../../../.gitbook/assets/python-app-with-quality-image.png>)
 
 ### 5. Adding overlays to images
-ImageKit.io allows overlaying [images](https://docs.imagekit.io/features/image-transformations/overlay#image-overlay) or [text](https://docs.imagekit.io/features/image-transformations/overlay#text-overlay) over other images for watermarking or creating a dynamic banner using custom text.
+ImageKit.io allows overlaying [images](../../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) or [text](../../../features/image-transformations/overlay-using-layers.md#add-text-over-image) over other images for watermarking or creating a dynamic banner using custom text.
 
 #### **Text overlay**
 
@@ -355,10 +355,10 @@ Text overlay can be used to superimpose text on an image. For example:
 image_url = imagekit.url(
         {
             "path": "/default-image.jpg",
-            "transformation": [{"height": "300", "width": "300"},
-                               {"overlay_text": "ImageKit", "overlay_text_font_size": "50",
-                                "overlay_text_color": "0651D5"}
-                               ],
+            "transformation": [{"height": "300", 
+                                "width": "300",
+                                "raw": "l-text,i-ImageKit,co-0651D5,fs-50,l-end"
+                              }],
         }
     )
 ```
@@ -366,7 +366,7 @@ image_url = imagekit.url(
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/fl0osl7rq9/tr:h-300,w-300:ot-ImageKit,ots-50,otc-0651D5/default-image.jpg
+https://ik.imagekit.io/fl0osl7rq9/tr:h-300,w-300,l-text,i-Imagekit,co-0651D5,fs-50,l-end/default-image.jpg
 ```
 
 **Output Image:**
@@ -386,9 +386,10 @@ Overlay Image: `logo-white_SJwqB4Nfe.png`
 image_url = imagekit.url(
         {
             "path": "/default-image.jpg",
-            "transformation": [{"height": "300", "width": "300"},
-                               {"overlay_image": "logo-white_SJwqB4Nfe.png"}
-                               ],
+            "transformation": [{"height": "300", 
+                                "width": "300", 
+                                "raw": 'l-image,i-logo-white_SJwqB4Nfe.png,w-100,b-10_CDDC39,l-end'
+                                },],
         }
     )
 ```
@@ -396,7 +397,7 @@ image_url = imagekit.url(
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/fl0osl7rq9/tr:h-300,w-300:oi-logo-white_SJwqB4Nfe.png/default-image.jpg
+https://ik.imagekit.io/fl0osl7rq9/tr:h-300,w-300,l-image,i-logo-white_SJwqB4Nfe.png,w-100,b-10_CDDC39,l-end/default-image.jpg
 ```
 
 **Output Image:**
@@ -446,34 +447,6 @@ If you want to generate transformations in your application and add them to the 
 | rotation | rt |
 | blur | bl |
 | named | n |
-| overlay_image | oi |
-| overlay_image_aspect_ratio | oiar |
-| overlay_image_background | oibg |
-| overlay_image_border | oib |
-| overlay_image_dpr | oidpr |
-| overlay_image_quality | oiq |
-| overlay_image_cropping | oic |
-| overlay_image_focus | oifo |
-| overlay_image_trim | oit |
-| overlay_x | ox |
-| overlay_y | oy |
-| overlay_focus | ofo |
-| overlay_height | oh |
-| overlay_width | ow |
-| overlay_text | ot |
-| overlay_text_font_size | ots |
-| overlay_text_font_family | otf |
-| overlay_text_color | otc |
-| overlay_text_transparency | oa |
-| overlay_alpha | oa |
-| overlay_text_typography | ott |
-| overlay_background | obg |
-| overlay_text_encoded | ote |
-| overlay_text_width | otw |
-| overlay_text_background | otbg |
-| overlay_text_padding | otp |
-| overlay_text_inner_alignment | otia |
-| overlay_radius | or |
 | progressive | pr |
 | lossless | lo |
 | trim | t |
