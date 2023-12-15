@@ -324,7 +324,7 @@ function showTransformedImage() {
 
 Output : 
 
-![](../../.gitbook/assets/react-native-text-overlay.png | medium)
+![](../../.gitbook/assets/react-native-text-overlay.png)
 
 ### Image Overlay
 
@@ -343,7 +343,7 @@ function showTransformedImage() {
 
 Output :** **
 
-![](../../.gitbook/assets/react-native-image-overlay.png | medium)
+![](../../.gitbook/assets/react-native-image-overlay.png)
 
 ## **Client-side file uploading**
 
