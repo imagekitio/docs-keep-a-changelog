@@ -388,7 +388,7 @@ image_url = imagekit.url(
             "path": "/default-image.jpg",
             "transformation": [{"height": "300", 
                                 "width": "300", 
-                                "raw": 'l-image,i-logo-white_SJwqB4Nfe.png,w-100,b-10_CDDC39,l-end'
+                                "raw": 'l-image,i-logo-white_SJwqB4Nfe.png,w-100,l-end'
                                 },],
         }
     )
@@ -397,7 +397,7 @@ image_url = imagekit.url(
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/fl0osl7rq9/tr:h-300,w-300,l-image,i-logo-white_SJwqB4Nfe.png,w-100,b-10_CDDC39,l-end/default-image.jpg
+https://ik.imagekit.io/fl0osl7rq9/tr:h-300,w-300,l-image,i-logo-white_SJwqB4Nfe.png,w-100,l-end/default-image.jpg
 ```
 
 **Output Image:**

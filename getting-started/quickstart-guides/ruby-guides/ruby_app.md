@@ -238,8 +238,7 @@ image_url = imagekitio.url({
   transformation: [{
     height: "300",
     width: "300",
-    overlay_image: "logo-white_SJwqB4Nfe.png"
-    "raw": 'l-image,i-logo-white_SJwqB4Nfe.png,w-100,b-10_CDDC39,l-end'
+    raw: 'l-image,i-logo-white_SJwqB4Nfe.png,w-100,l-end'
   }],
 })
 ```
@@ -247,7 +246,7 @@ image_url = imagekitio.url({
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/demo/tr:h-300,w-300,l-image,i-logo-white_SJwqB4Nfe.png,w-100,b-10_CDDC39,l-end/default-image.jpg?ik-sdk-version=ruby-1.0.6
+https://ik.imagekit.io/demo/tr:h-300,w-300,l-image,i-logo-white_SJwqB4Nfe.png,w-100,l-end/default-image.jpg?ik-sdk-version=ruby-1.0.6
 ```
 
 **Output Image:**
