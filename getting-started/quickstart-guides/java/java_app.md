@@ -434,9 +434,7 @@ scale.put("height","300");
 scale.put("width","300");
 transformation.add(scale);
 Map<String, String> overlay=new HashMap<>();
-overlay.put("overlayText","ImageKit");
-overlay.put("overlayTextFontSize","50");
-overlay.put("overlayTextColor","0651D5");
+scale.put("raw", "l-text,i-Imagekit,rt-90,co-0651D5,fs-50,l-end");
 transformation.add(overlay);
 Map<String, Object> options=new HashMap();
 options.put("path", "/default-image.jpg");
@@ -448,7 +446,7 @@ String image_url=ImageKit.getInstance().getUrl(options);
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/zv3rkhsym/tr:w-300,h-300:ots-50,ot-ImageKit,otc-0651D5/default-image.jpg?ik-sdk-version=java-1.0.3
+https://ik.imagekit.io/zv3rkhsym/tr:w-300,h-300:l-text,i-Imagekit,rt-90,co-0651D5,fs-50,l-end/default-image.jpg?ik-sdk-version=java-1.0.3
 ```
 
 **Output Image:**
@@ -471,7 +469,7 @@ scale.put("height","300");
 scale.put("width","300");
 transformation.add(scale);
 Map<String, String> overlay=new HashMap<>();
-overlay.put("overlayImage","logo-white_SJwqB4Nfe.png");
+scale.put("raw", "l-image,i-logo-white_SJwqB4Nfe.png,w-100,l-end");
 transformation.add(overlay);
 Map<String, Object> options=new HashMap();
 options.put("path", "/default-image.jpg");
@@ -483,7 +481,7 @@ String image_url=ImageKit.getInstance().getUrl(options);
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/zv3rkhsym/tr:w-300,h-300:oi-logo-white_SJwqB4Nfe.png/default-image.jpg?ik-sdk-version=java-1.0.3
+https://ik.imagekit.io/zv3rkhsym/tr:w-300,h-300:l-image,i-logo-white_SJwqB4Nfe.png,w-100,l-end/default-image.jpg?ik-sdk-version=java-1.0.3
 ```
 
 **Output Image:**
