@@ -12,7 +12,7 @@ description: >-
 
 Used to specify the width of the output image. Accepts integer value greater than 1. If a value between 0 and 1 is specified, it acts as a percentage width. Therefore, 0.1 means 10% of the original width, 0.4 means 40% of the original width, and so on.
 
-You can also specify the `auto`_ _value for this parameter (w-auto). Doing so will instruct ImageKit to read the width value from the [Width Client Hint](https://imagekit.io/responsive-images/#width) request header. Learn more about client hints [here](../client-hints.md).
+You can also specify the `auto`_ _value for this parameter (w-auto). Doing so will instruct ImageKit to read the width value from the [Sec-CH-Width Client Hint](https://imagekit.io/responsive-images/#sec-ch-width) request header. Learn more about client hints [here](../client-hints.md).
 
 You can also provide an arithmetic expression such as `iw_div_2`, `cw_mul_0.8`, or `ih` as a value for this parameter. Doing so will first calculate the value of the expression and then apply transformations using that value. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
 
@@ -579,7 +579,7 @@ If the output image's height or width after considering the specified DPR is le
 
 **Possible Values**- `0.1`  to `5` .
 
-Alternatively, you can specify the `auto` value for this parameter (`dpr-auto`). Doing so will instruct ImageKit to read the `dpr` value from the [DPR Client Hint](https://imagekit.io/responsive-images/#dpr) request header. Learn more about client hints [here](../client-hints.md).
+Alternatively, you can specify the `auto` value for this parameter (`dpr-auto`). Doing so will instruct ImageKit to read the `dpr` value from the [Sec-CH-DPR Client Hint](https://imagekit.io/responsive-images/#sec-ch-dpr) request header. Learn more about client hints [here](../client-hints.md).
 
 ### Named transformation - (n)
 
