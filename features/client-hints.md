@@ -21,9 +21,6 @@ Not every request has these HTTP headers. You will have to explicitly tell the b
 <meta http-equiv="Accept-CH" content="Sec-CH-DPR, Sec-CH-Width">
 ```
 
-To enable support for `Sec-CH-DPR` and `Sec-CH-Width`, please contact us at [support@imagekit.io](mailto:support@imagekit.io).
-{% endhint %}
-
 ## ImageKit supports Client hints
 
 ImageKit supports the following client hints:
@@ -31,8 +28,6 @@ ImageKit supports the following client hints:
 * [Sec-CH-Width](https://imagekit.io/responsive-images/#sec-ch-width)
 * [Sec-CH-DPR](https://imagekit.io/responsive-images/#sec-ch-dpr)
 * [Save-Data](https://imagekit.io/responsive-images/#save-data)
-* [Width](https://imagekit.io/responsive-images/#sec-ch-width) <span style="color:red; font-size:14px;">(Deprecated; Please use Sec-CH-Width instead)</span>
-* [DPR](https://imagekit.io/responsive-images/#sec-ch-dpr) <span style="color:red; font-size:14px;">(Deprecated; Please use Sec-CH-DPR instead)</span>
 
 {% hint style="info" %}
 WebP conversion using `Accept` header is enabled by default and part of the [automatic format conversion](image-optimization/automatic-image-format-conversion.md) feature.
