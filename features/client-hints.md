@@ -21,9 +21,6 @@ Not every request has these HTTP headers. You will have to explicitly tell the b
 <meta http-equiv="Accept-CH" content="Sec-CH-DPR, Sec-CH-Width">
 ```
 
-To enable support for `Sec-CH-DPR` and `Sec-CH-Width`, please contact us at [support@imagekit.io](mailto:support@imagekit.io).
-{% endhint %}
-
 ## ImageKit supports Client hints
 
 ImageKit supports the following client hints:
