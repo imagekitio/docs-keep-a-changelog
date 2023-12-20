@@ -83,12 +83,12 @@ ImageKit.Companion.init(
 
 ## Rendering Images in Android application
 
-Image URL can be created from an image path or using the absolute image URL. You can learn more about it in [docs](https://github.com/imagekit-developer/imagekit-javascript#url-generation).
+Image URL can be created from an image path or using the absolute image URL.
 
-To render an image using an absolute URL (full image URL), we can instantiate the `ImageKitUrlConstructor`
+To render an image using an absolute URL (full image URL), we can instantiate the `ImageKitUrlConstructor`.
 
 ```kotlin
-// https://ik.imagekit.io/your_imagekit_id/medium_cafe_B1iTdD0C.jpg?tr=oi-logo-white_SJwqB4Nfe.png,ox-10,oy-20
+// https://ik.imagekit.io/your_imagekit_id/medium_cafe_B1iTdD0C.jpg
 ImageKit.getInstance()
     .url(
         src = "https://ik.imagekit.io/your_imagekit_id/medium_cafe_B1iTdD0C.jpg",
@@ -100,7 +100,7 @@ ImageKit.getInstance()
 To create a URL from the image path, we can instantiate the `ImageKitUrlConstructor` which takes the URL endpoint, image path, and transformation position as parameters to create the transformed url.
 
 ```kotlin
-// https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=h-400.00,ar-3-2
+// https://ik.imagekit.io/your_imagekit_id/default-image.jpg
 ImageKit.getInstance()
     .url(
         path = "default-image.jpg",
@@ -132,7 +132,9 @@ val url = urlConstructor.create()
 // https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=h-400,ar-3-2
 ```
 
-It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations. \
+It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations.
+
+![](<../../.gitbook/assets/Screenshot 2023-12-21 at 12.16.01 AM.png>)
 
 ## Common image manipulation in Android application
 
@@ -292,7 +294,7 @@ If you don't see the file, check if there are any errors in the error log. Make 
 
 ### **Upload policy**
 
-The [UploadPolicy](https://github.com/imagekit-developer/imagekit-android/blob/master/README.md#uploadpolicy) class represents a set of conditions that need to be met for an upload request to be executed.
+The [UploadPolicy](https://github.com/imagekit-developer/imagekit-android/blob/master/README.md#uploadpolicy) class represents a set of conditions that need to be met for an upload request to be executed. This policy is useful in various cases, like constraining large uploads to be performed only when the specified network and battery conditions are satisfied, and to control the retry mechanism for failed upload requests.
 
 `UploadPolicy.Builder` class is responsible for building the `UploadPolicy` instances. You can set a default upload policy for all uploads while instantiating the SDK, e. g.:
 
@@ -317,7 +319,7 @@ ImageKit.getInstance().uploader().upload(
     fileName = "sample-image.jpg",
     useUniqueFilename = true,
     policy = UploadPolicy.Builder()
-        .requireNetworkType(UploadPolicy.UploadPolicy.NetworkType.UNMETERED)
+        .requireNetworkType(UploadPolicy.NetworkType.UNMETERED)
         .setMaxRetries(4)
         .build(),
     imageKitCallback = object: ImageKitCallback {
@@ -333,9 +335,12 @@ ImageKit.getInstance().uploader().upload(
 
 ### **Upload preprocessors**
 
-The `ImageKitUploader` can also perform the preprocessing of the image/video to modify them before uploading, by passing an instance of [ImageUploadPreprocessor](https://github.com/imagekit-developer/imagekit-android/blob/master/README.md#image-preprocessing)/[VideoUploadPreprocessor](https://github.com/imagekit-developer/imagekit-android/blob/master/README.md#video-preprocessing).
+The `ImageKitUploader` can also perform the preprocessing of the image/video to modify them before uploading, by passing an instance of [ImageUploadPreprocessor](https://github.com/imagekit-developer/imagekit-android/blob/master/README.md#image-preprocessing)/[VideoUploadPreprocessor](https://github.com/imagekit-developer/imagekit-android/blob/master/README.md#video-preprocessing). These preprocessors can be useful for certain use cases, e.g:
 
-Currently, follwing processes can be applied by upload preprocessors:
+- Modifying the media size and/or quality, to perhaps optimize the use of ImageKit storage.
+- Applying certain media transformations from within the app, like when using an image editing feature of the app.
+
+Currently, follwing transformations can be applied by upload preprocessors:
 
 - Images:
     - Limiting width & height
