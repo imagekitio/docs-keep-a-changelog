@@ -113,7 +113,7 @@ ImageKit.getInstance()
 The transformation position (path or query) is only valid when creating a URL from the image path. Transformations are always added as query parameters if the URL is created from an absolute image path using **src**.
 {% endhint %}
 
-The Android SDK provides a [function](https://github.com/imagekit-developer/imagekit-Android#list-of-supported-transformations) for each transformation parameter, making the code simpler and readable. To add transformations, the functions can be chained with the  `ImagekitUrlConstructor` instance.&#x20;
+The Android SDK provides a [function](https://github.com/imagekit-developer/imagekit-Android#list-of-supported-transformations) for each transformation parameter, making the code simpler and readable. To add transformations, the functions can be chained with the `ImagekitUrlConstructor` instance.&#x20;
 
 ```kotlin
 val urlConstructor = ImageKit.getInstance()
@@ -135,6 +135,8 @@ val url = urlConstructor.create()
 It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations.
 
 ![](<../../.gitbook/assets/Screenshot 2023-12-21 at 12.16.01 AM.png>)
+
+We can also use the [extensions](#extensions-for-third-party-libraries) for the `ImagekitUrlConstructor` to create the image URLs with the image request objects from image loading libraries like Glide, Coil, Picasso etc.
 
 ## Common image manipulation in Android application
 
@@ -375,7 +377,7 @@ ImageKit.getInstance().uploader().upload(
 )
 ```
 
-## Integrations with third-party libraries
+## Extensions for third-party libraries
 
 ImageKit Android SDK also provides library extensions for integrations with the following image loading libraries for Android:
 
