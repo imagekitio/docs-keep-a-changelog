@@ -6,6 +6,13 @@ description: Automatically categorize and add tags to your images
 
 You can add AI-generated tags (AITags) to your media library images using ImageKit's [update](../../api-reference/media-api/update-file-details.md) and [upload](../../media-library/overview/upload-files.md) APIs. ImageKit leverages powerful label detection APIs by [Google Cloud Vision](https://cloud.google.com/vision/docs/labels) and [Amazon Rekognition](https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html) provided through its extensions to automatically detect and add tags to your images.
 
+
+{% embed url="https://www.youtube.com/watch?v=K1LU5f6gEvY&list=PLHMsBwDlzJRy9Y3xPpHZWjx_aRW5IOQQd&index=8" %}
+Using AI to tag assets in ImageKit
+{% endembed %}
+
+
+
 ### How to use auto-tagging?
 
 1. **While uploading a new image:**\
