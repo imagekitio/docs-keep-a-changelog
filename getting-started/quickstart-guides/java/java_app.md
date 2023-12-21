@@ -220,7 +220,7 @@ This section covers the basics:
 * [Image Enhancement & Color Manipulation](#2-image-enhancement-and-color-manipulation)
 * [Resizing images](#3-resizing-images)
 * [Quality manipulation](#4-quality-manipulation)
-* [Adding overlays to images](#5-adding-overlays-to-images)
+* [Adding overlays](#5-adding-overlays)
 * [Signed URL](#6-secure-signed-url-generation)
 
 The Java SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. See the [Full List of supported transformations](#list-of-supported-transformations).
@@ -419,9 +419,9 @@ https://ik.imagekit.io/zv3rkhsym/tr:q-40/default-image.jpg?ik-sdk-version=java-1
 
 ![Overlay image over another image](<../../../.gitbook/assets/java-app-with-quality-image.png>)
 
-### 4. Adding overlays
+### 5. Adding overlays
 
-ImageKit.io enables you to apply overlays to [images](https://docs.imagekit.io/features/image-transformations/overlay-using-layers) and [videos](https://docs.imagekit.io/features/video-transformation/overlay) using the raw parameter with the concept of [layers](https://docs.imagekit.io/features/image-transformations/overlay-using-layers#layers). The raw parameter facilitates incorporating transformations directly in the URL. A layer is a distinct type of transformation that allows you to define an asset to serve as an overlay, along with its positioning and additional transformations.
+ImageKit.io enables you to apply overlays to [images](../../../features/image-transformations/overlay-using-layers.md) and [videos](../../../features/video-transformation/overlay.md) using the raw parameter with the concept of [layers](../../../features/image-transformations/overlay-using-layers.md#layers). The raw parameter facilitates incorporating transformations directly in the URL. A layer is a distinct type of transformation that allows you to define an asset to serve as an overlay, along with its positioning and additional transformations.
 
 #### Text as overlays
 
