@@ -275,7 +275,7 @@ https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-image,i-ik_canvas,bg-FF
 
 **Output Image:**
 
-![Overlay image over another image](<../../../.gitbook/assets/ruby-app-with-overlay-image.png>)
+![Overlay solid color over video](<../../../.gitbook/assets/solid-color-overlay-image.png>)
 
 ## Secure signed URL generation
 
