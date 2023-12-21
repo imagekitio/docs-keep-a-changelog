@@ -31,6 +31,6 @@ If a folder with the same name exists at the destination location, the ownership
 
 The change of access control and ownership on copy and move operations for nested files is described [here](./copy-and-move-files.md#access-control-and-permissions).
 
-{% embed url="https://www.youtube.com/watch?v=C2SNNk_o6Qo" %}
-Copy folder
+{% embed url="https://www.youtube.com/watch?v=9jsiS8siwzE&list=PLHMsBwDlzJRy9Y3xPpHZWjx_aRW5IOQQd&index=6" %}
+Copy, move files and folder in ImageKit
 {% endembed %}
