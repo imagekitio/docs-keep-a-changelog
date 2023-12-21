@@ -220,7 +220,7 @@ This section covers the basics:
 * [Image Enhancement & Color Manipulation](#2-image-enhancement-and-color-manipulation)
 * [Resizing images](#3-resizing-images)
 * [Quality manipulation](#4-quality-manipulation)
-* [Adding overlays to images](#5-adding-overlays-to-images)
+* [Adding overlays](#5.-adding-overlays)
 * [Signed URL](#6-secure-signed-url-generation)
 
 The Java SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. See the [Full List of supported transformations](#list-of-supported-transformations).
@@ -419,76 +419,97 @@ https://ik.imagekit.io/zv3rkhsym/tr:q-40/default-image.jpg?ik-sdk-version=java-1
 
 ![Overlay image over another image](<../../../.gitbook/assets/java-app-with-quality-image.png>)
 
-### 5. Adding overlays to images
-ImageKit.io allows overlaying [images](https://docs.imagekit.io/features/image-transformations/overlay#image-overlay) or [text](https://docs.imagekit.io/features/image-transformations/overlay#text-overlay) over other images for watermarking or creating a dynamic banner using custom text.
+### 5. Adding overlays
 
-#### **Text overlay**
+ImageKit.io enables you to apply overlays to [images](../../../features/image-transformations/overlay-using-layers.md) and [videos](../../../features/video-transformation/overlay.md) using the raw parameter with the concept of [layers](../../../features/image-transformations/overlay-using-layers.md#layers). The raw parameter facilitates incorporating transformations directly in the URL. A layer is a distinct type of transformation that allows you to define an asset to serve as an overlay, along with its positioning and additional transformations.
 
-Text overlay can be used to superimpose text on an image. For example:
+#### Text as overlays
 
-#### Example
+You can add any text string over a base video or image using a text layer (l-text).
+
+For example:
+
 ```java
 List<Map<String, String>> transformation=new ArrayList<Map<String, String>>();
 Map<String, String> scale=new HashMap<>();
 scale.put("height","300");
-scale.put("width","300");
+scale.put("width","400");
+scale.put("raw", "l-text,i-Imagekit,fs-50,l-end");
 transformation.add(scale);
-Map<String, String> overlay=new HashMap<>();
-overlay.put("overlayText","ImageKit");
-overlay.put("overlayTextFontSize","50");
-overlay.put("overlayTextColor","0651D5");
-transformation.add(overlay);
+
 Map<String, Object> options=new HashMap();
-options.put("path", "/default-image.jpg");
+options.put("src","https://ik.imagekit.io/your_imagekit_id/default-image.jpg");
 options.put("transformation", transformation);
 
-String image_url=ImageKit.getInstance().getUrl(options);
+String url = ImageKit.getInstance().getUrl(options);
 ```
-
-**Transformation URL:**
-
-```http
-https://ik.imagekit.io/zv3rkhsym/tr:w-300,h-300:l-text,fs-50,i-ImageKit,co-0651D5,l-end/default-image.jpg?ik-sdk-version=java-1.0.3
+#### Sample Result URL
+```
+https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=h-300,w-400,l-text,i-Imagekit,fs-50,l-end
 ```
 
 **Output Image:**
 
-![Text Overlay (300px \* 300px)](<../../../.gitbook/assets/java-app-with-overlay-text.png>)
+![Overlay text over image](<../../../.gitbook/assets/text-overlay-image.png>)
 
-#### **Image overlay**
 
-Image overlay can be used to superimpose an image on another image. For example, we will upload a while logo image on [this link](https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png) into our account and use it for the overlay image.
+#### Image as overlays
 
-Base Image: `default-image.jpg`
+You can add an image over a base video or image using an image layer (l-image).
 
-Overlay Image: `logo-white_SJwqB4Nfe.png`
+For example:
 
-#### Example
 ```java
 List<Map<String, String>> transformation=new ArrayList<Map<String, String>>();
 Map<String, String> scale=new HashMap<>();
 scale.put("height","300");
-scale.put("width","300");
+scale.put("width","400");
+scale.put("raw", "l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end");
 transformation.add(scale);
-Map<String, String> overlay=new HashMap<>();
-overlay.put("overlayImage","logo-white_SJwqB4Nfe.png");
-transformation.add(overlay);
+
 Map<String, Object> options=new HashMap();
-options.put("path", "/default-image.jpg");
+options.put("src","https://ik.imagekit.io/your_imagekit_id/default-image.jpg");
 options.put("transformation", transformation);
 
-String image_url=ImageKit.getInstance().getUrl(options);
+String url = ImageKit.getInstance().getUrl(options);
 ```
-
-**Transformation URL:**
-
-```http
-https://ik.imagekit.io/zv3rkhsym/tr:w-300,h-300:l-image,i-logo-white_SJwqB4Nfe.png,l-end/default-image.jpg?ik-sdk-version=java-1.0.3
+#### Sample Result URL
+```
+https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=h-300,w-400,l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end
 ```
 
 **Output Image:**
 
-![Overlay image over another image](<../../../.gitbook/assets/java-app-with-overlay-image.png>)
+![Overlay image over another image](<../../../.gitbook/assets/image-overlay-image.png>)
+
+#### Solid color blocks as overlays
+
+You can add solid color blocks over a base video or image using an image layer (l-image).
+
+For example:
+
+```java
+List<Map<String, String>> transformation=new ArrayList<Map<String, String>>();
+Map<String, String> scale=new HashMap<>();
+scale.put("height","300");
+scale.put("width","400");
+scale.put("raw", "l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end");
+transformation.add(scale);
+
+Map<String, Object> options=new HashMap();
+options.put("src","https://ik.imagekit.io/your_imagekit_id/default-image.jpg");
+options.put("transformation", transformation);
+
+String url = ImageKit.getInstance().getUrl(options);
+```
+#### Sample Result URL
+```
+https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=h-300,w-400,l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end
+```
+
+**Output Image:**
+
+![Overlay solid color over image](<../../../.gitbook/assets/solid-color-overlay-image.png>)
 
 ### 6. Secure signed URL generation
 
@@ -533,34 +554,6 @@ If you want to generate transformations in your application and add them to the 
 | rotation | rt |
 | blur | bl |
 | named | n |
-| overlayX | ox |
-| overlayY | oy |
-| overlayFocus | ofo |
-| overlayHeight | oh |
-| overlayWidth | ow |
-| overlayImage | oi |
-| overlayImageTrim | oit |
-| overlayImageAspectRatio | oiar |
-| overlayImageBackground | oibg |
-| overlayImageBorder | oib |
-| overlayImageDPR | oidpr |
-| overlayImageQuality | oiq |
-| overlayImageCropping | oic |
-| overlayImageFocus | oifo |
-| overlayText | ot |
-| overlayTextFontSize | ots |
-| overlayTextFontFamily | otf |
-| overlayTextColor | otc |
-| overlayTextTransparency | oa |
-| overlayAlpha | oa |
-| overlayTextTypography | ott |
-| overlayBackground | obg |
-| overlayTextEncoded | ote |
-| overlayTextWidth | otw |
-| overlayTextBackground | otbg |
-| overlayTextPadding | otp |
-| overlayTextInnerAlignment | otia |
-| overlayRadius | or |
 | progressive | pr |
 | lossless | lo |
 | trim | t |

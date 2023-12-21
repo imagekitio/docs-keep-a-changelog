@@ -14,7 +14,7 @@ This guide walks you through the following topics:
 * [Setting up Imagekit Javascript SDK](react-native.md#setting-up-imagekit-javascript-sdk)
 * [Rendering Images](react-native.md#rendering-images)
 * [Applying common image manipulations](react-native.md#common-image-manipulation)
-* [Adding overlays to images](react-native.md#adding-overlay-to-images)
+* [Adding overlays](react-native.md#adding-overlays)
 * [Client-side file uploading](react-native.md#client-side-file-uploading)
 
 {% hint style="info" %}
@@ -303,9 +303,9 @@ Output :
 
 ![](../../.gitbook/assets/smartmockups_kfybxzjk.png)
 
-## **Adding an overlay to images**
+## **Adding overlays**
 
-ImageKit.io allows you to add [text](../../features/image-transformations/overlay.md#text-overlay) and [image overlay](../../features/image-transformations/overlay.md) dynamically.
+ImageKit.io enables you to apply overlays to [images](../../features/image-transformations/overlay-using-layers.md) and [videos](../../features/video-transformation/overlay.md) using the raw parameter with the concept of [layers](../../features/image-transformations/overlay-using-layers.md#layers). The raw parameter facilitates incorporating transformations directly in the URL. A layer is a distinct type of transformation that allows you to define an asset to serve as an overlay, along with its positioning and additional transformations.
 
 ### Text Overlay
 
@@ -315,11 +315,7 @@ Text overlay can be used to superimpose text on an image. Try it like so:
 ```javascript
 function showTransformedImage() {
 		var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-					"overlayText": 'ImageKit',
-					"overlayTextFontSize": 50,
-					"overlayTextColor": '0651D5',
-					"overlayX" : 50,
-					"overlayY" : 20
+			raw: "l-text,i-Imagekit,co-0651D5,fs-50,l-end"
 		}]);
 		setImageUrl(transformedImageUrl);
 }
@@ -328,7 +324,7 @@ function showTransformedImage() {
 
 Output : 
 
-![](../../.gitbook/assets/smartmockups_kfybxkve.png)
+![](../../.gitbook/assets/react-native-text-overlay.png)
 
 ### Image Overlay
 
@@ -338,19 +334,16 @@ Image overlay can be used like this:
 ```javascript
 function showTransformedImage() {
 		var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-					"overlayImage": "plant.jpeg",
-					"overlayX" : 50,
-					"overlayY" : 50,
-					"overlayHeight" : 100,
+			raw: 'l-image,i-plant.jpeg,h-100,b-10_CDDC39,l-end'
 		}]);
 		setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
 
-Output :** **
+Output :
 
-![](../../.gitbook/assets/smartmockups_kfybx7dw.png)
+![](../../.gitbook/assets/react-native-image-overlay.png)
 
 ## **Client-side file uploading**
 
