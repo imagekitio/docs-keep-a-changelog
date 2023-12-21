@@ -9,10 +9,8 @@ The total size of the assets to be downloaded cannot exceed 1 GB.
 {% endhint %}
 
 {% embed url="https://www.youtube.com/watch?v=NcI9guObk-M&list=PLHMsBwDlzJRy9Y3xPpHZWjx_aRW5IOQQd&index=5" %}
-Upload and down media assets in ImageKIt
+Upload and download media assets in ImageKit
 {% endembed %}
-
-
 
 ## How to download as zip?
 
