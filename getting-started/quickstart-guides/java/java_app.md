@@ -220,7 +220,7 @@ This section covers the basics:
 * [Image Enhancement & Color Manipulation](#2-image-enhancement-and-color-manipulation)
 * [Resizing images](#3-resizing-images)
 * [Quality manipulation](#4-quality-manipulation)
-* [Adding overlays](#5-adding-overlays)
+* [Adding overlays](#5.-adding-overlays)
 * [Signed URL](#6-secure-signed-url-generation)
 
 The Java SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. See the [Full List of supported transformations](#list-of-supported-transformations).

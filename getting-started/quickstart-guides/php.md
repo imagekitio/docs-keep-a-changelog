@@ -15,7 +15,7 @@ This guide walks you through the following topics:
 * [Setting up ImageKit PHP SDK](php.md#setting-up-imagekit-php-sdk)
 * [Generating url for rendering images](php.md#generating-url-for-rendering-images)
 * [Signed URL & Image Transformations](php.md#applying-chained-transformations-common-image-manipulations--signed-url)
-* [Adding overlays to images](php.md#5-adding-overlays-to-images)
+* [Adding overlays](php.md#5.-adding-overlays)
 * [Server-side file uploading](php.md#server-side-file-upload)
 * [ImageKit Media API](php.md#imagekit-media-api)
 * [Utility Functions](php.md#utility-functions)

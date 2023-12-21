@@ -305,7 +305,7 @@ Output :
 
 ## **Adding an overlay to images**
 
-ImageKit.io allows you to add [text](../../features/image-transformations/overlay-using-layers.md#add-text-over-image) and [image overlay](../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) dynamically.
+ImageKit.io enables you to apply overlays to [images](../../features/image-transformations/overlay-using-layers.md) and [videos](../../features/video-transformation/overlay.md) using the raw parameter with the concept of [layers](../../features/image-transformations/overlay-using-layers.md#layers). The raw parameter facilitates incorporating transformations directly in the URL. A layer is a distinct type of transformation that allows you to define an asset to serve as an overlay, along with its positioning and additional transformations.
 
 ### Text Overlay
 
@@ -341,7 +341,7 @@ function showTransformedImage() {
 ```
 {% endcode %}
 
-Output :** **
+Output :
 
 ![](../../.gitbook/assets/react-native-image-overlay.png)
 
