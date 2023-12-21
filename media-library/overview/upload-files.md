@@ -21,8 +21,8 @@ To upload files, either drag and drop files anywhere on the screen or
 
 Select the file from the local device to start uploading.
 
-{% embed url="https://www.youtube.com/watch?v=wQheStsBZfY" %}
-Select file and upload
+{% embed url="https://www.youtube.com/watch?v=NcI9guObk-M&list=PLHMsBwDlzJRy9Y3xPpHZWjx_aRW5IOQQd&index=5" %}
+uploading and downloading files in ImageKit
 {% endembed %}
 
 ### Drag & drop file upload
