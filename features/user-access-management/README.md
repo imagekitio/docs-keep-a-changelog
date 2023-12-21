@@ -18,6 +18,12 @@ Go to the [Users section](https://imagekit.io/dashboard?redirectTo=users) in the
 ****An ImageKit.io account can have a maximum of 5 users. Please reach out to support at support@imagekit.io if you want to add more users.
 {% endhint %}
 
+
+{% embed url="https://www.youtube.com/watch?v=tdcz7uOzCYk&list=PLHMsBwDlzJRy9Y3xPpHZWjx_aRW5IOQQd&index=4" %}
+User management in ImageKit
+{% endembed %}
+
+
 ## User roles
 
 A user can have six different roles:
