@@ -354,7 +354,7 @@ $imageURL = $imageKit->url(array(
 ```
 #### Response
 ```
-https://ik.imagekit.io/demo/tr:w-300,h-300,oi-default-image.jpg,ow-100,ox-0,oib-10_CDDC39/default-image.jpg
+https://ik.imagekit.io/demo/tr:w-300,h-300,l-image,i-default-image.jpg,w-100,lx-0,b-10_CDDC39,l-end/default-image.jpg
 ```
 ![](<../../.gitbook/assets/image (70).png>)
 

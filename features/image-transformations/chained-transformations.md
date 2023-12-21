@@ -68,14 +68,14 @@ This is fairly straightforward.
 
 ImageKit's logo is accessible at path `logo-white_SJwqB4Nfe.png` and then we can position and resize the overlay using overlay x, y and overlay height transforms. The transformation thus becomes
 
-`oi-logo-white_SJwqB4Nfe.png,ox-10,oy-40,oh-20`
+`l-image,i-logo-white_SJwqB4Nfe.png,lx-10,ly-40,h-20,l-end`
 
 We combine these three steps into a chain with each step separated by a colon (":")
 
 Final Chained Transformation
 
-`w-400,h-400:w-500,h-400,cm-pad_resize,fo-right,bg-000000:oi-logo-white_SJwqB4Nfe.png,ox-10,oy-40,oh-20`
+`w-400,h-400:w-500,h-400,cm-pad_resize,fo-right,bg-000000:l-image,i-logo-white_SJwqB4Nfe.png,lx-10,ly-40,h-20,l-end`
 
-Final URL - [https://ik.imagekit.io/demo/img/default-image.jpg?tr=w-400,h-400:w-500,h-400,cm-pad_resize,fo-right,bg-000000:oi-logo-white_SJwqB4Nfe.png,ox-10,oy-50,oh-20](https://ik.imagekit.io/demo/img/default-image.jpg?tr=w-400,h-400:w-500,h-400,cm-pad_resize,fo-right,bg-000000:oi-logo-white_SJwqB4Nfe.png,ox-10,oy-50,oh-20)
+Final URL - [https://ik.imagekit.io/demo/img/default-image.jpg?tr=w-400,h-400:w-500,h-400,cm-pad_resize,fo-right,bg-000000:l-image,i-logo-white_SJwqB4Nfe.png,lx-10,ly-50,h-20,l-end](https://ik.imagekit.io/demo/img/default-image.jpg?tr=w-400,h-400:w-500,h-400,cm-pad_resize,fo-right,bg-000000:l-image,i-logo-white_SJwqB4Nfe.png,lx-10,ly-50,h-20,l-end)
 
-![](https://ik.imagekit.io/demo/img/default-image.jpg?tr=w-400,h-400:w-500,h-400,cm-pad_resize,fo-right,bg-000000:oi-logo-white_SJwqB4Nfe.png,ox-10,oy-50,oh-20)
+![](https://ik.imagekit.io/demo/img/default-image.jpg?tr=w-400,h-400:w-500,h-400,cm-pad_resize,fo-right,bg-000000:l-image,i-logo-white_SJwqB4Nfe.png,lx-10,ly-50,h-20,l-end)

@@ -248,7 +248,7 @@ image_url = imagekitio.url({
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/demo/tr:h-300,w-300,oi-logo-white_SJwqB4Nfe.png/default-image.jpg?ik-sdk-version=ruby-1.0.6
+https://ik.imagekit.io/demo/tr:h-300,w-300,l-image,i-logo-white_SJwqB4Nfe.png,l-end/default-image.jpg?ik-sdk-version=ruby-1.0.6
 ```
 
 **Output Image:**

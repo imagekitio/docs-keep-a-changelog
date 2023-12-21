@@ -448,7 +448,7 @@ String image_url=ImageKit.getInstance().getUrl(options);
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/zv3rkhsym/tr:w-300,h-300:ots-50,ot-ImageKit,otc-0651D5/default-image.jpg?ik-sdk-version=java-1.0.3
+https://ik.imagekit.io/zv3rkhsym/tr:w-300,h-300:l-text,fs-50,i-ImageKit,co-0651D5,l-end/default-image.jpg?ik-sdk-version=java-1.0.3
 ```
 
 **Output Image:**
@@ -483,7 +483,7 @@ String image_url=ImageKit.getInstance().getUrl(options);
 **Transformation URL:**
 
 ```http
-https://ik.imagekit.io/zv3rkhsym/tr:w-300,h-300:oi-logo-white_SJwqB4Nfe.png/default-image.jpg?ik-sdk-version=java-1.0.3
+https://ik.imagekit.io/zv3rkhsym/tr:w-300,h-300:l-image,i-logo-white_SJwqB4Nfe.png,l-end/default-image.jpg?ik-sdk-version=java-1.0.3
 ```
 
 **Output Image:**
