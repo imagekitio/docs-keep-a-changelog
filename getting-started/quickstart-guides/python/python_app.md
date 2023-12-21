@@ -169,7 +169,7 @@ This section covers the basics:
 * [Image Enhancement & Color Manipulation](#2-image-enhancement-and-color-manipulation)
 * [Resizing images](#3-resizing-images)
 * [Quality manipulation](#4-quality-manipulation)
-* [Adding overlays to images](#5-adding-overlays-to-images)
+* [Adding overlays](#5-adding-overlays)
 * [Signed URL](#6-secure-signed-url-generation)
 
 The Python SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. See the [Full List of supported transformations](#list-of-supported-transformations).
@@ -343,85 +343,87 @@ https://ik.imagekit.io/fl0osl7rq9/tr:q-40/default-image.jpg
 
 ![Overlay image over another image](<../../../.gitbook/assets/python-app-with-quality-image.png>)
 
-### 5. Adding overlays to images
-ImageKit.io allows overlaying [images](../../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) or [text](../../../features/image-transformations/overlay-using-layers.md#add-text-over-image) over other images for watermarking or creating a dynamic banner using custom text.
+### 5. Adding overlays
 
-#### **Text overlay**
+ImageKit.io enables you to apply overlays to [images](../../../features/image-transformations/overlay-using-layers.md) and [videos](../../../features/video-transformation/overlay.md) using the raw parameter with the concept of [layers](../../../features/image-transformations/overlay-using-layers.md#layers). The raw parameter facilitates incorporating transformations directly in the URL. A layer is a distinct type of transformation that allows you to define an asset to serve as an overlay, along with its positioning and additional transformations.
 
-Text overlay can be used to superimpose text on an image. For example:
+#### Text as overlays
 
-#### Example
+You can add any text string over a base video or image using a text layer (l-text).
+
+For example:
+
 ```python
-image_url = imagekit.url(
-        {
-            "path": "/default-image.jpg",
-            "transformation": [{"height": "300", 
-                                "width": "300",
-                                "raw": "l-text,i-ImageKit,co-0651D5,fs-50,l-end"
-                              }],
-        }
-    )
+image_url = imagekit.url({
+    "path": "/default-image",
+    "url_endpoint": "https://ik.imagekit.io/your_imagekit_id/endpoint/",
+    "transformation": [{
+        "height": "300",
+        "width": "400",
+        "raw": "l-text,i-Imagekit,fs-50,l-end"
+    }],
+})
 ```
-
-**Transformation URL:**
-
-```http
-https://ik.imagekit.io/fl0osl7rq9/tr:h-300,w-300,l-text,i-Imagekit,co-0651D5,fs-50,l-end/default-image.jpg
+#### Sample Result URL
+```
+https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-text,i-Imagekit,fs-50,l-end/default-image.jpg
 ```
 
 **Output Image:**
 
-![Text Overlay (300px \* 300px)](<../../../.gitbook/assets/python-app-with-overlay-text.png>)
+![Overlay text over image](<../../../.gitbook/assets/text-overlay-image.png>)
 
-#### **Image overlay**
+#### Image as overlays
 
-Image overlay can be used to superimpose an image on another image. For example, we will upload a while logo image on [this link](https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png) into our account and use it for the overlay image.
+You can add an image over a base video or image using an image layer (l-image).
 
-Base Image: `default-image.jpg`
+For example:
 
-Overlay Image: `logo-white_SJwqB4Nfe.png`
-
-#### Example
 ```python
-image_url = imagekit.url(
-        {
-            "path": "/default-image.jpg",
-            "transformation": [{"height": "300", 
-                                "width": "300", 
-                                "raw": 'l-image,i-logo-white_SJwqB4Nfe.png,w-100,l-end'
-                                },],
-        }
-    )
+image_url = imagekit.url({
+    "path": "/default-image",
+    "url_endpoint": "https://ik.imagekit.io/your_imagekit_id/endpoint/",
+    "transformation": [{
+        "height": "300",
+        "width": "400",
+        "raw": "l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end"
+    }],
+})
 ```
-
-**Transformation URL:**
-
-```http
-https://ik.imagekit.io/fl0osl7rq9/tr:h-300,w-300,l-image,i-logo-white_SJwqB4Nfe.png,w-100,l-end/default-image.jpg
+#### Sample Result URL
+```
+https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end/default-image.jpg
 ```
 
 **Output Image:**
 
-![Overlay image over another image](<../../../.gitbook/assets/python-app-with-overlay-image.png>)
+![Overlay image over another image](<../../../.gitbook/assets/image-overlay-image.png>)
 
-### 6. Secure signed URL generation
+#### Solid color blocks as overlays
 
-You can use the SDK to generate a signed URL of an image that expires in a given number of seconds.
+You can add solid color blocks over a base video or image using an image layer (l-image).
 
-#### Example
+For example:
+
 ```python
-image_url = imagekit.url(
-        {
-            "path": "/default-image.jpg",
-            "signed": True,
-            "expire_seconds": 10,
-        }
-    )
+image_url = imagekit.url({
+    "path": "/img/sample-video",
+    "url_endpoint": "https://ik.imagekit.io/your_imagekit_id/endpoint/",
+    "transformation": [{
+        "height": "300",
+        "width": "400",
+        "raw": "l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end"
+    }],
+})
+```
+#### Sample Result URL
+```
+https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end/img/sample-video.mp4
 ```
 
-The above snippets create a signed URL with an expiry time of 10 seconds.
+**Output Image:**
 
-![Signed URL generation](<../../../.gitbook/assets/python-app-with-signed-image.png>)
+![Overlay solid color over video](<../../../.gitbook/assets/solid-color-overlay-image.png>)
 
 ### List of supported transformations
 
