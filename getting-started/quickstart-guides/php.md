@@ -400,7 +400,7 @@ For example:
 
 ```php
 $imageURL = $imageKit->url(array(
-    'path' => '/img/sample-video.mp4',
+    'path' => '/default-image.jpg',
     'urlEndpoint' => 'https://ik.imagekit.io/your_imagekit_id'
     
     'transformation' => [
@@ -414,12 +414,12 @@ $imageURL = $imageKit->url(array(
 ```
 #### Sample Result URL
 ```
-https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end/img/sample-video.mp4
+https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end/default-image.jpg
 ```
 
 **Output Image:**
 
-![Overlay solid color over video](<../../.gitbook/assets/solid-color-overlay-image.png>)
+![Overlay solid color over image](<../../.gitbook/assets/solid-color-overlay-image.png>)
 
 ### 6. Signed URL
 

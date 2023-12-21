@@ -407,7 +407,7 @@ For example:
 
 ```python
 image_url = imagekit.url({
-    "path": "/img/sample-video",
+    "path": "/default-image.jpg",
     "url_endpoint": "https://ik.imagekit.io/your_imagekit_id/endpoint/",
     "transformation": [{
         "height": "300",
@@ -418,12 +418,12 @@ image_url = imagekit.url({
 ```
 #### Sample Result URL
 ```
-https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end/img/sample-video.mp4
+https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end/default-image.jpg
 ```
 
 **Output Image:**
 
-![Overlay solid color over video](<../../../.gitbook/assets/solid-color-overlay-image.png>)
+![Overlay solid color over image](<../../../.gitbook/assets/solid-color-overlay-image.png>)
 
 ### List of supported transformations
 

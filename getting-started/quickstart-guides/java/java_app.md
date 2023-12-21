@@ -497,19 +497,19 @@ scale.put("raw", "l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end");
 transformation.add(scale);
 
 Map<String, Object> options=new HashMap();
-options.put("src","https://ik.imagekit.io/your_imagekit_id/img/sample-video.mp4");
+options.put("src","https://ik.imagekit.io/your_imagekit_id/default-image.jpg");
 options.put("transformation", transformation);
 
 String url = ImageKit.getInstance().getUrl(options);
 ```
 #### Sample Result URL
 ```
-https://ik.imagekit.io/your_imagekit_id/img/sample-video.mp4?tr=h-300,w-400,l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end
+https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=h-300,w-400,l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end
 ```
 
 **Output Image:**
 
-![Overlay solid color over video](<../../../.gitbook/assets/solid-color-overlay-image.png>)
+![Overlay solid color over image](<../../../.gitbook/assets/solid-color-overlay-image.png>)
 
 ### 6. Secure signed URL generation
 
