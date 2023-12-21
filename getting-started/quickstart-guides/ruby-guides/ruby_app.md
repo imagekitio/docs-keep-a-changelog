@@ -195,7 +195,7 @@ https://ik.imagekit.io/demo/tr:rt-90:h-300,w-200/default-image.jpg?ik-sdk-versio
 
 ![Rotated, then resized](<../../../.gitbook/assets/ruby-app-rotate-resized-image.png>)
 
-**Adding overlays**
+### **Adding overlays**
 
 ImageKit.io enables you to apply overlays to [images](../../../features/image-transformations/overlay-using-layers.md) and [videos](../../../features/video-transformation/overlay.md) using the raw parameter with the concept of [layers](../../../features/image-transformations/overlay-using-layers.md#layers). The raw parameter facilitates incorporating transformations directly in the URL. A layer is a distinct type of transformation that allows you to define an asset to serve as an overlay, along with its positioning and additional transformations.
 
