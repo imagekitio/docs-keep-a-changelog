@@ -14,7 +14,7 @@ This guide walks you through the following topics:
 * [Setting up Imagekit Javascript SDK](react-native.md#setting-up-imagekit-javascript-sdk)
 * [Rendering Images](react-native.md#rendering-images)
 * [Applying common image manipulations](react-native.md#common-image-manipulation)
-* [Adding overlays to images](react-native.md#adding-overlay-to-images)
+* [Adding overlays](react-native.md#adding-overlays)
 * [Client-side file uploading](react-native.md#client-side-file-uploading)
 
 {% hint style="info" %}
@@ -303,7 +303,7 @@ Output :
 
 ![](../../.gitbook/assets/smartmockups_kfybxzjk.png)
 
-## **Adding an overlay to images**
+## **Adding overlays**
 
 ImageKit.io enables you to apply overlays to [images](../../features/image-transformations/overlay-using-layers.md) and [videos](../../features/video-transformation/overlay.md) using the raw parameter with the concept of [layers](../../features/image-transformations/overlay-using-layers.md#layers). The raw parameter facilitates incorporating transformations directly in the URL. A layer is a distinct type of transformation that allows you to define an asset to serve as an overlay, along with its positioning and additional transformations.
 
