@@ -8,6 +8,12 @@ A maximum of 300 files and folders can be downloaded in a single zip file.
 The total size of the assets to be downloaded cannot exceed 1 GB.
 {% endhint %}
 
+{% embed url="https://www.youtube.com/watch?v=NcI9guObk-M&list=PLHMsBwDlzJRy9Y3xPpHZWjx_aRW5IOQQd&index=5" %}
+Using the advanced search in ImageKit
+{% endembed %}
+
+
+
 ## How to download as zip?
 
 Go to your [media library](https://imagekit.io/dashboard/media-library) on the Imagekit dashboard and select multiple files or folders using ctrl + click (or command + click for Mac users). When multiple files or folders are selected, the "Download (as zip)" option is available in the context menu. 
