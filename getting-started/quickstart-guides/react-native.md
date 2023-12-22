@@ -99,6 +99,8 @@ export default Button;
 ```
 {% endcode %}
 
+Create a file `app/components/Button/styles.js` to save style of `Button` component
+
 {% code title="app/components/Button/styles.js" %}
 ```js
 import {StyleSheet} from 'react-native';
@@ -125,52 +127,55 @@ export default getStyleSheet;
 ```
 {% endcode %}
 
+Create `app/screens/Main/index.js` file that will contain buttons to navigate to various screens that we will create
+
 {% code title="app/screens/Main/index.js" %}
 ```js
 import React from 'react';
-import { View, Text } from 'react-native';
+import {View, Text} from 'react-native';
 import Button from '../../components/Button/';
 import getStyleSheet from './styles';
 
-function Main({ navigation }) {
-	let styleSheet = getStyleSheet({});
+function Main({navigation}) {
+  let styleSheet = getStyleSheet({});
 
-	return (
-		<>
-			<View style={styleSheet.headContainer}>
-				<Text style={styleSheet.text}>Imagekit Demo</Text>
-			</View>
-			<View style={styleSheet.btnContainer}>
-				<View style={styleSheet.btnView}>
-					<Button 
-						cssProps={styleSheet.buttonCssProps} 
-					>
-						Upload File
-					</Button>
-				</View>
-				<View style={styleSheet.btnView}>
-					<Button 
-						cssProps={styleSheet.buttonCssProps} 
-					>
-						Fetch Images
-					</Button>
-				</View>
-				<View style={styleSheet.btnView}>
-					<Button 
-						cssProps={styleSheet.buttonCssProps} 
-					>
-						Fetch Videos
-					</Button>
-				</View>
-			</View>
-		</>
-	);
-};
+  return (
+    <>
+      <View style={styleSheet.headContainer}>
+        <Text style={styleSheet.text}>Imagekit Demo</Text>
+      </View>
+      <View style={styleSheet.btnContainer}>
+        <View style={styleSheet.btnView}>
+          <Button
+            cssProps={styleSheet.buttonCssProps}
+          >
+            Upload File
+          </Button>
+        </View>
+        <View style={styleSheet.btnView}>
+          <Button
+            cssProps={styleSheet.buttonCssProps}
+          >
+            Fetch Images
+          </Button>
+        </View>
+        <View style={styleSheet.btnView}>
+          <Button
+            cssProps={styleSheet.buttonCssProps}
+          >
+            Fetch Videos
+          </Button>
+        </View>
+      </View>
+    </>
+  );
+}
 
 export default Main;
-
 ```
 {% endcode %}
+
+Create a file `app/screens/Main/styles.js` to save style of `Main` component
 
 {% code title="app/screens/Main/styles.js" %}
 ```js
@@ -208,6 +213,8 @@ export default getStyleSheet;
 ```
 {% endcode %}
 
+Create `app/AppComponent.js` file witch will contain screens.
+
 {% code title="app/AppComponent.js" %}
 ```js
 import React from 'react';
@@ -231,6 +238,8 @@ function AppComponent() {
 export default AppComponent;
 ```
 {% endcode %}
+
+Open a file `App.tsx` and  add the below code to render `AppComponent`
 
 {% code title="App.tsx" %}
 ```js
