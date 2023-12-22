@@ -64,9 +64,9 @@ You should see the following screen. This means the sample app has been set up c
 </div>
 
 
-### Lets setup various components needed in th application
+### Let's configure the components required for the application.
 
-Run the following command to install the packages that we will be using in the application.
+Execute the provided command to install the packages required for the application.
 
 ```bash
 npm install @react-navigation/native
@@ -148,21 +148,21 @@ function Main({navigation}) {
         <View style={styleSheet.btnView}>
           <Button
             cssProps={styleSheet.buttonCssProps}
-          >
+            onPress={() => navigation.navigate('Upload File')}>
             Upload File
           </Button>
         </View>
         <View style={styleSheet.btnView}>
           <Button
             cssProps={styleSheet.buttonCssProps}
-          >
+            onPress={() => navigation.navigate('Fetch Images')}>
             Fetch Images
           </Button>
         </View>
         <View style={styleSheet.btnView}>
           <Button
             cssProps={styleSheet.buttonCssProps}
-          >
+            onPress={() => navigation.navigate('Fetch Videos')}>
             Fetch Videos
           </Button>
         </View>
@@ -228,10 +228,7 @@ const Stack = createStackNavigator();
 function AppComponent() {
 	return (
 		<Stack.Navigator>
-			<Stack.Screen
-				name="Home"
-				component={Main}
-			/>
+			<Stack.Screen name="Home" component={Main} />
 		</Stack.Navigator>
 	);
 };
@@ -243,29 +240,26 @@ Open a file `App.tsx` and  add the below code to render `AppComponent`
 
 {% code title="App.tsx" %}
 ```js
-import 'react-native-gesture-handler';
-import 'react-native-url-polyfill/auto';
 import React from 'react';
-import { SafeAreaView } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import AppComponent from './app/AppComponent';
+import {createStackNavigator} from '@react-navigation/stack';
 
-function App() {
-	return (
-		<SafeAreaView style={{flex : 1}}>
-			<NavigationContainer>
-				<AppComponent />
-			</NavigationContainer>
-		</SafeAreaView>
-	);
-};
+import Main from './screens/Main';
+import Fetch from './screens/Fetch';
 
-export default App;
+const Stack = createStackNavigator();
 
+function AppComponent() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Main} />
+    </Stack.Navigator>
+  );
+}
+
+export default AppComponent;
 ```
 {% endcode %}
 
-<!-- ![](../../.gitbook/assets/react-native-home.PNG) -->
 <div style="text-align:center;">
 	<img src="../../.gitbook/assets/react-native-home.PNG" alt="React native home screen" width="300"/>
 </div>
@@ -328,13 +322,13 @@ To create a URL from the image source (full image URL), we can create a function
 {% code title="app/lib/imagekit.js" %}
 ```javascript
 module.exports.getImagekitUrlFromSrc = function(imageSrc, transformationArr){
-		var ikOptions = {
-			src: imageSrc,
-			transformation: transformationArr
-		}
-		var imageURL = imagekit.url(ikOptions);
-	
-		return imageURL;
+	var ikOptions = {
+		src: imageSrc,
+		transformation: transformationArr
+	}
+	var imageURL = imagekit.url(ikOptions);
+
+	return imageURL;
 }
 ```
 {% endcode %}
@@ -344,16 +338,16 @@ To create a URL from the image path, we can create a helper function like this b
 {% code title="app/lib/imagekit.js" %}
 ```javascript
 module.exports.getImagekitUrlFromPath = function(imagePath, transformationArr, transformationPostion){
-		var ikOptions = {
-			urlEndpoint,
-			path : imagePath,
-			transformation: transformationArr
-		};
-		if(transformationPostion) ikOptions.transformationPostion = transformationPostion;
-	
-		var imageURL = imagekit.url(ikOptions);
-	
-		return imageURL;
+	var ikOptions = {
+		urlEndpoint,
+		path : imagePath,
+		transformation: transformationArr
+	};
+	if(transformationPostion) ikOptions.transformationPostion = transformationPostion;
+
+	var imageURL = imagekit.url(ikOptions);
+
+	return imageURL;
 }
 ```
 {% endcode %}
@@ -362,58 +356,236 @@ module.exports.getImagekitUrlFromPath = function(imagePath, transformationArr, t
 The transformation position (path or query) is only valid when creating a URL from the image path. Transformations are always added as query parameters if the URL is created from an absolute image path using **src**.
 {% endhint %}
 
-Now, head over to `app/screens/Fetch/index.js` to fetch an image.
+Now, lets create `app/screens/Fetch/index.js` to fetch an image.
 
-First, let's fetch the original image without any transformations.
+<!-- First, let's fetch the original image without any transformations. -->
 
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
-import React, { useState, useEffect } from 'react';
-import { View } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, Image} from 'react-native';
 
-import Image from '../../components/Image/';
+import Button from '../../components/Button/';
 import getStyleSheet from './styles';
 
-import { getImagekitUrlFromSrc, getImagekitUrlFromPath } from '../../lib/imagekit';
-import { urlEndpoint } from '../../config/imagekit';
+import {
+  getImagekitUrlFromSrc,
+  getImagekitUrlFromPath,
+} from '../../lib/imagekit';
+import {urlEndpoint} from '../../config/imagekit';
 
 function Fetch() {
-	  let styleSheet = getStyleSheet({});
-	  
-	  var imagePath = "/default.jpg";
-		var imageSrc = urlEndpoint+imagePath;
-		
-		const [imageUrl, setImageUrl] = useState();
-		
-	  useEffect(() => {
-				showTransformedImage();
-		}, [])
-		
-		function showTransformedImage() {
-				var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, []);
-				setImageUrl(transformedImageUrl);
-		}
-		
-	  return (
-				<View style={styleSheet.imgContainer}>
-					{ 
-						imageUrl && 
-						<Image 
-							source={{'uri' : imageUrl}} 
-							style={{
-								width: 300,
-								height: 300,
-							}}
-						/> 
-					}
-				</View>
-	  );
+  let styleSheet = getStyleSheet({});
+
+  var imagePath = '/default.jpg';
+  var imageSrc = urlEndpoint + imagePath;
+
+  const [imageUrl, setImageUrl] = useState();
+  const [currentTr, setCurrentTr] = useState();
+  const [imageDimesions, setImageDimensions] = useState();
+
+  useEffect(() => {
+    currentTr == 'Transformation 1'
+      ? setImageDimensions({height: 150, width: 150})
+      : setImageDimensions({height: 300, width: 300});
+    showTransformedImage(currentTr);
+  }, [currentTr]);
+
+  function showTransformedImage(transformationType) {
+    var transformationArr = [];
+    var transformedImageUrl;
+
+    switch (transformationType) {
+      case 'Transformation 1': //basic image resizing
+        transformationArr = [
+          {
+            height: 150,
+            width: 150,
+          },
+        ];
+        transformedImageUrl = getImagekitUrlFromSrc(
+          imageSrc,
+          transformationArr,
+        );
+        break;
+
+      case 'Transformation 2': //crop mode and url from source
+        imageSrc = 'https://ik.imagekit.io/demo/img/plant.jpeg';
+        transformationArr = [
+          {
+            height: 300,
+            width: 300,
+            cropMode: 'pad_resize',
+            background: '435EDA',
+          },
+        ];
+        transformedImageUrl = getImagekitUrlFromSrc(
+          imageSrc,
+          transformationArr,
+        );
+        break;
+
+      case 'Transformation 3': //aspect ration and url from path and transformations as query param
+        transformationArr = [
+          {
+            height: 400,
+            aspectRatio: '3-2',
+          },
+        ];
+        transformedImageUrl = getImagekitUrlFromPath(
+          imagePath,
+          transformationArr,
+          'query',
+        );
+        break;
+
+      case 'Transformation 4': //overlay image with x,y and its height
+        transformationArr = [
+          {
+            raw: 'l-image,i-plant.jpeg,h-100,b-10_CDDC39,l-end',
+          },
+        ];
+        transformedImageUrl = getImagekitUrlFromPath(
+          imagePath,
+          transformationArr,
+        );
+        break;
+
+      case 'Transformation 5': //overlay text example
+        transformationArr = [
+          {
+            raw: 'l-text,i-Imagekit,co-0651D5,fs-50,l-end',
+          },
+        ];
+        transformedImageUrl = getImagekitUrlFromSrc(
+          imageSrc,
+          transformationArr,
+        );
+        break;
+
+      case 'Transformation 6': //chained transformation
+        transformationArr = [
+          {
+            height: 300,
+            width: 300,
+          },
+          {
+            rotation: '90',
+          },
+        ];
+        transformedImageUrl = getImagekitUrlFromSrc(
+          imageSrc,
+          transformationArr,
+        );
+        break;
+
+      default:
+        transformedImageUrl = getImagekitUrlFromSrc(imageSrc, []);
+        break;
+    }
+
+    setImageUrl(transformedImageUrl);
+  }
+
+  return (
+    <>
+      <View style={styleSheet.btnContainer}>
+        <View style={styleSheet.btnView}>
+          <Button
+            cssProps={styleSheet.buttonCssProps}
+            onPress={() => setCurrentTr('Transformation 1')}>
+            Transformation 1
+          </Button>
+          <Button
+            cssProps={styleSheet.buttonCssProps}
+            onPress={() => setCurrentTr('Transformation 2')}>
+            Transformation 2
+          </Button>
+        </View>
+        <View style={styleSheet.btnView}>
+          <Button
+            cssProps={styleSheet.buttonCssProps}
+            onPress={() => setCurrentTr('Transformation 3')}>
+            Transformation 3
+          </Button>
+          <Button
+            cssProps={styleSheet.buttonCssProps}
+            onPress={() => setCurrentTr('Transformation 4')}>
+            Transformation 4
+          </Button>
+        </View>
+        <View style={styleSheet.btnView}>
+          <Button
+            cssProps={styleSheet.buttonCssProps}
+            onPress={() => setCurrentTr('Transformation 5')}>
+            Transformation 5
+          </Button>
+          <Button
+            cssProps={styleSheet.buttonCssProps}
+            onPress={() => setCurrentTr('Transformation 6')}>
+            Transformation 6
+          </Button>
+        </View>
+      </View>
+
+      <View style={styleSheet.imgContainer}>
+        {imageUrl && (
+          <>
+            <Image
+              source={{uri: imageUrl}}
+              style={{
+                width: imageDimesions.width,
+                height: imageDimesions.height,
+              }}
+            />
+            <View style={styleSheet.captionView}>
+              {currentTr ? (
+                <Text style={styleSheet.text}>{currentTr}</Text>
+              ) : (
+                <Text style={styleSheet.text}>
+                  Image with no Transformation
+                </Text>
+              )}
+            </View>
+            <View style={styleSheet.captionView}>
+              <Text style={styleSheet.text}>Rendered URL - {imageUrl}</Text>
+            </View>
+          </>
+        )}
+      </View>
+    </>
+  );
 }
+
+export default Fetch;
 
 export default Fetch;
 ```
 {% endcode %}
 
+now lets update `app/AppComponent.js` to include fetch image screen
+
+{% code title="app/AppComponent.js" %}
+```js
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Main from './screens/Main';
+import Fetch from './screens/Fetch';
+
+const Stack = createStackNavigator();
+
+function AppComponent() {
+	return (
+		<Stack.Navigator>
+			<Stack.Screen name="Home" component={Main} />
+      		<Stack.Screen name="Fetch Images" component={Fetch} />
+		</Stack.Navigator>
+	);
+};
+export default AppComponent;
+```
+{% endcode %}
 
 It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations. You can see the full list of supported transformations [here](https://github.com/imagekit-developer/imagekit-javascript#list-of-supported-transformations).
 
@@ -444,11 +616,11 @@ Note: You'll need to specify height and width in the Image component of react-na
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 function showTransformedImage() {
-		var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-				"height": 150,
-				"width": 150,
-		}]);
-		setImageUrl(transformedImageUrl);
+	var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
+		"height": 150,
+		"width": 150,
+	}]);
+	setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
@@ -464,13 +636,13 @@ Let’s now see how different crop mode works. We will try the [`pad_resize`](..
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 function showTransformedImage() {
-		var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-				"height": 200,
-				"width": 300,
-				"cropMode" : "pad_resize",
-				"background" : "F3F3F3"
-		}]);
-		setImageUrl(transformedImageUrl);
+	var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
+		"height": 200,
+		"width": 300,
+		"cropMode" : "pad_resize",
+		"background" : "F3F3F3"
+	}]);
+	setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
@@ -486,11 +658,11 @@ You can use the [ar parameter](../../features/image-transformations/resize-crop-
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 function showTransformedImage() {
-		var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-				"height": 400,
-				"aspectRatio" : "3-2"
-		}]);
-		setImageUrl(transformedImageUrl);
+	var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
+		"height": 400,
+		"aspectRatio" : "3-2"
+	}]);
+	setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
@@ -508,13 +680,13 @@ Let’s try it out by resizing an image, then [rotating](../../features/image-tr
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 function showTransformedImage() {
-		var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-					"height": 300,
-					"width" : 300
-				}, {
-					"rotation" : "90"
-		}]);
-		setImageUrl(transformedImageUrl);
+	var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
+			"height": 300,
+			"width" : 300
+		}, {
+			"rotation" : "90"
+	}]);
+	setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
@@ -534,10 +706,10 @@ Text overlay can be used to superimpose text on an image. Try it like so:
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 function showTransformedImage() {
-		var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-			raw: "l-text,i-Imagekit,co-0651D5,fs-50,l-end"
-		}]);
-		setImageUrl(transformedImageUrl);
+	var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
+		raw: "l-text,i-Imagekit,co-0651D5,fs-50,l-end"
+	}]);
+	setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
@@ -553,10 +725,10 @@ Image overlay can be used like this:
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 function showTransformedImage() {
-		var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-			raw: 'l-image,i-plant.jpeg,h-100,b-10_CDDC39,l-end'
-		}]);
-		setImageUrl(transformedImageUrl);
+	var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
+		raw: 'l-image,i-plant.jpeg,h-100,b-10_CDDC39,l-end'
+	}]);
+	setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
