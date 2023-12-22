@@ -254,8 +254,9 @@ export default App;
 {% endcode %}
 
 <!-- ![](../../.gitbook/assets/react-native-home.PNG) -->
-<img src="../../.gitbook/assets/react-native-home.PNG" alt="react-native-home" width="300" style="border: 1px solid #000;"/>
-
+<div style="text-align:center;">
+ <img src="../../.gitbook/assets/react-native-home.PNG" alt="react-native-home" width="300" style="border: 1px solid #000;"/>
+</div>
 
 ## **Setting up Imagekit Javascript SDK**
 
