@@ -1,6 +1,6 @@
 ---
 description: >-
-  Real-time image resizing, automatic optimization, and file uploading in React
+  Real-time image & video resizing, automatic optimization, and file uploading in React
   Native using ImageKit.io.
 ---
 
@@ -10,31 +10,32 @@ This is a quick start guide to show you how to integrate ImageKit in a React Nat
 
 This guide walks you through the following topics:
 
-* [Clone and run the tutorial app](react-native.md#clone-and-run-the-tutorial-app)
+* [Setting up react-native app](react-native.md#setting-up-react-native-app)
 * [Setting up Imagekit Javascript SDK](react-native.md#setting-up-imagekit-javascript-sdk)
 * [Rendering Images](react-native.md#rendering-images)
 * [Applying common image manipulations](react-native.md#common-image-manipulation)
 * [Adding overlays](react-native.md#adding-overlays)
 * [Client-side file uploading](react-native.md#client-side-file-uploading)
+* [Rendering videos](react-native.md#rendering-videos)
 
 {% hint style="info" %}
 If you are new to React Native app development, you can learn about setting up the development environment and creating a new project here [https://reactnative.dev/docs/environment-setup](https://reactnative.dev/docs/environment-setup).
 {% endhint %}
 
-## **Clone and run the tutorial app**
+## **Setting up react-native app**
 
 For this tutorial, it is recommended to use the sample React Native app as shown below. If you already have an existing React Native app, it is also possible to use that, although you would need to modify the terminal commands and configurations in this tutorial as applicable.
 
+Let's use the `react-native-cli` package to build a new project:
+
 ```bash
-git clone 
-https://github.com/imagekit-samples/quickstart.git
+npx react-native@latest init imagekitReactNative
 ```
 
-Navigate to the cloned repository, and install the npm packages that are needed to run the React Native app:
+Navigate to the project directory:
 
 ```bash
-cd quickstart/react-native/
-npm install
+cd imagekitReactNative/
 ```
 
 Start the metro server.
@@ -46,18 +47,212 @@ npx react-native start
 And now to run the app in the ios simulator (you should have Xcode installed)
 
 ```bash
-npx react-native run-ios
+npm run ios
 ```
 
 Or to run the app in the android simulator (you should have android studio installed)
 
 ```bash
-npx react-native run-android
+npm run android
 ```
 
 You should see the following screen. This means the sample app has been set up correctly.
 
-![](../../.gitbook/assets/smartmockups_kfppzk1d.png)
+![](../../.gitbook/assets/react-native-initial.PNG)
+
+### Lets setup various components needed in th application
+
+Run the following command to install the packages that we will be using in the application.
+
+```bash
+npm install @react-navigation/native
+npm install @react-navigation/stack
+npm install react-native-gesture-handler
+npm install react-native-safe-area-context
+npm install react-native-screens
+```
+
+{% hint style="info" %}
+In the sample app, we are using our own custom `Button` components created using React native's components for consistency, you can use them, original or any other UI kit if you want.
+{% endhint %}
+
+{% code title="app/components/Button/index.js" %}
+```js
+import React from 'react';
+import { Text, TouchableOpacity} from 'react-native';
+import getStyleSheet from './styles';
+
+function Button (props) {
+	let styleSheet = getStyleSheet(props.cssProps || {});
+	return (
+		<TouchableOpacity onPress={props.onPress} style={styleSheet.button}> 
+			<Text style={styleSheet.text}>{props.children}</Text>
+		</TouchableOpacity >
+	);
+};
+
+export default Button;
+```
+{% endcode %}
+
+{% code title="app/components/Button/styles.js" %}
+```js
+import {StyleSheet} from 'react-native';
+
+function getStyleSheet(cssProps) {
+  return StyleSheet.create({
+    button: {
+      height: 40,
+      width: cssProps.width || 100,
+      backgroundColor: 'dodgerblue',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    text: {
+      color: cssProps.textColor || 'white',
+      fontSize: 15,
+      marginLeft: 10,
+      marginRight: 10,
+    },
+  });
+}
+
+export default getStyleSheet;
+```
+{% endcode %}
+
+{% code title="app/screens/Main/index.js" %}
+```js
+import React from 'react';
+import { View, Text } from 'react-native';
+import Button from '../../components/Button/';
+import getStyleSheet from './styles';
+
+function Main({ navigation }) {
+	let styleSheet = getStyleSheet({});
+
+	return (
+		<>
+			<View style={styleSheet.headContainer}>
+				<Text style={styleSheet.text}>Imagekit Demo</Text>
+			</View>
+			<View style={styleSheet.btnContainer}>
+				<View style={styleSheet.btnView}>
+					<Button 
+						cssProps={styleSheet.buttonCssProps} 
+					>
+						Upload File
+					</Button>
+				</View>
+				<View style={styleSheet.btnView}>
+					<Button 
+						cssProps={styleSheet.buttonCssProps} 
+					>
+						Fetch Images
+					</Button>
+				</View>
+				<View style={styleSheet.btnView}>
+					<Button 
+						cssProps={styleSheet.buttonCssProps} 
+					>
+						Fetch Videos
+					</Button>
+				</View>
+			</View>
+		</>
+	);
+};
+
+export default Main;
+
+```
+{% endcode %}
+
+{% code title="app/screens/Main/styles.js" %}
+```js
+import {StyleSheet} from 'react-native';
+
+function getStyleSheet() {
+  return StyleSheet.create({
+    headContainer: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    btnContainer: {
+      flex: 4,
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+    },
+    btnView: {
+      marginTop: 10,
+      marginBottom: 10,
+    },
+    buttonCssProps: {
+      width: 300,
+    },
+    text: {
+      color: 'black',
+      fontSize: 30,
+      marginLeft: 10,
+      marginRight: 10,
+    },
+  });
+}
+
+export default getStyleSheet;
+```
+{% endcode %}
+
+{% code title="app/AppComponent.js" %}
+```js
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Main from './screens/Main';
+import Fetch from './screens/Fetch';
+
+const Stack = createStackNavigator();
+
+function AppComponent() {
+	return (
+		<Stack.Navigator>
+			<Stack.Screen
+				name="Home"
+				component={Main}
+			/>
+		</Stack.Navigator>
+	);
+};
+export default AppComponent;
+```
+{% endcode %}
+
+{% code title="App.tsx" %}
+```js
+import 'react-native-gesture-handler';
+import 'react-native-url-polyfill/auto';
+import React from 'react';
+import { SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import AppComponent from './app/AppComponent';
+
+function App() {
+	return (
+		<SafeAreaView style={{flex : 1}}>
+			<NavigationContainer>
+				<AppComponent />
+			</NavigationContainer>
+		</SafeAreaView>
+	);
+};
+
+export default App;
+
+```
+{% endcode %}
+
+![](../../.gitbook/assets/react-native-home.PNG)
 
 ## **Setting up Imagekit Javascript SDK**
 
@@ -76,9 +271,21 @@ npm install --save imagekit-javascript
 
 #### **Initializing the SDK**
 
-Open `app/lib/imagekit.js` file, this is where we will initialize our SDK and create helper functions that will be used in the app.
+Create `app/lib/imagekit.js` file, this is where we will initialize our SDK and create helper functions that will be used in the app.
 
-Initialize the SDK with parameters set in the config file `app/config/imagekit.js` 
+Initialize the SDK with parameters set in the config file `app/config/imagekit.js`
+
+{% code title="app/lib/imagekit.js" %}
+```js
+const urlEndpoint = ""; //insert your own url end point here
+const publicKey = ""; //insert your own public key here
+const authenticationEndpoint = ""; //your auth api path, currently set to demo server included with this project
+
+module.exports.urlEndpoint = urlEndpoint;
+module.exports.publicKey = publicKey;
+module.exports.authenticationEndpoint = authenticationEndpoint;
+```
+{% endcode %}
 
 * `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).
 * `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
@@ -191,13 +398,10 @@ export default Fetch;
 ```
 {% endcode %}
 
+
 It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations. You can see the full list of supported transformations [here](https://github.com/imagekit-developer/imagekit-javascript#list-of-supported-transformations).
 
 ![](../../.gitbook/assets/smartmockups_kfppzzhx.png)
-
-{% hint style="info" %}
-In the sample app, we are using our own custom `Text`, `Image`, `Button` components created using React native's components for consistency, you can use them, original or any other UI kit if you want.
-{% endhint %}
 
 ## Common Image Manipulation
 
