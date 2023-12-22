@@ -60,19 +60,7 @@ You should see the following screen. This means the sample app has been set up c
 
 <!-- ![](../../.gitbook/assets/react-native-initial.PNG) -->
 <div style="text-align:center;">
-<figure>
-  <picture>
-    <source
-      srcset="../../.gitbook/assets/react-native-initial.PNG"
-      media="(prefers-color-scheme: dark)"
-    />
-   <img src="../../.gitbook/assets/react-native-initial.PNG" alt="react-native-initial" width="300"/>
-  </picture>
-  <figcaption>Caption text</figcaption>
-</figure>
-	<!-- <div style="border: 1px solid #000;"> 
-		<img src="../../.gitbook/assets/react-native-initial.PNG" alt="react-native-initial" width="300"/>
-	</div> -->
+	<img src="../../.gitbook/assets/react-native-initial.PNG" alt="react-native-initial" width="300"/>
 </div>
 
 
@@ -270,9 +258,7 @@ export default App;
 
 <!-- ![](../../.gitbook/assets/react-native-home.PNG) -->
 <div style="text-align:center;">
-	<div style="border: 1px solid #000;"> 
-		<img src="../../.gitbook/assets/react-native-home.PNG" alt="React native home screen" width="300"/>
-	</div>
+	<img src="../../.gitbook/assets/react-native-home.PNG" alt="React native home screen" width="300"/>
 </div>
 
 ## **Setting up Imagekit Javascript SDK**
