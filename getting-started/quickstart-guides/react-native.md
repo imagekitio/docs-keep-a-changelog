@@ -59,7 +59,9 @@ npm run android
 You should see the following screen. This means the sample app has been set up correctly.
 
 <!-- ![](../../.gitbook/assets/react-native-initial.PNG) -->
-<img src="../../.gitbook/assets/react-native-initial.PNG" alt="react-native-initial" width="300" style="border: 1px solid #000;"/>
+<div style="text-align:center;">
+ <img src="../../.gitbook/assets/react-native-initial.PNG" alt="react-native-initial" style="width: 300;border: 1px solid #000;"/>
+</div>
 
 ### Lets setup various components needed in th application
 
@@ -255,7 +257,7 @@ export default App;
 
 <!-- ![](../../.gitbook/assets/react-native-home.PNG) -->
 <div style="text-align:center;">
- <img src="../../.gitbook/assets/react-native-home.PNG" alt="react-native-home" width="300" style="border: 1px solid #000;"/>
+ <img src="../../.gitbook/assets/react-native-home.PNG" alt="React native home screen" style="width: 300;border: 1px solid #000;"/>
 </div>
 
 ## **Setting up Imagekit Javascript SDK**
