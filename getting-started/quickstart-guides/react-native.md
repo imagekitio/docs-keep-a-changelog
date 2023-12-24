@@ -294,7 +294,7 @@ Create `app/lib/imagekit.js` file, this is where we will initialize our SDK and 
 
 Initialize the SDK with parameters set in the config file `app/config/imagekit.js`
 
-{% code title="app/lib/imagekit.js" %}
+{% code title="app/config/imagekit.js" %}
 ```js
 const urlEndpoint = ""; //insert your own url end point here
 const publicKey = ""; //insert your own public key here
