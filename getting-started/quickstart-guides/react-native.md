@@ -80,6 +80,8 @@ npm install react-native-screens
 In the sample app, we are using our own custom `Button` components created using React native's components for consistency, you can use them, original or any other UI kit if you want.
 {% endhint %}
 
+{% tabs %}
+{% tab title="index.js" %} 
 {% code title="app/components/Button/index.js" %}
 ```js
 import React from 'react';
@@ -98,9 +100,9 @@ function Button (props) {
 export default Button;
 ```
 {% endcode %}
+{% endtab %}
 
-Create a file `app/components/Button/styles.js` to save style of `Button` component
-
+{% tab title="styles.js" %}
 {% code title="app/components/Button/styles.js" %}
 ```js
 import {StyleSheet} from 'react-native';
@@ -126,9 +128,14 @@ function getStyleSheet(cssProps) {
 export default getStyleSheet;
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
+
 
 Create `app/screens/Main/index.js` file that will contain buttons to navigate to various screens that we will create
 
+{% tabs %}
+{% tab title="index.js" %} 
 {% code title="app/screens/Main/index.js" %}
 ```js
 import React from 'react';
@@ -174,9 +181,8 @@ function Main({navigation}) {
 export default Main;
 ```
 {% endcode %}
-
-Create a file `app/screens/Main/styles.js` to save style of `Main` component
-
+{% endtab %}
+{% tab title="styles.js" %}
 {% code title="app/screens/Main/styles.js" %}
 ```js
 import {StyleSheet} from 'react-native';
@@ -212,8 +218,11 @@ function getStyleSheet() {
 export default getStyleSheet;
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
-Create `app/AppComponent.js` file witch will contain screens.
+
+Create `app/AppComponent.js` file that will contain screens.
 
 {% code title="app/AppComponent.js" %}
 ```js
