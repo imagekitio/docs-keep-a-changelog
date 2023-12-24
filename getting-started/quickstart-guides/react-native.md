@@ -131,8 +131,7 @@ export default getStyleSheet;
 {% endtab %}
 {% endtabs %}
 
-
-Create `app/screens/Main/index.js` file that will contain buttons to navigate to various screens that we will create
+Create `index.js` and `styles.js` files within the `app/screens/Main` directory. These files will incorporate buttons facilitating navigation to different screens, which will be developed in the subsequent sections. This configuration serves as our home screen.
 
 {% tabs %}
 {% tab title="index.js" %} 
@@ -222,8 +221,11 @@ export default getStyleSheet;
 {% endtabs %}
 
 
-Create `app/AppComponent.js` file that will contain screens.
+Create the `AppComponent.js` file within the `app` directory, encompassing the screens. Initiate with the home screen. Additionally, open the `App.tsx` file and include the provided code to render the `AppComponent`.
 
+{% tabs %}
+
+{% tab title="app/AppComponent.js" %}
 {% code title="app/AppComponent.js" %}
 ```js
 import React from 'react';
@@ -244,9 +246,7 @@ function AppComponent() {
 export default AppComponent;
 ```
 {% endcode %}
-
-Open a file `App.tsx` and  add the below code to render `AppComponent`
-
+{% endtab %}
 {% code title="App.tsx" %}
 ```js
 import React from 'react';
@@ -268,6 +268,9 @@ function AppComponent() {
 export default AppComponent;
 ```
 {% endcode %}
+{% endtabs %}
+
+It will look as shown below.
 
 <div style="text-align:center;">
 	<img src="../../.gitbook/assets/react-native-home.PNG" alt="React native home screen" width="300"/>
@@ -292,8 +295,13 @@ npm install --save imagekit-javascript
 
 Create `app/lib/imagekit.js` file, this is where we will initialize our SDK and create helper functions that will be used in the app.
 
-Initialize the SDK with parameters set in the config file `app/config/imagekit.js`
+* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).
+* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
 
+Alos initialize the SDK with parameters set in the config file `app/config/imagekit.js`
+
+{% tabs %}
+{% tab title="app/config/imagekit.js" %} 
 {% code title="app/config/imagekit.js" %}
 ```js
 const urlEndpoint = ""; //insert your own url end point here
@@ -305,10 +313,8 @@ module.exports.publicKey = publicKey;
 module.exports.authenticationEndpoint = authenticationEndpoint;
 ```
 {% endcode %}
-
-* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
-
+{% endtab %}
+{% tab title="app/lib/imagekit.js" %}
 {% code title="app/lib/imagekit.js" %}
 ```javascript
 import ImageKit from "imagekit-javascript";
@@ -321,6 +327,8 @@ if(authenticationEndpoint) imagekitConfigOptions.authenticationEndpoint = authen
 const imagekit = new ImageKit(imagekitConfigOptions);
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ## **Rendering Images**
 
@@ -365,10 +373,33 @@ module.exports.getImagekitUrlFromPath = function(imagePath, transformationArr, t
 The transformation position (path or query) is only valid when creating a URL from the image path. Transformations are always added as query parameters if the URL is created from an absolute image path using **src**.
 {% endhint %}
 
-Now, lets create `app/screens/Fetch/index.js` to fetch an image.
+Now, lets create `app/screens/Fetch/index.js` to fetch an image also lets update `app/AppComponent.js` to include fetch image screen.
 
-<!-- First, let's fetch the original image without any transformations. -->
+{% tabs %}
+{% tab title="app/AppComponent.js" %}
+{% code title="app/AppComponent.js" %}
+```js
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 
+import Main from './screens/Main';
+import Fetch from './screens/Fetch';
+
+const Stack = createStackNavigator();
+
+function AppComponent() {
+	return (
+		<Stack.Navigator>
+			<Stack.Screen name="Home" component={Main} />
+      		<Stack.Screen name="Fetch Images" component={Fetch} />
+		</Stack.Navigator>
+	);
+};
+export default AppComponent;
+```
+{% endcode %}
+{% endtab %}
+{% tab title="app/screens/Fetch/index.js" %}
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 import React, {useState, useEffect} from 'react';
@@ -571,30 +602,8 @@ export default Fetch;
 export default Fetch;
 ```
 {% endcode %}
-
-now lets update `app/AppComponent.js` to include fetch image screen
-
-{% code title="app/AppComponent.js" %}
-```js
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-
-import Main from './screens/Main';
-import Fetch from './screens/Fetch';
-
-const Stack = createStackNavigator();
-
-function AppComponent() {
-	return (
-		<Stack.Navigator>
-			<Stack.Screen name="Home" component={Main} />
-      		<Stack.Screen name="Fetch Images" component={Fetch} />
-		</Stack.Navigator>
-	);
-};
-export default AppComponent;
-```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations. You can see the full list of supported transformations [here](https://github.com/imagekit-developer/imagekit-javascript#list-of-supported-transformations).
 
