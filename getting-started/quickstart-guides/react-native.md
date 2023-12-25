@@ -1057,6 +1057,227 @@ After a successful upload, you should see the newly uploaded file in the [Media 
 
 If you don't see the file, check if there are any errors in the browser console log. Make sure that the private API key has been configured. The server app is running. And the uploaded file type is [supported](../../api-reference/upload-file-api/#allowed-file-types-for-uploading) by ImageKit.
 
+## **Rendering videos**
+
+Rendering videos works similarly to rendering images.
+
+To play a video file, a video player is required. In this context, we are utilizing `react-native-video`, but feel free to choose any video player of your preference.
+
+```bash
+npm install --save react-native-video
+```
+
+This is how we fetch videos in `app/screens/Videos/index.js` and also lets update `app/AppComponent.js` to include video fetch screen.
+
+{% tabs %}
+{% tab title="app/screens/Videos/index.js" %}
+{% code title="app/screens/Videos/index.js" %}
+```javascript
+import React from 'react';
+import {View, ScrollView, Text} from 'react-native';
+import getStyleSheet from './styles';
+import {getImagekitUrlFromSrc} from '../../lib/imagekit';
+import {urlEndpoint} from '../../config/imagekit';
+import Video from 'react-native-video';
+
+function Videos() {
+  let styleSheet = getStyleSheet({});
+
+  var videoPath = '/sample-video.mp4';
+  var videoSrc = urlEndpoint + videoPath;
+
+  function showTransformedVideo(transformationType) {
+    var transformationArr = [];
+    var transformedVideoUrl;
+
+    switch (transformationType) {
+      case 'Transformation 1': //basic video resizing
+        transformationArr = [
+          {
+            height: 200,
+            width: 200,
+          },
+        ];
+        transformedVideoUrl = getImagekitUrlFromSrc(
+          videoSrc,
+          transformationArr,
+        );
+        break;
+
+      case 'Transformation 2': //crop mode and url from source
+        videoSrc = 'https://ik.imagekit.io/demo/img/sample-video.mp4';
+        transformationArr = [
+          {
+            b: '5_red',
+            q: 95,
+          },
+        ];
+        transformedVideoUrl = getImagekitUrlFromSrc(
+          videoSrc,
+          transformationArr,
+        );
+        break;
+
+      default:
+        transformedVideoUrl = getImagekitUrlFromSrc(videoSrc, []);
+        break;
+    }
+
+    return transformedVideoUrl;
+  }
+
+  return (
+    <ScrollView>
+      <View style={styleSheet.imgContainer}>
+        <>
+          <View style={styleSheet.captionView}>
+            <Text style={styleSheet.text}>{'Transformation 1'}</Text>
+          </View>
+          <View style={styleSheet.captionView}>
+            <Text style={styleSheet.text}>
+              Rendered URL - {showTransformedVideo('Transformation 1')}
+            </Text>
+          </View>
+          <Video
+            source={{uri: showTransformedVideo('Transformation 1')}}
+            style={{
+              width: 200,
+              height: 200,
+            }}
+            controls={true}
+          />
+        </>
+      </View>
+      <View style={styleSheet.imgContainer}>
+        <>
+          <View style={styleSheet.captionView}>
+            <Text style={styleSheet.text}>{'Transformation 2'}</Text>
+          </View>
+          <View style={styleSheet.captionView}>
+            <Text style={styleSheet.text}>
+              Rendered URL - {showTransformedVideo('Transformation 2')}
+            </Text>
+          </View>
+          <Video
+            source={{uri: showTransformedVideo('Transformation 2')}}
+            style={{
+              width: 300,
+              height: 300,
+            }}
+            controls={true}
+          />
+        </>
+      </View>
+    </ScrollView>
+  );
+}
+
+export default Videos;
+```
+{% endcode %}
+{% endtab %}
+{% tab title="app/screens/Videos/styles.js" %}
+import {StyleSheet} from 'react-native';
+
+function getStyleSheet() {
+  return StyleSheet.create({
+    btnContainer: {
+      flex: 1,
+      alignItems: 'stretch',
+      justifyContent: 'center',
+    },
+    imgContainer: {
+      flex: 3,
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      marginBottom: 10,
+    },
+    btnView: {
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
+      alignItems: 'center',
+      marginTop: 10,
+      marginBottom: 10,
+    },
+    buttonCssProps: {
+      width: 150,
+    },
+    captionView: {
+      margin: 5,
+    },
+    text: {
+      color: 'black',
+      fontSize: 15,
+      marginLeft: 10,
+      marginRight: 10,
+    },
+  });
+}
+
+export default getStyleSheet;
+{% endtab %}
+{% tab title="app/AppComponent.js" %}
+{% code title="app/AppComponent.js" %}
+```js
+import React from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
+
+import Main from './screens/Main';
+import Fetch from './screens/Fetch';
+import Upload from './screens/Upload';
+import Videos from './screens/Videos';
+
+const Stack = createStackNavigator();
+
+function AppComponent() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Main} />
+      <Stack.Screen name="Fetch Images" component={Fetch} />
+	  <Stack.Screen name="Upload File" component={Upload} />
+	  <Stack.Screen name="Fetch Videos" component={Videos} />
+    </Stack.Navigator>
+  );
+}
+
+export default AppComponent;
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+**Loading video from relative path:**
+Import `IKVideo` from the SDK:
+
+```jsx
+import { IKVideo } from 'imagekitio-react';
+```
+
+Now let's add it to our App. Along with the video path prop, it also needs the relevant `urlEndpoint` (either directly or via `IKContext`):
+```jsx
+<IKContext urlEndpoint={<YOUR_IMAGEKIT_URL_ENDPOINT>}>
+  <IKVideo
+    className='ikvideo-default'
+    path={videoPath}
+    transformation={[{ height: 200, width: 200 }]}
+    controls={true}
+  />
+</IKContext>
+```
+
+A more complex example:
+```jsx
+<IKContext urlEndpoint={<YOUR_IMAGEKIT_URL_ENDPOINT>}>
+  <IKVideo
+    className='ikvideo-with-tr'
+    path={videoPath}
+    transformation={[{ height: 200, width: 600, b: '5_red', q: 95 }]}
+    controls={true}
+  />
+</IKContext>
+```
+
+
 ## What's next
 
 The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here: 
