@@ -1020,6 +1020,8 @@ export default Upload;
 {% endcode %}
 {% endtab %}
 {% tab title="app/screens/Upload/styles.js" %}
+{% code title="app/screens/Upload/styles.js" %}
+```js
 import {StyleSheet} from 'react-native';
 
 function getStyleSheet(cssProps) {
@@ -1045,6 +1047,8 @@ function getStyleSheet(cssProps) {
 }
 
 export default getStyleSheet;
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -1177,6 +1181,8 @@ export default Videos;
 {% endcode %}
 {% endtab %}
 {% tab title="app/screens/Videos/styles.js" %}
+{% code title="app/screens/Videos/styles.js" %}
+```js
 import {StyleSheet} from 'react-native';
 
 function getStyleSheet() {
@@ -1215,6 +1221,8 @@ function getStyleSheet() {
 }
 
 export default getStyleSheet;
+```
+{% endcode %}
 {% endtab %}
 {% tab title="app/AppComponent.js" %}
 {% code title="app/AppComponent.js" %}
@@ -1245,38 +1253,6 @@ export default AppComponent;
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-**Loading video from relative path:**
-Import `IKVideo` from the SDK:
-
-```jsx
-import { IKVideo } from 'imagekitio-react';
-```
-
-Now let's add it to our App. Along with the video path prop, it also needs the relevant `urlEndpoint` (either directly or via `IKContext`):
-```jsx
-<IKContext urlEndpoint={<YOUR_IMAGEKIT_URL_ENDPOINT>}>
-  <IKVideo
-    className='ikvideo-default'
-    path={videoPath}
-    transformation={[{ height: 200, width: 200 }]}
-    controls={true}
-  />
-</IKContext>
-```
-
-A more complex example:
-```jsx
-<IKContext urlEndpoint={<YOUR_IMAGEKIT_URL_ENDPOINT>}>
-  <IKVideo
-    className='ikvideo-with-tr'
-    path={videoPath}
-    transformation={[{ height: 200, width: 600, b: '5_red', q: 95 }]}
-    controls={true}
-  />
-</IKContext>
-```
-
 
 ## What's next
 
