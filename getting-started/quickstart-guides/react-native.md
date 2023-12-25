@@ -246,6 +246,7 @@ function AppComponent() {
 export default AppComponent;
 ```
 {% endcode %}
+{% endtab %}
 {% tab title="App.tsx" %}
 {% code title="App.tsx" %}
 ```js
