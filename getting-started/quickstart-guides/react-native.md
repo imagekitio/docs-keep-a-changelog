@@ -382,21 +382,24 @@ Now, lets create `app/screens/Fetch/index.js` to fetch an image also lets update
 {% code title="app/AppComponent.js" %}
 ```js
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import Main from './screens/Main';
 import Fetch from './screens/Fetch';
+import Upload from './screens/Upload';
+import Videos from './screens/Videos';
 
 const Stack = createStackNavigator();
 
 function AppComponent() {
-	return (
-		<Stack.Navigator>
-			<Stack.Screen name="Home" component={Main} />
-      		<Stack.Screen name="Fetch Images" component={Fetch} />
-		</Stack.Navigator>
-	);
-};
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Main} />
+      <Stack.Screen name="Fetch Images" component={Fetch} />
+    </Stack.Navigator>
+  );
+}
+
 export default AppComponent;
 ```
 {% endcode %}
@@ -863,8 +866,11 @@ Head over to `app/config/imagekit.js` and replace the** **`authenticationEndpoin
 Try using `react-native v0.73.0` which is the latest version at the time of writing this article, as some of the previous versions have a known [issue](https://github.com/facebook/react-native/issues/29021) in uploading files. If you are using a previous version and can't upgrade, you'll have to implement a [workaround](https://github.com/facebook/react-native/issues/29021#issuecomment-678829869).
 {% endhint %}
 
-For this, let's create couple of functions in `app/lib/imagekit.js` file.
+For this, let's create couple of functions in `app/lib/imagekit.js` file and also lets update `app/AppComponent.js` to include upload screen.
 
+{% tabs %}
+
+{% tab title="app/lib/imagekit.js" %}
 {% code title="app/lib/imagekit.js" %}
 ```javascript
 const authenticator = async () => {
@@ -880,7 +886,7 @@ const authenticator = async () => {
     const data = await response.json();
     const {signature, expire, token} = data;
     return {signature, expire, token};
-  } catch (error) {
+  } catch (error) 
     throw new Error(`Authentication request failed: ${error.message}`);
   }
 };
@@ -904,6 +910,37 @@ module.exports.uploadFile = async function (file) {
 };
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title="app/AppComponent.js" %}
+{% code title="app/AppComponent.js" %}
+```js
+import React from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
+
+import Main from './screens/Main';
+import Fetch from './screens/Fetch';
+import Upload from './screens/Upload';
+import Videos from './screens/Videos';
+
+const Stack = createStackNavigator();
+
+function AppComponent() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Main} />
+      <Stack.Screen name="Fetch Images" component={Fetch} />
+	  <Stack.Screen name="Upload File" component={Upload} />
+    </Stack.Navigator>
+  );
+}
+
+export default AppComponent;
+```
+{% endcode %}
+{% endtab %}
+
+{% endtabs %}
 
 For selecting a file, we will need a picker. Here we are using `react-native-document-picker` but you can use any picker.
 
@@ -981,7 +1018,7 @@ function Upload() {
 export default Upload;
 ```
 {% endcode %}
-
+{% endtab %}
 {% tab title="app/screens/Upload/styles.js" %}
 import {StyleSheet} from 'react-native';
 
