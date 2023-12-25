@@ -612,7 +612,9 @@ export default Fetch;
 
 It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations. You can see the full list of supported transformations [here](https://github.com/imagekit-developer/imagekit-javascript#list-of-supported-transformations).
 
-![](../../.gitbook/assets/smartmockups_kfppzzhx.png)
+<div style="text-align:center;">
+	<img src="../../.gitbook/assets/react-nativet0.PNG" alt="React native home screen" width="300"/>
+</div>
 
 ## Common Image Manipulation
 
@@ -650,7 +652,9 @@ function showTransformedImage() {
 
 Output : 
 
-![](../../.gitbook/assets/smartmockups_kg0k7uwl.png)
+<div style="text-align:center;">
+	<img src="../../.gitbook/assets/react-nativet1.PNG" alt="React native home screen" width="300"/>
+</div
 
 ### Crop Mode
 
@@ -672,7 +676,9 @@ function showTransformedImage() {
 
 Output : 
 
-![](../../.gitbook/assets/smartmockups_kfybw5ll.png)
+<div style="text-align:center;">
+	<img src="../../.gitbook/assets/react-nativet2.PNG" alt="React native home screen" width="300"/>
+</div
 
 ### Aspect Ratio
 
@@ -692,7 +698,9 @@ function showTransformedImage() {
 
 Output :
 
-![](../../.gitbook/assets/smartmockups_kfybwpsz.png)
+<div style="text-align:center;">
+	<img src="../../.gitbook/assets/react-nativet3.PNG" alt="React native home screen" width="300"/>
+</div
 
 ### Chained Transformation
 
@@ -716,7 +724,9 @@ function showTransformedImage() {
 
 Output :
 
-![](../../.gitbook/assets/smartmockups_kfybxzjk.png)
+<div style="text-align:center;">
+	<img src="../../.gitbook/assets/react-nativet6.PNG" alt="React native home screen" width="300"/>
+</div
 
 ## **Adding overlays**
 
@@ -739,7 +749,9 @@ function showTransformedImage() {
 
 Output : 
 
-![](../../.gitbook/assets/react-native-text-overlay.png)
+<div style="text-align:center;">
+	<img src="../../.gitbook/assets/react-nativet4.PNG" alt="React native home screen" width="300"/>
+</div
 
 ### Image Overlay
 
@@ -758,7 +770,9 @@ function showTransformedImage() {
 
 Output :
 
-![](../../.gitbook/assets/react-native-image-overlay.png)
+<div style="text-align:center;">
+	<img src="../../.gitbook/assets/react-nativet5.PNG" alt="React native home screen" width="300"/>
+</div
 
 ## **Client-side file uploading**
 
@@ -1253,6 +1267,12 @@ export default AppComponent;
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+It will look as shown below.
+
+<div style="text-align:center;">
+	<img src="../../.gitbook/assets/react-native-videos.PNG" alt="React native home screen" width="300"/>
+</div
 
 ## What's next
 
