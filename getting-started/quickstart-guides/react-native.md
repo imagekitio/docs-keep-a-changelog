@@ -651,7 +651,7 @@ function showTransformedImage() {
 
 Output : 
 
-<div style="display: flex;justify-content: center;">
+<div style="display: flex; flex-direction:row;justify-content: center;">
 	<img src="../../.gitbook/assets/react-nativet1.PNG" alt="React native basic image resizing" width="300"/>
 </div
 
