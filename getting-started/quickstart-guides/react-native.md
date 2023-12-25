@@ -653,7 +653,7 @@ Output :
 
 <div style="display: flex; flex-direction:row;justify-content: center;">
 	<img src="../../.gitbook/assets/react-nativet1.PNG" alt="React native basic image resizing" width="300"/>
-</div
+</div>
 
 ### Crop Mode
 
@@ -677,7 +677,7 @@ Output :
 
 <div style="text-align:center;">
 	<img src="../../.gitbook/assets/react-nativet2.PNG" alt="React native crop mode" width="300"/>
-</div
+</div>
 
 ### Aspect Ratio
 
@@ -699,7 +699,7 @@ Output :
 
 <div style="text-align:center;">
 	<img src="../../.gitbook/assets/react-nativet4.PNG" alt="React native aspect ratio" width="300"/>
-</div
+</div>
 
 ### Chained Transformation
 
@@ -725,7 +725,7 @@ Output :
 
 <div style="text-align:center;">
 	<img src="../../.gitbook/assets/react-nativet6.PNG" alt="React native chained Transformation" width="300"/>
-</div
+</div>
 
 ## **Adding overlays**
 
@@ -750,7 +750,7 @@ Output :
 
 <div style="text-align:center;">
 	<img src="../../.gitbook/assets/react-nativet5.PNG" alt="React native home screen" width="300"/>
-</div
+</div>
 
 ### Image Overlay
 
@@ -771,7 +771,7 @@ Output :
 
 <div style="text-align:center;">
 	<img src="../../.gitbook/assets/react-nativet3.PNG" alt="React native home screen" width="300"/>
-</div
+</div>
 
 ## **Client-side file uploading**
 
@@ -779,7 +779,7 @@ Let's learn how to upload an image to our media library.
 
 For this, we would need a dummy backend app to authenticate our upload request. API authentication for upload always happens on the backend for security reasons.
 
-In the following section, we will establish a backend server for our utilization.
+In the following section, we will create a backend server that we can use.
 
 ### **Setting up the backend app**
 
@@ -1271,7 +1271,7 @@ It will look as shown below.
 
 <div style="text-align:center;">
 	<img src="../../.gitbook/assets/react-native-videos.PNG" alt="React native home screen" width="300"/>
-</div
+</div>
 
 ## What's next
 
