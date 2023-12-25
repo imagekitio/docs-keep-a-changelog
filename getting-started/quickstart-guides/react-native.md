@@ -58,7 +58,6 @@ npm run android
 
 You should see the following screen. This means the sample app has been set up correctly.
 
-<!-- ![](../../.gitbook/assets/react-native-initial.PNG) -->
 <div style="text-align:center;">
 	<img src="../../.gitbook/assets/react-native-initial.PNG" alt="react-native-initial" width="300"/>
 </div>
@@ -613,7 +612,7 @@ export default Fetch;
 It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations. You can see the full list of supported transformations [here](https://github.com/imagekit-developer/imagekit-javascript#list-of-supported-transformations).
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet0.PNG" alt="React native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet0.PNG" alt="React native without transformation" width="300"/>
 </div>
 
 ## Common Image Manipulation
@@ -653,7 +652,7 @@ function showTransformedImage() {
 Output : 
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet1.PNG" alt="React native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet1.PNG" alt="React native basic image resizing" width="300"/>
 </div
 
 ### Crop Mode
@@ -677,7 +676,7 @@ function showTransformedImage() {
 Output : 
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet2.PNG" alt="React native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet2.PNG" alt="React native crop mode" width="300"/>
 </div
 
 ### Aspect Ratio
@@ -699,7 +698,7 @@ function showTransformedImage() {
 Output :
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet3.PNG" alt="React native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet4.PNG" alt="React native aspect ratio" width="300"/>
 </div
 
 ### Chained Transformation
@@ -725,7 +724,7 @@ function showTransformedImage() {
 Output :
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet6.PNG" alt="React native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet6.PNG" alt="React native chained Transformation" width="300"/>
 </div
 
 ## **Adding overlays**
@@ -750,7 +749,7 @@ function showTransformedImage() {
 Output : 
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet4.PNG" alt="React native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet5.PNG" alt="React native home screen" width="300"/>
 </div
 
 ### Image Overlay
@@ -771,7 +770,7 @@ function showTransformedImage() {
 Output :
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet5.PNG" alt="React native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet3.PNG" alt="React native home screen" width="300"/>
 </div
 
 ## **Client-side file uploading**
