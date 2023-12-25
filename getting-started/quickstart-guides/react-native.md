@@ -81,7 +81,7 @@ In the sample app, we are using our own custom `Button` components created using
 {% endhint %}
 
 {% tabs %}
-{% tab title="index.js" %} 
+{% tab title="app/components/Button/index.js" %} 
 {% code title="app/components/Button/index.js" %}
 ```js
 import React from 'react';
@@ -102,7 +102,7 @@ export default Button;
 {% endcode %}
 {% endtab %}
 
-{% tab title="styles.js" %}
+{% tab title="app/components/Button/styles.js" %}
 {% code title="app/components/Button/styles.js" %}
 ```js
 import {StyleSheet} from 'react-native';
@@ -134,7 +134,7 @@ export default getStyleSheet;
 Create `index.js` and `styles.js` files within the `app/screens/Main` directory. These files will incorporate buttons facilitating navigation to different screens, which will be developed in the subsequent sections. This configuration serves as our home screen.
 
 {% tabs %}
-{% tab title="index.js" %} 
+{% tab title="app/screens/Main/index.js" %} 
 {% code title="app/screens/Main/index.js" %}
 ```js
 import React from 'react';
@@ -181,7 +181,7 @@ export default Main;
 ```
 {% endcode %}
 {% endtab %}
-{% tab title="styles.js" %}
+{% tab title="app/screens/Main/styles.js" %}
 {% code title="app/screens/Main/styles.js" %}
 ```js
 import {StyleSheet} from 'react-native';
@@ -246,7 +246,7 @@ function AppComponent() {
 export default AppComponent;
 ```
 {% endcode %}
-{% endtab %}
+{% tab title="App.tsx" %}
 {% code title="App.tsx" %}
 ```js
 import React from 'react';
@@ -268,6 +268,7 @@ function AppComponent() {
 export default AppComponent;
 ```
 {% endcode %}
+{% endtab %}
 {% endtabs %}
 
 It will look as shown below.
@@ -298,7 +299,7 @@ Create `app/lib/imagekit.js` file, this is where we will initialize our SDK and 
 * `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).
 * `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
 
-Alos initialize the SDK with parameters set in the config file `app/config/imagekit.js`
+Also initialize the SDK with parameters set in the config file `app/config/imagekit.js`
 
 {% tabs %}
 {% tab title="app/config/imagekit.js" %} 
@@ -761,22 +762,70 @@ Let's learn how to upload an image to our media library.
 
 For this, we would need a dummy backend app to authenticate our upload request. API authentication for upload always happens on the backend for security reasons.
 
-The tutorial repository comes with a sample backend server that we can use. 
+In the following section, we will establish a backend server for our utilization.
 
 ### **Setting up the backend app**
 
-In a new terminal window, navigate to the `server` folder inside the tutorial project and install its npm packages:
+For this quickstart guide, we will create a sample Node.js server which will provide an authentication endpoint at `http://localhost:3001/auth`.&#x20;
+
+Let's create a file `index.js` inside `server` folder in the project root.
 
 ```bash
-cd server/
-npm install
+mkdir server
+touch server/index.js
 ```
 
-Copy the given server `sample.env` file to `.env`.
+Install the basic packages needed to create a dummy server for ImageKit backend authentication:
 
-```bash
-cp sample.env .env
+```js
+npm install --save express uuid dotenv cors
 ```
+
+We will use the[ ImageKit Node.js SDK](https://github.com/imagekit-developer/imagekit-nodejs) to implement `http://localhost:3001/auth`.
+
+The backend SDK requires your API [public key](../../api-reference/api-introduction/api-keys.md#public-key), [private key](../../api-reference/api-introduction/api-keys.md#private-key), and [URL endpoint](../../integration/url-endpoints.md). You can obtain them from [Developer Options](https://imagekit.io/dashboard/developer/api-keys) and [URL-endpoint](https://imagekit.io/dashboard/url-endpoints) pages respectively.
+
+This is how `server/index.js` file should look now.
+
+{% tabs %}
+{% tab title="Node.js" %}
+{% code title="server/index.js" %}
+```javascript
+const dotenv = require('dotenv');
+const express = require('express');
+const router = express.Router();
+var cors = require('cors');
+const app = express();
+app.use(cors());
+
+dotenv.config();
+
+const uuid = require('uuid');
+const crypto = require("crypto");
+
+const privateKey = process.env.PRIVATE_KEY;
+router.get("/auth", function(req, res) {
+    var token = req.query.token || uuid.v4();
+    var expire = req.query.expire || parseInt(Date.now()/1000)+2400;
+    var privateAPIKey = `${privateKey}`;
+    var signature = crypto.createHmac('sha1', privateAPIKey).update(token+expire).digest('hex');
+    res.status(200);
+    res.send({
+        token : token,
+        expire : expire,
+        signature : signature
+    });
+});
+
+app.use("/",router);
+
+app.listen(8080,function(){
+  console.log("Live at Port 8080");
+});
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 Obtain your [API private key](../../api-reference/api-introduction/api-keys.md#private-key) from the developer section from the ImageKit dashboard, and paste it in the server `.env` file.
 
@@ -784,13 +833,24 @@ Obtain your [API private key](../../api-reference/api-introduction/api-keys.md#p
 PRIVATE_KEY = <your_private_key>
 ```
 
-Finally, run the backend app.
+Let's run the backend server.
 
-```bash
-npm start
+```
+cd server
+node index.js
 ```
 
-You should see a log line saying that the app is _**“Live on port 8080”**_.
+You should see a log saying that the app is _**“Live on port 3001”**_.
+
+If you GET `http://localhost:3001/auth`, you should see a JSON response like this. Actual values will vary.
+
+```javascript
+{
+    token: "5dd0e211-8d67-452e-9acd-954c0bd53a1f",
+    expire: 1601047259,
+    signature: "dcb8e72e2b6e98186ec56c62c9e62886f40eaa96"
+}
+```
 
 #### **Configure the auth endpoint in the frontend app**
 
@@ -799,25 +859,48 @@ Head over to `app/config/imagekit.js` and replace the** **`authenticationEndpoin
 ### **Upload an image**
 
 {% hint style="info" %}
-Try using `react-native v0.63.3` which is the latest version at the time of writing this article, as the previous versions have a known [issue](https://github.com/facebook/react-native/issues/29021) in uploading files. If you are using a previous version and can't upgrade, you'll have to implement a [workaround](https://github.com/facebook/react-native/issues/29021#issuecomment-678829869).
+Try using `react-native v0.73.0` which is the latest version at the time of writing this article, as some of the previous versions have a known [issue](https://github.com/facebook/react-native/issues/29021) in uploading files. If you are using a previous version and can't upgrade, you'll have to implement a [workaround](https://github.com/facebook/react-native/issues/29021#issuecomment-678829869).
 {% endhint %}
 
-For this, let's create another function in `app/lib/imagekit.js` file.
+For this, let's create couple of functions in `app/lib/imagekit.js` file.
 
 {% code title="app/lib/imagekit.js" %}
 ```javascript
-module.exports.uploadFile = function(file) {
-	return new Promise((resolve, reject) => {
-		imagekit.upload({
-			file,
-			fileName: file.name, //you can change this and generate your own name if required
-			tags: ["sample-tag-1", "sample-tag-2"] //change this or remove it if you want
-		}, function(err, result) {
-			if(err) reject(err);
-			resolve(result);
-		})
-	})
-}
+const authenticator = async () => {
+  try {
+    // You can pass headers as well and later validate the request source in the backend, or you can use headers for any other use case.
+    const response = await fetch(authenticationEndpoint);
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(
+        `Request failed with status ${response.status}: ${errorText}`,
+      );
+    }
+    const data = await response.json();
+    const {signature, expire, token} = data;
+    return {signature, expire, token};
+  } catch (error) {
+    throw new Error(`Authentication request failed: ${error.message}`);
+  }
+};
+
+module.exports.uploadFile = async function (file) {
+  const res = await authenticator();
+  return new Promise((resolve, reject) => {
+    imagekit.upload(
+      {
+        file,
+        fileName: file.name, //you can change this and generate your own name if required
+        tags: ['sample-tag-1', 'sample-tag-2'], //change this or remove it if you want
+        ...res,
+      },
+      function (err, result) {
+        if (err) reject(err);
+        resolve(result);
+      },
+    );
+  });
+};
 ```
 {% endcode %}
 
@@ -829,6 +912,9 @@ npm install --save react-native-document-picker
 
 This is how we implement file upload in `app/screens/Upload/index.js`
 
+{% tabs %}
+
+{% tab title="app/screens/Upload/index.js" %}
 {% code title="app/screens/Upload/index.js" %}
 ```javascript
 import React, { useState } from 'react';
@@ -894,6 +980,36 @@ function Upload() {
 export default Upload;
 ```
 {% endcode %}
+
+{% tab title="app/screens/Upload/styles.js" %}
+import {StyleSheet} from 'react-native';
+
+function getStyleSheet(cssProps) {
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    buttonCssProps: {
+      width: 150,
+    },
+    captionView: {
+      marginTop: 10,
+    },
+    text: {
+      color: 'black',
+      fontSize: 15,
+      marginLeft: 10,
+      marginRight: 10,
+    },
+  });
+}
+
+export default getStyleSheet;
+{% endtab %}
+{% endtabs %}
+
 
 Let’s upload an image by selecting a file using the file input. 
 
