@@ -38,6 +38,7 @@ ImageKit uses the following four values to authorize and provision your users:
     - `developer`
     - `media_library_full_access`
     - `media_library_view_only_access`
+    - `media_library_restricted_access`
     - `finance`
 
 To configure these values, click "Edit Claim Issuance Policy" and perform the following steps:
@@ -82,6 +83,7 @@ Create five different groups for each of these roles. You can name them as you w
 | Developer                      | `developer`                                      |
 | Media Library Full Access      | `media_library_full_access`                      |
 | Media Library View Only Access | `media_library_view_only_access`                 |
+| Media Library Restricted Access| `media_library_restricted_access`                |
 | Finance                        | `finance`                                        |
 
 Assign your users to these groups as applicable. Ideally, one user should have only one of the roles from the above list.
