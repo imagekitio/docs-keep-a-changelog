@@ -97,3 +97,15 @@ You can overlay text on an image and create dynamic banners. You can also contro
 {% endcontent-ref %}
 
 ![https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,ots-45,otc-00FFFF/medium\_cafe\_B1iTdD0C.jpg](../../.gitbook/assets/text-overlay.jpg)
+
+### 7. SVG to raster format conversion
+
+ImageKit.io allows you to convert SVG images to raster formats by using the [format transformation parameter (f)](../image-transformations/resize-crop-and-other-transformations.md#format---f).
+
+To perform this conversion, you need to specify the desired raster format as `f-<raster_format>` in the image URL. For example: `f-png`, `f-jpg`, etc.
+
+If you enable [automatic format conversion](../image-optimization/automatic-image-format-conversion.md) or use `f-auto` in the image URL, SVG images will not be converted to raster formats and will be delivered as SVG files only. Specifying `f-<raster_format>` in the URL is the only way to convert SVGs to raster formats.
+
+{% hint style="info" %}
+To apply image transformations such as resizing, adding overlays, etc., SVG images must be converted to raster formats.
+{% endhint %}
