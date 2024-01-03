@@ -806,7 +806,7 @@ touch server/index.js
 Install the basic packages needed to create a dummy server for ImageKit backend authentication:
 
 ```js
-npm install express uuid dotenv cors
+npm install express uuid cors
 ```
 
 We will use the [ImageKit Node.js SDK](https://github.com/imagekit-developer/imagekit-nodejs) to implement `http://localhost:8080/auth`.
@@ -819,19 +819,16 @@ This is how `server/index.js` file should look now.
 {% tab title="Node.js" %}
 {% code title="server/index.js" %}
 ```javascript
-const dotenv = require('dotenv');
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
 const app = express();
 app.use(cors());
 
-dotenv.config();
-
 const uuid = require('uuid');
 const crypto = require('crypto');
 
-const privateKey = process.env.PRIVATE_KEY;
+const privateKey = ''; //insert your own private key here
 router.get('/auth', function (req, res) {
   const token = req.query.token || uuid.v4();
   const expire = req.query.expire || parseInt(Date.now() / 1000) + 2400;
@@ -858,11 +855,7 @@ app.listen(8080, function () {
 {% endtab %}
 {% endtabs %}
 
-Obtain your [API private key](../../api-reference/api-introduction/api-keys.md#private-key) from the developer section from the ImageKit dashboard, and paste it in the server `.env` file.
-
-```bash
-PRIVATE_KEY = <your_private_key>
-```
+Obtain your [API private key](../../api-reference/api-introduction/api-keys.md#private-key) from the developer section from the ImageKit dashboard, and paste it in the server `index.js` file.
 
 Let's run the backend server.
 
