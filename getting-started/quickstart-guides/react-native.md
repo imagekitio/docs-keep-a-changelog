@@ -336,10 +336,10 @@ To create a URL from the image source (full image URL), we can create a function
 
 {% code title="app/lib/imagekit.js" %}
 ```javascript
-module.exports.getImagekitUrlFromSrc = function (imageSrc, transformationArr) {
+module.exports.getImagekitUrlFromSrc = function (imageSrc, transformationArray) {
   const ikOptions = {
     src: imageSrc,
-    transformation: transformationArr,
+    transformation: transformationArray,
   };
   const imageURL = imagekit.url(ikOptions);
 
@@ -348,19 +348,19 @@ module.exports.getImagekitUrlFromSrc = function (imageSrc, transformationArr) {
 ```
 {% endcode %}
 
-To create a URL from the image path, we can create a helper function like this below. This function takes the URL endpoint, image path, transformation array, and transformation position as parameters and returns the transformed image URL.
+To create a URL from the image path, we can create a helper function like this below.
 
 {% code title="app/lib/imagekit.js" %}
 ```javascript
 module.exports.getImagekitUrlFromPath = function (
   imagePath,
-  transformationArr,
+  transformationArray,
   transformationPostion,
 ) {
   const ikOptions = {
     urlEndpoint,
     path: imagePath,
-    transformation: transformationArr,
+    transformation: transformationArray,
   };
   if (transformationPostion)
     ikOptions.transformationPostion = transformationPostion;
@@ -436,12 +436,12 @@ function Fetch() {
   }, [currentTr]);
 
   function showTransformedImage(transformationType) {
-    let transformationArr = [];
+    let transformationArray = [];
     let transformedImageUrl;
 
     switch (transformationType) {
       case 'Transformation 1': //basic image resizing
-        transformationArr = [
+        transformationArray = [
           {
             height: 150,
             width: 150,
@@ -449,13 +449,13 @@ function Fetch() {
         ];
         transformedImageUrl = getImagekitUrlFromSrc(
           imageSrc,
-          transformationArr,
+          transformationArray,
         );
         break;
 
       case 'Transformation 2': //crop mode and url from source
         imageSrc = 'https://ik.imagekit.io/demo/img/plant.jpeg';
-        transformationArr = [
+        transformationArray = [
           {
             height: 300,
             width: 300,
@@ -465,12 +465,12 @@ function Fetch() {
         ];
         transformedImageUrl = getImagekitUrlFromSrc(
           imageSrc,
-          transformationArr,
+          transformationArray,
         );
         break;
 
       case 'Transformation 3': //aspect ratio and url from path and transformations as query param
-        transformationArr = [
+        transformationArray = [
           {
             height: 400,
             aspectRatio: '3-2',
@@ -478,37 +478,37 @@ function Fetch() {
         ];
         transformedImageUrl = getImagekitUrlFromPath(
           imagePath,
-          transformationArr,
+          transformationArray,
           'query',
         );
         break;
 
       case 'Transformation 4': //overlay image with x,y and its height
-        transformationArr = [
+        transformationArray = [
           {
             raw: 'l-image,i-plant.jpeg,h-100,b-10_CDDC39,l-end',
           },
         ];
         transformedImageUrl = getImagekitUrlFromPath(
           imagePath,
-          transformationArr,
+          transformationArray,
         );
         break;
 
       case 'Transformation 5': //overlay text example
-        transformationArr = [
+        transformationArray = [
           {
             raw: 'l-text,i-Imagekit,co-0651D5,fs-50,l-end',
           },
         ];
         transformedImageUrl = getImagekitUrlFromSrc(
           imageSrc,
-          transformationArr,
+          transformationArray,
         );
         break;
 
       case 'Transformation 6': //chained transformation
-        transformationArr = [
+        transformationArray = [
           {
             height: 300,
             width: 300,
@@ -519,7 +519,7 @@ function Fetch() {
         ];
         transformedImageUrl = getImagekitUrlFromSrc(
           imageSrc,
-          transformationArr,
+          transformationArray,
         );
         break;
 
@@ -1109,12 +1109,12 @@ function Videos() {
   let videoSrc = urlEndpoint + videoPath;
 
   function showTransformedVideo(transformationType) {
-    let transformationArr = [];
+    let transformationArray = [];
     let transformedVideoUrl;
 
     switch (transformationType) {
       case 'Transformation 1': //basic video resizing
-        transformationArr = [
+        transformationArray = [
           {
             height: 200,
             width: 200,
@@ -1122,13 +1122,13 @@ function Videos() {
         ];
         transformedVideoUrl = getImagekitUrlFromSrc(
           videoSrc,
-          transformationArr,
+          transformationArray,
         );
         break;
 
       case 'Transformation 2': //crop mode and url from source
         videoSrc = 'https://ik.imagekit.io/demo/img/sample-video.mp4';
-        transformationArr = [
+        transformationArray = [
           {
             b: '5_red',
             q: 95,
@@ -1136,7 +1136,7 @@ function Videos() {
         ];
         transformedVideoUrl = getImagekitUrlFromSrc(
           videoSrc,
-          transformationArr,
+          transformationArray,
         );
         break;
 
