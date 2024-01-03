@@ -10,8 +10,8 @@ This is a quick start guide to show you how to integrate ImageKit in a React Nat
 
 This guide walks you through the following topics:
 
-* [Setting up the React Native app](react-native.md#setting-up-react-native-app)
-* [Setting up ImageKit Javascript SDK](react-native.md#setting-up-imagekit-javascript-sdk)
+* [Setting up the React Native app](react-native.md#setting-up-the-react-native-app)
+* [Setting up ImageKit JavaScript SDK](react-native.md#setting-up-imagekit-javascript-sdk)
 * [Rendering Images](react-native.md#rendering-images)
 * [Applying common image manipulations](react-native.md#common-image-manipulation)
 * [Adding overlays](react-native.md#adding-overlays)
@@ -22,7 +22,7 @@ This guide walks you through the following topics:
 If you are new to React Native app development, you can learn about setting up the development environment and creating a new project here [https://reactnative.dev/docs/environment-setup](https://reactnative.dev/docs/environment-setup).
 {% endhint %}
 
-## **Setting up react-native app**
+## **Setting up the React Native app**
 
 For this tutorial, it is recommended to use the sample React Native app as shown below. If you already have an existing React Native app, it is also possible to use that, although you would need to modify the terminal commands and configurations in this tutorial as applicable.
 
@@ -72,7 +72,7 @@ npm install @react-navigation/native @react-navigation/stack react-native-gestur
 ```
 
 {% hint style="info" %}
-In the sample app, we are using our own custom `Button` components created using React Native's components to ensure consistency.
+In the sample app, we are using our own custom `Button` component created using React Native's components to ensure consistency.
 {% endhint %}
 
 {% tabs %}
@@ -126,7 +126,7 @@ export default getStyleSheet;
 {% endtab %}
 {% endtabs %}
 
-Create `index.js` and `styles.js` files within the `app/screens/Main` directory. These files will incorporate buttons facilitating navigation to different screens, which will be developed in the subsequent sections. This configuration serves as our home screen.
+Create `index.js` and `styles.js` files within the `app/screens/Main` directory. These files will render & style buttons facilitating navigation to different screens, which will be developed in the subsequent sections. This configuration serves as our home screen.
 
 {% tabs %}
 {% tab title="app/screens/Main/index.js" %} 
@@ -216,7 +216,8 @@ export default getStyleSheet;
 {% endtabs %}
 
 
-Create the `AppComponent.js` file within the `app` directory, encompassing the screens. Initiate with the home screen. Additionally, open the `App.tsx` file and include the provided code to render the `AppComponent`.
+Create the `AppComponent.js` file within the `app` directory which will contain the screens. Add the home screen.
+Open the `App.tsx` file and add the provided code to render the `AppComponent`.
 
 {% tabs %}
 
@@ -269,12 +270,12 @@ export default App;
 It will look as shown below.
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-native-home.PNG" alt="React Native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-native-home.PNG" alt="React Native Home Screen" width="300"/>
 </div>
 
-## **Setting up ImageKit Javascript SDK**
+## **Setting up ImageKit JavaScript SDK**
 
-We will be using [ImageKit javascript SDK](https://github.com/imagekit-developer/imagekit-javascript). So let's install it.
+We will be using [ImageKit JavaScript SDK](https://github.com/imagekit-developer/imagekit-javascript). So let's install it.
 
 ```bash
 npm install imagekit-javascript
@@ -375,7 +376,7 @@ module.exports.getImagekitUrlFromPath = function (
 The transformation position (path or query) is only valid when creating a URL from the image path. Transformations are always added as query parameters if the URL is created from an absolute image path using **src**.
 {% endhint %}
 
-Now, lets create `app/screens/Fetch/index.js` to fetch an image. Also, update `app/AppComponent.js` to include the fetch image screen.
+Now, let's create `app/screens/Fetch/index.js` to fetch an image. Also, update `app/AppComponent.js` to include the fetch image screen.
 
 {% tabs %}
 {% tab title="app/AppComponent.js" %}
@@ -616,19 +617,19 @@ It will look as shown below. In the sample app, the buttons are present to demon
 
 This section covers the basics:‌
 
-* ​[Basic image resizing](react-native.md#basic-image-resizing)
+* ​[Basic Image Resizing](react-native.md#basic-image-resizing)
 * [Crop Mode](react-native.md#crop-mode)
 * ​[Aspect Ratio](react-native.md#aspect-ratio)
 * ​[Chained transformation](react-native.md#chained-transformation)
 
-ImageKit Javascript SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. If the property does not match any of the available options, it is added as it is. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-javascript?tab=readme-ov-file#list-of-supported-transformations) in Javascript SDK on Github.
+ImageKit JavaScript SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. If the property does not match any of the available options, it is added as it is. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-javascript?tab=readme-ov-file#list-of-supported-transformations) in Javascript SDK on Github.
 
 {% hint style="info" %}
 You can also use `h` and `w` parameter instead of `height` and `width`.\
 See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
 {% endhint %}
 
-### Basic image resizing
+### Basic Image Resizing
 
 Let's resize the image to a height of 150 and a width of 150.
 
@@ -651,12 +652,14 @@ function showTransformedImage() {
 Output : 
 
 <div style="display:flex; flex-direction:row; justify-content:center;">
-	<img src="../../.gitbook/assets/react-nativet1.PNG" alt="React Native basic image resizing" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet1.PNG" alt="React Native Basic Image Resizing" width="300"/>
 </div>
 
 ### Crop Mode
 
-Let’s now see how different crop mode works. We will try the [`pad_resize`](../../features/image-transformations/resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize) crop strategy.  In this strategy, the output image's dimension (height and width) is the same as requested, no cropping occurs, and the aspect ratio is preserved. This is accomplished by adding padding around the output image to get it to match the exact dimension as requested. You can read more about this [here](../../features/image-transformations/resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize). 
+Let’s now see how different crop mode work. We will try the [`pad_resize`](../../features/image-transformations/resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize) crop strategy.
+
+In this strategy, the output image's dimension (height and width) is the same as requested, no cropping occurs, and the aspect ratio is preserved. This is accomplished by adding padding around the output image to get it to match the exact dimension as requested. You can read more about this [here](../../features/image-transformations/resize-crop-and-other-transformations.md#pad-resize-crop-strategy-cm-pad_resize). 
 
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
@@ -739,7 +742,7 @@ ImageKit.io enables you to apply overlays to [images](../../features/image-trans
 
 ### Text Overlay
 
-Text overlay can be used to superimpose text on an image. Try it like so:
+Text overlay can be used to place text on an image. Here's how:
 
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
@@ -757,7 +760,7 @@ function showTransformedImage() {
 Output : 
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet5.PNG" alt="React Native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet5.PNG" alt="React Native Home Screen" width="300"/>
 </div>
 
 ### Image Overlay
@@ -780,7 +783,7 @@ function showTransformedImage() {
 Output :
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet3.PNG" alt="React Native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet3.PNG" alt="React Native Home Screen" width="300"/>
 </div>
 
 ## **Client-side file uploading**
@@ -885,7 +888,7 @@ Head over to `app/config/imagekit.js` and replace the `authenticationEndpoint` w
 Try using `react-native v0.73.0` which is the latest version at the time of writing this article, as some of the previous versions have a known [issue](https://github.com/facebook/react-native/issues/29021) in uploading files. If you are using a previous version and can't upgrade, you'll have to implement a [workaround](https://github.com/facebook/react-native/issues/29021#issuecomment-678829869).
 {% endhint %}
 
-For this, let's create couple of functions in `app/lib/imagekit.js` file and also lets update `app/AppComponent.js` to include upload screen.
+For this, let's create couple of functions in `app/lib/imagekit.js` file and update `app/AppComponent.js` to include the upload screen.
 
 {% tabs %}
 
@@ -961,7 +964,7 @@ export default AppComponent;
 
 {% endtabs %}
 
-For selecting a file, we will need a picker. Here we are using `react-native-document-picker` but you can use any picker.
+We are going to use `react-native-document-picker` to select files.
 
 ```bash
 npm install react-native-document-picker
@@ -1074,19 +1077,19 @@ The uploader uploads whenever file input changes. You can verify that file was s
 
 After a successful upload, you should see the newly uploaded file in the [Media Library](http://dev.imagekit.io/dashboard#media-library) of your ImageKit dashboard.
 
-If you don't see the file, check if there are any errors in the browser console log. Make sure that the private API key has been configured. The server app is running. And the uploaded file type is [supported](../../api-reference/upload-file-api/#allowed-file-types-for-uploading) by ImageKit.
+If you don't see the file, check if there are any errors in the log. Make sure that the private API key has been configured. The server app is running. And the uploaded file type is [supported](../../api-reference/upload-file-api/#allowed-file-types-for-uploading) by ImageKit.
 
 ## **Rendering videos**
 
 Rendering videos works similarly to rendering images.
 
-To play a video file, a video player is required. In this context, we are utilizing `react-native-video`, but feel free to choose any video player of your preference.
+We're going to use the [`react-native-video`](https://www.npmjs.com/package/react-native-video) package to play video files, but you can use any other video player.
 
 ```bash
 npm install react-native-video
 ```
 
-This is how we fetch videos in `app/screens/Videos/index.js` and also lets update `app/AppComponent.js` to include video fetch screen.
+Update the `app/screens/Videos/index.js` and `app/AppComponent.js` file to fetch video.
 
 {% tabs %}
 {% tab title="app/screens/Videos/index.js" %}
@@ -1272,7 +1275,7 @@ export default AppComponent;
 It will look as shown below.
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-native-videos.PNG" alt="React Native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-native-videos.PNG" alt="React Native Home Screen" width="300"/>
 </div>
 
 ## What's next
