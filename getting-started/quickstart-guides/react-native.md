@@ -10,7 +10,7 @@ This is a quick start guide to show you how to integrate ImageKit in a React Nat
 
 This guide walks you through the following topics:
 
-* [Setting up the React Native app](react-native.md#setting-up-the-react-native-app)
+* [Setting up React Native app](react-native.md#setting-up-react-native-app)
 * [Setting up ImageKit JavaScript SDK](react-native.md#setting-up-imagekit-javascript-sdk)
 * [Rendering Images](react-native.md#rendering-images)
 * [Applying common image manipulations](react-native.md#common-image-manipulation)
@@ -22,7 +22,7 @@ This guide walks you through the following topics:
 If you are new to React Native app development, you can learn about setting up the development environment and creating a new project here [https://reactnative.dev/docs/environment-setup](https://reactnative.dev/docs/environment-setup).
 {% endhint %}
 
-## **Setting up the React Native app**
+## **Setting up React Native app**
 
 For this tutorial, it is recommended to use the sample React Native app as shown below. If you already have an existing React Native app, it is also possible to use that, although you would need to modify the terminal commands and configurations in this tutorial as applicable.
 
