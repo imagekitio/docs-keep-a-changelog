@@ -10,7 +10,7 @@ This is a quick start guide to show you how to integrate ImageKit in a React Nat
 
 This guide walks you through the following topics:
 
-* [Setting up react-native app](react-native.md#setting-up-react-native-app)
+* [Setting up the React Native app](react-native.md#setting-up-react-native-app)
 * [Setting up ImageKit Javascript SDK](react-native.md#setting-up-imagekit-javascript-sdk)
 * [Rendering Images](react-native.md#rendering-images)
 * [Applying common image manipulations](react-native.md#common-image-manipulation)
@@ -44,7 +44,7 @@ Start the metro server.
 npx react-native start
 ```
 
-And now to run the app in the IOS simulator (you should have Xcode installed)
+And now to run the app in the iOS simulator (you should have Xcode installed)
 
 ```bash
 npm run ios
@@ -302,8 +302,7 @@ Also initialize the SDK with parameters set in the config file `app/config/image
 ```js
 module.exports.urlEndpoint = ''; //insert your own url end point here
 module.exports.publicKey = ''; //insert your own public key here
-module.exports.authenticationEndpoint = ''; //your auth api path, currently set to demo server included with this project
-
+module.exports.authenticationEndpoint = ''; //your auth api path
 ```
 {% endcode %}
 {% endtab %}
@@ -469,7 +468,7 @@ function Fetch() {
         );
         break;
 
-      case 'Transformation 3': //aspect ration and url from path and transformations as query param
+      case 'Transformation 3': //aspect ratio and url from path and transformations as query param
         transformationArr = [
           {
             height: 400,
@@ -683,7 +682,7 @@ Output :
 
 ### Aspect Ratio
 
-You can use the [ar parameter](../../features/image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar) to change the aspect ratio like this**:**
+You can use the [ar parameter](../../features/image-transformations/resize-crop-and-other-transformations.md#aspect-ratio-ar) to change the aspect ratio like this
 
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
@@ -864,7 +863,7 @@ cd server
 node index.js
 ```
 
-You should see a log saying that the app is _**“Live on port 8080”**_.
+You should see a log saying that the app is _**'Live at port 8080'**_.
 
 If you GET `http://localhost:8080/auth`, you should see a JSON response like this. Actual values will vary.
 
@@ -878,7 +877,7 @@ If you GET `http://localhost:8080/auth`, you should see a JSON response like thi
 
 #### **Configure the auth endpoint in the frontend app**
 
-Head over to `app/config/imagekit.js` and replace the** **`authenticationEndpoint` with `http://localhost:8080/auth`
+Head over to `app/config/imagekit.js` and replace the `authenticationEndpoint` with `http://localhost:8080/auth`
 
 ### **Upload an image**
 
