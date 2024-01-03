@@ -11,7 +11,7 @@ This is a quick start guide to show you how to integrate ImageKit in a React Nat
 This guide walks you through the following topics:
 
 * [Setting up react-native app](react-native.md#setting-up-react-native-app)
-* [Setting up Imagekit Javascript SDK](react-native.md#setting-up-imagekit-javascript-sdk)
+* [Setting up ImageKit Javascript SDK](react-native.md#setting-up-imagekit-javascript-sdk)
 * [Rendering Images](react-native.md#rendering-images)
 * [Applying common image manipulations](react-native.md#common-image-manipulation)
 * [Adding overlays](react-native.md#adding-overlays)
@@ -44,7 +44,7 @@ Start the metro server.
 npx react-native start
 ```
 
-And now to run the app in the ios simulator (you should have Xcode installed)
+And now to run the app in the IOS simulator (you should have Xcode installed)
 
 ```bash
 npm run ios
@@ -68,15 +68,11 @@ You should see the following screen. This means the sample app has been set up c
 Execute the provided command to install the packages required for the application.
 
 ```bash
-npm install @react-navigation/native
-npm install @react-navigation/stack
-npm install react-native-gesture-handler
-npm install react-native-safe-area-context
-npm install react-native-screens
+npm install @react-navigation/native @react-navigation/stack react-native-gesture-handler react-native-safe-area-context install react-native-screens
 ```
 
 {% hint style="info" %}
-In the sample app, we are using our own custom `Button` components created using React native's components for consistency, you can use them, original or any other UI kit if you want.
+In the sample app, we are using our own custom `Button` components created using React Native's components for consistency.
 {% endhint %}
 
 {% tabs %}
@@ -84,17 +80,17 @@ In the sample app, we are using our own custom `Button` components created using
 {% code title="app/components/Button/index.js" %}
 ```js
 import React from 'react';
-import { Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import getStyleSheet from './styles';
 
-function Button (props) {
-	let styleSheet = getStyleSheet(props.cssProps || {});
-	return (
-		<TouchableOpacity onPress={props.onPress} style={styleSheet.button}> 
-			<Text style={styleSheet.text}>{props.children}</Text>
-		</TouchableOpacity >
-	);
-};
+function Button(props) {
+  let styleSheet = getStyleSheet(props.cssProps || {});
+  return (
+    <TouchableOpacity onPress={props.onPress} style={styleSheet.button}>
+      <Text style={styleSheet.text}>{props.children}</Text>
+    </TouchableOpacity>
+  );
+}
 
 export default Button;
 ```
@@ -228,32 +224,8 @@ Create the `AppComponent.js` file within the `app` directory, encompassing the s
 {% code title="app/AppComponent.js" %}
 ```js
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-
-import Main from './screens/Main';
-import Fetch from './screens/Fetch';
-
-const Stack = createStackNavigator();
-
-function AppComponent() {
-	return (
-		<Stack.Navigator>
-			<Stack.Screen name="Home" component={Main} />
-		</Stack.Navigator>
-	);
-};
-export default AppComponent;
-```
-{% endcode %}
-{% endtab %}
-{% tab title="App.tsx" %}
-{% code title="App.tsx" %}
-```js
-import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-
 import Main from './screens/Main';
-import Fetch from './screens/Fetch';
 
 const Stack = createStackNavigator();
 
@@ -264,8 +236,31 @@ function AppComponent() {
     </Stack.Navigator>
   );
 }
-
 export default AppComponent;
+```
+{% endcode %}
+{% endtab %}
+{% tab title="App.tsx" %}
+{% code title="App.tsx" %}
+```js
+import 'react-native-gesture-handler';
+import 'react-native-url-polyfill/auto';
+import React from 'react';
+import {SafeAreaView} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import AppComponent from './app/AppComponent';
+
+function App() {
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <NavigationContainer>
+        <AppComponent />
+      </NavigationContainer>
+    </SafeAreaView>
+  );
+}
+
+export default App;
 ```
 {% endcode %}
 {% endtab %}
@@ -274,15 +269,15 @@ export default AppComponent;
 It will look as shown below.
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-native-home.PNG" alt="React native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-native-home.PNG" alt="React Native home screen" width="300"/>
 </div>
 
-## **Setting up Imagekit Javascript SDK**
+## **Setting up ImageKit Javascript SDK**
 
-We will be using [Imagekit javascript SDK](https://github.com/imagekit-developer/imagekit-javascript). So let's install it.
+We will be using [ImageKit javascript SDK](https://github.com/imagekit-developer/imagekit-javascript). So let's install it.
 
 ```bash
-npm install --save imagekit-javascript
+npm install imagekit-javascript
 ```
 
 {% hint style="warning" %}
@@ -305,25 +300,27 @@ Also initialize the SDK with parameters set in the config file `app/config/image
 {% tab title="app/config/imagekit.js" %} 
 {% code title="app/config/imagekit.js" %}
 ```js
-const urlEndpoint = ""; //insert your own url end point here
-const publicKey = ""; //insert your own public key here
-const authenticationEndpoint = ""; //your auth api path, currently set to demo server included with this project
+module.exports.urlEndpoint = ''; //insert your own url end point here
+module.exports.publicKey = ''; //insert your own public key here
+module.exports.authenticationEndpoint = ''; //your auth api path, currently set to demo server included with this project
 
-module.exports.urlEndpoint = urlEndpoint;
-module.exports.publicKey = publicKey;
-module.exports.authenticationEndpoint = authenticationEndpoint;
 ```
 {% endcode %}
 {% endtab %}
 {% tab title="app/lib/imagekit.js" %}
 {% code title="app/lib/imagekit.js" %}
 ```javascript
-import ImageKit from "imagekit-javascript";
-import { urlEndpoint, publicKey, authenticationEndpoint } from "../config/imagekit";
+import ImageKit from 'imagekit-javascript';
+import {
+  urlEndpoint,
+  publicKey,
+  authenticationEndpoint,
+} from '../config/imagekit';
 
-var imagekitConfigOptions = { urlEndpoint };
-if(publicKey) imagekitConfigOptions.publicKey = publicKey;
-if(authenticationEndpoint) imagekitConfigOptions.authenticationEndpoint = authenticationEndpoint;
+const imagekitConfigOptions = {urlEndpoint};
+if (publicKey) imagekitConfigOptions.publicKey = publicKey;
+if (authenticationEndpoint)
+  imagekitConfigOptions.authenticationEndpoint = authenticationEndpoint;
 
 const imagekit = new ImageKit(imagekitConfigOptions);
 ```
@@ -339,15 +336,15 @@ To create a URL from the image source (full image URL), we can create a function
 
 {% code title="app/lib/imagekit.js" %}
 ```javascript
-module.exports.getImagekitUrlFromSrc = function(imageSrc, transformationArr){
-	var ikOptions = {
-		src: imageSrc,
-		transformation: transformationArr
-	}
-	var imageURL = imagekit.url(ikOptions);
+module.exports.getImagekitUrlFromSrc = function (imageSrc, transformationArr) {
+  const ikOptions = {
+    src: imageSrc,
+    transformation: transformationArr,
+  };
+  const imageURL = imagekit.url(ikOptions);
 
-	return imageURL;
-}
+  return imageURL;
+};
 ```
 {% endcode %}
 
@@ -355,18 +352,23 @@ To create a URL from the image path, we can create a helper function like this b
 
 {% code title="app/lib/imagekit.js" %}
 ```javascript
-module.exports.getImagekitUrlFromPath = function(imagePath, transformationArr, transformationPostion){
-	var ikOptions = {
-		urlEndpoint,
-		path : imagePath,
-		transformation: transformationArr
-	};
-	if(transformationPostion) ikOptions.transformationPostion = transformationPostion;
+module.exports.getImagekitUrlFromPath = function (
+  imagePath,
+  transformationArr,
+  transformationPostion,
+) {
+  const ikOptions = {
+    urlEndpoint,
+    path: imagePath,
+    transformation: transformationArr,
+  };
+  if (transformationPostion)
+    ikOptions.transformationPostion = transformationPostion;
 
-	var imageURL = imagekit.url(ikOptions);
+  const imageURL = imagekit.url(ikOptions);
 
-	return imageURL;
-}
+  return imageURL;
+};
 ```
 {% endcode %}
 
@@ -374,7 +376,7 @@ module.exports.getImagekitUrlFromPath = function(imagePath, transformationArr, t
 The transformation position (path or query) is only valid when creating a URL from the image path. Transformations are always added as query parameters if the URL is created from an absolute image path using **src**.
 {% endhint %}
 
-Now, lets create `app/screens/Fetch/index.js` to fetch an image also lets update `app/AppComponent.js` to include fetch image screen.
+Now, lets create `app/screens/Fetch/index.js` to fetch an image. Also, update `app/AppComponent.js` to include the fetch image screen.
 
 {% tabs %}
 {% tab title="app/AppComponent.js" %}
@@ -385,8 +387,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Main from './screens/Main';
 import Fetch from './screens/Fetch';
-import Upload from './screens/Upload';
-import Videos from './screens/Videos';
 
 const Stack = createStackNavigator();
 
@@ -421,8 +421,8 @@ import {urlEndpoint} from '../../config/imagekit';
 function Fetch() {
   let styleSheet = getStyleSheet({});
 
-  var imagePath = '/default.jpg';
-  var imageSrc = urlEndpoint + imagePath;
+  const imagePath = '/default.jpg';
+  let imageSrc = urlEndpoint + imagePath;
 
   const [imageUrl, setImageUrl] = useState();
   const [currentTr, setCurrentTr] = useState();
@@ -436,8 +436,8 @@ function Fetch() {
   }, [currentTr]);
 
   function showTransformedImage(transformationType) {
-    var transformationArr = [];
-    var transformedImageUrl;
+    let transformationArr = [];
+    let transformedImageUrl;
 
     switch (transformationType) {
       case 'Transformation 1': //basic image resizing
@@ -602,8 +602,6 @@ function Fetch() {
 }
 
 export default Fetch;
-
-export default Fetch;
 ```
 {% endcode %}
 {% endtab %}
@@ -612,7 +610,7 @@ export default Fetch;
 It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations. You can see the full list of supported transformations [here](https://github.com/imagekit-developer/imagekit-javascript#list-of-supported-transformations).
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet0.PNG" alt="React native without transformation" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet0.PNG" alt="React Native without transformation" width="300"/>
 </div>
 
 ## Common Image Manipulation
@@ -624,7 +622,7 @@ This section covers the basics:‌
 * ​[Aspect Ratio](react-native.md#aspect-ratio)
 * ​[Chained transformation](react-native.md#chained-transformation)
 
-Imagekit Javascript SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. If the property does not match any of the available options, it is added as it is. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-react#list-of-supported-transformations) in React SDK on Github.
+ImageKit Javascript SDK gives a name to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. If the property does not match any of the available options, it is added as it is. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-javascript?tab=readme-ov-file#list-of-supported-transformations) in Javascript SDK on Github.
 
 {% hint style="info" %}
 You can also use `h` and `w` parameter instead of `height` and `width`.\
@@ -640,19 +638,21 @@ Note: You'll need to specify height and width in the Image component of react-na
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 function showTransformedImage() {
-	var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-		"height": 150,
-		"width": 150,
-	}]);
-	setImageUrl(transformedImageUrl);
+  let transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [
+    {
+      height: 150,
+      width: 150,
+    },
+  ]);
+  setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
 
 Output : 
 
-<div style="display: flex; flex-direction:row;justify-content: center;">
-	<img src="../../.gitbook/assets/react-nativet1.PNG" alt="React native basic image resizing" width="300"/>
+<div style="display:flex; flex-direction:row; justify-content:center;">
+	<img src="../../.gitbook/assets/react-nativet1.PNG" alt="React Native basic image resizing" width="300"/>
 </div>
 
 ### Crop Mode
@@ -662,13 +662,15 @@ Let’s now see how different crop mode works. We will try the [`pad_resize`](..
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 function showTransformedImage() {
-	var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-		"height": 200,
-		"width": 300,
-		"cropMode" : "pad_resize",
-		"background" : "F3F3F3"
-	}]);
-	setImageUrl(transformedImageUrl);
+  let transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [
+    {
+      height: 200,
+      width: 300,
+      cropMode: 'pad_resize',
+      background: 'F3F3F3',
+    },
+  ]);
+  setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
@@ -676,7 +678,7 @@ function showTransformedImage() {
 Output : 
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet2.PNG" alt="React native crop mode" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet2.PNG" alt="React Native crop mode" width="300"/>
 </div>
 
 ### Aspect Ratio
@@ -686,11 +688,13 @@ You can use the [ar parameter](../../features/image-transformations/resize-crop-
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 function showTransformedImage() {
-	var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-		"height": 400,
-		"aspectRatio" : "3-2"
-	}]);
-	setImageUrl(transformedImageUrl);
+  let transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [
+    {
+      height: 400,
+      aspectRatio: '3-2',
+    },
+  ]);
+  setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
@@ -698,7 +702,7 @@ function showTransformedImage() {
 Output :
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet4.PNG" alt="React native aspect ratio" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet4.PNG" alt="React Native aspect ratio" width="300"/>
 </div>
 
 ### Chained Transformation
@@ -710,13 +714,16 @@ Let’s try it out by resizing an image, then [rotating](../../features/image-tr
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 function showTransformedImage() {
-	var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-			"height": 300,
-			"width" : 300
-		}, {
-			"rotation" : "90"
-	}]);
-	setImageUrl(transformedImageUrl);
+  let transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [
+    {
+      height: 300,
+      width: 300,
+    },
+    {
+      rotation: '90',
+    },
+  ]);
+  setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
@@ -724,7 +731,7 @@ function showTransformedImage() {
 Output :
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet6.PNG" alt="React native chained Transformation" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet6.PNG" alt="React Native chained Transformation" width="300"/>
 </div>
 
 ## **Adding overlays**
@@ -738,10 +745,12 @@ Text overlay can be used to superimpose text on an image. Try it like so:
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 function showTransformedImage() {
-	var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-		raw: "l-text,i-Imagekit,co-0651D5,fs-50,l-end"
-	}]);
-	setImageUrl(transformedImageUrl);
+  let transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [
+    {
+      raw: 'l-text,i-Imagekit,co-0651D5,fs-50,l-end',
+    },
+  ]);
+  setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
@@ -749,7 +758,7 @@ function showTransformedImage() {
 Output : 
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet5.PNG" alt="React native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet5.PNG" alt="React Native home screen" width="300"/>
 </div>
 
 ### Image Overlay
@@ -759,10 +768,12 @@ Image overlay can be used like this:
 {% code title="app/screens/Fetch/index.js" %}
 ```javascript
 function showTransformedImage() {
-	var transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [{
-		raw: 'l-image,i-plant.jpeg,h-100,b-10_CDDC39,l-end'
-	}]);
-	setImageUrl(transformedImageUrl);
+  let transformedImageUrl = getImagekitUrlFromSrc(imageSrc, [
+    {
+      raw: 'l-image,i-plant.jpeg,h-100,b-10_CDDC39,l-end',
+    },
+  ]);
+  setImageUrl(transformedImageUrl);
 }
 ```
 {% endcode %}
@@ -770,7 +781,7 @@ function showTransformedImage() {
 Output :
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-nativet3.PNG" alt="React native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-nativet3.PNG" alt="React Native home screen" width="300"/>
 </div>
 
 ## **Client-side file uploading**
@@ -783,7 +794,7 @@ In the following section, we will create a backend server that we can use.
 
 ### **Setting up the backend app**
 
-For this quickstart guide, we will create a sample Node.js server which will provide an authentication endpoint at `http://localhost:3001/auth`.&#x20;
+For this quickstart guide, we will create a sample Node.js server which will provide an authentication endpoint at `http://localhost:8080/auth`.&#x20;
 
 Let's create a file `index.js` inside `server` folder in the project root.
 
@@ -795,10 +806,10 @@ touch server/index.js
 Install the basic packages needed to create a dummy server for ImageKit backend authentication:
 
 ```js
-npm install --save express uuid dotenv cors
+npm install express uuid dotenv cors
 ```
 
-We will use the[ ImageKit Node.js SDK](https://github.com/imagekit-developer/imagekit-nodejs) to implement `http://localhost:3001/auth`.
+We will use the [ImageKit Node.js SDK](https://github.com/imagekit-developer/imagekit-nodejs) to implement `http://localhost:8080/auth`.
 
 The backend SDK requires your API [public key](../../api-reference/api-introduction/api-keys.md#public-key), [private key](../../api-reference/api-introduction/api-keys.md#private-key), and [URL endpoint](../../integration/url-endpoints.md). You can obtain them from [Developer Options](https://imagekit.io/dashboard/developer/api-keys) and [URL-endpoint](https://imagekit.io/dashboard/url-endpoints) pages respectively.
 
@@ -811,33 +822,36 @@ This is how `server/index.js` file should look now.
 const dotenv = require('dotenv');
 const express = require('express');
 const router = express.Router();
-var cors = require('cors');
+const cors = require('cors');
 const app = express();
 app.use(cors());
 
 dotenv.config();
 
 const uuid = require('uuid');
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 const privateKey = process.env.PRIVATE_KEY;
-router.get("/auth", function(req, res) {
-    var token = req.query.token || uuid.v4();
-    var expire = req.query.expire || parseInt(Date.now()/1000)+2400;
-    var privateAPIKey = `${privateKey}`;
-    var signature = crypto.createHmac('sha1', privateAPIKey).update(token+expire).digest('hex');
-    res.status(200);
-    res.send({
-        token : token,
-        expire : expire,
-        signature : signature
-    });
+router.get('/auth', function (req, res) {
+  const token = req.query.token || uuid.v4();
+  const expire = req.query.expire || parseInt(Date.now() / 1000) + 2400;
+  const privateAPIKey = `${privateKey}`;
+  const signature = crypto
+    .createHmac('sha1', privateAPIKey)
+    .update(token + expire)
+    .digest('hex');
+  res.status(200);
+  res.send({
+    token,
+    expire,
+    signature,
+  });
 });
 
-app.use("/",router);
+app.use('/', router);
 
-app.listen(8080,function(){
-  console.log("Live at Port 8080");
+app.listen(8080, function () {
+  console.log('Live at Port 8080');
 });
 ```
 {% endcode %}
@@ -857,9 +871,9 @@ cd server
 node index.js
 ```
 
-You should see a log saying that the app is _**“Live on port 3001”**_.
+You should see a log saying that the app is _**“Live on port 8080”**_.
 
-If you GET `http://localhost:3001/auth`, you should see a JSON response like this. Actual values will vary.
+If you GET `http://localhost:8080/auth`, you should see a JSON response like this. Actual values will vary.
 
 ```javascript
 {
@@ -899,7 +913,7 @@ const authenticator = async () => {
     const data = await response.json();
     const {signature, expire, token} = data;
     return {signature, expire, token};
-  } catch (error) 
+  } catch (error) {
     throw new Error(`Authentication request failed: ${error.message}`);
   }
 };
@@ -943,7 +957,7 @@ function AppComponent() {
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Main} />
       <Stack.Screen name="Fetch Images" component={Fetch} />
-	  <Stack.Screen name="Upload File" component={Upload} />
+      <Stack.Screen name="Upload File" component={Upload} />
     </Stack.Navigator>
   );
 }
@@ -958,7 +972,7 @@ export default AppComponent;
 For selecting a file, we will need a picker. Here we are using `react-native-document-picker` but you can use any picker.
 
 ```bash
-npm install --save react-native-document-picker
+npm install react-native-document-picker
 ```
 
 This is how we implement file upload in `app/screens/Upload/index.js`
@@ -968,65 +982,61 @@ This is how we implement file upload in `app/screens/Upload/index.js`
 {% tab title="app/screens/Upload/index.js" %}
 {% code title="app/screens/Upload/index.js" %}
 ```javascript
-import React, { useState } from 'react';
-import { View } from 'react-native';
+import React, {useState} from 'react';
+import {View} from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
 
 import Button from '../../components/Button/';
 import Text from '../../components/Text/';
 import getStyleSheet from './styles';
 
-import { uploadFile } from '../../lib/imagekit';
+import {uploadFile} from '../../lib/imagekit';
 
 function Upload() {
-	let styleSheet = getStyleSheet({});
+  let styleSheet = getStyleSheet({});
 
-	const [uploadFileUrl, setUploadFileUrl] = useState();
+  const [uploadFileUrl, setUploadFileUrl] = useState();
 
-	async function openFileSelector(){
-		try{
-			var res = await DocumentPicker.pick({
-				type: [DocumentPicker.types.allFiles],
-			});
-			
-			uploadFileToImagekit(res);
-		}catch(err){
-			if (DocumentPicker.isCancel(err)) {
-				// User cancelled the picker, exit any dialogs or menus and move on
-			} else {
-				throw err;
-			}
-		}
-	}
+  async function openFileSelector() {
+    try {
+      const res = await DocumentPicker.pick({
+        type: [DocumentPicker.types.allFiles],
+      });
 
-	async function uploadFileToImagekit(fileData){
-		try{
-			const uploadedFile = await uploadFile(fileData);
-			setUploadFileUrl(uploadedFile.url);
-		}catch(err){
-			//handle error in uploading file
-		}
-	}
+      uploadFileToImagekit(res);
+    } catch (err) {
+      if (DocumentPicker.isCancel(err)) {
+        // User cancelled the picker, exit any dialogs or menus and move on
+      } else {
+        throw err;
+      }
+    }
+  }
 
-	return (
-		<>
-			<View style={styleSheet.container}>
-				<Button 
-					cssProps={styleSheet.buttonCssProps} 
-					onPress={() => openFileSelector()}
-				>
-					Upload File
-				</Button>
-				<View style={styleSheet.captionView}>
-					{
-						uploadFileUrl && 
-						<Text>Uploaded File - {uploadFileUrl}</Text>
-					}
-				</View>
-			</View>
-		</>
-	);
-};
+  async function uploadFileToImagekit(fileData) {
+    try {
+      const uploadedFile = await uploadFile(fileData);
+      setUploadFileUrl(uploadedFile.url);
+    } catch (err) {
+      //handle error in uploading file
+    }
+  }
+
+  return (
+    <>
+      <View style={styleSheet.container}>
+        <Button
+          cssProps={styleSheet.buttonCssProps}
+          onPress={() => openFileSelector()}>
+          Upload File
+        </Button>
+        <View style={styleSheet.captionView}>
+          {uploadFileUrl && <Text>Uploaded File - {uploadFileUrl}</Text>}
+        </View>
+      </View>
+    </>
+  );
+}
 
 export default Upload;
 ```
@@ -1081,7 +1091,7 @@ Rendering videos works similarly to rendering images.
 To play a video file, a video player is required. In this context, we are utilizing `react-native-video`, but feel free to choose any video player of your preference.
 
 ```bash
-npm install --save react-native-video
+npm install react-native-video
 ```
 
 This is how we fetch videos in `app/screens/Videos/index.js` and also lets update `app/AppComponent.js` to include video fetch screen.
@@ -1100,12 +1110,12 @@ import Video from 'react-native-video';
 function Videos() {
   let styleSheet = getStyleSheet({});
 
-  var videoPath = '/sample-video.mp4';
-  var videoSrc = urlEndpoint + videoPath;
+  const videoPath = '/sample-video.mp4';
+  let videoSrc = urlEndpoint + videoPath;
 
   function showTransformedVideo(transformationType) {
-    var transformationArr = [];
-    var transformedVideoUrl;
+    let transformationArr = [];
+    let transformedVideoUrl;
 
     switch (transformationType) {
       case 'Transformation 1': //basic video resizing
@@ -1255,8 +1265,8 @@ function AppComponent() {
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Main} />
       <Stack.Screen name="Fetch Images" component={Fetch} />
-	  <Stack.Screen name="Upload File" component={Upload} />
-	  <Stack.Screen name="Fetch Videos" component={Videos} />
+      <Stack.Screen name="Upload File" component={Upload} />
+      <Stack.Screen name="Fetch Videos" component={Videos} />
     </Stack.Navigator>
   );
 }
@@ -1270,7 +1280,7 @@ export default AppComponent;
 It will look as shown below.
 
 <div style="text-align:center;">
-	<img src="../../.gitbook/assets/react-native-videos.PNG" alt="React native home screen" width="300"/>
+	<img src="../../.gitbook/assets/react-native-videos.PNG" alt="React Native home screen" width="300"/>
 </div>
 
 ## What's next
