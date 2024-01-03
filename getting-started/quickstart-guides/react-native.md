@@ -68,11 +68,11 @@ You should see the following screen. This means the sample app has been set up c
 Execute the provided command to install the packages required for the application.
 
 ```bash
-npm install @react-navigation/native @react-navigation/stack react-native-gesture-handler react-native-safe-area-context install react-native-screens
+npm install @react-navigation/native @react-navigation/stack react-native-gesture-handler react-native-safe-area-context react-native-screens
 ```
 
 {% hint style="info" %}
-In the sample app, we are using our own custom `Button` components created using React Native's components for consistency.
+In the sample app, we are using our own custom `Button` components created using React Native's components to ensure consistency.
 {% endhint %}
 
 {% tabs %}
