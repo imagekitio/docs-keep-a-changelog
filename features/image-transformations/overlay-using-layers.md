@@ -291,7 +291,7 @@ URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,co-red,fs-4
 
 ![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,co-red,fs-45,l-end/medium_cafe_B1iTdD0C.jpg)
 
-You can also change the font using the `fo` parameter. Refer to the [list of supported fonts](/features/image-transformations/supported-text-font-list.md#in-built-fonts) for the available options. Apart from this, you can also use [custom fonts](#custom-fonts-example).
+You can also change the font using the `ff` parameter. Refer to the [list of supported fonts](/features/image-transformations/supported-text-font-list.md#in-built-fonts) for the available options. Apart from this, you can also use [custom fonts](#custom-fonts-example).
 
 URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,ff-AbrilFatFace,co-yellow,fs-45,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,ff-AbrilFatFace,co-yellow,fs-45,l-end/medium_cafe_B1iTdD0C.jpg)
 
