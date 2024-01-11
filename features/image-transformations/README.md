@@ -97,3 +97,41 @@ You can overlay text on an image and create dynamic banners. You can also contro
 {% endcontent-ref %}
 
 ![https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,ots-45,otc-00FFFF/medium\_cafe\_B1iTdD0C.jpg](../../.gitbook/assets/text-overlay.jpg)
+
+### 7. SVG to raster format conversion
+
+ImageKit.io allows you to convert SVG images to raster formats by using the [format transformation parameter (f)](../image-transformations/resize-crop-and-other-transformations.md#format---f).
+
+To perform this conversion, you need to specify the desired raster format as `f-<raster_format>` in the image URL. For example: `f-png`, `f-jpg`, etc.
+
+If you enable [automatic format conversion](../image-optimization/automatic-image-format-conversion.md) or use `f-auto` in the image URL, SVG images will not be converted to raster formats and will be delivered as SVG files only. Specifying `f-<raster_format>` in the URL is the only way to convert SVGs to raster formats.
+
+{% hint style="info" %}
+To apply image transformations such as resizing, adding overlays, etc., SVG images must be converted to raster formats.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Original SVG" %}
+URL - [https://ik.imagekit.io/ikmedia/imagekitlogo.svg](https://ik.imagekit.io/ikmedia/imagekitlogo.svg)
+
+![SVG image](../../.gitbook/assets/imagekitlogo.svg)
+{% endtab %}
+
+{% tab title="Convert to PNG format" %}
+URL - [https://ik.imagekit.io/ikmedia/tr:f-png/imagekitlogo.svg](https://ik.imagekit.io/ikmedia/tr:f-png/imagekitlogo.svg)
+
+![PNG conversion of imagekit logo](../../.gitbook/assets/imagekitlogo.svg.png)
+
+The SVG image is transformed to PNG format. The transparency is preserved in PNG format by default.
+
+The dimension of the raster output is determined by the [`viewBox` attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox) of the SVG when no height or width is defined in the transformation. In this case, the dimension of the raster output is 158x33 pixels, since the `viewBox` attribute of the original SVG is set to `0 0 158 33`.
+{% endtab %}
+
+{% tab title="Convert to JPG format and apply pink background color" %}
+URL - [https://ik.imagekit.io/ikmedia/tr:f-jpg,w-200,bg-pink/imagekitlogo.svg](https://ik.imagekit.io/ikmedia/tr:f-jpg,w-200,bg-pink/imagekitlogo.svg)
+
+![JPG conversion of imagekit logo with pink background](../../.gitbook/assets/imagekitlogo.svg.pink.jpg)
+
+The SVG image is transformed into a JPG format with a width of 200 pixels and a pink background color added to it.
+{% endtab %}
+{% endtabs %}
