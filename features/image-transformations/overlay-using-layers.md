@@ -118,6 +118,7 @@ ImageKit supports many [image transformation parameters](../image-transformation
 | [e-sharpen](../image-transformations/image-enhancement-and-color-manipulation.md#sharpen-e-sharpen)          | It is used to sharpen the input image, useful when highlighting the edges and finer details within an image. If just the `e-sharpen` parameter is used, then a default sharpening is performed on the input image. This can be controlled by specifying a number that restricts the extent of sharpening performed, like `e-sharpen-<number>`. |
 | [e-usm](../image-transformations/image-enhancement-and-color-manipulation.md#unsharp-mask-e-usm)             | It is used to apply and control unsharp masks on your images. The amount of sharpening can be varied using 4 parameters - `radius`, `sigma`, `amount`, and `threshold`. This results in perceptually better images compared to using `e-sharpen`. Only positive floating points are allowed for these 4 parameters. e.g. `e-usm-<radius>-<sigma>-<amount>-<threshold>` |
 | [e-shadow](../image-transformations/image-enhancement-and-color-manipulation.md#shadow-e-shadow)             |  It is used to apply a shadow effect on the input image. The strength, blur and the geometrical positioning of the shadow can be varied using the following parameters - `st`, `bl`, `x` and `y`. e.g. `e-shadow-st-<value>_bl-<value>_x-<value>_y-<value>` (or simply `e-shadow` to let the shadow take on default values). Learn more about the shadow effect and its parameters [here](../image-transformations/image-enhancement-and-color-manipulation.md#shadow-e-shadow).  |
+| [e-gradient](../image-transformations/image-enhancement-and-color-manipulation.md#gradient-e-gradient)             |  This is used to add a linear gradient overlay over an input image. The direction, from color, to color and the stop point of the gradient can be varied using the following parameters - `ld`, `from`, `to` and `sp`. e.g. `e-gradient-<linear-direction>_<from-color>_<to-color>_<stop-point>` (or simply `e-gradient` to let the gradient take on default values). Learn more about the gradient effect and its parameters [here](../image-transformations/image-enhancement-and-color-manipulation.md#gradient-e-gradient).  |
 
 
 # Add text over image
@@ -224,6 +225,8 @@ Following transformation parameters are supported on the solid color block overl
 {% hint style="info" %}
 If both `bg` and `al` are set in a single transformation and `bg` has an alpha component, then that value is used to set solid color background transparency. Otherwise, `al` value is used. If `bg` is set to a standard color name (e.g. `blue`), then the `al` value is ignored. Read more [here](../image-transformations/overlay.md#overlay-background-transparency)
 {% endhint %}
+
+If you're looking to add a gradient block overlay instead, read more about it [here](../image-transformations/image-enhancement-and-color-manipulation.md#adding-gradient-blocks-over-images).
 
 # Examples
 
