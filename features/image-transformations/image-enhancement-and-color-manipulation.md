@@ -204,7 +204,7 @@ URL - [https://ik.imagekit.io/demo/tr:e-gradient-from-lightskyblue_to-mintcream:
 {% endtabs %}
 
 {% hint style="info" %}
-If you experience a positional displacement between the original image and the overlay image, it would be worthwhile to use `t-false` to disable default trimming of the overlay layer like `l-image,i-your-image.png,t-false,l-end`.
+If you experience a positional displacement between the original image and the overlay image, use `t-false` to disable default trimming of the overlay layer like `l-image,i-your-image.png,t-false,l-end`.
 {% endhint %}
 
 #### Adding gradient blocks over images
