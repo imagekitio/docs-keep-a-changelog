@@ -138,7 +138,7 @@ URL - [https://ik.imagekit.io/demo/lipstick_2M.png](https://ik.imagekit.io/demo/
 
 This is used to add a gradient overlay over an input image.
 
-The gradient formed is a *linear gradient* (containing two colors) and it can be customised with the following parameters:
+The gradient formed is a *linear gradient* containing two colors, and it can be customised with the following parameters:
 
 | Parameter       | Description       | Value Type        | Range      | Default Value     |
 |-----------------|-------------------|-------------------|------------|-------------------|
