@@ -226,7 +226,7 @@ Following transformation parameters are supported on the gradient block overlay 
 
 | Parameter                                                                                | Description                        |
 |------------------------------------------------------------------------------------------|------------------------------------|
-| w                                                                                        | Width of solid color block. It can also accept arithmetic expressions such as `bw_div_2`, or `bw_mul_0.8`. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md). |
+| w                                                                                        | Width of the gradient block. It can also accept arithmetic expressions such as `bw_div_2`, or `bw_mul_0.8`. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md). |
 | h                                                                                        | Height of solid color block. It can also accept arithmetic expressions such as `bh_div_2`, or `bh_mul_0.8`. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).  |
 | [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)             | It is used to control the radius of the corner and accepts an integer value as the input. |
 
