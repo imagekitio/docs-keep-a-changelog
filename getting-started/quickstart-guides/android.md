@@ -12,15 +12,21 @@ This is a quick start guide to show you how to integrate ImageKit in an Android 
 
 For this tutorial, we have used our sample Android app as shown below. If you have your own existing Android app, you can integrate the ImageKit Android SDK to it, the instructions for which are provided in the subsequent sections.
 
+You can clone the sample app repository with the following command:
+
 ```bash
 git clone https://github.com/imagekit-samples/quickstart.git
 ```
 
-Open the `android` folder within the cloned repository in Android Studio, and run Gradle sync to install the dependencies that are needed to run the Android app. Then run the app by selecting your target device/emulator and clicking on the Run button in Studio.
+After cloning is completed, open the `android` folder within the cloned repository in Android Studio. Run Gradle sync to install the dependencies specified for the sample Android app. After the sync is done successfully, you can run the app by selecting your target device/emulator and clicking on the Run button in Studio.
 
 You should see the following screen. This means the sample app has been set up correctly.
 
 ![](<../../.gitbook/assets/Screenshot 2023-09-11 at 2.05.12 PM.png>)
+
+## Setup ImageKit Android SDK
+
+You can integrate and use the ImageKit Android SDK in your own app by following these steps in your app project:
 
 #### Installing the SDK
 
@@ -41,7 +47,7 @@ implementation 'com.github.imagekit-developer.imagekit-android:imagekit-android:
 
 #### Initializing the SDK
 
-Initialize our SDK prefereable in the `Application` class or any `Activity` as needed, with the following code:
+Initialize our SDK preferably in the `Application` class or any `Activity` as needed, with the following code:
 
 ```kotlin
 // In Kotlin
@@ -113,7 +119,7 @@ ImageKit.getInstance()
 The transformation position (path or query) is only valid when creating a URL from the image path. Transformations are always added as query parameters if the URL is created from an absolute image path using **src**.
 {% endhint %}
 
-The Android SDK provides a [function](https://github.com/imagekit-developer/imagekit-Android#list-of-supported-transformations) for each transformation parameter, making the code simpler and readable. To add transformations, the functions can be chained with the `ImagekitUrlConstructor` instance.&#x20;
+The Android SDK provides a [function](https://github.com/imagekit-developer/imagekit-Android#list-of-supported-transformations) for each transformation parameter, making the code simpler and readable. To add transformations, the functions can be chained with the `ImagekitUrlConstructor` instance.
 
 ```kotlin
 val urlConstructor = ImageKit.getInstance()
@@ -147,7 +153,7 @@ This section covers the basics:‌
 * ​Aspect Ratio
 * ​Chained transformation
 
-ImageKit Android SDK provides a function  to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-Android#list-of-supported-transformations) in Android SDK on Github.
+ImageKit Android SDK provides a function  to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-android#list-of-supported-transformations) in Android SDK on Github.
 
 The complete list of transformations supported and their usage in ImageKit can be found [here](https://docs.imagekit.io/imagekit-docs/image-transformations). If a transformation is supported in ImageKit, but if a name for it cannot be found in the SDK, then use the `addCustomTransformation` function and pass the transformation code from ImageKit docs as the first parameter and value as the second parameter. For example - `.addCustomTransformation("w", "400").`
 
@@ -239,9 +245,9 @@ Output:
 
 Let's learn how to upload an image to our media library.
 
-Android SDK provides `ImageKitUploader` which provide functions to allow upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side.&#x20;
+Android SDK provides `ImageKitUploader` which provide functions to allow upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side.
 
-For using upload functionality, we need to pass `publicKey` while [initializing the SDK](Android.md#setup-imagekit-Android-sdk), and pass the client-generated JSON Web Token (JWT) in the upload method, which the ImageKit.io server uses to authenticate and check that the upload request parameters have not been tampered with after the generation of the token. Refer this [guide](https://docs.imagekit.io/api-reference/upload-file-api/secure-client-side-file-upload#how-to-implement-authenticationendpoint-endpoint) to create the token below on the page.
+For using upload functionality, we need to pass `publicKey` while [initializing the SDK](Android.md#setup-imagekit-android-sdk), and pass the client-generated JSON Web Token (JWT) in the upload method, which the ImageKit.io server uses to authenticate and check that the upload request parameters have not been tampered with after the generation of the token. Refer this [guide](https://docs.imagekit.io/api-reference/upload-file-api/secure-client-side-file-upload#how-to-implement-authenticationendpoint-endpoint) to create the token below on the page.
 
 ```kotlin
 ImageKit.init(
@@ -253,11 +259,11 @@ ImageKit.init(
 
 For this, we would need a dummy backend app to authenticate our upload request. API authentication for upload always happens on the backend for security reasons.
 
-The tutorial repository comes with a sample backend server that we can use.&#x20;
+The tutorial repository comes with a sample backend server that we can use.
 
 ### **Upload a file**
 
-To upload an image to the media library, the ImageKit Android SDK provides `ImageKitUploader` . For complete API reference for the image upload function, check out the [docs](https://github.com/imagekit-developer/imagekit-Android#file-upload) on the ImageKit Android Git Repository.&#x20;
+To upload an image to the media library, the ImageKit Android SDK provides `ImageKitUploader` . For complete API reference for the image upload function, check out the [docs](https://github.com/imagekit-developer/imagekit-Android#file-upload) on the ImageKit Android Git Repository.
 
 The `ImageKit.getInstance().uploader().upload` function can ingest files through `Bitmap`, `File` or URL of a remote image.
 
@@ -388,7 +394,7 @@ ImageKit Android SDK also provides library extensions for integrations with the 
 
 ## What's next
 
-The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here:&#x20;
+The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here:
 
 * [Image Transformations](https://docs.imagekit.io/features/image-transformations)
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)
