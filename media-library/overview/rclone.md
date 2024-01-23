@@ -20,22 +20,24 @@ Also, this guide assumes that you have rclone set up in your system. You can che
 To configure ImageKit as a cloud storage provider on rclone:
 
 1. **Run rclone's interactive configuration command**
+
+* Open your command line interface and run `rclone config`.
+* Choose `n` for a new remote.
+* Name your new remote (eg: `imagekit-media-library`)
+* Select the number corresponding to `ImageKit.io` when prompted for storage type.<br />
 ![](../../.gitbook/assets/rclone/rclone-config-cmd.png)
-- Open your command line interface and run `rclone config`.
-- Choose `n` for a new remote.
-- Name your new remote (eg: `imagekit-media-library`)
-- Select the number corresponding to `ImageKit.io` when prompted for storage type.
 
 2. **Enter your ImageKit credentials**
+
+* Get your `urlEndpoint`, `publicKey` and `privateKey` from your [ImageKit dashboard](https://imagekit.io/dashboard/developer/api-keys).
+* Input the obtained credentials when prompted.<br />
 ![](../../.gitbook/assets/rclone/rclone-credentials.png)
-- Get your `urlEndpoint`, `publicKey` and `privateKey` from your [ImageKit dashboard](https://imagekit.io/dashboard/developer/api-keys).
-- Input the obtained credentials when prompted.
 
 3. **Save and Exit**
-- When prompted to edit advanced config, select `n` to continue with the default configuration.
-- After you've completed the above steps, you should see a remote added as shown below.
+* When prompted to edit advanced config, select `n` to continue with the default configuration.
+* After you've completed the above steps, you should see a remote added as shown below.
+* Finally, select `q` to exit the interactive config session.<br />
 ![](../../.gitbook/assets/rclone/rclone-remotes.png)
-- Finally, select `q` to exit the interactive config session.
 
 With that, you have successfully added your ImageKit Media Library as a provider to rclone. You can verify this using the `rclone listremotes` command.
 
@@ -48,8 +50,8 @@ Now that you've set up ImageKit as a provider to rclone, you can try out the com
 2. `lsd` - List all directories the media library. (eg. `rclone lsd imagekit-media-library:`)
 3. `mkdir` - Create a folder in the media library if it doesn't already exist. (eg. `rclone mkdir imagekit-media-library:test-folder`; this will create a folder with the name `test-folder` in the root of your library)
 4. `copy` - Copy files from a source to a destination. The source / destination can either be a path in your media library or even your local system.
-4.1 _**To copy a local file to your media library**_: `rclone copy <path/to/local/file> imagekit-media-library:<path/where/file/to/be/copied>`. You can leave the destination path empty to copy to the root.
-4.2 _**To copy a file from your media library to your local system**_: `rclone copy imagekit-media-library:<path/to/remote/file> <local/path/where/file/to/be/copied>`
+* **To copy a local file to your media library**: `rclone copy <path/to/local/file> imagekit-media-library:<path/where/file/to/be/copied>`. You can leave the destination path empty to copy to the root.
+* **To copy a file from your media library to your local system**: `rclone copy imagekit-media-library:<path/to/remote/file> <local/path/where/file/to/be/copied>`
 5. `move` - Same as `copy` but removes the file from the source after the operation. (eg. `rclone move <path/to/local/file> imagekit-media-library:<path/where/file/to/be/moved>`)
 6. `sync` - A uni-directional sync which makes the source and destination equal, _modifying the destination only_. For example, to clone your media library to the local system, you could do something like `rclone sync imagekit-media-library: <path/to/local/directory/to/sync>`
 
