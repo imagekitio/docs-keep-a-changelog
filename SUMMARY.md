@@ -58,6 +58,7 @@
   * [Download media library assets as zip](media-library/overview/download-media-library-assets-as-zip.md)
   * [Asset versioning](media-library/overview/asset-versioning.md)
   * [Draft assets](media-library/overview/draft-assets.md)
+  * [Managing media library assets via command-line with rclone](media-library/overview/rclone.md)
 * [Media Collections](./media-collections/README.md)
   * [Introduction](./media-collections/create-rename-delete-search-and-download-as-zip.md)
   * [Add & remove assets from media collections](./media-collections/add-and-remove-assets-from-media-collections.md)
