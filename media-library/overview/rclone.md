@@ -17,7 +17,7 @@ Also, this guide assumes that you have rclone set up in your system. You can che
 
 ## Configuring rclone
 
-To configure ImageKit as a cloud storage provider on rclone:
+To configure ImageKit as a remote on rclone:
 
 1. **Run rclone's interactive configuration command**
 
@@ -39,7 +39,7 @@ To configure ImageKit as a cloud storage provider on rclone:
 * Finally, select `q` to exit the interactive config session.<br />
 ![](../../.gitbook/assets/rclone/rclone-remotes.png)
 
-With that, you have successfully added your ImageKit Media Library as a provider to rclone. You can verify this using the `rclone listremotes` command.
+With that, you have successfully added your ImageKit's Media Library as a cloud storage provider to rclone. You can verify this using the `rclone listremotes` command.
 
 
 ## Common Commands
@@ -59,25 +59,80 @@ To explore more commands, run `rclone help` in your terminal.
 
 ## Advanced Use Cases
 
-### Syncing your S3 Bucket to ImageKit
+### Migrating assets from local filesystem to ImageKit
 
-Rclone makes it possible to sync and bring all your media assets from an S3 bucket over to your ImageKit's media library.
+Rclone makes it possible to sync and bring all your media assets from a local filesystem over to your ImageKit's media library.
+
+#### Copy a single file
+
+To sync a file from local filesystem to your media library, you can use the following syntax:
+```
+rclone copy <source-path> <destination-path>
+```
+
+Usage Example:
+```
+rclone copy <path/to/local/file> imagekit-media-library:<path/inside/media/library>
+```
+
+#### Sync all files
+
+To sync a complete folder from local filesystem to a folder in your media library, you can use the following syntax:
+```
+rclone sync <source-path> <destination-path>
+```
+
+Usage Example:
+```
+rclone sync <path/to/local/folder> imagekit-media-library:<path/to/destination/folder>
+```
 
 {% hint style="danger" %}
-Using this on the **root** of your media library could be a potentially destructive action as it could wipe out your entire library.
+The `sync` command modifies the destination completely to make it equal to the source. This means that it deletes ALL the pre-existing files in the destination which do not exist in the source.
+
+For this reason, using this on the **root** of your media library could be a potentially destructive action as it could wipe out your entire library.
 
 Therefore, it is recommended to create a new folder in your media library and sync your assets to that folder.
 {% endhint %}
+
+### Migrating assets from S3 to ImageKit
+
+Rclone makes it possible to sync and bring all your media assets from an S3 bucket over to your ImageKit's media library.
 
 To configure S3 as a cloud storage provider to rclone, follow the [setup instructions](https://rclone.org/s3/). Once completed, you should see an S3 remote in the rclone config in addition to the previously setup ImageKit remote.
 
 ![](../../.gitbook/assets/rclone/rclone-remotes-with-s3.png)
 
+Now, you can do all the operations like `copy`, `move` etc. across these remotes.
 
-Now, you can do all the operations like `copy`, `move` etc. across these remotes. For example, to copy a file from S3 to ImageKit's Media Library: `rclone copy s3-sandbox:<path/to/file> imagekit-media-library:test-folder`
+#### Copy a single file
 
-To sync a complete S3 bucket to a folder in your media library, you can use the following command:
+To sync a file from S3 bucket to your media library, you can use the following syntax:
+```
+rclone copy <source-path> <destination-path>
+```
 
+Usage Example:
+```
+rclone copy s3-sandbox:<path/to/file> imagekit-media-library:<path/inside/media/library>
+```
+
+#### Sync all files
+
+To sync a complete S3 bucket to a folder in your media library, you can use the following syntax:
+```
+rclone sync <source-path> <destination-path>
+```
+
+Usage Example:
 ```
 rclone sync s3-sandbox:<path/to/bucket> imagekit-media-library:<path/to/destination/folder>
 ```
+
+{% hint style="danger" %}
+The `sync` command modifies the destination completely to make it equal to the source. This means that it deletes ALL the pre-existing files in the destination which do not exist in the source.
+
+For this reason, using this on the **root** of your media library could be a potentially destructive action as it could wipe out your entire library.
+
+Therefore, it is recommended to create a new folder in your media library and sync your assets to that folder.
+{% endhint %}
