@@ -13,5 +13,5 @@ The following Akamai transformations are supported for translation:
 
 | Akamai transform | Example translation | Remarks |
 | - | - | - |
-| <p>width</p> | <ul> <li> `imwidth=100` => `w-100`</li> </ul> | <ul>Final output from ImageKit may vary from output from Akamai</ul> |
-| <p>height</p> | <ul> <li>`imheight=100` => `h-100`</li> </ul> | <ul>Final output from ImageKit may vary from output from Akamai</ul> |
+| <p>width</p> | <ul> <li> `imwidth=100` => `w-100`</li> </ul> | |
+| <p>height</p> | <ul> <li>`imheight=100` => `h-100`</li> </ul> | |

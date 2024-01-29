@@ -25,12 +25,12 @@ The following Imgix transformations are supported for translation:
 | <p>fill-color</p> | <ul> <li>`fill-color=red` => `bg-red`</li><li>`fill-color=BLUE` => `bg-blue`</li><li>`fill-color=AAAA54` => `bg-AAAA54`</li><li>`fill-color=A9AAAA54` => `bg-AAAA5466`</li><li>`fill-color=B4F` => `bg-BB44FF`</li><li>`fill-color=9B4F` => `bg-BB44FF60`</li> </ul> | <ol><li>Color values are case insensitive</li><li>Alpha values in RGB codes are accepted in the range [00-FF] and translated to a value in the range [00-99]</li></ol> |
 | <p>bg</p> | <ul> <li>`bg=red` => `bg-red`</li><li>`bg=BLUE` => `bg-blue`</li><li>`bg=AAAA54` => `bg-AAAA54`</li><li>`bg=A9AAAA54` => `bg=AAAA5466`</li><li>`bg=B4F` => `bg-BB44FF`</li><li>`bg=9B4F` => `bg-BB44FF60`</li> </ul> | <ol><li>Color values are case insensitive</li><li>Alpha values in RGB codes are accepted in the range [00-FF] and translated to a value in the range [00-99]</li></ol> |
 | <p>dpr</p> | <ul> <li>`dpr=3.0` => `dpr-3.0`</li> </ul> |  |
-| <p>sharp</p> | <ul> <li>`sharp=10` => `e-sharpen-200`</li><li>`sharp=100` => `e-sharpen-2000`</li></ul> | <ul>Final output from ImageKit may vary from output from Imgix</ul> |
-| <p>con</p> | <ul> <li>`con=30` => `e-contrast`</li><li>`con=-50` => `e-contrast`</li></ul> | <ul>Final output from ImageKit may vary from output from Imgix</ul> |
-| <p>usm</p> | <ul> <li>`usm=40` => `e-usm-2.5-8.00-1-0.05`</li></ul> | <ul>Final output from ImageKit may vary from output from Imgix</ul> |
-| <p>usmrad</p> | <ul> <li>`usm=-50&usmrad=2` => `e-usm-2-0.00-1-0.05`</li></ul> | <ul>usmrad only works in conjunction with usm</ul><ul>Final output from ImageKit may vary from output from Imgix</ul> |
-| <p>blur</p> | <ul> <li>`blur=100` => `bl-5.00`</li><li>`blur=90` => `bl-4.50`</li></ul> | <ul>Final output from ImageKit may vary from output from Imgix</ul> |
-| <p>trim</p> | <ul> <li>`trim=auto` => `t-true`</li><li>`trim=color` => `t-true`</li></ul> | <ul>Final output from ImageKit may vary from output from Imgix</ul> |
+| <p>sharp</p> | <ul> <li>`sharp=10` => `e-sharpen-200`</li><li>`sharp=100` => `e-sharpen-2000`</li></ul> | <ul>The final result produced by ImageKit could differ from the result obtained from Imgix.</ul> |
+| <p>con</p> | <ul> <li>`con=30` => `e-contrast`</li><li>`con=-50` => `e-contrast`</li></ul> | <ul>The final result produced by ImageKit could differ from the result obtained from Imgix.</ul> |
+| <p>usm</p> | <ul> <li>`usm=40` => `e-usm-2.5-8.00-1-0.05`</li></ul> | <ul>The final result produced by ImageKit could differ from the result obtained from Imgix.</ul> |
+| <p>usmrad</p> | <ul> <li>`usm=-50&usmrad=2` => `e-usm-2-0.00-1-0.05`</li></ul> | <ul>usmrad only works in conjunction with usm</ul><ul>The final result produced by ImageKit could differ from the result obtained from Imgix.</ul> |
+| <p>blur</p> | <ul> <li>`blur=100` => `bl-5.00`</li><li>`blur=90` => `bl-4.50`</li></ul> | <ul>The final result produced by ImageKit could differ from the result obtained from Imgix.</ul> |
+| <p>trim</p> | <ul> <li>`trim=auto` => `t-true`</li><li>`trim=color` => `t-true`</li></ul> | <ul>The final result produced by ImageKit could differ from the result obtained from Imgix.</ul> |
 
 
 
