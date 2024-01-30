@@ -58,7 +58,6 @@
   * [Download media library assets as zip](media-library/overview/download-media-library-assets-as-zip.md)
   * [Asset versioning](media-library/overview/asset-versioning.md)
   * [Draft assets](media-library/overview/draft-assets.md)
-  * [Managing media library assets via command-line with rclone](media-library/overview/rclone.md)
 * [Media Collections](./media-collections/README.md)
   * [Introduction](./media-collections/create-rename-delete-search-and-download-as-zip.md)
   * [Add & remove assets from media collections](./media-collections/add-and-remove-assets-from-media-collections.md)
@@ -66,6 +65,7 @@
   * [Share files and folders](./collaboration-and-sharing/share-files-and-folders.md)
   * [Share media collection](./collaboration-and-sharing/share-media-collection.md)
   * [Public shareable links](./collaboration-and-sharing/public-shareable-links.md)
+* [Migrate assets to ImageKit](./media-library/overview/migrate-assets-using-rclone.md)
 
 ## Limits and troubleshooting
 
