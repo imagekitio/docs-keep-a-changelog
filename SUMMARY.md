@@ -134,6 +134,7 @@
 * [URL-rewriters](features/url-rewriters/README.md)
   * [Cloudinary](features/url-rewriters/cloudinary.md)
   * [Imgix](features/url-rewriters/imgix.md)
+  * [Akamai](features/url-rewriters/akamai.md)
 * [Session management](features/session-management.md)
 * [Multi-account user association](features/multi-account-user-association.md)
 * [Embed video](features/embed-video.md)
