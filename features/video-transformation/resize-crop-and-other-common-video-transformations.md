@@ -261,7 +261,7 @@ ImageKit.io allows you to choose a quality level between `1` and `100`. `1` resu
 Choosing 100 quality will not improve an already low-quality video. However, it will increase the size of the video file. It is recommended to not use a 100 quality setting.
 {% endhint %}
 
-**Default Value** - `50`. You can be change [automatic video quality optimization](../video-optimization/quality-optimization.md) setting from the dashboard.
+**Default Value** - `50`. You can change default quality setting from the dashboard.
 
 #### Video at quality 90
 
