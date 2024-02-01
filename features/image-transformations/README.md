@@ -76,7 +76,7 @@ Practical applications of smart crop
 
 You can overlay multiple images or colored rectangles on your original image directly from the URL. If you happen to change the overlay image, it can be done in minutes instead of days.
 
-Here we have put the ImageKit.io logo ([https://ik.imagekit.io/demo/logo-white\_SJwqB4Nfe.png](https://ik.imagekit.io/demo/logo-white\_SJwqB4Nfe.png)) on another image using overlay syntax i.e. `l-image,i-logo-white_SJwqB4Nfe.png,l-end`
+Here we have put the ImageKit.io logo ([https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png](https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png)) on another image using overlay syntax i.e. `l-image,i-logo-white_SJwqB4Nfe.png,l-end`
 
 **Learn more about image overlay**
 
@@ -96,7 +96,7 @@ You can overlay text on an image and create dynamic banners. You can also contro
 [overlay.md](overlay-using-layers.md)
 {% endcontent-ref %}
 
-![https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,co-00FFFF,l-end/medium\_cafe\_B1iTdD0C.jpg](../../.gitbook/assets/text-overlay.jpg)
+![https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,co-00FFFF,l-end/medium_cafe_B1iTdD0C.jpg](../../.gitbook/assets/text-overlay.jpg)
 
 
 ### 7. SVG to raster format conversion
