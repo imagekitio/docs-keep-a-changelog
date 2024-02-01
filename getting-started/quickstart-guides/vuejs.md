@@ -14,7 +14,7 @@ This guide walks you through the following topics:
 * [Rendering images](vuejs.md#rendering-images-in-vue.js)
 * [Setting the ImageKit context for the SDK](vuejs.md#setting-imagekit-context-for-the-sdk)
 * [Applying common image manipulations](vuejs.md#common-image-manipulation-in-vue.js)
-* [Adding overlays to images](vuejs.md#adding-overlays-to-images-in-vue.js)
+* [Adding overlays](vuejs.md#adding-overlays)
 * [Lazy loading images](vuejs.md#lazy-loading-images-in-vue.js)
 * [Blurred image placeholder](vuejs.md#blurred-image-placeholder)
 * [Client-side file uploading](vuejs.md#uploading-files-in-vue.js)
@@ -303,34 +303,75 @@ renders to:
 
 ![](<../../.gitbook/assets/Screenshot 2020-09-25 at 6.15.57 PM.png>)
 
-## Adding overlays to images in Vue.js
+## Adding overlays
 
-ImageKit.io allows you to add [text](../../features/image-transformations/overlay-using-layers.md#add-text-over-image) and [image overlay](../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) dynamically.
+ImageKit.io enables you to apply overlays to [images](../../features/image-transformations/overlay-using-layers.md) and [videos](../../features/video-transformation/overlay.md) using the raw parameter with the concept of [layers](../../features/image-transformations/overlay-using-layers.md#layers). The raw parameter facilitates incorporating transformations directly in the URL. A layer is a distinct type of transformation that allows you to define an asset to serve as an overlay, along with its positioning and additional transformations.
+
+**Text as overlays**
+
+You can add any text string over a base video or image using a text layer (l-text).
 
 For example:
 
-```javascript
-<IKImage 
-  urlEndpoint="https://ik.imagekit.io/demo"
-  path="/default-image.jpg" 
-  :transformation="[{
-    width: 300, 
-    height: 300, 
-    raw: 'l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end'
-  }]" />
+```js
+<IKImage
+    path="/default-image.jpg"
+    urlEndpoint="https://ik.imagekit.io/your_imagekit_id/endpoint/"
+    :transformation="[{ "width": 400, "height": 300, "raw": "l-text,i-Imagekit,fs-50,l-end" }]"
+/>
+```
+**Sample Result URL**
+```
+https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-text,i-Imagekit,fs-50,l-end/default-image.jpg
 ```
 
-Renders to:
+**Output Image:**
 
-```javascript
-<img class="ik-image" src="https://ik.imagekit.io/<YOUR_IMAGEKIT_ID>/tr:w-300,h-300,l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end/default-image.jpg">
+![Overlay text over image](<../../.gitbook/assets/text-overlay-image.png>)
+
+**Image as overlays**
+
+You can add an image over a base video or image using an image layer (l-image).
+
+For example:
+
+```js
+<IKImage
+    path="/default-image.jpg"
+    urlEndpoint="https://ik.imagekit.io/your_imagekit_id/endpoint/"
+    :transformation="[{ "width": 400, "height": 300, "raw": "l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end" }]"
+/>
+```
+**Sample Result URL**
+```
+https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end/default-image.jpg
 ```
 
-The output looks like:
+**Output Image:**
 
-![](<../../.gitbook/assets/vuejs-sdk-overlay.png>)
+![Overlay image over another image](<../../.gitbook/assets/image-overlay-image.png>)
 
+**Solid color blocks as overlays**
 
+You can add solid color blocks over a base video or image using an image layer (l-image).
+
+For example:
+
+```js
+<IKVideo
+    path="/img/sample-video.mp4"
+    urlEndpoint="https://ik.imagekit.io/your_imagekit_id/endpoint/"
+    :transformation="[{ "width": 400, "height": 300, "raw": "l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end" }]"
+/>
+```
+**Sample Result URL**
+```
+https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end/img/sample-video.mp4
+```
+
+**Output Image:**
+
+![Overlay solid color over image](<../../.gitbook/assets/solid-color-overlay-image.png>)
 
 ## Lazy-loading images in Vue.js
 

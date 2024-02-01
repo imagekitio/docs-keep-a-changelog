@@ -2,6 +2,10 @@
 
 ImageKit.io provides the ability to search, delete, [tag](image-tags.md), and update files easily.
 
+{% embed url="https://www.youtube.com/watch?v=lGu8CBxLRqs&list=PLHMsBwDlzJRy9Y3xPpHZWjx_aRW5IOQQd&index=9" %}
+Using the advanced search in ImageKit
+{% endembed %}
+
 ## File Search
 
 You can access search functionality from the top of the Media Library section. There are two search modes available.

@@ -13,7 +13,7 @@ This guide walks you through the following topics: ‌
 * [Setting up ImageKit Angular SDK](angular.md#setup-imagekit-angular-sdk)
 * [Rendering images](angular.md#rendering-images)
 * [Applying common image manipulations](angular.md#basic-image-manipulation)
-* [Adding overlays to images](angular.md#adding-overlays-to-images)
+* [Adding overlays](angular.md#adding-overlays)
 * [Lazy loading images](angular.md#lazy-loading-images-in-angular)
 * [Blurred image placeholder](angular.md#blurred-image-placeholder)
 * [Client-side file uploading](angular.md#uploading-files-in-angular)
@@ -405,32 +405,72 @@ Let’s flip the order of transformation and see what happens.
 
 ![Rotated, then resized](<../../.gitbook/assets/angular/angular-sdk-basic-chained-3.png>)
 
-## **Adding overlays to images**
+## **Adding overlays**
 
-ImageKit.io allows you to add [text](../../features/image-transformations/overlay-using-layers.md#add-text-over-image) and [image overlay](../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) dynamically.
+ImageKit.io enables you to apply overlays to [images](../../features/image-transformations/overlay-using-layers.md) and [videos](../../features/video-transformation/overlay.md) using the raw parameter with the concept of [layers](../../features/image-transformations/overlay-using-layers.md#layers). The raw parameter facilitates incorporating transformations directly in the URL. A layer is a distinct type of transformation that allows you to define an asset to serve as an overlay, along with its positioning and additional transformations.
 
-For example, a text overlay can be used to superimpose text on an image. Try it like so:
+**Text as overlays**
 
-{% code title="src/app/app.component.ts" %}
-```jsx
-    ...
-    transformation: Array<Transformation> = [{
-        height: "300", 
-        width: "300",
-        raw: "l-text,i-Imagekit,rt-90,co-0651D5,fs-50,l-end"
-    }];
-    ...
-}
+You can add any text string over a base video or image using a text layer (l-text).
+
+For example:
+
+```js
+<ik-image
+    path="/default-image.jpg"
+    [transformation]='[{ "width": 400, "height": 300, "raw": "l-text,i-Imagekit,fs-50,l-end" }]'>
+</ik-image>
 ```
-{% endcode %}
-
-**Rendered HTML element:**
-
-```markup
-<img src="https://ik.imagekit.io/demo/tr:w-300,h-300:l-text,i-Imagekit,rt-90,co-0651D5,fs-50,l-end/default-image.jpg" _ngcontent-que-c21="" urlendpoint="https://ik.imagekit.io/demo/" class="lazyload-lqip" ng-reflect-url-endpoint="https://ik.imagekit.io/demo/" ng-reflect-path="default-image.jpg" ng-reflect-transformation="[object Object],[object Object]">
+**Sample Result URL**
+```
+https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-text,i-Imagekit,fs-50,l-end/default-image.jpg
 ```
 
-![Text Overlay (300x300px)](<../../.gitbook/assets/angular/angular-sdk-overlay-text-image.png>)
+**Output Image:**
+
+![Overlay text over image](<../../.gitbook/assets/text-overlay-image.png>)
+
+**Image as overlays**
+
+You can add an image over a base video or image using an image layer (l-image).
+
+For example:
+
+```js
+<ik-image
+    path="/default-image.jpg"
+    [transformation]='[{ "width": 400, "height": 300, "raw": "l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end" }]'>
+</ik-image>
+```
+**Sample Result URL**
+```
+https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-image,i-default-image.jpg,w-100,b-10_CDDC39,l-end/default-image.jpg
+```
+
+**Output Image:**
+
+![Overlay image over another image](<../../.gitbook/assets/image-overlay-image.png>)
+
+**Solid color blocks as overlays**
+
+You can add solid color blocks over a base video or image using an image layer (l-image).
+
+For example:
+
+```js
+<ik-video
+    path="/img/sample-video.mp4"
+    [transformation]='[{ "width": 400, "height": 300, "raw": "l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end" }]'>
+</ik-video>
+```
+**Sample Result URL**
+```
+https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-image,i-ik_canvas,bg-FF0000,w-300,h-100,l-end/img/sample-video.mp4
+```
+
+**Output Image:**
+
+![Overlay solid color over image](<../../.gitbook/assets/solid-color-overlay-image.png>)
 
 ## **Lazy-loading images in Angular**
 

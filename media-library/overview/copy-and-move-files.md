@@ -31,6 +31,6 @@ A restricted media library user needs to have at least "manage" permission on bo
 
 If a file at the destination location with the same name exists, new file versions would be created, and the ownership, access control, and permissions present at the destination location's file would persist. If the source file was added to any media collection, the destination file would also now be added to those media collections along with any existing media collections it was added to. If no file exists in the destination folder, the moved asset's ownership, access control, and permissions remain unchanged. Additionally, the destination location’s permissions from shared parent folders would come into effect.
 
-{% embed url="https://www.youtube.com/watch?v=z-WnwqWNQtg" %}
+{% embed url="https://www.youtube.com/watch?v=9jsiS8siwzE&list=PLHMsBwDlzJRy9Y3xPpHZWjx_aRW5IOQQd&index=6" %}
 Copy multiple files
 {% endembed %}

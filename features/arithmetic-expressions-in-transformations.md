@@ -50,6 +50,7 @@ You can create arithmetic expressions by using arithmetic operators with express
 | <p>lx, ly</p> | <ul> <li>lx-bw_div_2</li> <li>ly-bh_div_2</li> <li>lx-cw_div_2_add_iw_div_2</li>  <li>ly-ch_div_2_add_cw_div_2</li> </ul>| These are layer positional parameters that can be placed in any order within a chain of transformations inside a layer transformation but are always executed last. Hence `ch`, `cw`, and `car` expression variables when used along with `lx` or `ly` parameter always represent the final height, width, and aspect ratio respectively of the asset being overlaid. |
 | <p>pa</p> |<ul> <li>pa-bh_mul_0.05</li> <li>pa-bw_mod_5</li> </ul> | The calculated expression value will be applied as uniform padding along all four edges of the text.  |
 | <p>fs</p> |<ul> <li>fs-bh_mul_0.1</li> <li>fs-bw_div_50</li> </ul> |  |
+| <p>sp (inside [e-gradient](./image-transformations//image-enhancement-and-color-manipulation.md#gradient---e-gradient))</p> |<ul> <li>sp-bh_mul_0.75</li> <li>sp-bh_div_2</li> </ul> | |
 
 ### Calculation Sequence for multiple operators
 <ol> <li>Multiplication and Division: Multiplication and division are evaluated first from left to right.</li>
@@ -60,7 +61,7 @@ You can create arithmetic expressions by using arithmetic operators with express
 {% hint style="info" %}
 * If you're using expressions inside a layer, then the layer should be a separate chain transformation.
 
-* Only the `bw`, `bh`, and `bar` expression variables are allowed inside text layers and solid image layers.
+* Only the `bw`, `bh`, and `bar` expression variables are allowed inside text layers, solid image layers and gradient block layers.
 {% endhint %}
 
 ### Examples

@@ -17,6 +17,12 @@ The following actions can be performed from the dashboard and programmatically v
 5. Get details of all versions of a file.
 6. Search for file versions.
 
+
+{% embed url="https://www.youtube.com/watch?v=WyOWZ50p-Vc&list=PLHMsBwDlzJRy9Y3xPpHZWjx_aRW5IOQQd&index=10" %}
+Using asset versions in ImageKit
+{% endembed %}
+   
+
 {% hint style="info" %}
 **Version limits**\
 A asset can have a maximum of 100 versions.
@@ -25,10 +31,6 @@ A asset can have a maximum of 100 versions.
 ## Searching for file versions in the media library
 
 Go to your [media library](https://imagekit.io/dashboard/media-library) in ImageKit's dashboard and click on the search bar. Check the option to include file versions in search results to get the desired outcome. You can identify if an asset is a file version by looking at a badge marking it.
-
-Check out the video below to learn how to include file versions in search results.
-
-{% embed url="https://www.youtube.com/watch?v=qjDKpSYCW7U" %}
 
 {% hint style="info" %}
 **Viewing versions**\

@@ -8,7 +8,10 @@ Whether you are serving a few hundred, or a few billion images, you can easily i
 
 ImageKit.io offers a forever free plan with generous limits. If you are just getting started with your website, our free plan has got you covered.
 
-![Sign-up for ImageKit.io](<../../.gitbook/assets/registration-page.png>)
+{% embed url="https://www.youtube.com/watch?v=qlov8iOO-y8&list=PLHMsBwDlzJRy9Y3xPpHZWjx_aRW5IOQQd&index=2" %}
+Getting started with ImageKit
+{% endembed %}
+
 
 #### Choosing Imagekit Id
 

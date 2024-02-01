@@ -105,7 +105,7 @@ ImageKit supports many [image transformation parameters](../image-transformation
 | [cm](../image-transformations/resize-crop-and-other-transformations.md#crop-crop-modes-and-focus)              | Crop mode. Supports `extract` and `pad_resize`. |
 | [fo](../image-transformations/resize-crop-and-other-transformations.md#focus-fo)                               | Relative focus area used during cropping. Accepts `face`, `custom`, `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left`, and `bottom_right`. |
 | [z](../image-transformations/resize-crop-and-other-transformations.md#zoom-z)                                | It determines how much to zoom in or out of the cropped area. It must be used along with `fo-face`. A value less than `1.0` zooms out to include more background surrounding the face, whereas a value larger than `1.0` zooms in to exclude more background surrounding the face. Possible values include any number between `0` to `1` for zoom out, and greater than `1` for zoom in. Its default value is `1.0`. |
-| [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                                | This adds a border to the overlay image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>`. It can also accept arithmetic expressions such as `bh_mod_5_red`, or `bw_mul_0.05_FF00FF`. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md). |
+| [b](../image-transformations/resize-crop-and-other-transformations.md#border-b)                                | It adds a border to the overlay image. It accepts two parameters - the width of the border and the color of the border in format `b-<border-width>-<hex code>`. It can also accept arithmetic expressions such as `bh_mod_5_red`, or `bw_mul_0.05_FF00FF`. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md). |
 | [bg](../image-transformations/resize-crop-and-other-transformations.md#background-bg)                    | It is used to specify the background color in RGB Hex Code (e.g. `FF0000`), or an RGBA Code (e.g. `FFAABB50`), or a color name (e.g. `red`) that must be used for the image. If you specify an 8 character background, the last two characters must be a number between 00 and 99, which is used to indicate the opacity level of the background. `00` represents an opacity level of `0.00`, `01` represents an opacity level of `0.01`, and so on. |
 | [r](../image-transformations/resize-crop-and-other-transformations.md#radius-r)                                | It is used to control the radius of the corner. To get a circle or oval shape, set the value to `max`. |
 | [rt](../image-transformations/resize-crop-and-other-transformations.md#rotate-rt)                              | It is used to specify the degree by which the overlay image must be rotated. |
@@ -118,6 +118,7 @@ ImageKit supports many [image transformation parameters](../image-transformation
 | [e-sharpen](../image-transformations/image-enhancement-and-color-manipulation.md#sharpen-e-sharpen)          | It is used to sharpen the input image, useful when highlighting the edges and finer details within an image. If just the `e-sharpen` parameter is used, then a default sharpening is performed on the input image. This can be controlled by specifying a number that restricts the extent of sharpening performed, like `e-sharpen-<number>`. |
 | [e-usm](../image-transformations/image-enhancement-and-color-manipulation.md#unsharp-mask-e-usm)             | It is used to apply and control unsharp masks on your images. The amount of sharpening can be varied using 4 parameters - `radius`, `sigma`, `amount`, and `threshold`. This results in perceptually better images compared to using `e-sharpen`. Only positive floating points are allowed for these 4 parameters. e.g. `e-usm-<radius>-<sigma>-<amount>-<threshold>` |
 | [e-shadow](../image-transformations/image-enhancement-and-color-manipulation.md#shadow-e-shadow)             |  It is used to apply a shadow effect on the input image. The strength, blur and the geometrical positioning of the shadow can be varied using the following parameters - `st`, `bl`, `x` and `y`. e.g. `e-shadow-st-<value>_bl-<value>_x-<value>_y-<value>` (or simply `e-shadow` to let the shadow take on default values). Learn more about the shadow effect and its parameters [here](../image-transformations/image-enhancement-and-color-manipulation.md#shadow-e-shadow).  |
+| [e-gradient](../image-transformations/image-enhancement-and-color-manipulation.md#gradient-e-gradient)             |  It is used to add a linear gradient overlay over an input image. The direction, from color, to color and the stop point of the gradient can be varied using the following parameters - `ld`, `from`, `to` and `sp`. e.g. `e-gradient-<linear-direction>_<from-color>_<to-color>_<stop-point>` (or simply `e-gradient` to let the gradient take on default values). Learn more about the gradient effect and its parameters [here](../image-transformations/image-enhancement-and-color-manipulation.md#gradient-e-gradient).  |
 
 
 # Add text over image
@@ -225,6 +226,8 @@ Following transformation parameters are supported on the solid color block overl
 If both `bg` and `al` are set in a single transformation and `bg` has an alpha component, then that value is used to set solid color background transparency. Otherwise, `al` value is used. If `bg` is set to a standard color name (e.g. `blue`), then the `al` value is ignored. Read more [here](../image-transformations/overlay.md#overlay-background-transparency)
 {% endhint %}
 
+If you're looking to add a gradient block overlay instead, read more about it [here](../image-transformations/image-enhancement-and-color-manipulation.md#adding-gradient-blocks-over-images).
+
 # Examples
 
 ## Image overlay
@@ -291,7 +294,7 @@ URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,co-red,fs-4
 
 ![](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,co-red,fs-45,l-end/medium_cafe_B1iTdD0C.jpg)
 
-You can also change the font using the `fo` parameter. Refer to the [list of supported fonts](/features/image-transformations/supported-text-font-list.md#in-built-fonts) for the available options. Apart from this, you can also use [custom fonts](#custom-fonts-example).
+You can also change the font using the `ff` parameter. Refer to the [list of supported fonts](/features/image-transformations/supported-text-font-list.md#in-built-fonts) for the available options. Apart from this, you can also use [custom fonts](#custom-fonts-example).
 
 URL - [https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,ff-AbrilFatFace,co-yellow,fs-45,l-end/medium_cafe_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,ff-AbrilFatFace,co-yellow,fs-45,l-end/medium_cafe_B1iTdD0C.jpg)
 

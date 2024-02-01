@@ -6,11 +6,7 @@ ImageKit offers 40+ [real-time image transformation](../../features/image-transf
 
 Right-click any image file in the media library and select the "Edit image" option. Now you can resize, crop, and rotate the image using the available options. You can also add frames, text overlay, or image overlay using stickers.
 
-#### Basic image resizing without cropping
-
-If you want to learn how to resize an image without any cropping, check out the below video.
-
-{% embed url="https://www.youtube.com/watch?v=ogzJRbYjbwE" %}
+{% embed url="https://www.youtube.com/watch?v=QFOvZwOkMWs&list=PLHMsBwDlzJRy9Y3xPpHZWjx_aRW5IOQQd&index=11" %}
 
 
 

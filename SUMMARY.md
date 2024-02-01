@@ -65,6 +65,7 @@
   * [Share files and folders](./collaboration-and-sharing/share-files-and-folders.md)
   * [Share media collection](./collaboration-and-sharing/share-media-collection.md)
   * [Public shareable links](./collaboration-and-sharing/public-shareable-links.md)
+* [Migrate assets to ImageKit](./media-library/overview/migrate-assets-using-rclone.md)
 
 ## Limits and troubleshooting
 
@@ -134,6 +135,7 @@
 * [URL-rewriters](features/url-rewriters/README.md)
   * [Cloudinary](features/url-rewriters/cloudinary.md)
   * [Imgix](features/url-rewriters/imgix.md)
+  * [Akamai](features/url-rewriters/akamai.md)
 * [Session management](features/session-management.md)
 * [Multi-account user association](features/multi-account-user-association.md)
 * [Embed video](features/embed-video.md)

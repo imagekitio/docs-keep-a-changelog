@@ -18,17 +18,13 @@ You can either add tags while [uploading the image](../../api-reference/upload-f
 
 To add a tag to an image, right-click on the file to open the menu. Click on the "Tags" menu item. This will open a popup, enter the tags you want, and press the "Save" button.
 
-{% embed url="https://www.youtube.com/watch?v=tMHPrQ7-DEM" %}
-Add Tag
+{% embed url="https://www.youtube.com/watch?v=Jk3MVkd0DKs&list=PLHMsBwDlzJRy9Y3xPpHZWjx_aRW5IOQQd&index=7" %}
+Add and remove tags for a single asset or in bulk in ImageKit
 {% endembed %}
 
 ## Add/remove tags in bulk
 
 You can select multiple files together by pressing and holding the Command key in Mac or the Ctrl key in Windows. Right-click on any file to open menu options. Select "Add Bulk Tags" or "Remove Bulk Tags" option. This will open a popup, enter the tag values, and press the "Save" button. 
-
-{% embed url="https://www.youtube.com/watch?v=19iN_GKRXOQ" %}
-Bulk Tag Add or Remove
-{% endembed %}
 
 ## Search with tags
 

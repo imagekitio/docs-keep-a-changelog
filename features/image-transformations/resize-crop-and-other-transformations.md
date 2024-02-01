@@ -69,7 +69,7 @@ Used to specify the aspect ratio of the output image or the ratio of width to he
 You can also provide an arithmetic expression such as `iar_div_2`, or `car_mul_0.75` as a value for this parameter. Doing so will first calculate the value of the expression and then apply transformations using that value. Learn more about arithmetic expressions [here](../arithmetic-expressions-in-transformations.md).
 
 {% hint style="info" %}
-If you specify both [height(h)](resize-crop-and-other-transformations.md#height-h) and [width(w)](resize-crop-and-other-transformations.md#width-w) in the URL along with [aspect ratio(ar)](resize-crop-and-other-transformations.md#aspect-ration-ar), then the aspect ratio is ignored.
+If you specify both [height(h)](resize-crop-and-other-transformations.md#height-h) and [width(w)](resize-crop-and-other-transformations.md#width-w) in the URL along with [aspect ratio(ar)](resize-crop-and-other-transformations.md#aspect-ratio-ar), then the aspect ratio is ignored.
 {% endhint %}
 
 {% tabs %}
