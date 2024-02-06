@@ -525,7 +525,7 @@ result = imagekit.upload_file(
             overwrite_tags=False,
             overwrite_custom_metadata=True,
             custom_metadata={"test": 11}
-            transformation= {
+            transformation = {
                 'pre': 'l-text,i-Imagekit,fs-50,l-end', 
                 'post': [
                     {
