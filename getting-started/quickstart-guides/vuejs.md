@@ -594,7 +594,7 @@ Let's include `IKUpload` component in the `HelloWorld.vue`.
         :onUploadProgress="onUploadProgress"
         :onUploadStart="onUploadStart"
         :validateFile="validateFile" 
-        :transformation="{
+        :transformation = "{
           pre: 'l-text,i-Imagekit,fs-50,l-end', 
           post: [
               {
@@ -718,7 +718,7 @@ Example Usage
     :onError="onError"
     :onSuccess="onSuccess"
     customCoordinates="10,10,100,100"
-    :transformation="{
+    :transformation = "{
       pre: 'l-text,i-Imagekit,fs-50,l-end', 
       post: [
           {

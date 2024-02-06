@@ -963,7 +963,7 @@ function App() {
           onSuccess={onSuccess}
           onUploadProgress={onUploadProgress}
           onUploadStart={onUploadStart}
-          transformation={{
+          transformation = {{
             pre: 'l-text,i-Imagekit,fs-50,l-end', 
             post: [
               {
