@@ -594,6 +594,15 @@ Let's include `IKUpload` component in the `HelloWorld.vue`.
         :onUploadProgress="onUploadProgress"
         :onUploadStart="onUploadStart"
         :validateFile="validateFile" 
+        :transformation="{
+          pre: 'l-text,i-Imagekit,fs-50,l-end', 
+          post: [
+              {
+                  type: 'transformation', 
+                  value: 'w-100'
+              }
+          ]
+        }"
       />
     </IKContext>
   </div>
@@ -709,6 +718,15 @@ Example Usage
     :onError="onError"
     :onSuccess="onSuccess"
     customCoordinates="10,10,100,100"
+    :transformation="{
+      pre: 'l-text,i-Imagekit,fs-50,l-end', 
+      post: [
+          {
+              type: 'transformation', 
+              value: 'w-100'
+          }
+      ]
+    }"
   />
   <button @click="abortChildUpload">Abort Child Upload</button>
 </template>

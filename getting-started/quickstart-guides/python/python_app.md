@@ -460,6 +460,8 @@ If you want to generate transformations in your application and add them to the 
 | effect_usm | e-usm |
 | effect_contrast | e-contrast |
 | effect_gray | e-grayscale |
+| effect_shadow | e-shadow |
+| effect_gradient | e-gradient |
 | original | orig |
 | raw | `replaced by the parameter value` |
 
@@ -523,6 +525,15 @@ result = imagekit.upload_file(
             overwrite_tags=False,
             overwrite_custom_metadata=True,
             custom_metadata={"test": 11}
+            transformation= {
+                'pre': 'l-text,i-Imagekit,fs-50,l-end', 
+                'post': [
+                    {
+                        'type': 'transformation', 
+                        'value': 'w-100'
+                    }
+                ]
+            }
         ),
     )
 ```
