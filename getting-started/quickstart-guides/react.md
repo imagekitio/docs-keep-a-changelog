@@ -964,12 +964,12 @@ function App() {
           onUploadProgress={onUploadProgress}
           onUploadStart={onUploadStart}
           transformation = {{
-            pre: 'l-text,i-Imagekit,fs-50,l-end', 
+            pre: 'l-text,i-Imagekit,fs-50,l-end',
             post: [
-              {
-                'type': 'transformation', 
-                'value': 'w-100'
-              }
+                {
+                    'type': 'transformation',
+                    'value': 'w-100'
+                }
             ]
           }}
           // style={{display: 'none'}} // hide the default input and use the custom upload button
