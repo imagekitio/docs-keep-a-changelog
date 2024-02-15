@@ -484,6 +484,8 @@ The complete list of transformations supported and their usage in ImageKit can b
 | effectUSM | e-usm |
 | effectContrast | e-contrast |
 | effectGray | e-grayscale |
+| effectShadow | e-shadow |
+| effectGradient | e-gradient |
 | original | orig |
 | raw | `replaced by the parameter value` |
 
@@ -589,6 +591,15 @@ $uploadFile = $imageKit->uploadFile([
     //         "SKU" => "VS882HJ2JD",
     //         "price" => 599.99,
     // ]
+    'transformation' => [ 
+        'pre' => 'l-text,i-Imagekit,fs-50,l-end', 
+        'post' => [
+            [ 
+                'type' => 'transformation', 
+                'value' => 'h-100' 
+            ]
+        ]
+    ],
 ]);
 ```  
 
