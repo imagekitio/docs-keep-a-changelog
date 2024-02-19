@@ -92,6 +92,12 @@ https://ik.imagekit.io/demo/base-image.jpg?tr=l-image,i-logo.png,l-end
 
 You can also control the position of the image overlay using these [positional parameters](overlay-using-layers.md#position-of-layer).
 
+{% hint style="info" %}
+To overlay images stored within a specific folder of your media library, use the complete image path where slashes (`/`) are replaced with `@@`.
+
+For example, if the overlay image is at `https://ik.imagekit.io/demo/path/to/overlay.png`, then it can be used as an overlay like: `https://ik.imagekit.io/demo/base-image.jpg?tr=l-image,i-path@@to@@overlay.png,l-end`
+{% endhint %}
+
 ## Transformation of image overlay
 
 ImageKit supports many [image transformation parameters](../image-transformations/README.md). However, inside a layer, you can apply the following transformations to the image overlay before it is placed on the base image. You can [chain the transformations](../image-transformations/chained-transformations.md) one after the other to achieve the desired outcome.
