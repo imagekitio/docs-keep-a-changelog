@@ -924,7 +924,6 @@ const onUploadStart = evt => {
 };
 
 function App() {
-  const inputRefTest = useRef(null);
   const ikUploadRefTest = useRef(null);
   return (
     <div className="App">
@@ -973,11 +972,10 @@ function App() {
             ]
           }}
           // style={{display: 'none'}} // hide the default input and use the custom upload button
-          inputRef={inputRefTest}
           ref={ikUploadRefTest}
         />
         <p>Custom Upload Button</p>
-        {inputRefTest && <button onClick={() => inputRefTest.current.click()}>Upload</button>}
+        {ikUploadRefTest && <button onClick={() => ikUploadRefTest.current.click()}>Upload</button>}
         <p>Abort upload request</p>
         {ikUploadRefTest && <button onClick={() => ikUploadRefTest.current.abort()}>Abort request</button>}
       </IKContext>
