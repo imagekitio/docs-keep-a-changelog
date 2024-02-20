@@ -991,7 +991,7 @@ export default App;
 {% endtabs %}
 
 ### **Custom Upload Button**
-We have created a `ref` to the `input` used inside the `IKUpload` component called `inputRefTest`. The `IKUpload` component can be given styling via `className` or `style` (`style={{display: 'none'}}`) to hide the default file selector. Then we can use the custom upload button as described above.
+We have created a `ref` to the `input` used inside the `IKUpload` component called `ikUploadRefTest`. The `IKUpload` component can be given styling via `className` or `style` (`style={{display: 'none'}}`) to hide the default file selector. Then we can use the custom upload button as described above.
 
 ### **Abort uploads**
 We have created a `ref` to the `IKUpload` component called `ikUploadRefTest`. This `ref` can be used to call the `abort` method in the `IKUpload` component and can be used to abort the ongoing upload.
