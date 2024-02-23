@@ -97,3 +97,19 @@ Using the blocklist will block domains that are hotlinking your content or asset
 The allowlist can be used to allow only selected domains to access your assets. For example, you can use it to serve content only on your allowed domains and automatically block other referrers.
 
 If you do not want any HTTP referrer restriction, you can opt for no restriction, which is the default behavior.
+
+## User Agent based restriction
+
+{% hint style="info" %}
+**Limits**
+- You can configure at most 10 user agents to block.
+{% endhint %}
+
+This feature blocks user agents from accessing content. Any request with a blocked user agent will result in an HTTP `403` error, and the asset will not be delivered.
+
+To configure this setting for your requests, go to the advanced security settings on the dashboard to provide a list of user agents, each separated by a new line.
+
+These user agents do not have to be an exact match to the user agent header sent in the request. If the user agent in your request has any of the defined user agents as a substring, ImageKit will block the request. User agent match is case-insensitive.
+
+For example:
+- If you configure the user agent `Bytespider`, for a request having the user agent header `Linux; U; Bytespider/3.0`, ImageKit would block the request.
