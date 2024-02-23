@@ -13,6 +13,7 @@ It includes the following features:
 3. Geographic restriction.
 4. HTTP Referrer-based restriction.
 5. User Agent based restriction.
+6. Improved caching of assets.
 
 
 ![Advanced security settings in ImageKit's dashboard](<../.gitbook/assets/advanced-security-settings.png>)
