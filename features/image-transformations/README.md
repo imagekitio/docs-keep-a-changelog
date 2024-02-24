@@ -78,11 +78,7 @@ You can overlay multiple images or colored rectangles on your original image dir
 
 Here we have put the ImageKit.io logo ([https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png](https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png)) on another image using overlay syntax i.e. `l-image,i-logo-white_SJwqB4Nfe.png,l-end`
 
-**Learn more about image overlay**
-
-{% content-ref url="overlay.md" %}
-[overlay.md](overlay.md)
-{% endcontent-ref %}
+Learn more about [image overlay using layers](overlay-using-layers.md#add-images-over-image).
 
 ![https://ik.imagekit.io/demo/tr:h-300,l-image,i-logo-white_SJwqB4Nfe.png,l-end/medium_cafe_B1iTdD0C.jpg](../../.gitbook/assets/overlay-image.jpg)
 
@@ -90,11 +86,7 @@ Here we have put the ImageKit.io logo ([https://ik.imagekit.io/demo/logo-white_S
 
 You can overlay text on an image and create dynamic banners. You can also control the font, font size, weight, color, and position of the text.
 
-**Learn more about text overlay**
-
-{% content-ref url="overlay-using-layers.md" %}
-[overlay-using-layers.md](overlay-using-layers.md)
-{% endcontent-ref %}
+Learn more about [text overlay using layers](overlay-using-layers.md#add-text-over-image).
 
 ![https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,co-00FFFF,l-end/medium_cafe_B1iTdD0C.jpg](../../.gitbook/assets/text-overlay.jpg)
 
