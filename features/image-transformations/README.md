@@ -76,7 +76,7 @@ Practical applications of smart crop
 
 You can overlay multiple images or colored rectangles on your original image directly from the URL. If you happen to change the overlay image, it can be done in minutes instead of days.
 
-Here we have put the ImageKit.io logo ([https://ik.imagekit.io/demo/logo-white\_SJwqB4Nfe.png](https://ik.imagekit.io/demo/logo-white\_SJwqB4Nfe.png)) on another image using overlay parameter i.e., `oi`
+Here we have put the ImageKit.io logo ([https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png](https://ik.imagekit.io/demo/logo-white_SJwqB4Nfe.png)) on another image using overlay syntax i.e. `l-image,i-logo-white_SJwqB4Nfe.png,l-end`
 
 **Learn more about image overlay**
 
@@ -84,7 +84,7 @@ Here we have put the ImageKit.io logo ([https://ik.imagekit.io/demo/logo-white\_
 [overlay.md](overlay.md)
 {% endcontent-ref %}
 
-![https://ik.imagekit.io/demo/tr:h-300,oi-logo-white\_SJwqB4Nfe.png/medium\_cafe\_B1iTdD0C.jpg](../../.gitbook/assets/overlay-image.jpg)
+![https://ik.imagekit.io/demo/tr:h-300,l-image,i-logo-white_SJwqB4Nfe.png,l-end/medium_cafe_B1iTdD0C.jpg](../../.gitbook/assets/overlay-image.jpg)
 
 ### 6. Text overlay
 
@@ -92,11 +92,11 @@ You can overlay text on an image and create dynamic banners. You can also contro
 
 **Learn more about text overlay**
 
-{% content-ref url="overlay.md" %}
-[overlay.md](overlay.md)
+{% content-ref url="overlay-using-layers.md" %}
+[overlay-using-layers.md](overlay-using-layers.md)
 {% endcontent-ref %}
 
-![https://ik.imagekit.io/demo/tr:ot-overlay%20made%20easy,ots-45,otc-00FFFF/medium\_cafe\_B1iTdD0C.jpg](../../.gitbook/assets/text-overlay.jpg)
+![https://ik.imagekit.io/demo/tr:l-text,i-overlay%20made%20easy,fs-45,co-00FFFF,l-end/medium_cafe_B1iTdD0C.jpg](../../.gitbook/assets/text-overlay.jpg)
 
 ### 7. SVG to raster format conversion
 

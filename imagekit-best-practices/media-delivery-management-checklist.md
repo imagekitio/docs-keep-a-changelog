@@ -73,7 +73,7 @@ We often miss out on using suitable transformation parameters in our image URLs.
 To avoid this, set the maximum image size in the ImageKit dashboard [here](https://imagekit.io/dashboard/settings/images). ImageKit will use this as a size limit for your images when the URL does not contain any height or width resizing parameters.
 
 ### 2. Named Transformations
-[Named Transformations](https://docs.imagekit.io/features/named-transformations) simplify development efforts by giving easy-to-remember aliases to transformations you use on your website. For example, a transform to generate a watermarked image of size 200x200 (`w-200,h-200,oi-logo.png`) can be referred to as `n-watermarked-thumbnail` in your URL.
+Named Transformations](https://docs.imagekit.io/features/named-transformations) simplify development efforts by giving easy-to-remember aliases to transformations you use on your website. For example, a transform to generate a watermarked image of size 200x200 (`w-200,h-200,l-image,i-logo.png,l-end`) can be referred to as `n-watermarked-thumbnail` in your URL.
 
 Named Transforms also provide an optional [additional layer of security](https://docs.imagekit.io/features/named-transformations#secure-images-with-named-transformations) by limiting the allowed transformations on your account to only the named transformations created by you.
 
