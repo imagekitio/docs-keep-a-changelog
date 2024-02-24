@@ -10,19 +10,15 @@ Using the advanced search in ImageKit
 
 You can access search functionality from the top of the Media Library section. There are two search modes available.
 
-### Basic searching
+### Search autocomplete
 
-Basic searching allows you to search a file or folder by name. Enter the full name or the characters at the beginning of the name and hit enter.
+Search autocomplete helps you find the right assets quickly. As you type, the search bar will show suggestions based on the asset name, matching tags, and other metadata. You can click on any of the suggestions to navigate to that asset directly. Search results are also highlighted when possible to help you understand why a particular asset was suggested.
 
-All files or folders whose name either matches exactly or begins with the provided input will be returned.
+![Search autocomplete](../../.gitbook/assets/dam_autocompleter.png)
 
-![Media library basic search](<../../.gitbook/assets/media-library-searchbar.png>)
+You can further narrow search results by using quick filters `Folders`, `Files`, `Collections`, and `Tags`.
 
-By clicking on the options given under the 'Search within' section, you can limit the search to a certain type of file.
-
-![](<../../.gitbook/assets/media-library-searchbar-filetype.png>)
-
-By default, all files are searched, but if you are only looking for an image file then select images in this dropdown.
+The toggle at the top, "Include files with matching tags," allows you to control whether the search results should include files with matching tags.
 
 ### Advanced searching
 
