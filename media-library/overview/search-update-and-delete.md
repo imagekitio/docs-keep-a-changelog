@@ -14,7 +14,15 @@ You can access search functionality from the top of the Media Library section. T
 
 Search autocomplete helps you find the right assets quickly. As you type, the search bar will show suggestions based on the asset name, matching tags, and other metadata. You can click on any of the suggestions to navigate to that asset directly. Search results are also highlighted when possible to help you understand why a particular asset was suggested.
 
+For example, search results showing assets that have a name matching the search query, i.e., `blog` in the asset name:
+
+![Search autocomplete](../../.gitbook/assets/dam_autocompleter-2.png)
+
+Search results showing assets with one or more tags matching the search query, i.e., `building.`:
+
 ![Search autocomplete](../../.gitbook/assets/dam_autocompleter.png)
+
+The match is case insensitive and the search results are sorted based on the relevance of the search query.
 
 You can further narrow search results by using quick filters `Folders`, `Files`, `Collections`, and `Tags`.
 
