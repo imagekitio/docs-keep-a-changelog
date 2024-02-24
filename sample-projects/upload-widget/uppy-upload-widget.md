@@ -146,7 +146,7 @@ By default, the [ImageKit Uppy plugin](https://github.com/imagekit-developer/ima
 ```javascript
 .use(ImageKitUppyPlugin, {
         id: 'ImageKit',
-        authenticationEndpoint: `${SERVER_BASE_URL}/auth`,
+        authenticator,
         publicKey: IMAGEKIT_PUBLIC_KEY,
         metaFields: [
             "useUniqueFileName",
@@ -168,6 +168,8 @@ Let's go through the code to understand different parts of it.
 We only have a single JS file which is **client/vanillajs/index.js**. First, we will include all the dependencies.
 
 ```javascript
+import 'regenerator-runtime/runtime' // when using async await
+
 import Uppy from '@uppy/core'
 import '@uppy/core/dist/style.css'
 import '@uppy/dashboard/dist/style.css'
@@ -228,11 +230,28 @@ Next, we need to configure Uppy to use the [ImageKit plugin](https://github.com/
 ```javascript
 import ImageKitUppyPlugin from "imagekit-uppy-plugin"
 
+const authenticator = async () => {
+    try {
+        const response = await fetch(`${SERVER_BASE_URL}/auth`);
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        const { signature, expire, token } = data;
+        return { signature, expire, token };
+    } catch (error) {
+        throw new Error(`Authentication request failed: ${error.message}`);
+    }
+};
+
 const uppy = Uppy({ debug: true, autoProceed: false })
     ...
     .use(ImageKitUppyPlugin, {
         id: 'ImageKit',
-        authenticationEndpoint: `${SERVER_BASE_URL}/auth`,
+        authenticator,
         publicKey: IMAGEKIT_PUBLIC_KEY,
         metaFields: [
             "useUniqueFileName",
@@ -248,7 +267,7 @@ const uppy = Uppy({ debug: true, autoProceed: false })
 This plugin accepts the following values. Read [docs](https://github.com/imagekit-developer/imagekit-uppy-plugin) for more information.
 
 1. `id` which is how Uppy identifies plugins uniquely.
-2.  `authenticationEndpoint` is standard across all ImageKit's [client-side SDKs](../../api-reference/api-introduction/sdk.md#client-side-sdks). It is used to get the security tokens required to authenticate the upload request originating from the browser. In this application, we have implemented this endpoint at the path `/auth`. And we are using ImageKit.io node JS SDK to generate the signature. You can use any other ImageKit's [server-side SDK](../../api-reference/api-introduction/sdk.md#server-side-sdks) to implement this authentication endpoint. 
+2. `authenticator` expects an asynchronous function that returns a promise, which resolves with an object containing the security parameters  `signature`, `token`, and `expire`. These parameters are required to authenticate the upload request originating from the browser. In this application, within the `authenticator` function, we are making an API call to the endpoint we have implemented at the path `/auth`. In the `authenticator` function, you can also pass custom headers in the API request for the validation of the request source.
 3. `publicKey` is your ImageKit account [public key](../../api-reference/api-introduction/api-keys.md#public-key).
 4. `metaFields` is an array of meta properties you want to be sent to every upload request. By default, this plugin will send all properties in the`file.meta` object.
 
@@ -258,7 +277,7 @@ That's it. To bundle all the dependencies into one single file which can be used
 
 The server is used for two things:
 
-1. Implementing an authentication endpoint that is required by the client-side as we configured during the ImageKit Uppy plugin setup above.
+1. Implementing an authentication endpoint that is required by the client-side during the implementation of `authenticator` function for fetching the security parameters.
 2. Running [Companion](https://uppy.io/docs/companion/) to allow the option of choosing files from third-party storage services like - Google Drive, Dropbox, Facebook, or Instagram.
 
 This demo application is implemented in Node.js because Companion's implementation is available in Node.js. But you can implement authentication endpoint wherever you want in many programming languages using one of the ImageKit's [server-side SDKs](../../api-reference/api-introduction/sdk.md#server-side-sdks). 
