@@ -12,15 +12,19 @@ You can access search functionality from the top of the Media Library section. T
 
 ### Search autocomplete
 
-Search autocomplete helps you find the right assets quickly. As you type, the search bar will show suggestions based on the asset name, matching tags, and other metadata. You can click on any of the suggestions to navigate to that asset directly. Search results are also highlighted when possible to help you understand why a particular asset was suggested.
+Search autocomplete helps you find the right assets quickly even if you don't remember the exact name. As you type, the search bar will show suggestions based on the asset name, matching tags, and other metadata. You can click on any of the suggestions to navigate to that asset directly. Search results are also highlighted when possible to help you understand why a particular asset was suggested.
 
-For example, search results showing assets that have a name matching the search query, i.e., `blog` in the asset name:
+For example, search results showing files & folders that has `blog` in their name:
 
-![Search autocomplete](../../.gitbook/assets/dam_autocompleter-2.png)
+![Search autocomplete example](../../.gitbook/assets/dam_autocompleter-2.png)
 
-Search results showing assets with one or more tags matching the search query, i.e., `building.`:
+Here, the search query is `red sports car`, but the results also include assets with `sports` or `red` in their name. This allows you to find the right asset even if you don't remember the exact name:
 
-![Search autocomplete](../../.gitbook/assets/dam_autocompleter.png)
+![Search autocomplete](../../.gitbook/assets/dam_autocompleter-3.png)
+
+Search results showing assets with one or more tags matching the search query, i.e., `building`:
+
+![Search autocomplete example with matching tags](../../.gitbook/assets/dam_autocompleter.png)
 
 The match is case insensitive and the search results are sorted based on the relevance of the search query.
 
