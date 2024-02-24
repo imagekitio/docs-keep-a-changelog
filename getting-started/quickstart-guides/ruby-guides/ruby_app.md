@@ -59,6 +59,15 @@ upload = imagekitio.upload_file(
     file_name: "testing",
     response_fields: 'tags,customCoordinates,isPrivateFile,metadata',
     tags: %w[abc def],
+    transformation: {
+        pre: 'l-text,i-Imagekit,fs-50,l-end',
+        post: [
+            {
+                type: 'transformation',
+                value: 'w-100'
+            }
+        ]
+    }
 )
 puts "upload remote file => ", upload
 ```

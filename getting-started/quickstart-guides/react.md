@@ -924,7 +924,6 @@ const onUploadStart = evt => {
 };
 
 function App() {
-  const inputRefTest = useRef(null);
   const ikUploadRefTest = useRef(null);
   return (
     <div className="App">
@@ -963,12 +962,20 @@ function App() {
           onSuccess={onSuccess}
           onUploadProgress={onUploadProgress}
           onUploadStart={onUploadStart}
+          transformation = {{
+            pre: 'l-text,i-Imagekit,fs-50,l-end',
+            post: [
+                {
+                    'type': 'transformation',
+                    'value': 'w-100'
+                }
+            ]
+          }}
           // style={{display: 'none'}} // hide the default input and use the custom upload button
-          inputRef={inputRefTest}
           ref={ikUploadRefTest}
         />
         <p>Custom Upload Button</p>
-        {inputRefTest && <button onClick={() => inputRefTest.current.click()}>Upload</button>}
+        {ikUploadRefTest && <button onClick={() => ikUploadRefTest.current.click()}>Upload</button>}
         <p>Abort upload request</p>
         {ikUploadRefTest && <button onClick={() => ikUploadRefTest.current.abort()}>Abort request</button>}
       </IKContext>
@@ -984,7 +991,7 @@ export default App;
 {% endtabs %}
 
 ### **Custom Upload Button**
-We have created a `ref` to the `input` used inside the `IKUpload` component called `inputRefTest`. The `IKUpload` component can be given styling via `className` or `style` (`style={{display: 'none'}}`) to hide the default file selector. Then we can use the custom upload button as described above.
+We have created a `ref` to the `input` used inside the `IKUpload` component called `ikUploadRefTest`. The `IKUpload` component can be given styling via `className` or `style` (`style={{display: 'none'}}`) to hide the default file selector. Then we can use the custom upload button as described above.
 
 ### **Abort uploads**
 We have created a `ref` to the `IKUpload` component called `ikUploadRefTest`. This `ref` can be used to call the `abort` method in the `IKUpload` component and can be used to abort the ongoing upload.

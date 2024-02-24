@@ -736,6 +736,15 @@ For this, we will use the `ik-upload` component and `authenticator` function as 
     (onError)="handleUploadError($event)"
     (onSuccess)="handleUploadSuccess($event)"
     [authenticator]="authenticator" 
+    [transformation] = "{
+      'pre': 'l-text,i-Imagekit,fs-50,l-end', 
+      'post': [
+          {
+              'type': 'transformation', 
+              'value': 'w-100'
+          }
+      ]
+    }"
     >
   </ik-upload>
 ```
@@ -863,6 +872,15 @@ Here's an example:
     <ik-upload
       [authenticator]="authenticator"
       [buttonRef]="myBtn"
+      [transformation] = "{
+        'pre': 'l-text,i-Imagekit,fs-50,l-end', 
+        'post': [
+            {
+                'type': 'transformation', 
+                'value': 'w-100'
+            }
+        ]
+      }"
       >
     </ik-upload>
 
@@ -928,6 +946,10 @@ onAbortFunction(){
   [onUploadStart]="onUploadStartFunction"
   [onUploadProgress]="onUploadProgressFunction"
   [authenticator]="authenticator"
+  [transformation] = '{
+    "pre": "l-text,i-Imagekit,fs-50,l-end", 
+    "post": [{type: "transformation", value: "w-100"}]
+  }'
 ></ik-upload>
 <button 
   (click)="onAbortFunction()"
