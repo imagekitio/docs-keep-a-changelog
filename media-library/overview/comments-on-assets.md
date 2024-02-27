@@ -50,7 +50,7 @@ The "Comments on assets" feature is a powerful tool designed to enhance collabor
 
 - **Emojis in comments:** Users can include emojis within their comments to add expressiveness and convey emotions.
 
-- **Mention other users:** A user can mention other users within the account in their comments, drawing their attention to specific discussions or seeking their input. This fosters collaboration and ensures that relevant stakeholders are engaged in the conversation.
+- **Mention other users:** A user can mention other users within the account who have access to Digital asset management (DAM) in their comments, drawing their attention to specific discussions or seeking their input. This fosters collaboration and ensures that relevant stakeholders are engaged in the conversation.
 
 ## Watchers and Notifications
 
