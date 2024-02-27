@@ -1,7 +1,7 @@
 ---
 description: >-
   Real-time image resizing, automatic optimization, and file uploading in
-  Android using ImageKit.io.
+  iOS using ImageKit.io.
 ---
 
 # iOS
