@@ -137,6 +137,7 @@ The table below summarises the operations that can be performed on media library
 | Add new comment and replies      |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Edit and delete own comments     |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Modify own reaction on comments  |                    | :heavy_check_mark: | :heavy_check_mark: |
+| Resolve and unresolve thread      |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Create new folder                |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Upload file & new file version   |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Restore file version             |                    | :heavy_check_mark: | :heavy_check_mark: |
@@ -159,7 +160,6 @@ The table below summarises the operations that can be performed on media library
 | Create public links              |                    |                    | :heavy_check_mark: |
 | Edit public links                |                    |                    | :heavy_check_mark: |
 | Delete public links              |                    |                    | :heavy_check_mark: |
-
 
 ### Media collection permission levels
 
