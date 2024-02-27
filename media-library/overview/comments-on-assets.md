@@ -62,7 +62,7 @@ The "Comments on assets" feature is a powerful tool designed to enhance collabor
   - Deletion of a thread.
   - Resolution or unresolution of a thread, signaling changes in status or resolution.
 
-  Notifications are only sent to users who have at least "Can view" permission on the file.
+  Notifications are only sent to users who have at least "Can view" permission on the file. A user won't receive notifications for their own actions.
 
 ## Access control and permissions
 
