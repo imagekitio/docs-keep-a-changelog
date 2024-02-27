@@ -42,21 +42,21 @@ The "Comments on assets" feature is a powerful tool designed to enhance collabor
 
 - **Edit and delete:** Users can edit their comments for clarity or correctness and delete them if necessary, ensuring that discussions remain accurate and relevant.
 
-- **Copy and share Link:** Users have the ability to copy and share links to specific threads, facilitating collaboration and information sharing across the platform.
+- **Copy and share Link:** Users have the ability to copy and share links to specific threads. This allows them to easily reference discussions or share them with relevant stakeholders.
 
 - **Emoji reactions:** Users can react to comments using emojis, providing a quick and expressive way to acknowledge or respond to comments without adding additional text.
 
-- **Rich text editor:** ImageKit offers a rich text editor, empowering users to enhance their comments with formatting options such as bold, italic, strikethrough, adding links, quoting, and creating bulleted or numbered lists. This enables users to express themselves effectively and organize their thoughts for clearer communication.
+- **Rich text editor:** ImageKit offers a rich text editor, empowering users to enhance their comments with formatting options such as bold, italic, strikethrough, adding links, quoting, and creating bulleted or numbered lists.
 
-- **Emojis in comments:** Users can include emojis within their comments to add expressiveness and convey emotions, enriching the overall communication experience.
+- **Emojis in comments:** Users can include emojis within their comments to add expressiveness and convey emotions.
 
-- **Mention other users:** Users can mention other users within the account in their comments, drawing their attention to specific discussions or seeking their input. This fosters collaboration and ensures that relevant stakeholders are engaged in the conversation.
+- **Mention other users:** A user can mention other users within the account in their comments, drawing their attention to specific discussions or seeking their input. This fosters collaboration and ensures that relevant stakeholders are engaged in the conversation.
 
 ## Watchers and Notifications
 
 - **Watcher Definition:** Watchers of a thread include the owner of the file, anyone participating in the thread by commenting, and users mentioned within the thread discussion. This ensures that relevant stakeholders are kept informed of ongoing discussions and developments.
 
-- **Email Notifications:** Watchers receive email notifications for various types of new activity within a thread, including:
+- **Email Notifications:** Watchers receive email notifications for the following types of new activity on a thread:
   - Creation of a new thread with comment.
   - Replies on a thread, facilitating ongoing conversation.
   - Deletion of a thread.
