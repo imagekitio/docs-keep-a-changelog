@@ -66,4 +66,4 @@ The "Comments on assets" feature is a powerful tool designed to enhance collabor
 
 ## Access control and permissions
 
-Read about the permission levels required for restricted media library users for different comment operations [here](../../collaboration-and-sharing/README.md#file-and-folder-permission-levels).
+Read about the permission levels required for [restricted media library users](../../features/user-access-management/README.md#media-library-restricted-access) for different comment operations [here](../../collaboration-and-sharing/README.md#file-and-folder-permission-levels).
