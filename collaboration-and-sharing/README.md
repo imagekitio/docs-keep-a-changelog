@@ -133,8 +133,10 @@ The table below summarises the operations that can be performed on media library
 | Download file                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Download assets as zip           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | View downloads                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| View comments                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Edit and delete comments         |                    | :heavy_check_mark: | :heavy_check_mark: |
+| View threads and comments        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Add new comment and replies      |                    | :heavy_check_mark: | :heavy_check_mark: |
+| Edit and delete own comments     |                    | :heavy_check_mark: | :heavy_check_mark: |
+| Modify own reaction on comments  |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Create new folder                |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Upload file & new file version   |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Restore file version             |                    | :heavy_check_mark: | :heavy_check_mark: |
@@ -147,6 +149,7 @@ The table below summarises the operations that can be performed on media library
 | Edit custom focus area           |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Copy asset                       |                    | :heavy_check_mark: | :heavy_check_mark: |
 | Add asset to media collections   |                    | :heavy_check_mark: | :heavy_check_mark: |
+| Delete a comment thread          |                    |                    | :heavy_check_mark: |
 | Rename file                      |                    |                    | :heavy_check_mark: |
 | Move asset                       |                    |                    | :heavy_check_mark: |
 | Delete file version              |                    |                    | :heavy_check_mark: |
