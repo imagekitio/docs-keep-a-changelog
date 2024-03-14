@@ -1,15 +1,16 @@
 # What is ImageKit.io?
 
-ImageKit.io is an image management service for online businesses. It provides intelligent real-time image optimization, resizing, cropping, and fast CDN delivery.
+ImageKit.io is an image and video API platform that also provides powerful digital asset management capabilities. Its digital Asset Management platform and real-time media processing APIs help marketing, creative, and tech teams manage, collaborate, and deliver perfect media assets at scale.
 
-## **Why teams use ImageKit.io?**
+## Why do teams use ImageKit.io?
 
-Companies around the world use ImageKit.io to deliver the images on their websites and apps allowing them to ease image management, improve image quality, and significantly reduce time to market for any image-heavy applications.
+Technology teams use ImageKit to rapidly deploy new media-rich experiences with ImageKit's real-time URL-based processing APIs to optimize, transform, personalize, and stream images and videos at scale.
+
+Marketing and creative teams use [ImageKit DAM](/media-library/overview/README.md) as a centralized hub for managing and organizing digital assets, facilitating collaboration and iteration with key stakeholders.
 
 Here are a few benefits of using ImageKit.io:
 
-* **Simplify your image workflow** - Avoid creating and storing multiple size variants for the same image. Leverage real-time URL-based resizing, and other transformation parameters to get a pixel-perfect image based on your frontend design.
-* **Optimize images without changing code** - ImageKit.io automatically converts the image format based on browser support, image content, original image format, and the original image quality. You can integrate ImageKit.io on existing custom domains, for example - `images.example.com`.
-* **Faster image loading** - ImageKit.io comes with a global CDN (Amazon CloudFront) with 200+ points of presence (PoPs). This, combined with reduced file size, translates to a faster-loading website.
-* **Increase your conversion rates** - Faster pages help you reduce bounce rates and increase both - the number of pages viewed per session as well as conversion rates.
-* **Achieve better SEO results** - Faster page load times will improve search engine rankings. It means your pages are more likely to appear higher in search results on Google and other search engines.
+* **A unified API for videos and images** - Simplify your development workflow with our real-time URL-based media processing API. Just make small URL changes and seamlessly deliver high-quality, media-rich experiences.
+* **Balance visual quality and performance** - Improve key performance metrics such as Lighthouse score, load time, and Largest Contentful Paint (LCP) while delivering high-quality visuals.
+* **Programmatically create rich media at scale** - ImageKit.io provides a wide range of image and video processing capabilities. You can resize, crop, rotate, and optimize images and videos on the fly. You can also add watermarks, overlays, and text to images and videos.
+* **Get your team together** - Move beyond Drive and Dropbox to a DAM that customizes content organization, simplifies asset search, and streamlines how teams collaborate every day. Seamlessly collaborate & publish perfect images and videos across the web directly from the DAM.
