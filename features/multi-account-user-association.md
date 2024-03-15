@@ -22,6 +22,10 @@ For users added to multiple ImageKit accounts, login always requires a one-time 
 
 Turning [multi-factor authentication](./multi-factor-authentication.md) on or off does not affect the login process of such users. They will always be required to enter the OTP to log in to the dashboard.
 
+## Authentication process for sensitive operations
+
+For certain operations within the dashboard, such as revealing, rolling, deleting API keys, etc., you need to enter the password of the account you are currently logged in. This is different from account login, where any account's valid password can be used because of additional OTP verification in place.
+
 ## Support
 
 If you face any issues while using these features or have a question or suggestion, please get in touch with us at support@imagekit.io.
