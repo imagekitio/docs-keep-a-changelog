@@ -5,7 +5,7 @@ ImageKit [authenticates](authentication.md) your API requests using your account
 You can use API keys to authenticate requests to [these API endpoints](README.md).
 
 {% hint style="info" %}
-**API key limits**\
+**API key limits**
 
 - You can only have five active API key pairs at once.
 - Your account will always have at least one active pair of standard API keys.
@@ -18,7 +18,7 @@ You can use API keys to authenticate requests to [these API endpoints](README.md
 
 ## Obtaining your API keys
 
-[View](https://imagekit.io/dashboard/developer/api-keys) your API keys in the ImageKit.io dashboard in the **API keys** section under the **Developer options** tab. Every account has one pair of standard public and private keys by default.
+[View](https://imagekit.io/dashboard/developer/api-keys) your API keys in the ImageKit.io dashboard in the **API keys** section under the **Developer options** tab. Every account has one pair of standard public and private keys by default. To revel the private key, you need to enter your account password you are currently logged in with.
 
 ![The API keys section in Developer options](../../.gitbook/assets/api-keys.png)
 
