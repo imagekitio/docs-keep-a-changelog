@@ -24,10 +24,10 @@ Audit logs will be saved for these features:
 
 ## Audit logs page
 
-![Media Audit logs option in user menu](../.gitbook/assets/audit-logs-in-menu.png) // TODO: update image link
+![Media Audit logs option in user menu](../.gitbook/assets/media-lib-audit-logs-in-menu.png)
 
 You can access the audit logs page from the user menu in the bottom left corner of the screen.
 
-![Media Audit logs section](../.gitbook/assets/audit-logs-screen.png) // TODO: update image link
+![Media Audit logs section](../.gitbook/assets/media-lib-audit-logs-screen.png)
 
 Here you can view all the logs in the table and the associated request and response details like method, endpoint, etc. Moreover, you can filter the logs based on operations, users, asset path, request ID and time intervals.
