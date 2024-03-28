@@ -133,11 +133,11 @@ The Private API key should be kept confidential and only stored on your own serv
 
 If you are using ImageKit.io [client-end SDK](../api-introduction/sdk.md#client-side-sdks) for file upload, it requires a parameter named `authenticator`. This parameter expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire.
 
-This asynchronous function use a backend server to authenticate the request using your [API private key](../../api-reference/api-introduction/api-keys.md#private-key).
+This asynchronous function uses a backend server to authenticate the request using your [API private key](../../api-reference/api-introduction/api-keys.md#private-key).
 
 ### Setup the backend app
 
-This backend app will expose an endpoint which will be used to authenticate the request. The `authenticator` function makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token` and `expire`. &#x20;
+This backend app will expose an endpoint that will be used to authenticate the request. The `authenticator` function makes an HTTP GET request to this endpoint and expects a JSON response with three fields: `signature,` `token,` and `expire`.
 
 Example response:
 
@@ -232,14 +232,24 @@ echo("Auth params : " . json_encode($authenticationParameters));
 The Private API key should be kept confidential and only stored on your own servers.
 {% endhint %}
 
-### **Configure authentication in the frontend app**
+### **Configure authenticator in the frontend app**
 
-let's configure `authenticator` in the frontend app:
+Let's configure `authenticator` in the frontend app, which will use an endpoint that we exposed in our backend app.
 
 ```javascript
-authenticator =  async () => {
+
+authenticator = async () => {
     try {
-        const response = await fetch('http://localhost:3001/auth');
+
+        // You can pass headers as well and later validate the request source in the backend, or you can use headers for any other use case.
+        const headers = {
+          'Authorization': 'Bearer your-access-token',
+          'CustomHeader': 'CustomValue'
+        };
+
+        const response = await fetch('server_endpoint', {
+            headers
+        });
 
         if (!response.ok) {
             const errorText = await response.text();
@@ -258,8 +268,8 @@ authenticator =  async () => {
 ## Examples
 
 The example below demonstrates only basic usage. Refer to [these examples](server-side-file-upload.md#examples) in the server-side upload section to learn about different use-cases. The only difference between client-side and server-side upload is how API authentication works.
-
-Make sure you have implemented `authenticationEndpoint` endpoint on your server as shown [here](client-side-file-upload.md#how-to-implement-authenticationendpoint-endpoint) before using the below examples.
+ 
+Make sure you have implemented backend server to authenticate the request as shown [here](client-side-file-upload.md#setup-the-backend-app) before using the below examples.
 
 {% tabs %}
 {% tab title="JavaScipt SDK" %}
@@ -274,14 +284,35 @@ Make sure you have implemented `authenticationEndpoint` endpoint on your server 
 <script>
     /* 
         SDK initilization
-        
-        authenticationEndpoint should be implemented on your server 
-        as shown above 
     */
+    const authenticator = async () => {
+        try {
+            // You can pass headers as well and later validate the request source in the backend, or you can use headers for any other use case.
+            const headers = {
+              'Authorization': 'Bearer your-access-token',
+              'CustomHeader': 'CustomValue'
+            };
+
+            const response = await fetch('server_endpoint', {
+                headers
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+            }
+
+            const data = await response.json();
+            const { signature, expire, token } = data;
+            return { signature, expire, token };
+        } catch (error) {
+            throw new Error(`Authentication request failed: ${error.message}`);
+        }
+    };
     var imagekit = new ImageKit({
         publicKey : "your_public_api_key",
         urlEndpoint : "https://ik.imagekit.io/your_imagekit_id",
-        authenticationEndpoint : "https://www.yourserver.com/auth"
+        authenticator,
     });
     
     // Upload function internally uses the ImageKit.io javascript SDK
@@ -313,8 +344,27 @@ Make sure you have implemented `authenticationEndpoint` endpoint on your server 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <script>
-	// This endpoint should be implemented on your server as shown above 
-	var authenticationEndpoint = "https://www.yourserver.com/auth";
+	// This server_endpoint should be implemented on your server as shown above 
+  const authenticator = () => {
+    return new Promise((resolve, reject) => {
+        const headers = {
+            'Authorization': 'Bearer your-access-token',
+            'CustomHeader': 'CustomValue'
+        };
+
+        $.ajax({
+            url: 'server_endpoint',
+            headers: headers,
+            success: function(data) {
+                const { signature, expire, token } = data;
+                resolve({ signature, expire, token });
+            },
+            error: function(xhr, status, error) {
+                reject(new Error(`Request failed with status ${xhr.status}: ${error}`));
+            }
+        });
+    });
+  };
 	
 	function upload() {
 	  var file = document.getElementById("file1");
@@ -322,39 +372,30 @@ Make sure you have implemented `authenticationEndpoint` endpoint on your server 
 		formData.append("file", file.files[0]);
 		formData.append("fileName", "abc.jpg");
 		formData.append("publicKey", "your_public_api_key");
+
+    // Let's get the signature, token and expire using authenticator method
+    authenticator().then(data => {
+        formData.append("signature", data.signature || "");
+        formData.append("expire", data.expire || 0);
+        formData.append("token", data.token);
+    }).catch(error => {
+        console.error("Authentication failed:", error.message);
+    });
 	
-		// Let's get the signature, token and expire from server side
 		$.ajax({
-		    url : authenticationEndpoint,
-		    method : "GET",
-		    dataType : "json",
-		    success : function(body) {
-		        formData.append("signature", body.signature || "");
-		        formData.append("expire", body.expire || 0);
-		        formData.append("token", body.token);
-	
-						// Now call ImageKit.io upload API
-		        $.ajax({
-		            url : "https://upload.imagekit.io/api/v1/files/upload",
-		            method : "POST",
-		            mimeType : "multipart/form-data",
-		            dataType : "json",
-		            data : formData,
-		            processData : false,
-		            contentType : false,
-		            error : function(jqxhr, text, error) {
-		                console.log(error)
-		            },
-		            success : function(body) {
-		                console.log(body)
-		            }
-		        });
-	
-		    },
-	
-		    error : function(jqxhr, text, error) {
-		        console.log(arguments);
-		    }
+      url : "https://upload.imagekit.io/api/v1/files/upload",
+      method : "POST",
+      mimeType : "multipart/form-data",
+      dataType : "json",
+      data : formData,
+      processData : false,
+      contentType : false,
+      error : function(jqxhr, text, error) {
+          console.log(error)
+      },
+      success : function(body) {
+          console.log(body)
+      }
 		});
 	}
 </script>
@@ -369,12 +410,35 @@ import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
 function App() {
   const publicKey = "your_public_api_key";
   let urlEndpoint = "https://ik.imagekit.io/your_imagekit_id";
-  const authenticationEndpoint = "https://www.yourserver.com/auth";
+  const authenticator = async () => {
+    try {
+
+      // You can also pass headers and validate the request source in the backend, or you can use headers for any other use case.
+      const headers = {
+        'CustomHeader': 'CustomValue'
+      };
+
+      const response = await fetch('server_endpoint', {
+          headers
+      });
+
+      if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+      }
+
+      const data = await response.json();
+      const { signature, expire, token } = data;
+      return { signature, expire, token };
+    } catch (error) {
+        throw new Error(`Authentication request failed: ${error.message}`);
+    }
+  };
 
   return (
     <div className="App">
       <p>To use this funtionality please remember to setup the server</p>
-      <IKContext publicKey={publicKey} urlEndpoint={urlEndpoint} authenticationEndpoint={authenticationEndpoint} >
+      <IKContext publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator} >
         <IKUpload fileName="abc.jpg" tags={["tag1"]} useUniqueFileName={true} isPrivateFile= {false} />
       </IKContext>   
     </div>
@@ -393,7 +457,7 @@ export default App;
     <IKContext
       :publicKey="publicKey"
       :urlEndpoint="urlEndpoint"
-      :authenticationEndpoint="authenticationEndpoint"
+      :authenticator="authenticator"
     >
       <IKUpload fileName="abc.jpg" v-bind:tags="['tag1']" v-bind:responseFields="['tags']"/>
     </IKContext>
@@ -415,10 +479,36 @@ export default {
   data() {
     return {
       urlEndpoint: "https://ik.imagekit.io/your_imagekit_id",
-      publicKey: "your_public_api_key",
-      authenticationEndpoint: "https://www.yourserver.com/auth"
+      publicKey: "your_public_api_key"   
     };
   }
+  methods: {
+    authenticator() {
+      return new Promise((resolve, reject) => {
+        var url = process.env.VUE_APP_YOUR_AUTH_ENDPOINT;
+
+        // Make the Fetch API request
+        fetch(url, { method: "GET", mode: "cors" }) // Enable CORS mode
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((body) => {
+            var obj = {
+              signature: body.signature,
+              expire: body.expire,
+              token: body.token,
+            };
+            resolve(obj);
+          })
+          .catch((error) => {
+            reject([error]);
+          });
+      });
+    },
+  },
 };
 </script>
 ```
