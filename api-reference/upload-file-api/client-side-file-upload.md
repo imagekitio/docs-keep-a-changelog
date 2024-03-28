@@ -282,9 +282,6 @@ Make sure you have implemented backend server to authenticate the request as sho
 <script type="text/javascript" src="../dist/imagekit.js"></script>
 
 <script>
-    /* 
-        SDK initilization
-    */
     const authenticator = async () => {
         try {
             // You can pass headers as well and later validate the request source in the backend, or you can use headers for any other use case.
@@ -292,16 +289,13 @@ Make sure you have implemented backend server to authenticate the request as sho
               'Authorization': 'Bearer your-access-token',
               'CustomHeader': 'CustomValue'
             };
-
             const response = await fetch('server_endpoint', {
                 headers
             });
-
             if (!response.ok) {
                 const errorText = await response.text();
                 throw new Error(`Request failed with status ${response.status}: ${errorText}`);
             }
-
             const data = await response.json();
             const { signature, expire, token } = data;
             return { signature, expire, token };
@@ -309,10 +303,13 @@ Make sure you have implemented backend server to authenticate the request as sho
             throw new Error(`Authentication request failed: ${error.message}`);
         }
     };
+    /* 
+        SDK initilization
+    */
     var imagekit = new ImageKit({
         publicKey : "your_public_api_key",
         urlEndpoint : "https://ik.imagekit.io/your_imagekit_id",
-        authenticator,
+        authenticator : authenticator,
     });
     
     // Upload function internally uses the ImageKit.io javascript SDK
@@ -344,25 +341,24 @@ Make sure you have implemented backend server to authenticate the request as sho
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <script>
-	// This server_endpoint should be implemented on your server as shown above 
+  // This server_endpoint should be implemented on your server as shown above 
   const authenticator = () => {
     return new Promise((resolve, reject) => {
-        const headers = {
-            'Authorization': 'Bearer your-access-token',
-            'CustomHeader': 'CustomValue'
-        };
-
-        $.ajax({
-            url: 'server_endpoint',
-            headers: headers,
-            success: function(data) {
-                const { signature, expire, token } = data;
-                resolve({ signature, expire, token });
-            },
-            error: function(xhr, status, error) {
-                reject(new Error(`Request failed with status ${xhr.status}: ${error}`));
-            }
-        });
+      const headers = {
+        'Authorization': 'Bearer your-access-token',
+        'CustomHeader': 'CustomValue'
+      };
+      $.ajax({
+        url: 'server_endpoint',
+        headers: headers,
+        success: function(data) {
+          const { signature, expire, token } = data;
+          resolve({ signature, expire, token });
+        },
+        error: function(xhr, status, error) {
+          reject(new Error(`Request failed with status ${xhr.status}: ${error}`));
+        }
+      });
     });
   };
 	
@@ -375,11 +371,11 @@ Make sure you have implemented backend server to authenticate the request as sho
 
     // Let's get the signature, token and expire using authenticator method
     authenticator().then(data => {
-        formData.append("signature", data.signature || "");
-        formData.append("expire", data.expire || 0);
-        formData.append("token", data.token);
+      formData.append("signature", data.signature || "");
+      formData.append("expire", data.expire || 0);
+      formData.append("token", data.token);
     }).catch(error => {
-        console.error("Authentication failed:", error.message);
+      console.error("Authentication failed:", error.message);
     });
 	
 		$.ajax({
@@ -391,10 +387,10 @@ Make sure you have implemented backend server to authenticate the request as sho
       processData : false,
       contentType : false,
       error : function(jqxhr, text, error) {
-          console.log(error)
+        console.log(error)
       },
       success : function(body) {
-          console.log(body)
+        console.log(body)
       }
 		});
 	}
@@ -412,21 +408,17 @@ function App() {
   let urlEndpoint = "https://ik.imagekit.io/your_imagekit_id";
   const authenticator = async () => {
     try {
-
       // You can also pass headers and validate the request source in the backend, or you can use headers for any other use case.
       const headers = {
         'CustomHeader': 'CustomValue'
       };
-
       const response = await fetch('server_endpoint', {
           headers
       });
-
       if (!response.ok) {
           const errorText = await response.text();
           throw new Error(`Request failed with status ${response.status}: ${errorText}`);
       }
-
       const data = await response.json();
       const { signature, expire, token } = data;
       return { signature, expire, token };
