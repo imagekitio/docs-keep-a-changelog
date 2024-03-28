@@ -1,6 +1,6 @@
 # Client side file upload
 
-You can upload files to the ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload). You will need to implement `authenticator` function that resolves with an object containing the necessary security parameters i.e signature, token, and expire. as shown [here](client-side-file-upload.md#configure-authentication-in-the-frontend-app).
+You can upload files to the ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload). You will need to implement `authenticator` function that resolves with an object containing the necessary security parameters i.e signature, token, and expire. as shown [here](client-side-file-upload.md#configure-authenticator-in-the-frontend-app).
 
 You can use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [example usage](client-side-file-upload.md#examples).
 
