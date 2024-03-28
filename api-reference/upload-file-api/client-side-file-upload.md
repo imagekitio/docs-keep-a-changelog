@@ -1,6 +1,6 @@
 # Client side file upload
 
-You can upload files to the ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload). You will need to implement `authenticationEndpoint` endpoint on your backend server as shown [here](client-side-file-upload.md#how-to-implement-authenticationendpoint-endpoint).
+You can upload files to the ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload). You will need to implement `authenticator` function that resolves with an object containing the necessary security parameters i.e signature, token, and expire. as shown [here](client-side-file-upload.md#configure-authentication-in-the-frontend-app).
 
 You can use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [example usage](client-side-file-upload.md#examples).
 
@@ -131,11 +131,13 @@ The `signature` is HMAC-SHA1 digest of the string `token+expire` using your Imag
 The Private API key should be kept confidential and only stored on your own servers.
 {% endhint %}
 
-If you are using ImageKit.io [client-end SDK](../api-introduction/sdk.md#client-side-sdks) for file upload, it requires an `authenticationEndpoint` endpoint for getting authentication parameters required in the upload API.
+If you are using ImageKit.io [client-end SDK](../api-introduction/sdk.md#client-side-sdks) for file upload, it requires a parameter named `authenticator`. This parameter expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire.
 
-### How to implement authenticationEndpoint endpoint?
+This asynchronous function use a backend server to authenticate the request using your [API private key](../../api-reference/api-introduction/api-keys.md#private-key).
 
-This endpoint is specified by `authenticationEndpoint` parameter during initialization. The SDK makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token` and `expire`. &#x20;
+### Setup the backend app
+
+This backend app will expose an endpoint which will be used to authenticate the request. The `authenticator` function makes an HTTP GET request to this endpoint and expects a JSON response with three fields i.e. `signature`, `token` and `expire`. &#x20;
 
 Example response:
 
@@ -229,6 +231,29 @@ echo("Auth params : " . json_encode($authenticationParameters));
 **Never publish your private key on client-side**\
 The Private API key should be kept confidential and only stored on your own servers.
 {% endhint %}
+
+### **Configure authentication in the frontend app**
+
+let's configure `authenticator` in the frontend app:
+
+```javascript
+authenticator =  async () => {
+    try {
+        const response = await fetch('http://localhost:3001/auth');
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+        }
+
+        const data = await response.json();
+        const { signature, expire, token } = data;
+        return { signature, expire, token };
+    } catch (error) {
+        throw new Error(`Authentication request failed: ${error.message}`);
+    }
+};
+```
 
 ## Examples
 
