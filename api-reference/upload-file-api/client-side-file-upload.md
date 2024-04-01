@@ -1,6 +1,6 @@
 # Client side file upload
 
-You can upload files to the ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload).However, you will need to implement a backend service that exposes an endpoint to authenticate requests, as shown [here](client-side-file-upload.md#setup-the-backend-app).
+You can upload files to the ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload). However, you will need to implement a backend service that exposes an endpoint to authenticate requests, as shown [here](client-side-file-upload.md#setup-the-backend-app).
 
 You can use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [example usage](client-side-file-upload.md#examples).
 
@@ -274,7 +274,7 @@ Make sure you have implemented backend server to authenticate the request as sho
 {% tabs %}
 {% tab title="JavaScipt SDK" %}
 {% code title="index.html" %}
-```markup
+```javascript
 <form action="#" onsubmit="upload()">
 	<input type="file" id="file1" />
 	<input type="submit" />
@@ -333,10 +333,10 @@ Make sure you have implemented backend server to authenticate the request as sho
 {% endtab %}
 
 {% tab title="jQuery (without SDK)" %}
-```markup
+```javascript
 <form action="#" onsubmit="upload()">
-	<input type="file" id="file1" />
-	<input type="submit" />
+  <input type="file" id="file1" />
+  <input type="submit" />
 </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
@@ -361,8 +361,7 @@ Make sure you have implemented backend server to authenticate the request as sho
       });
     });
   };
-	
-	function upload() {
+  function upload() {
 	  var file = document.getElementById("file1");
 		var formData = new FormData();
 		formData.append("file", file.files[0]);
@@ -392,7 +391,7 @@ Make sure you have implemented backend server to authenticate the request as sho
       success : function(body) {
         console.log(body)
       }
-		});
+    });
 	}
 </script>
 ```
