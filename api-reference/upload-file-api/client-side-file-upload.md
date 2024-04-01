@@ -1,6 +1,6 @@
 # Client side file upload
 
-You can upload files to the ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload). You will need to implement `authenticator` function that resolves with an object containing the necessary security parameters i.e signature, token, and expire. as shown [here](client-side-file-upload.md#configure-authenticator-in-the-frontend-app).
+You can upload files to the ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload).However, you will need to implement a backend service that exposes an endpoint to authenticate requests, as shown [here](client-side-file-upload.md#setup-the-backend-app).
 
 You can use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [example usage](client-side-file-upload.md#examples).
 
@@ -234,7 +234,7 @@ The Private API key should be kept confidential and only stored on your own serv
 
 ### **Configure authenticator in the frontend app**
 
-Let's configure `authenticator` in the frontend app, which will use an endpoint that we exposed in our backend app.
+Let's configure the `authenticator` method in the frontend app, which will use an endpoint we exposed previously in our backend service.
 
 ```javascript
 
@@ -478,7 +478,6 @@ export default {
     authenticator() {
       return new Promise((resolve, reject) => {
         var url = process.env.VUE_APP_YOUR_AUTH_ENDPOINT;
-
         // Make the Fetch API request
         fetch(url, { method: "GET", mode: "cors" }) // Enable CORS mode
           .then((response) => {
