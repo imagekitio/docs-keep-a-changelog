@@ -362,11 +362,11 @@ Make sure you have implemented backend server to authenticate the request as sho
     });
   };
   function upload() {
-	  var file = document.getElementById("file1");
-		var formData = new FormData();
-		formData.append("file", file.files[0]);
-		formData.append("fileName", "abc.jpg");
-		formData.append("publicKey", "your_public_api_key");
+    var file = document.getElementById("file1");
+    var formData = new FormData();
+    formData.append("file", file.files[0]);
+    formData.append("fileName", "abc.jpg");
+    formData.append("publicKey", "your_public_api_key");
 
     // Let's get the signature, token and expire using authenticator method
     authenticator().then(data => {
@@ -376,8 +376,7 @@ Make sure you have implemented backend server to authenticate the request as sho
     }).catch(error => {
       console.error("Authentication failed:", error.message);
     });
-	
-		$.ajax({
+    $.ajax({
       url : "https://upload.imagekit.io/api/v1/files/upload",
       method : "POST",
       mimeType : "multipart/form-data",
