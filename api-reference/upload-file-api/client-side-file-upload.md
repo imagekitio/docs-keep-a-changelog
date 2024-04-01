@@ -373,23 +373,23 @@ Make sure you have implemented backend server to authenticate the request as sho
       formData.append("signature", data.signature || "");
       formData.append("expire", data.expire || 0);
       formData.append("token", data.token);
+      $.ajax({
+        url : "https://upload.imagekit.io/api/v1/files/upload",
+        method : "POST",
+        mimeType : "multipart/form-data",
+        dataType : "json",
+        data : formData,
+        processData : false,
+        contentType : false,
+        error : function(jqxhr, text, error) {
+          console.log(error)
+        },
+        success : function(body) {
+          console.log(body)
+        }
+      });
     }).catch(error => {
       console.error("Authentication failed:", error.message);
-    });
-    $.ajax({
-      url : "https://upload.imagekit.io/api/v1/files/upload",
-      method : "POST",
-      mimeType : "multipart/form-data",
-      dataType : "json",
-      data : formData,
-      processData : false,
-      contentType : false,
-      error : function(jqxhr, text, error) {
-        console.log(error)
-      },
-      success : function(body) {
-        console.log(body)
-      }
     });
   }
 </script>
