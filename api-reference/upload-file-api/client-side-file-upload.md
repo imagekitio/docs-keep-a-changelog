@@ -391,7 +391,7 @@ Make sure you have implemented backend server to authenticate the request as sho
         console.log(body)
       }
     });
-	}
+  }
 </script>
 ```
 {% endtab %}
