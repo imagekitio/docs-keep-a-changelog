@@ -1,6 +1,6 @@
 # Client side file upload
 
-You can upload files to the ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload). However, you will need to implement a backend service that exposes an endpoint to authenticate requests, as shown [here](client-side-file-upload.md#setup-the-backend-app).
+You can upload files to the ImageKit.io media library directly from the client-side in Javascript, or Android or iPhone app using [signature-based authentication](client-side-file-upload.md#signature-generation-for-client-side-file-upload). You must implement a server-side endpoint that provides the authentication parameters required for the file upload request. See how to do it [here](client-side-file-upload.md#setup-the-server-side-authentication-endpoint).
 
 You can use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [example usage](client-side-file-upload.md#examples).
 
@@ -131,11 +131,9 @@ The `signature` is HMAC-SHA1 digest of the string `token+expire` using your Imag
 The Private API key should be kept confidential and only stored on your own servers.
 {% endhint %}
 
-If you are using ImageKit.io [client-end SDK](../api-introduction/sdk.md#client-side-sdks) for file upload, it requires a parameter named `authenticator`. This parameter expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire.
+If you are using ImageKit.io [client-end SDK](../api-introduction/sdk.md#client-side-sdks) for file upload, it requires an `authenticator` parameter. It is an asynchronous function that sends a request to your authentication endpoint and returns the required parameters i.e. signature, token, and expire. This asynchronous function uses a backend server to authenticate the request using your [API private key](../../api-reference/api-introduction/api-keys.md#private-key).
 
-This asynchronous function uses a backend server to authenticate the request using your [API private key](../../api-reference/api-introduction/api-keys.md#private-key).
-
-### Setup the backend app
+### Setup the server-side authentication endpoint
 
 This backend app will expose an endpoint that will be used to authenticate the request. The `authenticator` function makes an HTTP GET request to this endpoint and expects a JSON response with three fields: `signature,` `token,` and `expire`.
 
@@ -232,13 +230,13 @@ echo("Auth params : " . json_encode($authenticationParameters));
 The Private API key should be kept confidential and only stored on your own servers.
 {% endhint %}
 
-### **Configure authenticator in the frontend app**
+### Configure authenticator in the frontend app
 
-Let's configure the `authenticator` method in the frontend app, which will use an endpoint we exposed previously in our backend service.
+Let's configure the `authenticator` function in the frontend app, which will use an endpoint we exposed previously in our backend service.
 
 ```javascript
 
-authenticator = async () => {
+const authenticator = async () => {
     try {
 
         // You can pass headers as well and later validate the request source in the backend, or you can use headers for any other use case.
@@ -269,7 +267,7 @@ authenticator = async () => {
 
 The example below demonstrates only basic usage. Refer to [these examples](server-side-file-upload.md#examples) in the server-side upload section to learn about different use-cases. The only difference between client-side and server-side upload is how API authentication works.
  
-Make sure you have implemented backend server to authenticate the request as shown [here](client-side-file-upload.md#setup-the-backend-app) before using the below examples.
+Make sure you have implemented backend server to authenticate the request as shown [here](client-side-file-upload.md#setup-the-server-side-authentication-endpoint) before using the below examples.
 
 {% tabs %}
 {% tab title="JavaScipt SDK" %}
@@ -341,7 +339,7 @@ Make sure you have implemented backend server to authenticate the request as sho
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <script>
-  // This server_endpoint should be implemented on your server as shown above 
+  // This `server_endpoint` should be implemented on your server as shown above 
   const authenticator = () => {
     return new Promise((resolve, reject) => {
       const headers = {
@@ -368,7 +366,7 @@ Make sure you have implemented backend server to authenticate the request as sho
     formData.append("fileName", "abc.jpg");
     formData.append("publicKey", "your_public_api_key");
 
-    // Let's get the signature, token and expire using authenticator method
+    // Let's get the signature, token and expire using authenticator function
     authenticator().then(data => {
       formData.append("signature", data.signature || "");
       formData.append("expire", data.expire || 0);
@@ -408,6 +406,7 @@ function App() {
     try {
       // You can also pass headers and validate the request source in the backend, or you can use headers for any other use case.
       const headers = {
+        'Authorization': 'Bearer your-access-token',
         'CustomHeader': 'CustomValue'
       };
       const response = await fetch('server_endpoint', {
@@ -475,9 +474,13 @@ export default {
   methods: {
     authenticator() {
       return new Promise((resolve, reject) => {
+        const headers = {
+          'Authorization': 'Bearer your-access-token',
+          'CustomHeader': 'CustomValue'
+        };
         var url = process.env.VUE_APP_YOUR_AUTH_ENDPOINT;
         // Make the Fetch API request
-        fetch(url, { method: "GET", mode: "cors" }) // Enable CORS mode
+        fetch(url, { method: "GET", mode: "cors", headers }) // Enable CORS mode
           .then((response) => {
             if (!response.ok) {
               throw new Error(`HTTP error! Status: ${response.status}`);
