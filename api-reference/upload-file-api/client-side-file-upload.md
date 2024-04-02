@@ -131,7 +131,7 @@ The `signature` is HMAC-SHA1 digest of the string `token+expire` using your Imag
 The Private API key should be kept confidential and only stored on your own servers.
 {% endhint %}
 
-If you are using ImageKit.io [client-end SDK](../api-introduction/sdk.md#client-side-sdks) for file upload, it requires an `authenticator` parameter. It is an asynchronous function that sends a request to your authentication endpoint and returns the required parameters i.e. signature, token, and expire. This asynchronous function uses a backend server to authenticate the request using your [API private key](../../api-reference/api-introduction/api-keys.md#private-key).
+If you are using ImageKit.io [client-end SDK](../api-introduction/sdk.md#client-side-sdks) for file upload, it requires an `authenticator` parameter. It is an asynchronous function that sends a request to your authentication endpoint and returns the required parameters i.e. `signature`, `token`, and `expire`. This asynchronous function uses a backend server to authenticate the request using your [API private key](../../api-reference/api-introduction/api-keys.md#private-key).
 
 ### Setup the server-side authentication endpoint
 
