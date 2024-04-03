@@ -131,11 +131,11 @@ The `signature` is HMAC-SHA1 digest of the string `token+expire` using your Imag
 The Private API key should be kept confidential and only stored on your own servers.
 {% endhint %}
 
-If you are using ImageKit.io [client-end SDK](../api-introduction/sdk.md#client-side-sdks) for file upload, it requires an `authenticator` parameter. It is an asynchronous function that sends a request to your authentication endpoint and returns the required parameters i.e. `signature`, `token`, and `expire`. This asynchronous function uses a backend server to authenticate the request using your [API private key](../../api-reference/api-introduction/api-keys.md#private-key).
+If you are using ImageKit.io [client-end SDK](../api-introduction/sdk.md#client-side-sdks) for file upload, it requires an `authenticator` parameter. It is an asynchronous function that sends a request to your authentication endpoint and returns the required parameters i.e. `signature`, `token`, and `expire`. This asynchronous function uses a backend server to authenticate the request which does this using your [API private key](../../api-reference/api-introduction/api-keys.md#private-key).
 
 ### Setup the server-side authentication endpoint
 
-This backend app will expose an endpoint that will be used to authenticate the request. The `authenticator` function makes an HTTP GET request to this endpoint and expects a JSON response with three fields: `signature,` `token,` and `expire`.
+This backend app will expose an endpoint that will be used to authenticate the request. The `authenticator` function makes an HTTP GET request to this endpoint and expects a JSON response with three fields: `signature`, `token`, and `expire`.
 
 Example response:
 
@@ -267,7 +267,7 @@ const authenticator = async () => {
 
 The example below demonstrates only basic usage. Refer to [these examples](server-side-file-upload.md#examples) in the server-side upload section to learn about different use-cases. The only difference between client-side and server-side upload is how API authentication works.
  
-Make sure you have implemented backend server to authenticate the request as shown [here](client-side-file-upload.md#setup-the-server-side-authentication-endpoint) before using the below examples.
+Make sure you have implemented backend server to authenticate the request as shown [here](client-side-file-upload.md#setup-the-server-side-authentication-endpoint) before following the below examples.
 
 {% tabs %}
 {% tab title="JavaScipt SDK" %}
