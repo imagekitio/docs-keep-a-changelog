@@ -11,4 +11,4 @@ Let's suppose you request `https://ik.imagekit.io/your_imagekit_id/example-image
 3. The request is sent to the nearest ImageKit.io processing server, and the file is checked in internal caches. If the file is found in the cache, a response is returned. The CDN caches the new file and returns the response to the user. If the internal cache doesn't have the file then the following step is taken.
 4. ImageKit.io fetches the original image from your origin (which could be your AWS S3 bucket, a load balancer or an Nginx web server, or any other type of origin), optimizes and transforms the image as per your account's default settings and the URL parameters, and a response is returned. The file also gets saved in ImageKit.io's internal cache & CDN cache, and the final response is returned to the user.
 
-![Request flow in ImageKit.io](../.gitbook/assets/ruupjpvvrhwj2xnjnxlv.svg)
+![Request flow in ImageKit.io](../.gitbook/assets/how-it-works.png)
