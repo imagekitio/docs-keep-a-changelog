@@ -40,6 +40,16 @@ You can also filter these logs based on:
 - Request ID (sent back in the HTTP response headers for API requests to ImageKit)
 - Time Interval
 
+### View File Deletion History
+
+Using the asset path, you can easily track when a file was deleted and view its historical changes.
+
+![Asset Path Filter in Media Library Audit Logs](../.gitbook/assets/media-lib-log-path.png)
+
+{% hint style="info" %}
+You can combine the available filters to customize your search in the media library audit logs.
+{% endhint %}
+
 ## Asset History
 
 ![File Details Screen](../.gitbook/assets/media-lib-log-history-detail.png)
