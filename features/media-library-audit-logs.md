@@ -2,7 +2,7 @@
 
 {% hint style="info" %}
 **Enterprise plan only**\
-This feature is only available in custom enterprise pricing plans.
+This feature is only available in custom enterprise pricing plans. If you've [Central Audit Logs](./central-audit-logs.md) enabled, then this feature is also enabled for you.
 {% endhint %}
 
 ImageKit provides audit logs for all edit (update and delete) operations performed on media library assets (files, folders and media collections).
@@ -26,8 +26,30 @@ Audit logs will be saved for these features:
 
 ![Media Audit logs option in user menu](../.gitbook/assets/media-lib-audit-logs-in-menu.png)
 
-You can access the audit logs page from the user menu in the bottom left corner of the screen.
+If you're an administrator, you can access the audit logs page from the user menu in the bottom left corner of the screen.
 
 ![Media Audit logs section](../.gitbook/assets/media-lib-audit-logs-screen.png)
 
-Here you can view all the logs in the table and the associated request and response details like method, endpoint, etc. Moreover, you can filter the logs based on operations, users, asset path, request ID and time intervals.
+Here you can view all the logs in the table and the associated request and response details like method, endpoint, etc.
+
+You can also filter these logs based on:
+
+- Operations (like adding tags, renaming an asset, deleting an asset, adding [public links](../collaboration-and-sharing/public-shareable-links.md) and so on)
+- Users (to view the entire history of their actions in the media library)
+- Asset Path (eg: `/forest/tree.png`)
+- Request ID (sent back in the HTTP response headers for API requests to ImageKit)
+- Time Interval
+
+## Asset History
+
+![File Details Screen](../.gitbook/assets/media-lib-log-history-detail.png)
+
+All users with view access to the Media Library will be able to see the history of changes to each **file, folder or media collection**.
+
+![File History](../.gitbook/assets/media-lib-asset-history.png)
+
+---
+
+For folders and media collections, you can select the asset and open **"Folder details"** or **"Media collection details"** respectively to show their history.
+
+![Folder History](../.gitbook/assets/media-lib-log-folder.png)
