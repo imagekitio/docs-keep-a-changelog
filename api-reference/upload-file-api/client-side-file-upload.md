@@ -172,8 +172,8 @@ Best way is to follow [quick start guides](../../getting-started/quickstart-guid
     }, function(err, result) {
       console.log(arguments);
       console.log(imagekit.url({
-          src: result.url,
-          transformation : [{ height: 300, width: 400}]
+        src: result.url,
+        transformation : [{ height: 300, width: 400}]
       }));
     })
   }
@@ -203,34 +203,34 @@ Best way is to follow [quick start guides](../../getting-started/quickstart-guid
 
     // Let's get the signature, token and expire from server side
     $.ajax({
-        url : authenticationEndpoint,
-        method : "GET",
-        dataType : "json",
-        success : function(body) {
-          formData.append("signature", body.signature || "");
-          formData.append("expire", body.expire || 0);
-          formData.append("token", body.token);
+      url : authenticationEndpoint,
+      method : "GET",
+      dataType : "json",
+      success : function(body) {
+        formData.append("signature", body.signature || "");
+        formData.append("expire", body.expire || 0);
+        formData.append("token", body.token);
 
-          // Now call ImageKit.io upload API
-          $.ajax({
-            url : "https://upload.imagekit.io/api/v1/files/upload",
-            method : "POST",
-            mimeType : "multipart/form-data",
-            dataType : "json",
-            data : formData,
-            processData : false,
-            contentType : false,
-            error : function(jqxhr, text, error) {
-              console.log(error)
-            },
-            success : function(body) {
-              console.log(body)
-            }
-          });
-        },
-        error : function(jqxhr, text, error) {
-            console.log(arguments);
-        }
+        // Now call ImageKit.io upload API
+        $.ajax({
+          url : "https://upload.imagekit.io/api/v1/files/upload",
+          method : "POST",
+          mimeType : "multipart/form-data",
+          dataType : "json",
+          data : formData,
+          processData : false,
+          contentType : false,
+          error : function(jqxhr, text, error) {
+            console.log(error)
+          },
+          success : function(body) {
+            console.log(body)
+          }
+        });
+      },
+      error : function(jqxhr, text, error) {
+        console.log(arguments);
+      }
     });
   }
 </script>
