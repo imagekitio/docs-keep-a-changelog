@@ -52,7 +52,7 @@ The Private API key should be kept confidential and only stored on your servers.
 
 Using ImageKit client-side and server-side SDKs, you can quickly implement upload functionality.
 * On the backend, you can use utility functions provided in all [server-side SDKs](../api-introduction/sdk.md#server-side-sdks) to implement the secure API.
-* On client-side application, use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [examples](#examples).
+* On client-side application, use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [examples](#client-side-file-upload-examples).
 
 ### Backend signature generation
 
