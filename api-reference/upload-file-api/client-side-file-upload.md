@@ -298,13 +298,11 @@ export default App;
 </template>
 
 <script>
-import { IKImage, IKContext, IKUpload } from "imagekitio-vue";
-let urlEndpoint= "https://ik.imagekit.io/your_imagekit_id";
+import { IKContext, IKUpload } from "imagekitio-vue";
 
 export default {
   name: "app",
   components: {
-    IKImage,
     IKContext,
     IKUpload
   },
@@ -313,7 +311,7 @@ export default {
       urlEndpoint: "https://ik.imagekit.io/your_imagekit_id",
       publicKey: "your_public_api_key"   
     };
-  }
+  },
   methods: {
     authenticator() {
       return new Promise((resolve, reject) => {
