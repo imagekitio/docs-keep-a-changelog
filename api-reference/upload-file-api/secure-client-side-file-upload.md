@@ -88,6 +88,8 @@ The Private API key should be kept confidential and only stored on your own serv
 
 ### Backend token generation?
 
+The client-side application sends an HTTP POST request to the backend and expects a JSON response having status code 200 containing the JWT in the `token` field.
+
 The request body structure looks like this:
 
 ```javascript
