@@ -86,23 +86,6 @@ To create the JWT, the three outputs are transformed to Base64url strings and co
 The Private API key should be kept confidential and only stored on your own servers.
 {% endhint %}
 
-## How to impliement secure client-side file upload
-
-Here are the steps:
-
-1. The client-side application initiates a request to the backend to obtain authentication parameter. This request should be made to a secure API endpoint that's accessible only to authenticated users, safeguarding your ImageKit Media library from unauthorized access.
-2. On the backend, the required parameter is generated utilizing the [private API key authentication](../api-introduction/api-keys.md#private-key). This is explained below with example.
-3. The client-side application then includes this security parameter in the payload of the upload API request.
-
-{% hint style="danger" %}
-**Never publish your private key on client-side**
-The Private API key should be kept confidential and only stored on your servers.
-{% endhint %}
-
-Using ImageKit client-side and server-side SDKs, you can quickly implement upload functionality.
-* On the backend, you can use utility functions provided in all [server-side SDKs](../api-introduction/sdk.md#server-side-sdks) to implement the secure API.
-* On client-side application, use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [example](#secure-client-side-file-upload-example).
-
 ### Backend token generation?
 
 The request body structure looks like this:
@@ -154,6 +137,8 @@ res.send({ token });
 {% endtabs %}
 
 ## Secure client-side file upload example
+
+The example below demonstrates only basic usage. Refer to [these examples](server-side-file-upload.md#examples) in the server-side upload section to learn about different use-cases. The only difference between client-side and server-side upload is how API authentication works.
 
 Make sure you have implemented a backend service as shown [here](secure-client-side-file-upload.md#backend-token-generation) before using the below example.
 
