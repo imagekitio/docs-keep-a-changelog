@@ -144,6 +144,7 @@ The example below demonstrates only basic usage. Refer to [these examples](serve
 
 Make sure you have implemented a backend service as shown [here](secure-client-side-file-upload.md#backend-token-generation) before using the below example.
 
+{% tabs %}
 {% tab title="jQuery (without SDK)" %}
 ```markup
 <form action="#" onsubmit="upload()">
