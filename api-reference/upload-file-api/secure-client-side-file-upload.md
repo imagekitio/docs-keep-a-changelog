@@ -101,7 +101,7 @@ The Private API key should be kept confidential and only stored on your servers.
 
 Using ImageKit client-side and server-side SDKs, you can quickly implement upload functionality.
 * On the backend, you can use utility functions provided in all [server-side SDKs](../api-introduction/sdk.md#server-side-sdks) to implement the secure API.
-* On client-side application, use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [examples](#secure-client-side-file-upload-examples).
+* On client-side application, use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [example](#secure-client-side-file-upload-example).
 
 ### Backend token generation?
 
@@ -128,7 +128,7 @@ Response structure:
 }
 ```
 
-Since calculating these parameters requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), hence this endpoint has to be implemented on your server-side. You can implement this endpoint in any language of your choice. Below is an example of how to implement this endpoint in Node.js using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken).
+Since calculating this parameter requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), hence this endpoint has to be implemented on your server-side. You can implement this endpoint in any language of your choice. Below is an example of how to implement this endpoint in Node.js using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken).
 
 {% tabs %}
 {% tab title="Node.js" %}
@@ -153,33 +153,33 @@ res.send({ token });
 {% endtab %}
 {% endtabs %}
 
-## Secure client-side file upload examples
+## Secure client-side file upload example
 
-Make sure you have implemented a backend service as shown [here](secure-client-side-file-upload.md#backend-token-generation) before using the below examples.
+Make sure you have implemented a backend service as shown [here](secure-client-side-file-upload.md#backend-token-generation) before using the below example.
 
 {% tab title="jQuery (without SDK)" %}
 ```markup
 <form action="#" onsubmit="upload()">
-	<input type="file" id="file1" />
-	<input type="submit" />
+    <input type="file" id="file1" />
+    <input type="submit" />
 </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <script>
-	// This endpoint should be implemented on your server as shown above 
-	var authenticationEndpoint = "https://www.yourserver.com/auth";
-	
-	function upload() {
-	    var file = document.getElementById("file1");
-		var formData = new FormData();
-		formData.append("file", file.files[0]);
-		formData.append("fileName", "abc.jpg");
-	
-		// Let's get the token from server side
-		$.ajax({
-		    url : authenticationEndpoint,
-		    method : "POST",
-		    contentType: "application/json",
+    // This endpoint should be implemented on your server as shown above 
+    var authenticationEndpoint = "https://www.yourserver.com/auth";
+
+    function upload() {
+        var file = document.getElementById("file1");
+        var formData = new FormData();
+        formData.append("file", file.files[0]);
+        formData.append("fileName", "abc.jpg");
+
+        // Let's get the token from server side
+        $.ajax({
+            url : authenticationEndpoint,
+            method : "POST",
+            contentType: "application/json",
             data: JSON.stringify({
                 uploadPayload: {
                     fileName: "abc.jpg"
@@ -187,32 +187,32 @@ Make sure you have implemented a backend service as shown [here](secure-client-s
                 expire: 3600,
                 publicKey: "your_public_api_key"
             }),
-		    success : function(body) {
-		        formData.append("token", body.token);
-	
-				// Now call ImageKit.io upload API v2
-		        $.ajax({
-		            url : "https://upload.imagekit.io/api/v2/files/upload",
-		            method : "POST",
-		            mimeType : "multipart/form-data",
-		            dataType : "json",
-		            data : formData,
-		            processData : false,
-		            contentType : false,
-		            error : function(jqxhr, text, error) {
-		                console.log(error)
-		            },
-		            success : function(body) {
-		                console.log(body)
-		            }
-		        });
-	
-		    },
-		    error : function(jqxhr, text, error) {
-		        console.log(arguments);
-		    }
-		});
-	}
+            success : function(body) {
+                formData.append("token", body.token);
+
+                // Now call ImageKit.io upload API v2
+                $.ajax({
+                    url : "https://upload.imagekit.io/api/v2/files/upload",
+                    method : "POST",
+                    mimeType : "multipart/form-data",
+                    dataType : "json",
+                    data : formData,
+                    processData : false,
+                    contentType : false,
+                    error : function(jqxhr, text, error) {
+                        console.log(error)
+                    },
+                    success : function(body) {
+                        console.log(body)
+                    }
+                });
+
+            },
+            error : function(jqxhr, text, error) {
+                console.log(arguments);
+            }
+        });
+    }
 </script>
 ```
 {% endtab %}
