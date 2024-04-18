@@ -2,8 +2,6 @@
 
 You can upload files to the ImageKit.io media library directly from the client-side in Javascript or any client side application using [JSON Web Token (JWT) authentication](secure-client-side-file-upload.md#json-web-token-jwt-generation-for-client-side-file-upload). You must implement a backed server to generate a JWT token to authenticate the request, as shown [here](secure-client-side-file-upload.md#backend-token-generation).
 
-You can use ImageKit's [JavaScript](https://github.com/imagekit-developer/imagekit-javascript) to get started quickly. See [example usage](secure-client-side-file-upload.md#secure-client-side-file-upload-examples).
-
 {% hint style="danger" %}
 This API is in beta and subject to change.
 {% endhint %}
@@ -158,49 +156,6 @@ res.send({ token });
 ## Secure client-side file upload examples
 
 Make sure you have implemented a backend service as shown [here](secure-client-side-file-upload.md#backend-token-generation) before using the below examples.
-
-{% tabs %}
-{% tab title="JavaScipt SDK" %}
-{% code title="index.html" %}
-```markup
-<form action="#" onsubmit="upload()">
-	<input type="file" id="file1" />
-	<input type="submit" />
-</form>
-<script type="text/javascript" src="../dist/imagekit.js"></script>
-
-<script>
-    /* 
-        SDK initilization
-        
-        authenticationEndpoint should be implemented on your server 
-        as shown above 
-    */
-    var imagekit = new ImageKit({
-        publicKey : "your_public_api_key",
-        urlEndpoint : "https://ik.imagekit.io/your_imagekit_id",
-        authenticationEndpoint : "https://www.yourserver.com/auth",
-        apiVersion: "v2"
-    });
-    
-    // Upload function internally uses the ImageKit.io javascript SDK
-    function upload(data) {
-        var file = document.getElementById("file1");
-        imagekit.upload({
-            file : file.files[0],
-            fileName : "abc.jpg",
-            tags : ["tag1"]
-        }, function(err, result) {
-            console.log(imagekit.url({
-                src: result.url,
-                transformation : [{ height: 300, width: 400}]
-            }));
-        })
-    }
-</script>
-```
-{% endcode %}
-{% endtab %}
 
 {% tab title="jQuery (without SDK)" %}
 ```markup
