@@ -1,6 +1,6 @@
 # Secure client side file upload (beta)
 
-You can upload files to the ImageKit.io media library directly from the client-side in Javascript or any client side application using [JSON Web Token (JWT) authentication](secure-client-side-file-upload.md#json-web-token-jwt-generation-for-client-side-file-upload). You must implement a backed server to generate a JWT token to authenticate the request, as shown [here](secure-client-side-file-upload.md#backend-token-generation).
+You can upload files to the ImageKit.io media library directly from the client-side in Javascript or any client side application using [JSON Web Token (JWT) authentication](secure-client-side-file-upload.md#json-web-token-jwt-generation-for-client-side-file-upload). You must implement a backed server to generate a token to authenticate the request, as shown [here](secure-client-side-file-upload.md#backend-token-generation).
 
 {% hint style="danger" %}
 This API is in beta and subject to change.
@@ -22,7 +22,7 @@ A file can have a maximum of 100 versions.
 
 ## Request structure (multipart/form-data)
 
-The request structure is the same as the [server-side file upload API](./server-side-file-upload.md#request-structure-multipartform-data), except that to implement secure client-side upload, the application needs to pass a `token`, as explained below.
+The request structure is the same as the [server-side file upload API](./server-side-file-upload.md#request-structure-multipartform-data), except for secure client-side upload, the application needs to pass a `token`, as explained below.
 
 | Parameter | Description |
 |-----------|-------------|
@@ -86,9 +86,9 @@ To create the JWT, the three outputs are transformed to Base64url strings and co
 The Private API key should be kept confidential and only stored on your own servers.
 {% endhint %}
 
-### Backend token generation?
+### Backend token generation
 
-The client-side application sends an HTTP POST request to the backend and expects a JSON response having status code 200 containing the JWT in the `token` field.
+The client-side application sends a request to the backend and expects a response containing the JSON Web Token (JWT).
 
 The request body structure looks like this:
 

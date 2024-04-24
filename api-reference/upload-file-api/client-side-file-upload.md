@@ -2,13 +2,13 @@
 
 You can directly upload files to the ImageKit.io media library from client-side environments such as JavaScript web applications and Android or iOS apps. The API is the same as [server-side upload API](./server-side-file-upload.md), with a minor change in how the authentication works.
 
-Instead of using [private API key authentication](../api-introduction/api-keys.md#private-key), your client-side application must pass authentication parameters. The upload API expects a `signature,` one-time `token`, and `expire` parameters.
+Instead of using [private API key](../api-introduction/api-keys.md#private-key), your client-side application must pass authentication parameters. The upload API expects a `signature,` one-time `token`, and `expire` parameters.
 
-Learn how to [impliement client-side file upload](#how-to-impliement-client-side-file-upload).
+Learn how to [implement client-side file upload](#how-to-implement-client-side-file-upload).
 
 {% hint style="info" %}
 **File size limit**
-The maximum upload file size is limited to 25MB on the free plan. On paid plan, this limit is 300MB for video files.
+The maximum upload file size is limited to 25MB on the free plan. On the paid plan, this limit is 300MB for video files.
 
 **Version limit**
 A file can have a maximum of 100 versions.
@@ -20,7 +20,7 @@ Same as [server-side file upload API](./server-side-file-upload.md#endpoint)
 
 ## Request structure (multipart/form-data)
 
-The request structure is the same as [server-side file upload API](./server-side-file-upload.md#request-structure-multipartform-data), except that the client-side application needs to pass `signature`, one-time `token`, and `expire` parameter. The following three parameters are explained below.
+The request structure is the same as [server-side file upload API](./server-side-file-upload.md#request-structure-multipartform-data), except that the client-side application needs to pass `signature`, one-time `token`, and `expire` parameter. These three parameters are explained below.
 
 | Parameter                                                                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -37,12 +37,12 @@ Same as [server-side file upload API](./server-side-file-upload.md#response-code
 Refer to this table in [server-side file upload API](./server-side-file-upload.md#understanding-response).
 
 
-## How to impliement client-side file upload
+## How to implement client-side file upload
 
 Here are the steps:
 
-1. The client-side application initiates a request to the backend to obtain authentication parameters. This request should be made to a secure API endpoint that's accessible only to authenticated users, safeguarding your ImageKit Media library from unauthorized access.
-2. On the backend, the required parameters are generated utilizing the [private API key authentication](../api-introduction/api-keys.md#private-key). This is explained below with examples in different programming languages.
+1. The client-side application initiates a request to the backend to obtain authentication parameters. This request should be made to a secure API endpoint accessible only to authenticated users, safeguarding your ImageKit Media library from unauthorized access.
+2. The required parameters are generated on the backend using the [private API key](../api-introduction/api-keys.md#private-key). This is explained below with examples in different programming languages.
 3. The client-side application then includes these security parameters in the payload of the upload API request.
 
 {% hint style="danger" %}
@@ -138,7 +138,7 @@ The example below demonstrates only basic usage. Refer to [these examples](serve
 
 Make sure you have implemented the secure API in the backend that can return the `signature`, one-time `token`, and `expire` parameters.
 
-Best way is to follow [quick start guides](../../getting-started/quickstart-guides/README.md) for your programming lanaguge.
+The best way is to follow [quick start guides](../../getting-started/quickstart-guides/README.md) for your programming language.
 
 {% tabs %}
 {% tab title="JavaScipt SDK" %}
@@ -240,11 +240,10 @@ Best way is to follow [quick start guides](../../getting-started/quickstart-guid
 {% tab title="React SDK" %}
 ```javascript
 import React from 'react';
-import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
+import { IKContext, IKUpload } from 'imagekitio-react'
 
 function App() {
   const publicKey = "your_public_api_key";
-  let urlEndpoint = "https://ik.imagekit.io/your_imagekit_id";
   const authenticator = async () => {
     try {
       // You can also pass headers and validate the request source in the backend, or you can use headers for any other use case.
