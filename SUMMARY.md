@@ -133,6 +133,7 @@
   * [Setup SSO for ImageKit on AD FS](features/single-sign-on/sso-adfs-setup.md)
 * [Advanced security settings](features/advanced-security-settings.md)
 * [Central audit logs](features/central-audit-logs.md)
+* [Media library audit logs](features/media-library-audit-logs.md)
 * [URL-rewriters](features/url-rewriters/README.md)
   * [Cloudinary](features/url-rewriters/cloudinary.md)
   * [Imgix](features/url-rewriters/imgix.md)
