@@ -145,20 +145,30 @@ Specified with the `i-` parameter in a `text` layer. Supported characters includ
 ```markup
 https://ik.imagekit.io/demo/base-image.jpg?tr=l-text,i-hello,l-end
 ```
+{% hint style="info" %}
+**Note**\
+1. Plain text input longer than 2000 characters will be truncated.
+{% endhint %}
 
 ### Base64 encoded text overlay
 
 It is specified with the `ie-` parameter in a `text` layer. It accepts a base64 string as input, allowing you to overlay special Unicode characters (e.g. ©, ®, ™, etc.) that you cannot otherwise pass in a URL as a plain string.
 
 {% hint style="info" %}
+**Note**\
 1. The base64 string should be made URL safe to ensure that all padding characters(=) are included correctly. In Javascript, a function like `encodeURIComponent()` can be used for this.
-2. Input above the length of 144 characters will be truncated.
+2. Base64 encoded text input longer than 2500 characters will be truncated.
 {% endhint %}
 
 ```markup
 https://ik.imagekit.io/demo/base-image.jpg?tr=l-text,ie-aGVsbG8%3D,l-end
 ```
 Here `aGVsbG8%3D` is the base64 string for "hello".
+
+{% hint style="warning" %}
+**Text layer dimension limit**\
+If the text layer takes up more than 16,383 pixels horizontally or vertically, then the request will error out.
+{% endhint %}
 
 ## Transformation of text overlay
 
