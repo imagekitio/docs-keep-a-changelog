@@ -167,7 +167,6 @@ The best way is to follow [quick start guides](../../getting-started/quickstart-
       method: "GET",
       // You can also pass headers and validate the request source in the backend, or you can use headers for any other use case.
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': 'Bearer your-access-token',
         'CustomHeader': 'CustomValue'
       },
