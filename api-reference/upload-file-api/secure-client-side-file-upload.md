@@ -26,7 +26,7 @@ The request structure is the same as the [server-side file upload API](./server-
 
 | Parameter | Description |
 |-----------|-------------|
-| <p><strong>token</strong><br>required</p> |<p>This is the client-generated JSON Web Token (JWT). The ImageKit.io server uses it to authenticate and check that the upload request parameters have not been tampered with after the generation of the token. Learn how to create the token below on the page.<br><br><strong>Note:</strong> Sending a JWT that has been used in the past will result in a validation error. Even if your previous request resulted in an error, you should always send a new token.</p><span data-gb-custom-inline data-tag="emoji" data-code="26a0">⚠</span><strong>Warning:</strong> JWT must be generated on the server-side because it is generated using your account's private API key. This field is required for authentication when uploading a file from the client-side.</p>|
+| <p><strong>token</strong><br>required</p> |<p>This is the client-generated JSON Web Token (JWT). The ImageKit.io server uses it to authenticate and check that the upload request parameters have not been tampered with after the token has been generated. Learn how to create the token on the page below.<br><br><strong>Note:</strong> Sending a JWT that has been used in the past will result in a validation error. Even if your previous request resulted in an error, you should always send a new token.</p><span data-gb-custom-inline data-tag="emoji" data-code="26a0">⚠</span><strong>Warning:</strong> JWT must be generated on the server-side because it is generated using your account's private API key. This field is required for authentication when uploading a file from the client-side.</p>|
 
 ## Response code and structure (JSON)
 
@@ -37,7 +37,7 @@ Same as [server-side file upload API](./server-side-file-upload.md#response-code
 Here are the steps:
 
 1. The client-side application initiates a request to the backend to obtain [JSON Web Token (JWT)](secure-client-side-file-upload.md#json-web-token-jwt-for-client-side-file-upload). This request should be made to a secure API endpoint accessible only to authenticated users, safeguarding your ImageKit Media library from unauthorized access.
-2. The `token` is generated on the backend using the [private API key](../api-introduction/api-keys.md#private-key). This is explained below with example.
+2. The `token` is generated on the backend using the [private API key](../api-introduction/api-keys.md#private-key). This is explained below with an example.
 3. The client-side application then includes the `token` in the payload of the upload API request.
 
 {% hint style="danger" %}
