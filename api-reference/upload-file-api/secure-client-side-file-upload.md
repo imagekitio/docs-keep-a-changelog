@@ -1,6 +1,8 @@
 # Secure client side file upload (beta)
 
-You can upload files to the ImageKit.io media library directly from the client-side in Javascript or any client side application using [JSON Web Token (JWT) authentication](secure-client-side-file-upload.md#json-web-token-jwt-generation-for-client-side-file-upload). You must implement a backend server to generate a token to authenticate the request, as shown [here](secure-client-side-file-upload.md#backend-token-generation).
+You can upload files to the ImageKit.io media library directly from the client-side in Javascript or any client side application using [JSON Web Token (JWT) authentication](secure-client-side-file-upload.md#json-web-token-jwt-for-client-side-file-upload). You must implement a backend server to generate a token to authenticate the request, as shown [here](secure-client-side-file-upload.md#backend-token-generation).
+
+Learn how to [implement secure client-side file upload](#how-to-implement-secure-client-side-file-upload).
 
 {% hint style="danger" %}
 This API is in beta and subject to change.
@@ -16,9 +18,7 @@ A file can have a maximum of 100 versions.
 
 ## Endpoint
 
-| Method | Endpoint                                                                                         |
-| ------ | ------------------------------------------------------------------------------------------------ |
-| POST   | [https://upload.imagekit.io/api/v2/files/upload](https://upload.imagekit.io/api/v2/files/upload) |
+Same as [server-side file upload API V2](./server-side-file-upload-v2.md#endpoint)
 
 ## Request structure (multipart/form-data)
 
@@ -32,7 +32,20 @@ The request structure is the same as the [server-side file upload API](./server-
 
 Same as [server-side file upload API](./server-side-file-upload.md#response-code-and-structure-json).
 
-## JSON Web Token (JWT) generation for client-side file upload
+## How to implement secure client-side file upload?
+
+Here are the steps:
+
+1. The client-side application initiates a request to the backend to obtain [JSON Web Token (JWT)](secure-client-side-file-upload.md#json-web-token-jwt-for-client-side-file-upload). This request should be made to a secure API endpoint accessible only to authenticated users, safeguarding your ImageKit Media library from unauthorized access.
+2. The `token` is generated on the backend using the [private API key](../api-introduction/api-keys.md#private-key). This is explained below with example.
+3. The client-side application then includes the `token` in the payload of the upload API request.
+
+{% hint style="danger" %}
+**Never publish your private key on client-side**
+The Private API key should be kept confidential and only stored on your servers.
+{% endhint %}
+
+### JSON Web Token (JWT) for client-side file upload
 
 JSON Web Token (JWT) is an open standard [(RFC 7519)](https://datatracker.ietf.org/doc/html/rfc7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. Your backend should ideally implement an API that should provide `token`. This is sent along with your upload request for authentication as well as validation of the integrity of upload parameters when using the upload API from the client side. Generating it requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), and hence this should be generated on your backend. Learn more about JSON Web Token [here](https://jwt.io/introduction).
 
