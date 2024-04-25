@@ -132,7 +132,7 @@ Response structure:
 }
 ```
 
-Since calculating this parameter requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), hence this endpoint has to be implemented on your server-side. You can implement this endpoint in any language of your choice. Below is an example of how to implement this endpoint in Node.js using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken).
+Calculating this parameter requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), so this endpoint must be implemented on your server. You can implement it in any language of your choice. Below is an example of implementing it in Node.js using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken).
 
 {% tabs %}
 {% tab title="Node.js" %}
@@ -161,7 +161,7 @@ res.send({ token });
 
 The example below demonstrates only basic usage. Refer to [these examples](server-side-file-upload.md#examples) in the server-side upload section to learn about different use-cases. The only difference between secure client-side and server-side upload is how API authentication works.
 
-Make sure you have implemented a backend service as shown [here](secure-client-side-file-upload.md#backend-token-generation) before using the below example.
+Make sure you have implemented the secure API in the backend that returns the token parameter as shown [here](secure-client-side-file-upload.md#backend-token-generation).
 
 {% tabs %}
 {% tab title="jQuery (without SDK)" %}
