@@ -37,7 +37,7 @@ Same as [server-side file upload API](./server-side-file-upload.md#response-code
 Refer to this table in [server-side file upload API](./server-side-file-upload.md#understanding-response).
 
 
-## How to implement client-side file upload
+## How to implement client-side file upload?
 
 Here are the steps:
 
@@ -244,6 +244,7 @@ import { IKContext, IKUpload } from 'imagekitio-react'
 
 function App() {
   const publicKey = "your_public_api_key";
+  const urlEndpoint = "https://ik.imagekit.io/your_imagekit_id";
   const authenticator = async () => {
     try {
       // You can also pass headers and validate the request source in the backend, or you can use headers for any other use case.
