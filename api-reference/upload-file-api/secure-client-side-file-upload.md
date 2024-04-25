@@ -74,12 +74,14 @@ The payload is the token's second component. This should include all of the uplo
 
 The `iat` (issued at) and `exp` (expiration) are required fields in the payload. The expiration time `exp` must not exceed the issued time `iat` by more than 3600 seconds.
 
-The key in the payload should be the parameter name, and the value should be in stringified form. If you want to send the 'fileName' and 'useUniqueFileName' parameters, for example, the payload will be:
+The key in the payload should be the parameter name, and the value should be in stringified form except for `iat` and `exp`. If you want to send the 'fileName' and 'useUniqueFileName' parameters, for example, the payload will be:
 
 ```javascript
 {
   "fileName": "dress.jpg",
-  "useUniqueFileName": "false" 
+  "useUniqueFileName": "false",
+  "iat": 1714035985, // should be integer
+  "exp": 1714039585  // should not exceed iat value by 3600
 }
 ```
 
