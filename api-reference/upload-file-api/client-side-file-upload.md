@@ -154,23 +154,36 @@ The best way is to follow [quick start guides](../../getting-started/quickstart-
   /*  
     SDK initialization
   */
-  var imagekit = new ImageKit({
+  const imagekit = new ImageKit({
     publicKey: "your_public_api_key",
     urlEndpoint: "https://ik.imagekit.io/your_imagekit_id",
   });
 
   // Upload function internally uses the ImageKit.io javascript SDK
-  function upload(data) {
-    var file = document.getElementById("file1");
+  async function upload(data) {
+    const file = document.getElementById("file1");
+    const authenticationEndpoint = "https://www.yourserver.com/auth";
+    const authResponse = await fetch(authenticationEndpoint, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!authResponse.ok) {
+      throw new Error("Failed to fetch auth details");
+    }
+
+    const authData = await authResponse.json();
+
     imagekit.upload({
       file: file.files[0],
       fileName: "abc.jpg",
       tags: ["tag1"],
-      token: 'generated_token',
-      signature: 'generated_signature',
-      expire: 'generated_expire',
+      token: authData.token,
+      signature: authData.signature,
+      expire: authData.expire,
     }, function(err, result) {
-      console.log(arguments);
       console.log(imagekit.url({
         src: result.url,
         transformation : [{ height: 300, width: 400}]
