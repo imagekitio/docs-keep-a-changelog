@@ -165,8 +165,11 @@ The best way is to follow [quick start guides](../../getting-started/quickstart-
     const authenticationEndpoint = "https://www.yourserver.com/auth";
     const authResponse = await fetch(authenticationEndpoint, {
       method: "GET",
+      // You can also pass headers and validate the request source in the backend, or you can use headers for any other use case.
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer your-access-token',
+        'CustomHeader': 'CustomValue'
       },
     });
 
@@ -219,6 +222,12 @@ The best way is to follow [quick start guides](../../getting-started/quickstart-
       url : authenticationEndpoint,
       method : "GET",
       dataType : "json",
+      // You can also pass headers and validate the request source in the backend, or you can use headers for any other use case.
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer your-access-token',
+        'CustomHeader': 'CustomValue'
+      },
       success : function(body) {
         formData.append("signature", body.signature || "");
         formData.append("expire", body.expire || 0);
