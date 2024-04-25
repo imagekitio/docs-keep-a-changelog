@@ -34,6 +34,10 @@ The request structure is the same as the [server-side file upload API](./server-
 
 Same as [server-side file upload API](./server-side-file-upload.md#response-code-and-structure-json).
 
+### Understanding response
+
+Refer to this table in [server-side file upload API](./server-side-file-upload.md#understanding-response).
+
 ## How to implement secure client-side file upload?
 
 Here are the steps:
