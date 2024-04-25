@@ -1,6 +1,6 @@
 # Secure client side file upload (beta)
 
-You can directly upload files to the ImageKit.io media library from client-side environments such as JavaScript web applications and Android or iOS apps. The API is the same as [server-side upload API V2](./server-side-file-upload-v2.md), with a minor change in how the authentication works.
+You can directly upload files to the ImageKit.io media library from client-side environments such as JavaScript web applications and Android or iOS apps. The API is the same as [server-side upload API V2 (beta)](./server-side-file-upload-v2.md), with a minor change in how the authentication works.
 
 Instead of using [private API key](../api-introduction/api-keys.md#private-key) for authentication, your client-side application must pass a JSON Web Token (JWT) as an authentication parameter. The upload API expects a `token` as a parameter.
 
@@ -11,16 +11,16 @@ This API is in beta and subject to change.
 {% endhint %}
 
 {% hint style="info" %}
-**File size limit**\
-The maximum upload file size is limited to 25MB on the free plan. On paid plan, this limit is 300MB for video files.
+**File size limit**
+The maximum upload file size is limited to 25MB on the free plan. On the paid plan, this limit is 300MB for video files.
 
-**Version limit**\
+**Version limit**
 A file can have a maximum of 100 versions.
 {% endhint %}
 
 ## Endpoint
 
-Same as [server-side file upload API V2](./server-side-file-upload-v2.md#endpoint)
+Same as [server-side file upload API V2 (beta)](./server-side-file-upload-v2.md#endpoint)
 
 ## Request structure (multipart/form-data)
 
@@ -47,7 +47,7 @@ Here are the steps:
 The Private API key should be kept confidential and only stored on your servers.
 {% endhint %}
 
-### JSON Web Token (JWT) for client-side file upload
+### JSON Web Token (JWT) for secure client-side file upload
 
 JSON Web Token (JWT) is an open standard [(RFC 7519)](https://datatracker.ietf.org/doc/html/rfc7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. Your backend should ideally implement an API that should provide `token`. This is sent along with your upload request for authentication as well as validation of the integrity of upload parameters when using the upload API from the client side. Generating it requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), and hence this should be generated on your backend. Learn more about JSON Web Token [here](https://jwt.io/introduction).
 
@@ -109,7 +109,7 @@ The Private API key should be kept confidential and only stored on your own serv
 
 The client-side application sends a request to the backend and expects a response containing the JSON Web Token (JWT).
 
-The request body structure looks like this:
+The request body structure can look like this:
 
 ```javascript
 {
@@ -159,7 +159,7 @@ res.send({ token });
 
 ## Secure client-side file upload example
 
-The example below demonstrates only basic usage. Refer to [these examples](server-side-file-upload.md#examples) in the server-side upload section to learn about different use-cases. The only difference between client-side and server-side upload is how API authentication works.
+The example below demonstrates only basic usage. Refer to [these examples](server-side-file-upload.md#examples) in the server-side upload section to learn about different use-cases. The only difference between secure client-side and server-side upload is how API authentication works.
 
 Make sure you have implemented a backend service as shown [here](secure-client-side-file-upload.md#backend-token-generation) before using the below example.
 
@@ -186,7 +186,12 @@ Make sure you have implemented a backend service as shown [here](secure-client-s
         $.ajax({
             url : authenticationEndpoint,
             method : "POST",
-            contentType: "application/json",
+            dataType: "json",
+            // You can also pass headers and validate the request source in the backend, or you can use headers for any other use case.
+            headers: {
+              'Authorization': 'Bearer your-access-token',
+              'CustomHeader': 'CustomValue'
+            },
             data: JSON.stringify({
                 uploadPayload: {
                     fileName: "abc.jpg"
@@ -197,7 +202,7 @@ Make sure you have implemented a backend service as shown [here](secure-client-s
             success : function(body) {
                 formData.append("token", body.token);
 
-                // Now call ImageKit.io upload API v2
+                // Now call ImageKit.io upload API v2 (beta)
                 $.ajax({
                     url : "https://upload.imagekit.io/api/v2/files/upload",
                     method : "POST",
