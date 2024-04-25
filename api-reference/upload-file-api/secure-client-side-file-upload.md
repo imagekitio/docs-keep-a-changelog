@@ -72,7 +72,7 @@ The header of the JSON Web Tokens consists of three parts: the `typ` of the toke
 
 The payload is the token's second component. This should include all of the upload parameters that you intend to provide in your upload file request. All arguments except `file` and `token` can be included in this payload. In your upload API request, you must include the same set of parameters and their associated values along with the 'file' and 'token'. If there is a mismatch between upload request parameter and their values and the ones in the payload used to generate JWT, the upload request will fail.
 
-The `iat` (issued at) and `exp` (expiration) are required fields in the payload. The expiration time ("exp") must not exceed the issued time ("iat") by more than 3600 seconds.
+The `iat` (issued at) and `exp` (expiration) are required fields in the payload. The expiration time `exp` must not exceed the issued time `iat` by more than 3600 seconds.
 
 The key in the payload should be the parameter name, and the value should be in stringified form. If you want to send the 'fileName' and 'useUniqueFileName' parameters, for example, the payload will be:
 
