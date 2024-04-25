@@ -1,6 +1,6 @@
 # Secure client side file upload (beta)
 
-You can upload files to the ImageKit.io media library directly from the client-side in Javascript or any client side application using [JSON Web Token (JWT) authentication](secure-client-side-file-upload.md#json-web-token-jwt-generation-for-client-side-file-upload). You must implement a backed server to generate a token to authenticate the request, as shown [here](secure-client-side-file-upload.md#backend-token-generation).
+You can upload files to the ImageKit.io media library directly from the client-side in Javascript or any client side application using [JSON Web Token (JWT) authentication](secure-client-side-file-upload.md#json-web-token-jwt-generation-for-client-side-file-upload). You must implement a backend server to generate a token to authenticate the request, as shown [here](secure-client-side-file-upload.md#backend-token-generation).
 
 {% hint style="danger" %}
 This API is in beta and subject to change.
