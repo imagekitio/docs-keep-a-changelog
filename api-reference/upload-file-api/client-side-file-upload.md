@@ -2,7 +2,7 @@
 
 You can directly upload files to the ImageKit.io media library from client-side environments such as JavaScript web applications and Android or iOS apps. The API is the same as [server-side upload API](./server-side-file-upload.md), with a minor change in how the authentication works.
 
-Instead of using [private API key](../api-introduction/api-keys.md#private-key), your client-side application must pass authentication parameters. The upload API expects a `signature,` one-time `token`, and `expire` parameters.
+Instead of using [private API key](../api-introduction/api-keys.md#private-key) for authentication, your client-side application must pass authentication parameters. The upload API expects a `signature,` one-time `token`, and `expire` parameters.
 
 Learn how to [implement client-side file upload](#how-to-implement-client-side-file-upload).
 
@@ -51,8 +51,8 @@ The Private API key should be kept confidential and only stored on your servers.
 {% endhint %}
 
 Using ImageKit client-side and server-side SDKs, you can quickly implement upload functionality.
-* On the backend, you can use utility functions provided in all [server-side SDKs](../api-introduction/sdk.md#server-side-sdks) to implement the secure API.
-* On client-side application, use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [examples](#client-side-file-upload-examples).
+* On the backend, you can use the utility functions provided in all [server-side SDKs](../api-introduction/sdk.md#server-side-sdks) to implement the secure API.
+* On client-side applications, use ImageKit [client-side SDKs](../api-introduction/sdk.md#client-side-sdks) to get started quickly. See [examples](#client-side-file-upload-examples).
 
 ### Backend signature generation
 
