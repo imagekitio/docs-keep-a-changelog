@@ -24,7 +24,7 @@ Same as [server-side file upload API V2 (beta)](./server-side-file-upload-v2.md#
 
 ## Request structure (multipart/form-data)
 
-The request structure is the same as the [server-side file upload API](./server-side-file-upload.md#request-structure-multipartform-data), except for secure client-side upload, the application needs to pass a `token`, as explained below.
+The request structure is the same as the [server-side file upload API](./server-side-file-upload.md#request-structure-multipart-form-data), except for secure client-side upload, the application needs to pass a `token`, as explained below.
 
 | Parameter | Description |
 |-----------|-------------|
@@ -55,7 +55,7 @@ The Private API key should be kept confidential and only stored on your servers.
 
 JSON Web Token (JWT) is an open standard [(RFC 7519)](https://datatracker.ietf.org/doc/html/rfc7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. Your backend should ideally implement an API that should provide `token`. This is sent along with your upload request for authentication as well as validation of the integrity of upload parameters when using the upload API from the client side. Generating it requires your ImageKit.io [private API key](../api-introduction/api-keys.md#private-key), and hence this should be generated on your backend. Learn more about JSON Web Token [here](https://jwt.io/introduction).
 
-JSON Web Token consist of three parts separated by dots-
+JSON Web Token consists of three parts separated by dots-
 - Header
 - Payload
 - Signature
