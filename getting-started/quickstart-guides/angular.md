@@ -61,7 +61,7 @@ In your web browser, navigate to `http://localhost:4200/`
 
 You should see the dummy app created by Angular CLI as shown below.
 
-![Full sized image (1000px x 1000 px)](<../../.gitbook/assets/angular/angular-default.png>)
+![Full sized image (1000px x 1000 px)](<../../.gitbook/assets/angular/angular-default-view.png>)
 
 For simplicity, let's remove everything from `src/app/app.component.html` so we can begin with a clean slate.
 
