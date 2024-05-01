@@ -27,8 +27,8 @@ For this tutorial, it is recommended to create an Angular dummy app, as shown be
 **Create an Angular app:**
 
 We will be using the following in this guide:
-- Node version 14.21.1
-- Angular version 15
+- Node version 20.11.1
+- Angular version 17
 
 Let's use the `ng new <project name>` CLI utility provided by Angular to build a new project:
 
@@ -59,7 +59,9 @@ npm start
 
 In your web browser, navigate to `http://localhost:4200/`
 
-You should see the dummy app created by Angular CLI. 
+You should see the dummy app created by Angular CLI as shown below.
+
+![Full sized image (1000px x 1000 px)](<../../.gitbook/assets/angular/angular-default.png>)
 
 For simplicity, let's remove everything from `src/app/app.component.html` so we can begin with a clean slate.
 
@@ -106,24 +108,42 @@ Note: URL endpoints of each component can be overridden explicitly. [See here fo
 
 #### Configure the app for ImageKit:
 
-Let's import the SDK.
+Let's create `src/app/app.module.ts` file and add the below code.
 
 {% code title="src/app/app.module.ts" %}
 ```jsx
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
 import { ImagekitioAngularModule } from 'imagekitio-angular';
-...
+
 @NgModule({
-  ...
+  declarations: [
+    AppComponent
+  ],
   imports: [
-    ...
+    BrowserModule,
     ImagekitioAngularModule.forRoot({
-      publicKey: environment.publicKey,
-      urlEndpoint: environment.urlEndpoint,
+      urlEndpoint: "your_endpoint",
+      publicKey: "your_public_key",
     })
   ],
-  ...
+  providers: [],
+  bootstrap: [AppComponent]
 })
-...
+export class AppModule { }
+```
+{% endcode %}
+
+Now navigate to `src/main.ts` and update it's code with the below code
+
+{% code title="src/main.ts" %}
+```jsx
+import { AppModule } from './app/app.module';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
 ```
 {% endcode %}
 
