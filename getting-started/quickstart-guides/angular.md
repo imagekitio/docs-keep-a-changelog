@@ -27,7 +27,7 @@ For this tutorial, it is recommended to create an Angular dummy app, as shown be
 **Create an Angular app:**
 
 We will be using the following in this guide:
-- Node version 20.11.1
+- Node version 20
 - Angular version 17
 
 Let's use the `ng new <project name>` CLI utility provided by Angular to build a new project:
@@ -108,7 +108,7 @@ Note: URL endpoints of each component can be overridden explicitly. [See here fo
 
 #### Configure the app for ImageKit:
 
-Let's create `src/app/app.module.ts` file and add the below code.
+Let's create a `src/app/app.module.ts` file and add the below code. Here, we will import and initialize our SDK.
 
 {% code title="src/app/app.module.ts" %}
 ```jsx
@@ -135,7 +135,7 @@ export class AppModule { }
 ```
 {% endcode %}
 
-Now navigate to `src/main.ts` and update it's code with the below code
+Now navigate to `src/main.ts` and update its code using the code below.
 
 {% code title="src/main.ts" %}
 ```jsx
@@ -730,7 +730,7 @@ Add the following to `src/app/app.component.js`:
 ```jsx
 authenticator =  async () => {
     try {
-        const response = await fetch('http://localhost:3001/auth');
+        const response = await fetch('http://localhost:3000/auth');
 
         if (!response.ok) {
             const errorText = await response.text();
@@ -835,7 +835,7 @@ export class AppComponent {
 
   authenticator =  async () => {
     try {
-        const response = await fetch('http://localhost:3001/auth');
+        const response = await fetch('http://localhost:3000/auth');
 
         if (!response.ok) {
             const errorText = await response.text();
