@@ -718,12 +718,7 @@ If you GET `http://localhost:3000/auth`, you should see a JSON response like thi
 
 Now that we have our authentication server up and running, let's configure the `publicKey` and `authenticator` in the frontend Angular app:
 
-Add the following to `src/app/app.module.js` file to [initialize the SDK](angular.md#initialize-the-angular-sdk) with auth params:
-
-```jsx
-publicKey: "<YOUR_PUBLIC_KEY>",
-urlEndpoint: "YOUR_ENDPOINT",
-```
+Before proceeding, ensure you've [initialize the SDK](angular.md#initialize-the-angular-sdk) with authentication parameters. Open the `src/app/app.module.js` file and replace <your_public_key> and <your_endpoint> with your actual `publicKey` and `urlEndpoint` values.
 
 Add the following to `src/app/app.component.js`:
 
