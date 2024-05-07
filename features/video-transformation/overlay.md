@@ -94,7 +94,7 @@ You can add an image over a base video using image layer (`l-image`).
 ## Usage
 
 ```markup
-https://ik.imagekit.io/demo/base-video.mp4?tr=l-image,i-logo.png,l-end
+https://ik.imagekit.io/demo/sample-video.mp4?tr=l-image,i-logo.png,l-end
 ```
 
 You can also control the position of image overlay using these [positional parameters](overlay.md#position-of-layer).
@@ -131,7 +131,7 @@ You can add any text string over a base video using the following example.
 ## Usage syntax
 
 ```markup
-https://ik.imagekit.io/demo/base-video.mp4?tr=l-text,i-hello,l-end
+https://ik.imagekit.io/demo/sample-video.mp4?tr=l-text,i-hello,l-end
 ```
 
 You can also control the position of text overlay using these [positional parameters](overlay.md#position-of-layer).
@@ -160,7 +160,7 @@ You can add video or GIF over a base video using video layer (`l-video`).
 ## Usage
 
 ```markup
-https://ik.imagekit.io/demo/base-video.mp4?tr=l-video,i-overlay.mp4,l-end
+https://ik.imagekit.io/demo/sample-video.mp4?tr=l-video,i-overlay.mp4,l-end
 ```
 
 You can also control the position of video overlay using these [positional parameters](overlay.md#position-of-layer).
@@ -182,7 +182,7 @@ You can add solid color blocks over a base video using the following example.
 ## Usage syntax
 
 ```markup
-https://ik.imagekit.io/demo/base-video.mp4?tr=l-image,i-ik_canvas,bg-red,l-end
+https://ik.imagekit.io/demo/sample-video.mp4?tr=l-image,i-ik_canvas,bg-red,l-end
 ```
 
 You can also control the position of solid color blocks using these [positional parameters](overlay.md#position-of-layer).
@@ -210,7 +210,7 @@ You can add subtitles over a base video using the following example.
 ## Usage syntax
 
 ```markup
-https://ik.imagekit.io/demo/base-video.mp4?tr=l-subtitles,i-english.srt,l-end
+https://ik.imagekit.io/demo/sample-video.mp4?tr=l-subtitles,i-english.srt,l-end
 ```
 The position of subtitles cannot be controlled.
 
