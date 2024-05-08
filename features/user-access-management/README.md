@@ -14,8 +14,9 @@ Go to the [Users section](https://imagekit.io/dashboard?redirectTo=users) in the
 ![Add user form in ImageKit.io dashboard](<../.gitbook/assets/add-user-modal.png>)
 
 {% hint style="info" %}
-**Maximum number of users **:raised\_hands: 
-****An ImageKit.io account can have a maximum of 5 users. Please reach out to support at support@imagekit.io if you want to add more users.
+**Maximum number of users **:raised_hands: 
+
+An ImageKit.io account can have a maximum of 5 users. Please reach out to support at support@imagekit.io if you want to add more users.
 {% endhint %}
 
 
