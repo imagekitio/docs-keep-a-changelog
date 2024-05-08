@@ -1,8 +1,9 @@
 # Backup media library assets
 
 {% hint style="info" %}
-**Paid plan only**\
-****Backup is currently available only to paid users.
+**Paid plan only**
+
+Backup is currently available only to paid users.
 {% endhint %}
 
 You can backup all media library assets in your S3 bucket by setting up an active backup.

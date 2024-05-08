@@ -33,7 +33,7 @@ You can create schemas for the above custom metadata fields.
 }
 ```
 
-This type of schema will allow string values** **in `SKU` custom metadata field, like `"VS882HJ2JD"`, `"2JD93NMS2G"` etc.&#x20;
+This type of schema will allow string values in `SKU` custom metadata field, like `"VS882HJ2JD"`, `"2JD93NMS2G"` etc.&#x20;
 
 Invalid values of other data types like number (e.g.`5682342234`), boolean (e.g. `true`) etc. will be rejected with an error.
 

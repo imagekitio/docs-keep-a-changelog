@@ -6,7 +6,8 @@ There are two main steps required to set up SSO using Azure on ImageKit:
 1. [Enable SSO login on ImageKit](#enable-sso-login-on-imagekit)
 
 {% hint style="info" %}
-**Azure subscription**\
+**Azure subscription**
+
 Although you may use a free account on Azure to set up and test the SSO application, having a premium Azure subscription is recommended for seamless role provisioning for your users. Read more [here](#attributes-and-claims).
 {% endhint %}
 

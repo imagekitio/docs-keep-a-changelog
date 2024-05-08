@@ -22,6 +22,7 @@ The video URL remains the same, but the file is modified. This behavior is trans
 
 {% hint style="info" %}
 **Beta feature**
+
 The AV1 codec for output videos is currently in beta.
 {% endhint %}
 

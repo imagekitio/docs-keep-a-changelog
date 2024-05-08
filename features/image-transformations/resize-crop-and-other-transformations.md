@@ -95,7 +95,8 @@ If only, one of the [height(h)](resize-crop-and-other-transformations.md#height-
 But when you specify both [height(h)](resize-crop-and-other-transformations.md#height-h) and [width(w)](resize-crop-and-other-transformations.md#width-w) dimensions, you need to choose the right cropping strategy based on your website layout and desired output image.
 
 {% hint style="info" %}
-**Tip for choosing the right cropping strategy**\
+**Tip for choosing the right cropping strategy**
+
 When choosing among different strategies for cropping, think in terms of your website layout and desired output image.
 {% endhint %}
 
@@ -457,7 +458,7 @@ Quite distinctly from the [auto smart crop](resize-crop-and-other-transformation
 {% endtabs %}
 
 {% hint style="info" %}
-**Note: **Smart crop may not give accurate results for some images. This is partially a trade off between speed (needed for real-time transformations) and accuracy.
+**Note:** Smart crop may not give accurate results for some images. This is partially a trade off between speed (needed for real-time transformations) and accuracy.
 {% endhint %}
 
 ### Zoom - (z)
@@ -603,10 +604,10 @@ Imagekit.io provides an alternative to achieve this without having to make chang
 
 ### Progressive image - (pr)
 
-Used to specify whether the output JPEG image must be rendered progressively. In progressive loading, the output image renders as a low quality pixelated full image which over time keeps on adding more pixels and information to the image.  This helps you maintain a fast perceived load time. \
-\
-**Possible values **include `true`  and `false` .\
-\
+Used to specify whether the output JPEG image must be rendered progressively. In progressive loading, the output image renders as a low quality pixelated full image which over time keeps on adding more pixels and information to the image.  This helps you maintain a fast perceived load time.
+
+**Possible values** - `true` and `false`.
+
 [https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,pr-true/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:h-300,w-400,f-jpg,pr-true/medium\_cafe\_B1iTdD0C.jpg)
 
 ### Lossless WebP and PNG - (lo)

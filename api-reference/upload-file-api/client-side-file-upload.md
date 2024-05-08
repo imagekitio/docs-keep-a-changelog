@@ -8,9 +8,11 @@ Learn how to [implement client-side file upload](#how-to-implement-client-side-f
 
 {% hint style="info" %}
 **File size limit**
+
 The maximum upload file size is limited to 25MB on the free plan. On the paid plan, this limit is 300MB for video files.
 
 **Version limit**
+
 A file can have a maximum of 100 versions.
 {% endhint %}
 
@@ -47,6 +49,7 @@ Here are the steps:
 
 {% hint style="danger" %}
 **Never publish your private key on client-side**
+
 The Private API key should be kept confidential and only stored on your servers.
 {% endhint %}
 

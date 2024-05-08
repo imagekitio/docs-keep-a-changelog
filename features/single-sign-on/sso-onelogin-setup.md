@@ -6,7 +6,8 @@ There are two main steps required to set up SSO using OneLogin on ImageKit:
 1. [Enable SSO login on ImageKit](#enable-sso-login-on-imagekit)
 
 {% hint style="info" %}
-**OneLogin subscription**\
+**OneLogin subscription**
+
 Although you may use a free account on OneLogin to set up and test the SSO application, having a premium OneLogin subscription is recommended for seamless role provisioning for your users. Read more [here](#attributes-and-claims).
 {% endhint %}
 

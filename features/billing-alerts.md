@@ -3,7 +3,8 @@
 Billing alerts allow you to monitor your upcoming bills by setting a threshold bill amount. If your upcoming bill crosses the threshold you have set, an email notification will be sent to the email addresses associated with your ImageKit account.
 
 {% hint style="info" %}
-**Paid plan only**\
+**Paid plan only**
+
 This feature is currently available only to paid users.
 {% endhint %}
 

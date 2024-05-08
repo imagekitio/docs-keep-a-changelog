@@ -12,7 +12,7 @@ Integrating the media library widget is straightforward as you will discover in 
 
 We have some ready-made sample integrations with the following applications.
 
-* ****[**CKEditor integration**](ckeditor5-plugin.md)****
+* **[**CKEditor integration**](ckeditor5-plugin.md)**
 
 ## Media library widget plugin features
 
@@ -33,15 +33,13 @@ The JavaScript-based plugin provides a way to seamlessly access your [ImageKit M
 
 Integrating the ImageKit Media Library plugin into a page in your web application or CMS interface is straightforward. We will go through the following steps in details one by one:
 
-1. ****[**Include the plugin script and create a container element**](./#1-include-the-plugin-script)** -** Include the plugin script file in the web page to embed the Media Library. Create a container element where the widget will be rendered.\
+1. [**Include the plugin script and create a container element**](./#1-include-the-plugin-script)** -** Include the plugin script file in the web page to embed the Media Library. Create a container element where the widget will be rendered.
 
-2.  [**Initialize the media library widget**](https://app.gitbook.com/@imagekit-io/s/docs/\~/drafts/-MOeRVlxk26WIzUeOQ4D/sample-projects/embeddable-media-library#2-initialize-the-media-library-widget)** -** Provide the configuration options and callback to initialize the widget. These options include the mandatory container within which the Media Library Widget UI will be rendered and some other optional settings as described later in the page. 
+2. [**Initialize the media library widget**](https://app.gitbook.com/@imagekit-io/s/docs/\~/drafts/-MOeRVlxk26WIzUeOQ4D/sample-projects/embeddable-media-library#2-initialize-the-media-library-widget)** -** Provide the configuration options and callback to initialize the widget. These options include the mandatory container within which the Media Library Widget UI will be rendered and some other optional settings as described later in the page.
 
-    \
+3. [**Instantiate the Media library widget and open it**](./#4-instantiate-the-embedded-media-library-and-open-it)** -** Using the configuration options and callback method, now the plugin can be instantiated through the `IKMediaLibraryWidget` constructor and used by navigating to the webpage where it has been embedded.
 
-3. ****[**Instantiate the Media library widget and open it**](./#4-instantiate-the-embedded-media-library-and-open-it)** -** Using the configuration options and callback method, now the plugin can be instantiated through the `IKMediaLibraryWidget` constructor and used by navigating to the webpage where it has been embedded.\
-
-4. ****[**Insert images from the Media Library via the plugin**](./#5-embed-images-from-the-media-library-via-the-plugin)** -** Choose images and other files from within the media library interface and insert them in your CMS or web application.
+4. [**Insert images from the Media Library via the plugin**](./#5-embed-images-from-the-media-library-via-the-plugin)** -** Choose images and other files from within the media library interface and insert them in your CMS or web application.
 
 ### **1. Include the plugin script and create a container element**
 

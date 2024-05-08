@@ -9,8 +9,9 @@ It is generally recommended to use 4:2:0 chroma subsampling on all images for a 
 ImageKit.io keeps this setting turned OFF by default to avoid changing the image's visual quality. It is recommended to test this setting with your images before implementing it on your live site.
 
 {% hint style="info" %}
-**Note:**\
-****Since Chroma Subsampling is turned OFF by default, web analysis tools like Google's PageSpeed Insights might show that your images can be further optimized by a couple of KBs.
+**Note:**
+
+Since Chroma Subsampling is turned OFF by default, web analysis tools like Google's PageSpeed Insights might show that your images can be further optimized by a couple of KBs.
 {% endhint %}
 
 ### Setting on the Dashboard

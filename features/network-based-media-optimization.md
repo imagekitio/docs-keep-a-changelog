@@ -1,7 +1,9 @@
 # Network-based media optimization
 
 {% hint style="warning" %}
-**Note:** The service worker offered by ImageKit for network-based image optimization is now deprecated and will not receive any updates or fixes from ImageKit. If you are using the same on your website and need any support, reach out to us at support@imagekit.io, or refer to the general technique below to implement network-based media optimization on your own.
+**Note:**
+
+The service worker offered by ImageKit for network-based image optimization is now deprecated and will not receive any updates or fixes from ImageKit. If you are using the same on your website and need any support, reach out to us at support@imagekit.io, or refer to the general technique below to implement network-based media optimization on your own.
 {% endhint %}
 
 With ImageKit.io, you can build the functionality to deliver different images and videos based on the end user's network connection speed. For example, a user experiencing slow download times on a 2G network can be served a lighter, more compressed media file, while users on a 4G network can be served higher quality files. This ensures that you deliver the best user experience to all your users regardless of their bandwidth constraints.

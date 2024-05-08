@@ -14,12 +14,14 @@ Client hints are the hints provided by the client device to the server along wit
 You can [learn more about client hints](https://imagekit.io/responsive-images/#chapter-7---using-client-hints) from the responsive image guide.
 
 {% hint style="info" %}
-**Enable client hints before using them**\
+**Enable client hints before using them**
+
 Not every request has these HTTP headers. You will have to explicitly tell the browser to include these client hints using a meta tag:
 
 ```markup
 <meta http-equiv="Accept-CH" content="Sec-CH-DPR, Sec-CH-Width">
 ```
+{% endhint %}
 
 ## ImageKit supports Client hints
 

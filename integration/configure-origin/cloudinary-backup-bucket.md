@@ -27,11 +27,11 @@ When you add your first origin in the dashboard, the origin is by default made a
 Let's look at a few examples to fetch the images:
 
 * **Original image through Cloudinary bucket (old URL)**\
-  ****[https://cloudinary.com/rest-of-the-path.jpg](https://example.com/rest-of-the-path.jpg)
+  [https://cloudinary.com/rest-of-the-path.jpg](https://example.com/rest-of-the-path.jpg)
 * **The same master image using ImageKit.io URL-endpoint**\
-  ****[https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg)
+  [https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg)
 * **Resized 300x300 image**\
-  ****[https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-300`/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg)
+  [https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-300`/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg)
 
 So when you request `https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg`, ImageKit.io internally access the object at path `rest-of-the-path.jpg` in your bucket.
 
@@ -76,8 +76,9 @@ While fetching images from your Cloudinary bucket with special characters in the
 While adding the origin in your ImageKit.io account, you are now provided with an option to encode the keys while fetching the object from your Cloudinary bucket. By default, this option is disabled. When enabled, the requests made while fetching images will be made using encoded keys.
 
 {% hint style="info" %}
-**Note:**\
-****At present, this feature can only be enabled upon request, please email support at support@imagekit.io.
+**Note:**
+
+At present, this feature can only be enabled upon request, please email support at support@imagekit.io.
 {% endhint %}
 
 ## Advanced options for Cloudinary type origin

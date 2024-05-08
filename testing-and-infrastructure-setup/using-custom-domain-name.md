@@ -9,8 +9,9 @@ Let's say that your website is loading at `https://www.example.com`, now you can
 Custom domain only works on ImageKit.io's Premium Plan or a larger custom plan. On the Premium plan, one custom domain is available for free. The additional custom domains can be purchased at an additional cost. The ImageKit.io support team handles the SSL verification, certificate procurement, and deployment process. Once you are ready, tell us the custom domain you want to configure via support chat or by emailing us at [support@imagekit.io](mailto:support@imagekit.io). Our team will provide you with the next steps.
 
 {% hint style="info" %}
-**Automatic SSL certificate procurement**\
-****We use Let’s Encrypt to procure and renew certificates for your domains automatically. After the initial setup, we will take care of certificate renewals.
+**Automatic SSL certificate procurement**
+
+We use Let’s Encrypt to procure and renew certificates for your domains automatically. After the initial setup, we will take care of certificate renewals.
 {% endhint %}
 
 ## Accessing the image through a custom domain

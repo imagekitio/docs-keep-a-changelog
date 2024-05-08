@@ -10,7 +10,7 @@ When ImageKit gets an error while trying to fetch the original image from your e
 
 ![](../.gitbook/assets/screenshot-2020-10-05-at-7.36.53-pm.png)
 
-To help you troubleshot the error, the response is accompanied by an ****`ik-error` ****header, which expounds more detail about the nature of the error. 
+To help you troubleshot the error, the response is accompanied by an `ik-error` header, which expounds more detail about the nature of the error. 
 
 The value of `ik-error` header is: `ERROR_CODE - ERROR_MESSAGE`
 

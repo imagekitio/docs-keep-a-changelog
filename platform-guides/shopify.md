@@ -29,8 +29,9 @@ When you add the first origin in your account, it automatically becomes accessib
 If your old image URL was [`https://cdn.shopify.com/img/s/files/1/1510/6482/t/22/assets/logo-mobile.png`](https://cdn.shopify.com/img/s/files/1/1510/6482/t/22/assets/logo-mobile.png) , then the same image should be accessible through ImageKit.io URL-endpoint, i.e., [`https://ik.imagekit.io/your_imagekit_id/img/s/files/1/1510/6482/t/22/assets/logo-mobile.png`](https://ik.imagekit.io/your_imagekit_id/img/s/files/1/1510/6482/t/22/assets/logo-mobile.png)
 
 {% hint style="danger" %}
-**Unable to fetch image?**\
-****Contact [support@imagekit.io](mailto:support@imagekit.io) if you are not able to fetch the image as explained above. In such a situation, do not move to step 3 as this could break your website images.
+**Unable to fetch image?**
+
+Contact [support@imagekit.io](mailto:support@imagekit.io) if you are not able to fetch the image as explained above. In such a situation, do not move to step 3 as this could break your website images.
 {% endhint %}
 
 ### Step 3: Create settings_schema.json
@@ -130,8 +131,9 @@ Navigate to **Online store** :arrow_right:**Themes** :arrow_right:**Customize th
 Now we get to editing your theme files. We first need to find out the files which are responsible for the output of image on your store and start editing them.
 
 {% hint style="warning" %}
-**Backup your theme files**\
-****Before making changes in these files, it is recommended that you download and save them securely to be able to restore it later, in case of error.
+**Backup your theme files**
+
+Before making changes in these files, it is recommended that you download and save them securely to be able to restore it later, in case of error.
 {% endhint %}
 
 Here are a couple of examples indicating the change that needs to be made in the theme files. You can follow similar steps to change all of your theme files.

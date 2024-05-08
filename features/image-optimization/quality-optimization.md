@@ -13,8 +13,9 @@ For example, images at quality 100 and quality 80 have no perceived visual diffe
 When you start using ImageKit.io, the default image quality is set to 80. This means that images having quality above 80 are automatically brought down to quality 80. This reduces the file size while maintaining a good visual quality for your end-users.
 
 {% hint style="info" %}
-:bulb: **Tip:**\
-****Specific industries like eCommerce, which depend on image quality to drive conversions, can choose a quality level between 85-95. As mentioned earlier, higher the image quality, larger the file size.
+**Tip:**
+
+Specific industries like eCommerce, which depend on image quality to drive conversions, can choose a quality level between 85-95. As mentioned earlier, higher the image quality, larger the file size.
 {% endhint %}
 
 ### Image Quality from the dashboard

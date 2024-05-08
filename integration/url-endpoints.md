@@ -48,6 +48,7 @@ For example, in the screenshot below, we have two URL-endpoints:
 ![Custom domain mapping with URL-endpoints](../.gitbook/assets/custom-domain-mapping.png)
 
 {% hint style="info" %}
-**How to add new custom domain names or map a custom domain to a URL endpoint?**\
-****This addition and mapping of [custom domain](../testing-and-infrastructure-setup/using-custom-domain-name.md) names is currently done by the ImageKit.io support team. Please create a support ticket using chat or by dropping us an email at support@imagekit.io.
+**How to add new custom domain names or map a custom domain to a URL endpoint?**
+
+This addition and mapping of [custom domain](../testing-and-infrastructure-setup/using-custom-domain-name.md) names is currently done by the ImageKit.io support team. Please create a support ticket using chat or by dropping us an email at support@imagekit.io.
 {% endhint %}

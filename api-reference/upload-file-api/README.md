@@ -21,7 +21,8 @@ Based on your requirement, you can either:
 Both methods use the same endpoint, but there is a slight change in the request bodies.
 
 {% hint style="info" %}
-**File size limit**\
+**File size limit**
+
 The maximum upload file size is limited to 25MB on the free plan. On paid plan, this limit is 300MB for video files.
 {% endhint %}
 

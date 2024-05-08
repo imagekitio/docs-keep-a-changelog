@@ -7,8 +7,9 @@ There are two ways to use ImageKit.io. Depending upon your needs, either you can
 ImageKit.io can be integrated into your existing infrastructure within minutes. 
 
 {% hint style="success" %}
-****:man_mage: **Recommended if you don't want to move your existing images**\
-****If you have a running website or application, you don't need to move your images anywhere. Just configure your existing image origin and ImageKit.io will fetch the images on the first request and cache the response.
+**Recommended if you don't want to move your existing images**
+
+If you have a running website or application, you don't need to move your images anywhere. Just configure your existing image origin and ImageKit.io will fetch the images on the first request and cache the response.
 {% endhint %}
 
 ImageKit.io supports the following types of origin:

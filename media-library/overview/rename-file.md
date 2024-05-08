@@ -20,6 +20,7 @@ Any other character, including space, will be replaced by an underscore characte
 While renaming, you can also choose to purge the CDN cache for URL with the old file name.
 
 {% hint style="warning" %}
-**Old URLs will stop working**\
-****When you rename a file, the URL also changes, which means the old URL will stop working. It could be cached for a while, but it will eventually stop working.&#x20;
+**Old URLs will stop working**
+
+When you rename a file, the URL also changes, which means the old URL will stop working. It could be cached for a while, but it will eventually stop working.&#x20;
 {% endhint %}

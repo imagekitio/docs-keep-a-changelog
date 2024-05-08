@@ -9,8 +9,9 @@ ImageKit.io provides users with the ability to copy and move files across differ
 3. Choose the new location from the right drawer as shown in the screenshot.
 
 {% hint style="warning" %}
-**Old files are deleted during the move operation**\
-****When you move files, the old files are deleted in the process. If you don't want the old files to be deleted, copy them instead of moving.
+**Old files are deleted during the move operation**
+
+When you move files, the old files are deleted in the process. If you don't want the old files to be deleted, copy them instead of moving.
 {% endhint %}
 
 ![Copy and move option in dropdown](<../../.gitbook/assets/copy-move-dropdown.png>)

@@ -2,6 +2,7 @@
 
 {% hint style="info" %}
 **Enterprise plan only**
+
 This feature is only available in custom enterprise pricing plans.
 {% endhint %}
 

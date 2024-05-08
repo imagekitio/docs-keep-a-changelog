@@ -1,7 +1,8 @@
 # Media library audit logs
 
 {% hint style="info" %}
-**Enterprise plan only**\
+**Enterprise plan only**
+
 This feature is only available in custom enterprise pricing plans. If you've [Central Audit Logs](./central-audit-logs.md) enabled, then this feature is also enabled for you.
 {% endhint %}
 

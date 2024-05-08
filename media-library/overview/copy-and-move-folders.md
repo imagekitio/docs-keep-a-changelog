@@ -9,8 +9,9 @@ ImageKit.io provides users with the ability to copy and move folders across diff
 3. Choose the new location from the right drawer as shown in the screenshot.
 
 {% hint style="warning" %}
-**Old folders are deleted during the move operation**\
-****When you move folders, the old folders are deleted in the process. If you don't want the old folders to be deleted, copy them instead of moving.
+**Old folders are deleted during the move operation**
+
+When you move folders, the old folders are deleted in the process. If you don't want the old folders to be deleted, copy them instead of moving.
 {% endhint %}
 
 ![Copy and move controls](../../.gitbook/assets/copy-move-folder-dropdown.png)

@@ -89,8 +89,9 @@ If only, one of the [height(h)](resize-crop-and-other-common-video-transformatio
 But when you specify both [height(h)](resize-crop-and-other-common-video-transformations.md#height-h) and [width(w)](resize-crop-and-other-common-video-transformations.md#width-w) dimensions, you need to choose the right cropping strategy based on your website layout and desired output video.
 
 {% hint style="info" %}
-**Tip for choosing the right cropping strategy**\
-****When choosing among different strategies for cropping, think in terms of your website layout and desired output video dimension.
+**Tip for choosing the right cropping strategy**
+
+When choosing among different strategies for cropping, think in terms of your website layout and desired output video dimension.
 {% endhint %}
 
 * If you want to preserve the whole video content without any cropping and need the exact same dimensions (height and width) in the output as requested, choose either the [pad resize crop](resize-crop-and-other-common-video-transformations.md#pad-resize-crop-strategy-cm-pad\_resize) or [forced crop strategy](resize-crop-and-other-common-video-transformations.md#forced-crop-strategy-c-force).

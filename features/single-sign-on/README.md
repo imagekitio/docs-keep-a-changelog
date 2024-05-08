@@ -1,7 +1,8 @@
 # Single sign-on
 
 {% hint style="info" %}
-**Paid plan only**\
+**Paid plan only**
+
 This feature is available only on custom enterprise pricing plans.
 {% endhint %}
 

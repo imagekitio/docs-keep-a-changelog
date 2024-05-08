@@ -180,7 +180,7 @@ Output:
 
 ### Aspect ratio
 
-You can use the [ar parameter](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#aspect-ratio-ar) to change the aspect ratio like this**:**
+You can use the [ar parameter](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#aspect-ratio-ar) to change the aspect ratio like this:
 
 ```swift
 urlConstructor = urlConstructor.height(height: 400)

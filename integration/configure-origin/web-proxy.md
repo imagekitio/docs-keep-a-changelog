@@ -3,8 +3,9 @@
 You can access any image on a publicly-available URL using Web Proxy origin. This allows you to use ImageKit.io's real-time image optimization and transformation features on all existing images.
 
 {% hint style="warning" %}
-**Prevent account abuse**\
-****If you enable this origin on an [URL-endpoint](../url-endpoints.md), it allows anyone to access any image using your account. To prevent this abuse, we strongly recommend you [restrict the use of unsigned URLs](../../features/security/#restricting-unsigned-urls). Do refer to the information provided after Step 2 of this guide about encoding URLs before signing them.
+**Prevent account abuse**
+
+If you enable this origin on an [URL-endpoint](../url-endpoints.md), it allows anyone to access any image using your account. To prevent this abuse, we strongly recommend you [restrict the use of unsigned URLs](../../features/security/#restricting-unsigned-urls). Do refer to the information provided after Step 2 of this guide about encoding URLs before signing them.
 {% endhint %}
 
 ## Step 1: Configure origin
@@ -16,8 +17,9 @@ You can access any image on a publicly-available URL using Web Proxy origin. Thi
 5. Click on the Submit button.
 
 {% hint style="info" %}
-:man_mage:**Whitelist request from ImageKit.io**\
-****Make sure that the image public URL is accessible from ImageKit.io. [Learn more](web-server-origin.md#whitelist-request-from-imagekit-io).
+**Whitelist request from ImageKit.io**
+
+Make sure that the image public URL is accessible from ImageKit.io. [Learn more](web-server-origin.md#whitelist-request-from-imagekit-io).
 {% endhint %}
 
 ## Step 2: Access the image through ImageKit.io URL-endpoint
@@ -27,11 +29,11 @@ When you add your first origin in the dashboard, the origin is by default made a
 Let's look at a few examples to fetch the images:
 
 * **Image public URL (old URL)**\
-  ****[https://www.example.com/rest-of-the-path.jpg](https://www.example.com/rest-of-the-path.jpg)
+  [https://www.example.com/rest-of-the-path.jpg](https://www.example.com/rest-of-the-path.jpg)
 * **The same master image using ImageKit.io URL-endpoint**\
-  ****[https://ik.imagekit.io/your_imagekit_id/https://www.example.com/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/https://www.example.com/rest-of-the-path.jpg)
+  [https://ik.imagekit.io/your_imagekit_id/https://www.example.com/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/https://www.example.com/rest-of-the-path.jpg)
 * **Resized 300x300 image**\
-  ****[https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-300`/https://www.example.com/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/https://www.example.com/rest-of-the-path.jpg)
+  [https://ik.imagekit.io/your_imagekit_id/`tr:w-300,h-300`/https://www.example.com/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/https://www.example.com/rest-of-the-path.jpg)
 
 So when you request `https://ik.imagekit.io/your_imagekit_id/https://www.example.com/rest-of-the-path.jpg`, ImageKit.io internally fetches the file from `https://www.example.com/rest-of-the-path.jpg`.
 

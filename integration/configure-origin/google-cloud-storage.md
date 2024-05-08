@@ -71,11 +71,11 @@ When you add your first origin in the dashboard, the origin is by default made a
 Let's look at a few examples to fetch the images:
 
 * **Original image through Google Cloud Storage (old URL)**\
-  ****`https://storage.cloud.google.com/bucket-name/rest-of-the-path.jpg`
+  `https://storage.cloud.google.com/bucket-name/rest-of-the-path.jpg`
 * **The same master image using ImageKit.io URL-endpoint**\
-  ****`https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg`
+  `https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg`
 * **Resized 300x300 image**\
-  ****`https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg`
+  `https://ik.imagekit.io/your_imagekit_id/tr:w-300,h-300/rest-of-the-path.jpg`
 
 So when you request`https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg`, \
 ImageKit.io uses the credentials provided by you to fetch the original image from the path `rest-of-the-path.jpg` in the Google Storage bucket using the official Google Storage SDK.

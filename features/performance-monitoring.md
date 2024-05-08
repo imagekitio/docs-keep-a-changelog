@@ -5,8 +5,9 @@ ImageKit.io automates image performance monitoring and provides alerts regarding
 Once you complete your [integration](../integration/integration-overview.md) and start delivering images using ImageKit.io, you can track the performance of images for both desktop and mobile devices using the Performance Center.
 
 {% hint style="info" %}
-**Paid plan only**\
-****Performance Center is currently available only to paid users.
+**Paid plan only**
+
+Performance Center is currently available only to paid users.
 {% endhint %}
 
 ## Setting Up the Performance Center

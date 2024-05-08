@@ -73,7 +73,7 @@ If you add tags using `aws-auto-tagging` extension on 1000 uploaded images, a to
 
 ### Asynchronous behavior
 
-Extensions may execute asynchronously after your main update/upload call has successfully completed and you have received the response for it. Certain extensions take a longer time than others to execute; for example, [background removal](background-removal.md). These are **always **performed asynchronously. Certain extensions however are first tried to be performed synchronously, e.g. [auto tagging](ai-based-auto-tagging.md) (both Google Cloud Vision and AWS Rekognition). 
+Extensions may execute asynchronously after your main update/upload call has successfully completed and you have received the response for it. Certain extensions take a longer time than others to execute; for example, [background removal](background-removal.md). These are **always** performed asynchronously. Certain extensions however are first tried to be performed synchronously, e.g. [auto tagging](ai-based-auto-tagging.md) (both Google Cloud Vision and AWS Rekognition). 
 
 If performed synchronously, the results of these extensions will be integrated with the main response of the update/upload API call. However, there is no guarantee that any extension will be performed synchronously. You can inspect the response field `extensionStatus` to identify the method used for each extension in your request.
 

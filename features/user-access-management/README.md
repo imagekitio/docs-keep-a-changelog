@@ -4,6 +4,7 @@ User access management allows you to manage how your team members access the [Im
 
 {% hint style="info" %}
 **Paid plan only**
+
 User access management is currently available only to paid users.
 {% endhint %}
 
@@ -49,6 +50,7 @@ A user with this role has view-only access to the media library. This user canno
 
 {% hint style="info" %}
 **Enterprise plan only**
+
 This user is only available in custom enterprise pricing plans.
 {% endhint %}
 

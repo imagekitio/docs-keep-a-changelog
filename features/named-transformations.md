@@ -21,7 +21,9 @@ Always test your transformation before saving it as a named transformation. You 
 Save the transformation. You can now replace the string `tr:w-300,h-200,bl-10` with `tr:n-blur_thumbnail` to use named transformations within your URL.
 
 {% hint style="info" %}
-**Note: **ImageKit.io transformation strings start with **tr:** and named transformations begin with **tr:n-{the name of transformation}**
+**Note:**
+
+ImageKit.io transformation strings start with **tr:** and named transformations begin with **tr:n-{the name of transformation}**
 {% endhint %}
 
 {% hint style="warning" %}

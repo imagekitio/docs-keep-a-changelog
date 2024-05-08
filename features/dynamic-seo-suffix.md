@@ -17,13 +17,15 @@ For example, consider the following image of the Eiffel Tower:
 The image URL should have "Eiffel Tower" instead of "DSC1234.jpg".&#x20;
 
 {% hint style="danger" %}
-**Bad image URL**\
-****https://ik.imagekit.io/demo/DSC1234.jpg
+**Bad image URL**
+
+https://ik.imagekit.io/demo/DSC1234.jpg
 {% endhint %}
 
 {% hint style="success" %}
-**SEO-friendly image URL**\
-****https://ik.imagekit.io/demo/eiffel-tower.jpg
+**SEO-friendly image URL**
+
+https://ik.imagekit.io/demo/eiffel-tower.jpg
 {% endhint %}
 
 ### Dynamic SEO suffix (ik-seo)

@@ -3,7 +3,8 @@
 ImageKit can translate transformations written in Cloudinary's syntax to ImageKit's syntax. Learn how to use a URL-rewriter on [this page](/features/url-rewriters).
 
 {% hint style="info" %}
-**Beta feature**\
+**Beta feature**
+
 This feature is currently in beta. Some transformations may not work as expected.
 {% endhint %}
 

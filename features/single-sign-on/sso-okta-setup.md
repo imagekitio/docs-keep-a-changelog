@@ -6,7 +6,8 @@ There are two main steps required to set up SSO using Okta on ImageKit:
 1. [Enable SSO login on ImageKit](#enable-sso-login-on-imagekit)
 
 {% hint style="info" %}
-**Okta subscription**\
+**Okta subscription**
+
 Although you may use a free developer account on Okta to set up and test the SSO application, having a premium Okta subscription is recommended for seamless role provisioning for your users. Read more [here](#attributes-and-claims).
 {% endhint %}
 

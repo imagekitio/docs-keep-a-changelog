@@ -1,7 +1,8 @@
 # Advanced security settings
 
 {% hint style="info" %}
-**Enterprise plan only**\
+**Enterprise plan only**
+
 This feature is only available in custom enterprise pricing plans.
 {% endhint %}
 
@@ -71,7 +72,8 @@ By default, no geographic restrictions are applied.
 ## HTTP Referrer-based restriction
 
 {% hint style="info" %}
-**Limits**\
+**Limits**
+
 You can allow or block at most 30 referrers.
 {% endhint %}
 
