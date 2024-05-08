@@ -11,7 +11,7 @@ In order for ImageKit to be able to access your Google Cloud Storage bucket, you
 {% hint style="info" %}
 In case you find the following instructions invalid/outdated, you can refer to Google's official, albeit more verbose instructions on these pages:
 
-* Step 1:** **[Creating and managing service accounts](https://cloud.google.com/iam/docs/creating-managing-service-accounts).
+* Step 1: [Creating and managing service accounts](https://cloud.google.com/iam/docs/creating-managing-service-accounts).
 * Step 2: [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 * Step 3: [Assign the bucket reader role to the service account](https://cloud.google.com/storage/docs/access-control/using-iam-permissions).
 {% endhint %}
@@ -50,19 +50,19 @@ We need to create access keys that will be used by ImageKit to authenticate itse
 ## Step 3: Assign the Bucket Reader role to the Service Account
 
 1. In the Cloud Console, navigate to the bucket that you wish to integrate with ImageKit
-2. Click on the **Permissions **tab
+2. Click on the **Permissions** tab
 3. Click on **Add members** button
-4. Enter the name of the service account we created in Step 1, and select the               **Cloud Storage -> Storage Object Viewer **role in the _Select a role_ option
+4. Enter the name of the service account we created in Step 1, and select the **Cloud Storage -> Storage Object Viewer** role in the _Select a role_ option
 5. Click **Save**
 
 ## Step 4: Configure your Google storage bucket with your ImageKit account
 
 We have now created a virtual identity for ImageKit and granted it the Reader role for your bucket, which means that ImageKit can do nothing more than just read objects from your bucket. At this point, you should have the following with you:
 
-* **Google Storage Bucket Name: **Name of the bucket that you want to integrate with ImageKit
-* **Google Service Account key JSON file: **The JSON file you downloaded in step 2
+* **Google Storage Bucket Name:** Name of the bucket that you want to integrate with ImageKit
+* **Google Service Account key JSON file:** The JSON file you downloaded in step 2
 
-Now, go to the [External Storage](https://imagekit.io/dashboard#external-storage) section in the dashboard, click on the **Add New Origin **button, select Google Cloud Storage in the **Origin Type** field, and enter the corresponding values, upload the JSON key file in the file field, and click submit.
+Now, go to the [External Storage](https://imagekit.io/dashboard#external-storage) section in the dashboard, click on the **Add New Origin** button, select Google Cloud Storage in the **Origin Type** field, and enter the corresponding values, upload the JSON key file in the file field, and click submit.
 
 ## Step 5: Access the image through ImageKit.io URL-endpoint
 

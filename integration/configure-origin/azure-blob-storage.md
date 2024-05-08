@@ -37,9 +37,9 @@ This method generates an account-level Shared Access Signature. To generate a se
 
 We have now created a SAS token for ImageKit and granted it the Read permission for your container, which means that ImageKit can do nothing more than just read objects in your container. At this point, you should have the following values with you:
 
-* **Azure storage account name: **The name of your storage account.
-* **Azure storage container name: **Name of the container that you want to integrate.
-* **SAS Token: **As generated in step 1. Do note that the SAS token should begin with a `?` when adding it with the origin in ImageKit. For example - `?sv=2019-12-12&ss=bfqt.........`
+* **Azure storage account name:** The name of your storage account.
+* **Azure storage container name:** Name of the container that you want to integrate.
+* **SAS Token:** As generated in step 1. Do note that the SAS token should begin with a `?` when adding it with the origin in ImageKit. For example - `?sv=2019-12-12&ss=bfqt.........`
 
 Now, go to the [External Storage](https://imagekit.io/dashboard#external-storage) section in the dashboard, click on the **Add New Origin **button, select Azure Storage in the **Origin Type** field, and enter the corresponding values, and click submit.
 

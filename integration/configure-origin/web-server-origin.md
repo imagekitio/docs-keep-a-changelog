@@ -26,7 +26,7 @@ When you add your first origin in the dashboard, the origin is by default made a
 Let's look at a few examples to fetch the images:
 
 * **Original image through your web server (old URL)**\
-  *[https://www.example.com/rest-of-the-path.jpg](https://www.example.com/rest-of-the-path.jpg)
+  [https://www.example.com/rest-of-the-path.jpg](https://www.example.com/rest-of-the-path.jpg)
 * **The same master image using ImageKit.io URL-endpoint**\
   [https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg](https://ik.imagekit.io/your_imagekit_id/rest-of-the-path.jpg)
 * **Resized 300x300 image**\
