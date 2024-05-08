@@ -5,7 +5,8 @@ Your API requests are authenticated using the account's [private API key](api-ke
 Authentication to the API is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). Provide your [private API key](api-keys.md#private-key) as the basic auth username value. You do not need to provide a password.
 
 {% hint style="warning" %}
-**Only HTTPS supported**\
+**Only HTTPS supported**
+
 All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 {% endhint %}
 

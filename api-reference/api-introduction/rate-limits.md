@@ -5,7 +5,8 @@ Except for upload API, all our APIs are rate-limited to protect our infrastructu
 Rate limiting is done across the account. When you exceed the rate limits for an endpoint, you will receive a `429` (Too many requests) response code.
 
 {% hint style="info" %}
-**Staying within the rate limits **:raised_hands: \
+**Staying within the rate limits **:raised_hands:
+
 If you receive a response status code of 429 (Too Many Requests), please sleep/pause for the number of milliseconds specified by the value of `X-RateLimit-Reset` response header before making additional requests to that endpoint.
 {% endhint %}
 
