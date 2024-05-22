@@ -830,6 +830,32 @@ URL - [https://ik.imagekit.io/demo/img/logo-white\_SJwqB4Nfe.png?tr=bg-F00000](h
 
 ![](https://ik.imagekit.io/demo/img/logo-white\_SJwqB4Nfe.png?tr=bg-F00000)
 
+### Opacity - (o)
+
+It is used to specify the opacity level of the output image. A non-tarnsparent image can be made semi-transparent by specifying an opacity level that is less than 100. If an image already has a transparency, then it is further multiplied based on the specified value. It accepts numerical values ranging from 0 to 100, where 0 would produce a completely transparent image, and 100 would have no effect. If a background (`bg`) color is specified along with opacity, then that color is blended with the resultant image, leading to a non-transparent (opaque) image, but with the `bg` color mixed in. Alpha component, if present in the `bg` value, will be ignored.
+
+**Possible Values** - Integer values from 0 to 100, inclusive
+
+{% tabs %}
+{% tab title="o-50" %}
+URL - [https://ik.imagekit.io/demo/tr:o-50/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:o-50/medium\_cafe\_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:o-50/medium\_cafe\_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="o-50,bg-blue" %}
+URL - [https://ik.imagekit.io/demo/tr:o-50,bg-blue/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:o-50,bg-blue/medium\_cafe\_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:o-50,bg-blue/medium\_cafe\_B1iTdD0C.jpg)
+{% endtab %}
+
+{% tab title="o-50,bg-0000FF30" %}
+URL - [https://ik.imagekit.io/demo/tr:o-50,bg-0000FF30/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:o-50,bg-0000FF30/medium\_cafe\_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/demo/tr:o-50,bg-0000FF30/medium\_cafe\_B1iTdD0C.jpg)
+{% endtab %}
+{% endtabs %}
+
 ### Original image - (orig)
 
 By default, any image that is delivered via ImageKit.io always gets optimized in some way or the other. While this automatic optimization is great for web and apps, there might be certain cases where you want to get the original image as is. You can do so by using the parameter `orig`  and set the value to `true` .  If there are any other transformation parameters specified along with `orig-true` , then those get ignored.
