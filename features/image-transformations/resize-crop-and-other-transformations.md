@@ -832,7 +832,9 @@ URL - [https://ik.imagekit.io/demo/img/logo-white\_SJwqB4Nfe.png?tr=bg-F00000](h
 
 ### Opacity - (o)
 
-It is used to specify the opacity level of the output image. A non-tarnsparent image can be made semi-transparent by specifying an opacity level that is less than 100. If an image already has a transparency, then it is further multiplied based on the specified value. It accepts numerical values ranging from 0 to 100, where 0 would produce a completely transparent image, and 100 would have no effect. If a background (`bg`) color is specified along with opacity, then that color is blended with the resultant image, leading to a non-transparent (opaque) image, but with the `bg` color mixed in. Alpha component, if present in the `bg` value, will be ignored.
+It is used to specify the opacity level of the output image. A non-transparent image can be made semi-transparent by specifying an opacity level that is less than 100. An already transparent image is made more transparent based on the specified value. It accepts numerical values ranging from 0 to 100, where 0 would produce a completely transparent image, and 100 would have no effect. 
+
+If a background (`bg`) color is specified along with opacity, then that color is blended with the resultant image, leading to a non-transparent (opaque) image, but with the `bg` color mixed in. Alpha component, if present in the `bg` value, will be ignored.
 
 **Possible Values** - Integer values from 0 to 100, inclusive
 
