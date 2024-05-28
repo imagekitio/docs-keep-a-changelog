@@ -20,6 +20,7 @@ There are certain limits, like those on image transformation dimensions, which a
 | <p>Image resolution<br>(input or transformed)</p>                               | 100 MP   | Yes        |
 | Max image transformation dimensions (dimensions greater than this in the transformation string will get ignored) | 65535 px | No         |
 | Max WebP image transformation dimensions (dimensions greater than this will not work for transformation)         | 16383 px | No         |
+| <p>Input file size for vector formats such as PDF, EPS etc</p> | 5MB | No
 
 ## Video limits
 
