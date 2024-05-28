@@ -877,7 +877,7 @@ Example - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=tr
 ![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true)
 
 ### Page - (pg)
-Delivers specified page, frame, or layer of a multi-page/frame/layer file, such as a PDF, animated image like GIF, or PSD. It needs to be used alongside the ik-thumbnail.jpg URL component.
+Delivers the specified page, frame, or layer of a multi-page, multi-frame, or multi-layer, such as a PDF, animated image like GIF, or PSD. It needs to be used alongside the ik-thumbnail.jpg URL component.
 
 `ik-thumbnail.jpg` needs to be added after the file resource URL, like this:
 
@@ -895,7 +895,7 @@ https://ik.imagekit.io/ikmedia/tr:pg-2/layout.psd/ik-thumbnail.jpg
 * Animated PNG
 
 {% hint style="info" %}
-If the `pg` parameter is not provided, only `ik-thumbnail.jpg` is added after the file resource URL of the above mentioned formats. The first page, frame, or layer is extracted by default.
+If the `pg` parameter is not provided and only `ik-thumbnail.jpg` is added after the file resource URL of the above mentioned formats, then the first page, frame, or layer is extracted by default.
 {% endhint %}
 
 **Usage**
@@ -926,7 +926,7 @@ URL - [https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-2\_3-4](
 ![](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-2\_3-4)
 {% endtab %}
 
-{% tab title=`"record_cover"_"Shadow"_"logo"` %}
+{% tab title=`pg-name-"layer-4"_"layer-002"` %}
 URL - [https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-name-"layer-4"\_"layer-002"](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-name-"layer-4"\_"layer-002")
 
 ![](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-name-"layer-4"\_"layer-002")
@@ -945,5 +945,5 @@ URL - [https://ik.imagekit.io/ikmedia/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l
 {% endtabs %}
 
 {% hint style="info" %}
-`pg` is not supported in [conditional transformations](conditional-transformations.md).
+`pg` is not supported in [conditional transformations](../image-transformations/conditional-transformations.md#conditional-transformations).
 {% endhint %}
