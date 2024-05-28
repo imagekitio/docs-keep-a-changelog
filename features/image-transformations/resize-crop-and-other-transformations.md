@@ -937,7 +937,7 @@ URL - [https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-name-"la
 Adding `ik-thumbnail.jpg` after the file URL resource is not required in overlays.
 
 {% tabs %}
-{% tab title="'pg' in overlay" %}
+{% tab title='"pg" in overlay' %}
 URL - [https://ik.imagekit.io/ikmedia/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l-end/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/ikmedia/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l-end/medium\_cafe\_B1iTdD0C.jpg)
 
 ![](https://ik.imagekit.io/ikmedia/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l-end/medium\_cafe\_B1iTdD0C.jpg)
