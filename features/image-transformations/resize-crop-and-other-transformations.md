@@ -875,3 +875,75 @@ By specifying this parameter in the file URL, ImageKit sets the `content-disposi
 Example - [https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true)
 
 ![](https://ik.imagekit.io/demo/medium_cafe_B1iTdD0C.jpg?ik-attachment=true)
+
+### Page - (pg)
+Delivers the specified page, frame, or layer of a multi-page, multi-frame, or multi-layer, such as a PDF, animated image like GIF, or PSD. It needs to be used alongside the ik-thumbnail.jpg URL component.
+
+`ik-thumbnail.jpg` needs to be added after the file resource URL, like this:
+
+```markup
+https://ik.imagekit.io/ikmedia/tr:pg-2/layout.psd/ik-thumbnail.jpg
+````
+
+**List of supported multi-page/frame/layer files formats**
+* PDF
+* PSD
+* EPS
+* AI
+* GIF
+* Animated Webp
+* Animated PNG
+
+{% hint style="info" %}
+If the `pg` parameter is not provided and only `ik-thumbnail.jpg` is added after the file resource URL of the above mentioned formats, then the first page, frame, or layer is extracted by default.
+{% endhint %}
+
+**Usage**
+
+| Syntax       | Description       | Value Type        | Usage Example      |
+|-----------------|-------------------|-------------------|------------|
+| `pg-<number>` | Delivers a single page or layer of a multi-page or multi-layer file (PDF, PSD), or a specified frame of an animated image like GIF. | `Number` | `pg-2` |
+| `pg-<range>` (Applicable for  PSD only) | Delivers the specified range of pages or layers from a PSD file. | `Numbers` separated by `-` (for range) or `_` (for multiple values) | Used in following ways:<ul><li>Use underscore (`_`) to separate a list of multiple pages/layers: `pg-1_3_5`</li><li>Use hyphens (`-`) to indicate a page/layer range: `pg-2-4`</li><li>Use a hyphen with no ending number to indicate starting from a specified page/layer until the end: `pg-4-`</li></ul>|
+| `pg-name-<layer name(s)>` (Applicable for  PSD only)| Delivers one or more named layers from a PSD file | `Strings` enclosed in `"` separated by `_` (for multiple values) | The name of the layer(s) to deliver enclosed in double quotes (`"`). Use underscore (`_`) to separate a list of layer names : `pg-name-"layer-name-1"_"layer-name-2"` | 
+
+
+{% tabs %}
+{% tab title="pg-3-4" %}
+URL - [https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-3-4](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-3-4)
+
+![](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-3-4)
+{% endtab %}
+
+{% tab title="pg-3-" %}
+URL - [https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-3-](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-3-)
+
+![](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-3-)
+{% endtab %}
+
+{% tab title="pg-2_3-4" %}
+URL - [https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-2\_3-4](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-2\_3-4)
+
+![](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-2\_3-4)
+{% endtab %}
+
+{% tab title='pg-name-"layer-4"_"layer-002"' %}
+URL - [https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-name-"layer-4"\_"layer-002"](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-name-"layer-4"\_"layer-002")
+
+![](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-name-"layer-4"\_"layer-002")
+{% endtab %}
+{% endtabs %}
+
+**Usage In Overlays**
+Adding `ik-thumbnail.jpg` after the file URL resource is not required in overlays.
+
+{% tabs %}
+{% tab title='"pg" in overlay' %}
+URL - [https://ik.imagekit.io/ikmedia/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l-end/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/ikmedia/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l-end/medium\_cafe\_B1iTdD0C.jpg)
+
+![](https://ik.imagekit.io/ikmedia/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l-end/medium\_cafe\_B1iTdD0C.jpg)
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+`pg` is not supported in [conditional transformations](../image-transformations/conditional-transformations.md#conditional-transformations).
+{% endhint %}
