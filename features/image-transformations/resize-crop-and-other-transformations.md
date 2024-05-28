@@ -882,7 +882,7 @@ Delivers specified page, frame, or layer of a multi-page/frame/layer file, such 
 `ik-thumbnail.jpg` needs to be added after the file resource URL, like this:
 
 ```markup
-https://ik.imagekit.io/demo/tr:pg-2/sample.pdf/ik-thumbnail.jpg
+https://ik.imagekit.io/ikmedia/tr:pg-2/layout.psd/ik-thumbnail.jpg
 ````
 
 **List of supported multi-page/frame/layer files formats**
@@ -909,27 +909,27 @@ If the `pg` parameter is not provided, only `ik-thumbnail.jpg` is added after th
 
 {% tabs %}
 {% tab title="pg-3-4" %}
-URL - [https://ik.imagekit.io/demo/layout.psd/ik-thumbnail.jpg?tr=pg-3-4](https://ik.imagekit.io/demo/layout.psd/ik-thumbnail.jpg?tr=pg-3-4)
+URL - [https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-3-4](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-3-4)
 
-![](https://ik.imagekit.io/demo/layout.psd/ik-thumbnail.jpg?tr=pg-3-4)
+![](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-3-4)
 {% endtab %}
 
 {% tab title="pg-3-" %}
-URL - [https://ik.imagekit.io/demo/layout.psd/ik-thumbnail.jpg?tr=pg-3-](https://ik.imagekit.io/demo/layout.psd/ik-thumbnail.jpg?tr=pg-3-)
+URL - [https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-3-](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-3-)
 
-![](https://ik.imagekit.io/demo/layout.psd/ik-thumbnail.jpg?tr=pg-3-)
+![](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-3-)
 {% endtab %}
 
 {% tab title="pg-2_3-4" %}
-URL - [https://ik.imagekit.io/demo/layout.psd/ik-thumbnail.jpg?tr=pg-2\_3-4](https://ik.imagekit.io/demo/layout.psd/ik-thumbnail.jpg?tr=pg-2\_3-4)
+URL - [https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-2\_3-4](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-2\_3-4)
 
-![](https://ik.imagekit.io/demo/layout.psd/ik-thumbnail.jpg?tr=pg-2\_3-4)
+![](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-2\_3-4)
 {% endtab %}
 
 {% tab title=`"record_cover"_"Shadow"_"logo"` %}
-URL - [https://ik.imagekit.io/demo/layout.psd/ik-thumbnail.jpg?tr=pg-name-"layer-4"\_"layer-002"](https://ik.imagekit.io/demo/layout.psd/ik-thumbnail.jpg?tr=pg-name-"layer-4"\_"layer-002")
+URL - [https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-name-"layer-4"\_"layer-002"](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-name-"layer-4"\_"layer-002")
 
-![](https://ik.imagekit.io/demo/layout.psd/ik-thumbnail.jpg?tr=pg-name-"layer-4"\_"layer-002")
+![](https://ik.imagekit.io/ikmedia/layout.psd/ik-thumbnail.jpg?tr=pg-name-"layer-4"\_"layer-002")
 {% endtab %}
 {% endtabs %}
 
@@ -938,9 +938,9 @@ Adding `ik-thumbnail.jpg` after the file URL resource is not required in overlay
 
 {% tabs %}
 {% tab title=`"pg" in overlay` %}
-URL - [https://ik.imagekit.io/demo/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l-end/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/demo/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l-end/medium\_cafe\_B1iTdD0C.jpg)
+URL - [https://ik.imagekit.io/ikmedia/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l-end/medium\_cafe\_B1iTdD0C.jpg](https://ik.imagekit.io/ikmedia/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l-end/medium\_cafe\_B1iTdD0C.jpg)
 
-![](https://ik.imagekit.io/demo/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l-end/medium\_cafe\_B1iTdD0C.jpg)
+![](https://ik.imagekit.io/ikmedia/tr:l-image,i-layout.psd,pg-3,h-200,w-200,l-end/medium\_cafe\_B1iTdD0C.jpg)
 {% endtab %}
 {% endtabs %}
 
