@@ -904,7 +904,7 @@ If the `pg` parameter is not provided and only `ik-thumbnail.jpg` is added after
 |-----------------|-------------------|-------------------|------------|
 | `pg-<number>` | Delivers a single page or layer of a multi-page or multi-layer file (PDF, PSD), or a specified frame of an animated image like GIF. | `Number` | `pg-2` |
 | `pg-<range>` (Applicable for  PSD only) | Delivers the specified range of pages or layers from a PSD file. | `Numbers` separated by `-` (for range) or `_` (for multiple values) | Used in following ways:<ul><li>Use underscore (`_`) to separate a list of multiple pages/layers: `pg-1_3_5`</li><li>Use hyphens (`-`) to indicate a page/layer range: `pg-2-4`</li><li>Use a hyphen with no ending number to indicate starting from a specified page/layer until the end: `pg-4-`</li></ul>|
-| `pg-name-<layer name(s)> (Applicable for  PSD only)`| Delivers one or more named layers from a PSD file | `Strings` enclosed in `"` separated by `_` (for multiple values) | The name of the layer(s) to deliver enclosed in double quotes (`"`). Use underscore (`_`) to separate a list of layer names : `pg-name-"layer-name-1"_"layer-name-2"` | 
+| `pg-name-<layer name(s)>` (Applicable for  PSD only)| Delivers one or more named layers from a PSD file | `Strings` enclosed in `"` separated by `_` (for multiple values) | The name of the layer(s) to deliver enclosed in double quotes (`"`). Use underscore (`_`) to separate a list of layer names : `pg-name-"layer-name-1"_"layer-name-2"` | 
 
 
 {% tabs %}
