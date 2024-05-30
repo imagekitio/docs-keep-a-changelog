@@ -141,6 +141,7 @@
 * [Session management](features/session-management.md)
 * [Multi-account user association](features/multi-account-user-association.md)
 * [Embed video](features/embed-video.md)
+* [Visual search](features/visual-search.md)
 
 ## Best Practices
 * [Mobile Apps](imagekit-best-practices/mobile-apps.md)
