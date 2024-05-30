@@ -69,10 +69,12 @@ There are two places where you can add a new search query -
 
 ### Visual Search
 
-{% hint style="info" %}
-**Enterprise plan only**
 
-This feature is only available in custom enterprise pricing plans.
+{% hint style="info" %}
+**Note**
+
+This feature is only available on request for specific plans.\
+For more information, please contact the [support team](mailto:support@imagekit.io) or your ImageKit Customer Success Manager.
 {% endhint %}
 
 Visual search allows you to search for similar images based on visual content. Instead of relying on text-based keywords or metadata, you can search based on visual content like colors, shapes, textures and any other information that can be derived from the image itself.
