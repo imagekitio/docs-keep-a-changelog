@@ -32,39 +32,6 @@ You can further narrow search results by using quick filters `Folders`, `Files`,
 
 The toggle at the top, "Include files with matching tags," allows you to control whether the search results should include files with matching tags.
 
-### Visual Search
-
-{% hint style="info" %}
-**Enterprise plan only**
-
-This feature is only available in custom enterprise pricing plans.
-{% endhint %}
-
-Visual search allows you to search for similar images based on visual content. Instead of relying on text-based keywords or metadata,  you can search based on visual content like colors, shapes, textures and any other information that can be derived from the image itself.
-
-By searching visually rather than by name or metadata, you can:
-
-* Easily locate the images without needing to remember the tags or name of the file.
-* Identify duplicates at ease
-* Discover images in your media library through visual characteristics
-* Group visually similar images together for better organization
-* Enhance discoverability of your assets
-
-You can perform visual search from the dashboard either by image or by text:
-
-*   **Searching by Text** : Allows you to type in a word or a phrase to find images that visually match it.
-    For example, you can type in `pink birds`, all the images that relate to `pink birds` will be retrieved from your media library
-
-
-    <figure><img src="../../.gitbook/assets/visual-search/text_search_results.png" alt=""><figcaption></figcaption></figure>
-*   **Searching by Image** :  Allows you to find matches based on the image that you can upload or to a remote image via a given URL.
-
-    <figure><img src="../../.gitbook/assets/visual-search/search_by_image.png" alt=""><figcaption><p>Upload image or Specify a URL<br></p></figcaption></figure>
-
-    For example, uploading the image from [the URL](https://ik.imagekit.io/pwliscd3n/photo-1491972690050-ba117db4dc09\_9\_0DBlXmS.jpeg) or entering the URL in the input box will retrieve images related to a woman wearing a red shirt with sunglasses
-
-    <figure><img src="../../.gitbook/assets/visual-search/image_search_results.png" alt=""><figcaption></figcaption></figure>
-
 ### Advanced searching
 
 The advanced search mode can be accessed by clicking on the filter icon in the search bar. This mode allows you to create complex search queries to find the exact file(s) you are looking for. The advanced search mode allows searching based on -
@@ -99,6 +66,18 @@ There are two places where you can add a new search query -
 
 1. Clicking on the `+` icon next to an existing filter lets you combine other search parameters in the same filter.
 2. Clicking on `+ Add Filter` link lets you add another filter in parallel to the existing one. This new filter can be combined either to narrow (`and` operator) or to expand (`or` operator) the results from other search filters.
+
+### Visual Search
+
+{% hint style="info" %}
+**Enterprise plan only**
+
+This feature is only available in custom enterprise pricing plans.
+{% endhint %}
+
+Visual search allows you to search for similar images based on visual content. Instead of relying on text-based keywords or metadata, you can search based on visual content like colors, shapes, textures and any other information that can be derived from the image itself.
+
+Read more about Visual Search [here](../../features/visual-search.md).
 
 ## File Deletion
 
