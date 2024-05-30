@@ -22,7 +22,7 @@ You can perform visual search from the dashboard either by text or by image:
 
 *   **Searching by Text**: You can type in a word or a phrase to find images that visually match it.\
     For example, you can type in `summer dresses`; all the images related to `summer dresses` will be retrieved from your media library.\
-
+    
 
     <figure><img src="../.gitbook/assets/visual-search/text_search.png" alt=""><figcaption></figcaption></figure>
 
