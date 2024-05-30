@@ -31,7 +31,7 @@ You can perform visual search from the dashboard either by text or by image:
 
     <figure><img src="../.gitbook/assets/visual-search/search_by_image.png" alt=""><figcaption><p>Upload image or specify a URL</p></figcaption></figure>
 
-    For example, uploading the image from [this URL](https://ik.imagekit.io/pwliscd3n/photo-1491972690050-ba117db4dc09_9_0DBlXmS.jpeg) will retrieve images related to a woman wearing a red shirt with sunglasses.\
+    For example, uploading the image from [this URL](https://ik.imagekit.io/demo/img/photo-1491972690050-ba117db4dc09_9_0DBlXmS.jpeg) will retrieve images related to a woman wearing a red shirt with sunglasses.\
 
 
     <figure><img src="../.gitbook/assets/visual-search/image_search_results.png" alt=""><figcaption></figcaption></figure>
@@ -42,7 +42,7 @@ You can perform visual search from the dashboard either by text or by image:
 
 
 
-    For example, entering [this URL](https://ik.imagekit.io/pwliscd3n/allison-huang-_u8KhAZRGHs-unsplash_rn6D9ksWC.jpg) in the input box will retrieve images related to a scenic view of a beach with a house.\
+    For example, entering [this URL](https://ik.imagekit.io/demo/img/allison-huang-_u8KhAZRGHs-unsplash_rn6D9ksWC.jpg) in the input box will retrieve images related to a scenic view of a beach with a house.\
 
 
     <figure><img src="../.gitbook/assets/visual-search/image_url_search_results.png" alt=""><figcaption></figcaption></figure>
