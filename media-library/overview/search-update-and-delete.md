@@ -67,6 +67,20 @@ There are two places where you can add a new search query -
 1. Clicking on the `+` icon next to an existing filter lets you combine other search parameters in the same filter.
 2. Clicking on `+ Add Filter` link lets you add another filter in parallel to the existing one. This new filter can be combined either to narrow (`and` operator) or to expand (`or` operator) the results from other search filters.
 
+### Visual Search
+
+
+{% hint style="info" %}
+**Note**
+
+This feature is only available in custom enterprise pricing plans.
+For more information, please contact the [support team](mailto:support@imagekit.io) or your ImageKit Customer Success Manager.
+{% endhint %}
+
+Visual search allows you to search for similar images based on visual content. Instead of relying on text-based keywords or metadata, you can search based on visual content like colors, shapes, textures and any other information that can be derived from the image itself.
+
+Read more about Visual Search [here](../../features/visual-search.md).
+
 ## File Deletion
 
 Right-click the file to open menu options. Select the "Delete" item. This will open a confirmation popup. Click on "Submit" to permanently delete your file. Upon confirmation, the file is deleted permanently from the Media Library.
