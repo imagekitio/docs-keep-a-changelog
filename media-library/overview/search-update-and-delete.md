@@ -73,7 +73,7 @@ There are two places where you can add a new search query -
 {% hint style="info" %}
 **Note**
 
-This feature is only available on request for specific plans.\
+This feature is only available in custom enterprise pricing plans.
 For more information, please contact the [support team](mailto:support@imagekit.io) or your ImageKit Customer Success Manager.
 {% endhint %}
 
