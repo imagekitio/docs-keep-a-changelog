@@ -53,7 +53,7 @@ Example: Re-encoding a video from MP4
 
 <https://ik.imagekit.io/demo/shoot-football-sar-16-9.mp4?tr=f-orig-true>
 
-![Screenshoot of football shoot video](../.gitbook/assets/screenshot-football-shoot-original-video.png)
+![](../.gitbook/assets/screenshot-football-shoot-original-video.png)
 
 The original video has a resolution of 720x720 and a SAR of 16:9, so the intended DAR is 16:9.
 
@@ -63,7 +63,7 @@ The original video has a resolution of 720x720 and a SAR of 16:9, so the intende
 
 <https://ik.imagekit.io/demo/shoot-football-sar-16-9.mp4?tr=f-mp4>
 
-![Screenshot of encoding video to mp4 format](../.gitbook/assets/screenshot-football-shoot-f-mp4.png)
+![](../.gitbook/assets/screenshot-football-shoot-f-mp4.png)
 
 The video is upscaled to resolution of 1080x720, thus maintaining the intended DAR of 16:9, while keeping SAR to 1:1.
 {% endtab %}
@@ -78,7 +78,7 @@ Example: Add video as an overlay
 
 <https://ik.imagekit.io/demo/sample-video.mp4?tr=l-video,i-shoot-football-sar-16-9.mp4,h-250,lfo-top_right,l-end>
 
-![Screenshot of adding video overlay](../.gitbook/assets/screenshot-football-shoot-video-in-l-video.png)
+![](../.gitbook/assets/screenshot-football-shoot-video-in-l-video.png)
 
 The football shoot video has been overlayed at the top right of the frame after being resized to height of 250px while preserving the DAR of the original video.
 
@@ -94,7 +94,7 @@ Using crop modes that preserve aspect ratios, such as `c-at_max`, `c-maintain_ra
 
 <https://ik.imagekit.io/demo/shoot-football-sar-16-9.mp4?tr=f-orig-true>
 
-![Screenshoot of football shoot video](../.gitbook/assets/screenshot-football-shoot-original-video.png)
+![](../.gitbook/assets/screenshot-football-shoot-original-video.png)
 
 The original video has a resolution of 720x720 and a SAR of 16:9, so the intended DAR is 16:9.
 
@@ -104,7 +104,7 @@ The original video has a resolution of 720x720 and a SAR of 16:9, so the intende
 
 <https://ik.imagekit.io/demo/shoot-football-sar-16-9.mp4?tr=c-at_max,w-400,h-400>
 
-![Screenshoot of football shoot video](../.gitbook/assets/screenshot-football-shoot-c-at_max-w-400-h-400.png)
+![](../.gitbook/assets/screenshot-football-shoot-c-at_max-w-400-h-400.png)
 
 The resulting video has a resolution of 400x226 and SAR of 1:1. Thus preserving the intended DAR of 16:9.
 
@@ -114,7 +114,7 @@ The resulting video has a resolution of 400x226 and SAR of 1:1. Thus preserving 
 
 <https://ik.imagekit.io/demo/shoot-football-sar-16-9.mp4?tr=cm-pad_resize,w-400,h-360,bg-red>
 
-![Screenshoot of football shoot video](../.gitbook/assets/screenshot-football-shoot-cm-pad_resize-w-400-h-360-bg-red.png)
+![](../.gitbook/assets/screenshot-football-shoot-cm-pad_resize-w-400-h-360-bg-red.png)
 
 The resulting video has resolution of 400x360. The video component from the original video maintains 16:9 aspect ratio, while remaining area on top & bottom has red padding.
 
@@ -124,7 +124,7 @@ The resulting video has resolution of 400x360. The video component from the orig
 
 <https://ik.imagekit.io/demo/shoot-football-sar-16-9.mp4?tr=h-ih_div_2>
 
-![Screenshoot of football shoot video](../.gitbook/assets/screenshot-football-shoot-h-ih_div_2.png)
+![](../.gitbook/assets/screenshot-football-shoot-h-ih_div_2.png)
 
 Using expression `ih_div_2` we instructed Imagekit's endpoint to resize the video to half the original width while preserving the original DAR.
 
@@ -146,4 +146,6 @@ Example:
 
 <https://ik.imagekit.io/demo/shoot-football-sar-16-9.mp4/ik-thumbnail.jpg>
 
-![Screenshoot of football shoot video thumbnail image](https://ik.imagekit.io/demo/shoot-football-sar-16-9.mp4/ik-thumbnail.jpg?v=31may2024)
+![](https://ik.imagekit.io/demo/shoot-football-sar-16-9.mp4/ik-thumbnail.jpg?v=31may2024)
+
+The extracted thumbnail maintains the intended DAR of 16:9
