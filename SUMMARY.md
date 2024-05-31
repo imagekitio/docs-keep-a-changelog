@@ -73,6 +73,7 @@
 * [Limits](limits-and-troubleshooting/limits.md)
 * [Error troubleshooting](limits-and-troubleshooting/404-not-found-error-troubleshooting.md)
 * [ABS resizing changes](limits-and-troubleshooting/modification-in-resizing-method-for-ABS-representations.md)
+* [Respecting display-aspect-ratio (DAR) for Videos with Non-Square Pixels](limits-and-troubleshooting/respecting-display-aspect-ratio.md)
 
 ## Testing and Infrastructure Setup
 
