@@ -1,6 +1,6 @@
 ---
 description: >-
-  Real-time image resizing and automatic optimization in Next.js using ImageKit.io.
+  Real-time image & video resizing, automatic optimization, and file uploading in Next.js using ImageKit.io.
 ---
 
 # Next.js
