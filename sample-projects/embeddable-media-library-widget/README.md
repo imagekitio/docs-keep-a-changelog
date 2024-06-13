@@ -92,12 +92,9 @@ The plugin accepts the following configuration options, including the mandatory 
 `mlSettings` can have the following properties:
  Option             | Datatype               | Description                                                                                                                                                      | Default value                                                                             |
 | ------------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `initialView`        | Object | Instructs the widget to open in specified initial state. See the table below to learn about its subfields. | None                                                                                      |
-| 
-| `multiple`        | Boolean | Whether to allow users to select multiple assets during insertion via plugin. | None                                                                                      |
-| 
-| `maxFiles`        | Number | Max number of media assets that can be inserted via plugin in a single operation. Only relevant when `multiple=true`. | None                                                                                      |
-| 
+| `initialView`| Object | Instructs the widget to open in specified initial state. See the table below to learn about its subfields. | None |
+| `multiple`| Boolean | Whether to allow users to select multiple assets during insertion via plugin. | None |
+| `maxFiles`| Number | Max number of media assets that can be inserted via plugin in a single operation. Only relevant when `multiple=true`. | None |
 
 `initialView` can only have one of the following properties:
 
@@ -363,7 +360,7 @@ Login to ImageKit with your email and password.
 
 Upon logging in successfully, you should automatically be routed to the Media Library view.
 
-![Media Library Widget panel in modal popup](![](../../.gitbook/assets/15-mlw-home.png))
+![Media Library Widget panel in modal popup](../../.gitbook/assets/15-mlw-home.png)
 
 ### 4. Insert images from the Media Library via the plugin
 
