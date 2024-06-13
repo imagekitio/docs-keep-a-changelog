@@ -135,7 +135,7 @@ _**Note:**_ _Do not include your _[_API private key_](../../api-reference/api-in
 
 This SDK provides 3 components:
 
-- `IKImage` for [image rendering](https://github.com/imagekit-developer/imagekit-next?tab=readme-ov-file#image-resizing).  This utilizes `next/image` and renders an `<img>` tag.
+- `IKImage` for [image rendering](https://github.com/imagekit-developer/imagekit-next?tab=readme-ov-file#image-resizing). This utilizes `next/image` and renders an `<img>` tag.
 - `IKVideo` for [video resizing](https://github.com/imagekit-developer/imagekit-next#video-resizing). This renders a `<video>` tag.
 - `IKUpload` for [file uploading](https://github.com/imagekit-developer/imagekit-next#file-upload). The output is a `<input type="file">` tag.
 - `IKContext` for defining [authentication context](https://github.com/imagekit-developer/imagekit-next#ikcontext), i.e. `urlEndpoint`, `publicKey` and `authenticator` to all child elements.
@@ -227,7 +227,7 @@ Now let's add it to our `page.js`. Along with the image `path` prop, it also nee
 **Rendered HTML element:**
 
 ```jsx
-<img alt="Alt text" width="400" height="400" decoding="async" data-nimg="1" style="color:transparent" src="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2F<YOUR_IMAGEKIT_ID>%2Fdefault-image.jpg&amp;w=828&amp;q=75" loading="lazy" srcset="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2F<YOUR_IMAGEKIT_ID>%2Fdefault-image.jpg&amp;w=640&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fik.imagekit.io%2F<YOUR_IMAGEKIT_ID>%2Fdefault-image.jpg&amp;w=828&amp;q=75 2x">
+<img alt="Alt text" width="400" height="400" decoding="async" data-nimg="1" style="color:transparent" src="https://ik.imagekit.io/igi7ywjzdi/default-image.jpg" loading="lazy" srcset="https://ik.imagekit.io/igi7ywjzdi/default-image.jpg 1x, https://ik.imagekit.io/igi7ywjzdi/default-image.jpg 2x">
 ```
 
 The `page.js` file should look like this now:
@@ -255,7 +255,7 @@ export default function Home() {
 
 **This is how the output should look now:**
 
-![Rendered the image using a relative path](../../.gitbook/assets/next/rendered-image-relative-path.png)
+![Rendered the image using a relative path](../../.gitbook/assets/next/1.png)
 
 **Loading image from an absolute path:**
 
@@ -269,7 +269,7 @@ If you have an absolute image path coming from the backend API e.g. `https://www
 
 **The output looks like this:**
 
-![Render image on custom domain via absolute path](../../.gitbook/assets/next/rendered-image-absolute-path.png)
+![Render image on custom domain via absolute path](../../.gitbook/assets/next/2.png)
 
 ## **Setting ImageKit context for the SDK**
 
@@ -356,12 +356,12 @@ Let’s resize the default image to 200px height and width:
 **Rendered HTML element:**
 
 ```markup
-<img alt="Alt text" width="200" height="200" decoding="async" data-nimg="1" style="color:transparent" src="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Figi7ywjzdi%2Ftr%3Ah-200%2Cw-200%2Fdefault-image.jpg&amp;w=640&amp;q=75" loading="lazy" srcset="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Figi7ywjzdi%2Ftr%3Ah-200%2Cw-200%2Fdefault-image.jpg&amp;w=256&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fik.imagekit.io%2Figi7ywjzdi%2Ftr%3Ah-200%2Cw-200%2Fdefault-image.jpg&amp;w=640&amp;q=75 2x">
+<img alt="Alt text" width="200" height="200" decoding="async" data-nimg="1" style="color:transparent" src="https://ik.imagekit.io/igi7ywjzdi/tr:h-200,w-200/default-image.jpg" loading="lazy" srcset="https://ik.imagekit.io/igi7ywjzdi/tr:h-200,w-200/default-image.jpg 1x, https://ik.imagekit.io/igi7ywjzdi/tr:h-200,w-200/default-image.jpg 2x">
 ```
 
 Refresh your browser to get the resized image.
 
-![Resized Image (200x200px)](../../.gitbook/assets/next/height-width-manipulation.png)
+![Resized Image (200x200px)](../../.gitbook/assets/next/3.png)
 
 ### **Quality manipulation**
 
@@ -374,10 +374,10 @@ You can use the [quality parameter](../../features/image-transformations/resize-
 **Rendered HTML:**
 
 ```jsx
-<img alt="Alt text" width="400" height="400" decoding="async" data-nimg="1" style="color:transparent" src="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Figi7ywjzdi%2Ftr%3Aq-10%2Fdefault-image.jpg&amp;w=828&amp;q=75" loading="lazy" srcset="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Figi7ywjzdi%2Ftr%3Aq-10%2Fdefault-image.jpg&amp;w=640&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fik.imagekit.io%2Figi7ywjzdi%2Ftr%3Aq-10%2Fdefault-image.jpg&amp;w=828&amp;q=75 2x">
+<img alt="Alt text" width="400" height="400" decoding="async" data-nimg="1" src="https://ik.imagekit.io/igi7ywjzdi/tr:q-10/default-image.jpg" style="" loading="lazy" srcset="https://ik.imagekit.io/igi7ywjzdi/tr:q-10/default-image.jpg 1x, https://ik.imagekit.io/igi7ywjzdi/tr:q-10/default-image.jpg 2x">
 ```
 
-![Quality manipulation (q=10)](../../.gitbook/assets/next/quality-mainpulation.png)
+![Quality manipulation (q=10)](../../.gitbook/assets/next/4.png)
 
 ### **Crop mode**‌
 
@@ -402,10 +402,10 @@ Let’s now see how [cropping](../../features/image-transformations/resize-crop-
 **Rendered HTML element:**
 
 ```markup
-<img alt="Alt text" width="200" height="300" decoding="async" data-nimg="1" src="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Figi7ywjzdi%2Ftr%3Ah-300%2Cw-200%2Ccm-extract%2Fdefault-image.jpg&amp;w=640&amp;q=75" style="" loading="lazy" srcset="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Figi7ywjzdi%2Ftr%3Ah-300%2Cw-200%2Ccm-extract%2Fdefault-image.jpg&amp;w=256&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fik.imagekit.io%2Figi7ywjzdi%2Ftr%3Ah-300%2Cw-200%2Ccm-extract%2Fdefault-image.jpg&amp;w=640&amp;q=75 2x">
+<img alt="Alt text" width="200" height="300" decoding="async" data-nimg="1" src="https://ik.imagekit.io/igi7ywjzdi/tr:h-300,w-200,cm-extract/default-image.jpg" style="" loading="lazy" srcset="https://ik.imagekit.io/igi7ywjzdi/tr:h-300,w-200,cm-extract/default-image.jpg 1x, https://ik.imagekit.io/igi7ywjzdi/tr:h-300,w-200,cm-extract/default-image.jpg 2x">
 ```
 
-![Crop Mode Extract (200x300px)](../../.gitbook/assets/next/cropped.png)
+![Crop Mode Extract (200x300px)](../../.gitbook/assets/next/5.png)
 
 ### **Chained transformation**
 
@@ -436,7 +436,7 @@ Let’s try it out by [resizing](../../features/image-transformations/resize-cro
   alt="">
 ```
 
-![Resized and cropped (200x300px)](../../.gitbook/assets/next/resize-cropped.png)
+![Resized and cropped (200x300px)](../../.gitbook/assets/next/6.png)
 
 Now, rotate the image by 90 degrees.
 
@@ -466,7 +466,7 @@ Now, rotate the image by 90 degrees.
   alt="">
 ```
 
-![Resized, then rotated](../../.gitbook/assets/next/resize-cropped-rotate.png)
+![Resized, then rotated](../../.gitbook/assets/next/7.png)
 
 Let’s flip the order of transformation and see what happens.
 
@@ -496,7 +496,7 @@ Let’s flip the order of transformation and see what happens.
   alt="">
 ```
 
-![Rotated, then resized](../../.gitbook/assets/next/rotate-resize-cropped.png)
+![Rotated, then resized](../../.gitbook/assets/next/8.png)
 
 ## **Adding overlays**
 
@@ -580,7 +580,7 @@ https://ik.imagekit.io/your_imagekit_id/tr:h-300,w-400,l-image,i-ik_canvas,bg-FF
 
 ![Overlay solid color over image](../../.gitbook/assets/solid-color-overlay-image.png)
 
-## **Lazy-loading images in React**
+## **Lazy-loading images in Next.js**
 
 You can lazy load images using the `loading` prop in `IKImage` component. When you use `loading="lazy"`, all images that are immediately viewable without scrolling load normally. Those that are far below the device viewport are only fetched when the user scrolls near them.
 
@@ -597,7 +597,7 @@ You should always set the height and width of the image element to avoid[ layout
 **Rendered HTML element:**
 
 ```jsx
-<img alt="Alt text" width="400" height="300" decoding="async" data-nimg="1" style="color:transparent" src="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Figi7ywjzdi%2Ftr%3Ah-300%2Cw-400%2Fdefault-image.jpg&amp;w=828&amp;q=75" loading="lazy" srcset="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Figi7ywjzdi%2Ftr%3Ah-300%2Cw-400%2Fdefault-image.jpg&amp;w=640&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fik.imagekit.io%2Figi7ywjzdi%2Ftr%3Ah-300%2Cw-400%2Fdefault-image.jpg&amp;w=828&amp;q=75 2x">
+<img alt="Alt text" width="400" height="300" decoding="async" data-nimg="1" src="https://ik.imagekit.io/igi7ywjzdi/tr:h-300,w-400/default-image.jpg" style="" loading="lazy" srcset="https://ik.imagekit.io/igi7ywjzdi/tr:h-300,w-400/default-image.jpg 1x, https://ik.imagekit.io/igi7ywjzdi/tr:h-300,w-400/default-image.jpg 2x">
 ```
 
 ## **Blurred image placeholder**
@@ -1057,10 +1057,11 @@ Rendering videos works similarly to rendering images in terms of usage of `urlEn
 Import `IKVideo` from the SDK:
 
 ```jsx
-import { IKVideo } from 'imagekit-next';
+import { IKVideo } from "imagekit-next";
 ```
 
 Now let's add it to our App. Along with the video path prop, it also needs the relevant `urlEndpoint` (either directly or via `IKContext`):
+
 ```jsx
 <IKContext urlEndpoint={<YOUR_IMAGEKIT_URL_ENDPOINT>}>
   <IKVideo
@@ -1072,6 +1073,7 @@ Now let's add it to our App. Along with the video path prop, it also needs the r
 ```
 
 A more complex example:
+
 ```jsx
 <IKContext urlEndpoint={<YOUR_IMAGEKIT_URL_ENDPOINT>}>
   <IKVideo
