@@ -23,7 +23,7 @@ The JavaScript-based plugin provides a way to seamlessly access your [ImageKit M
 * Configure UI view options, such as inline or modal-based Media Library panel.
 * Supply a custom container class so that you can customize the styling to match your application theme.
 * Open the Media Library directly to a specified state, such as opening to a specific folder, or opening a specific asset.
-* Allowing single asset insertion or limiting the maximum number of assets that can be inserted via the plugin.
+* Allowing single/multiple asset(s) insertion or limiting the maximum number of assets that can be inserted via the plugin.
 
 ![](../../.gitbook/assets/15-mlw-home.png)
 
@@ -142,7 +142,7 @@ const config = {
     width: '100%',
   },
   view: 'modal',  // modal (default) | inline
-  renderOpenButton: true  // false | true (default)
+  renderOpenButton: true,  // false | true (default)
   mlSettings: {
     initialView: {
       folderPath: '/marketing/banner'
@@ -165,7 +165,7 @@ const config = {
     width: '100%',
   },
   view: 'modal',  // modal (default) | inline
-  renderOpenButton: true  // false | true (default)
+  renderOpenButton: true,  // false | true (default)
   mlSettings: {
     initialView: {
       fileId: "5fd874c040308546019f0500"
@@ -189,7 +189,7 @@ const config = {
     width: '100%',
   },
   view: 'modal',  // modal (default) | inline
-  renderOpenButton: true  // false | true (default)
+  renderOpenButton: true,  // false | true (default)
   mlSettings: {
     initialView: {
       fileType: 'videos'
@@ -213,7 +213,7 @@ const config = {
     width: '100%',
   },
   view: 'modal',  // modal (default) | inline
-  renderOpenButton: true  // false | true (default)
+  renderOpenButton: true,  // false | true (default)
   mlSettings: {
     initialView: {
       searchQuery: '(name : "pexel")'
@@ -237,7 +237,7 @@ const config = {
     width: '100%',
   },
   view: 'modal',  // modal (default) | inline
-  renderOpenButton: true  // false | true (default)
+  renderOpenButton: true,  // false | true (default)
   mlSettings: {
       collection: {}
   }
@@ -259,7 +259,7 @@ const config = {
     width: '100%',
   },
   view: 'modal',  // modal (default) | inline
-  renderOpenButton: true  // false | true (default)
+  renderOpenButton: true,  // false | true (default)
   mlSettings: {
       collection: {
         id: "5fd874c040308546019f0500"
@@ -281,7 +281,7 @@ const config = {
     width: '100%',
   },
   view: 'modal',  // modal (default) | inline
-  renderOpenButton: true  // false | true (default)
+  renderOpenButton: true,  // false | true (default)
   mlSettings: {
     multiple: false
   }
@@ -302,7 +302,7 @@ const config = {
     width: '100%',
   },
   view: 'modal',  // modal (default) | inline
-  renderOpenButton: true  // false | true (default)
+  renderOpenButton: true,  // false | true (default)
   mlSettings: {
     multiple: true,
     maxFiles: 3
