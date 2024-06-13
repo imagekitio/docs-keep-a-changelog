@@ -69,7 +69,7 @@ const mediaLibraryWidget = new IKMediaLibraryWidget(config, callback);
 
 #### Parameters
 
-* **options -** Configuration options that are applied to the Media library widget instance. 
+* **config -** Configuration options that are applied to the Media library widget instance. 
 * **callback -** This function is called after the user clicks "Insert" button in the Media library. The callback receives a JSON payload of the selected images.
 
 {% hint style="info" %}
@@ -87,8 +87,29 @@ The plugin accepts the following configuration options, including the mandatory 
 | `dimensions`       | Object                 | Dimensions of the Media Library `container` element.                                                                                                             | <p><code>{ height: '100%',</code></p><p><code>width: '100%' </code><br><code>}</code></p> |
 | `view`             | String                 | Toggle Media Library interface mode: `modal` or `inline`                                                                                                         | `'modal'`                                                                                 |
 | `renderOpenButton` | Boolean                | Toggle whether button to open Media Library UI is displayed. Set this to`false` if using a custom editor plugin or custom open trigger.                          | `true`                                                                                    |
+`mlSettings`         | Object                |<p><strong>Optional</strong><br><em><strong></strong></em> Used to customise/control Media library behaviour based on given settings. See the table below to learn about various settings.</p> | None
 
-**Configuration options sample:**
+`mlSettings` can have the following properties:
+ Option             | Datatype               | Description                                                                                                                                                      | Default value                                                                             |
+| ------------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `initialView`        | Object | Instructs the widget to open in specified initial state. See the table below to learn about its subfields. | None                                                                                      |
+| 
+| `multiple`        | Boolean | Whether to allow users to select multiple assets from the Media Library UI. | None                                                                                      |
+| 
+| `maxFiles`        | Number | Max number of media assets that can be added during a single session. Only relevant when `multiple=true`.` | None                                                                                      |
+| 
+
+`initialView` can only have one of the following properties:
+ Option             | Datatype               | Description                                                                                                                                                      | Default value                                                                             |
+| ------------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `searchQuery`        | String | Query string in a Lucene-like query language same as the  searchQuery parameter used in List and search files API. It will instructs the widget to open in search view with the  results filtered as per query passed. | None |
+| `folderPath`        | String | Instructs the widget to open in specified folder. For e.g. `folderPath: '/some-folder'` | None |
+| `fileId`        | String | Instructs the widget to open in file detail view of the specified ID. For e.g. `fileId: 'some-id'` | None 
+| `collection`        | Object | <p>Instructs the widget to open in collections view.<br>Passing an empty object opens the collection view showing all collections, for example: `collection: {}`<br>Passing a collection ID opens the widget with a specific collection displayed, for example: `collection: { id: 'some-id' }`</p> | None|
+| `fileType` | String | <p>Instructs the widget to open in search view with the  results filtered to a specific asset type.<br>Accepts four values:<ul><li>`image`: only search in image type files</li><li>`video`: only search in video type files</li><li>`cssJs`: only search in css, js or ts files</li><li>`others`: other than images or videos</li></ul></p> | None |
+
+
+#### **Configuration options samples:**
 
 ```javascript
 const config = {
@@ -100,6 +121,124 @@ const config = {
   },
   view: 'modal',  // modal (default) | inline
   renderOpenButton: true  // false | true (default)
+};
+```
+##### **Open ML at a specific path**
+
+The following config will open ML widget at path: `/folder/subfolder`.
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true  // false | true (default)
+  mlSettings: {
+    initialView: {
+      folderPath: '/folder/subfolder'
+    },
+  }
+};
+```
+##### **Open certain type of files**
+
+Only open videos type files
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true  // false | true (default)
+  mlSettings: {
+    initialView: {
+      fileType: 'videos'
+    },
+  }
+};
+```
+##### **Custom search query**
+
+Opens in a search view with all the assets with name starting with `zoom`
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true  // false | true (default)
+  mlSettings: {
+    initialView: {
+      searchQuery: '(name : "zoom")'
+    },
+  }
+};
+```
+
+##### **Open all collections**
+
+The following config will show view with all collections 
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true  // false | true (default)
+  mlSettings: {
+      collection: {}
+  }
+};
+
+```
+##### **Open specific collection**
+
+The following config will open collection with specified ID
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true  // false | true (default)
+  mlSettings: {
+      collection: {
+        id: "<collection-id>"
+      }
+  }
+};
+```
+##### **Allow single file selection**
+
+The following config will allow user to select only single asset
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true  // false | true (default)
+  mlSettings: {
+    multiple: false
+  }
 };
 ```
 
