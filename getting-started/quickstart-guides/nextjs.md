@@ -32,7 +32,7 @@ Let's use the `create-next-app` CLI utility provided by Next.js to build a new p
 npx create-next-app@latest imagekit-next-app
 ```
 
-We will be using below congiguration for the dummy app.
+We will be using the below configuration for the dummy app.
 
 ```js
 ✔ Would you like to use TypeScript?  No
@@ -94,7 +94,7 @@ npm run dev
 
 In your web browser, navigate to `http://localhost:3000/`
 
-You should see the dummy app created by Next.js CLI. Now we can begin our work. It should appear like this.
+You should now see the dummy app created by the Next.js CLI. We can begin our work from here. It should look like this.
 
 ![Dummy app](../../.gitbook/assets/next/initial-next.png)
 
@@ -103,16 +103,16 @@ You should see the dummy app created by Next.js CLI. Now we can begin our work. 
 Installing the ImageKit Next.js SDK in our app is pretty simple:
 
 ```
-npm install --save imagekit-next
+npm install imagekit-next
 ```
 
-#### **Initialize the Next SDK:**
+#### **Initialize the Next.js SDK:**
 
 Before the SDK can be used, let's learn about and obtain the requisite initialization parameters:
 
 - `urlEndpoint` is a required parameter. This can be obtained from the [URL-endpoint section](https://imagekit.io/dashboard/url-endpoints) or the [developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
 - `publicKey` and `authenticator` parameters are optional and only needed if you want to use the SDK for client-side file upload. `publicKey` can be obtained from the [Developer section](https://imagekit.io/dashboard/developer/api-keys) on your ImageKit dashboard.
-- `authenticator` expects an asynchronous function that resolves with an object containing the necessary security parameters i.e signature, token, and expire.
+- `authenticator` expects an asynchronous function that resolves with an object containing the necessary security parameters i.e `signature`, `token`, and `expire`.
 
 ```javascript
 // required parameter to fetch images
@@ -133,7 +133,7 @@ _**Note:**_ _Do not include your _[_API private key_](../../api-reference/api-in
 
 **ImageKit Components:**
 
-This SDK provides 3 components:
+This SDK provides 4 components:
 
 - `IKImage` for [image rendering](https://github.com/imagekit-developer/imagekit-next?tab=readme-ov-file#image-resizing). This utilizes `next/image` and renders an `<img>` tag.
 - `IKVideo` for [video resizing](https://github.com/imagekit-developer/imagekit-next#video-resizing). This renders a `<video>` tag.
@@ -165,7 +165,7 @@ export default function Home() {
 
 {% endcode %}
 
-In the above code, we use `"use client"` at the top of the component to mark it as a Client Component.
+In the code above, we add "use client" at the top of the component to designate it as a Client Component.
 
 Next, go to `app/globals.css`, remove the existing code, and replace it with the following code.
 
@@ -180,6 +180,8 @@ Next, go to `app/globals.css`, remove the existing code, and replace it with the
 {% endcode %}
 
 ## **Rendering images**
+
+The `IKImage` component acts as a wrapper around the [Next.js Image component](https://nextjs.org/docs/pages/api-reference/components/image). This allows you to access all the built-in features of the Next.js Image component.
 
 Before using external images, we need to add a configuration. This ensures that only external images from your account can be served through the Next.js Image Optimization API.
 
@@ -331,6 +333,8 @@ The Next.js SDK gives a name to each transformation parameter, e.g. `height` for
 You can also use `h` and `w` parameter instead of `height` and `width`.\
 See the complete list of transformations supported in ImageKit [here](../../features/image-transformations/resize-crop-and-other-transformations.md).
 {% endhint %}
+
+In addition to these, you can use all the options supported by `next/image` except for `loading` and `src`. You can find the full list of supported `next/image` props [here](https://nextjs.org/docs/pages/building-your-application/optimizing/images#props).
 
 ### **Height and width manipulation**
 
@@ -628,7 +632,7 @@ You have the option to lazy-load the original image only when the user scrolls n
 />
 ```
 
-## **Uploading files in React**
+## **Uploading files in Next.js**
 
 Let's now learn how to upload an image to our media library.
 
@@ -855,8 +859,6 @@ export default function Home() {
     </div>
   );
 }
-
-export default App;
 ```
 
 {% endcode %}
@@ -1017,8 +1019,6 @@ export default function Home() {
     </div>
   );
 }
-
-export default App;
 ```
 
 {% endcode %}
