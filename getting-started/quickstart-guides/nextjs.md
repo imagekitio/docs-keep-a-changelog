@@ -727,7 +727,7 @@ If you GET `http://localhost:3001/auth`, you should see a JSON response like thi
 
 ### **Configure authentication in the frontend app**
 
-Now that we have our authentication server up and running, let's configure the `publicKey` and `authenticator` in the frontend React app:
+Now that we have our authentication server up and running, let's configure the `publicKey` and `authenticator` in the frontend Next.js app:
 
 Add the following to `app/page.js` file to [initialize the SDK](nextjs.md#initialize-the-next.js-sdk) with auth params:
 
@@ -965,7 +965,7 @@ export default function Home() {
   const ikUploadRefTest = useRef(null);
   return (
     <div className="App">
-      <h1>ImageKit React quick start</h1>
+      <h1>ImageKit Next.js quick start</h1>
       <IKContext publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator}>
         <p>Upload an image with advanced options</p>
         <IKUpload
