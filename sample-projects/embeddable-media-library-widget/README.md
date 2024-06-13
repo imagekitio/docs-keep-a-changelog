@@ -10,7 +10,7 @@ The [media library widget](https://github.com/imagekit-developer/embeddable-medi
 
 Integrating the media library widget is straightforward as you will discover in this document.
 
-You can also see the live hosted demo on [codesandbox.io](). Tweak parameters to understand the different options.
+You can also see the live hosted demo on [codesandbox.io](https://codesandbox.io/p/sandbox/media-library-widget-mp484k). Tweak parameters to understand the different options.
 
 ## Media library widget plugin features
 
