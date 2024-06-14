@@ -292,6 +292,7 @@ URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations
 
 {% tab title="Smart crop (fo-car)" %}
 URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-400,h-400,fo-car](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-400,h-400,fo-car)
+
 ![400x400 smart cropped image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-400,h-400,fo-car)
 
 In the above image, rather than cropping equally from both the left and right, only the left portion was cropped to ensure the object in focus is centered. Learn more about object-aware cropping [here](#object-aware-cropping---fo-object-name).
