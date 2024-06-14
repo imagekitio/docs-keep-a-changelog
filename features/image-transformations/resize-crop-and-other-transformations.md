@@ -273,7 +273,7 @@ Using c-maintain\_ratio with fo-custom - [https://ik.imagekit.io/demo/img/bike-i
 {% endtab %}
 {% endtabs %}
 
-#### Examples - Object aware cropping (maintain-ratio)
+#### Examples - Object-aware cropping (maintain-ratio)
 
 We can also provide an object-specific focus to crop the image, ensuring that the object is centered while cropping out the less important parts of the image.
 
@@ -294,7 +294,7 @@ URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations
 URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-400,h-400,fo-car](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-400,h-400,fo-car)
 ![400x400 smart cropped image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-400,h-400,fo-car)
 
-In the above image, rather than cropping equally from both the left and right, only the left portion was cropped to ensure the object in focus is centered. Learn more about object aware cropping [here](#object-aware-cropping---fo-object-name).
+In the above image, rather than cropping equally from both the left and right, only the left portion was cropped to ensure the object in focus is centered. Learn more about object-aware cropping [here](#object-aware-cropping---fo-object-name).
 {% endtab %}
 {% tabs %}
 
@@ -372,9 +372,9 @@ So we suggest ensuring that you are using the correct height and width dimension
 {% endtab %}
 {% endtabs %}
 
-#### Examples - Object aware cropping (cm-extract)
+#### Examples - Object-aware cropping (cm-extract)
 
-Instead of specifying the `x`, `y`, `xc` or `yc` coordinates to focus on a particular area, you can also set the `fo` value to an object from the [supported list](#supported-object-list), which will intelligently detect `xc` and `yc` values as the center of the provided object and extract the image with the given width and height. Learn more about object aware cropping [here](#object-aware-cropping---fo-object-name).
+Instead of specifying the `x`, `y`, `xc` or `yc` coordinates to focus on a particular area, you can also set the `fo` value to an object from the [supported list](#supported-object-list), which will intelligently detect `xc` and `yc` values as the center of the provided object and extract the image with the given width and height. Learn more about object-aware cropping [here](#object-aware-cropping---fo-object-name).
 {% endtab %}
 
 {% tabs %}
@@ -449,9 +449,9 @@ This parameter can have following values depending upon where it is being used:
 2. `fo-custom` can be used to define a specific focus area when used with [maintain ratio](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain\_ratio) and [extract crop](resize-crop-and-other-transformations.md#example-focus-using-custom-coordinates).
 3. `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right` can be used to define relative cropping during extract crop. [Learn from examples](resize-crop-and-other-transformations.md#examples-center-and-relative-focus).
 
-You can also provide object from [supported list](#supported-object-list), which allows for intelligent cropping of the image based on the specific objects detected within it. Learn more about object aware cropping [here](#object-aware-cropping---fo-object-name).
+You can also specify an object from this [supported list](#supported-object-list), which allows for intelligent cropping of the image based on the specific objects detected within it. Learn more about object-aware cropping [here](#object-aware-cropping---fo-object-name).
 
-Apart from above, `fo` parameter also have two additional options that intelligently detect the most important part of an image to create thumbnails i.e. `auto` and `face`. Let's see them in action:
+Apart from the above, `fo` parameter also supports additional values that intelligently detect the most important part of an image to create thumbnails i.e. `auto` and `face`. Let's see them in action:
 
 #### Auto smart cropping - (fo-auto)
 
@@ -509,7 +509,7 @@ Quite distinctly from the [auto smart crop](resize-crop-and-other-transformation
 **Note:** Smart crop may not give accurate results for some images. This is partially a trade off between speed (needed for real-time transformations) and accuracy.
 {% endhint %}
 
-### Object aware cropping - (fo-`object name`)
+### Object-aware cropping - (fo-`object name`)
 
 To automatically provide high focus to a particular object while cropping, you can set the `fo` value to an object from the [supported list](#supported-object-list). This allows for intelligent cropping of the image based on the specific objects detected within it.
 
