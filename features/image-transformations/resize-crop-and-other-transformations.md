@@ -279,22 +279,22 @@ We can also provide an object-specific focus to crop the image, ensuring that th
 
 {% tabs %}
 {% tab title="Original" %}
-URL - [https://ik.imagekit.io/a1yisxurxo/car.jpg](https://ik.imagekit.io/a1yisxurxo/car.jpg)
+URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg)
 
-![Original 1920x1280 image](https://ik.imagekit.io/a1yisxurxo/car.jpg)
+![Original 1920x1280 image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg)
 {% endtab %}
 
 {% tab title="c-maintain_ratio (regular cropping)" %}
-URL - [https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=w-400,h-400](https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=w-400,h-400)
+URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-400,h-400](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-400,h-400)
 
-![400x400 default crop image](https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=w-400,h-400)
+![400x400 default crop image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-400,h-400)
 {% endtab %}
 
 {% tab title="Smart crop (fo-car)" %}
-URL - [https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=w-400,h-400,fo-car](https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=w-400,h-400,fo-car)
-![400x400 smart cropped image](https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=w-400,h-400,fo-car)
+URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-400,h-400,fo-car](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-400,h-400,fo-car)
+![400x400 smart cropped image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-400,h-400,fo-car)
 
-In the above image, rather than cropping equally from both the left and right, only the left portion was cropped to ensure the object in focus is centered. Learn more about object aware cropping [here](#object-aware-cropping).
+In the above image, rather than cropping equally from both the left and right, only the left portion was cropped to ensure the object in focus is centered. Learn more about object aware cropping [here](#object-aware-cropping---fo-object-name).
 {% endtab %}
 {% tabs %}
 
@@ -374,21 +374,22 @@ So we suggest ensuring that you are using the correct height and width dimension
 
 #### Examples - Object aware cropping (cm-extract)
 
-Instead of specifying the `x`, `y`, `xc` or `xy` coordinates to focus on a particular area, you can also set `fo` value to an object from the [supported list](#supported-object-list), which will intelligently detect `xc`, `yc` values as the center of the provided object and extract the image with the given width and height.
+Instead of specifying the `x`, `y`, `xc` or `yc` coordinates to focus on a particular area, you can also set the `fo` value to an object from the [supported list](#supported-object-list), which will intelligently detect `xc` and `yc` values as the center of the provided object and extract the image with the given width and height. Learn more about object aware cropping [here](#object-aware-cropping---fo-object-name).
+{% endtab %}
 
 {% tabs %}
 {% tab title="Original" %}
-URL - [https://ik.imagekit.io/a1yisxurxo/car.jpg](https://ik.imagekit.io/a1yisxurxo/car.jpg)
+URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg)
 
-![Original 1920x1280 image](https://ik.imagekit.io/a1yisxurxo/car.jpg)
+![Original 1920x1280 image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg)
 {% endtab %}
 
 {% tab title="cm-extract (smart crop extract)" %}
-URL - [https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=w-600,h-400,fo-car,cm-extract](https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=w-600,h-400,fo-car,cm-extract)
+URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-600,h-400,fo-car,cm-extract](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-600,h-400,fo-car,cm-extract)
 
-![600x400 image](https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=w-600,h-400,fo-car,cm-extract)
+![600x400 image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=w-600,h-400,fo-car,cm-extract)
 
-Here, we have intelligently detected the `xc`, `yc` value as the central coordinates of car and then extracted out an area of 600x400 from that center.
+Here, we have intelligently detected the `xc`and `yc` values as the central coordinates of the car and then extracted out an area of 600x400 from that center.
 {% endtab %}
 {% tabs %}
 
@@ -448,7 +449,7 @@ This parameter can have following values depending upon where it is being used:
 2. `fo-custom` can be used to define a specific focus area when used with [maintain ratio](resize-crop-and-other-transformations.md#maintain-ratio-crop-strategy-c-maintain\_ratio) and [extract crop](resize-crop-and-other-transformations.md#example-focus-using-custom-coordinates).
 3. `center`, `top`, `left`, `bottom`, `right`, `top_left`, `top_right`, `bottom_left` and `bottom_right` can be used to define relative cropping during extract crop. [Learn from examples](resize-crop-and-other-transformations.md#examples-center-and-relative-focus).
 
-You can also provide object from [supported list](#supported-object-list), which allows for intelligent cropping of the image based on the specific objects detected within it. Learn more about object aware cropping [here](#object-aware-cropping).
+You can also provide object from [supported list](#supported-object-list), which allows for intelligent cropping of the image based on the specific objects detected within it. Learn more about object aware cropping [here](#object-aware-cropping---fo-object-name).
 
 Apart from above, `fo` parameter also have two additional options that intelligently detect the most important part of an image to create thumbnails i.e. `auto` and `face`. Let's see them in action:
 
@@ -508,13 +509,13 @@ Quite distinctly from the [auto smart crop](resize-crop-and-other-transformation
 **Note:** Smart crop may not give accurate results for some images. This is partially a trade off between speed (needed for real-time transformations) and accuracy.
 {% endhint %}
 
-### Object aware cropping
+### Object aware cropping - (fo-`object name`)
 
 To automatically provide high focus to a particular object while cropping, you can set the `fo` value to an object from the [supported list](#supported-object-list). This allows for intelligent cropping of the image based on the specific objects detected within it.
 
 It can be used along with [maintain ratio](#examples---object-aware-cropping-maintain-ratio) or [extract crop](#examples---object-aware-cropping-cm-extract) to intelligently crop or extract parts of the image as needed. Learn more from the different examples shown in respective sections.
 
-As discussed below, we can choose not to provide dimensions and deliver an image that is tightly cropped to the object.
+We can also choose not to provide dimensions and deliver an image that is tightly cropped to the object.
 
 #### Tightly crop object
 
@@ -525,23 +526,23 @@ We can also specify `aspect ratio` along with the `fo-<object name>` focus optio
 
 {% tabs %}
 {% tab title="Original" %}
-URL - [https://ik.imagekit.io/a1yisxurxo/car.jpg](https://ik.imagekit.io/a1yisxurxo/car.jpg)
+URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg)
 
-![Original 1920x1280 image](https://ik.imagekit.io/a1yisxurxo/car.jpg)
+![Original 1920x1280 image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg)
 {% endtab %}
 
 {% tab title="Tightly cropped image" %}
-URL - [https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=fo-car](https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=fo-car)
+URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=fo-car](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=fo-car)
 
-![982x301 image](https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=fo-car)
+![982x301 image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=fo-car)
 
-The output is an image containing just car.
+The output is an image containing just the car.
 {% endtab %}
 
 {% tab title="Tightly cropped image with aspect ratio" %}
-URL - [https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=fo-car,ar-2_1](https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=fo-car,ar-2_1)
+URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=fo-car,ar-2_1](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=fo-car,ar-2_1)
 
-![982x491 image](https://ik.imagekit.io/a1yisxurxo/car.jpg?tr=fo-car,ar-2_1)
+![982x491 image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/car.jpeg?tr=fo-car,ar-2_1)
 
 The output is an image containing only the car, plus the additional `height` needed to maintain an `aspect ratio` of 2.
 {% endtab %}
@@ -551,25 +552,33 @@ We can also crop out a particular object of interest out of multiple different o
 
 {% tabs %}
 {% tab title="Original" %}
-URL - [https://ik.imagekit.io/a1yisxurxo/catDog.jpg](https://ik.imagekit.io/a1yisxurxo/catDog.jpg)
+URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/catdog.jpeg](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/catdog.jpeg)
 
-![Original 600x336 image](https://ik.imagekit.io/a1yisxurxo/catDog.jpg)
+![Original 600x336 image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/catdog.jpeg)
 {% endtab %}
 
 {% tab title="Cropping dog" %}
-URL - [https://ik.imagekit.io/a1yisxurxo/catDog.jpg?tr=fo-dog](https://ik.imagekit.io/a1yisxurxo/catDog.jpg?tr=fo-dog)
+URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/catdog.jpeg?tr=fo-dog](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/catdog.jpeg?tr=fo-dog)
 
-![293x322 image](https://ik.imagekit.io/a1yisxurxo/catDog.jpg?tr=fo-dog)
+![292x322 image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/catdog.jpeg?tr=fo-dog)
 
-The output is an image containing just dog.
+The output is an image containing just the dog.
+{% endtab %}
+
+{% tab title="Cropping cat" %}
+URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/catdog.jpeg?tr=fo-cat](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/catdog.jpeg?tr=fo-cat)
+
+![119x169 image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/catdog.jpeg?tr=fo-cat)
+
+The output is an image containing just the cat.
 {% endtab %}
 
 {% tab title="Cropping dog with aspect ratio" %}
-URL - [https://ik.imagekit.io/a1yisxurxo/catDog.jpg?tr=fo-dog,ar-1_1](https://ik.imagekit.io/a1yisxurxo/catDog.jpg?tr=fo-dog,ar-1_1)
+URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/catdog.jpeg?tr=fo-dog,ar-1_1](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/catdog.jpeg?tr=fo-dog,ar-1_1)
 
-![322x322 image](https://ik.imagekit.io/a1yisxurxo/catDog.jpg?tr=fo-dog,ar-1_1)
+![322x322 image](https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations/catdog.jpeg?tr=fo-dog,ar-1_1)
 
-The output is an square image containing dog by adding extra `width` as required.
+The output is a square image containing dog by adding extra `width` as required.
 {% endtab %}
 {% tabs %}
 
@@ -577,7 +586,97 @@ The output is an square image containing dog by adding extra `width` as required
 #### Supported object list
 We currently support all the objects included in the `COCO` classes. The object list is mentioned below:
 
-`person`, `bicycle`, `car`, `motorcycle`, `airplane`, `bus`, `train`, `truck`, `boat`, `trafficLight`, `fireHydrant`, `stopSign`, `parkingMeter`, `bench`, `bird`, `cat`, `dog`, `horse`, `sheep`, `cow`, `elephant`, `bear`, `zebra`, `giraffe`, `backpack`, `umbrella`, `handbag`, `tie`, `suitcase`, `frisbee`, `skis`, `snowboard`, `sportsBall`, `kite`, `baseballBat`, `baseballGlove`, `skateboard`, `surfboard`, `tennisRacket`, `bottle`, `wineGlass`, `cup`, `fork`, `knife`, `spoon`, `bowl`, `banana`, `apple`, `sandwich`, `orange`, `broccoli`, `carrot`, `hotDog`, `pizza`, `donut`, `cake`, `chair`, `couch`, `pottedPlant`, `bed`, `diningTable`, `toilet`, `tv`, `laptop`, `mouse`, `remote`, `keyboard`, `cellPhone`, `microwave`, `oven`, `toaster`, `sink`, `refrigerator`, `book`, `clock`, `vase`, `scissors`, `teddyBear`, `hairDrier`, `toothbrush`.
+<div>
+  <table style="dislay: block;">
+    <thead>
+      <tr>
+        <th>COCO Classes</th>
+      </tr>
+    </thead>
+    <tbody style="overflow-y: scroll; height: 400px; display: block;">
+      <tr><td>person</td></tr>
+      <tr><td>bicycle</td></tr>
+      <tr><td>car</td></tr>
+      <tr><td>motorcycle</td></tr>
+      <tr><td>airplane</td></tr>
+      <tr><td>bus</td></tr>
+      <tr><td>train</td></tr>
+      <tr><td>truck</td></tr>
+      <tr><td>boat</td></tr>
+      <tr><td>trafficLight</td></tr>
+      <tr><td>fireHydrant</td></tr>
+      <tr><td>stopSign</td></tr>
+      <tr><td>parkingMeter</td></tr>
+      <tr><td>bench</td></tr>
+      <tr><td>bird</td></tr>
+      <tr><td>cat</td></tr>
+      <tr><td>dog</td></tr>
+      <tr><td>horse</td></tr>
+      <tr><td>sheep</td></tr>
+      <tr><td>cow</td></tr>
+      <tr><td>elephant</td></tr>
+      <tr><td>bear</td></tr>
+      <tr><td>zebra</td></tr>
+      <tr><td>giraffe</td></tr>
+      <tr><td>backpack</td></tr>
+      <tr><td>umbrella</td></tr>
+      <tr><td>handbag</td></tr>
+      <tr><td>tie</td></tr>
+      <tr><td>suitcase</td></tr>
+      <tr><td>frisbee</td></tr>
+      <tr><td>skis</td></tr>
+      <tr><td>snowboard</td></tr>
+      <tr><td>sportsBall</td></tr>
+      <tr><td>kite</td></tr>
+      <tr><td>baseballBat</td></tr>
+      <tr><td>baseballGlove</td></tr>
+      <tr><td>skateboard</td></tr>
+      <tr><td>surfboard</td></tr>
+      <tr><td>tennisRacket</td></tr>
+      <tr><td>bottle</td></tr>
+      <tr><td>wineGlass</td></tr>
+      <tr><td>cup</td></tr>
+      <tr><td>fork</td></tr>
+      <tr><td>knife</td></tr>
+      <tr><td>spoon</td></tr>
+      <tr><td>bowl</td></tr>
+      <tr><td>banana</td></tr>
+      <tr><td>apple</td></tr>
+      <tr><td>sandwich</td></tr>
+      <tr><td>orange</td></tr>
+      <tr><td>broccoli</td></tr>
+      <tr><td>carrot</td></tr>
+      <tr><td>hotDog</td></tr>
+      <tr><td>pizza</td></tr>
+      <tr><td>donut</td></tr>
+      <tr><td>cake</td></tr>
+      <tr><td>chair</td></tr>
+      <tr><td>couch</td></tr>
+      <tr><td>pottedPlant</td></tr>
+      <tr><td>bed</td></tr>
+      <tr><td>diningTable</td></tr>
+      <tr><td>toilet</td></tr>
+      <tr><td>tv</td></tr>
+      <tr><td>laptop</td></tr>
+      <tr><td>mouse</td></tr>
+      <tr><td>remote</td></tr>
+      <tr><td>keyboard</td></tr>
+      <tr><td>cellPhone</td></tr>
+      <tr><td>microwave</td></tr>
+      <tr><td>oven</td></tr>
+      <tr><td>toaster</td></tr>
+      <tr><td>sink</td></tr>
+      <tr><td>refrigerator</td></tr>
+      <tr><td>book</td></tr>
+      <tr><td>clock</td></tr>
+      <tr><td>vase</td></tr>
+      <tr><td>scissors</td></tr>
+      <tr><td>teddyBear</td></tr>
+      <tr><td>hairDrier</td></tr>
+      <tr><td>toothbrush</td></tr>
+    </tbody>
+  </table>
+</div>
 
 ### Zoom - (z)
 
