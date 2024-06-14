@@ -6,13 +6,11 @@ description: >-
 
 # Media library widget
 
-The [media library widget](https://github.com/imagekit-developer/embeddable-media-library) provides a way to easily integrate [ImageKit Media Library](../../media-library/overview/) into your CMS or any other web application. Using this, you can access all the assets stored in your Media Library from your existing CMS or application.
+The [media library widget](https://github.com/imagekit-developer/embeddable-media-library) provides a way to easily integrate [ImageKit Media Library](../../media-library/overview/) into your CMS or any other web application. You can access all the assets stored in your Media Library from your existing CMS or application.
 
-Integrating the media library widget is straightforward as you will discover in this document.
+Integrating the media library widget is straightforward, as you will discover in this document.
 
-We have some ready-made sample integrations with the following applications.
-
-* **[**CKEditor integration**](ckeditor5-plugin.md)**
+You can also see the live hosted demo on [codesandbox.io](https://codesandbox.io/p/sandbox/media-library-widget-mp484k). Tweak parameters to understand the different options.
 
 ## Media library widget plugin features
 
@@ -22,26 +20,28 @@ The JavaScript-based plugin provides a way to seamlessly access your [ImageKit M
 
 * Login to ImageKit from within your CMS.
 * Search and insert images directly into your CMS from your ImageKit Media Library.
-* Configure UI view options, such as inline or modal-based Media Library panel.
-* Supply a custom container class so that you can customize the styling to match your application theme.
+* Configure UI view options like inline or modal-based Media Library panel.
+* Supply a custom container class to customize the styling to match your application theme.
+* Open the Media Library directly to a specified state, such as opening a specific folder or asset.
+* Allowing single/multiple asset(s) insertion or limiting the maximum number of assets that can be inserted via the plugin.
 
-![](../../.gitbook/assets/01-mlw-intro.png)
+![](../../.gitbook/assets/15-mlw-home.png)
 
 ## **How to integrate the plugin in your app**
 
-### Integration overview
+### Integration Overview
 
-Integrating the ImageKit Media Library plugin into a page in your web application or CMS interface is straightforward. We will go through the following steps in details one by one:
+Integrating the ImageKit Media Library plugin into a page in your web application or CMS interface is straightforward. We will go through the following steps in detail one by one:
 
-1. [**Include the plugin script and create a container element**](./#1-include-the-plugin-script) - Include the plugin script file in the web page to embed the Media Library. Create a container element where the widget will be rendered.
+1. [**Include the plugin script and create a container element**](#include-the-plugin-script-and-create-a-container-element) - Include the plugin script file in the web page to embed the Media Library. Create a container element where the widget will be rendered.
 
-2. [**Initialize the media library widget**](https://app.gitbook.com/@imagekit-io/s/docs/\~/drafts/-MOeRVlxk26WIzUeOQ4D/sample-projects/embeddable-media-library#2-initialize-the-media-library-widget) - Provide the configuration options and callback to initialize the widget. These options include the mandatory container within which the Media Library Widget UI will be rendered and some other optional settings as described later in the page.
+2. [**Initialize the media library widget**](#initialize-the-media-library-widget) - Provide the configuration options and callback to initialize the widget. These options include the mandatory container within which the Media Library Widget UI will be rendered and other optional settings described later in the page.
 
-3. [**Instantiate the Media library widget and open it**](./#4-instantiate-the-embedded-media-library-and-open-it) - Using the configuration options and callback method, now the plugin can be instantiated through the `IKMediaLibraryWidget` constructor and used by navigating to the webpage where it has been embedded.
+3. [**Instantiate the Media library widget and open it**](#run-the-application)—Using the configuration options and callback method, the plugin can now be instantiated through the `IKMediaLibraryWidget` constructor and used by navigating to the webpage where it has been embedded.
 
-4. [**Insert images from the Media Library via the plugin**](./#5-embed-images-from-the-media-library-via-the-plugin) - Choose images and other files from within the media library interface and insert them in your CMS or web application.
+4. [**Insert images from the Media Library via the plugin**](#insert-images-from-the-media-library-via-the-plugin) - Choose images and other files from within the media library interface and insert them in your CMS or web application.
 
-### **1. Include the plugin script and create a container element**
+### Include the plugin script and create a container element
 
 Insert the following script on the web page where you want to access the Media Library plugin:
 
@@ -50,7 +50,7 @@ Insert the following script on the web page where you want to access the Media L
 ```
 
 {% hint style="info" %}
-Internet Explorer does not have native support for all Media Library Widget features. We recommend accessing it on a supported browser, such as Google Chrome or Mozilla Firefox.
+Internet Explorer does not natively support all Media Library Widget features. We recommend accessing it on a supported browser like Google Chrome or Mozilla Firefox.
 {% endhint %}
 
 Create an HTML container element where the widget will be rendered:
@@ -59,7 +59,7 @@ Create an HTML container element where the widget will be rendered:
 <div id="container"></div>
 ```
 
-### 2. Initialize the media library widget
+### Initialize the media library widget
 
 Using the configuration options and callback function, let’s instantiate the plugin:
 
@@ -69,16 +69,16 @@ const mediaLibraryWidget = new IKMediaLibraryWidget(config, callback);
 
 #### Parameters
 
-* **options -** Configuration options that are applied to the Media library widget instance. 
-* **callback -** This function is called after the user clicks "Insert" button in the Media library. The callback receives a JSON payload of the selected images.
+* **config -** Configuration options that are applied to the Media library widget instance. 
+* **callback -** This function is called after the user clicks the "Insert" button in the Media library. The callback receives a JSON payload of the selected images.
 
 {% hint style="info" %}
-**Note:** Check that `renderOpenButton` option is set to `true` in the plugin configuration option for the view control to become available.
+**Note:** Check that the `renderOpenButton` option is set to `true` in the plugin configuration option for the view control to become available.
 {% endhint %}
 
 #### Plugin options
 
-The plugin accepts the following configuration options, including the mandatory `container`. Apart from this, it also accepts some optional settings that control the plugin's behavior and styling.
+The plugin accepts the following configuration options, including the mandatory `container`. It also accepts some optional settings that control the plugin's behavior and styling.
 
 | Option             | Datatype               | Description                                                                                                                                                      | Default value                                                                             |
 | ------------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -87,8 +87,33 @@ The plugin accepts the following configuration options, including the mandatory 
 | `dimensions`       | Object                 | Dimensions of the Media Library `container` element.                                                                                                             | <p><code>{ height: '100%',</code></p><p><code>width: '100%' </code><br><code>}</code></p> |
 | `view`             | String                 | Toggle Media Library interface mode: `modal` or `inline`                                                                                                         | `'modal'`                                                                                 |
 | `renderOpenButton` | Boolean                | Toggle whether button to open Media Library UI is displayed. Set this to`false` if using a custom editor plugin or custom open trigger.                          | `true`                                                                                    |
+`mlSettings`         | Object                |<p><strong>Optional</strong><br><em><strong></strong></em> Used to customize/control Media library behavior based on given settings. See the table below to learn about various settings.</p> | None
 
-**Configuration options sample:**
+`mlSettings` can have the following properties:
+ Option             | Datatype               | Description                                                                                                                                                      | Default value                                                                             |
+| ------------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `initialView`| Object | Instructs the widget to open in the specified initial state. See the table below to learn about its subfields. | None |
+| `multiple`| Boolean | Whether to allow users to select multiple assets during insertion via the plugin. | None |
+| `maxFiles`| Number | Max number of media assets that can be inserted via plugin in a single operation. Only relevant when `multiple=true`. | None |
+
+`initialView` can only have one of the following properties:
+
+{% hint style="info" %}
+You cannot pass more than one property in `initialView`. For anything custom, use `searchQuery`.
+{% endhint %}
+
+ Option             | Datatype               | Description                                                                                                                                                      | Default value                                                                             |
+| ------------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `searchQuery`        | String | Query string in a Lucene-like query language, same as the `searchQuery` parameter used in [Search API](/api-reference/media-api/list-and-search-files.md#advanced-search-queries). It will instruct the widget to open in the search view with the results filtered as per the query passed. | None |
+| `folderPath`        | String | Instructs the widget to open in the specified folder. E.g. `folderPath: '/some-folder'` | None |
+| `fileId`        | String | Instructs the widget to open in the file detail view of the specified ID. For e.g. `fileId: 'some-id'` | None 
+| `collection`        | Object | <p>Instructs the widget to open in collections view.<br>Passing an empty object opens the collection view showing all collections, for example: `collection: {}`<br>Passing a collection ID opens the widget with a specific collection displayed, for example: `collection: { id: 'some-id' }`</p> | None|
+| `fileType` | String | <p>Instructs the widget to open in the search view with the results filtered to a specific asset type.<br>Accepts four values:<ul><li>`images`: only search in image type files</li><li>`videos`: only search in video type files</li><li>`cssJs`: only search in CSS, js or ts files</li><li>`others`: other than images or videos</li></ul></p> | None |
+
+
+#### **Configuration options samples:**
+
+##### **Open Media library(ML) home**
 
 ```javascript
 const config = {
@@ -103,9 +128,198 @@ const config = {
 };
 ```
 
+![](../../.gitbook/assets/15-mlw-home.png)
+
+##### **Open ML at a specific path**
+
+The following config will open the ML widget at path: `/marketing/banner`.
+
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true,  // false | true (default)
+  mlSettings: {
+    initialView: {
+      folderPath: '/marketing/banner'
+    },
+  }
+};
+```
+
+![](../../.gitbook/assets/16-mlw-specific-folder.png)
+
+##### **Open specific file**
+
+The following config will open the specific file detail page.
+
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true,  // false | true (default)
+  mlSettings: {
+    initialView: {
+      fileId: "5fd874c040308546019f0500"
+    },
+  }
+};
+```
+
+![](../../.gitbook/assets/14-mlw-file-detail.png)
+
+##### **Open specific types of files**
+
+Only open `videos` type files.
+
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true,  // false | true (default)
+  mlSettings: {
+    initialView: {
+      fileType: 'videos'
+    },
+  }
+};
+```
+
+![](../../.gitbook/assets/09-mlw-file-type.png)
+
+##### **Custom search query**
+
+It opens in a search view with all the assets with names starting with `pexel.`
+
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true,  // false | true (default)
+  mlSettings: {
+    initialView: {
+      searchQuery: '(name : "pexel")'
+    },
+  }
+};
+```
+
+![](../../.gitbook/assets/10-mlw-custom-search.png)
+
+##### Open all collections
+
+The following configuration will show a view of all collections.
+
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true,  // false | true (default)
+  mlSettings: {
+      collection: {}
+  }
+};
+
+```
+
+![](../../.gitbook/assets/13-mlw-all-collections.png)
+
+##### Open specific collection
+
+The following config will open a collection with the specified ID.
+
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true,  // false | true (default)
+  mlSettings: {
+      collection: {
+        id: "5fd874c040308546019f0500"
+      }
+  }
+};
+```
+![](../../.gitbook/assets/12-mlw-collection.png)
+
+##### Allow single file selection
+
+The following config will allow the user to select only a single asset.
+
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true,  // false | true (default)
+  mlSettings: {
+    multiple: false
+  }
+};
+```
+
+![](../../.gitbook/assets/11-mlw-single-selection.png)
+
+##### Specify the maximum number of files to be selected
+
+The following config will allow the user to select only a single asset.
+
+```javascript
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal (default) | inline
+  renderOpenButton: true,  // false | true (default)
+  mlSettings: {
+    multiple: true,
+    maxFiles: 3
+  }
+};
+```
+
+![](../../.gitbook/assets/08-mlw-max-selection.png)
+
 #### Callback function and payload
 
-This callback function is called after the user clicks "Insert" button in the Media library. The callback receives a JSON payload of the selected images. It is up to you how you consume this data in your application.
+This callback function is called after the user clicks the "Insert" button in the Media library. The callback receives a JSON payload of the selected images. You can consume this data in your application in any way you choose.
 
 ```javascript
 function callback (payload) {
@@ -137,27 +351,27 @@ The following shows an example of the JSON payload returned after selecting and 
 }
 ```
 
-### 3. Run the application
+### Run the application
 
 Navigate to your application webpage in the browser. You should see the following button:
 
 ![Open Media Library button](../../.gitbook/assets/02-mlw-button.png)
 
-Upon clicking it, if you are already logged in to ImageKit on this browser, the Media Library view should open up directly. Otherwise, the login screen will be displayed.
+Upon clicking it, the Media Library view should open up directly if you are already logged in to ImageKit on this browser. Otherwise, the login screen will be displayed.
 
 ![ImageKit login screen in modal popup](../../.gitbook/assets/03-mlw-login.png)
 
 Login to ImageKit with your email and password.
 
-Upon logging in successfully, you should automatically be routed to the Media Library view.
+You should automatically be routed to the Media Library view after logging in successfully.
 
-![Media Library Widget panel in modal popup](../../.gitbook/assets/04-mlw-media-lib.png)
+![Media Library Widget panel in modal popup](../../.gitbook/assets/15-mlw-home.png)
 
-### 4. Insert images from the Media Library via the plugin
+### Insert images from the Media Library via the plugin
 
-The Media Library Widget looks and works similar to the ImageKit dashboard. An additional feature is the ability to insert selected images or files from the plugin.
+The Media Library Widget looks and works similarly to the ImageKit dashboard.
 
-In the upper right area of the screen, an "Insert" button should be present. Click on this to trigger the image selection handling callback on your web app page.
+An "Insert" button should be present in the screen's upper right area. Click on this to trigger your web app page's image selection handling callback.
 
 ![Insert images](../../.gitbook/assets/05-mlw-insert-image.png)
 
@@ -250,6 +464,6 @@ body {
 
 ### Note on using Google Chrome in Incognito mode
 
-In order to use this plugin on Google Chrome in Incognito mode, you need to enable third-party cookies:
+To use this plugin on Google Chrome in Incognito mode, you need to enable third-party cookies:
 
 ![](../../.gitbook/assets/07-mlw-incognito-sm.png)
