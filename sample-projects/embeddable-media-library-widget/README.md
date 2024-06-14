@@ -204,7 +204,7 @@ const config = {
 
 ##### **Custom search query**
 
-It opens in a search view with all the assets with names starting with `pixel.`
+It opens in a search view with all the assets with names starting with `pexel.`
 
 ```javascript
 const config = {
