@@ -296,7 +296,7 @@ URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations
 
 In the above image, rather than cropping equally from both the left and right, only the left portion was cropped to ensure the object in focus is centered. Learn more about object-aware cropping [here](#object-aware-cropping---fo-object-name).
 {% endtab %}
-{% tabs %}
+{% endtabs %}
 
 ### Extract crop strategy - (cm-extract)
 
@@ -391,7 +391,7 @@ URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations
 
 Here, we have intelligently detected the `xc`and `yc` values as the central coordinates of the car and then extracted out an area of 600x400 from that center.
 {% endtab %}
-{% tabs %}
+{% endtabs %}
 
 #### Example - **Focus using custom coordinates**
 
@@ -546,7 +546,7 @@ URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations
 
 The output is an image containing only the car, plus the additional `height` needed to maintain an `aspect ratio` of 2.
 {% endtab %}
-{% tabs %}
+{% endtabs %}
 
 We can also crop out a particular object of interest out of multiple different objects present in an image.
 
@@ -580,103 +580,94 @@ URL - [https://ik.imagekit.io/ikmedia/docs_images/features/image-transformations
 
 The output is a square image containing dog by adding extra `width` as required.
 {% endtab %}
-{% tabs %}
+{% endtabs %}
 
 
 #### Supported object list
 We currently support all the objects included in the `COCO` classes. The object list is mentioned below:
 
-<div>
-  <table style="dislay: block;">
-    <thead>
-      <tr>
-        <th>COCO Classes</th>
-      </tr>
-    </thead>
-    <tbody style="overflow-y: scroll; height: 400px; display: block;">
-      <tr><td>person</td></tr>
-      <tr><td>bicycle</td></tr>
-      <tr><td>car</td></tr>
-      <tr><td>motorcycle</td></tr>
-      <tr><td>airplane</td></tr>
-      <tr><td>bus</td></tr>
-      <tr><td>train</td></tr>
-      <tr><td>truck</td></tr>
-      <tr><td>boat</td></tr>
-      <tr><td>trafficLight</td></tr>
-      <tr><td>fireHydrant</td></tr>
-      <tr><td>stopSign</td></tr>
-      <tr><td>parkingMeter</td></tr>
-      <tr><td>bench</td></tr>
-      <tr><td>bird</td></tr>
-      <tr><td>cat</td></tr>
-      <tr><td>dog</td></tr>
-      <tr><td>horse</td></tr>
-      <tr><td>sheep</td></tr>
-      <tr><td>cow</td></tr>
-      <tr><td>elephant</td></tr>
-      <tr><td>bear</td></tr>
-      <tr><td>zebra</td></tr>
-      <tr><td>giraffe</td></tr>
-      <tr><td>backpack</td></tr>
-      <tr><td>umbrella</td></tr>
-      <tr><td>handbag</td></tr>
-      <tr><td>tie</td></tr>
-      <tr><td>suitcase</td></tr>
-      <tr><td>frisbee</td></tr>
-      <tr><td>skis</td></tr>
-      <tr><td>snowboard</td></tr>
-      <tr><td>sportsBall</td></tr>
-      <tr><td>kite</td></tr>
-      <tr><td>baseballBat</td></tr>
-      <tr><td>baseballGlove</td></tr>
-      <tr><td>skateboard</td></tr>
-      <tr><td>surfboard</td></tr>
-      <tr><td>tennisRacket</td></tr>
-      <tr><td>bottle</td></tr>
-      <tr><td>wineGlass</td></tr>
-      <tr><td>cup</td></tr>
-      <tr><td>fork</td></tr>
-      <tr><td>knife</td></tr>
-      <tr><td>spoon</td></tr>
-      <tr><td>bowl</td></tr>
-      <tr><td>banana</td></tr>
-      <tr><td>apple</td></tr>
-      <tr><td>sandwich</td></tr>
-      <tr><td>orange</td></tr>
-      <tr><td>broccoli</td></tr>
-      <tr><td>carrot</td></tr>
-      <tr><td>hotDog</td></tr>
-      <tr><td>pizza</td></tr>
-      <tr><td>donut</td></tr>
-      <tr><td>cake</td></tr>
-      <tr><td>chair</td></tr>
-      <tr><td>couch</td></tr>
-      <tr><td>pottedPlant</td></tr>
-      <tr><td>bed</td></tr>
-      <tr><td>diningTable</td></tr>
-      <tr><td>toilet</td></tr>
-      <tr><td>tv</td></tr>
-      <tr><td>laptop</td></tr>
-      <tr><td>mouse</td></tr>
-      <tr><td>remote</td></tr>
-      <tr><td>keyboard</td></tr>
-      <tr><td>cellPhone</td></tr>
-      <tr><td>microwave</td></tr>
-      <tr><td>oven</td></tr>
-      <tr><td>toaster</td></tr>
-      <tr><td>sink</td></tr>
-      <tr><td>refrigerator</td></tr>
-      <tr><td>book</td></tr>
-      <tr><td>clock</td></tr>
-      <tr><td>vase</td></tr>
-      <tr><td>scissors</td></tr>
-      <tr><td>teddyBear</td></tr>
-      <tr><td>hairDrier</td></tr>
-      <tr><td>toothbrush</td></tr>
-    </tbody>
-  </table>
-</div>
+| COCO Classes |
+|--------------|
+| person       |
+| bicycle      |
+| car          |
+| motorcycle   |
+| airplane     |
+| bus          |
+| train        |
+| truck        |
+| boat         |
+| trafficLight |
+| fireHydrant  |
+| stopSign     |
+| parkingMeter |
+| bench        |
+| bird         |
+| cat          |
+| dog          |
+| horse        |
+| sheep        |
+| cow          |
+| elephant     |
+| bear         |
+| zebra        |
+| giraffe      |
+| backpack     |
+| umbrella     |
+| handbag      |
+| tie          |
+| suitcase     |
+| frisbee      |
+| skis         |
+| snowboard    |
+| sportsBall   |
+| kite         |
+| baseballBat  |
+| baseballGlove|
+| skateboard   |
+| surfboard    |
+| tennisRacket |
+| bottle       |
+| wineGlass    |
+| cup          |
+| fork         |
+| knife        |
+| spoon        |
+| bowl         |
+| banana       |
+| apple        |
+| sandwich     |
+| orange       |
+| broccoli     |
+| carrot       |
+| hotDog       |
+| pizza        |
+| donut        |
+| cake         |
+| chair        |
+| couch        |
+| pottedPlant  |
+| bed          |
+| diningTable  |
+| toilet       |
+| tv           |
+| laptop       |
+| mouse        |
+| remote       |
+| keyboard     |
+| cellPhone    |
+| microwave    |
+| oven         |
+| toaster      |
+| sink         |
+| refrigerator |
+| book         |
+| clock        |
+| vase         |
+| scissors     |
+| teddyBear    |
+| hairDrier    |
+| toothbrush   |
 
 ### Zoom - (z)
 
