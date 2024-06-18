@@ -5,6 +5,7 @@
 ## 📌Getting Started
 
 * [Getting started](getting-started/quickstart-guides/README.md)
+  * [Android](getting-started/quickstart-guides/android.md)
   * [iOS](getting-started/quickstart-guides/ios.md)
   * [PHP](getting-started/quickstart-guides/php.md)
   * [React](getting-started/quickstart-guides/react.md)
