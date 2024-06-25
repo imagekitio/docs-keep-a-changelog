@@ -1,12 +1,12 @@
 ---
 description: >-
   Real-time image resizing, automatic optimization, and file uploading in
-  Android using ImageKit.io.
+  iOS using ImageKit.io.
 ---
 
 # iOS
 
-This is a quick start guide to show you how to integrate ImageKit in an iOS application. The code samples covered here are hosted on Github: [https://github.com/imagekit-samples/quickstart/tree/master/ios](https://github.com/imagekit-samples/quickstart/tree/master/ios).
+This is a quick start guide to show you how to integrate ImageKit into an iOS application. The code samples covered here are hosted on Github: [https://github.com/imagekit-samples/quickstart/tree/master/ios](https://github.com/imagekit-samples/quickstart/tree/master/ios).
 
 This guide walks you through the following topics: ‌
 
@@ -16,6 +16,8 @@ This guide walks you through the following topics: ‌
 * [Applying common image manipulations ](ios.md#common-image-manipulation-in-ios-application)
 * [Adding overlays to images](ios.md#adding-an-overlay-to-images-in-ios-application)
 * [Client-side file uploading ](ios.md#client-side-file-uploading)
+* [Setting a upload policy](ios.md#setting-a-upload-policy)
+* [How to preprocess your files before uploading](ios.md#how-to-preprocess-your-files-before-uploading)
 
 ## **Clone and run the tutorial app**
 
@@ -26,7 +28,7 @@ git clone
 https://github.com/imagekit-samples/quickstart.git
 ```
 
-Navigate to the cloned repository, and install the dependencies that are needed to run the iOS app:
+Navigate to the cloned repository and install the dependencies that are needed to run the iOS app:
 
 ```bash
 cd quickstart/ios/
@@ -43,13 +45,13 @@ Once the dependencies have been installed, run the following command to open the
 open ImagekitDemo.xcodeworkspace
 ```
 
-Select the emulator from the dropdown. Then run the app by clicking on the Run button or by pressing ⌘ + R
+Select the emulator from the dropdown. Then run the app by clicking on the Run button or by pressing ⌘ + R.
 
-![](<../../.gitbook/assets/Screenshot 2020-11-02 at 8.15.32 PM.png>)
+![](<../../.gitbook/assets/ios/xcode.png>)
 
 You should see the following screen. This means the sample app has been set up correctly.
 
-![](<../../.gitbook/assets/Screenshot 2020-11-02 at 8.22.01 PM.png>)
+![](<../../.gitbook/assets/ios/sample.png>)
 
 ## **Setup ImageKit iOS SDK**
 
@@ -64,36 +66,35 @@ If you are not using CocoaPods in your project, you might need to add it to your
 To Install the SDK, add the following to the PodFile.
 
 ```bash
-# Required to enable the use for Dynamic Libraries
+# Required to enable the use of Dynamic Libraries
 use_frameworks!
 
 target 'target_name' do 
     ...
     # Add to your project target
-    pod 'ImageKitIO', '~> 2.0.0'
+    pod 'ImageKitIO', '~> 3.0.0'
     ...
 end
 ```
 
 #### Initializing the SDK
 
-Open `AppDelegate.swift` file, this is where we will initialize our SDK with the following parameters.
+Open the `AppDelegate.swift` file. This is where we will initialize our SDK with the following parameters.
 
-* `urlEndpoint` is the required parameter. You can get the value of URL-endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).
-* `publicKey` and `authenticationEndpoint` parameters are optional and only needed if you want to use the SDK for client-side file upload. You can get these parameters from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
+* `urlEndpoint` is the required parameter. You can get the value of the URL endpoint from your ImageKit dashboard - [https://imagekit.io/dashboard/url-endpoints](https://imagekit.io/dashboard/url-endpoints).
+* `publicKey` is an optional parameter and is only needed if you want to use the SDK for client-side file upload. You can get the public key from the developer section in your ImageKit dashboard - [https://imagekit.io/dashboard/developer/api-keys](https://imagekit.io/dashboard/developer/api-keys).
 
 ```swift
 ImageKit.init(
-    publicKey: "your_public_api_key=", 
+    publicKey: "your_public_api_key", 
     urlEndpoint: "https://ik.imagekit.io/your_imagekit_id", 
-    transformationPosition: TransformationPosition.PATH, 
-    authenticationEndpoint: "http://www.yourserver.com/auth"
+    transformationPosition: TransformationPosition.PATH
 )
 ```
 
 ## Rendering Images in iOS application
 
-Image URL can be created from an image path or using the absolute image URL. You can learn more about it in [docs](https://github.com/imagekit-developer/imagekit-javascript#url-generation).
+Image URLs can be created from an image path or using the absolute image URL. You can learn more about it in [docs](https://github.com/imagekit-developer/imagekit-javascript#url-generation).
 
 To render an image using an absolute URL (full image URL), we can instantiate the `ImageKitURLConstructor`
 
@@ -103,7 +104,7 @@ let urlConstructor = ImageKit.shared.url(
 )
 ```
 
-To create a URL from the image path, we can instantiate the `ImageKitURLConstructor` which takes the URL endpoint, image path, and transformation position as parameters to create the transformed url.
+To create a URL from the image path, we can instantiate the `ImageKitURLConstructor`, which takes the URL endpoint, image path, and transformation position as parameters to create the transformed url.
 
 ```swift
 let urlConstructor = ImageKit.shared.url(
@@ -124,17 +125,17 @@ urlConstructor = urlConstructor.height(height: 400)
 urlConstructor = urlConstructor.aspectRatio(width: 3, height: 2)
 ```
 
-Finally, once all the required transformations are defined, call `create` function to get the final transformed URL
+Finally, once all the required transformations are defined, call the `create` function to get the final transformed URL
 
 ```swift
 let url = urlConstructor.create()
 // https://ik.imagekit.io/your_imagekit_id/default-image.jpg?tr=h-400,ar-3-2
 ```
 
-It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations. \
+It will look as shown below. In the sample app, the buttons are present to demonstrate the use of different transformations. 
 
 
-![](<../../.gitbook/assets/Screenshot 2020-11-03 at 1.45.39 PM.png>)
+![](<../../.gitbook/assets/ios/sample-url-1.png>)
 
 ## Common image manipulation in iOS application
 
@@ -145,9 +146,9 @@ This section covers the basics:‌
 * ​Aspect Ratio
 * ​Chained transformation
 
-ImageKit iOS SDK provides a function  to each transformation parameter e.g. `height` for `h` and `width` for `w` parameter. It makes your code more readable. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-ios#list-of-supported-transformations) in iOS SDK on Github.
+ImageKit iOS SDK provides a function for each transformation parameter, e.g., `height` for `h` and `width` for the `w` parameter. It makes your code more readable. See the [full list of supported transformations](https://github.com/imagekit-developer/imagekit-ios#list-of-supported-transformations) in iOS SDK on Github.
 
-The complete list of transformations supported and their usage in ImageKit can be found [here](https://docs.imagekit.io/imagekit-docs/image-transformations). If a transformation is supported in ImageKit, but if a name for it cannot be found in the SDK, then use the `addCustomTransformation` function and pass the transformation code from ImageKit docs as the first parameter and value as the second parameter. For example - `.addCustomTransformation("w", "400").`
+The complete list of transformations supported and their usage in ImageKit can be found [here](https://docs.imagekit.io/imagekit-docs/image-transformations). If a transformation is supported in ImageKit, but a name for it cannot be found in the SDK, then use the `addCustomTransformation` function and pass the transformation code from ImageKit docs as the first parameter and value as the second parameter. For example - `.addCustomTransformation("w", "400").`
 
 ### Basic image resizing <a href="basic-image-resizing" id="basic-image-resizing"></a>
 
@@ -155,17 +156,17 @@ Let's resize the image to a height of 150 and a width of 150.
 
 ```swift
 urlConstructor = urlConstructor.height(height: 150)
-urlConstructor = urlConstructor.height(height: 400)
+urlConstructor = urlConstructor.width(width: 400)
 let url = urlConstructor.create()
 ```
 
 Output:
 
-![](<../../.gitbook/assets/Screenshot 2020-11-03 at 1.51.37 PM.png>)
+![](<../../.gitbook/assets/ios/sample-url-2.png>)
 
 ### Crop mode
 
-Let’s now see how different crop mode works. We will try the [`pad_resize`](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#pad-resize-crop-strategy-cm-pad\_resize) crop strategy. In this strategy, the output image's dimension (height and width) is the same as requested, no cropping occurs, and the aspect ratio is preserved. This is accomplished by adding padding around the output image to get it to match the exact dimension as requested. You can read more about this [here](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#pad-resize-crop-strategy-cm-pad\_resize).
+Let’s now see how different crop modes work. We will try the [`pad_resize`](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#pad-resize-crop-strategy-cm-pad\_resize) crop strategy. In this strategy, the output image's dimension (height and width) is the same as requested, no cropping occurs, and the aspect ratio is preserved. This is accomplished by adding padding around the output image to get it to match the exact dimension as requested. You can read more about this [here](https://docs.imagekit.io/features/image-transformations/resize-crop-and-other-transformations#pad-resize-crop-strategy-cm-pad\_resize).
 
 ```swift
 urlConstructor = urlConstructor.width(width: 300)
@@ -176,7 +177,7 @@ let url = urlConstructor.create()
 
 Output:
 
-![](<../../.gitbook/assets/Screenshot 2020-11-03 at 2.08.01 PM.png>)
+![](<../../.gitbook/assets/ios/sample-url-3.png>)
 
 ### Aspect ratio
 
@@ -190,7 +191,7 @@ let url = urlConstructor.create()
 
 Output:
 
-![](<../../.gitbook/assets/Screenshot 2020-11-03 at 2.10.38 PM.png>)
+![](<../../.gitbook/assets/ios/sample-url-1.png>)
 
 ### Chained transformation
 
@@ -208,11 +209,11 @@ let url = urlConstructor.create()
 
 Output:
 
-![](<../../.gitbook/assets/Screenshot 2020-11-03 at 2.12.07 PM.png>)
+![](<../../.gitbook/assets/ios/sample-url-4.png>)
 
 ## **Adding an overlay to images in iOS application**
 
-ImageKit.io allows you to add [text](../../features/image-transformations/overlay-using-layers.md#add-text-over-image) and [image overlay](../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) dynamically.
+ImageKit.io allows you to add [text](../../features/image-transformations/overlay-using-layers.md#add-text-over-image) and [image](../../features/image-transformations/overlay-using-layers.md#transformation-of-image-overlay) dynamically ysing layers.
 
 ### Text overlay <a href="text-overlay" id="text-overlay"></a>
 
@@ -220,58 +221,52 @@ Text overlay can be used to superimpose text on an image. Try it like so:
 
 ```swift
 urlConstructor = urlConstructor.width(width: "400")
-urlConstructor = urlConstructor.overlayText(overlayText: "Hand with a green plant")
-urlConstructor = urlConstructor.overlayTextColor(overlayTextColor: "264120")
-urlConstructor = urlConstructor.overlayTextFontSize(overlayTextSize: 30)
-urlConstructor = urlConstructor.overlayX(overlayX: 10)
-urlConstructor = urlConstructor.overlayY(overlayY: 20)
+urlConstructor = urlConstructor.raw(params: "l-text,i-Hand%20with%20a%20green%20plant,co-264120,fs-30,lx-10,ly-20,l-end")
 let url = urlConstructor.create()
 ```
 
 Output:
 
-![](<../../.gitbook/assets/Screenshot 2020-11-03 at 3.29.26 PM.png>)
+![](<../../.gitbook/assets/ios/sample-url-5.png>)
 
 ### Image overlay
 
 Image overlay can be used like this:
 
 ```swift
-urlConstructor = urlConstructor.overlayImage(overlayImage: "logo-white_SJwqB4Nfe.png")
-urlConstructor = urlConstructor.overlayX(overlayX: 10)
-urlConstructor = urlConstructor.overlayY(overlayY: 20)
+urlConstructor = urlConstructor.raw(params: "l-image,i-logo-white_SJwqB4Nfe.png,lx-10,ly-20,l-end")
 let url = urlConstructor.create()
 ```
 
 Output:
 
-![](<../../.gitbook/assets/Screenshot 2020-11-03 at 3.41.13 PM.png>)
+![](<../../.gitbook/assets/ios/sample-url-6.png>)
 
 ## **Client-side file uploading**
 
 Let's learn how to upload an image to our media library.
 
-iOS SDK provides `ImageKitUploader` which provide functions to allow upload files to the [ImageKit media library](../../media-library/overview/) directly from the client-side.&#x20;
+iOS SDK provides `ImageKitUploader`, which provides functions to allow files to be uploaded to the [ImageKit media library](../../media-library/overview/) directly from the client side.
 
-For using upload functionality, we need to pass `publicKey` and `authenticationEndpoint` while [initializing the SDK](ios.md#setup-imagekit-ios-sdk).  Replace `your_url_endpoint` , `your_public_key`, `your_authentication_endpoint` with actual values.
+To use upload functionality, we need to pass `publicKey` while [initializing the SDK](ios.md#setup-imagekit-ios-sdk). 
+Replace `your_url_endpoint` and `your_public_key` with actual values.
 
 ```bash
 ImageKit.init(
     publicKey: "your_public_api_key", 
     urlEndpoint: "your_url_endpoint", 
-    transformationPosition: TransformationPosition.PATH, 
-    authenticationEndpoint: "your_authentication_endpoint"
+    transformationPosition: TransformationPosition.PATH
 )
 ```
 
-\
+
 For this, we would need a dummy backend app to authenticate our upload request. API authentication for upload always happens on the backend for security reasons.
 
-The tutorial repository comes with a sample backend server that we can use.&#x20;
+The tutorial repository comes with a sample backend server that we can use.
 
 ### **Setting up the backend app**
 
-For this quick start guide, we have provided the sample implementation of the authentication endpoint in using the [ImageKit Node.js SDK](https://github.com/imagekit-developer/imagekit-nodejs) and [Express](https://expressjs.com).
+For this quick start guide, we have provided the sample implementation of the authentication endpoint using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) and [Express](https://expressjs.com).
 
 In a new terminal window, navigate to the `Server` folder inside the tutorial project and install its npm packages:
 
@@ -280,7 +275,7 @@ cd Server/
 npm install
 ```
 
-Let's modify `index.js` to implement `http://localhost:8080/auth` which is our `authenticationEndpoint` .
+Let's modify `index.js` to implement `http://localhost:8080/auth`, which is our `authenticationEndpoint`.
 
 ```javascript
 /* 
@@ -289,22 +284,30 @@ Let's modify `index.js` to implement `http://localhost:8080/auth` which is our `
     with actual values
 */
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const app = express();
+const cors = require('cors');
 
-var cors = require('cors');
 app.use(cors());
+app.use(express.json());
 
-const ImageKit = require('imagekit');
-const imagekit = new ImageKit({ 
-  privateKey: "your_private_key", 
-  publicKey: "your_public_key", 
-  urlEndpoint: "your_url_endpoint"
-})
+const publicKey = "your_public_key";
+const privateKey = "your_private_key";
 
-app.get("/auth", function (req, res) {
-  var signature = imagekit.getAuthenticationParameters();
+app.post("/auth", function (req, res) {
+  const token = jwt.sign(
+    req.body.uploadPayload,
+    privateKey,
+    {
+      expiresIn: req.body.expire,
+      header: {
+        alg: "HS256",
+        typ: "JWT",
+        kid: publicKey,
+      },
+    })
   res.status(200);
-  res.send(signature);
+  res.send({ token });
 });
 
 app.listen(8080, function () {
@@ -320,21 +323,35 @@ node index.js
 
 You should see a log line saying that the app is _**“Live on port 8080”**_.
 
-If you run `curl http://localhost:8080/auth` in the terminal, you should see a JSON response like this. Actual values will vary.
+If you run the following command in the terminal
+
+```shell
+curl -L 'localhost:8080/auth' -H 'Content-Type: application/json' -d '{
+    "uploadPayload":{
+        "filename": "image.jpg",
+        "folder": "/"
+    },
+    "expire": 60
+}'
+```
+
+You should see a JSON response like this, which contains the JWT token. Actual values will vary.
 
 ```javascript
 {
-    token: "5dd0e211-8d67-452e-9acd-954c0bd53a1f",
-    expire: 1601047259,
-    signature: "dcb8e72e2b6e98186ec56c62c9e62886f40eaa96"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InRlc3QifQ.eyJmaWxlbmFtZSI6ImltYWdlLmpwZyIsImZvbGRlciI6Ii8iLCJpYXQiOjE3MTg2OTUwNzUsImV4cCI6MTcxODY5NTEzNX0.HN_0gHfI26drmFGHmIiZuLnz21nzz6VpTuRWUi4Ljno"
 }
 ```
 
+You can use [JWT Debugger](https://jwt.io/) to decode and verify that the token is correctly generated.
+
+![](<../../.gitbook/assets/ios/jwt.png>)
+
 **Configure the auth endpoint in the frontend app**
 
-Head over to `AppDelegate.swift` and ensure the** **`authenticationEndpoint` is set to `http://localhost:8080/auth`
+Head over to `Constants.swift` and ensure the** **`AUTH_SERVER_API_ENDPOINT` is set to `http://localhost:8080/auth`
 
-![](<../../.gitbook/assets/Screenshot 2020-11-10 at 12.49.24 PM.png>)
+![](<../../.gitbook/assets/ios/xcode-constants.png>)
 
 ### **Upload a file**
 
@@ -345,6 +362,7 @@ The `ImageKit.shared.uploader().upload` function can ingest files through `UIIma
 ```bash
 ImageKit.shared.uploader().upload(
   file: image,
+  token: "your_jwt_token",
   fileName: "sample-image.jpg",
   useUniqueFilename: true,
   tags: ["demo"],
@@ -352,9 +370,17 @@ ImageKit.shared.uploader().upload(
   isPrivateFile: false,
   customCoordinates: "",
   responseFields: "",
+  overwriteFile: false,
+  overwriteAITags: false,
+  overwriteTags: false,
+  overwriteCustomMetadata: false,
+  // Custom metadata must be defined in the Media Library before using it in the upload API
+  // customMetadata: "{\"device_name\":\"iPhone 15\",\"location\":\"New York\"}",
   progress: { progress in
   	// Handle Progress
   },
+  policy: UploadPolicy,
+  preProcessor: UploadPreprocessor,
   completion: { result in 
   	 switch result{
             case .success(let uploadAPIResponse):
@@ -372,9 +398,74 @@ After a successful upload, you should see the newly uploaded file in the [Media 
 
 If you don't see the file, check if there are any errors in the error log. Make sure that the private API key has been configured. The server app is running. And the uploaded file type is [supported](../../api-reference/upload-file-api/#allowed-file-types-for-uploading) by ImageKit.
 
+## **Setting an upload policy**
+
+The [UploadPolicy](https://github.com/imagekit-developer/imagekit-ios/blob/master/README.md#uploadpolicy) class represents a set of conditions that need to be met for an upload request to be executed. This policy is useful in various cases, like constraining large uploads to be performed only when the specified network and battery conditions are satisfied and controlling the retry mechanism for failed upload requests.
+
+`UploadPolicy.Builder` class is responsible for building the `UploadPolicy` instances.
+
+```swift
+/*
+ * Upload policy to upload files only 
+ *  - when the network is unmetered
+ *  - the device doesn't require charging
+ *  - retry 4 times with exponential backoff starting at 500ms
+*/
+
+let uploadPolicy = UploadPolicy.Builder()
+  .requireNetworkType(.UNMETERED)
+  .requiresBatteryCharging(false)
+  .maxRetries(4)
+  .backoffCriteria(backoffMillis: 500, backoffPolicy: .EXPONENTIAL)
+  .build()
+```
+
+## **How to preprocess your files before uploading**
+
+The ImageKit iOS SDK provides a way to preprocess files before uploading them to the media library. 
+
+The `ImageKitUploader` can perform the preprocessing of the image/video to modify them before uploading by passing an instance of `UploadPreprocessor`. For complete API reference for the upload preprocessor, check out the [docs](https://github.com/imagekit-developer/imagekit-ios?tab=readme-ov-file#upload-preprocessing)
+
+These preprocessors can be useful for certain use cases, e.g:
+
+- Modifying the media size and/or quality to optimize the use of ImageKit storage.
+- Apply certain media transformations from within the app, like when using an image editing feature.
+
+The SDK features two built-in preprocessors:
+
+- [`ImageUploadPreprocessor`](https://github.com/imagekit-developer/imagekit-ios/blob/master/README.md#image-preprocessing): This preprocessor is used to apply transformations to images before uploading them to the media library. The transformations that can be applied are:
+    - Limiting width & height
+    - Rotation
+    - Crop
+    - Format selection
+
+```swift
+let preprocessor = ImageUploadPreprocessor.Builder()
+   .limit(width: 400, height: 300)
+   .rotate(degrees: 45)
+   .format(format: .JPEG)
+   .build()
+```
+
+- [`VideoUploadPreprocessor`](https://github.com/imagekit-developer/imagekit-ios/blob/master/README.md#image-preprocessing): This preprocessor is used to apply transformations to videos before uploading them to the media library. The transformations that can be applied are:
+    - Limiting width & height
+    - Frame rate
+    - A/V bitrate
+    - Keyframes interval
+
+```swift
+let preprocessor = VideoUploadPreprocessor.Builder()
+   .limit(width: 800, height: 600)
+   .frameRate(frameRateValue: 60)
+   .keyFramesInterval(interval: 6)
+   .targetVideoBitrateKbps(targetVideoBitrateKbps: 480)
+   .targetAudioBitrateKbps(targetAudioBitrateKbps: 320)
+   .build(),
+```
+
 ## What's next
 
-The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here:&#x20;
+The possibilities for image manipulation and optimization with ImageKit are endless. Learn more about it here:
 
 * [Image Transformations](https://docs.imagekit.io/features/image-transformations)
 * [Image optimization](https://docs.imagekit.io/features/image-optimization)
