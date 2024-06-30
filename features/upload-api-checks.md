@@ -18,7 +18,7 @@ You can use Upload API checks to prevent people from uploading files in unsuppor
 | ------------------------------------- | --------------------------------- |
 | `request.fileName`                    | `=`, `NOT =`, `:`, `IN`, `NOT IN` |
 | `request.useUniqueFileName`           | `=`, `NOT =`                      |
-| `request.tags`                        | `HAS`, `NOT HAS`                  |
+| `request.tags`                        | `IN`, `NOT IN`                    |
 | `request.folder`                      | `=`, `NOT =`, `:`, `IN`, `NOT IN` |
 | `request.isPrivateFile`               | `=`, `NOT =`                      |
 | `request.isPublished`                 | `=`, `NOT =`                      |
@@ -48,10 +48,10 @@ Custom metadata fields will support operators as per their set type.
 | -------------- | ------------------------------------------------------- |
 | Textarea, Text | `=`, `NOT =`, `:`, `IN`, `NOT IN`                       |
 | Number         | `=`, `NOT =`, `>`, `>=`, `<`, `<=`                      |
-| Date           | `=`, `NOT =`, `:`, `IN`, `NOT IN`, `>`, `>=`, `<`, `<=` |
+| Date           | `=`, `NOT =`, `IN`, `NOT IN`, `>`, `>=`, `<`, `<=`      |
 | Boolean        | `=`, `NOT =`                                            |
 | SingleSelect   | `=`, `NOT =`, `:`, `IN`, `NOT IN`, `>`, `>=`, `<`, `<=` |
-| MultiSelect    | `HAS`, `NOT HAS`                                        |
+| MultiSelect    | `IN`, `NOT IN`                                          |
 
 You can also combine checks using the `AND` and `OR` operators and group them using paranthesis `()`. For eg.
 
@@ -81,7 +81,7 @@ Example of a request with checks on multiple fields that verifies that the file 
   /*
   ...rest of the Upload API request parameters
   */
-  "checks": '"mediaMetadata.width" <= 1500 AND "mediaMetadata.height" <= 2000'
+  "checks": '"file.size" <= "50MB" AND "mediaMetadata.height" <= 2000'
 }
 ```
 
