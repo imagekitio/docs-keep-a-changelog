@@ -85,8 +85,7 @@ Example of a request with checks on multiple fields that verifies that the file 
 }
 ```
 
-> Don't forget to stringify the contents of the `checks` field before making a request.
-> Also remember to quote the fields you're running checks on properly.
+> Remember to quote the fields you're running checks on properly.
 
 ## Asynchronous behaviour
 
